@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "slug": "import-strip-test",
+  "title": "Import Strip Test",
+  "concept": "Verify the wrapper strips ESM imports.",
+  "brief": {},
+  "interaction_spec": {},
+  "design_system": {},
+  "code": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Send } from 'lucide-react';\n\nconst App = () => <motion.div>Imports stripped, this still renders.</motion.div>;",
+  "critique": {
+    "verdict": "ship",
+    "summary": "test"
+  },
+  "code_format": "react",
+  "research_goal": "",
+  "based_on": "",
+  "created_at": "2026-05-11T19:21:30.758747Z",
+  "updated_at": "2026-05-11T19:21:30.758747Z"
+}

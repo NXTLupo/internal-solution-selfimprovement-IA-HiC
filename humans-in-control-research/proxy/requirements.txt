@@ -3,6 +3,21 @@ uvicorn==0.32.0
 httpx==0.28.1
 feedparser==6.0.11
 PyPDF2==3.0.1
+# 2026-05-10 — Deep Reddit fetcher (HiC-Reddit-Deep branch). PRAW is the
+# official Reddit OAuth client; supports full post bodies, recursive comment
+# trees, score/author/timestamp metadata. ~2MB install. Used by the
+# /api/reddit-deep/fetch endpoint; no other code path imports it.
+praw>=7.7.1
+# 2026-05-10 — Topic modeling pipeline (HiC-Reddit-Deep Phase 2). Lightweight
+# stack that runs UMAP dimensionality reduction + HDBSCAN density clustering
+# on embeddings that HiC already generates via OpenAI/Gemini. No PyTorch, no
+# sentence-transformers — we reuse existing embedding infrastructure rather
+# than running our own. c-TF-IDF for representative-term extraction comes
+# from scikit-learn. Total install ~80MB on top of base proxy image.
+numpy>=1.26.0,<2.0
+scikit-learn>=1.4.0
+umap-learn>=0.5.6
+hdbscan>=0.8.40
 # S5 YouTube transcription stack — same version ranges as sibling video-analyzer service
 yt-dlp>=2025.5.22
 openai>=1.14.0

@@ -3043,6 +3043,34 @@ async def prototype_view(slug: str = Path(...)):
       // components instead of vanilla SVG-data objects (which trigger React
       // error #130 "Element type is invalid").
       window.lucide = window.lucide || window.lucideReact || window.LucideReact || {{}};
+      // 2026-05-12 — Bare-identifier icon hoisting. Stage 4 prompts often
+      // emit `<Bell />`, `<Sparkles />`, `<BookOpen />` etc. without
+      // qualifying them as `<lucide.Bell />`. Without this loop the JSX
+      // resolves Bell as undefined → ReferenceError: "Bell is not defined".
+      // We hoist every lucide-react component onto `window` so JSX can use
+      // bare names. RESERVED list prevents clobbering native browser globals
+      // and React internals — e.g. <Image>/<Link>/<File> stay native and
+      // remain available as `window.lucide.Image` for the model to use
+      // explicitly when it actually wants the icon.
+      (function() {{
+        var L = window.lucide || {{}};
+        var RESERVED = {{
+          Image: 1, Link: 1, Range: 1, Map: 1, Set: 1, Audio: 1, Option: 1,
+          Text: 1, File: 1, FileReader: 1, FileList: 1, Event: 1, Animation: 1,
+          History: 1, Notification: 1, Location: 1, Worker: 1, Element: 1,
+          Node: 1, React: 1, ReactDOM: 1, Document: 1, Window: 1,
+          Comment: 1, Selection: 1, Storage: 1, URL: 1, Path: 1, Blob: 1,
+          createIcon: 1, default: 1, __esModule: 1
+        }};
+        var exposed = 0;
+        for (var name in L) {{
+          if (RESERVED[name]) continue;
+          if (typeof L[name] !== 'function' && typeof L[name] !== 'object') continue;
+          if (window[name] !== undefined) continue;
+          try {{ window[name] = L[name]; exposed++; }} catch(_) {{}}
+        }}
+        try {{ console.log('[HiC Prototype] exposed ' + exposed + ' lucide-react icons as bare globals'); }} catch(_) {{}}
+      }})();
     </script>
     <script type="text/babel" data-presets="react">
     // Expose React hooks + framer-motion + lucide as bare identifiers so
@@ -3073,6 +3101,116 @@ async def prototype_view(slug: str = Path(...)):
 </body>
 </html>"""
     return HTMLResponse(content=html)
+
+
+# ============================================================================
+# VS-THINKING STRIPPER — 2026-05-12 (defense-in-depth)
+# ----------------------------------------------------------------------------
+# Verbalized-sampling pipelines (themes, recommendations, prototype Stage 1,
+# html-deliverable-composer, chatToFreeform emphasis-VS preamble) instruct the
+# model to emit reasoning blocks BEFORE committing to a final output. Those
+# blocks are scratch — they MUST be stripped before any artifact body is
+# rendered, saved, or exported. Prior bug: the artifact /view endpoint only
+# stripped markdown fences, so VS reasoning leaked into the rendered HTML as
+# visible text at the top of every #brief / #explainer / #report / freeform
+# artifact ("Layer: Visual Layout Candidates: 1. Centered-card — p ≈ 0.40 ...").
+#
+# This single source of truth is called from:
+#   • /api/artifacts/{slug}/view  (artifact_view in this file)
+#   • /api/artifacts (POST save)   (artifact_save in this file)
+#   • Freeform pipeline             (design-desk/services/freeformSanitizer.ts)
+#   • CorpusChatPanel saveArtifact  (defense in depth before persistence)
+# ============================================================================
+
+# Tag-style scratch blocks the model is instructed to emit. Anything matching
+# is stripped wholesale (block + content).
+_VS_TAG_PATTERNS = [
+    r'<vs_thinking\b[^>]*>[\s\S]*?</vs_thinking\s*>',
+    r'<emphasis_vs\b[^>]*>[\s\S]*?</emphasis_vs\s*>',
+    r'<commit_to\b[^>]*>[\s\S]*?</commit_to\s*>',
+    r'<why_committed\b[^>]*>[\s\S]*?</why_committed\s*>',
+    # Generic <thinking> blocks (Claude / OpenAI o1-style)
+    r'<thinking\b[^>]*>[\s\S]*?</thinking\s*>',
+    # Stale opening/closing tags without a match — drop them too
+    r'</?(?:vs_thinking|emphasis_vs|commit_to|why_committed|thinking)\b[^>]*>',
+]
+_VS_TAG_RE = None  # compiled lazily
+
+# Plain-text VS preamble leak patterns. Some models emit the VS reasoning
+# WITHOUT wrapper tags — just raw prose with the canonical phrases ("Layer:
+# Visual Layout Candidates", "COMMIT: N — ..."). These can't be parsed
+# structurally; we identify the entire leaked preamble by its bracketing
+# phrases and remove the contiguous block.
+import re as _re_vs
+
+def _build_vs_re():
+    global _VS_TAG_RE
+    if _VS_TAG_RE is None:
+        combined = '|'.join('(?:' + p + ')' for p in _VS_TAG_PATTERNS)
+        _VS_TAG_RE = _re_vs.compile(combined, _re_vs.IGNORECASE | _re_vs.DOTALL)
+    return _VS_TAG_RE
+
+
+def strip_vs_thinking(html_or_text: str) -> str:
+    """Remove all VS-thinking reasoning from a body string.
+
+    Stripping order:
+      1. Tag-style blocks (<vs_thinking>...</vs_thinking>, etc.)
+      2. Plain-text VS preamble that the model emitted WITHOUT wrapping
+         (model didn't honor the tag contract). We detect by canonical
+         phrase fingerprint and remove from the first match to the next
+         actual HTML element opening tag (which marks the start of real
+         body content).
+      3. Standalone "COMMIT: N — ..." / "<commit_to>candidate_N</commit_to>"
+         leftover lines.
+
+    Idempotent: running on already-clean output returns it unchanged.
+    """
+    if not html_or_text or not isinstance(html_or_text, str):
+        return html_or_text or ''
+    out = html_or_text
+    # 1. Tagged blocks
+    out = _build_vs_re().sub('', out)
+    # 2. Plain-text VS preamble. Pattern: starts with "Layer:" or
+    # "Candidate" or "<candidate" or "Visual Layout Candidates" near the
+    # top, ends before the first real opening element tag. Conservative —
+    # only strips if the canonical fingerprint phrases appear in the FIRST
+    # ~3KB of content.
+    head_window = out[:3000]
+    if _re_vs.search(r'\b(?:Layer:\s*Visual\s+Layout|Layer:\s*(?:Diagram|Information|Interaction|Iconography)|Candidate\s+\d+\s*[—-]\s*p\s*[≈~]\s*0\.|COMMIT:\s*\d+\s*[—-])', head_window, _re_vs.IGNORECASE):
+        # Find the first real HTML element opening — that's where the body starts.
+        # Anchored to common artifact body openers so we don't accidentally cut
+        # legitimate prose.
+        body_start = _re_vs.search(
+            r'<(?:main|article|section|header|div|h1|figure|aside|nav)\b',
+            out, _re_vs.IGNORECASE,
+        )
+        if body_start:
+            preamble = out[:body_start.start()]
+            # Only strip if the preamble is dominated by VS fingerprint phrases
+            # (>= 2 distinct VS markers found in the preamble). This guards
+            # against false positives on artifacts that legitimately contain
+            # the word "Layer:" in their intended content.
+            markers = 0
+            for pat in [
+                r'\bLayer\s*:\s*(?:Visual\s+Layout|Diagram|Information|Interaction|Iconography)',
+                r'\bCandidate\s+\d+\s*[—-]\s*p\s*[≈~]\s*0\.',
+                r'\bCOMMIT\s*:\s*\d+\s*[—-]',
+                r'\bVisual\s+Layout\s+Candidates\b',
+                r'\bSplit-screen\s+quote-led\b',
+                r'\bCentered-card\b',
+                r'\bEditorial-asymmetric\b',
+                r'\bp\s*[≈~]\s*0\.\d+\b',
+            ]:
+                if _re_vs.search(pat, preamble, _re_vs.IGNORECASE):
+                    markers += 1
+            if markers >= 2:
+                out = out[body_start.start():]
+    # 3. Trailing standalone commit/candidate lines that survived
+    out = _re_vs.sub(r'^\s*COMMIT\s*:\s*\d+\s*[—-][^\n]*\n', '', out, flags=_re_vs.MULTILINE | _re_vs.IGNORECASE)
+    out = _re_vs.sub(r'^\s*<?\s*Candidate\s+\d+\s*[—-][^\n]*\n', '', out, flags=_re_vs.MULTILINE | _re_vs.IGNORECASE)
+    out = _re_vs.sub(r'^\s*candidate_\d+\s*\n', '', out, flags=_re_vs.MULTILINE | _re_vs.IGNORECASE)
+    return out.lstrip('\n\r ')
 
 
 # ============================================================================
@@ -3243,6 +3381,12 @@ async def artifact_save(request: Request):
         return JSONResponse({"error": "title required"}, status_code=400)
     if not html_source:
         return JSONResponse({"error": "html_source required"}, status_code=400)
+    # 2026-05-12 — Defense in depth: strip VS-thinking reasoning at save time
+    # so the persisted JSON is clean. The /view endpoint also strips, but doing
+    # both means any future code path that reads html_source (e.g. third-party
+    # PPTX/PNG exporters) gets clean content without re-implementing the
+    # stripper. Idempotent.
+    html_source = strip_vs_thinking(html_source)
     raw_slug = (data.get("slug") or title).lower()
     safe_slug = "".join(c if c.isalnum() or c in "-_" else "-" for c in raw_slug)
     safe_slug = "-".join(filter(None, safe_slug.split("-")))[:80] or "untitled-artifact"
@@ -3437,6 +3581,17 @@ async def artifact_view(slug: str = Path(...)):
     html_body = _re_fence.sub(r'^```(?:html)?\s*\n', '', html_body.strip())
     html_body = _re_fence.sub(r'\n```\s*$', '', html_body)
 
+    # 2026-05-12 — Comprehensive VS-thinking stripper. The verbalized-sampling
+    # contract has the model emit <vs_thinking>...</vs_thinking>, <emphasis_vs>
+    # ...</emphasis_vs>, <commit_to>...</commit_to>, <why_committed>...
+    # </why_committed>, and <thinking>...</thinking> blocks BEFORE the visible
+    # body. These tags are scratch reasoning and MUST be stripped before the
+    # artifact is rendered. The prior version only stripped markdown fences,
+    # so VS reasoning was leaking into the visible HTML as text. Defense in
+    # depth: this runs at the render endpoint (here), at the freeform parser,
+    # and at the artifact save site in CorpusChatPanel.
+    html_body = strip_vs_thinking(html_body)
+
     # If the artifact body is already a full document (starts with <!DOCTYPE
     # or <html), serve it verbatim — assume the model wrote a complete page.
     # Otherwise wrap it in our scaffold with brand-token injection.
@@ -3444,15 +3599,50 @@ async def artifact_view(slug: str = Path(...)):
     if body_strip.startswith("<!doctype") or body_strip.startswith("<html"):
         return HTMLResponse(content=html_body)
 
+    # 2026-05-12 — Font loading split by brand requirement.
+    # NXT: Bebas Neue (display) + Archivo (body) + JetBrains Mono (code)
+    # NU:  Spectral (display, serif, multi-weight) + Roboto (body) + Roboto Mono (code)
+    # Both brands' fonts are loaded so a single artifact can mix them if the
+    # model emits a brand switch mid-document. Spectral is requested at the
+    # weights specified by the official NU design system (200/300/400/500/600/700/800).
     google_fonts = (
         "https://fonts.googleapis.com/css2"
         "?family=Bebas+Neue"
         "&family=Archivo:wght@200;300;400;500;700;900"
+        "&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500"
+        "&family=Roboto:wght@300;400;500;600;700"
+        "&family=Roboto+Mono:wght@400;500;600"
         "&family=Open+Sans:wght@300;400;600;700"
         "&family=Roboto+Condensed:wght@400;600;700"
         "&family=JetBrains+Mono:wght@400;500"
         "&display=swap"
     )
+
+    # 2026-05-12 — Strong print stylesheet. The previous version relied on
+    # browser defaults, which produced blurry PDFs with wasteful page breaks.
+    # Now: set explicit page size, hide the footer in print, enforce break-
+    # inside avoid on cards / figures, restore link colors, and force the
+    # body to single-column on narrow paper. Combined with proper html2canvas
+    # rendering for PNG / PPTX paths, every export honors brand fidelity.
+    print_css = """
+@media print {
+  @page { size: Letter; margin: 0.5in 0.6in; }
+  html, body { background: #fff !important; color: #0D0D0D !important; }
+  .__hic_artifact_footer, .__hic_artifact_export_bar { display: none !important; }
+  .__hic_artifact_main { padding: 0 !important; max-width: 100% !important; }
+  /* Keep cards/figures together on a page */
+  article, section, figure, blockquote, pre,
+  .card, .stat-card, .quote-card, .__hic_card,
+  [class*="card"], [class*="Card"] {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  h1, h2, h3 { break-after: avoid-page; page-break-after: avoid; }
+  /* Force chartreuse + cyan accents to print solid */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  /* Hide screen-only chrome */
+  .__no_print, [data-no-print="1"] { display: none !important; }
+}
+"""
 
     wrapper = f"""<!DOCTYPE html>
 <html lang="en" data-brand="{brand}">
@@ -3464,17 +3654,24 @@ async def artifact_view(slug: str = Path(...)):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{google_fonts}" rel="stylesheet">
     <style>{NXT_BRAND_TOKENS_CSS}</style>
+    <style>{print_css}</style>
+    <!-- 2026-05-12 — html2canvas + pptxgenjs UMD bundles for client-side
+         PNG and PPTX export. Loaded only when the user clicks an export
+         button (deferred load via dynamic script element) so the artifact
+         renders fast even on slow connections. -->
 </head>
 <body>
-    <main class="__hic_artifact_main">
+    <main class="__hic_artifact_main" id="__hic_artifact_main">
 {html_body}
     </main>
-    <footer class="__hic_artifact_footer">
+    <footer class="__hic_artifact_footer __no_print">
         <div class="__hic_label">HiC Artifact · {generator} · {brand}</div>
         <div class="__hic_copy_buttons">
             <button class="__hic_btn __hic_primary" id="__hic_copy_as_prompt">Copy as prompt</button>
             <button class="__hic_btn" id="__hic_open_in_chat">Open in HiC chat</button>
-            <button class="__hic_btn" id="__hic_print">Save as PDF</button>
+            <button class="__hic_btn" id="__hic_print">↓ PDF</button>
+            <button class="__hic_btn" id="__hic_export_png">↓ PNG</button>
+            <button class="__hic_btn" id="__hic_export_pptx">↓ PPTX</button>
         </div>
         <details>
             <summary>Artifact metadata</summary>
@@ -3488,11 +3685,35 @@ async def artifact_view(slug: str = Path(...)):
         var copyBtn = document.getElementById('__hic_copy_as_prompt');
         var chatBtn = document.getElementById('__hic_open_in_chat');
         var printBtn = document.getElementById('__hic_print');
+        var pngBtn = document.getElementById('__hic_export_png');
+        var pptxBtn = document.getElementById('__hic_export_pptx');
         function flash(btn, txt) {{
+          if (!btn) return;
           var orig = btn.textContent;
           btn.textContent = txt;
           setTimeout(function() {{ btn.textContent = orig; }}, 1800);
         }}
+        // ---- Lazy CDN loader. Keeps initial page fast; only loads
+        //      html2canvas / pptxgenjs when the user clicks export.
+        var _loaded = {{}};
+        function loadScript(url, globalName) {{
+          if (_loaded[url] && window[globalName]) return Promise.resolve(window[globalName]);
+          return new Promise(function(resolve, reject) {{
+            if (window[globalName]) {{ _loaded[url] = true; return resolve(window[globalName]); }}
+            var s = document.createElement('script');
+            s.src = url;
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            s.onload = function() {{ _loaded[url] = true; resolve(window[globalName]); }};
+            s.onerror = function() {{ reject(new Error('Failed to load ' + url)); }};
+            document.head.appendChild(s);
+          }});
+        }}
+        // ---- Filename helpers
+        function sanitize(s) {{ return (s || 'artifact').toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/-+/g, '-').slice(0, 60); }}
+        var baseName = sanitize(meta.title) || sanitize(meta.slug) || 'hic-artifact';
+
+        // ---- Copy as prompt (round-trip refine)
         if (copyBtn) {{
           copyBtn.addEventListener('click', function() {{
             var slug = (meta && meta.slug) || '{safe_slug}';
@@ -3506,6 +3727,7 @@ async def artifact_view(slug: str = Path(...)):
             }});
           }});
         }}
+        // ---- Open in HiC chat (postMessage round-trip)
         if (chatBtn) {{
           chatBtn.addEventListener('click', function() {{
             try {{
@@ -3525,8 +3747,1449 @@ async def artifact_view(slug: str = Path(...)):
             }}
           }});
         }}
+        // ---- PDF (uses browser print, which honors the @media print stylesheet)
         if (printBtn) {{
           printBtn.addEventListener('click', function() {{ window.print(); }});
+        }}
+        // ---- PNG (html2canvas → blob → download)
+        if (pngBtn) {{
+          pngBtn.addEventListener('click', async function() {{
+            flash(pngBtn, 'Rendering PNG…');
+            try {{
+              await loadScript('https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js', 'html2canvas');
+              var main = document.getElementById('__hic_artifact_main');
+              var canvas = await window.html2canvas(main, {{
+                scale: 2, useCORS: true, backgroundColor: '#ffffff',
+                windowWidth: main.scrollWidth, windowHeight: main.scrollHeight,
+              }});
+              canvas.toBlob(function(blob) {{
+                if (!blob) {{ flash(pngBtn, 'PNG render failed'); return; }}
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url; a.download = baseName + '.png';
+                document.body.appendChild(a); a.click();
+                setTimeout(function() {{ URL.revokeObjectURL(url); a.remove(); }}, 100);
+                flash(pngBtn, '↓ PNG saved');
+              }}, 'image/png');
+            }} catch (e) {{
+              console.error('[HiC artifact PNG export]', e);
+              flash(pngBtn, 'PNG export failed');
+            }}
+          }});
+        }}
+        // ---- PPTX (DOM walk → editable native text/shape primitives, 16:9 multi-slide)
+        // 2026-05-12 — PRIOR VERSION used html2canvas → addImage → flattened
+        // picture. The user (correctly) flagged: PPTX exports MUST be editable
+        // and MUST conform to 16:9. This rewrite walks the rendered DOM, splits
+        // into hero + per-section slides, and emits native pptxgenjs text + shape
+        // primitives at LAYOUT_WIDE (13.33" × 7.5", 16:9). Every text element
+        // stays as TEXT in PowerPoint — selectable, editable, search-indexable.
+        // The chat preview's tall-scroll aspect ratio is decoupled from the
+        // PPTX: a 3000px-tall artifact becomes N 16:9 slides, one per H2 section.
+        if (pptxBtn) {{
+          // Convert rendered CSS color (rgb/rgba/hex/named) to a 6-char hex
+          // string without the leading "#" — the only format pptxgenjs accepts
+          // for `color` and `fill: {{ color: ... }}` options.
+          function rgbToHex(c) {{
+            if (!c) return null;
+            if (typeof c !== 'string') return null;
+            var s = c.trim();
+            if (s.startsWith('#')) {{
+              s = s.slice(1);
+              if (s.length === 3) return s.split('').map(function(c) {{ return c + c; }}).join('').toUpperCase();
+              if (s.length === 6 || s.length === 8) return s.slice(0, 6).toUpperCase();
+            }}
+            var m = s.match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/);
+            if (m) {{
+              return [m[1], m[2], m[3]].map(function(n) {{
+                var h = parseInt(n, 10).toString(16).padStart(2, '0');
+                return h;
+              }}).join('').toUpperCase();
+            }}
+            return null;
+          }}
+          // Brand-aware token resolver. Hard-coded per brand from the source
+          // design systems:
+          //   NXT: anti-slop business flat minimalism — Bebas Neue display +
+          //        Archivo body, chartreuse #B8B800 accent, pure near-black
+          //        ink #0D0D0D, warm-white surfaces.
+          //   NU:  Northeastern Advancement Design System — Spectral display
+          //        (serif, lightweight) + Roboto body, NU red #C8102E used
+          //        sparingly as ACCENT, navy ink #141D30 (not pure black),
+          //        slate neutrals (#475569 body, #64748B secondary, #94A3B8
+          //        muted, #CBD5E1 rule, #F1F5F9 panel, #F8FAFC pale).
+          //
+          // Hard-coded > CSS-var lookups: CSS vars don't carry through to PPTX
+          // (no DOM in PowerPoint), and the prior CSS-var resolver fell back
+          // to NXT defaults when running inside an NU artifact, which is why
+          // NU exports were getting NXT typography.
+          function brandTokens() {{
+            var isNU = (meta.brand || 'NXT').toString().toUpperCase() === 'NU';
+            if (isNU) {{
+              return {{
+                isNU:        true,
+                accent:      'C8102E',   // nu-red-600 — primary brand accent (sparing)
+                accentDeep:  'AA1D25',   // nu-red-700 — text on light tint
+                accentPale:  'FCCAD2',   // nu-red-100 — error tint background
+                ink:         '141D30',   // ink-800 — primary dark text
+                inkDeep:     '0B1326',   // ink-900 — darkest, headings on dark
+                body:        '475569',   // slate-600 — paragraph body
+                secondary:   '64748B',   // slate-500 — captions, secondary text
+                muted:       '94A3B8',   // slate-400 — disabled, footer chrome
+                rule:        'CBD5E1',   // slate-300 — default stroke
+                panel:       'F1F5F9',   // slate-100 — subtle surface
+                pale:        'F8FAFC',   // slate-50 — page background tint
+                white:       'FFFFFF',
+                fontDisplay: 'Spectral',
+                fontBody:    'Roboto',
+                fontMono:    'Roboto Mono',
+              }};
+            }}
+            // NXT default
+            return {{
+              isNU:        false,
+              accent:      'B8B800',
+              accentDeep:  '8F8F00',
+              accentPale:  'F5F5C8',
+              ink:         '0D0D0D',
+              inkDeep:     '000000',
+              body:        '333333',
+              secondary:   '525252',
+              muted:       'ACACAC',
+              rule:        'E5E5E5',
+              panel:       'F5F5F0',
+              pale:        'FAFAF7',
+              white:       'FFFFFF',
+              fontDisplay: 'Bebas Neue',
+              fontBody:    'Archivo',
+              fontMono:    'JetBrains Mono',
+            }};
+          }}
+          // 2026-05-12 — Comprehensive parser. The html-deliverable-composer skill
+          // emits rich structured HTML with class-name fingerprints that survive
+          // into the rendered DOM. We extract:
+          //
+          //   • hero       — from <h1> + first <p>
+          //   • stat       — from .nxt-hero-stat (value + label + context)
+          //   • sections   — from h2/h3/h4 cascade
+          //   • diagram    — from <svg> (rasterized to image via html2canvas)
+          //   • quotes     — from .nxt-quote-block (text + .nxt-quote-attr)
+          //   • pills      — from .nxt-meta-pill (stakeholder names)
+          //   • closing    — brand sign-off
+          //
+          // Each structural kind gets its own dedicated slide template so the
+          // exported deck preserves the artifact's visual identity — not just
+          // the prose content.
+          function parseArtifactToSlides(main) {{
+            var slides = [];
+            if (!main) return slides;
+
+            // --- HERO SLIDE (from h1)
+            var h1 = main.querySelector('h1');
+            // Find the next section-level heading regardless of level so we
+            // know where to stop the hero subtitle search.
+            var firstSectionHeading = main.querySelector('h2, h3, h4');
+
+            if (h1) {{
+              var heroTitle = stripDashes((h1.textContent || '').trim());
+              var heroSubtitle = '';
+              var walker = h1.nextElementSibling;
+              while (walker && walker !== firstSectionHeading) {{
+                if (walker.tagName === 'P') {{
+                  var t = stripDashes((walker.textContent || '').trim());
+                  if (t && t.length > 12) {{ heroSubtitle = t; break; }}
+                }} else if (walker.querySelector) {{
+                  var inner = walker.querySelector('p');
+                  if (inner) {{
+                    var it = stripDashes((inner.textContent || '').trim());
+                    if (it && it.length > 12) {{ heroSubtitle = it; break; }}
+                  }}
+                }}
+                walker = walker.nextElementSibling;
+              }}
+              slides.push({{ kind: 'hero', title: heroTitle, subtitle: heroSubtitle }});
+            }}
+
+            // --- SECTION SLIDES — cascade h2 → h3 → h4, first non-empty wins.
+            var sectionLevel = '';
+            var sectionHeadings = [];
+            var levelCandidates = ['h2', 'h3', 'h4'];
+            for (var li = 0; li < levelCandidates.length; li++) {{
+              var lvl = levelCandidates[li];
+              var found = Array.prototype.slice.call(main.querySelectorAll(lvl));
+              if (found.length > 0) {{
+                sectionLevel = lvl;
+                sectionHeadings = found;
+                break;
+              }}
+            }}
+            // The set of heading tags that should ALSO terminate a section walk
+            // (heading at the section's own level OR higher in the hierarchy).
+            var stopTags = {{}};
+            if (sectionLevel === 'h2') {{ stopTags = {{ H1: 1, H2: 1 }}; }}
+            else if (sectionLevel === 'h3') {{ stopTags = {{ H1: 1, H2: 1, H3: 1 }}; }}
+            else if (sectionLevel === 'h4') {{ stopTags = {{ H1: 1, H2: 1, H3: 1, H4: 1 }}; }}
+
+            for (var i = 0; i < sectionHeadings.length; i++) {{
+              var sh = sectionHeadings[i];
+              var stop = sectionHeadings[i + 1] || null;
+              var heading = stripDashes((sh.textContent || '').trim());
+              var paragraphs = [];
+              var quotes = [];
+              // Walk siblings of the heading AND siblings of its parent if
+              // section is single-child wrapped (e.g. <section><h3>...</h3><p>...</p></section>)
+              var cursor = sh.nextElementSibling;
+              var walkRoot = sh.parentElement;
+              // If the heading is wrapped in a section/div that has no more
+              // siblings to walk, fall back to walking the parent's siblings.
+              while (cursor && cursor !== stop) {{
+                if (!cursor.tagName) {{ cursor = cursor.nextElementSibling; continue; }}
+                var tag = cursor.tagName.toUpperCase();
+                if (stopTags[tag]) break;
+                if (tag === 'BLOCKQUOTE') {{
+                  var qt = stripDashes((cursor.textContent || '').trim());
+                  if (qt) quotes.push(qt);
+                }} else if (tag === 'P') {{
+                  var pt = stripDashes((cursor.textContent || '').trim());
+                  if (pt) paragraphs.push(pt);
+                }} else if (tag === 'UL' || tag === 'OL') {{
+                  var items = cursor.querySelectorAll('li');
+                  for (var liIdx = 0; liIdx < items.length; liIdx++) {{
+                    var lt = stripDashes((items[liIdx].textContent || '').trim());
+                    if (lt) paragraphs.push('• ' + lt);
+                  }}
+                }} else {{
+                  // Container — recurse for nested p / blockquote / li.
+                  // Use deep querySelectorAll so structured cards with their
+                  // own wrappers still surface their content.
+                  var innerPs = cursor.querySelectorAll('p');
+                  for (var pi = 0; pi < innerPs.length; pi++) {{
+                    var ipt = (innerPs[pi].textContent || '').trim();
+                    if (ipt) paragraphs.push(ipt);
+                  }}
+                  var innerQs = cursor.querySelectorAll('blockquote');
+                  for (var qi = 0; qi < innerQs.length; qi++) {{
+                    var iqt = (innerQs[qi].textContent || '').trim();
+                    if (iqt) quotes.push(iqt);
+                  }}
+                  var innerLis = cursor.querySelectorAll('ul li, ol li');
+                  for (var liI = 0; liI < innerLis.length; liI++) {{
+                    var ilt = (innerLis[liI].textContent || '').trim();
+                    if (ilt) paragraphs.push('• ' + ilt);
+                  }}
+                }}
+                cursor = cursor.nextElementSibling;
+              }}
+              // If we found no content via sibling walk, the heading may be
+              // wrapped in its own container — try walking from the parent's
+              // next sibling and look for content WITHIN until we reach the
+              // next section heading anywhere in the doc.
+              if (paragraphs.length === 0 && quotes.length === 0 && walkRoot && walkRoot.parentElement) {{
+                var parentSibling = walkRoot.nextElementSibling;
+                while (parentSibling && parentSibling !== stop && !parentSibling.querySelector(sectionLevel)) {{
+                  var pt2 = parentSibling.querySelectorAll ? parentSibling.querySelectorAll('p') : [];
+                  for (var pp = 0; pp < pt2.length; pp++) {{
+                    var pt2t = (pt2[pp].textContent || '').trim();
+                    if (pt2t) paragraphs.push(pt2t);
+                  }}
+                  var qt2 = parentSibling.querySelectorAll ? parentSibling.querySelectorAll('blockquote') : [];
+                  for (var qq = 0; qq < qt2.length; qq++) {{
+                    var qt2t = (qt2[qq].textContent || '').trim();
+                    if (qt2t) quotes.push(qt2t);
+                  }}
+                  parentSibling = parentSibling.nextElementSibling;
+                }}
+              }}
+              slides.push({{ kind: 'section', heading: heading, paragraphs: paragraphs, quotes: quotes }});
+            }}
+
+            // === STAT CALLOUT (e.g. ".nxt-hero-stat" — big number + label) ===
+            // Detect AFTER section parse so we know not to double-render it as a section.
+            var heroStat = main.querySelector('.nxt-hero-stat, .stat-callout, [data-stat]');
+            if (heroStat) {{
+              var statValue = '';
+              var statLabel = '';
+              var statContext = '';
+              var valueEl = heroStat.querySelector('.nxt-hero-stat-value, .stat-value, [data-stat-value]')
+                || heroStat.querySelector('strong, b, .value');
+              var labelEl = heroStat.querySelector('.nxt-hero-stat-label, .stat-label, [data-stat-label]');
+              if (valueEl) statValue = stripDashes((valueEl.textContent || '').trim());
+              if (labelEl) statLabel = stripDashes((labelEl.textContent || '').trim());
+              // Context paragraph — first <p> in the surrounding sidebar/aside that
+              // isn't inside a quote block.
+              var sidebar = heroStat.closest('.nxt-sidebar, aside, .sidebar') || heroStat.parentElement;
+              if (sidebar) {{
+                var sps = sidebar.querySelectorAll('p');
+                for (var spi = 0; spi < sps.length; spi++) {{
+                  if (sps[spi].closest('.nxt-quote-block, blockquote')) continue;
+                  if (heroStat.contains(sps[spi])) continue;
+                  var spt = stripDashes((sps[spi].textContent || '').trim());
+                  if (spt.length > 20) {{ statContext = spt; break; }}
+                }}
+              }}
+              if (statValue) {{
+                // Splice in front of section slides but AFTER hero
+                var statSlide = {{ kind: 'stat-callout', value: statValue, label: statLabel, context: statContext }};
+                var heroIdx = slides.findIndex(function(s) {{ return s.kind === 'hero'; }});
+                if (heroIdx >= 0) slides.splice(heroIdx + 1, 0, statSlide);
+                else slides.unshift(statSlide);
+              }}
+            }}
+
+            // === ARCHITECTURE DIAGRAM (<svg> inside .nxt-diagram-container) ===
+            // Skip if there's no SVG, or if the SVG is decoration (e.g. an icon).
+            var svgEls = main.querySelectorAll('svg');
+            for (var sgi = 0; sgi < svgEls.length; sgi++) {{
+              var sg = svgEls[sgi];
+              // Heuristic: a "diagram" SVG is large (> 200px wide). Icons are small.
+              var rect = sg.getBoundingClientRect();
+              if (rect.width < 200 || rect.height < 100) continue;
+              var diagramContainer = sg.closest('.nxt-diagram-container, figure, [data-diagram]');
+              // Find heading: try INSIDE container first, then walk preceding siblings.
+              // The model often puts the h3 BEFORE the diagram container, not inside.
+              var diagramHeading = '';
+              var diagramCaption = '';
+              if (diagramContainer) {{
+                var dhInside = diagramContainer.querySelector('h2, h3, h4');
+                if (dhInside) diagramHeading = (dhInside.textContent || '').trim();
+                var dc = diagramContainer.querySelector('.nxt-diagram-caption, figcaption');
+                if (dc) diagramCaption = (dc.textContent || '').trim();
+              }}
+              // Fallback: walk up from SVG, scanning each ancestor's preceding siblings.
+              if (!diagramHeading) {{
+                var walker = diagramContainer || sg;
+                outer: while (walker && walker !== main.parentElement) {{
+                  var prev = walker.previousElementSibling;
+                  while (prev) {{
+                    if (prev.tagName && /^H[1-4]$/i.test(prev.tagName)) {{
+                      diagramHeading = (prev.textContent || '').trim();
+                      break outer;
+                    }}
+                    var innerH = prev.querySelector && prev.querySelector('h1, h2, h3, h4');
+                    if (innerH) {{
+                      diagramHeading = (innerH.textContent || '').trim();
+                      break outer;
+                    }}
+                    prev = prev.previousElementSibling;
+                  }}
+                  walker = walker.parentElement;
+                }}
+              }}
+              if (!diagramHeading) diagramHeading = 'Architecture Diagram';
+              // Caption fallback: any p directly after the svg / container
+              if (!diagramCaption) {{
+                var capCandidate = (diagramContainer || sg).nextElementSibling;
+                while (capCandidate) {{
+                  if (capCandidate.tagName === 'P' && capCandidate.classList.contains('nxt-diagram-caption')) {{
+                    diagramCaption = (capCandidate.textContent || '').trim();
+                    break;
+                  }}
+                  capCandidate = capCandidate.nextElementSibling;
+                }}
+              }}
+              slides.push({{
+                kind: 'diagram',
+                heading: diagramHeading,
+                _svgRef: sg,                       // SVG element for native conversion
+                _elRef: diagramContainer || sg,    // wider element for image fallback
+                caption: diagramCaption,
+              }});
+              // REMOVE any section slide whose heading matches the diagram heading
+              for (var si = slides.length - 1; si >= 0; si--) {{
+                if (slides[si].kind === 'section'
+                  && slides[si].heading.toLowerCase() === diagramHeading.toLowerCase()) {{
+                  slides.splice(si, 1);
+                }}
+              }}
+            }}
+
+            // === QUOTES (.nxt-quote-block + text/attr children, or <blockquote>) ===
+            // The model emits quotes as div.nxt-quote-block containing
+            // div.nxt-quote-text + div.nxt-quote-attr. Fallback: <blockquote>.
+            var qBlocks = main.querySelectorAll('.nxt-quote-block, blockquote');
+            var qExtracted = [];
+            for (var qbi = 0; qbi < qBlocks.length; qbi++) {{
+              var qb = qBlocks[qbi];
+              var qTextEl = qb.querySelector('.nxt-quote-text, p');
+              var qAttrEl = qb.querySelector('.nxt-quote-attr, cite, footer');
+              var qText = (qTextEl ? qTextEl.textContent : qb.textContent || '').trim();
+              var qAttr = qAttrEl ? (qAttrEl.textContent || '').trim() : '';
+              // If we picked qb.textContent, attribute might be IN the text — strip
+              if (!qAttrEl && qText.indexOf('\\n—') > 0) {{
+                var dashIdx = qText.lastIndexOf('—');
+                qAttr = qText.substring(dashIdx + 1).trim();
+                qText = qText.substring(0, dashIdx).trim();
+              }}
+              if (qText.length > 10) qExtracted.push({{ text: qText, attribution: qAttr }});
+            }}
+            for (var qi = 0; qi < qExtracted.length; qi++) {{
+              slides.push({{
+                kind: 'quote-spotlight',
+                quote: qExtracted[qi].text,
+                attribution: qExtracted[qi].attribution,
+                quoteIndex: qi + 1,
+                quoteTotal: qExtracted.length,
+              }});
+            }}
+
+            // === STAKEHOLDER PILLS (.nxt-meta-pill or .pill or .tag) ===
+            var pillEls = main.querySelectorAll('.nxt-meta-pill, .pill, .tag, .chip');
+            if (pillEls.length >= 3) {{
+              var pillItems = [];
+              for (var pli = 0; pli < pillEls.length; pli++) {{
+                var pt = (pillEls[pli].textContent || '').trim();
+                if (pt && pt.length < 60) pillItems.push(pt);
+              }}
+              // Find a heading near the pill group
+              var pillHeading = 'Key Stakeholders Engaged';
+              var firstPillContainer = pillEls[0].closest('section, aside, div');
+              if (firstPillContainer) {{
+                var phEl = firstPillContainer.querySelector('h2, h3, h4, .nxt-pill-heading, [data-pill-heading]');
+                if (phEl) {{
+                  var pht = (phEl.textContent || '').trim();
+                  if (pht && pht.length < 80) pillHeading = pht;
+                }}
+              }}
+              if (pillItems.length > 0) {{
+                slides.push({{ kind: 'pills', heading: pillHeading, items: pillItems }});
+              }}
+            }}
+
+            // Hard fallback: no h1 + no section headings + no other structural
+            // elements found. Emit a single text-dump slide so the user still
+            // gets something.
+            if (slides.length === 0) {{
+              var allText = (main.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 4000);
+              slides.push({{ kind: 'section', heading: meta.title || 'HiC Artifact', paragraphs: [allText], quotes: [] }});
+            }}
+
+            console.log('[HiC PPTX] raw parse — heading level: ' + (sectionLevel || 'n/a — fallback')
+              + ', hero: ' + (h1 ? 'yes' : 'no')
+              + ', sections: ' + sectionHeadings.length
+              + ', stat: ' + (heroStat ? 'yes' : 'no')
+              + ', svgs: ' + svgEls.length
+              + ', quotes: ' + qExtracted.length
+              + ', pills: ' + pillEls.length);
+            return slides;
+          }}
+
+          // 2026-05-12 — Slide planner. Takes the raw parsed slide list and
+          // expands it into a COMPLETE deck:
+          //   • Hero (preserved)
+          //   • Each section may produce 1–N slides:
+          //       - body ≤ BODY_BUDGET + 0/1 quote      → 1 section slide
+          //       - body > BODY_BUDGET                  → N section slides (continuation)
+          //       - 2+ quotes                            → 1 quote-spotlight slide per extra quote
+          //   • Closing slide (brand-locked sign-off)
+          //
+          // Goal: no content from the artifact is dropped. Every paragraph and
+          // every quote ends up on some slide. Long sections become a sequence;
+          // multi-quote sections get their quotes broken out into their own
+          // spotlight slides.
+          function planSlides(rawSlides) {{
+            var BODY_BUDGET = 700;        // chars per section slide
+            var planned = [];
+            for (var i = 0; i < rawSlides.length; i++) {{
+              var s = rawSlides[i];
+              // Pass-through kinds — these are atomic, no further planning needed.
+              // (Sections still get split / quote-broken below.)
+              if (s.kind === 'hero'
+                || s.kind === 'stat-callout'
+                || s.kind === 'diagram'
+                || s.kind === 'pills'
+                || s.kind === 'quote-spotlight'
+                || s.kind === 'closing') {{
+                planned.push(s);
+                continue;
+              }}
+              if (s.kind !== 'section') {{
+                planned.push(s);
+                continue;
+              }}
+              var paras = (s.paragraphs || []).filter(function(p) {{ return p && p.trim().length > 0; }});
+              var quotes = (s.quotes || []).filter(function(q) {{ return q && q.trim().length > 0; }});
+
+              // CASE 1: section is quote-only (no body text). One spotlight per quote.
+              if (paras.length === 0 && quotes.length > 0) {{
+                for (var qi = 0; qi < quotes.length; qi++) {{
+                  planned.push({{
+                    kind: 'quote-spotlight',
+                    sectionHeading: s.heading,
+                    quote: quotes[qi],
+                    quoteIndex: qi + 1,
+                    quoteTotal: quotes.length,
+                  }});
+                }}
+                continue;
+              }}
+
+              // CASE 2: body fits in one slide AND ≤1 quote → standard section slide.
+              var totalChars = paras.reduce(function(n, p) {{ return n + p.length; }}, 0);
+              if (totalChars <= BODY_BUDGET && quotes.length <= 1) {{
+                planned.push({{
+                  kind: 'section',
+                  heading: s.heading,
+                  paragraphs: paras,
+                  quotes: quotes,
+                }});
+                continue;
+              }}
+
+              // CASE 3: body needs splitting (too long) OR multiple quotes.
+              // Step 3a: chunk paragraphs into BODY_BUDGET groups
+              var chunks = [];
+              var current = [];
+              var currentLen = 0;
+              for (var pi = 0; pi < paras.length; pi++) {{
+                var p = paras[pi];
+                if (currentLen + p.length > BODY_BUDGET && current.length > 0) {{
+                  chunks.push(current);
+                  current = [p];
+                  currentLen = p.length;
+                }} else {{
+                  current.push(p);
+                  currentLen += p.length;
+                }}
+              }}
+              if (current.length > 0) chunks.push(current);
+              if (chunks.length === 0) chunks = [[]];
+
+              // Step 3b: emit one slide per chunk. First chunk carries the
+              // heading verbatim + first quote (if present). Subsequent chunks
+              // append " (cont.)" to the heading. Extra quotes ride along on
+              // each chunk so a 3-chunk section with 3 quotes shows one per slide.
+              for (var ci = 0; ci < chunks.length; ci++) {{
+                var heading = ci === 0 ? s.heading : s.heading + ' (cont.)';
+                var slideQuote = quotes[ci] ? [quotes[ci]] : [];
+                planned.push({{
+                  kind: 'section',
+                  heading: heading,
+                  paragraphs: chunks[ci],
+                  quotes: slideQuote,
+                }});
+              }}
+
+              // Step 3c: leftover quotes that didn't ride along on a chunk
+              // become their own spotlight slides. This guarantees no quote
+              // is dropped, even if there are more quotes than body chunks.
+              for (var qx = chunks.length; qx < quotes.length; qx++) {{
+                planned.push({{
+                  kind: 'quote-spotlight',
+                  sectionHeading: s.heading,
+                  quote: quotes[qx],
+                  quoteIndex: qx + 1,
+                  quoteTotal: quotes.length,
+                }});
+              }}
+            }}
+
+            // CLOSING slide — every deck gets a sign-off
+            planned.push({{
+              kind: 'closing',
+              title: meta.title || 'HiC Artifact',
+              generator: meta.generator || '#artifact',
+            }});
+
+            console.log('[HiC PPTX] planned ' + planned.length + ' slide(s) for export');
+            return planned;
+          }}
+          // 2026-05-12 — CREATIVE DIRECTOR DISCIPLINE.
+          //
+          // Canvas: LAYOUT_WIDE = 13.33" × 7.5" (16:9)
+          //
+          // Horizontal rhythm:
+          //   Outer margin (both sides):       0.60"
+          //   Content width:                  12.13"
+          //   Vertical accent band (hero):    Left 0.55"
+          //   Body x-axis after band:          x = 1.10" (hero), x = 0.60" (section)
+          //
+          // Vertical bands (held strictly — no overlap):
+          //   HERO:    eyebrow (0.85), title (1.55-4.05), lede (4.20-5.95), footer (6.90-7.20)
+          //   SECTION: rule (0.50), heading (0.70-1.95), body OR body+quote (2.10-6.50), footer (6.85-7.15)
+          //
+          // Type scale (fixed roles — no per-instance shrinking):
+          //   HERO_TITLE:       48pt display, bold, line-height 1.10 (autoShrink if overflow)
+          //   HERO_LEDE:        18pt body,    regular, line-height 1.55 (autoFit)
+          //   HERO_EYEBROW:      9pt body,    bold, letter-spacing 4
+          //   SECTION_HEADING:  32pt display, bold, line-height 1.15 (autoShrink if overflow)
+          //   BODY_PARAGRAPH:   14pt body,    regular, line-height 1.55
+          //   QUOTE_TEXT:       16pt body,    italic, line-height 1.55
+          //   QUOTE_LABEL:       9pt body,    bold, letter-spacing 3
+          //   FOOTER:            9pt body,    regular, letter-spacing 2, muted
+          //
+          // Accent rules:
+          //   Hero band:      full-height 0.55" left band, accent fill
+          //   Section rule:   0.05" tall × 1.50" wide horizontal line at top-left
+          //   Quote card top: 0.08" tall accent stripe across full card width
+          //
+          // Cards (quote, etc.): ink-fill (#0D0D0D), accent stripe on top edge,
+          // white interior text, 0.30" interior padding, sharp 0px corners.
+          //
+          // Reflects html-deliverable-composer style skill:
+          //   • NXT brand: chartreuse #B8B800 accent, Bebas Neue + Archivo
+          //   • NU brand: red #C8102E accent, Roboto Condensed + Open Sans
+          //   • Sharp corners, no decorative shadows
+          //   • Uppercase tracked eyebrow labels
+          //   • Title sentence-case (no all-caps for body content)
+
+          // ═══════════════════════════════════════════════════════════════════
+          // TYPOGRAPHIC SYSTEM — rigorous role-based hierarchy.
+          //
+          // Every slide element references a role (T.H1, T.BODY, T.OVERLINE,
+          // etc.) — never a raw fontSize. The role carries size + line-height
+          // + weight + tracking + family + italic + uppercase. This guarantees
+          // visual consistency across hero/section/quote/diagram/stat/pills/
+          // closing slides AND across NXT vs NU brand variants.
+          //
+          // Mapped 1:1 from NU's design system (colors_and_type.css):
+          //   --fs-display: 80px   → DISPLAY (cover word, brand mark)
+          //   --fs-h1:      44px   → H1     (hero title, primary slide title)
+          //   --fs-h2:      32px   → H2     (section heading, diagram heading)
+          //   --fs-h3:      24px   → H3     (sub-heading, stat label)
+          //   --fs-h4:      20px   → H4     (minor heading)
+          //   --fs-body-lg: 18px   → BODY_LG (lede, opening paragraph)
+          //   --fs-body:    16px   → BODY   (paragraphs, evidence text)
+          //   --fs-body-sm: 14px   → BODY_SM (dense tables, secondary text)
+          //   --fs-caption: 12px   → CAPTION (figure captions, image alt)
+          //   --fs-overline:10px   → OVERLINE (eyebrows, framing tags, FOOTER)
+          //
+          // Plus four slide-specific roles:
+          //   QUOTE_BODY:  20pt italic, body family (quotes in section slides)
+          //   QUOTE_HERO:  28pt italic, body family (quote-spotlight slides)
+          //   STAT_HERO:  144pt light, display family (the "14,000" callout)
+          //   STAT_LABEL:  22pt body, semibold (the label under a stat)
+          //
+          // family resolution:
+          //   'display' → T.fontDisplay (NXT: Bebas Neue, NU: Spectral)
+          //   'body'    → T.fontBody    (NXT: Archivo,    NU: Roboto)
+          //   'mono'    → T.fontMono    (Roboto Mono / JetBrains Mono)
+          //
+          // Each role's tracking is in EM (PowerPoint charSpacing is in
+          // hundredths of a point, so we compute at apply time).
+          // ═══════════════════════════════════════════════════════════════════
+          function buildTypeRoles(T) {{
+            var d = T.fontDisplay, b = T.fontBody, m = T.fontMono;
+            return {{
+              DISPLAY:   {{ size: 80,  lh: 1.10, bold: false, font: d, tracking: -3, upper: false, italic: false }},
+              H1:        {{ size: 44,  lh: 1.15, bold: false, font: d, tracking: -2, upper: false, italic: false }},
+              H2:        {{ size: 32,  lh: 1.20, bold: true,  font: d, tracking: -1, upper: false, italic: false }},
+              H3:        {{ size: 24,  lh: 1.25, bold: true,  font: b, tracking:  0, upper: false, italic: false }},
+              H4:        {{ size: 20,  lh: 1.25, bold: true,  font: b, tracking:  0, upper: false, italic: false }},
+              BODY_LG:   {{ size: 18,  lh: 1.50, bold: false, font: b, tracking:  0, upper: false, italic: false }},
+              BODY:      {{ size: 16,  lh: 1.55, bold: false, font: b, tracking:  0, upper: false, italic: false }},
+              BODY_SM:   {{ size: 14,  lh: 1.55, bold: false, font: b, tracking:  0, upper: false, italic: false }},
+              CAPTION:   {{ size: 12,  lh: 1.45, bold: false, font: b, tracking:  0, upper: false, italic: false }},
+              OVERLINE:  {{ size: 10,  lh: 1.20, bold: true,  font: b, tracking:  3, upper: true,  italic: false }},
+              LABEL:     {{ size: 14,  lh: 1.30, bold: true,  font: b, tracking:  0, upper: false, italic: false }},
+              FOOTER:    {{ size: 10,  lh: 1.20, bold: false, font: b, tracking:  2, upper: true,  italic: false }},
+              CITATION:  {{ size: 11,  lh: 1.40, bold: false, font: m, tracking:  0, upper: false, italic: false }},
+              QUOTE_BODY: {{ size: 20, lh: 1.50, bold: false, font: b, tracking:  0, upper: false, italic: true }},
+              QUOTE_HERO: {{ size: 28, lh: 1.40, bold: false, font: b, tracking:  0, upper: false, italic: true }},
+              STAT_HERO:  {{ size: 144, lh: 1.00, bold: false, font: d, tracking: -5, upper: false, italic: false }},
+              STAT_LABEL: {{ size: 22, lh: 1.30, bold: true,  font: b, tracking:  0, upper: false, italic: false }},
+              MONO_LABEL: {{ size: 11, lh: 1.30, bold: true,  font: m, tracking:  0, upper: false, italic: false }},
+            }};
+          }}
+
+          // Apply a TYPE role to a text-options bag. Single source of truth for
+          // turning a role into pptxgenjs options — guarantees no caller forgets
+          // weight, tracking, or family. `extras` lets callers override per-call
+          // properties (color, alignment, valign, autoFit) without touching the
+          // role itself.
+          function typed(role, extras) {{
+            extras = extras || {{}};
+            var opts = {{
+              fontSize: role.size,
+              fontFace: role.font,
+              bold: !!role.bold,
+              italic: !!role.italic,
+              charSpacing: role.tracking || 0,
+              lineSpacingMultiple: role.lh,
+            }};
+            // Apply uppercase by transforming the text at call site (pptxgenjs
+            // has no "transform: uppercase" option). The caller is expected to
+            // pre-uppercase text when using OVERLINE / FOOTER roles, but we
+            // can't enforce it from here — left as caller responsibility.
+            for (var k in extras) opts[k] = extras[k];
+            return opts;
+          }}
+
+          // ─────────────────────────────────────────────────────────────────
+          // COLLISION TRACKING — every emitted text/shape registers its
+          // bounding box. Before emitting a new element, the builder checks
+          // for overlap; if the new box overlaps an existing one by > 25% of
+          // its own area, the new element is either repositioned (if a
+          // valid alternative exists) or dropped (with console warning).
+          //
+          // Used primarily by the SVG → native shape converter, where the
+          // model's diagram may produce labels that overlap each other or
+          // overlap with shape rectangles when rendered at PPTX scale. The
+          // band-reserved slide builders (hero/section/etc) don't need this
+          // because their layouts are designed to avoid overlap by
+          // construction.
+          // ─────────────────────────────────────────────────────────────────
+          function newCollisionTracker() {{
+            var boxes = [];   // {{ x, y, w, h, kind, label }}
+            function intersect(a, b) {{
+              var ax2 = a.x + a.w, ay2 = a.y + a.h;
+              var bx2 = b.x + b.w, by2 = b.y + b.h;
+              if (a.x >= bx2 || b.x >= ax2) return 0;
+              if (a.y >= by2 || b.y >= ay2) return 0;
+              var iw = Math.min(ax2, bx2) - Math.max(a.x, b.x);
+              var ih = Math.min(ay2, by2) - Math.max(a.y, b.y);
+              return iw * ih;
+            }}
+            return {{
+              register: function(box) {{ boxes.push(box); }},
+              wouldCollide: function(box, allowedOverlapPct) {{
+                var threshold = (allowedOverlapPct == null ? 0.25 : allowedOverlapPct);
+                var newArea = Math.max(0.0001, box.w * box.h);
+                for (var i = 0; i < boxes.length; i++) {{
+                  var overlap = intersect(box, boxes[i]);
+                  if (overlap / newArea > threshold) {{
+                    return {{ collided: true, with: boxes[i], overlapFrac: overlap / newArea }};
+                  }}
+                }}
+                return {{ collided: false }};
+              }},
+              count: function() {{ return boxes.length; }},
+            }};
+          }}
+
+          // 2026-05-12 — Strip en-dashes (U+2013) and em-dashes (U+2014) from
+          // every user-visible string. Brand rule: no decorative dashes in
+          // deliverables. Replacement: regular hyphen for ranges, space for
+          // inline rhetorical pauses (the model often uses em-dash where a
+          // comma or period would do). Idempotent.
+          function stripDashes(s) {{
+            if (!s || typeof s !== 'string') return s;
+            return s
+              .replace(/\\s*[\\u2013\\u2014]\\s*/g, ' ')   // inline rhetorical em/en dashes  ' '
+              .replace(/\\s\\s+/g, ' ')                    // collapse double spaces created
+              .trim();
+          }}
+
+          // Accurate text-width measurement via canvas.measureText. Replaces
+          // the old `textContent.length × fs × 0.55 × scale` heuristic that
+          // produced both false-positive overflow (boxes too wide → off-canvas)
+          // and false-negative collisions (boxes too narrow → labels overlap).
+          var _measureCanvas = null, _measureCtx = null;
+          function measureTextPx(text, fontFamily, fontSizePx, weight, italic) {{
+            if (!_measureCtx) {{
+              _measureCanvas = document.createElement('canvas');
+              _measureCtx = _measureCanvas.getContext('2d');
+            }}
+            var w = weight || 400;
+            var i = italic ? 'italic ' : '';
+            _measureCtx.font = i + w + ' ' + fontSizePx + 'px "' + (fontFamily || 'Roboto') + '", sans-serif';
+            return _measureCtx.measureText(text || '').width;
+          }}
+
+          // ─────────────────────────────────────────────────────────────────
+          // Build one 16:9 slide for the hero.
+          // Type roles: OVERLINE (eyebrow) · H1 (title) · BODY_LG (lede) · FOOTER
+          // ─────────────────────────────────────────────────────────────────
+          function addHeroSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.white }};
+
+            // Vertical accent band on the left edge — full-height brand mark
+            slide.addShape('rect', {{
+              x: 0, y: 0, w: 0.55, h: 7.5,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+
+            // EYEBROW (0.85" → 1.10") — OVERLINE role, uppercase tracked
+            var eyebrowText = ('HiC · '
+              + (meta.generator || '#artifact').replace(/^#/, '')
+              + ' · ' + (T.isNU ? 'NORTHEASTERN UNIVERSITY' : 'NXT HUMANS')).toUpperCase();
+            slide.addText(eyebrowText, typed(TYPE.OVERLINE, {{
+              x: 1.10, y: 0.85, w: 11.63, h: 0.25,
+              color: T.secondary, valign: 'middle',
+            }}));
+
+            // TITLE (1.55" → 4.05") — H1 role, 2.5" tall, autoFit
+            var titleText = (sd.title || meta.title || 'Untitled').slice(0, 260);
+            slide.addText(titleText, typed(TYPE.H1, {{
+              x: 1.10, y: 1.55, w: 11.63, h: 2.50,
+              color: T.ink, valign: 'top', autoFit: true,
+            }}));
+
+            // LEDE (4.20" → 5.95") — BODY_LG role, 1.75" tall, autoFit
+            if (sd.subtitle) {{
+              slide.addText(sd.subtitle.slice(0, 400), typed(TYPE.BODY_LG, {{
+                x: 1.10, y: 4.20, w: 11.63, h: 1.75,
+                color: T.body, valign: 'top', autoFit: true,
+              }}));
+            }}
+
+            // FOOTER (6.85" → 7.20") — short accent rule + FOOTER role
+            slide.addShape('rect', {{
+              x: 1.10, y: 6.85, w: 0.60, h: 0.04,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            slide.addText((T.isNU ? 'NORTHEASTERN' : 'NXT HUMANS') + ' · HUMANS IN CONTROL', typed(TYPE.FOOTER, {{
+              x: 1.10, y: 6.95, w: 11.63, h: 0.25,
+              color: T.secondary, valign: 'middle',
+            }}));
+          }}
+
+          // Build one 16:9 slide for a section.
+          function addSectionSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.white }};
+
+            // Top accent rule (0.50") — design-system signature
+            slide.addShape('rect', {{
+              x: 0.60, y: 0.50, w: 1.50, h: 0.05,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+
+            // HEADING (0.70" → 1.95") — 1.25" of vertical real estate, autoShrink
+            var headingText = (sd.heading || '').slice(0, 180);
+            slide.addText(headingText, typed(TYPE.H2, {{
+              x: 0.60, y: 0.70, w: 12.13, h: 1.25,
+              color: T.ink, valign: 'top', autoFit: true,
+            }}));
+
+            // BODY band (2.10" → 6.50") — 4.40" of vertical real estate
+            var hasQuote = sd.quotes && sd.quotes.length > 0;
+            var bodyParas = (sd.paragraphs || []).filter(function(p) {{ return p && p.trim().length > 0; }});
+
+            if (hasQuote && bodyParas.length === 0) {{
+              addQuoteCard(slide, T, TYPE, 0.60, 2.10, 12.13, 4.40, sd.quotes[0]);
+            }} else if (hasQuote) {{
+              var leftW = 7.40, gutter = 0.40;
+              var rightX = 0.60 + leftW + gutter;
+              var rightW = 12.73 - rightX;
+              addBodyParagraphs(slide, T, TYPE, 0.60, 2.10, leftW, 4.40, bodyParas);
+              addQuoteCard(slide, T, TYPE, rightX, 2.10, rightW, 4.40, sd.quotes[0]);
+            }} else if (bodyParas.length > 0) {{
+              addBodyParagraphs(slide, T, TYPE, 0.60, 2.10, 12.13, 4.40, bodyParas);
+            }}
+
+            // FOOTER — uses FOOTER role
+            var footerText = ((meta.title || 'HiC Artifact') + '  ·  ' + (T.isNU ? 'NU' : 'NXT')).toUpperCase();
+            slide.addText(footerText, typed(TYPE.FOOTER, {{
+              x: 0.60, y: 6.85, w: 12.13, h: 0.30,
+              color: T.muted, valign: 'middle',
+            }}));
+          }}
+
+          // Helper: render body paragraphs as a single autoFit text box with
+          // paragraph spacing between each. Single source of truth so quote-only
+          // and quote+body layouts produce identical body typography.
+          function addBodyParagraphs(slide, T, TYPE, x, y, w, h, paras) {{
+            var paraObjs = paras.map(function(p, idx) {{
+              return {{
+                text: stripDashes(p.slice(0, 1200)),
+                options: {{ paraSpaceAfter: idx < paras.length - 1 ? 12 : 0 }},
+              }};
+            }});
+            slide.addText(paraObjs, typed(TYPE.BODY, {{
+              x: x, y: y, w: w, h: h,
+              color: T.body, valign: 'top', autoFit: true,
+            }}));
+          }}
+
+          // Build one 16:9 slide for a stat callout — full-bleed dramatic
+          // number treatment (e.g. "14,000" + label + context).
+          function addStatCalloutSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.ink }};
+            // Vertical accent band on the left
+            slide.addShape('rect', {{
+              x: 0, y: 0, w: 0.55, h: 7.5,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            slide.addText('SCALE OF THE PROBLEM', typed(TYPE.OVERLINE, {{
+              x: 1.10, y: 0.85, w: 11.63, h: 0.25,
+              color: T.accent, valign: 'middle',
+            }}));
+            slide.addText(sd.value || '', typed(TYPE.STAT_HERO, {{
+              x: 1.10, y: 1.30, w: 11.63, h: 2.80,
+              color: T.accent, valign: 'top', autoFit: true,
+            }}));
+            if (sd.label) {{
+              slide.addText(stripDashes(sd.label), typed(TYPE.STAT_LABEL, {{
+                x: 1.10, y: 4.30, w: 11.63, h: 1.10,
+                color: T.white, valign: 'top', autoFit: true,
+              }}));
+            }}
+            if (sd.context) {{
+              slide.addText(stripDashes(sd.context), typed(TYPE.BODY, {{
+                x: 1.10, y: 5.55, w: 11.63, h: 1.20,
+                color: T.accent, italic: true, valign: 'top', autoFit: true,
+              }}));
+            }}
+            slide.addText(((meta.title || 'HiC Artifact') + '  ·  ' + (T.isNU ? 'NU' : 'NXT')).toUpperCase(), typed(TYPE.FOOTER, {{
+              x: 1.10, y: 6.95, w: 11.63, h: 0.25,
+              color: T.muted, valign: 'middle',
+            }}));
+          }}
+
+          // ─────────────────────────────────────────────────────────────────
+          // SVG → native pptxgenjs shape converter.
+          //
+          // Walks the SVG DOM and emits real shapes (rect, line) and text
+          // boxes inside the slide. Every element is independently editable
+          // in PowerPoint — boxes can be moved, recolored, retyped.
+          //
+          // Supported SVG primitives:
+          //   • <rect>  → addShape('rect') with computed fill/stroke
+          //   • <line>  → addShape('line') with computed stroke + arrow head
+          //              if marker-end is set
+          //   • <path>  → if d="M x1 y1 L x2 y2" (straight line), treat as line
+          //   • <text>  → addText with computed font/color/weight, scaled
+          //   • <g>     → recurse into children, applying transform
+          //   • Other tags (polygon, circle, defs, marker) → skipped
+          //
+          // Returns true on success (any shape emitted), false on total
+          // failure so the caller can fall back to image rasterization.
+          // ─────────────────────────────────────────────────────────────────
+          function colorFromCss(s) {{
+            if (!s) return null;
+            s = (s + '').trim();
+            if (!s || s === 'none' || s === 'transparent') return null;
+            if (s[0] === '#') {{
+              if (s.length === 4) return (s[1]+s[1]+s[2]+s[2]+s[3]+s[3]).toUpperCase();
+              if (s.length === 7 || s.length === 9) return s.slice(1, 7).toUpperCase();
+            }}
+            var m = s.match(/rgba?\\((\\d+)[,\\s]+(\\d+)[,\\s]+(\\d+)/);
+            if (m) {{
+              return [m[1], m[2], m[3]].map(function(n) {{
+                return parseInt(n, 10).toString(16).padStart(2, '0');
+              }}).join('').toUpperCase();
+            }}
+            return null;
+          }}
+
+          // Compute the cumulative transform translate for an element by
+          // walking up the SVG tree. We only handle translate(x, y) which is
+          // by far the most common case for model-generated diagrams.
+          function svgCumulativeTranslate(el) {{
+            var dx = 0, dy = 0;
+            var cur = el;
+            while (cur && cur.tagName) {{
+              var t = cur.getAttribute && cur.getAttribute('transform');
+              if (t) {{
+                var m = t.match(/translate\\(\\s*([-\\d.]+)\\s*[,\\s]\\s*([-\\d.]+)/);
+                if (m) {{ dx += parseFloat(m[1]); dy += parseFloat(m[2]); }}
+              }}
+              if (cur.tagName.toLowerCase() === 'svg') break;
+              cur = cur.parentElement;
+            }}
+            return {{ dx: dx, dy: dy }};
+          }}
+
+          // Strict validators — prevent pptxgenjs type errors at the boundary.
+          // Every value we hand to addShape / addText goes through these.
+          function safeHex(c) {{
+            if (!c || typeof c !== 'string') return null;
+            var h = c.replace(/^#/, '').toUpperCase();
+            if (!/^[0-9A-F]{{6}}$/.test(h)) return null;
+            return h;
+          }}
+          function safeNum(v, def) {{
+            var n = (typeof v === 'number') ? v : parseFloat(v);
+            return (isFinite(n)) ? n : def;
+          }}
+          function safeStr(s, max) {{
+            if (s == null) return '';
+            var t = ('' + s).trim();
+            return max > 0 ? t.slice(0, max) : t;
+          }}
+
+          function renderSvgAsNativeShapes(slide, svgEl, areaX, areaY, areaW, areaH, T, TYPE) {{
+            // Track every emitted bounding box so we can detect and skip
+            // text-label collisions with shapes or other text labels.
+            var collisionTracker = newCollisionTracker();
+            // Resolve font names from TYPE roles for use in measureText.
+            var fontDisplay = T.fontDisplay;
+            var fontBody = T.fontBody;
+            // Determine SVG coordinate system. viewBox is canonical; fall back
+            // to width/height attributes or boundingClientRect.
+            var vb = svgEl.viewBox && svgEl.viewBox.baseVal;
+            var svgW, svgH;
+            if (vb && vb.width > 0) {{
+              svgW = vb.width; svgH = vb.height;
+            }} else {{
+              var br = svgEl.getBoundingClientRect();
+              svgW = br.width || 800; svgH = br.height || 500;
+            }}
+            if (svgW <= 0 || svgH <= 0) return false;
+
+            // Scale preserving aspect ratio; center in available area
+            var scale = Math.min(areaW / svgW, areaH / svgH);
+            var renderedW = svgW * scale;
+            var renderedH = svgH * scale;
+            var ox = areaX + (areaW - renderedW) / 2;
+            var oy = areaY + (areaH - renderedH) / 2;
+            var areaX2 = areaX + areaW;
+            var areaY2 = areaY + areaH;
+
+            function sx(v) {{ return ox + v * scale; }}
+            function sy(v) {{ return oy + v * scale; }}
+            function ssz(v) {{ return v * scale; }}
+            function fontPt(px) {{ return Math.max(6, px * 0.75 * scale * (96/72)); }}
+            // Bounds clipping — guarantees no shape exceeds the reserved diagram
+            // area, which is itself buffered above by 0.15" below the heading
+            // and below by 0.10" above the caption. Prevents object collisions
+            // with the rest of the slide.
+            function clipRect(x, y, w, h) {{
+              var x2 = x + w, y2 = y + h;
+              var cx = Math.max(areaX, x), cy = Math.max(areaY, y);
+              var cx2 = Math.min(areaX2, x2), cy2 = Math.min(areaY2, y2);
+              if (cx2 - cx < 0.02 || cy2 - cy < 0.02) return null;  // dropped — too tiny
+              return {{ x: cx, y: cy, w: cx2 - cx, h: cy2 - cy }};
+            }}
+            // Line clipping — drop entire line if BOTH endpoints are outside
+            // the area (rare); otherwise clamp endpoints to area edge.
+            function clipLine(x1, y1, x2, y2) {{
+              var b1 = (x1 >= areaX && x1 <= areaX2 && y1 >= areaY && y1 <= areaY2);
+              var b2 = (x2 >= areaX && x2 <= areaX2 && y2 >= areaY && y2 <= areaY2);
+              if (!b1 && !b2) return null;
+              return {{
+                x1: Math.min(areaX2, Math.max(areaX, x1)),
+                y1: Math.min(areaY2, Math.max(areaY, y1)),
+                x2: Math.min(areaX2, Math.max(areaX, x2)),
+                y2: Math.min(areaY2, Math.max(areaY, y2)),
+              }};
+            }}
+
+            var emitted = 0;
+
+            function walk(node) {{
+              for (var i = 0; i < node.children.length; i++) {{
+                var c = node.children[i];
+                var tag = (c.tagName || '').toLowerCase();
+                if (tag === 'defs' || tag === 'marker' || tag === 'mask'
+                  || tag === 'clippath' || tag === 'pattern' || tag === 'style') continue;
+
+                var cs;
+                try {{ cs = window.getComputedStyle(c); }} catch (e) {{ cs = {{}}; }}
+
+                if (tag === 'g') {{ walk(c); continue; }}
+
+                if (tag === 'rect') {{
+                  var tt = svgCumulativeTranslate(c);
+                  var rx = safeNum(c.getAttribute('x'), 0) + tt.dx;
+                  var ry = safeNum(c.getAttribute('y'), 0) + tt.dy;
+                  var rw = safeNum(c.getAttribute('width'), 0);
+                  var rh = safeNum(c.getAttribute('height'), 0);
+                  if (rw <= 0 || rh <= 0) continue;
+                  var fill   = safeHex(colorFromCss(cs.fill   || c.getAttribute('fill')));
+                  var stroke = safeHex(colorFromCss(cs.stroke || c.getAttribute('stroke')));
+                  var sw     = safeNum(cs.strokeWidth || c.getAttribute('stroke-width'), 0);
+                  var clipped = clipRect(sx(rx), sy(ry), ssz(rw), ssz(rh));
+                  if (!clipped) continue;
+                  var rectOpts = {{ x: clipped.x, y: clipped.y, w: clipped.w, h: clipped.h }};
+                  if (fill)   rectOpts.fill = {{ color: fill }};
+                  if (stroke) rectOpts.line = {{ color: stroke, width: Math.max(0.5, sw) }};
+                  try {{
+                    slide.addShape('rect', rectOpts);
+                    // Register the rect bounding box so later text placement
+                    // can detect overlap with this shape and skip the label.
+                    collisionTracker.register({{ x: clipped.x, y: clipped.y, w: clipped.w, h: clipped.h, kind: 'rect' }});
+                    emitted++;
+                  }} catch (e) {{ console.warn('[svg→pptx rect]', e); }}
+                }} else if (tag === 'line') {{
+                  var tt2 = svgCumulativeTranslate(c);
+                  var lx1 = sx(safeNum(c.getAttribute('x1'), 0) + tt2.dx);
+                  var ly1 = sy(safeNum(c.getAttribute('y1'), 0) + tt2.dy);
+                  var lx2 = sx(safeNum(c.getAttribute('x2'), 0) + tt2.dx);
+                  var ly2 = sy(safeNum(c.getAttribute('y2'), 0) + tt2.dy);
+                  var cl = clipLine(lx1, ly1, lx2, ly2);
+                  if (!cl) continue;
+                  var strokeL = safeHex(colorFromCss(cs.stroke || c.getAttribute('stroke'))) || '0D0D0D';
+                  var swL = safeNum(cs.strokeWidth || c.getAttribute('stroke-width'), 1);
+                  var dashL = cs.strokeDasharray || c.getAttribute('stroke-dasharray') || '';
+                  var lineOpts = {{
+                    x: cl.x1, y: cl.y1, w: cl.x2 - cl.x1, h: cl.y2 - cl.y1,
+                    line: {{ color: strokeL, width: Math.max(0.75, swL) }},
+                  }};
+                  if (dashL && dashL !== 'none') lineOpts.line.dashType = 'dash';
+                  if (c.getAttribute('marker-end')) lineOpts.line.endArrowType = 'triangle';
+                  try {{ slide.addShape('line', lineOpts); emitted++; }} catch (e) {{ console.warn('[svg→pptx line]', e); }}
+                }} else if (tag === 'path') {{
+                  // Best-effort: simple "M x y L x y" path → straight line
+                  var d = (c.getAttribute('d') || '').trim();
+                  var pm = d.match(/^M\\s*([-\\d.]+)[,\\s]+([-\\d.]+)\\s+L\\s*([-\\d.]+)[,\\s]+([-\\d.]+)/);
+                  if (!pm) continue;
+                  var tt3 = svgCumulativeTranslate(c);
+                  var pPx1 = sx(safeNum(pm[1], 0) + tt3.dx);
+                  var pPy1 = sy(safeNum(pm[2], 0) + tt3.dy);
+                  var pPx2 = sx(safeNum(pm[3], 0) + tt3.dx);
+                  var pPy2 = sy(safeNum(pm[4], 0) + tt3.dy);
+                  var clp = clipLine(pPx1, pPy1, pPx2, pPy2);
+                  if (!clp) continue;
+                  var strokeP = safeHex(colorFromCss(cs.stroke || c.getAttribute('stroke'))) || '0D0D0D';
+                  var swP = safeNum(cs.strokeWidth || c.getAttribute('stroke-width'), 1);
+                  var pathOpts = {{
+                    x: clp.x1, y: clp.y1, w: clp.x2 - clp.x1, h: clp.y2 - clp.y1,
+                    line: {{ color: strokeP, width: Math.max(0.75, swP) }},
+                  }};
+                  if (c.getAttribute('marker-end')) pathOpts.line.endArrowType = 'triangle';
+                  try {{ slide.addShape('line', pathOpts); emitted++; }} catch (e) {{ console.warn('[svg→pptx path]', e); }}
+                }} else if (tag === 'text') {{
+                  var tt4 = svgCumulativeTranslate(c);
+                  var tx = safeNum(c.getAttribute('x'), 0) + tt4.dx;
+                  var ty = safeNum(c.getAttribute('y'), 0) + tt4.dy;
+                  var textContent = stripDashes(safeStr(c.textContent, 200));
+                  if (!textContent) continue;
+                  var anchor = safeStr(cs.textAnchor || c.getAttribute('text-anchor') || 'start');
+                  var fs = safeNum(cs.fontSize, NaN);
+                  if (!isFinite(fs)) fs = safeNum(c.getAttribute('font-size'), 12);
+                  var fwRaw = cs.fontWeight || c.getAttribute('font-weight') || '400';
+                  var isBold = (fwRaw === 'bold') || (parseInt(fwRaw, 10) >= 600);
+                  var ff = (cs.fontFamily || '').toLowerCase();
+                  var fontFace = fontBody;
+                  if (ff.indexOf('mono') >= 0 || ff.indexOf('courier') >= 0) fontFace = T.fontMono;
+                  else if (ff.indexOf('bebas') >= 0 || ff.indexOf('spectral') >= 0 || ff.indexOf('serif') >= 0 || ff.indexOf('display') >= 0) fontFace = fontDisplay;
+                  var fillT = safeHex(colorFromCss(cs.fill || c.getAttribute('fill'))) || T.ink;
+                  var ptSize = fontPt(fs);
+                  // ACCURATE text width via canvas measureText (replaces the
+                  // old textContent.length × fs × 0.55 heuristic that produced
+                  // false-positive overflow and false-negative collisions).
+                  var measuredPx = measureTextPx(textContent, fontFace, fs, isBold ? 700 : 400, false);
+                  // Add 8% padding so PowerPoint's text-rendering doesn't clip.
+                  var measuredW = (measuredPx / 96) * scale * 1.08 * (1 / 1);   // px→in via 96 DPI then scale
+                  // Actually the SVG coordinates we just used are SVG units, not px.
+                  // The renderedW = svgW * scale is in inches. We need ptSize/72 for the
+                  // text height in inches and the measureText width is in CSS pixels
+                  // assuming a 1:1 SVG-unit:CSS-px mapping (the most common case).
+                  var estW = Math.max(0.20, measuredW);
+                  var boxX = sx(tx);
+                  if (anchor === 'middle') boxX = sx(tx) - estW / 2;
+                  else if (anchor === 'end') boxX = sx(tx) - estW;
+                  var boxY = sy(ty) - ptSize / 72;
+                  var boxH = Math.max(ptSize / 60, ptSize / 72 + 0.04);
+                  // Clip box to diagram area
+                  if (boxX < areaX) {{ estW -= (areaX - boxX); boxX = areaX; }}
+                  if (boxX + estW > areaX2) estW = Math.max(0.20, areaX2 - boxX);
+                  if (boxY < areaY) {{ boxH -= (areaY - boxY); boxY = areaY; }}
+                  if (boxY + boxH > areaY2) boxH = Math.max(0.10, areaY2 - boxY);
+                  if (estW < 0.20 || boxH < 0.10) continue;
+
+                  // Collision check: skip this label if it would overlap an
+                  // existing text label by > 50% (overlap with a shape's
+                  // background is acceptable — that's a label-on-card pattern).
+                  var collision = collisionTracker.wouldCollide(
+                    {{ x: boxX, y: boxY, w: estW, h: boxH }}, 0.50
+                  );
+                  if (collision.collided && collision.with && collision.with.kind === 'text') {{
+                    console.warn('[svg→pptx] dropping label "' + textContent.slice(0, 40)
+                      + '" — would collide ' + Math.round(collision.overlapFrac * 100)
+                      + '% with prior label "' + (collision.with.label || '(unlabelled)').slice(0, 40) + '"');
+                    continue;
+                  }}
+
+                  var hAlign = anchor === 'middle' ? 'center' : (anchor === 'end' ? 'right' : 'left');
+                  try {{
+                    slide.addText(textContent, {{
+                      x: boxX, y: boxY, w: estW, h: boxH,
+                      fontSize: ptSize, fontFace: fontFace, color: fillT,
+                      bold: isBold, valign: 'top', align: hAlign,
+                    }});
+                    collisionTracker.register({{
+                      x: boxX, y: boxY, w: estW, h: boxH,
+                      kind: 'text', label: textContent,
+                    }});
+                    emitted++;
+                  }} catch (e) {{ console.warn('[svg→pptx text]', e); }}
+                }}
+              }}
+            }}
+
+            try {{
+              walk(svgEl);
+              console.log('[HiC PPTX] svg→pptx: emitted ' + emitted + ' shapes/texts');
+              return emitted > 0;
+            }} catch (e) {{
+              console.warn('[HiC PPTX] SVG walk failed:', e);
+              return false;
+            }}
+          }}
+
+          // Build one 16:9 slide for an architecture diagram.
+          //
+          // PRIMARY PATH: native SVG → pptxgenjs shape conversion. Every box,
+          // arrow, and label becomes an editable element in PowerPoint —
+          // boxes can be moved, retyped, recolored.
+          //
+          // FALLBACK PATH: if SVG conversion fails (complex paths, gradients,
+          // transforms we don't handle), rasterize via html2canvas as an image
+          // so the user at least sees the diagram in the export.
+          async function addDiagramSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: 'FFFFFF' }};
+            // Top accent rule
+            slide.addShape('rect', {{
+              x: 0.60, y: 0.50, w: 1.50, h: 0.05,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            slide.addText(stripDashes(sd.heading || 'Architecture Diagram'), typed(TYPE.H2, {{
+              x: 0.60, y: 0.70, w: 12.13, h: 1.10,
+              color: T.ink, valign: 'top', autoFit: true,
+            }}));
+
+            // Reserved diagram area
+            var availX = 0.60, availY = 1.95, availW = 12.13, availH = 4.35;
+            var nativeSuccess = false;
+
+            if (sd._svgRef) {{
+              nativeSuccess = renderSvgAsNativeShapes(
+                slide, sd._svgRef, availX, availY, availW, availH, T, TYPE
+              );
+              if (nativeSuccess) {{
+                console.log('[HiC PPTX] diagram rendered natively (editable shapes)');
+              }} else {{
+                console.log('[HiC PPTX] native SVG conversion produced no shapes — falling back to image');
+              }}
+            }}
+
+            // Fallback to image rasterization when native conversion fails
+            if (!nativeSuccess && sd._elRef && window.html2canvas) {{
+              try {{
+                var canvas = await window.html2canvas(sd._elRef, {{
+                  scale: 2, useCORS: true, backgroundColor: '#FFFFFF',
+                  width: sd._elRef.scrollWidth, height: sd._elRef.scrollHeight,
+                }});
+                var dataUrl = canvas.toDataURL('image/png');
+                var imgAspect = canvas.width / canvas.height;
+                var areaAspect = availW / availH;
+                var imgW, imgH;
+                if (imgAspect > areaAspect) {{ imgW = availW; imgH = availW / imgAspect; }}
+                else {{ imgH = availH; imgW = availH * imgAspect; }}
+                slide.addImage({{
+                  data: dataUrl,
+                  x: availX + (availW - imgW) / 2,
+                  y: availY + (availH - imgH) / 2,
+                  w: imgW, h: imgH,
+                }});
+              }} catch (e) {{
+                console.warn('[HiC PPTX] diagram rasterize fallback failed', e);
+                slide.addText('[ Diagram unavailable in export ]', typed(TYPE.BODY, {{
+                  x: 0.60, y: 3.50, w: 12.13, h: 0.80,
+                  color: T.muted, italic: true, align: 'center', valign: 'middle',
+                }}));
+              }}
+            }}
+
+            // Caption — CITATION role (monospace, italic-free for stability)
+            if (sd.caption) {{
+              slide.addText(stripDashes(sd.caption), typed(TYPE.CITATION, {{
+                x: 0.60, y: 6.40, w: 12.13, h: 0.40,
+                color: T.body, align: 'center', valign: 'middle',
+              }}));
+            }}
+            // Footer — FOOTER role
+            slide.addText(((meta.title || 'HiC Artifact') + '  ·  ' + (T.isNU ? 'NU' : 'NXT')).toUpperCase(), typed(TYPE.FOOTER, {{
+              x: 0.60, y: 6.95, w: 12.13, h: 0.25,
+              color: T.muted, valign: 'middle',
+            }}));
+          }}
+
+          // Build one 16:9 slide for stakeholder pills — rounded-rect pills
+          // laid out in a flex-wrap simulation.
+          function addPillsSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.white }};
+            slide.addShape('rect', {{
+              x: 0.60, y: 0.50, w: 1.50, h: 0.05,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            slide.addText(stripDashes(sd.heading || 'Stakeholders'), typed(TYPE.H2, {{
+              x: 0.60, y: 0.70, w: 12.13, h: 1.10,
+              color: T.ink, valign: 'top', autoFit: true,
+            }}));
+            // Pills — flow-wrap layout. Width computed via canvas measureText
+            // for accurate sizing per item label length.
+            var items = (sd.items || []).map(stripDashes);
+            var startX = 0.60;
+            var startY = 2.30;
+            var pillH = 0.56;
+            var gapX = 0.18;
+            var gapY = 0.22;
+            var maxRightEdge = 12.73;
+            var x = startX;
+            var y = startY;
+            for (var i = 0; i < items.length; i++) {{
+              var text = items[i];
+              // Use canvas measureText for accurate pill width — was previously
+              // computed via 0.085" × charCount which over-estimated for short
+              // labels and under-estimated for long ones.
+              var measuredPx = measureTextPx(text, T.fontMono, 14, 500, false);
+              var pillW = Math.max(1.2, Math.min(4.8, (measuredPx / 96) + 0.50));
+              if (x + pillW > maxRightEdge && x > startX) {{
+                x = startX;
+                y += pillH + gapY;
+              }}
+              if (y + pillH > 6.70) break;
+              slide.addShape('rect', {{
+                x: x, y: y, w: pillW, h: pillH,
+                fill: {{ color: T.white }},
+                line: {{ color: T.rule, width: 1.5 }},
+              }});
+              slide.addText(text, typed(TYPE.MONO_LABEL, {{
+                x: x, y: y, w: pillW, h: pillH,
+                color: T.ink, valign: 'middle', align: 'center',
+              }}));
+              x += pillW + gapX;
+            }}
+            slide.addText(((meta.title || 'HiC Artifact') + '  ·  ' + (T.isNU ? 'NU' : 'NXT')).toUpperCase(), typed(TYPE.FOOTER, {{
+              x: 0.60, y: 6.95, w: 12.13, h: 0.25,
+              color: T.muted, valign: 'middle',
+            }}));
+          }}
+
+          // Build one 16:9 slide for a quote spotlight — full-bleed dramatic
+          // single-quote layout. Used when a section has multiple quotes and
+          // the extras get their own dedicated slides.
+          function addQuoteSpotlightSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.ink }};
+            slide.addShape('rect', {{
+              x: 0, y: 0, w: 13.33, h: 0.10,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            // Eyebrow — section context + quote N of M (OVERLINE role)
+            var ctx = stripDashes((sd.sectionHeading || '').toUpperCase());
+            var counter = sd.quoteTotal > 1 ? 'EVIDENCE ' + sd.quoteIndex + ' OF ' + sd.quoteTotal : 'EVIDENCE';
+            slide.addText(counter + ' · ' + ctx.slice(0, 80), typed(TYPE.OVERLINE, {{
+              x: 0.60, y: 0.70, w: 12.13, h: 0.30,
+              color: T.accent, valign: 'middle',
+            }}));
+            // Large decorative quotation glyph — uses display font at 96pt
+            // for impact (not part of standard TYPE scale, intentional).
+            slide.addText('"', {{
+              x: 0.60, y: 1.10, w: 1.40, h: 1.40,
+              fontSize: 96, fontFace: T.fontDisplay, color: T.accent,
+              bold: true, valign: 'top',
+            }});
+            // Quote body — QUOTE_HERO role (28pt italic)
+            slide.addText(stripDashes(sd.quote.slice(0, 800)), typed(TYPE.QUOTE_HERO, {{
+              x: 1.90, y: 1.50, w: 10.83, h: 4.00,
+              color: T.white, valign: 'top', autoFit: true,
+            }}));
+            // Attribution — LABEL role, accent color (no em-dash prefix)
+            if (sd.attribution) {{
+              slide.addText(stripDashes(sd.attribution.slice(0, 180)), typed(TYPE.LABEL, {{
+                x: 1.90, y: 5.80, w: 10.83, h: 0.60,
+                color: T.accent, valign: 'top',
+              }}));
+            }}
+            // Footer
+            slide.addText((meta.title || 'HiC Artifact').toUpperCase() + '  ·  ' + (T.isNU ? 'NU' : 'NXT'), {{
+              x: 0.60, y: 6.85, w: 12.13, h: 0.30,
+              fontSize: TYPE.FOOTER, fontFace: fontBody, color: T.accent,
+              charSpacing: 2, valign: 'middle',
+            }});
+          }}
+
+          // Build one 16:9 slide for the closing — brand sign-off, mirrors
+          // the hero's layout (vertical accent band) but inverts the content
+          // hierarchy: brand mark prominent, artifact title smaller.
+          function addClosingSlide(pres, slide, sd, T, TYPE) {{
+            slide.background = {{ color: T.white }};
+            slide.addShape('rect', {{
+              x: 12.78, y: 0, w: 0.55, h: 7.5,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            var brandWord = T.isNU ? 'NORTHEASTERN' : 'NXT HUMANS';
+            // Use DISPLAY role at 96pt for impact (override size on copy of role)
+            var displayRole = {{ size: 96, lh: 1.00, bold: false, font: T.fontDisplay, tracking: -5, upper: false, italic: false }};
+            slide.addText(brandWord, typed(displayRole, {{
+              x: 0.60, y: 2.50, w: 12.18, h: 1.80,
+              color: T.ink, valign: 'top', autoFit: true,
+            }}));
+            slide.addText(stripDashes(sd.title || meta.title || 'HiC Artifact'), typed(TYPE.BODY_LG, {{
+              x: 0.60, y: 4.40, w: 12.18, h: 0.80,
+              color: T.body, valign: 'top',
+            }}));
+            slide.addShape('rect', {{
+              x: 0.60, y: 6.85, w: 0.60, h: 0.04,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            slide.addText('HUMANS IN CONTROL  ·  ' + (sd.generator || '#artifact').toUpperCase(), typed(TYPE.FOOTER, {{
+              x: 0.60, y: 6.95, w: 12.18, h: 0.30,
+              color: T.body, valign: 'middle',
+            }}));
+          }}
+
+          // Helper: render a quote card with dark fill + accent top stripe.
+          // Reusable for two-column AND full-width quote layouts.
+          function addQuoteCard(slide, T, TYPE, x, y, w, h, quoteText) {{
+            // Card body — solid ink fill
+            slide.addShape('rect', {{
+              x: x, y: y, w: w, h: h,
+              fill: {{ color: T.ink }}, line: {{ color: T.ink, width: 0 }},
+            }});
+            // Accent top stripe — design-system signature
+            slide.addShape('rect', {{
+              x: x, y: y, w: w, h: 0.08,
+              fill: {{ color: T.accent }}, line: {{ color: T.accent, width: 0 }},
+            }});
+            // Interior padding: 0.30"
+            var padX = 0.30, padTopLabel = 0.32, padTopQuote = 0.75;
+            slide.addText('EVIDENCE', typed(TYPE.OVERLINE, {{
+              x: x + padX, y: y + padTopLabel, w: w - padX * 2, h: 0.25,
+              color: T.accent, valign: 'middle',
+            }}));
+            slide.addText('"' + stripDashes(quoteText.slice(0, 600)) + '"', typed(TYPE.QUOTE_BODY, {{
+              x: x + padX, y: y + padTopQuote, w: w - padX * 2, h: h - padTopQuote - 0.30,
+              color: T.white, valign: 'top', autoFit: true,
+            }}));
+          }}
+          // Click handler — planning + rendering pipeline. Loads both
+          // pptxgenjs (needed for every slide) AND html2canvas (needed only
+          // for SVG diagram rasterization). Both are CDN-lazy so the initial
+          // page render isn't blocked.
+          pptxBtn.addEventListener('click', async function() {{
+            pptxBtn.textContent = 'Loading…';
+            try {{
+              await Promise.all([
+                loadScript('https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.bundle.js', 'PptxGenJS'),
+                loadScript('https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js', 'html2canvas'),
+              ]);
+              var PptxGenJS = window.PptxGenJS;
+              if (!PptxGenJS) throw new Error('PptxGenJS not available');
+              var main = document.getElementById('__hic_artifact_main');
+
+              pptxBtn.textContent = 'Parsing…';
+              var rawSlides = parseArtifactToSlides(main);
+              if (!rawSlides.length) throw new Error('Nothing to export');
+
+              pptxBtn.textContent = 'Planning…';
+              var plannedSlides = planSlides(rawSlides);
+              var T = brandTokens();
+              // Build TYPE roles ONCE from the resolved brand. All slide
+              // builders take (sd, T, TYPE) — no more per-builder font args.
+              var TYPE = buildTypeRoles(T);
+              console.log('[HiC PPTX] brand=' + (T.isNU ? 'NU (Spectral + Roboto, navy ink, sparing red accent)' : 'NXT (Bebas + Archivo, near-black ink, chartreuse accent)'));
+
+              var pres = new PptxGenJS();
+              pres.layout = 'LAYOUT_WIDE';   // 13.33 × 7.5 in (16:9) — IRRESPECTIVE of preview aspect
+              pres.title = meta.title || 'HiC Artifact';
+              pres.author = (T.isNU ? 'Northeastern University' : 'NXT Humans') + ' · HiC';
+
+              for (var i = 0; i < plannedSlides.length; i++) {{
+                var sd = plannedSlides[i];
+                var slide = pres.addSlide();
+                pptxBtn.textContent = 'Building ' + (i + 1) + '/' + plannedSlides.length + '…';
+                if      (sd.kind === 'hero')             addHeroSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'stat-callout')     addStatCalloutSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'section')          addSectionSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'diagram')          await addDiagramSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'pills')            addPillsSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'quote-spotlight')  addQuoteSpotlightSlide(pres, slide, sd, T, TYPE);
+                else if (sd.kind === 'closing')          addClosingSlide(pres, slide, sd, T, TYPE);
+              }}
+
+              pptxBtn.textContent = 'Saving…';
+              await pres.writeFile({{ fileName: baseName + '.pptx' }});
+              pptxBtn.textContent = '↓ ' + plannedSlides.length + ' slides saved';
+              setTimeout(function() {{ pptxBtn.textContent = '↓ PPTX'; }}, 3000);
+            }} catch (e) {{
+              console.error('[HiC artifact PPTX export]', e);
+              pptxBtn.textContent = 'PPTX export failed';
+              setTimeout(function() {{ pptxBtn.textContent = '↓ PPTX'; }}, 3000);
+            }}
+          }});
         }}
       }})();
     </script>

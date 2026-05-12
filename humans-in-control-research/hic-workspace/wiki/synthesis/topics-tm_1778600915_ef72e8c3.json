@@ -1,0 +1,1386 @@
+{
+  "job_id": "tm_1778600915_ef72e8c3",
+  "completed_at": "2026-05-12T15:49:01.788616Z",
+  "research_goal": "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school",
+  "result": {
+    "topic_count": 10,
+    "noise_count": 6,
+    "doc_count": 50,
+    "topics": [
+      {
+        "id": 0,
+        "name": "Co-op Application Search Struggles",
+        "summary": "Students seek advice and express frustration navigating co-op applications, interviews, and platforms like NUworks and LinkedIn.",
+        "sentiment": "negative",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "applying",
+            0.2521600716050603
+          ],
+          [
+            "applications",
+            0.13483046618522646
+          ],
+          [
+            "linkedin",
+            0.13483046618522646
+          ],
+          [
+            "search",
+            0.12481530404964628
+          ],
+          [
+            "interviews",
+            0.12033287217181361
+          ],
+          [
+            "like",
+            0.11970577967586306
+          ],
+          [
+            "advisor",
+            0.11461821436593653
+          ],
+          [
+            "market",
+            0.11209119832011
+          ],
+          [
+            "nu works",
+            0.10786437294818116
+          ],
+          [
+            "applied",
+            0.10786437294818116
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_1",
+          "rdeep_src_13_9",
+          "rdeep_src_13_35",
+          "rdeep_src_13_38",
+          "rdeep_src_13_49"
+        ],
+        "centroid": [
+          8.220209407806397,
+          6.6873626708984375
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Campus Location Program Decisions",
+        "summary": "Prospective students weigh the pros and cons of Northeastern's different campus locations including Boston, Seattle, and Arlington.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "arlington",
+            0.29424751297608776
+          ],
+          [
+            "seattle",
+            0.26260866232698155
+          ],
+          [
+            "campus",
+            0.20080702726310073
+          ],
+          [
+            "robotics",
+            0.19695649674523613
+          ],
+          [
+            "boston",
+            0.18646366817287927
+          ],
+          [
+            "ms robotics",
+            0.17654850778565265
+          ],
+          [
+            "ms",
+            0.15725727669528194
+          ],
+          [
+            "seattle campus",
+            0.14712375648804388
+          ],
+          [
+            "dc",
+            0.14712375648804388
+          ],
+          [
+            "consulting",
+            0.1176990051904351
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_25",
+          "rdeep_src_13_37",
+          "rdeep_src_13_40"
+        ],
+        "centroid": [
+          4.847965240478516,
+          7.280702273050944
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Enrollment Value and Community Access",
+        "summary": "Prospective and current students question whether specific Northeastern programs and scholars offerings are worth the investment and seek community connections.",
+        "sentiment": "mixed",
+        "post_count": 6,
+        "top_terms": [
+          [
+            "cps",
+            0.2021199452445837
+          ],
+          [
+            "join",
+            0.13665687566554427
+          ],
+          [
+            "london",
+            0.11024724286068202
+          ],
+          [
+            "law",
+            0.10934026672020546
+          ],
+          [
+            "day",
+            0.10934026672020546
+          ],
+          [
+            "clubs",
+            0.10932550053243542
+          ],
+          [
+            "year",
+            0.10748201587594222
+          ],
+          [
+            "welcome",
+            0.09372022861731896
+          ],
+          [
+            "worth",
+            0.09372022861731896
+          ],
+          [
+            "admissions",
+            0.09372022861731896
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_13",
+          "rdeep_src_13_17",
+          "rdeep_src_13_20",
+          "rdeep_src_13_21",
+          "rdeep_src_13_29",
+          "rdeep_src_13_42"
+        ],
+        "centroid": [
+          6.869542280832927,
+          9.384672005971273
+        ]
+      },
+      {
+        "id": 3,
+        "name": "International Students Job Market Concerns",
+        "summary": "International graduate students in data science and analytics programs question co-op and job prospects given current market conditions.",
+        "sentiment": "negative",
+        "post_count": 4,
+        "top_terms": [
+          [
+            "data",
+            0.22957079261695165
+          ],
+          [
+            "analytics",
+            0.2160434074970515
+          ],
+          [
+            "market",
+            0.16036384908731738
+          ],
+          [
+            "job",
+            0.13123285539428808
+          ],
+          [
+            "roles",
+            0.1282910792698539
+          ],
+          [
+            "job market",
+            0.12499735945074536
+          ],
+          [
+            "students",
+            0.12029678411143073
+          ],
+          [
+            "neu",
+            0.1198803823329547
+          ],
+          [
+            "international",
+            0.11225469436112215
+          ],
+          [
+            "business analytics",
+            0.10802170374852575
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_8",
+          "rdeep_src_13_11",
+          "rdeep_src_13_45",
+          "rdeep_src_13_47"
+        ],
+        "centroid": [
+          5.0749465227127075,
+          8.170067310333252
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Undergraduate Academic Life Questions",
+        "summary": "Undergraduates ask about majors, honors college, extracurriculars, and general academic experiences at Northeastern.",
+        "sentiment": "neutral",
+        "post_count": 4,
+        "top_terms": [
+          [
+            "honors",
+            0.27547713252681694
+          ],
+          [
+            "ur",
+            0.17563554767452788
+          ],
+          [
+            "theatre",
+            0.1147821385528404
+          ],
+          [
+            "know",
+            0.1119031670823833
+          ],
+          [
+            "really",
+            0.11155675030358052
+          ],
+          [
+            "ai",
+            0.10625615951857607
+          ],
+          [
+            "clubs",
+            0.10244023325641924
+          ],
+          [
+            "people",
+            0.1019063849371769
+          ],
+          [
+            "like",
+            0.1019063849371769
+          ],
+          [
+            "classes",
+            0.09858926715039744
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_14",
+          "rdeep_src_13_16",
+          "rdeep_src_13_31",
+          "rdeep_src_13_32"
+        ],
+        "centroid": [
+          7.732119679450989,
+          8.78028678894043
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Social Life and Friendship Building",
+        "summary": "Students discuss challenges and strategies for forming meaningful friendships and social connections at Northeastern.",
+        "sentiment": "mixed",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "people",
+            0.2388274296392191
+          ],
+          [
+            "friends",
+            0.18484275565704125
+          ],
+          [
+            "nu",
+            0.1600523697336213
+          ],
+          [
+            "just",
+            0.1337433605979627
+          ],
+          [
+            "like",
+            0.1337433605979627
+          ],
+          [
+            "close",
+            0.129121439302005
+          ],
+          [
+            "neu",
+            0.12419026341239393
+          ],
+          [
+            "really",
+            0.11329239587697063
+          ],
+          [
+            "city",
+            0.10976501993862489
+          ],
+          [
+            "friendships",
+            0.1076011994183375
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_27",
+          "rdeep_src_13_28",
+          "rdeep_src_13_33",
+          "rdeep_src_13_41",
+          "rdeep_src_13_43"
+        ],
+        "centroid": [
+          8.189276695251465,
+          9.705561637878418
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Graduate Engineering Co-op Access",
+        "summary": "International graduate students in ECE, SCM, and related engineering programs evaluate whether Northeastern's co-op advantage is real and accessible.",
+        "sentiment": "mixed",
+        "post_count": 6,
+        "top_terms": [
+          [
+            "ece",
+            0.26256850771999607
+          ],
+          [
+            "ms ece",
+            0.23631165694799644
+          ],
+          [
+            "international",
+            0.18710238443984728
+          ],
+          [
+            "ms",
+            0.17151051906985998
+          ],
+          [
+            "students",
+            0.17012687294733284
+          ],
+          [
+            "program",
+            0.14886101382891626
+          ],
+          [
+            "international students",
+            0.1339243318891326
+          ],
+          [
+            "scm",
+            0.13128425385999803
+          ],
+          [
+            "international business",
+            0.10502740308799842
+          ],
+          [
+            "msem",
+            0.10502740308799842
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_0",
+          "rdeep_src_13_2",
+          "rdeep_src_13_4",
+          "rdeep_src_13_34",
+          "rdeep_src_13_39",
+          "rdeep_src_13_44"
+        ],
+        "centroid": [
+          5.603817621866862,
+          7.9960399468739825
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Khoury CS Program Preparedness",
+        "summary": "Incoming Khoury College master's students with varying technical backgrounds ask about co-op readiness, coursework difficulty, and cybersecurity prospects.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "students",
+            0.201450616183007
+          ],
+          [
+            "hard",
+            0.15754784511574343
+          ],
+          [
+            "khoury",
+            0.1409621927111376
+          ],
+          [
+            "concepts",
+            0.13265604084219842
+          ],
+          [
+            "time",
+            0.10305336279802094
+          ],
+          [
+            "convert",
+            0.09949203063164883
+          ],
+          [
+            "beginner",
+            0.09949203063164883
+          ],
+          [
+            "cybersecurity",
+            0.09949203063164883
+          ],
+          [
+            "5010",
+            0.09949203063164883
+          ],
+          [
+            "frontend",
+            0.09949203063164883
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_3",
+          "rdeep_src_13_22",
+          "rdeep_src_13_26"
+        ],
+        "centroid": [
+          5.788075606028239,
+          7.469018300374349
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Co-op Credit and Research Substitution",
+        "summary": "Students inquire about substituting co-op requirements with research and navigating co-op course registration logistics.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "advisor",
+            0.23075433604726633
+          ],
+          [
+            "research",
+            0.16653731520024925
+          ],
+          [
+            "banner",
+            0.15511229357956335
+          ],
+          [
+            "credit",
+            0.15511229357956335
+          ],
+          [
+            "sign",
+            0.15511229357956335
+          ],
+          [
+            "credit op",
+            0.15511229357956335
+          ],
+          [
+            "op course",
+            0.15511229357956335
+          ],
+          [
+            "signed",
+            0.15511229357956335
+          ],
+          [
+            "course",
+            0.15384707577653017
+          ],
+          [
+            "thats",
+            0.13185962059843792
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_23",
+          "rdeep_src_13_36",
+          "rdeep_src_13_48"
+        ],
+        "centroid": [
+          7.346938133239746,
+          6.803682168324788
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Co-op Scheduling and Graduation Planning",
+        "summary": "Undergraduates seek strategies for fitting co-ops, internships, minors, and AP credits into a four-year graduation timeline.",
+        "sentiment": "neutral",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "summer",
+            0.34548104525631945
+          ],
+          [
+            "credits",
+            0.1943674208461115
+          ],
+          [
+            "minor",
+            0.18398135921024797
+          ],
+          [
+            "summer classes",
+            0.15902788978318214
+          ],
+          [
+            "coops",
+            0.15020915011144323
+          ],
+          [
+            "internship",
+            0.125912101650654
+          ],
+          [
+            "ap",
+            0.12368835872025276
+          ],
+          [
+            "ap credits",
+            0.12368835872025276
+          ],
+          [
+            "coop",
+            0.12058600097999042
+          ],
+          [
+            "graduate years",
+            0.10601859318878808
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_6",
+          "rdeep_src_13_7",
+          "rdeep_src_13_12",
+          "rdeep_src_13_18",
+          "rdeep_src_13_24"
+        ],
+        "centroid": [
+          7.097286605834961,
+          7.786795902252197
+        ]
+      }
+    ],
+    "documents": [
+      {
+        "id": "rdeep_src_13_0",
+        "title": "How strong is NEU co-op/employer access for MS ECE/CS students in this market?",
+        "url": "https://www.reddit.com/r/NEU/comments/1t9rbp8/how_strong_is_neu_coopemployer_access_for_ms/",
+        "cluster": 6,
+        "x": 5.628133773803711,
+        "y": 7.8580546379089355,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_1",
+        "title": "Business students struggling to get co-ops? I can maybe help",
+        "url": "https://www.reddit.com/r/NEU/comments/1s2p3g6/business_students_struggling_to_get_coops_i_can/",
+        "cluster": 0,
+        "x": 7.941283702850342,
+        "y": 6.878901481628418,
+        "score": 0,
+        "num_comments": 5,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_2",
+        "title": "Admitted to MS in ECE – looking for student experiences (difficulty, workload, internships, timeline)",
+        "url": "https://www.reddit.com/r/NEU/comments/1swpk5d/admitted_to_ms_in_ece_looking_for_student/",
+        "cluster": 6,
+        "x": 5.232471466064453,
+        "y": 7.857550144195557,
+        "score": 2,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_3",
+        "title": "Northeastern MS Cybersecurity Admit (Fall 2026) – Do Most Students Get Co-ops",
+        "url": "https://www.reddit.com/r/NEU/comments/1sghe1l/northeastern_ms_cybersecurity_admit_fall_2026_do/",
+        "cluster": 7,
+        "x": 5.98431396484375,
+        "y": 8.124614715576172,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_4",
+        "title": "Admitted MSEM (SCM concentration) – Is the Co-op advantage real for international students given the recent merger?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qlcw6i/admitted_msem_scm_concentration_is_the_coop/",
+        "cluster": 6,
+        "x": 5.848050117492676,
+        "y": 8.027289390563965,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_5",
+        "title": "Confused about CPT rules: Can F1 students work on campus during a full-time co-op?",
+        "url": "https://www.reddit.com/r/NEU/comments/1pip8lq/confused_about_cpt_rules_can_f1_students_work_on/",
+        "cluster": -1,
+        "x": 6.353626251220703,
+        "y": 7.304519176483154,
+        "score": 2,
+        "num_comments": 4,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_6",
+        "title": "Looking for co-op advice. Private vs public organizations experience?",
+        "url": "https://www.reddit.com/r/NEU/comments/1kmso1a/looking_for_coop_advice_private_vs_public/",
+        "cluster": 9,
+        "x": 6.596766948699951,
+        "y": 6.998453140258789,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_7",
+        "title": "NORTHEASTERN CO-OP QUESTION",
+        "url": "https://www.reddit.com/r/NEU/comments/1sbikpz/northeastern_coop_question/",
+        "cluster": 9,
+        "x": 7.261466979980469,
+        "y": 8.264620780944824,
+        "score": 20,
+        "num_comments": 28,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_8",
+        "title": "Is NEU MSAI worth it for an international student taking a loan in the current job market?",
+        "url": "https://www.reddit.com/r/NEU/comments/1t2moco/is_neu_msai_worth_it_for_an_international_student/",
+        "cluster": 3,
+        "x": 5.072380065917969,
+        "y": 8.5683012008667,
+        "score": 0,
+        "num_comments": 21,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_9",
+        "title": "How cooked am I for finding a co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1t7thch/how_cooked_am_i_for_finding_a_coop/",
+        "cluster": 0,
+        "x": 8.40852165222168,
+        "y": 6.806966781616211,
+        "score": 7,
+        "num_comments": 15,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_10",
+        "title": "Unsatisfactory Grade for leaving Co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1qs6czs/unsatisfactory_grade_for_leaving_coop/",
+        "cluster": -1,
+        "x": 6.262937068939209,
+        "y": 7.465586185455322,
+        "score": 38,
+        "num_comments": 18,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_11",
+        "title": "Indian student confused about Northeastern MSBA (Fall 2026) – Need honest reality check",
+        "url": "https://www.reddit.com/r/NEU/comments/1t8obv2/indian_student_confused_about_northeastern_msba/",
+        "cluster": 3,
+        "x": 5.3506011962890625,
+        "y": 8.675469398498535,
+        "score": 0,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_12",
+        "title": "Best coop + internship structure for CS to land big tech?",
+        "url": "https://www.reddit.com/r/NEU/comments/1secs91/best_coop_internship_structure_for_cs_to_land_big/",
+        "cluster": 9,
+        "x": 6.960963249206543,
+        "y": 7.8804521560668945,
+        "score": 0,
+        "num_comments": 11,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_13",
+        "title": "NYC Scholars",
+        "url": "https://www.reddit.com/r/NEU/comments/1sit5cw/nyc_scholars/",
+        "cluster": 2,
+        "x": 7.2230916023254395,
+        "y": 8.947970390319824,
+        "score": 7,
+        "num_comments": 9,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_14",
+        "title": "CS+ math major",
+        "url": "https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/",
+        "cluster": 4,
+        "x": 7.742583751678467,
+        "y": 8.497146606445312,
+        "score": 5,
+        "num_comments": 18,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_15",
+        "title": "NEU co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1s6p3he/neu_coop/",
+        "cluster": -1,
+        "x": 6.684918403625488,
+        "y": 8.203166961669922,
+        "score": 7,
+        "num_comments": 10,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_16",
+        "title": "Advice about NEU from someone who graduated a few years ago.",
+        "url": "https://www.reddit.com/r/NEU/comments/1qhktqt/advice_about_neu_from_someone_who_graduated_a_few/",
+        "cluster": 4,
+        "x": 8.061861991882324,
+        "y": 8.798319816589355,
+        "score": 121,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_17",
+        "title": "Is NEU London Scholars worth it??",
+        "url": "https://www.reddit.com/r/NEU/comments/1s97y4u/is_neu_london_scholars_worth_it/",
+        "cluster": 2,
+        "x": 6.507114410400391,
+        "y": 9.11242389678955,
+        "score": 1,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_18",
+        "title": "Can I do a minor and co-op(s) and still graduate in 4 years?",
+        "url": "https://www.reddit.com/r/NEU/comments/1s69uen/can_i_do_a_minor_and_coops_and_still_graduate_in/",
+        "cluster": 9,
+        "x": 7.481752395629883,
+        "y": 8.110708236694336,
+        "score": 2,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_19",
+        "title": "Wellington Management Co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/",
+        "cluster": -1,
+        "x": 6.364765167236328,
+        "y": 6.607114791870117,
+        "score": 6,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_20",
+        "title": "Email implies I got in even though I'm on the wiatlist? What does this mean?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rz9nuq/email_implies_i_got_in_even_though_im_on_the/",
+        "cluster": 2,
+        "x": 7.141414165496826,
+        "y": 9.79700756072998,
+        "score": 9,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_21",
+        "title": "northeastern worth it?",
+        "url": "https://www.reddit.com/r/NEU/comments/1sxmgsq/northeastern_worth_it/",
+        "cluster": 2,
+        "x": 6.939544677734375,
+        "y": 9.341758728027344,
+        "score": 3,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_22",
+        "title": "Khoury MSCS (Boston) Beginner with 1yr Frontend exp | Fall '26",
+        "url": "https://www.reddit.com/r/NEU/comments/1t1jbbn/khoury_mscs_boston_beginner_with_1yr_frontend_exp/",
+        "cluster": 7,
+        "x": 5.666235446929932,
+        "y": 7.357532501220703,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_23",
+        "title": "Can you substitute co-op with research?",
+        "url": "https://www.reddit.com/r/NEU/comments/1stgml3/can_you_substitute_coop_with_research/",
+        "cluster": 8,
+        "x": 7.447961330413818,
+        "y": 7.2722015380859375,
+        "score": 1,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_24",
+        "title": "Name your CO-OP/Internship",
+        "url": "https://www.reddit.com/r/NEU/comments/1spc8gi/name_your_coopinternship/",
+        "cluster": 9,
+        "x": 7.185483455657959,
+        "y": 7.679745197296143,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_25",
+        "title": "Northeastern MPP: Boston vs Arlington (DC)?",
+        "url": "https://www.reddit.com/r/NEU/comments/1saxq34/northeastern_mpp_boston_vs_arlington_dc/",
+        "cluster": 1,
+        "x": 5.091709136962891,
+        "y": 6.912568092346191,
+        "score": 1,
+        "num_comments": 4,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_26",
+        "title": "NEU Boston's Co-op Program",
+        "url": "https://www.reddit.com/r/NEU/comments/1roe0vp/neu_bostons_coop_program/",
+        "cluster": 7,
+        "x": 5.713677406311035,
+        "y": 6.924907684326172,
+        "score": 12,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_27",
+        "title": "Feeling like time’s running out to really meet people at NEU?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qc0jin/feeling_like_times_running_out_to_really_meet/",
+        "cluster": 5,
+        "x": 8.300419807434082,
+        "y": 9.6572904586792,
+        "score": 38,
+        "num_comments": 9,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_28",
+        "title": "How do you make friends as a transfer?",
+        "url": "https://www.reddit.com/r/NEU/comments/1l14bco/how_do_you_make_friends_as_a_transfer/",
+        "cluster": 5,
+        "x": 8.447142601013184,
+        "y": 9.7592134475708,
+        "score": 23,
+        "num_comments": 38,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_29",
+        "title": "Looking for current northeastern students I can talk to about finances",
+        "url": "https://www.reddit.com/r/NEU/comments/1s4onhq/looking_for_current_northeastern_students_i_can/",
+        "cluster": 2,
+        "x": 6.920810699462891,
+        "y": 9.620987892150879,
+        "score": 0,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_30",
+        "title": "Cell and Molecular Biology MCB",
+        "url": "https://www.reddit.com/r/NEU/comments/1rmhmxl/cell_and_molecular_biology_mcb/",
+        "cluster": -1,
+        "x": 6.830820083618164,
+        "y": 8.695879936218262,
+        "score": 0,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_31",
+        "title": "Help with some info plz",
+        "url": "https://www.reddit.com/r/NEU/comments/1rrrot4/help_with_some_info_plz/",
+        "cluster": 4,
+        "x": 7.528409957885742,
+        "y": 9.144015312194824,
+        "score": 1,
+        "num_comments": 5,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_32",
+        "title": "3 questions (bioengineering, pre-med, honors college)",
+        "url": "https://www.reddit.com/r/NEU/comments/1s94ws0/3_questions_bioengineering_premed_honors_college/",
+        "cluster": 4,
+        "x": 7.595623016357422,
+        "y": 8.681665420532227,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_33",
+        "title": "Accepted into NU.in! Questions about the program and more!",
+        "url": "https://www.reddit.com/r/NEU/comments/1r3i7sq/accepted_into_nuin_questions_about_the_program/",
+        "cluster": 5,
+        "x": 7.868218421936035,
+        "y": 9.495223999023438,
+        "score": 3,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_34",
+        "title": "International Business",
+        "url": "https://www.reddit.com/r/NEU/comments/1s14391/international_business/",
+        "cluster": 6,
+        "x": 6.324833869934082,
+        "y": 8.465195655822754,
+        "score": 3,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_35",
+        "title": "Co-op Search",
+        "url": "https://www.reddit.com/r/NEU/comments/1rq31g2/coop_search/",
+        "cluster": 0,
+        "x": 8.16960620880127,
+        "y": 6.811677932739258,
+        "score": 3,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_36",
+        "title": "I am here (co-op)",
+        "url": "https://www.reddit.com/r/NEU/comments/1q35q43/i_am_here_coop/",
+        "cluster": 8,
+        "x": 7.42932653427124,
+        "y": 6.4908976554870605,
+        "score": 2,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_37",
+        "title": "Admitted to Northeastern University Seattle campus (MS CS) but wanted Boston – Need advice",
+        "url": "https://www.reddit.com/r/NEU/comments/1rsvgb7/admitted_to_northeastern_university_seattle/",
+        "cluster": 1,
+        "x": 4.777375221252441,
+        "y": 7.308635711669922,
+        "score": 0,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_38",
+        "title": "HELP: ADVICE ON GETTING A CO-OP",
+        "url": "https://www.reddit.com/r/NEU/comments/1qtjmyn/help_advice_on_getting_a_coop/",
+        "cluster": 0,
+        "x": 8.095974922180176,
+        "y": 6.3958516120910645,
+        "score": 2,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_39",
+        "title": "Fall 2026 MS ECE at Northeastern (Boston) – how is the program and co-op?",
+        "url": "https://www.reddit.com/r/NEU/comments/1r7rzvy/fall_2026_ms_ece_at_northeastern_boston_how_is/",
+        "cluster": 6,
+        "x": 5.341835975646973,
+        "y": 7.604621410369873,
+        "score": 4,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_40",
+        "title": "NEU MS Robotics (CS concentration) vs MS CS?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rgwezy/neu_ms_robotics_cs_concentration_vs_ms_cs/",
+        "cluster": 1,
+        "x": 4.674811363220215,
+        "y": 7.620903015136719,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_41",
+        "title": "Considering transfering from NEU, any advcie helps",
+        "url": "https://www.reddit.com/r/NEU/comments/1p2y5aa/considering_transfering_from_neu_any_advcie_helps/",
+        "cluster": 5,
+        "x": 7.656893730163574,
+        "y": 9.880521774291992,
+        "score": 1,
+        "num_comments": 11,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_42",
+        "title": "CPS gradates not invited to Fenway",
+        "url": "https://www.reddit.com/r/NEU/comments/1kmh4dr/cps_gradates_not_invited_to_fenway/",
+        "cluster": 2,
+        "x": 6.485278129577637,
+        "y": 9.487883567810059,
+        "score": 69,
+        "num_comments": 21,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_43",
+        "title": "Finding Your Pack: A Husky’s Guide to Building Friendships at Northeastern",
+        "url": "https://www.reddit.com/r/NEU/comments/1q5832k/finding_your_pack_a_huskys_guide_to_building/",
+        "cluster": 5,
+        "x": 8.67370891571045,
+        "y": 9.73555850982666,
+        "score": 15,
+        "num_comments": 4,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_44",
+        "title": "Northeastern: Game Art and Animation.",
+        "url": "https://www.reddit.com/r/NEU/comments/1r3c0h4/northeastern_game_art_and_animation/",
+        "cluster": 6,
+        "x": 5.247580528259277,
+        "y": 8.163528442382812,
+        "score": 3,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_45",
+        "title": "MS in AI (CV) at NEU Boston — worth accepting if my goal is Data Engineering?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qrsmw6/ms_in_ai_cv_at_neu_boston_worth_accepting_if_my/",
+        "cluster": 3,
+        "x": 4.641834735870361,
+        "y": 8.097261428833008,
+        "score": 3,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_46",
+        "title": "finally......",
+        "url": "https://www.reddit.com/r/NEU/comments/1lw3t99/finally/",
+        "cluster": -1,
+        "x": 8.161211967468262,
+        "y": 7.36577033996582,
+        "score": 118,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_47",
+        "title": "Got admit to MS in Data Science at Northeastern – how are co-op & full-time opportunities?",
+        "url": "https://www.reddit.com/r/NEU/comments/1q83zeu/got_admit_to_ms_in_data_science_at_northeastern/",
+        "cluster": 3,
+        "x": 5.2349700927734375,
+        "y": 7.339237213134766,
+        "score": 2,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_48",
+        "title": "I am here",
+        "url": "https://www.reddit.com/r/NEU/comments/1q2o6o5/i_am_here/",
+        "cluster": 8,
+        "x": 7.16352653503418,
+        "y": 6.647947311401367,
+        "score": 18,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_49",
+        "title": "Applied through nu works no reply yet",
+        "url": "https://www.reddit.com/r/NEU/comments/1ok1kq5/applied_through_nu_works_no_reply_yet/",
+        "cluster": 0,
+        "x": 8.485660552978516,
+        "y": 6.543415546417236,
+        "score": 3,
+        "num_comments": 8,
+        "subreddit": "neu"
+      }
+    ],
+    "topic_similarities": [
+      {
+        "source": 0,
+        "target": 1,
+        "weight": 0.226
+      },
+      {
+        "source": 0,
+        "target": 2,
+        "weight": 0.249
+      },
+      {
+        "source": 0,
+        "target": 3,
+        "weight": 0.223
+      },
+      {
+        "source": 0,
+        "target": 4,
+        "weight": 0.318
+      },
+      {
+        "source": 0,
+        "target": 5,
+        "weight": 0.249
+      },
+      {
+        "source": 0,
+        "target": 6,
+        "weight": 0.255
+      },
+      {
+        "source": 0,
+        "target": 7,
+        "weight": 0.281
+      },
+      {
+        "source": 0,
+        "target": 8,
+        "weight": 0.532
+      },
+      {
+        "source": 0,
+        "target": 9,
+        "weight": 0.389
+      },
+      {
+        "source": 1,
+        "target": 2,
+        "weight": 0.255
+      },
+      {
+        "source": 1,
+        "target": 3,
+        "weight": 0.521
+      },
+      {
+        "source": 1,
+        "target": 4,
+        "weight": 0.235
+      },
+      {
+        "source": 1,
+        "target": 5,
+        "weight": 0.195
+      },
+      {
+        "source": 1,
+        "target": 6,
+        "weight": 0.49
+      },
+      {
+        "source": 1,
+        "target": 7,
+        "weight": 0.511
+      },
+      {
+        "source": 1,
+        "target": 8,
+        "weight": 0.282
+      },
+      {
+        "source": 1,
+        "target": 9,
+        "weight": 0.303
+      },
+      {
+        "source": 2,
+        "target": 3,
+        "weight": 0.316
+      },
+      {
+        "source": 2,
+        "target": 4,
+        "weight": 0.487
+      },
+      {
+        "source": 2,
+        "target": 5,
+        "weight": 0.424
+      },
+      {
+        "source": 2,
+        "target": 6,
+        "weight": 0.347
+      },
+      {
+        "source": 2,
+        "target": 7,
+        "weight": 0.313
+      },
+      {
+        "source": 2,
+        "target": 8,
+        "weight": 0.276
+      },
+      {
+        "source": 2,
+        "target": 9,
+        "weight": 0.383
+      },
+      {
+        "source": 3,
+        "target": 4,
+        "weight": 0.268
+      },
+      {
+        "source": 3,
+        "target": 5,
+        "weight": 0.224
+      },
+      {
+        "source": 3,
+        "target": 6,
+        "weight": 0.642
+      },
+      {
+        "source": 3,
+        "target": 7,
+        "weight": 0.5
+      },
+      {
+        "source": 3,
+        "target": 8,
+        "weight": 0.274
+      },
+      {
+        "source": 3,
+        "target": 9,
+        "weight": 0.327
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "weight": 0.492
+      },
+      {
+        "source": 4,
+        "target": 6,
+        "weight": 0.306
+      },
+      {
+        "source": 4,
+        "target": 7,
+        "weight": 0.299
+      },
+      {
+        "source": 4,
+        "target": 8,
+        "weight": 0.332
+      },
+      {
+        "source": 4,
+        "target": 9,
+        "weight": 0.459
+      },
+      {
+        "source": 5,
+        "target": 6,
+        "weight": 0.244
+      },
+      {
+        "source": 5,
+        "target": 7,
+        "weight": 0.234
+      },
+      {
+        "source": 5,
+        "target": 8,
+        "weight": 0.249
+      },
+      {
+        "source": 5,
+        "target": 9,
+        "weight": 0.312
+      },
+      {
+        "source": 6,
+        "target": 7,
+        "weight": 0.642
+      },
+      {
+        "source": 6,
+        "target": 8,
+        "weight": 0.321
+      },
+      {
+        "source": 6,
+        "target": 9,
+        "weight": 0.399
+      },
+      {
+        "source": 7,
+        "target": 8,
+        "weight": 0.371
+      },
+      {
+        "source": 7,
+        "target": 9,
+        "weight": 0.426
+      },
+      {
+        "source": 8,
+        "target": 9,
+        "weight": 0.496
+      }
+    ],
+    "duration_seconds": 25.8
+  }
+}

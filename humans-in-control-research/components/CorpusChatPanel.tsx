@@ -49,6 +49,7 @@ import {
 import { DIRECTIVES, directivesByCategory, CATEGORY_LABELS } from '../services/hashtagRegistry';
 import { saveArtifact, listArtifacts, getArtifact, deleteArtifact, getArtifactViewUrl } from '../services/artifactLibrary';
 import { callAIWithRetry } from '../services/aiRetryClient';
+import { safeDynamicImport } from '../services/safeDynamicImport';
 import { compose as composeNarrative } from '../services/narrativeComposer';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
@@ -1464,7 +1465,10 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                             <button
                                 onClick={async () => {
                                     try {
-                                        const { deletePrototype } = await import('../services/prototypeLibrary');
+                                        const { deletePrototype } = await safeDynamicImport(
+                                            () => import('../services/prototypeLibrary'),
+                                            'prototypeLibrary (delete)',
+                                        );
                                         await deletePrototype(p.slug);
                                         onItemDeleted(p.slug);
                                     } catch (e) { console.warn('[proto delete]', e); }
@@ -1584,6 +1588,12 @@ interface RecommendationTilesGridProps {
     tiles: RecommendationTile[];
     onPickCommand: (command: string) => void;
     context?: EngagementContext;
+    // 2026-05-12 — Hashtag composition. Brand drives tile accent (chartreuse
+    // for NXT consensus, NU red for NU consensus; cyan stays for bets across
+    // both brands). autoExport triggers on-mount export when #slides or #slide
+    // was in the original query.
+    brand?: BrandId;
+    autoExport?: 'deck' | 'single' | null;
 }
 // Helper: derive dynamic section labels from the engagement context.
 // Falls back to neutral labels when fields are missing so the UI never
@@ -1612,17 +1622,21 @@ function labelsFromContext(ctx?: EngagementContext) {
 }
 // Single tile renderer extracted so the grid can render groups (e.g.,
 // initiative-dependent vs. independent) with the same template.
-const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext }> = ({ tile, idx, onPickCommand, context }) => {
+const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext; onExportSlide?: (tile: RecommendationTile) => void; isExporting?: boolean; brand?: BrandId }> = ({ tile, idx, onPickCommand, context, onExportSlide, isExporting, brand }) => {
     const labels = labelsFromContext(context);
     const [expanded, setExpanded] = useState(false);
     const riskColor = tile.risk_level === 'high' ? '#CC6644'
         : tile.risk_level === 'medium' ? '#FD8E2E'
         : tile.risk_level === 'low' ? '#0CCE6B' : '#888';
     // 2026-05-12 — Sprint 2 VS-Multi: visually differentiate consensus
-    // tiles (chartreuse top border) from non-obvious bet tiles (cyan top
-    // border + BET badge in top-right corner of the thumbnail).
+    // tiles (brand-accent top border) from non-obvious bet tiles (cyan top
+    // border + BET badge in top-right corner of the thumbnail). Consensus
+    // accent flips chartreuse → NU red when brand=NU; bets stay cyan across
+    // both brands (cyan + red has strong contrast and cyan + chartreuse stays
+    // the visual signature of NXT non-obvious bets).
     const isBet = tile.frame === 'non_obvious_bet';
-    const frameAccent = isBet ? '#00B7C3' : '#B8B800';
+    const consensusAccent = brand === 'nu' ? '#C8102E' : '#B8B800';
+    const frameAccent = isBet ? '#00B7C3' : consensusAccent;
     // Resolve generic field names with legacy fallback so older saved
     // sessions still render and so the new context-aware schema works
     // alongside the deprecated CLR/first-year-specific field names.
@@ -1902,6 +1916,52 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         )}
                     </div>
                 )}
+                {/* 2026-05-12 — Single-tile slide export. Renders this recommendation
+                    as a stand-alone .pptx using the existing `recommendation` slide
+                    template (with image + persona context + impact strip extensions).
+                    Brand-locked to NXT by default; the accent color and framing tag
+                    reflect the tile's consensus/bet identity. Disabled while another
+                    export is in flight to prevent racing PPTX writes. */}
+                {onExportSlide && (
+                    <div style={{ marginTop: 4, paddingTop: 8, borderTop: '1px dashed #E5E5E5' }}>
+                        <button
+                            onClick={() => onExportSlide(tile)}
+                            disabled={isExporting}
+                            title="Export this recommendation as a single .pptx slide with its image and full consulting depth"
+                            style={{
+                                width: '100%',
+                                textAlign: 'left',
+                                padding: '8px 10px',
+                                background: isExporting ? '#F5F5F0' : '#FFFFFF',
+                                border: `1px solid ${frameAccent}`,
+                                cursor: isExporting ? 'wait' : 'pointer',
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: 9.5,
+                                letterSpacing: 1.5,
+                                textTransform: 'uppercase',
+                                color: isExporting ? '#888' : '#0D0D0D',
+                                fontWeight: 700,
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                transition: 'background 120ms, color 120ms, border-color 120ms',
+                            }}
+                            onMouseEnter={e => {
+                                if (isExporting) return;
+                                (e.currentTarget as HTMLButtonElement).style.background = frameAccent;
+                                (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
+                            }}
+                            onMouseLeave={e => {
+                                if (isExporting) return;
+                                (e.currentTarget as HTMLButtonElement).style.background = '#FFFFFF';
+                                (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
+                            }}
+                        >
+                            <span>{isExporting ? 'Preparing slide…' : '↓ Export as slide (#slide)'}</span>
+                            <span style={{ fontSize: 8, opacity: 0.7 }}>.pptx</span>
+                        </button>
+                    </div>
+                )}
                 {tile.variants.length > 0 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 4, paddingTop: 8, borderTop: '1px dashed #E5E5E5' }}>
                         <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 2 }}>Build it</div>
@@ -2149,7 +2209,103 @@ const RecommendationNextStepsBlock: React.FC<{ steps: string[] }> = ({ steps }) 
     </div>
 );
 
-const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context }) => {
+const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context, brand, autoExport }) => {
+    // 2026-05-12 — Slide export plumbing for #recommendations tiles.
+    //
+    // Affordances:
+    //   • Per-tile  "Export as slide"  — single .pptx with brand + image
+    //   • Per-frame "Export {section}" — section-divider + all tiles in that frame
+    //   • Master    "Export all"        — full deck (consensus then bets, with dividers)
+    //   • AUTO-EXPORT on mount when #slides was in the query — fires the master deck
+    //     export 600ms after render so the user sees tiles AND receives the download
+    //     in one motion. Composes with #NXT / #NU brand.
+    //
+    // All three use safeDynamicImport so a stale-bundle chunk-load failure
+    // triggers the global ChunkLoadGuard reload instead of leaking a confusing
+    // error.
+    const resolvedBrandId: BrandId = brand || 'nxt';
+    const [exportingId, setExportingId] = useState<string | null>(null);
+    const exportTile = useCallback(async (tile: RecommendationTile) => {
+        if (exportingId) return;
+        setExportingId(tile.slug || tile.title);
+        try {
+            const [{ exportSlideToPPTX }, { tileToExportSlideArgs }, { getBrand }] = await Promise.all([
+                safeDynamicImport(() => import('./slideTemplates/pptx'), 'pptx exporter (rec single)'),
+                safeDynamicImport(() => import('../services/recommendationTileToSlide'), 'rec tile adapter'),
+                safeDynamicImport(() => import('./slideTemplates/brands'), 'brand tokens'),
+            ]);
+            const brandTokens = getBrand(resolvedBrandId);
+            const isBet = tile.frame === 'non_obvious_bet';
+            const args = tileToExportSlideArgs(tile as any, isBet, brandTokens);
+            await exportSlideToPPTX(args);
+        } catch (e: any) {
+            console.warn('[#recommendations] single-slide export failed:', e?.message || e);
+            alert(`Slide export failed: ${e?.message || 'unknown error'}`);
+        } finally {
+            setExportingId(null);
+        }
+    }, [exportingId, resolvedBrandId]);
+    const [exportingDeck, setExportingDeck] = useState<'consensus' | 'bets' | 'all' | null>(null);
+    const exportDeck = useCallback(async (mode: 'consensus' | 'bets' | 'all') => {
+        if (exportingDeck) return;
+        setExportingDeck(mode);
+        try {
+            const [{ exportDeckToPPTX }, { tilesToDeckExportArgs }, { getBrand }] = await Promise.all([
+                safeDynamicImport(() => import('./slideTemplates/pptx'), 'pptx exporter (rec deck)'),
+                safeDynamicImport(() => import('../services/recommendationTileToSlide'), 'rec deck adapter'),
+                safeDynamicImport(() => import('./slideTemplates/brands'), 'brand tokens'),
+            ]);
+            const brandTokens = getBrand(resolvedBrandId);
+            const allTiles = (tiles || []).map(t => ({
+                ...t,
+                ai_capabilities: Array.isArray(t?.ai_capabilities) ? t.ai_capabilities : [],
+                variants: Array.isArray(t?.variants) ? t.variants : [],
+            }));
+            const consensus = allTiles.filter(t => t.frame === 'defensible_consensus' || !t.frame);
+            const bets = allTiles.filter(t => t.frame === 'non_obvious_bet');
+            const args = tilesToDeckExportArgs({
+                consensusTiles: mode === 'bets' ? [] : (consensus as any),
+                betTiles: mode === 'consensus' ? [] : (bets as any),
+                brand: brandTokens,
+            });
+            if (args.length === 0) {
+                alert('Nothing to export — no tiles in that section.');
+                return;
+            }
+            const deckName = (mode === 'all' ? 'Recommendations'
+                : mode === 'consensus' ? 'Defensible Consensus'
+                : 'Non-Obvious Bets') + ' · ' + resolvedBrandId.toUpperCase();
+            await exportDeckToPPTX(args, deckName);
+        } catch (e: any) {
+            console.warn('[#recommendations] deck export failed:', e?.message || e);
+            alert(`Deck export failed: ${e?.message || 'unknown error'}`);
+        } finally {
+            setExportingDeck(null);
+        }
+    }, [exportingDeck, tiles, resolvedBrandId]);
+
+    // 2026-05-12 — Auto-export on mount when user typed `#slides` or `#slide`
+    // alongside `#recommendations`. Fires exactly once (StrictMode-safe via ref)
+    // 600ms after the tiles render so the user sees them BEFORE the download fires.
+    const autoExportFiredRef = useRef(false);
+    useEffect(() => {
+        if (autoExportFiredRef.current) return;
+        if (!autoExport) return;
+        if (!tiles || tiles.length === 0) return;
+        autoExportFiredRef.current = true;
+        const handle = window.setTimeout(() => {
+            if (autoExport === 'deck') {
+                console.log(`[#recommendations] auto-exporting full deck (#slides + #${resolvedBrandId.toUpperCase()})`);
+                exportDeck('all');
+            } else if (autoExport === 'single' && tiles.length > 0) {
+                console.log(`[#recommendations] auto-exporting strongest tile (#slide + #${resolvedBrandId.toUpperCase()})`);
+                exportTile(tiles[0]);
+            }
+        }, 600);
+        return () => window.clearTimeout(handle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);  // intentionally fire-once on mount
+
     // Defensive: tiles may arrive from a persisted session with missing arrays.
     const safeTiles = (tiles || []).map(t => ({
         ...t,
@@ -2195,8 +2351,105 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     const renderGrid = (group: RecommendationTile[]) => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14 }}>
             {group.map((tile, idx) => (
-                <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+                <RecommendationTileCard
+                    key={tile.slug || idx}
+                    tile={tile}
+                    idx={idx}
+                    onPickCommand={onPickCommand}
+                    context={context}
+                    onExportSlide={exportTile}
+                    isExporting={exportingId === (tile.slug || tile.title)}
+                    brand={resolvedBrandId}
+                />
             ))}
+        </div>
+    );
+
+    // Reusable section-export button. Rendered inside the frameHeader on the
+    // right side, opposite the count, so each section has a one-click "Export
+    // this section as deck" affordance. Brand-locked NXT for now.
+    const sectionExportButton = (mode: 'consensus' | 'bets', accent: string) => (
+        <button
+            onClick={() => exportDeck(mode)}
+            disabled={!!exportingDeck}
+            title={`Export this section as a multi-slide .pptx deck (section divider + one slide per recommendation, with images and full consulting depth)`}
+            style={{
+                padding: '5px 10px',
+                background: 'transparent',
+                border: `1px solid ${accent}`,
+                cursor: exportingDeck ? 'wait' : 'pointer',
+                color: accent,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 9,
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: 'uppercase',
+                transition: 'background 120ms, color 120ms',
+            }}
+            onMouseEnter={e => {
+                if (exportingDeck) return;
+                (e.currentTarget as HTMLButtonElement).style.background = accent;
+                (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
+            }}
+            onMouseLeave={e => {
+                if (exportingDeck) return;
+                (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+                (e.currentTarget as HTMLButtonElement).style.color = accent;
+            }}
+        >
+            {exportingDeck === mode ? 'Preparing deck…' : '↓ Export section (#slides)'}
+        </button>
+    );
+    // Master "export everything" button shown above the consensus group when
+    // a framing split is present. One click → full deck with both sections
+    // and dividers between them.
+    const masterExportBar = (
+        <div style={{
+            marginTop: 12,
+            padding: '12px 14px',
+            background: '#0D0D0D',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 14,
+            borderTop: '2px solid #B8B800',
+            borderBottom: '2px solid #00B7C3',
+        }}>
+            <div>
+                <div style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: 'uppercase' }}>Beautiful Deck Export</div>
+                <div style={{ fontSize: 11, color: '#FFFFFF', marginTop: 3 }}>Every recommendation rendered as a brand-locked slide — accompanying images, persona context, AI capabilities, and impact strip preserved.</div>
+            </div>
+            <button
+                onClick={() => exportDeck('all')}
+                disabled={!!exportingDeck}
+                title="Export ALL recommendations as a single .pptx deck — Defensible Consensus section + Non-Obvious Bets section, each prefaced with a section divider"
+                style={{
+                    padding: '10px 18px',
+                    background: '#B8B800',
+                    border: '1px solid #B8B800',
+                    cursor: exportingDeck ? 'wait' : 'pointer',
+                    color: '#0D0D0D',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: 2,
+                    textTransform: 'uppercase',
+                    whiteSpace: 'nowrap' as const,
+                    transition: 'background 120ms, color 120ms',
+                }}
+                onMouseEnter={e => {
+                    if (exportingDeck) return;
+                    (e.currentTarget as HTMLButtonElement).style.background = '#0D0D0D';
+                    (e.currentTarget as HTMLButtonElement).style.color = '#B8B800';
+                }}
+                onMouseLeave={e => {
+                    if (exportingDeck) return;
+                    (e.currentTarget as HTMLButtonElement).style.background = '#B8B800';
+                    (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
+                }}
+            >
+                {exportingDeck === 'all' ? 'Preparing deck…' : '↓ Export all as #slides'}
+            </button>
         </div>
     );
 
@@ -2239,7 +2492,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
                 gap: 14,
             }}>
                 {safeTiles.map((tile, idx) => (
-                    <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+                    <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} brand={resolvedBrandId} onExportSlide={exportTile} isExporting={exportingId === (tile.slug || tile.title)} />
                 ))}
             </div>
         );
@@ -2712,8 +2965,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             timestamp: Date.now(),
         }]);
         try {
-            const { getPrototype, savePrototype } = await import('../services/prototypeLibrary');
-            const { buildPrototype } = await import('../services/prototypeBuilder');
+            const { getPrototype, savePrototype } = await safeDynamicImport(
+                () => import('../services/prototypeLibrary'),
+                'prototypeLibrary (revise)',
+            );
+            const { buildPrototype } = await safeDynamicImport(
+                () => import('../services/prototypeBuilder'),
+                'prototypeBuilder (revise)',
+            );
             const existing = await getPrototype(slug);
             // Compose the revision: prior concept + brief + spec as context, plus the user's new direction
             const revisionConcept = [
@@ -2972,6 +3231,18 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // `#proto #name=<slug>` against any individual recommendation.
         if (/(?:^|\s)#recommendations(?=\s|$|[.,;:!?'"])/i.test(query)) {
             const recMsgId = `msg_${Date.now()}_recs`;
+            // 2026-05-12 — Hashtag composition. Brand modifier (#NXT / #NU)
+            // and slide-export modifiers (#slides plural = full deck, #slide
+            // singular = first tile only) compose with the #recommendations
+            // trigger. Brand flows through to the tile renderer AND the slide
+            // export adapter, so a `#recommendations #NU` request produces
+            // NU-red consensus tiles AND any auto-export uses NU branding.
+            const queryBrand: BrandId = detectBrandFromText(query) || 'nxt';
+            const wantsDeckExport = /(?:^|\s)#slides\b/i.test(query);
+            const wantsSingleExport = !wantsDeckExport && /(?:^|\s)#slide\b/i.test(query);
+            const autoExportOnMount: 'deck' | 'single' | null =
+                wantsDeckExport ? 'deck' : (wantsSingleExport ? 'single' : null);
+            console.log(`[recommendations] composed flags — brand=${queryBrand}, autoExport=${autoExportOnMount}`);
             setMessages(prev => [...prev, {
                 id: recMsgId,
                 role: 'assistant',
@@ -3334,6 +3605,10 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     recommendationComparisonTable: comparisonTable,
                     recommendationPrioritization: prioritization,
                     recommendationNextSteps: nextSteps,
+                    // 2026-05-12 — Hashtag composition: brand + auto-export flags
+                    // travel with the message so the renderer can honor both.
+                    recommendationBrand: queryBrand,
+                    recommendationAutoExport: autoExportOnMount,
                     recommendationTiles: concepts.map((c: any) => ({
                         slug: String(c.slug || '').trim(),
                         title: String(c.title || '').trim() || 'Untitled concept',
@@ -3740,7 +4015,10 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 timestamp: Date.now(),
             }]);
             try {
-                const { listPrototypes } = await import('../services/prototypeLibrary');
+                const { listPrototypes } = await safeDynamicImport(
+                    () => import('../services/prototypeLibrary'),
+                    'prototypeLibrary (list)',
+                );
                 const lib = await listPrototypes();
                 setMessages(prev => prev.map(m => m.id === libMsgId ? {
                     ...m,
@@ -3774,8 +4052,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 timestamp: Date.now(),
             }]);
             try {
-                const { buildPrototype } = await import('../services/prototypeBuilder');
-                const { savePrototype } = await import('../services/prototypeLibrary');
+                const { buildPrototype } = await safeDynamicImport(
+                    () => import('../services/prototypeBuilder'),
+                    'prototypeBuilder (build)',
+                );
+                const { savePrototype } = await safeDynamicImport(
+                    () => import('../services/prototypeLibrary'),
+                    'prototypeLibrary (save)',
+                );
                 const liveCtx = getContext ? getContext() : context;
 
                 // 2026-05-11 — When the user clicked a recommendation tile,
@@ -4905,6 +5189,8 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                             inputRef.current?.focus();
                                         }}
                                         context={(msg as any).engagementContext as EngagementContext | undefined}
+                                        brand={(msg as any).recommendationBrand as BrandId | undefined}
+                                        autoExport={(msg as any).recommendationAutoExport as 'deck' | 'single' | null | undefined}
                                     />
                                 )}
 

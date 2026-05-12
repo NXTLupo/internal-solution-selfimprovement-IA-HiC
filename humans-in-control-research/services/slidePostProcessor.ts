@@ -150,7 +150,7 @@ const META_NARRATION_PATTERNS = [
     /\bwe\s+(now|are now)\s+(move|enter|moving|entering|transition)/i,
     /\bthis is (where|the section|the phase|the part)\b/i,
     /\blet['u]s?\s+(now\s+)?(examine|explore|look at|discuss|turn to|move to|dive into|delve into)/i,
-    /\bin this (section|slide|part|phase|presentation|deck|document)\b/i,
+    /\bin this (section|slide|part|phase|presentation|deck|document|report|analysis)\b/i,
     /\bwe will (now\s+)?(examine|explore|discuss|look at|analyze|present|review|walk|cover|show|demonstrate|outline)/i,
     /\b(we|I)\s+(will|are going to|would like to|want to|aim to|seek to)\s+(present|discuss|explore|examine|review|walk|cover|show|demonstrate|outline)/i,
     /\bnow (we|I|let's)\s+(move|turn|shift|transition|proceed)/i,
@@ -161,11 +161,29 @@ const META_NARRATION_PATTERNS = [
     /\bthis slide shows\b/i,
     /\bthe next (slide|section|part) (will |)(show|cover|discuss|explore|present)/i,
     /\bour (objective|goal|aim|purpose) (is|here is) to\b/i,
-    /\bthis (presentation|deck|report|document) (will|is designed to|aims to|seeks to)\b/i,
+    /\bthis (presentation|deck|report|document|analysis|section|slide) (will|is designed to|aims to|seeks to|covers|addresses|examines|presents|outlines|frames)\b/i,
     /\bwelcome to\b/i,
     /\ballow me to\b/i,
     /\bI('d| would) like to (start|begin|open) by\b/i,
     /\bbefore we (begin|start|dive in|get started)\b/i,
+    // 2026-05-10 — Self-referential pointers ("as shown above", "as discussed", etc.)
+    // and process-conclusion wrap-ups ("in conclusion", "to summarize"). The reader
+    // is consuming a finished artifact, not a chaptered document; these phrases
+    // assume sequence the reader doesn't see.
+    /\bas (shown|outlined|described|discussed|noted|mentioned|illustrated|highlighted|demonstrated)\s+(above|below|earlier|previously|prior|here)\b/i,
+    /\bas (we|you)('ll| will| have| had| can)\s+(see|seen|noted|noticed|discussed|covered|observed)\b/i,
+    /\bas (previously|earlier|already)\s+(noted|mentioned|discussed|stated|outlined)\b/i,
+    /\b(in conclusion|to summarize|to conclude|in summary|to sum up|in closing)\b/i,
+    // 2026-05-10 — Evidence-limitation language (unbracketed forms). Bracketed
+    // forms are caught by stripQAAnnotations; this catches narrative prose that
+    // surfaces what the model doesn't know. The reader must never see the model's
+    // awareness of its own gaps.
+    /\b(more|further|additional)\s+(research|investigation|analysis|study|data|evidence)\s+(is|are|will be|may be|would be|might be)?\s*(needed|required|warranted|recommended|necessary)\b/i,
+    /\b(evidence|data|research|information)\s+(is|remains|appears|seems)\s+(limited|sparse|thin|insufficient|incomplete|unavailable|lacking)\b/i,
+    /\b(due to|owing to|because of|given)\s+(limited|insufficient|sparse|missing|the absence of)\s+(data|evidence|research|information|sources)\b/i,
+    /\b(while|though|although)\s+(data|evidence|research|information)\s+(was|is|remains)\s+(unavailable|limited|sparse|incomplete)\b/i,
+    /\bin the absence of\b/i,
+    /\bpending\s+(additional|further|more)\s+(research|data|investigation|evidence)\b/i,
 ];
 
 /**
@@ -196,6 +214,56 @@ export function removeMetaNarration(text: string): string {
     });
 
     return cleaned.join(' ').trim();
+}
+
+// 2026-05-10 — PROCESS-REFERENCE REWRITES
+// ============================================================
+// Unlike META_NARRATION which drops the whole sentence, these patterns
+// match phrases that PREFIX a legitimate insight: "Based on the research,
+// customer churn is 22%". Dropping the sentence would lose the insight;
+// we want to strip the prefix and keep "Customer churn is 22%". The
+// regex captures only the prefix; the substitution leaves the rest intact
+// and re-capitalizes the first letter of what remains.
+const PROCESS_REFERENCE_REWRITES: Array<{ pattern: RegExp; preserveGroup: 1 | 2 }> = [
+    // "Based on [the/our] X, Y" → Y
+    { pattern: /\b[Bb]ased on (?:the |our |this )?(?:research|analysis|data|evidence|findings|sources|corpus|review|investigation|assessment)[^,.]*,\s*([a-z].*)/g, preserveGroup: 1 },
+    // "According to [the/our] X, Y" → Y
+    { pattern: /\b[Aa]ccording to (?:the |our )?(?:research|analysis|data|evidence|findings|sources|corpus|report|review)[^,.]*,\s*([a-z].*)/g, preserveGroup: 1 },
+    // "The research/data/analysis/corpus/evidence (shows|indicates|reveals|suggests|finds|demonstrates) (that )? Y" → Y
+    { pattern: /\b[Tt]he (?:research|data|analysis|corpus|evidence|findings|sources|report) (?:show|shows|showed|indicate|indicates|indicated|reveal|reveals|revealed|suggest|suggests|suggested|find|finds|found|demonstrate|demonstrates|demonstrated|confirm|confirms|confirmed)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // "Our (research|analysis|findings|review) (shows|indicates|...) Y" → Y
+    { pattern: /\b[Oo]ur (?:research|analysis|findings|review|investigation|assessment|study) (?:show|shows|indicate|indicates|reveal|reveals|suggest|suggests|find|finds|demonstrate|demonstrates|confirm|confirms)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // "This report (finds|indicates|...) (that )? Y" → Y
+    { pattern: /\b[Tt]his (?:report|analysis|document|assessment|review) (?:find|finds|indicate|indicates|reveal|reveals|suggest|suggests|show|shows|conclude|concludes|demonstrate|demonstrates)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // "From the (sources|research|data|evidence) (reviewed|gathered|examined|analyzed), Y" → Y
+    { pattern: /\b[Ff]rom the (?:sources|research|data|evidence|literature|corpus)(?:\s+\w+)?,\s*([a-z].*)/g, preserveGroup: 1 },
+    // "Drawing on [the/our] X, Y" → Y
+    { pattern: /\b[Dd]rawing on (?:the |our )?(?:research|analysis|data|evidence|findings|sources|corpus|literature)[^,.]*,\s*([a-z].*)/g, preserveGroup: 1 },
+    // "(Research|Studies|Sources) (show|indicate|...) (that )? Y" → Y
+    { pattern: /\b(?:[Rr]esearch|[Ss]tudies|[Ss]ources|[Ee]vidence|[Dd]ata|[Ff]indings)\s+(?:show|shows|showed|indicate|indicates|indicated|reveal|reveals|revealed|suggest|suggests|suggested|confirm|confirms|confirmed)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+];
+
+/**
+ * Strip process-reference prefixes while preserving the insight that follows.
+ * "Based on the research, customer churn is 22%" → "Customer churn is 22%."
+ * Re-capitalizes the first letter of what remains, ensures terminal punctuation.
+ *
+ * Run BEFORE removeMetaNarration — otherwise the whole sentence gets dropped
+ * by the broader "the research shows" patterns and the insight is lost.
+ */
+export function stripProcessReferences(text: string): string {
+    if (!text) return text;
+    let cleaned = text;
+    for (const { pattern, preserveGroup } of PROCESS_REFERENCE_REWRITES) {
+        cleaned = cleaned.replace(pattern, (_match, ...groups) => {
+            const kept = groups[preserveGroup - 1];
+            if (!kept || typeof kept !== 'string') return '';
+            // Capitalize first letter
+            return kept.charAt(0).toUpperCase() + kept.slice(1);
+        });
+    }
+    // Collapse double spaces / orphan punctuation produced by replacements.
+    return cleaned.replace(/\s+([.,;!?])/g, '$1').replace(/\s{2,}/g, ' ').trim();
 }
 
 // ============================================================
@@ -271,6 +339,17 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     // Bare tokens
     { pattern: /\bEVIDENCE\s+GAP\b/g, replace: '' },
     { pattern: /\bEvidence\s+Gap\b/g, replace: '' },
+    // 2026-05-11 — CATEGORY GAP reports (and their wrapping headers/dividers).
+    // The old chat prompt required the model to list empty source categories;
+    // that requirement is removed but old conversations or stale instructions
+    // could still produce them. Strip the section header, the divider, and
+    // every individual CATEGORY GAP line. Both backticked and bare forms.
+    { pattern: /\n?-{3,}\s*\n?\s*###?\s*CATEGORY GAP REPORT[\s\S]*$/gi, replace: '' },
+    { pattern: /\n?\*{3,}\s*\n?\s*###?\s*CATEGORY GAP REPORT[\s\S]*$/gi, replace: '' },
+    { pattern: /\n?###?\s*CATEGORY GAP REPORT[\s\S]*$/gi, replace: '' },
+    { pattern: /\n?The following user-selected source categories yielded no relevant content[^\n]*\n/gi, replace: '\n' },
+    { pattern: /`?CATEGORY GAP[^`\n]*`?\s*\n?/g, replace: '' },
+    { pattern: /\bCATEGORY GAP\s*[:\-–—]\s*[^\n]+/g, replace: '' },
     // Annotation parenthetical forms
     { pattern: /\(\s*needs\s+baseline\s*\)/gi, replace: '' },
     { pattern: /\(\s*baseline\s+TBD\s*\)/gi, replace: '' },
@@ -288,12 +367,21 @@ export function stripQAAnnotations(text: string | undefined | null): string {
     for (const { pattern, replace } of QA_ANNOTATION_PATTERNS) {
         cleaned = cleaned.replace(pattern, replace);
     }
+    // 2026-05-10 — Also strip process-reference prefixes and remove
+    // sentences that violate the self-referential / limitation rules.
+    // Order matters: process-rewrite first (preserves insight), then the
+    // sentence-level meta-narration sweep (drops anything left over).
+    cleaned = stripProcessReferences(cleaned);
+    cleaned = removeMetaNarration(cleaned);
     // Trim residual whitespace artifacts and double-comma artifacts
     return cleaned.replace(/\s+,/g, ',').replace(/,\s*,/g, ',').replace(/\s+\./g, '.').replace(/\s{2,}/g, ' ').trim();
 }
 
 // Recursively walk an object/array and strip QA annotations from every string value.
 // Mutates in place. Skips internal-only keys (start with `_`).
+// 2026-05-10 — Now also strips process-references and meta-narration sentences
+// via the enhanced stripQAAnnotations(), so every output path (chat replies,
+// presentation payloads, freeform artifacts) inherits the no-self-reference rule.
 export function stripQAAnnotationsDeep<T>(value: T): T {
     if (value == null) return value;
     if (typeof value === 'string') return stripQAAnnotations(value) as any;
@@ -829,6 +917,18 @@ export function postProcessSlides(
         s.speakerNotes = stripQAAnnotations(s.speakerNotes || '');
         s.quote = stripQAAnnotations(s.quote || '');
         if (Array.isArray(s.sources)) s.sources = s.sources.map(stripQAAnnotations).filter(c => c && c.trim().length > 0);
+
+        // --- PROCESS-REFERENCE REWRITE (must run BEFORE removeMetaNarration).
+        // Strips "Based on the research,..." / "The data shows..." / "Our findings
+        // suggest..." prefixes while preserving the insight that follows. If we
+        // ran removeMetaNarration first, the broader patterns would drop the
+        // entire sentence and lose the actual claim. Process-reference rewrite
+        // first, then the broader meta-narration sentence-drop sweep.
+        s.title = stripProcessReferences(s.title);
+        s.content = (s.content || []).map(stripProcessReferences);
+        s.narrative = stripProcessReferences(s.narrative || '');
+        s.speakerNotes = stripProcessReferences(s.speakerNotes || '');
+        s.quote = stripProcessReferences(s.quote || '');
 
         // --- META-NARRATION (auto-correct on ALL fields: title, content, narrative, speakerNotes, quote) ---
         const metaInTitle = detectMetaNarration(s.title || '');

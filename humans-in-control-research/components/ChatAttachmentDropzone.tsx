@@ -117,16 +117,57 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
 
     // Binary path: PDF, DOCX, PPTX, images — needs server-side extraction.
     const base64 = await fileToBase64(file);
-    const resp = await fetch(`${PROXY_BASE}/api/parse-upload`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            filename: file.name,
-            base64,
-            mimeType: file.type || 'application/octet-stream',
-        }),
-        signal: AbortSignal.timeout(PARSE_TIMEOUT_MS),
+    const body = JSON.stringify({
+        filename: file.name,
+        base64,
+        mimeType: file.type || 'application/octet-stream',
     });
+
+    // 2026-05-12 — Retry on transport-layer failures only. Chrome surfaces
+    // `ERR_NETWORK_CHANGED` (Wi-Fi/VPN flip, NIC switch, container restart
+    // killing in-flight requests) as a generic `TypeError: Failed to fetch`,
+    // and `AbortSignal.timeout` rejects with `TimeoutError`. Both deserve a
+    // retry — the request never reached the proxy, so retrying is idempotent.
+    // Server-side errors (4xx/5xx) are NOT retried — those indicate the
+    // proxy received the file and rejected it on the merits.
+    const MAX_ATTEMPTS = 3;
+    const BACKOFF_MS = [0, 1000, 3000];  // 0s, 1s, 3s
+    let resp: Response | null = null;
+    let lastTransportErr: any = null;
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+        if (attempt > 0) await new Promise(r => setTimeout(r, BACKOFF_MS[attempt]));
+        try {
+            resp = await fetch(`${PROXY_BASE}/api/parse-upload`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body,
+                signal: AbortSignal.timeout(PARSE_TIMEOUT_MS),
+            });
+            // Got an HTTP response — break out of the retry loop. Server-side
+            // status codes are handled by the !resp.ok check below.
+            break;
+        } catch (e: any) {
+            lastTransportErr = e;
+            const name = e?.name || '';
+            const msg = String(e?.message || e || '');
+            const isTransport =
+                name === 'TypeError' ||           // Failed to fetch / ERR_NETWORK_CHANGED
+                name === 'TimeoutError' ||         // AbortSignal.timeout fired
+                /Failed to fetch|NetworkError|network changed|connection reset|ERR_NETWORK/i.test(msg);
+            if (!isTransport || attempt === MAX_ATTEMPTS - 1) {
+                throw new Error(
+                    `Network error uploading ${file.name} ` +
+                    `(${name || 'unknown'}: ${msg.slice(0, 120)}). ` +
+                    `Tried ${attempt + 1} time(s). Check your connection and try again.`
+                );
+            }
+            console.warn(`[parseUploadedFile] transport failure on ${file.name} (attempt ${attempt + 1}/${MAX_ATTEMPTS}) — retrying after ${BACKOFF_MS[attempt + 1]}ms:`, msg.slice(0, 200));
+        }
+    }
+    if (!resp) {
+        // Should be unreachable — the loop either returns a Response or throws.
+        throw lastTransportErr || new Error(`Upload failed for ${file.name}: no response after ${MAX_ATTEMPTS} attempts`);
+    }
 
     if (!resp.ok) {
         const errText = await resp.text().catch(() => '');

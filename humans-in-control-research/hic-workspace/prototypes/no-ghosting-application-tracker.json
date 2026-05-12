@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "slug": "no-ghosting-application-tracker",
+  "title": "No-Ghosting Application Tracker",
+  "concept": "#proto #name=no-ghosting-application-tracker #NU",
+  "brief": {
+    "concept_title": "No-Ghosting Application Tracker",
+    "one_line_thesis": "An AI-powered job application tracker that predicts ghosting risks and proactively generates context-aware follow-ups to keep candidates top-of-mind.",
+    "primary_persona": {
+      "name": "Alex, the Active Job Seeker",
+      "context": "Applying to 10+ tech roles a week, juggling multiple interview stages across different companies, and struggling to keep track of when to follow up without seeming desperate.",
+      "emotional_state": "Anxious, fatigued by the 'black hole' of job applications, seeking control, clarity, and a reduction in cognitive load."
+    },
+    "secondary_actors": [
+      {
+        "role": "Hiring Managers / Recruiters",
+        "involvement": "The recipients of the AI-generated follow-ups; their response times, communication patterns, and email sentiments are analyzed by the system to predict behavior."
+      }
+    ],
+    "demonstrated_moment": "The 'Intervention' moment: The user logs in to see an application's health drop to 'High Ghosting Risk', reviews the AI's analysis of the recruiter's last ambiguous email, and uses the AI to draft and send a perfectly timed, value-add follow-up.",
+    "jobs_to_be_done": [
+      "Help me track the status, timeline, and next steps of all my active job applications in one unified, intelligent view.",
+      "Alert me when an application is at risk of going cold based on time elapsed and communication patterns, so I don't miss the window to follow up.",
+      "Draft professional, context-aware follow-up messages based on my specific interview stage, previous correspondence, and the company's profile.",
+      "Analyze recruiter communications to decode corporate speak, giving me a realistic assessment of my standing and extracting hidden action items."
+    ],
+    "success_criteria": [
+      "Feels differentiated from generic SaaS by acting as an active, opinionated agent rather than a passive Kanban board.",
+      "The 'Ghosting Risk' indicator feels credible, data-driven, and actionable, not just a simple timer.",
+      "AI-generated follow-ups require zero-to-minimal editing before sending, perfectly matching the user's tone and the specific context of the role.",
+      "The UI reduces candidate anxiety through clear next steps, empathetic design, and a sense of regained control."
+    ],
+    "ai_inference_points": [
+      {
+        "trigger": "System ingests a new recruiter email or notes significant time elapsed since last contact.",
+        "model_call": "Claude chat / OpenAI chat (classification and analysis)",
+        "input": "Timeline of interactions, last email text, company name, interview stage, and industry average response times.",
+        "output_shape": "JSON containing `ghosting_risk_score` (0-100), `status_health` (enum), `sentiment_analysis`, and `recommended_action`.",
+        "value_unlocked": "Transforms passive waiting into proactive awareness; cuts through candidate anxiety with objective analysis."
+      },
+      {
+        "trigger": "User clicks 'Draft Follow-up' on an at-risk application.",
+        "model_call": "Gemini chat / Claude chat (generative text)",
+        "input": "Job description, user's resume summary, last recruiter email, days elapsed, and user-selected strategy (e.g., 'The Gentle Nudge', 'The Value Add', 'The Timeline Check').",
+        "output_shape": "UI renders 3 distinct, highly personalized email draft options in a side-by-side comparison view, with highlighted variables for easy tweaking.",
+        "value_unlocked": "Eliminates the blank-page anxiety of writing follow-up emails and prevents candidates from sending overly aggressive or desperate messages."
+      },
+      {
+        "trigger": "User pastes or forwards a recruiter's response into the tracker.",
+        "model_call": "OpenAI chat (structured extraction)",
+        "input": "Raw recruiter email text.",
+        "output_shape": "JSON with `true_intent` (e.g., 'delaying for headcount', 'genuine interest', 'soft rejection'), `next_action_date`, and `extracted_tasks` (e.g., 'Provide references'). UI updates the application timeline automatically.",
+        "value_unlocked": "Saves time on manual data entry and provides an expert 'second opinion' on what the recruiter is actually saying."
+      }
+    ],
+    "hard_constraints": {
+      "brand": null,
+      "platform": "native-feeling-web",
+      "accessibility": "WCAG AA minimum, high contrast for status/risk indicators, screen-reader friendly for AI drafts.",
+      "other": [
+        "Must not feel like a spam bot; emphasis on thoughtful, high-quality, low-volume communication.",
+        "Privacy-first data handling implied for personal emails and career data."
+      ]
+    },
+    "open_questions": [
+      "Does the app integrate directly with Gmail/Outlook via OAuth for seamless tracking, or does the user manually input/forward communications?",
+      "Are we tracking applications via a browser extension (scraping LinkedIn/Greenhouse) or relying on manual entry for the initial job creation?",
+      "How do we calibrate the 'Ghosting Risk' model without a massive proprietary dataset initially? (e.g., relying purely on LLM heuristics vs. hardcoded time rules)."
+    ]
+  },
+  "interaction_spec": {
+    "screens": [
+      {
+        "id": "dashboard_view",
+        "purpose": "Provide a unified, intelligent overview of all active job applications, triaged by required attention rather than just status.",
+        "persona_state": "Overwhelmed but seeking control; wants to know exactly what needs attention today without digging through spreadsheets.",
+        "primary_action": "Click into 'High Risk' application (Stripe)",
+        "secondary_actions": [
+          "Add new application",
+          "Filter by status"
+        ],
+        "content_blocks": [
+          "Summary metrics: 12 Active, 2 Need Attention, 1 Offer",
+          "Application List: Sorted by 'Action Needed' and 'Ghosting Risk'",
+          "High Risk Card: Stripe - Product Designer (Last contact: 9 days ago)"
+        ],
+        "ai_calls_fired_here": []
+      },
+      {
+        "id": "application_detail_view",
+        "purpose": "Deep dive into a specific application's timeline, showing the AI's analysis of the current situation and recruiter sentiment.",
+        "persona_state": "Anxious about the silence from the recruiter; needs objective reassurance and a clear next step.",
+        "primary_action": "Click 'Draft Follow-up'",
+        "secondary_actions": [
+          "Log new communication",
+          "View original job description",
+          "Run Health Check"
+        ],
+        "content_blocks": [
+          "Header: Stripe - Product Designer (Stage: Onsite Panel)",
+          "Health Widget: Ghosting Risk Score (88/100 - High), Status: At Risk",
+          "AI Sentiment Analysis: 'Recruiter Sarah mentioned finalizing headcount, but 9 days exceeds their historical 4-day SLA. Soft delay likely.'",
+          "Timeline: Chronological list of emails and interviews"
+        ],
+        "ai_calls_fired_here": [
+          "flow_risk_analysis"
+        ]
+      },
+      {
+        "id": "draft_strategy_modal",
+        "purpose": "Allow the user to guide the AI's tone and angle before generating the follow-up email.",
+        "persona_state": "Relieved to have help, but wants to ensure the email doesn't sound desperate or robotic.",
+        "primary_action": "Select strategy and click 'Generate Drafts'",
+        "secondary_actions": [
+          "Cancel and return to detail view"
+        ],
+        "content_blocks": [
+          "Context recap: Following up after 9 days post-onsite.",
+          "Strategy Options: 'The Gentle Nudge' (Polite check-in), 'The Value Add' (Share a relevant article/portfolio piece), 'The Timeline Check' (Directly ask about next steps)"
+        ],
+        "ai_calls_fired_here": []
+      },
+      {
+        "id": "draft_comparison_view",
+        "purpose": "Present the AI-generated options side-by-side, allowing easy comparison, tweaking, and sending.",
+        "persona_state": "Empowered; shifting from 'blank page paralysis' to an editorial mindset.",
+        "primary_action": "Click 'Copy to Clipboard' or 'Send via Gmail' on the preferred draft",
+        "secondary_actions": [
+          "Regenerate with different strategy",
+          "Edit draft inline"
+        ],
+        "content_blocks": [
+          "Draft 1 (Short & Direct): Highlights timeline.",
+          "Draft 2 (Value Add): Mentions a recent Stripe product launch.",
+          "Draft 3 (Empathetic): Acknowledges headcount delays gracefully.",
+          "Highlighted variables in text (e.g., [Date of Interview], [Interviewer Name])"
+        ],
+        "ai_calls_fired_here": [
+          "flow_draft_followup"
+        ]
+      },
+      {
+        "id": "log_communication_view",
+        "purpose": "Ingest new recruiter emails to update the timeline and extract hidden meaning/action items.",
+        "persona_state": "Curious and slightly defensive; wants to know what the recruiter *really* means by their vague update.",
+        "primary_action": "Paste email text and click 'Decode & Log'",
+        "secondary_actions": [
+          "Close modal"
+        ],
+        "content_blocks": [
+          "Text area: 'Paste recruiter email here...'",
+          "Helper text: 'We'll extract the true intent, update your timeline, and flag any hidden tasks.'"
+        ],
+        "ai_calls_fired_here": [
+          "flow_decode_response"
+        ]
+      }
+    ],
+    "data_model": {
+      "entities": [
+        {
+          "name": "Application",
+          "fields": [
+            "id",
+            "company_name",
+            "role_title",
+            "current_stage",
+            "days_since_contact",
+            "ghosting_risk_score",
+            "status_health"
+          ],
+          "seed_count": 3,
+          "seed_examples": [
+            "{\"id\": \"app_1\", \"company_name\": \"Stripe\", \"role_title\": \"Senior Product Designer\", \"current_stage\": \"Onsite Panel\", \"days_since_contact\": 9, \"ghosting_risk_score\": 88, \"status_health\": \"High Risk\"}",
+            "{\"id\": \"app_2\", \"company_name\": \"Vercel\", \"role_title\": \"Frontend Engineer\", \"current_stage\": \"Hiring Manager Screen\", \"days_since_contact\": 2, \"ghosting_risk_score\": 12, \"status_health\": \"Healthy\"}",
+            "{\"id\": \"app_3\", \"company_name\": \"Airbnb\", \"role_title\": \"UX Researcher\", \"current_stage\": \"Take-home Assignment\", \"days_since_contact\": 5, \"ghosting_risk_score\": 45, \"status_health\": \"Monitor\"}"
+          ]
+        },
+        {
+          "name": "Communication",
+          "fields": [
+            "id",
+            "application_id",
+            "sender_type",
+            "date",
+            "raw_text",
+            "ai_intent",
+            "ai_sentiment"
+          ],
+          "seed_count": 2,
+          "seed_examples": [
+            "{\"id\": \"comm_1\", \"application_id\": \"app_1\", \"sender_type\": \"recruiter\", \"date\": \"2023-10-12\", \"raw_text\": \"Hi Alex, great having you onsite. We are currently finalizing some headcount planning for Q4. I'll circle back when I have an update.\", \"ai_intent\": \"delaying for headcount\", \"ai_sentiment\": \"neutral/ambiguous\"}",
+            "{\"id\": \"comm_2\", \"application_id\": \"app_2\", \"sender_type\": \"recruiter\", \"date\": \"2023-10-19\", \"raw_text\": \"Alex! The team loved your background. Let's get you scheduled with the HM next week. Are you free Tuesday?\", \"ai_intent\": \"genuine interest\", \"ai_sentiment\": \"highly positive\"}"
+          ]
+        }
+      ]
+    },
+    "state_machine": [
+      {
+        "from": "dashboard_view",
+        "trigger": "User clicks on the Stripe application card",
+        "to": "application_detail_view",
+        "side_effects": [
+          "Transition animation: Expand card to full view",
+          "Fire AI flow: flow_risk_analysis (if cache expired)"
+        ]
+      },
+      {
+        "from": "application_detail_view",
+        "trigger": "User clicks 'Draft Follow-up'",
+        "to": "draft_strategy_modal",
+        "side_effects": [
+          "Open modal overlay"
+        ]
+      },
+      {
+        "from": "draft_strategy_modal",
+        "trigger": "User selects 'The Value Add' and clicks 'Generate Drafts'",
+        "to": "draft_comparison_view",
+        "side_effects": [
+          "Fire AI flow: flow_draft_followup",
+          "Show shimmering loading state on draft cards while waiting"
+        ]
+      },
+      {
+        "from": "draft_comparison_view",
+        "trigger": "User clicks 'Copy to Clipboard' on Draft 2",
+        "to": "application_detail_view",
+        "side_effects": [
+          "Show success toast: 'Draft copied! Timeline updated to reflect follow-up intent.'",
+          "Update Application.days_since_contact to 0 (optimistic update)"
+        ]
+      },
+      {
+        "from": "application_detail_view",
+        "trigger": "User clicks 'Log new communication'",
+        "to": "log_communication_view",
+        "side_effects": [
+          "Slide in side panel"
+        ]
+      },
+      {
+        "from": "log_communication_view",
+        "trigger": "User pastes text and clicks 'Decode & Log'",
+        "to": "application_detail_view",
+        "side_effects": [
+          "Fire AI flow: flow_decode_response",
+          "Update timeline with new communication block",
+          "Recalculate and update Ghosting Risk Score"
+        ]
+      }
+    ],
+    "micro_interactions": [
+      {
+        "element": "Ghosting Risk Indicator (Donut Chart)",
+        "states": [
+          "default",
+          "hover",
+          "active",
+          "loading",
+          "empty",
+          "error",
+          "success"
+        ],
+        "behavior_per_state": {
+          "default": "Solid color based on score (Red for >75, Yellow for 40-74, Green for <40).",
+          "hover": "Expands slightly, reveals tooltip: '9 days since last contact. Industry avg: 4 days.'",
+          "loading": "Desaturated grey with a sweeping shimmer effect.",
+          "success": "Pulses green once when a new positive communication is logged, then settles to new score."
+        }
+      },
+      {
+        "element": "AI Draft Card",
+        "states": [
+          "default",
+          "hover",
+          "active",
+          "loading",
+          "empty",
+          "error",
+          "success"
+        ],
+        "behavior_per_state": {
+          "default": "White card, subtle border, text truncated with fade.",
+          "hover": "Elevates (box-shadow increases), border turns primary brand color, 'Copy' button appears.",
+          "active": "Border thickens, background tints slightly to indicate selection.",
+          "loading": "Three skeleton text lines with a left-to-right gradient wave.",
+          "error": "Red border, text reads: 'Failed to generate. Click to retry.'",
+          "success": "Brief green flash, checkmark icon replaces 'Copy' button temporarily."
+        }
+      }
+    ],
+    "motion_contract": [
+      {
+        "element": "Ghosting Risk Indicator",
+        "signal": "functional",
+        "channel": "color_modulation",
+        "encodes": "Urgency and health status. Shifts smoothly from green to red as days elapse, creating a visceral sense of decaying momentum."
+      },
+      {
+        "element": "Draft Strategy Modal to Comparison View",
+        "signal": "expressive",
+        "channel": "spatial_extension",
+        "encodes": "Expansion of possibilities. The single modal expands horizontally into three distinct columns, visually representing the AI generating multiple options."
+      },
+      {
+        "element": "AI Text Generation (Drafts)",
+        "signal": "functional",
+        "channel": "temporal_sequence",
+        "encodes": "The feeling of a bespoke, real-time thought process. Text fades in line-by-line rather than appearing instantly, reassuring the user that the AI is 'writing' specifically for them."
+      },
+      {
+        "element": "Log Communication Panel",
+        "signal": "functional",
+        "channel": "positional_drift",
+        "encodes": "Context preservation. Slides in from the right over the detail view, ensuring the user doesn't feel they've lost their place in the application timeline."
+      }
+    ],
+    "ai_flows": [
+      {
+        "id": "flow_risk_analysis",
+        "fires_from_screen": "application_detail_view",
+        "fires_on_trigger": "Screen load (if cache expired) or 'Run Health Check' click",
+        "endpoint": "/api/ai/anthropic",
+        "system_prompt_outline": "You are an expert technical recruiter and career coach. Analyze the provided timeline and last communication to assess the likelihood the candidate is being ghosted.",
+        "user_message_template": "Company: {{company_name}}. Stage: {{current_stage}}. Days since contact: {{days_since_contact}}. Last email from recruiter: '{{last_raw_text}}'. Industry avg response: 4 days. Calculate risk.",
+        "expected_response_shape": "{ \"ghosting_risk_score\": number, \"status_health\": \"Healthy\" | \"Monitor\" | \"High Risk\", \"sentiment_analysis\": string, \"recommended_action\": string }",
+        "renders_into": "application_detail_view -> Health Widget & AI Sentiment Analysis block"
+      },
+      {
+        "id": "flow_draft_followup",
+        "fires_from_screen": "draft_strategy_modal",
+        "fires_on_trigger": "User clicks 'Generate Drafts'",
+        "endpoint": "/api/ai/gemini-compat",
+        "system_prompt_outline": "You are an executive communication coach. Write highly professional, concise, and context-aware follow-up emails for a job seeker. Never sound desperate. Provide 3 distinct variations based on the requested strategy.",
+        "user_message_template": "Role: {{role_title}} at {{company_name}}. Last contact: {{days_since_contact}} days ago. Last recruiter email: '{{last_raw_text}}'. Strategy requested: {{selected_strategy}}. Generate 3 drafts.",
+        "expected_response_shape": "{ \"drafts\": [ { \"id\": string, \"theme\": string, \"subject_line\": string, \"body\": string } ] }",
+        "renders_into": "draft_comparison_view -> Draft Cards"
+      },
+      {
+        "id": "flow_decode_response",
+        "fires_from_screen": "log_communication_view",
+        "fires_on_trigger": "User clicks 'Decode & Log'",
+        "endpoint": "/api/ai/openai",
+        "system_prompt_outline": "You are an expert at decoding corporate HR speak. Read the raw recruiter email and extract the true intent, sentiment, and any hidden action items.",
+        "user_message_template": "Extract data from this recruiter email: '{{pasted_email_text}}'",
+        "expected_response_shape": "{ \"true_intent\": string, \"sentiment\": string, \"next_action_date\": string (ISO or null), \"extracted_tasks\": [string] }",
+        "renders_into": "application_detail_view -> Timeline (new entry) and updated Health Widget"
+      }
+    ]
+  },
+  "design_system": {
+    "brand_application": {
+      "logo_treatment": "Northeastern University (NU) Wordmark",
+      "voice_tone": "ambitious, student-first, plain-spoken, evidence-driven, never bombastic, never marketing-puffy"
+    },
+    "type_system": {
+      "display": {
+        "family": "Roboto Condensed",
+        "weight": 700,
+        "size_px": 48,
+        "line_height": 1.1,
+        "tracking": "-0.01em"
+      },
+      "body": {
+        "family": "Open Sans",
+        "weight": 400,
+        "size_px": 16,
+        "line_height": 1.5,
+        "tracking": "0"
+      },
+      "label": {
+        "family": "Open Sans",
+        "weight": 600,
+        "size_px": 14,
+        "line_height": 1.2,
+        "tracking": "0"
+      },
+      "quote": {
+        "family": "Roboto Condensed",
+        "weight": 400,
+        "size_px": 24,
+        "line_height": 1.3,
+        "tracking": "0"
+      },
+      "data": {
+        "family": "IBM Plex Mono",
+        "weight": 400,
+        "size_px": 14,
+        "line_height": 1.4,
+        "tracking": "0"
+      }
+    },
+    "color_system": {
+      "foundation": {
+        "background": "#FFFFFF",
+        "surface": "#F7F7F7",
+        "text_primary": "#000000",
+        "text_secondary": "#414141",
+        "border": "#D9D9D9"
+      },
+      "persona_accents": [
+        "#C8102E",
+        "#F8E5C2"
+      ],
+      "semantic": {
+        "success": "#0F8A4B",
+        "warning": "#B5651D",
+        "friction": "#9E0A24",
+        "opportunity": "#C8102E"
+      },
+      "emphasis": "#C8102E"
+    },
+    "spacing_scale": [
+      4,
+      8,
+      16,
+      24,
+      32,
+      48,
+      64,
+      96
+    ],
+    "motion_tokens": {
+      "easings": {
+        "standard": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "durations_ms": {
+        "instant": 100,
+        "quick": 200,
+        "standard": 400,
+        "deliberate": 700,
+        "ambient": 3000
+      }
+    },
+    "components": [
+      {
+        "name": "button",
+        "anatomy": [
+          "container_2px_radius",
+          "label",
+          "icon"
+        ],
+        "variants": [
+          "primary_red",
+          "secondary_outline",
+          "ghost_text"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "active",
+          "disabled",
+          "loading"
+        ]
+      },
+      {
+        "name": "card",
+        "anatomy": [
+          "container_4px_radius",
+          "header",
+          "body",
+          "footer",
+          "1px_border_elevation"
+        ],
+        "variants": [
+          "default_surface",
+          "interactive_hover",
+          "highlight_red_tint"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "active"
+        ]
+      },
+      {
+        "name": "input",
+        "anatomy": [
+          "label",
+          "field_2px_radius",
+          "placeholder",
+          "helper_text"
+        ],
+        "variants": [
+          "text",
+          "textarea"
+        ],
+        "states_per_variant": [
+          "default",
+          "focus",
+          "error",
+          "disabled"
+        ]
+      },
+      {
+        "name": "badge",
+        "anatomy": [
+          "container_2px_radius",
+          "label",
+          "icon"
+        ],
+        "variants": [
+          "neutral",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "states_per_variant": [
+          "default"
+        ]
+      },
+      {
+        "name": "list_item",
+        "anatomy": [
+          "container",
+          "title",
+          "subtitle",
+          "meta_data",
+          "action_area"
+        ],
+        "variants": [
+          "default",
+          "interactive",
+          "timeline_node"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover"
+        ]
+      },
+      {
+        "name": "modal",
+        "anatomy": [
+          "overlay",
+          "dialog_4px_radius",
+          "header",
+          "body",
+          "footer",
+          "close_button"
+        ],
+        "variants": [
+          "default",
+          "wide_comparison"
+        ],
+        "states_per_variant": [
+          "open",
+          "closed"
+        ]
+      },
+      {
+        "name": "ghosting_risk_indicator",
+        "anatomy": [
+          "donut_chart",
+          "score_label",
+          "tooltip"
+        ],
+        "variants": [
+          "healthy",
+          "monitor",
+          "high_risk"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "loading",
+          "success"
+        ]
+      }
+    ]
+  },
+  "code": "// PLAN:\n// 1. Setup: Define NU brand CSS variables and inject via <style>. Load Google Fonts.\n// 2. Seed Data: Create realistic applications (Stripe, Vercel, Airbnb) and communications.\n// 3. State Management: Main App component holds `currentScreen`, `applications`, `communications`, `selectedAppId`, `draftStrategy`.\n// 4. AI Helpers:\n//    - `analyzeRisk` (Anthropic): Evaluates timeline for ghosting risk.\n//    - `generateDrafts` (Gemini): Creates 3 follow-up options based on strategy.\n//    - `decodeEmail` (OpenAI): Extracts intent and tasks from pasted text.\n// 5. Components:\n//    - `Header`: NU branded top nav.\n//    - `DashboardView`: Grid of active applications.\n//    - `ApplicationDetailView`: Timeline, Risk Indicator, actions.\n//    - `DraftStrategyModal`: Overlay to pick follow-up tone.\n//    - `DraftComparisonView`: Side-by-side AI generated drafts with staggered text reveal and spatial expansion.\n//    - `LogCommunicationView`: Slide-in panel to paste and decode recruiter emails.\n//    - `GhostingRiskIndicator`: Animated SVG donut chart with hover tooltip.\n//    - `DemoControls`: Top-right utility for reviewers.\n// 6. Motion: framer-motion for screen transitions, panel slides, and staggered list reveals.\n\nconst SEED_APPLICATIONS = [\n  { id: \"app_1\", company_name: \"Stripe\", role_title: \"Senior Product Designer\", current_stage: \"Onsite Panel\", days_since_contact: 9, ghosting_risk_score: 88, status_health: \"High Risk\" },\n  { id: \"app_2\", company_name: \"Vercel\", role_title: \"Frontend Engineer\", current_stage: \"Hiring Manager Screen\", days_since_contact: 2, ghosting_risk_score: 12, status_health: \"Healthy\" },\n  { id: \"app_3\", company_name: \"Airbnb\", role_title: \"UX Researcher\", current_stage: \"Take-home Assignment\", days_since_contact: 5, ghosting_risk_score: 45, status_health: \"Monitor\" }\n];\n\nconst SEED_COMMUNICATIONS = [\n  { id: \"comm_1\", application_id: \"app_1\", sender_type: \"recruiter\", date: \"2023-10-12\", raw_text: \"Hi Alex, great having you onsite. We are currently finalizing some headcount planning for Q4. I'll circle back when I have an update.\", ai_intent: \"delaying for headcount\", ai_sentiment: \"neutral/ambiguous\" },\n  { id: \"comm_2\", application_id: \"app_2\", sender_type: \"recruiter\", date: \"2023-10-19\", raw_text: \"Alex! The team loved your background. Let's get you scheduled with the HM next week. Are you free Tuesday?\", ai_intent: \"genuine interest\", ai_sentiment: \"highly positive\" }\n];\n\n// --- AI Helpers ---\n\nasync function analyzeRisk(app, comms) {\n  const lastComm = comms.filter(c => c.application_id === app.id).pop();\n  const prompt = `Company: ${app.company_name}. Stage: ${app.current_stage}. Days since contact: ${app.days_since_contact}. Last email from recruiter: '${lastComm?.raw_text || 'None'}'. Industry avg response: 4 days. Calculate risk. Return ONLY valid JSON with keys: ghosting_risk_score (0-100), status_health (\"Healthy\", \"Monitor\", \"High Risk\"), sentiment_analysis (string), recommended_action (string).`;\n  \n  try {\n    const res = await fetch('/api/ai/anthropic', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({\n        model: \"claude-opus-4-6\",\n        max_tokens: 500,\n        messages: [\n          { role: \"system\", content: \"You are an expert technical recruiter and career coach. Analyze the provided timeline and last communication to assess the likelihood the candidate is being ghosted. Output strictly JSON.\" },\n          { role: \"user\", content: prompt }\n        ]\n      })\n    });\n    const data = await res.json();\n    const text = data?.content?.[0]?.text || \"{}\";\n    const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr);\n  } catch (e) {\n    console.error(\"Risk analysis failed\", e);\n    return { ghosting_risk_score: 75, status_health: \"High Risk\", sentiment_analysis: \"Analysis failed. Assuming high risk due to time elapsed.\", recommended_action: \"Follow up immediately.\" };\n  }\n}\n\nasync function generateDrafts(app, comms, strategy) {\n  const lastComm = comms.filter(c => c.application_id === app.id).pop();\n  const prompt = `Role: ${app.role_title} at ${app.company_name}. Last contact: ${app.days_since_contact} days ago. Last recruiter email: '${lastComm?.raw_text || 'None'}'. Strategy requested: ${strategy}. Generate 3 distinct drafts. Return ONLY valid JSON with a 'drafts' array containing objects with 'id', 'theme', 'subject_line', and 'body'.`;\n\n  try {\n    const res = await fetch('/api/ai/gemini-compat', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gemini-3.1-pro-preview\",\n        temperature: 0.7,\n        max_tokens: 1500,\n        messages: [\n          { role: \"system\", content: \"You are an executive communication coach. Write highly professional, concise, and context-aware follow-up emails for a job seeker. Never sound desperate. Output strictly JSON.\" },\n          { role: \"user\", content: prompt }\n        ]\n      })\n    });\n    const data = await res.json();\n    let text = data?.choices?.[0]?.message?.content || \"{}\";\n    text = text.replace(/```json\\n?/g, '').replace(/```\\n?/g, '');\n    const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr).drafts || [];\n  } catch (e) {\n    console.error(\"Draft generation failed\", e);\n    return [\n      { id: \"1\", theme: \"Fallback 1\", subject_line: \"Checking in\", body: \"Hi, just checking in on the status of my application.\" },\n      { id: \"2\", theme: \"Fallback 2\", subject_line: \"Following up\", body: \"Hello, I wanted to follow up regarding the next steps.\" },\n      { id: \"3\", theme: \"Fallback 3\", subject_line: \"Update request\", body: \"Hi team, any updates on the role?\" }\n    ];\n  }\n}\n\nasync function decodeEmail(text) {\n  try {\n    const res = await fetch('/api/ai/openai', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gpt-5.5\",\n        temperature: 0.2,\n        messages: [\n          { role: \"system\", content: \"You are an expert at decoding corporate HR speak. Read the raw recruiter email and extract the true intent, sentiment, and any hidden action items. Return ONLY valid JSON with keys: true_intent (string), sentiment (string), next_action_date (string or null), extracted_tasks (array of strings).\" },\n          { role: \"user\", content: `Extract data from this recruiter email: '${text}'` }\n        ]\n      })\n    });\n    const data = await res.json();\n    let content = data?.choices?.[0]?.message?.content || \"{}\";\n    content = content.replace(/```json\\n?/g, '').replace(/```\\n?/g, '');\n    const jsonStr = content.substring(content.indexOf('{'), content.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr);\n  } catch (e) {\n    console.error(\"Decode failed\", e);\n    return { true_intent: \"Unknown\", sentiment: \"Neutral\", next_action_date: null, extracted_tasks: [] };\n  }\n}\n\n// --- Components ---\n\nconst GhostingRiskIndicator = ({ score, status, isLoading, daysSinceContact }) => {\n  const radius = 36;\n  const circumference = 2 * Math.PI * radius;\n  const strokeDashoffset = circumference - (score / 100) * circumference;\n  \n  let color = 'var(--success)';\n  if (score >= 75) color = 'var(--friction)';\n  else if (score >= 40) color = 'var(--warning)';\n\n  return (\n    <div className=\"risk-indicator-container\">\n      <div className=\"risk-donut\">\n        <svg width=\"88\" height=\"88\" viewBox=\"0 0 88 88\">\n          <circle cx=\"44\" cy=\"44\" r={radius} fill=\"none\" stroke=\"var(--panel)\" strokeWidth=\"8\" />\n          {!isLoading && (\n            <motion.circle\n              cx=\"44\" cy=\"44\" r={radius} fill=\"none\"\n              stroke={color} strokeWidth=\"8\"\n              strokeLinecap=\"round\"\n              strokeDasharray={circumference}\n              initial={{ strokeDashoffset: circumference, stroke: 'var(--panel)' }}\n              animate={{ strokeDashoffset, stroke: color }}\n              transition={{ duration: 1.5, ease: \"easeOut\" }}\n              style={{ transformOrigin: 'center', transform: 'rotate(-90deg)' }}\n            />\n          )}\n        </svg>\n        <div className=\"risk-score-center\">\n          {isLoading ? (\n            <div className=\"shimmer-text\" style={{ width: '24px', height: '24px' }} />\n          ) : (\n            <span className=\"display-font\" style={{ fontSize: '24px', color: 'var(--text-primary)' }}>{score}</span>\n          )}\n        </div>\n        <div className=\"risk-tooltip\">\n          {daysSinceContact} days since last contact. Industry avg: 4 days.\n        </div>\n      </div>\n      <div className=\"risk-meta\">\n        <div className=\"label-font\" style={{ color: 'var(--text-secondary)' }}>Ghosting Risk</div>\n        <div className=\"body-font\" style={{ fontSize: '14px', color, fontWeight: 600 }}>{isLoading ? 'Analyzing...' : status}</div>\n      </div>\n    </div>\n  );\n};\n\nconst Header = () => (\n  <header className=\"nu-header\">\n    <div className=\"nu-logo\">Northeastern University</div>\n    <div className=\"app-title\">Application Tracker</div>\n    <div className=\"header-actions\">\n      <div className=\"avatar\">A</div>\n    </div>\n  </header>\n);\n\nconst DashboardView = ({ applications, onSelectApp }) => {\n  return (\n    <motion.div \n      className=\"screen-container\"\n      initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}\n    >\n      <div className=\"dashboard-header\">\n        <h1 className=\"display-font\">Active Applications</h1>\n        <div className=\"summary-metrics\">\n          <span className=\"badge neutral\">12 Active</span>\n          <span className=\"badge danger\">2 Need Attention</span>\n          <span className=\"badge success\">1 Offer</span>\n        </div>\n      </div>\n\n      <div className=\"app-grid\">\n        {applications.sort((a, b) => b.ghosting_risk_score - a.ghosting_risk_score).map((app, i) => (\n          <motion.div \n            key={app.id} \n            className={`app-card ${app.ghosting_risk_score > 75 ? 'high-risk' : ''}`}\n            onClick={() => onSelectApp(app.id)}\n            initial={{ opacity: 0, y: 20 }}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{ delay: i * 0.1 }}\n            whileHover={{ y: -2, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}\n          >\n            <div className=\"card-header\">\n              <h3 className=\"display-font\" style={{ fontSize: '24px', margin: 0 }}>{app.company_name}</h3>\n              <span className=\"data-font\" style={{ color: 'var(--text-tertiary)' }}>{app.days_since_contact}d ago</span>\n            </div>\n            <div className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>{app.role_title}</div>\n            \n            <div className=\"card-footer\">\n              <div className=\"stage-badge\">{app.current_stage}</div>\n              <div className=\"risk-pill\" style={{ \n                color: app.ghosting_risk_score > 75 ? 'var(--friction)' : app.ghosting_risk_score > 40 ? 'var(--warning)' : 'var(--success)',\n                backgroundColor: app.ghosting_risk_score > 75 ? 'var(--nu-red-tint)' : 'transparent'\n              }}>\n                Risk: {app.ghosting_risk_score}\n              </div>\n            </div>\n          </motion.div>\n        ))}\n      </div>\n    </motion.div>\n  );\n};\n\nconst ApplicationDetailView = ({ app, comms, onDraftClick, onLogClick, onBack }) => {\n  const [analysis, setAnalysis] = useState(null);\n  const [isAnalyzing, setIsAnalyzing] = useState(false);\n\n  const runAnalysis = async () => {\n    setIsAnalyzing(true);\n    const result = await analyzeRisk(app, comms);\n    setAnalysis(result);\n    setIsAnalyzing(false);\n  };\n\n  useEffect(() => {\n    if (!analysis && app.ghosting_risk_score > 50) {\n      runAnalysis();\n    }\n  }, [app.id]);\n\n  const appComms = comms.filter(c => c.application_id === app.id).sort((a, b) => new Date(b.date) - new Date(a.date));\n\n  return (\n    <motion.div \n      className=\"screen-container detail-view\"\n      initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}\n    >\n      <button className=\"btn-ghost\" onClick={onBack} style={{ marginBottom: '24px' }}>\n        ← Back to Dashboard\n      </button>\n\n      <div className=\"detail-header-area\">\n        <div>\n          <h1 className=\"display-font\" style={{ fontSize: '48px', margin: '0 0 8px 0' }}>{app.company_name}</h1>\n          <div className=\"quote-font\" style={{ color: 'var(--text-secondary)' }}>{app.role_title}</div>\n        </div>\n        <div className=\"action-group\">\n          <button className=\"btn-secondary\" onClick={onLogClick}>Log Communication</button>\n          <button className=\"btn-primary\" onClick={onDraftClick}>Draft Follow-up</button>\n        </div>\n      </div>\n\n      <div className=\"detail-grid\">\n        <div className=\"main-column\">\n          <h3 className=\"label-font\" style={{ marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '1px' }}>Timeline</h3>\n          <div className=\"timeline\">\n            {appComms.map((comm, i) => (\n              <motion.div \n                key={comm.id} className=\"timeline-node\"\n                initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}\n              >\n                <div className=\"node-dot\" />\n                <div className=\"node-content\">\n                  <div className=\"node-meta data-font\">{comm.date} • {comm.sender_type}</div>\n                  <div className=\"node-text body-font\">{comm.raw_text}</div>\n                  {comm.ai_intent && (\n                    <div className=\"node-ai-insight\">\n                      <lucide.Sparkles size={14} style={{ color: 'var(--nu-red)' }} />\n                      <span className=\"body-font\" style={{ fontSize: '13px' }}>Intent: {comm.ai_intent}</span>\n                    </div>\n                  )}\n                </div>\n              </motion.div>\n            ))}\n          </div>\n        </div>\n\n        <div className=\"side-column\">\n          <div className=\"health-widget card\">\n            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>\n              <h3 className=\"label-font\">Application Health</h3>\n              <button className=\"btn-ghost\" style={{ padding: '4px 8px', fontSize: '12px' }} onClick={runAnalysis} disabled={isAnalyzing} aria-label=\"Refresh Analysis\">\n                <lucide.RefreshCw size={14} className={isAnalyzing ? 'spin' : ''} />\n              </button>\n            </div>\n            \n            <GhostingRiskIndicator \n              score={analysis?.ghosting_risk_score || app.ghosting_risk_score} \n              status={analysis?.status_health || app.status_health}\n              isLoading={isAnalyzing} \n              daysSinceContact={app.days_since_contact}\n            />\n\n            <div className=\"ai-sentiment-box\" style={{ marginTop: '24px' }}>\n              <div className=\"label-font\" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>\n                <lucide.BrainCircuit size={16} color=\"var(--nu-red)\" />\n                AI Analysis\n              </div>\n              {isAnalyzing ? (\n                <div className=\"skeleton-block\" style={{ height: '60px' }} />\n              ) : (\n                <p className=\"body-font\" style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: 0 }}>\n                  {analysis?.sentiment_analysis || \"Awaiting analysis. Run health check to evaluate recent communications against industry baselines.\"}\n                </p>\n              )}\n            </div>\n          </div>\n        </div>\n      </div>\n    </motion.div>\n  );\n};\n\nconst DraftStrategyModal = ({ onGenerate, onCancel }) => {\n  const [selected, setSelected] = useState(\"The Gentle Nudge\");\n  const strategies = [\n    { id: \"The Gentle Nudge\", desc: \"Polite check-in, assumes they are busy.\" },\n    { id: \"The Value Add\", desc: \"Share a relevant article or portfolio piece to bump the thread.\" },\n    { id: \"The Timeline Check\", desc: \"Directly ask about next steps and timeline.\" }\n  ];\n\n  return (\n    <div className=\"modal-overlay\">\n      <motion.div \n        className=\"modal-dialog\"\n        initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}\n      >\n        <div className=\"modal-header\">\n          <h2 className=\"display-font\" style={{ fontSize: '32px', margin: 0 }}>Select Follow-up Strategy</h2>\n          <button className=\"btn-icon\" onClick={onCancel} aria-label=\"Close Modal\"><lucide.X size={24} /></button>\n        </div>\n        <div className=\"modal-body\">\n          <p className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>\n            Guide the AI's tone before generating drafts. We'll use the context of your last interaction.\n          </p>\n          <div className=\"strategy-options\">\n            {strategies.map(s => (\n              <div \n                key={s.id} \n                className={`strategy-card ${selected === s.id ? 'selected' : ''}`}\n                onClick={() => setSelected(s.id)}\n              >\n                <div className=\"radio-circle\">{selected === s.id && <div className=\"radio-fill\" />}</div>\n                <div>\n                  <div className=\"label-font\">{s.id}</div>\n                  <div className=\"body-font\" style={{ fontSize: '13px', color: 'var(--text-tertiary)' }}>{s.desc}</div>\n                </div>\n              </div>\n            ))}\n          </div>\n        </div>\n        <div className=\"modal-footer\">\n          <button className=\"btn-secondary\" onClick={onCancel}>Cancel</button>\n          <button className=\"btn-primary\" onClick={() => onGenerate(selected)}>Generate Drafts</button>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n\nconst DraftComparisonView = ({ app, comms, strategy, onCopy, onCancel }) => {\n  const [drafts, setDrafts] = useState([]);\n  const [isLoading, setIsLoading] = useState(true);\n  const [copiedId, setCopiedId] = useState(null);\n\n  useEffect(() => {\n    generateDrafts(app, comms, strategy).then(res => {\n      setDrafts(res);\n      setIsLoading(false);\n    });\n  }, [app, comms, strategy]);\n\n  const handleCopy = (draft) => {\n    setCopiedId(draft.id);\n    setTimeout(() => onCopy(draft), 1500);\n  };\n\n  return (\n    <motion.div \n      className=\"screen-container wide-comparison\"\n      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}\n    >\n      <div className=\"comparison-header\">\n        <div>\n          <h1 className=\"display-font\" style={{ fontSize: '32px', margin: '0 0 8px 0' }}>Review Drafts</h1>\n          <div className=\"body-font\" style={{ color: 'var(--text-secondary)' }}>Strategy: {strategy}</div>\n        </div>\n        <button className=\"btn-ghost\" onClick={onCancel}>Cancel</button>\n      </div>\n\n      <motion.div \n        className=\"drafts-grid\"\n        initial={{ width: '33%', margin: '0 auto', opacity: 0 }}\n        animate={{ width: '100%', opacity: 1 }}\n        transition={{ duration: 0.5, ease: \"easeInOut\" }}\n      >\n        {isLoading ? (\n          [1, 2, 3].map(i => (\n            <div key={i} className=\"draft-card loading\">\n              <div className=\"skeleton-line\" style={{ width: '60%', marginBottom: '24px' }} />\n              <div className=\"skeleton-line\" />\n              <div className=\"skeleton-line\" />\n              <div className=\"skeleton-line\" style={{ width: '80%' }} />\n            </div>\n          ))\n        ) : (\n          drafts.map((draft, i) => (\n            <motion.div \n              key={draft.id} className=\"draft-card\"\n              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 + 0.5 }}\n            >\n              <div className=\"draft-theme label-font\">{draft.theme}</div>\n              <div className=\"draft-subject data-font\">Subj: {draft.subject_line}</div>\n              <div className=\"draft-body body-font\">\n                {draft.body.split('\\n').map((paragraph, pIdx) => (\n                  <motion.p \n                    key={pIdx}\n                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (i * 0.15) + (pIdx * 0.2) + 0.8 }}\n                  >\n                    {paragraph}\n                  </motion.p>\n                ))}\n              </div>\n              <div className=\"draft-actions\">\n                <button \n                  className={`btn-secondary ${copiedId === draft.id ? 'success-state' : ''}`} \n                  style={{ width: '100%' }}\n                  onClick={() => handleCopy(draft)}\n                >\n                  {copiedId === draft.id ? <><lucide.Check size={16} /> Copied & Logged</> : 'Copy to Clipboard'}\n                </button>\n              </div>\n            </motion.div>\n          ))\n        )}\n      </motion.div>\n    </motion.div>\n  );\n};\n\nconst LogCommunicationPanel = ({ onLog, onClose }) => {\n  const [text, setText] = useState('');\n  const [isDecoding, setIsDecoding] = useState(false);\n\n  const handleDecode = async () => {\n    if (!text.trim()) return;\n    setIsDecoding(true);\n    const result = await decodeEmail(text);\n    setIsDecoding(false);\n    onLog(text, result);\n  };\n\n  return (\n    <div className=\"panel-overlay\" onClick={onClose}>\n      <motion.div \n        className=\"side-panel\"\n        initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}\n        transition={{ type: 'spring', damping: 25, stiffness: 200 }}\n        onClick={e => e.stopPropagation()}\n      >\n        <div className=\"panel-header\">\n          <h2 className=\"display-font\" style={{ fontSize: '24px', margin: 0 }}>Log Communication</h2>\n          <button className=\"btn-icon\" onClick={onClose} aria-label=\"Close Panel\"><lucide.X size={24} /></button>\n        </div>\n        <div className=\"panel-body\">\n          <p className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>\n            Paste the recruiter's email below. We'll extract the true intent, update your timeline, and flag any hidden tasks.\n          </p>\n          <textarea \n            className=\"nu-textarea body-font\" \n            placeholder=\"Paste email text here...\"\n            value={text}\n            onChange={e => setText(e.target.value)}\n          />\n        </div>\n        <div className=\"panel-footer\">\n          <button className=\"btn-primary\" style={{ width: '100%' }} onClick={handleDecode} disabled={isDecoding || !text.trim()}>\n            {isDecoding ? 'Decoding...' : 'Decode & Log'}\n          </button>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n\nconst DemoControls = ({ setScreen }) => (\n  <div className=\"demo-controls\">\n    <div className=\"data-font\" style={{ fontSize: '10px', marginBottom: '4px', color: 'var(--text-secondary)' }}>DEMO CONTROLS</div>\n    <div style={{ display: 'flex', gap: '4px' }}>\n      <button onClick={() => setScreen('dashboard_view')}>Dash</button>\n      <button onClick={() => setScreen('application_detail_view')}>Detail</button>\n    </div>\n  </div>\n);\n\n// --- Main App ---\n\nconst App = () => {\n  const [currentScreen, setCurrentScreen] = useState('dashboard_view');\n  const [applications, setApplications] = useState(SEED_APPLICATIONS);\n  const [communications, setCommunications] = useState(SEED_COMMUNICATIONS);\n  const [selectedAppId, setSelectedAppId] = useState(null);\n  const [draftStrategy, setDraftStrategy] = useState(null);\n  const [showLogPanel, setShowLogPanel] = useState(false);\n\n  useEffect(() => {\n    const fontLink = document.createElement('link');\n    fontLink.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap';\n    fontLink.rel = 'stylesheet';\n    document.head.appendChild(fontLink);\n\n    const style = document.createElement('style');\n    style.textContent = `\n      :root {\n        --nu-red: #C8102E;\n        --nu-red-deep: #9E0A24;\n        --nu-red-tint: rgba(200, 16, 46, 0.1);\n        --cream: #F8E5C2;\n        --bg: #FFFFFF;\n        --surface: #F7F7F7;\n        --panel: rgba(217, 217, 217, 0.3);\n        --text-primary: #000000;\n        --text-secondary: #414141;\n        --text-tertiary: rgba(65, 65, 65, 0.7);\n        --border: #D9D9D9;\n        --success: #0F8A4B;\n        --success-tint: rgba(15, 138, 75, 0.1);\n        --warning: #B5651D;\n        --friction: #9E0A24;\n        --friction-tint: rgba(200, 16, 46, 0.02);\n      }\n      \n      * { box-sizing: border-box; }\n      body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antialiased; }\n      \n      .display-font { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; letter-spacing: -0.01em; }\n      .body-font { font-family: 'Open Sans', sans-serif; font-weight: 400; }\n      .label-font { font-family: 'Open Sans', sans-serif; font-weight: 600; }\n      .quote-font { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 24px; }\n      .data-font { font-family: 'IBM Plex Mono', monospace; font-weight: 400; }\n\n      .nu-header { display: flex; align-items: center; padding: 0 32px; height: 64px; border-bottom: 1px solid var(--border); background: var(--bg); }\n      .nu-logo { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 20px; color: var(--nu-red); margin-right: 24px; text-transform: uppercase; }\n      .app-title { font-family: 'Open Sans', sans-serif; font-weight: 600; color: var(--text-secondary); flex-grow: 1; }\n      .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--panel); display: flex; align-items: center; justify-content: center; font-weight: 600; }\n\n      .screen-container { padding: 48px 32px; max-width: 1200px; margin: 0 auto; }\n      \n      .dashboard-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }\n      .dashboard-header h1 { margin: 0; font-size: 48px; }\n      .summary-metrics { display: flex; gap: 12px; }\n      \n      .badge { padding: 4px 8px; border-radius: 2px; font-size: 12px; font-weight: 600; font-family: 'Open Sans', sans-serif; }\n      .badge.neutral { background: var(--panel); color: var(--text-secondary); }\n      .badge.danger { background: var(--nu-red-tint); color: var(--friction); }\n      .badge.success { background: var(--success-tint); color: var(--success); }\n\n      .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }\n      .app-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; cursor: pointer; transition: all 0.2s ease; }\n      .app-card.high-risk { border-color: var(--nu-red-tint); background: var(--friction-tint); }\n      .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }\n      .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }\n      .stage-badge { font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--panel); padding: 4px 8px; border-radius: 2px; }\n      .risk-pill { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 2px; }\n\n      .btn-primary { height: 44px; padding: 0 24px; background: var(--nu-red); color: var(--bg); border: none; border-radius: 2px; font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }\n      .btn-primary:hover { background: var(--nu-red-deep); }\n      .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }\n      .btn-secondary { height: 44px; padding: 0 24px; background: transparent; color: var(--text-primary); border: 1px solid var(--border); border-radius: 2px; font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }\n      .btn-secondary:hover { border-color: var(--text-primary); background: var(--surface); }\n      .btn-secondary.success-state { background: var(--success-tint); border-color: var(--success); color: var(--success); }\n      .btn-ghost { background: transparent; border: none; color: var(--text-secondary); font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }\n      .btn-ghost:hover { color: var(--text-primary); }\n      .btn-icon { background: transparent; border: none; cursor: pointer; padding: 4px; color: var(--text-secondary); display: flex; }\n      .btn-icon:hover { color: var(--text-primary); }\n\n      .detail-header-area { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }\n      .action-group { display: flex; gap: 16px; }\n      \n      .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }\n      \n      .timeline { position: relative; padding-left: 24px; border-left: 2px solid var(--panel); }\n      .timeline-node { position: relative; margin-bottom: 32px; }\n      .node-dot { position: absolute; left: -31px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); }\n      .node-meta { color: var(--text-tertiary); margin-bottom: 8px; font-size: 12px; }\n      .node-text { background: var(--surface); padding: 16px; border-radius: 4px; border: 1px solid var(--border); line-height: 1.5; }\n      .node-ai-insight { margin-top: 8px; padding: 8px 12px; background: var(--nu-red-tint); border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; color: var(--nu-red-deep); }\n\n      .card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }\n      \n      .risk-indicator-container { display: flex; align-items: center; gap: 24px; }\n      .risk-donut { position: relative; width: 88px; height: 88px; transition: transform 0.2s ease; cursor: default; }\n      .risk-donut:hover { transform: scale(1.05); }\n      .risk-score-center { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }\n      .risk-tooltip { opacity: 0; position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); background: var(--text-primary); color: var(--bg); padding: 6px 12px; border-radius: 4px; font-size: 12px; white-space: nowrap; transition: opacity 0.2s ease; pointer-events: none; z-index: 10; font-family: 'Open Sans', sans-serif; }\n      .risk-donut:hover .risk-tooltip { opacity: 1; }\n      \n      .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(2px); }\n      .modal-dialog { background: var(--bg); border-radius: 4px; width: 100%; max-width: 600px; box-shadow: 0 24px 48px rgba(0,0,0,0.1); display: flex; flex-direction: column; }\n      .modal-header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }\n      .modal-body { padding: 32px; }\n      .modal-footer { padding: 24px 32px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 16px; background: var(--surface); }\n\n      .strategy-options { display: flex; flex-direction: column; gap: 12px; }\n      .strategy-card { display: flex; gap: 16px; padding: 16px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; transition: all 0.2s; }\n      .strategy-card:hover { border-color: var(--text-secondary); }\n      .strategy-card.selected { border-color: var(--nu-red); background: var(--nu-red-tint); }\n      .radio-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }\n      .strategy-card.selected .radio-circle { border-color: var(--nu-red); }\n      .radio-fill { width: 10px; height: 10px; border-radius: 50%; background: var(--nu-red); }\n\n      .wide-comparison { max-width: 1400px; }\n      .comparison-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }\n      .drafts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }\n      .draft-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; height: 100%; transition: all 0.2s ease; }\n      .draft-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--nu-red); }\n      .draft-theme { color: var(--nu-red); margin-bottom: 16px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }\n      .draft-subject { padding-bottom: 16px; border-bottom: 1px solid var(--panel); margin-bottom: 16px; color: var(--text-secondary); }\n      .draft-body { flex-grow: 1; line-height: 1.6; color: var(--text-secondary); font-size: 14px; white-space: pre-wrap; margin-bottom: 24px; }\n      .draft-actions { opacity: 0; transition: opacity 0.2s ease; }\n      .draft-card:hover .draft-actions, .draft-actions:focus-within { opacity: 1; }\n      \n      .panel-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.2); z-index: 100; display: flex; justify-content: flex-end; }\n      .side-panel { width: 480px; background: var(--bg); height: 100%; box-shadow: -8px 0 24px rgba(0,0,0,0.05); display: flex; flex-direction: column; }\n      .panel-header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }\n      .panel-body { padding: 32px; flex-grow: 1; overflow-y: auto; }\n      .panel-footer { padding: 24px 32px; border-top: 1px solid var(--border); background: var(--surface); }\n      \n      .nu-textarea { width: 100%; height: 300px; padding: 16px; border: 1px solid var(--border); border-radius: 2px; resize: vertical; outline: none; transition: border-color 0.2s; }\n      .nu-textarea:focus { border-color: var(--nu-red); }\n\n      .demo-controls { position: fixed; top: 8px; right: 8px; background: var(--bg); border: 1px solid var(--border); padding: 8px; z-index: 999; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }\n      .demo-controls button { font-size: 10px; padding: 2px 6px; cursor: pointer; }\n\n      .shimmer-text { background: linear-gradient(90deg, var(--panel) 25%, var(--surface) 50%, var(--panel) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 2px; }\n      .skeleton-line { height: 14px; background: var(--panel); margin-bottom: 12px; border-radius: 2px; }\n      .skeleton-block { background: var(--panel); border-radius: 2px; width: 100%; }\n      @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }\n      .spin { animation: spin 1s linear infinite; }\n      @keyframes spin { 100% { transform: rotate(360deg); } }\n    `;\n    document.head.appendChild(style);\n    return () => { document.head.removeChild(style); document.head.removeChild(fontLink); };\n  }, []);\n\n  const handleSelectApp = (id) => {\n    setSelectedAppId(id);\n    setCurrentScreen('application_detail_view');\n  };\n\n  const handleGenerateDrafts = (strategy) => {\n    setDraftStrategy(strategy);\n    setCurrentScreen('draft_comparison_view');\n  };\n\n  const handleCopyDraft = (draft) => {\n    setApplications(apps => apps.map(a => a.id === selectedAppId ? { ...a, days_since_contact: 0, ghosting_risk_score: 10, status_health: 'Healthy' } : a));\n    \n    const newComm = {\n      id: `comm_${Date.now()}`,\n      application_id: selectedAppId,\n      sender_type: \"candidate\",\n      date: new Date().toISOString().split('T')[0],\n      raw_text: `Sent follow-up: ${draft.subject_line}\\n\\n${draft.body}`,\n      ai_intent: \"proactive follow-up\",\n      ai_sentiment: \"positive\"\n    };\n    setCommunications(prev => [...prev, newComm]);\n    \n    setCurrentScreen('application_detail_view');\n  };\n\n  const handleLogCommunication = (text, aiResult) => {\n    const newComm = {\n      id: `comm_${Date.now()}`,\n      application_id: selectedAppId,\n      sender_type: \"recruiter\",\n      date: new Date().toISOString().split('T')[0],\n      raw_text: text,\n      ai_intent: aiResult.true_intent,\n      ai_sentiment: aiResult.sentiment\n    };\n    setCommunications(prev => [...prev, newComm]);\n    \n    setApplications(apps => apps.map(a => a.id === selectedAppId ? { ...a, days_since_contact: 0, ghosting_risk_score: aiResult.sentiment.includes('positive') ? 20 : 50 } : a));\n    \n    setShowLogPanel(false);\n  };\n\n  const activeApp = applications.find(a => a.id === selectedAppId) || applications[0];\n  const noop = () => {};\n\n  return (\n    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>\n      <Header />\n      <DemoControls setScreen={setCurrentScreen} />\n      \n      <main style={{ flexGrow: 1, position: 'relative' }}>\n        <AnimatePresence mode=\"wait\">\n          {currentScreen === 'dashboard_view' && (\n            <DashboardView key=\"dash\" applications={applications} onSelectApp={handleSelectApp} />\n          )}\n          \n          {currentScreen === 'application_detail_view' && (\n            <ApplicationDetailView \n              key=\"detail\" \n              app={activeApp} \n              comms={communications}\n              onBack={() => setCurrentScreen('dashboard_view')}\n              onDraftClick={() => setCurrentScreen('draft_strategy_modal')}\n              onLogClick={() => setShowLogPanel(true)}\n            />\n          )}\n\n          {currentScreen === 'draft_strategy_modal' && (\n            <ApplicationDetailView \n              key=\"detail-bg\" \n              app={activeApp} \n              comms={communications}\n              onBack={noop} onDraftClick={noop} onLogClick={noop}\n            />\n          )}\n\n          {currentScreen === 'draft_comparison_view' && (\n            <DraftComparisonView \n              key=\"compare\"\n              app={activeApp}\n              comms={communications}\n              strategy={draftStrategy}\n              onCopy={handleCopyDraft}\n              onCancel={() => setCurrentScreen('application_detail_view')}\n            />\n          )}\n        </AnimatePresence>\n\n        <AnimatePresence>\n          {currentScreen === 'draft_strategy_modal' && (\n            <DraftStrategyModal \n              key=\"modal\"\n              onGenerate={handleGenerateDrafts}\n              onCancel={() => setCurrentScreen('application_detail_view')}\n            />\n          )}\n          \n          {showLogPanel && (\n            <LogCommunicationPanel \n              key=\"panel\"\n              onLog={handleLogCommunication}\n              onClose={() => setShowLogPanel(false)}\n            />\n          )}\n        </AnimatePresence>\n      </main>\n    </div>\n  );\n};\n\nfunction __test_state_transitions__() {\n  console.assert(typeof App === 'function', 'App must be a component');\n  return true;\n}\nif (typeof window !== 'undefined') {\n  window.__hicProtoTests = __test_state_transitions__;\n}",
+  "critique": {
+    "verdict": "refine",
+    "summary": "The prototype successfully implements the core AI flows, state transitions, and overall layout specified in the brief. However, it introduces several rogue hex colors that violate the Design System, misses key micro-interactions (tooltips, hover states), and fails to fully implement the spatial extension motion contract for the draft comparison view.",
+    "issues": [
+      {
+        "category": "system_violation",
+        "severity": "blocking",
+        "description": "The CSS introduces several rogue hex codes not defined in the Design System (e.g., #F0F0F0, #737373, #FBE7EA, #FEFAFA, #E6F4EA, #888, #ccc, #fff).",
+        "source_of_truth": "Design System (color_system)",
+        "code_location": "CSS within App component useEffect",
+        "fix": "Replace all rogue hex codes with exact tokens from the Design System or rgba() derivatives of those exact tokens (e.g., rgba(200, 16, 46, 0.1) instead of #FBE7EA)."
+      },
+      {
+        "category": "spec_violation",
+        "severity": "significant",
+        "description": "The Ghosting Risk Indicator is missing the specified hover micro-interaction (expands slightly, reveals tooltip).",
+        "source_of_truth": "Interaction Spec (micro_interactions -> Ghosting Risk Indicator)",
+        "code_location": "GhostingRiskIndicator component",
+        "fix": "Add CSS transform scale on hover and implement a custom tooltip element that fades in on hover."
+      },
+      {
+        "category": "spec_violation",
+        "severity": "significant",
+        "description": "The AI Draft Card 'Copy' button is always visible, violating the spec which states it should only appear on hover.",
+        "source_of_truth": "Interaction Spec (micro_interactions -> AI Draft Card)",
+        "code_location": "DraftComparisonView component & CSS",
+        "fix": "Set the draft-actions container to opacity 0 by default, and opacity 1 on card hover or focus-within."
+      },
+      {
+        "category": "spec_violation",
+        "severity": "significant",
+        "description": "The transition from Draft Strategy Modal to Comparison View does not honor the 'spatial_extension' motion contract (expanding horizontally).",
+        "source_of_truth": "Interaction Spec (motion_contract -> Draft Strategy Modal to Comparison View)",
+        "code_location": "DraftComparisonView component",
+        "fix": "Wrap the drafts grid in a motion.div that animates its width from 33% (modal width) to 100% to simulate the horizontal expansion."
+      },
+      {
+        "category": "accessibility",
+        "severity": "minor",
+        "description": "Icon-only buttons (Close, Refresh) lack aria-labels, making them inaccessible to screen readers.",
+        "source_of_truth": "Experience Brief (hard_constraints -> accessibility)",
+        "code_location": "ApplicationDetailView, DraftStrategyModal, LogCommunicationPanel",
+        "fix": "Add descriptive aria-label attributes to all icon-only buttons."
+      }
+    ],
+    "corrected_code": "// PLAN:\n// 1. Setup: Define NU brand CSS variables and inject via <style>. Load Google Fonts.\n// 2. Seed Data: Create realistic applications (Stripe, Vercel, Airbnb) and communications.\n// 3. State Management: Main App component holds `currentScreen`, `applications`, `communications`, `selectedAppId`, `draftStrategy`.\n// 4. AI Helpers:\n//    - `analyzeRisk` (Anthropic): Evaluates timeline for ghosting risk.\n//    - `generateDrafts` (Gemini): Creates 3 follow-up options based on strategy.\n//    - `decodeEmail` (OpenAI): Extracts intent and tasks from pasted text.\n// 5. Components:\n//    - `Header`: NU branded top nav.\n//    - `DashboardView`: Grid of active applications.\n//    - `ApplicationDetailView`: Timeline, Risk Indicator, actions.\n//    - `DraftStrategyModal`: Overlay to pick follow-up tone.\n//    - `DraftComparisonView`: Side-by-side AI generated drafts with staggered text reveal and spatial expansion.\n//    - `LogCommunicationView`: Slide-in panel to paste and decode recruiter emails.\n//    - `GhostingRiskIndicator`: Animated SVG donut chart with hover tooltip.\n//    - `DemoControls`: Top-right utility for reviewers.\n// 6. Motion: framer-motion for screen transitions, panel slides, and staggered list reveals.\n\nconst SEED_APPLICATIONS = [\n  { id: \"app_1\", company_name: \"Stripe\", role_title: \"Senior Product Designer\", current_stage: \"Onsite Panel\", days_since_contact: 9, ghosting_risk_score: 88, status_health: \"High Risk\" },\n  { id: \"app_2\", company_name: \"Vercel\", role_title: \"Frontend Engineer\", current_stage: \"Hiring Manager Screen\", days_since_contact: 2, ghosting_risk_score: 12, status_health: \"Healthy\" },\n  { id: \"app_3\", company_name: \"Airbnb\", role_title: \"UX Researcher\", current_stage: \"Take-home Assignment\", days_since_contact: 5, ghosting_risk_score: 45, status_health: \"Monitor\" }\n];\n\nconst SEED_COMMUNICATIONS = [\n  { id: \"comm_1\", application_id: \"app_1\", sender_type: \"recruiter\", date: \"2023-10-12\", raw_text: \"Hi Alex, great having you onsite. We are currently finalizing some headcount planning for Q4. I'll circle back when I have an update.\", ai_intent: \"delaying for headcount\", ai_sentiment: \"neutral/ambiguous\" },\n  { id: \"comm_2\", application_id: \"app_2\", sender_type: \"recruiter\", date: \"2023-10-19\", raw_text: \"Alex! The team loved your background. Let's get you scheduled with the HM next week. Are you free Tuesday?\", ai_intent: \"genuine interest\", ai_sentiment: \"highly positive\" }\n];\n\n// --- AI Helpers ---\n\nasync function analyzeRisk(app, comms) {\n  const lastComm = comms.filter(c => c.application_id === app.id).pop();\n  const prompt = `Company: ${app.company_name}. Stage: ${app.current_stage}. Days since contact: ${app.days_since_contact}. Last email from recruiter: '${lastComm?.raw_text || 'None'}'. Industry avg response: 4 days. Calculate risk. Return ONLY valid JSON with keys: ghosting_risk_score (0-100), status_health (\"Healthy\", \"Monitor\", \"High Risk\"), sentiment_analysis (string), recommended_action (string).`;\n  \n  try {\n    const res = await fetch('/api/ai/anthropic', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({\n        model: \"claude-opus-4-6\",\n        max_tokens: 500,\n        messages: [\n          { role: \"system\", content: \"You are an expert technical recruiter and career coach. Analyze the provided timeline and last communication to assess the likelihood the candidate is being ghosted. Output strictly JSON.\" },\n          { role: \"user\", content: prompt }\n        ]\n      })\n    });\n    const data = await res.json();\n    const text = data?.content?.[0]?.text || \"{}\";\n    const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr);\n  } catch (e) {\n    console.error(\"Risk analysis failed\", e);\n    return { ghosting_risk_score: 75, status_health: \"High Risk\", sentiment_analysis: \"Analysis failed. Assuming high risk due to time elapsed.\", recommended_action: \"Follow up immediately.\" };\n  }\n}\n\nasync function generateDrafts(app, comms, strategy) {\n  const lastComm = comms.filter(c => c.application_id === app.id).pop();\n  const prompt = `Role: ${app.role_title} at ${app.company_name}. Last contact: ${app.days_since_contact} days ago. Last recruiter email: '${lastComm?.raw_text || 'None'}'. Strategy requested: ${strategy}. Generate 3 distinct drafts. Return ONLY valid JSON with a 'drafts' array containing objects with 'id', 'theme', 'subject_line', and 'body'.`;\n\n  try {\n    const res = await fetch('/api/ai/gemini-compat', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gemini-3.1-pro-preview\",\n        temperature: 0.7,\n        max_tokens: 1500,\n        messages: [\n          { role: \"system\", content: \"You are an executive communication coach. Write highly professional, concise, and context-aware follow-up emails for a job seeker. Never sound desperate. Output strictly JSON.\" },\n          { role: \"user\", content: prompt }\n        ]\n      })\n    });\n    const data = await res.json();\n    let text = data?.choices?.[0]?.message?.content || \"{}\";\n    text = text.replace(/```json\\n?/g, '').replace(/```\\n?/g, '');\n    const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr).drafts || [];\n  } catch (e) {\n    console.error(\"Draft generation failed\", e);\n    return [\n      { id: \"1\", theme: \"Fallback 1\", subject_line: \"Checking in\", body: \"Hi, just checking in on the status of my application.\" },\n      { id: \"2\", theme: \"Fallback 2\", subject_line: \"Following up\", body: \"Hello, I wanted to follow up regarding the next steps.\" },\n      { id: \"3\", theme: \"Fallback 3\", subject_line: \"Update request\", body: \"Hi team, any updates on the role?\" }\n    ];\n  }\n}\n\nasync function decodeEmail(text) {\n  try {\n    const res = await fetch('/api/ai/openai', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gpt-5.5\",\n        temperature: 0.2,\n        messages: [\n          { role: \"system\", content: \"You are an expert at decoding corporate HR speak. Read the raw recruiter email and extract the true intent, sentiment, and any hidden action items. Return ONLY valid JSON with keys: true_intent (string), sentiment (string), next_action_date (string or null), extracted_tasks (array of strings).\" },\n          { role: \"user\", content: `Extract data from this recruiter email: '${text}'` }\n        ]\n      })\n    });\n    const data = await res.json();\n    let content = data?.choices?.[0]?.message?.content || \"{}\";\n    content = content.replace(/```json\\n?/g, '').replace(/```\\n?/g, '');\n    const jsonStr = content.substring(content.indexOf('{'), content.lastIndexOf('}') + 1);\n    return JSON.parse(jsonStr);\n  } catch (e) {\n    console.error(\"Decode failed\", e);\n    return { true_intent: \"Unknown\", sentiment: \"Neutral\", next_action_date: null, extracted_tasks: [] };\n  }\n}\n\n// --- Components ---\n\nconst GhostingRiskIndicator = ({ score, status, isLoading, daysSinceContact }) => {\n  const radius = 36;\n  const circumference = 2 * Math.PI * radius;\n  const strokeDashoffset = circumference - (score / 100) * circumference;\n  \n  let color = 'var(--success)';\n  if (score >= 75) color = 'var(--friction)';\n  else if (score >= 40) color = 'var(--warning)';\n\n  return (\n    <div className=\"risk-indicator-container\">\n      <div className=\"risk-donut\">\n        <svg width=\"88\" height=\"88\" viewBox=\"0 0 88 88\">\n          <circle cx=\"44\" cy=\"44\" r={radius} fill=\"none\" stroke=\"var(--panel)\" strokeWidth=\"8\" />\n          {!isLoading && (\n            <motion.circle\n              cx=\"44\" cy=\"44\" r={radius} fill=\"none\"\n              stroke={color} strokeWidth=\"8\"\n              strokeLinecap=\"round\"\n              strokeDasharray={circumference}\n              initial={{ strokeDashoffset: circumference, stroke: 'var(--panel)' }}\n              animate={{ strokeDashoffset, stroke: color }}\n              transition={{ duration: 1.5, ease: \"easeOut\" }}\n              style={{ transformOrigin: 'center', transform: 'rotate(-90deg)' }}\n            />\n          )}\n        </svg>\n        <div className=\"risk-score-center\">\n          {isLoading ? (\n            <div className=\"shimmer-text\" style={{ width: '24px', height: '24px' }} />\n          ) : (\n            <span className=\"display-font\" style={{ fontSize: '24px', color: 'var(--text-primary)' }}>{score}</span>\n          )}\n        </div>\n        <div className=\"risk-tooltip\">\n          {daysSinceContact} days since last contact. Industry avg: 4 days.\n        </div>\n      </div>\n      <div className=\"risk-meta\">\n        <div className=\"label-font\" style={{ color: 'var(--text-secondary)' }}>Ghosting Risk</div>\n        <div className=\"body-font\" style={{ fontSize: '14px', color, fontWeight: 600 }}>{isLoading ? 'Analyzing...' : status}</div>\n      </div>\n    </div>\n  );\n};\n\nconst Header = () => (\n  <header className=\"nu-header\">\n    <div className=\"nu-logo\">Northeastern University</div>\n    <div className=\"app-title\">Application Tracker</div>\n    <div className=\"header-actions\">\n      <div className=\"avatar\">A</div>\n    </div>\n  </header>\n);\n\nconst DashboardView = ({ applications, onSelectApp }) => {\n  return (\n    <motion.div \n      className=\"screen-container\"\n      initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}\n    >\n      <div className=\"dashboard-header\">\n        <h1 className=\"display-font\">Active Applications</h1>\n        <div className=\"summary-metrics\">\n          <span className=\"badge neutral\">12 Active</span>\n          <span className=\"badge danger\">2 Need Attention</span>\n          <span className=\"badge success\">1 Offer</span>\n        </div>\n      </div>\n\n      <div className=\"app-grid\">\n        {applications.sort((a, b) => b.ghosting_risk_score - a.ghosting_risk_score).map((app, i) => (\n          <motion.div \n            key={app.id} \n            className={`app-card ${app.ghosting_risk_score > 75 ? 'high-risk' : ''}`}\n            onClick={() => onSelectApp(app.id)}\n            initial={{ opacity: 0, y: 20 }}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{ delay: i * 0.1 }}\n            whileHover={{ y: -2, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}\n          >\n            <div className=\"card-header\">\n              <h3 className=\"display-font\" style={{ fontSize: '24px', margin: 0 }}>{app.company_name}</h3>\n              <span className=\"data-font\" style={{ color: 'var(--text-tertiary)' }}>{app.days_since_contact}d ago</span>\n            </div>\n            <div className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>{app.role_title}</div>\n            \n            <div className=\"card-footer\">\n              <div className=\"stage-badge\">{app.current_stage}</div>\n              <div className=\"risk-pill\" style={{ \n                color: app.ghosting_risk_score > 75 ? 'var(--friction)' : app.ghosting_risk_score > 40 ? 'var(--warning)' : 'var(--success)',\n                backgroundColor: app.ghosting_risk_score > 75 ? 'var(--nu-red-tint)' : 'transparent'\n              }}>\n                Risk: {app.ghosting_risk_score}\n              </div>\n            </div>\n          </motion.div>\n        ))}\n      </div>\n    </motion.div>\n  );\n};\n\nconst ApplicationDetailView = ({ app, comms, onDraftClick, onLogClick, onBack }) => {\n  const [analysis, setAnalysis] = useState(null);\n  const [isAnalyzing, setIsAnalyzing] = useState(false);\n\n  const runAnalysis = async () => {\n    setIsAnalyzing(true);\n    const result = await analyzeRisk(app, comms);\n    setAnalysis(result);\n    setIsAnalyzing(false);\n  };\n\n  useEffect(() => {\n    if (!analysis && app.ghosting_risk_score > 50) {\n      runAnalysis();\n    }\n  }, [app.id]);\n\n  const appComms = comms.filter(c => c.application_id === app.id).sort((a, b) => new Date(b.date) - new Date(a.date));\n\n  return (\n    <motion.div \n      className=\"screen-container detail-view\"\n      initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}\n    >\n      <button className=\"btn-ghost\" onClick={onBack} style={{ marginBottom: '24px' }}>\n        ← Back to Dashboard\n      </button>\n\n      <div className=\"detail-header-area\">\n        <div>\n          <h1 className=\"display-font\" style={{ fontSize: '48px', margin: '0 0 8px 0' }}>{app.company_name}</h1>\n          <div className=\"quote-font\" style={{ color: 'var(--text-secondary)' }}>{app.role_title}</div>\n        </div>\n        <div className=\"action-group\">\n          <button className=\"btn-secondary\" onClick={onLogClick}>Log Communication</button>\n          <button className=\"btn-primary\" onClick={onDraftClick}>Draft Follow-up</button>\n        </div>\n      </div>\n\n      <div className=\"detail-grid\">\n        <div className=\"main-column\">\n          <h3 className=\"label-font\" style={{ marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '1px' }}>Timeline</h3>\n          <div className=\"timeline\">\n            {appComms.map((comm, i) => (\n              <motion.div \n                key={comm.id} className=\"timeline-node\"\n                initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}\n              >\n                <div className=\"node-dot\" />\n                <div className=\"node-content\">\n                  <div className=\"node-meta data-font\">{comm.date} • {comm.sender_type}</div>\n                  <div className=\"node-text body-font\">{comm.raw_text}</div>\n                  {comm.ai_intent && (\n                    <div className=\"node-ai-insight\">\n                      <lucide.Sparkles size={14} style={{ color: 'var(--nu-red)' }} />\n                      <span className=\"body-font\" style={{ fontSize: '13px' }}>Intent: {comm.ai_intent}</span>\n                    </div>\n                  )}\n                </div>\n              </motion.div>\n            ))}\n          </div>\n        </div>\n\n        <div className=\"side-column\">\n          <div className=\"health-widget card\">\n            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>\n              <h3 className=\"label-font\">Application Health</h3>\n              <button className=\"btn-ghost\" style={{ padding: '4px 8px', fontSize: '12px' }} onClick={runAnalysis} disabled={isAnalyzing} aria-label=\"Refresh Analysis\">\n                <lucide.RefreshCw size={14} className={isAnalyzing ? 'spin' : ''} />\n              </button>\n            </div>\n            \n            <GhostingRiskIndicator \n              score={analysis?.ghosting_risk_score || app.ghosting_risk_score} \n              status={analysis?.status_health || app.status_health}\n              isLoading={isAnalyzing} \n              daysSinceContact={app.days_since_contact}\n            />\n\n            <div className=\"ai-sentiment-box\" style={{ marginTop: '24px' }}>\n              <div className=\"label-font\" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>\n                <lucide.BrainCircuit size={16} color=\"var(--nu-red)\" />\n                AI Analysis\n              </div>\n              {isAnalyzing ? (\n                <div className=\"skeleton-block\" style={{ height: '60px' }} />\n              ) : (\n                <p className=\"body-font\" style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: 0 }}>\n                  {analysis?.sentiment_analysis || \"Awaiting analysis. Run health check to evaluate recent communications against industry baselines.\"}\n                </p>\n              )}\n            </div>\n          </div>\n        </div>\n      </div>\n    </motion.div>\n  );\n};\n\nconst DraftStrategyModal = ({ onGenerate, onCancel }) => {\n  const [selected, setSelected] = useState(\"The Gentle Nudge\");\n  const strategies = [\n    { id: \"The Gentle Nudge\", desc: \"Polite check-in, assumes they are busy.\" },\n    { id: \"The Value Add\", desc: \"Share a relevant article or portfolio piece to bump the thread.\" },\n    { id: \"The Timeline Check\", desc: \"Directly ask about next steps and timeline.\" }\n  ];\n\n  return (\n    <div className=\"modal-overlay\">\n      <motion.div \n        className=\"modal-dialog\"\n        initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}\n      >\n        <div className=\"modal-header\">\n          <h2 className=\"display-font\" style={{ fontSize: '32px', margin: 0 }}>Select Follow-up Strategy</h2>\n          <button className=\"btn-icon\" onClick={onCancel} aria-label=\"Close Modal\"><lucide.X size={24} /></button>\n        </div>\n        <div className=\"modal-body\">\n          <p className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>\n            Guide the AI's tone before generating drafts. We'll use the context of your last interaction.\n          </p>\n          <div className=\"strategy-options\">\n            {strategies.map(s => (\n              <div \n                key={s.id} \n                className={`strategy-card ${selected === s.id ? 'selected' : ''}`}\n                onClick={() => setSelected(s.id)}\n              >\n                <div className=\"radio-circle\">{selected === s.id && <div className=\"radio-fill\" />}</div>\n                <div>\n                  <div className=\"label-font\">{s.id}</div>\n                  <div className=\"body-font\" style={{ fontSize: '13px', color: 'var(--text-tertiary)' }}>{s.desc}</div>\n                </div>\n              </div>\n            ))}\n          </div>\n        </div>\n        <div className=\"modal-footer\">\n          <button className=\"btn-secondary\" onClick={onCancel}>Cancel</button>\n          <button className=\"btn-primary\" onClick={() => onGenerate(selected)}>Generate Drafts</button>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n\nconst DraftComparisonView = ({ app, comms, strategy, onCopy, onCancel }) => {\n  const [drafts, setDrafts] = useState([]);\n  const [isLoading, setIsLoading] = useState(true);\n  const [copiedId, setCopiedId] = useState(null);\n\n  useEffect(() => {\n    generateDrafts(app, comms, strategy).then(res => {\n      setDrafts(res);\n      setIsLoading(false);\n    });\n  }, [app, comms, strategy]);\n\n  const handleCopy = (draft) => {\n    setCopiedId(draft.id);\n    setTimeout(() => onCopy(draft), 1500);\n  };\n\n  return (\n    <motion.div \n      className=\"screen-container wide-comparison\"\n      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}\n    >\n      <div className=\"comparison-header\">\n        <div>\n          <h1 className=\"display-font\" style={{ fontSize: '32px', margin: '0 0 8px 0' }}>Review Drafts</h1>\n          <div className=\"body-font\" style={{ color: 'var(--text-secondary)' }}>Strategy: {strategy}</div>\n        </div>\n        <button className=\"btn-ghost\" onClick={onCancel}>Cancel</button>\n      </div>\n\n      <motion.div \n        className=\"drafts-grid\"\n        initial={{ width: '33%', margin: '0 auto', opacity: 0 }}\n        animate={{ width: '100%', opacity: 1 }}\n        transition={{ duration: 0.5, ease: \"easeInOut\" }}\n      >\n        {isLoading ? (\n          [1, 2, 3].map(i => (\n            <div key={i} className=\"draft-card loading\">\n              <div className=\"skeleton-line\" style={{ width: '60%', marginBottom: '24px' }} />\n              <div className=\"skeleton-line\" />\n              <div className=\"skeleton-line\" />\n              <div className=\"skeleton-line\" style={{ width: '80%' }} />\n            </div>\n          ))\n        ) : (\n          drafts.map((draft, i) => (\n            <motion.div \n              key={draft.id} className=\"draft-card\"\n              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 + 0.5 }}\n            >\n              <div className=\"draft-theme label-font\">{draft.theme}</div>\n              <div className=\"draft-subject data-font\">Subj: {draft.subject_line}</div>\n              <div className=\"draft-body body-font\">\n                {draft.body.split('\\n').map((paragraph, pIdx) => (\n                  <motion.p \n                    key={pIdx}\n                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (i * 0.15) + (pIdx * 0.2) + 0.8 }}\n                  >\n                    {paragraph}\n                  </motion.p>\n                ))}\n              </div>\n              <div className=\"draft-actions\">\n                <button \n                  className={`btn-secondary ${copiedId === draft.id ? 'success-state' : ''}`} \n                  style={{ width: '100%' }}\n                  onClick={() => handleCopy(draft)}\n                >\n                  {copiedId === draft.id ? <><lucide.Check size={16} /> Copied & Logged</> : 'Copy to Clipboard'}\n                </button>\n              </div>\n            </motion.div>\n          ))\n        )}\n      </motion.div>\n    </motion.div>\n  );\n};\n\nconst LogCommunicationPanel = ({ onLog, onClose }) => {\n  const [text, setText] = useState('');\n  const [isDecoding, setIsDecoding] = useState(false);\n\n  const handleDecode = async () => {\n    if (!text.trim()) return;\n    setIsDecoding(true);\n    const result = await decodeEmail(text);\n    setIsDecoding(false);\n    onLog(text, result);\n  };\n\n  return (\n    <div className=\"panel-overlay\" onClick={onClose}>\n      <motion.div \n        className=\"side-panel\"\n        initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}\n        transition={{ type: 'spring', damping: 25, stiffness: 200 }}\n        onClick={e => e.stopPropagation()}\n      >\n        <div className=\"panel-header\">\n          <h2 className=\"display-font\" style={{ fontSize: '24px', margin: 0 }}>Log Communication</h2>\n          <button className=\"btn-icon\" onClick={onClose} aria-label=\"Close Panel\"><lucide.X size={24} /></button>\n        </div>\n        <div className=\"panel-body\">\n          <p className=\"body-font\" style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>\n            Paste the recruiter's email below. We'll extract the true intent, update your timeline, and flag any hidden tasks.\n          </p>\n          <textarea \n            className=\"nu-textarea body-font\" \n            placeholder=\"Paste email text here...\"\n            value={text}\n            onChange={e => setText(e.target.value)}\n          />\n        </div>\n        <div className=\"panel-footer\">\n          <button className=\"btn-primary\" style={{ width: '100%' }} onClick={handleDecode} disabled={isDecoding || !text.trim()}>\n            {isDecoding ? 'Decoding...' : 'Decode & Log'}\n          </button>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n\nconst DemoControls = ({ setScreen }) => (\n  <div className=\"demo-controls\">\n    <div className=\"data-font\" style={{ fontSize: '10px', marginBottom: '4px', color: 'var(--text-secondary)' }}>DEMO CONTROLS</div>\n    <div style={{ display: 'flex', gap: '4px' }}>\n      <button onClick={() => setScreen('dashboard_view')}>Dash</button>\n      <button onClick={() => setScreen('application_detail_view')}>Detail</button>\n    </div>\n  </div>\n);\n\n// --- Main App ---\n\nconst App = () => {\n  const [currentScreen, setCurrentScreen] = useState('dashboard_view');\n  const [applications, setApplications] = useState(SEED_APPLICATIONS);\n  const [communications, setCommunications] = useState(SEED_COMMUNICATIONS);\n  const [selectedAppId, setSelectedAppId] = useState(null);\n  const [draftStrategy, setDraftStrategy] = useState(null);\n  const [showLogPanel, setShowLogPanel] = useState(false);\n\n  useEffect(() => {\n    const fontLink = document.createElement('link');\n    fontLink.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap';\n    fontLink.rel = 'stylesheet';\n    document.head.appendChild(fontLink);\n\n    const style = document.createElement('style');\n    style.textContent = `\n      :root {\n        --nu-red: #C8102E;\n        --nu-red-deep: #9E0A24;\n        --nu-red-tint: rgba(200, 16, 46, 0.1);\n        --cream: #F8E5C2;\n        --bg: #FFFFFF;\n        --surface: #F7F7F7;\n        --panel: rgba(217, 217, 217, 0.3);\n        --text-primary: #000000;\n        --text-secondary: #414141;\n        --text-tertiary: rgba(65, 65, 65, 0.7);\n        --border: #D9D9D9;\n        --success: #0F8A4B;\n        --success-tint: rgba(15, 138, 75, 0.1);\n        --warning: #B5651D;\n        --friction: #9E0A24;\n        --friction-tint: rgba(200, 16, 46, 0.02);\n      }\n      \n      * { box-sizing: border-box; }\n      body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antialiased; }\n      \n      .display-font { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; letter-spacing: -0.01em; }\n      .body-font { font-family: 'Open Sans', sans-serif; font-weight: 400; }\n      .label-font { font-family: 'Open Sans', sans-serif; font-weight: 600; }\n      .quote-font { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 24px; }\n      .data-font { font-family: 'IBM Plex Mono', monospace; font-weight: 400; }\n\n      .nu-header { display: flex; align-items: center; padding: 0 32px; height: 64px; border-bottom: 1px solid var(--border); background: var(--bg); }\n      .nu-logo { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 20px; color: var(--nu-red); margin-right: 24px; text-transform: uppercase; }\n      .app-title { font-family: 'Open Sans', sans-serif; font-weight: 600; color: var(--text-secondary); flex-grow: 1; }\n      .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--panel); display: flex; align-items: center; justify-content: center; font-weight: 600; }\n\n      .screen-container { padding: 48px 32px; max-width: 1200px; margin: 0 auto; }\n      \n      .dashboard-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }\n      .dashboard-header h1 { margin: 0; font-size: 48px; }\n      .summary-metrics { display: flex; gap: 12px; }\n      \n      .badge { padding: 4px 8px; border-radius: 2px; font-size: 12px; font-weight: 600; font-family: 'Open Sans', sans-serif; }\n      .badge.neutral { background: var(--panel); color: var(--text-secondary); }\n      .badge.danger { background: var(--nu-red-tint); color: var(--friction); }\n      .badge.success { background: var(--success-tint); color: var(--success); }\n\n      .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }\n      .app-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; cursor: pointer; transition: all 0.2s ease; }\n      .app-card.high-risk { border-color: var(--nu-red-tint); background: var(--friction-tint); }\n      .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }\n      .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }\n      .stage-badge { font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--panel); padding: 4px 8px; border-radius: 2px; }\n      .risk-pill { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 2px; }\n\n      .btn-primary { height: 44px; padding: 0 24px; background: var(--nu-red); color: var(--bg); border: none; border-radius: 2px; font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }\n      .btn-primary:hover { background: var(--nu-red-deep); }\n      .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }\n      .btn-secondary { height: 44px; padding: 0 24px; background: transparent; color: var(--text-primary); border: 1px solid var(--border); border-radius: 2px; font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }\n      .btn-secondary:hover { border-color: var(--text-primary); background: var(--surface); }\n      .btn-secondary.success-state { background: var(--success-tint); border-color: var(--success); color: var(--success); }\n      .btn-ghost { background: transparent; border: none; color: var(--text-secondary); font-family: 'Open Sans', sans-serif; font-weight: 600; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }\n      .btn-ghost:hover { color: var(--text-primary); }\n      .btn-icon { background: transparent; border: none; cursor: pointer; padding: 4px; color: var(--text-secondary); display: flex; }\n      .btn-icon:hover { color: var(--text-primary); }\n\n      .detail-header-area { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }\n      .action-group { display: flex; gap: 16px; }\n      \n      .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }\n      \n      .timeline { position: relative; padding-left: 24px; border-left: 2px solid var(--panel); }\n      .timeline-node { position: relative; margin-bottom: 32px; }\n      .node-dot { position: absolute; left: -31px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); }\n      .node-meta { color: var(--text-tertiary); margin-bottom: 8px; font-size: 12px; }\n      .node-text { background: var(--surface); padding: 16px; border-radius: 4px; border: 1px solid var(--border); line-height: 1.5; }\n      .node-ai-insight { margin-top: 8px; padding: 8px 12px; background: var(--nu-red-tint); border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; color: var(--nu-red-deep); }\n\n      .card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }\n      \n      .risk-indicator-container { display: flex; align-items: center; gap: 24px; }\n      .risk-donut { position: relative; width: 88px; height: 88px; transition: transform 0.2s ease; cursor: default; }\n      .risk-donut:hover { transform: scale(1.05); }\n      .risk-score-center { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }\n      .risk-tooltip { opacity: 0; position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); background: var(--text-primary); color: var(--bg); padding: 6px 12px; border-radius: 4px; font-size: 12px; white-space: nowrap; transition: opacity 0.2s ease; pointer-events: none; z-index: 10; font-family: 'Open Sans', sans-serif; }\n      .risk-donut:hover .risk-tooltip { opacity: 1; }\n      \n      .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(2px); }\n      .modal-dialog { background: var(--bg); border-radius: 4px; width: 100%; max-width: 600px; box-shadow: 0 24px 48px rgba(0,0,0,0.1); display: flex; flex-direction: column; }\n      .modal-header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }\n      .modal-body { padding: 32px; }\n      .modal-footer { padding: 24px 32px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 16px; background: var(--surface); }\n\n      .strategy-options { display: flex; flex-direction: column; gap: 12px; }\n      .strategy-card { display: flex; gap: 16px; padding: 16px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; transition: all 0.2s; }\n      .strategy-card:hover { border-color: var(--text-secondary); }\n      .strategy-card.selected { border-color: var(--nu-red); background: var(--nu-red-tint); }\n      .radio-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }\n      .strategy-card.selected .radio-circle { border-color: var(--nu-red); }\n      .radio-fill { width: 10px; height: 10px; border-radius: 50%; background: var(--nu-red); }\n\n      .wide-comparison { max-width: 1400px; }\n      .comparison-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }\n      .drafts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }\n      .draft-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; height: 100%; transition: all 0.2s ease; }\n      .draft-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--nu-red); }\n      .draft-theme { color: var(--nu-red); margin-bottom: 16px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }\n      .draft-subject { padding-bottom: 16px; border-bottom: 1px solid var(--panel); margin-bottom: 16px; color: var(--text-secondary); }\n      .draft-body { flex-grow: 1; line-height: 1.6; color: var(--text-secondary); font-size: 14px; white-space: pre-wrap; margin-bottom: 24px; }\n      .draft-actions { opacity: 0; transition: opacity 0.2s ease; }\n      .draft-card:hover .draft-actions, .draft-actions:focus-within { opacity: 1; }\n      \n      .panel-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.2); z-index: 100; display: flex; justify-content: flex-end; }\n      .side-panel { width: 480px; background: var(--bg); height: 100%; box-shadow: -8px 0 24px rgba(0,0,0,0.05); display: flex; flex-direction: column; }\n      .panel-header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }\n      .panel-body { padding: 32px; flex-grow: 1; overflow-y: auto; }\n      .panel-footer { padding: 24px 32px; border-top: 1px solid var(--border); background: var(--surface); }\n      \n      .nu-textarea { width: 100%; height: 300px; padding: 16px; border: 1px solid var(--border); border-radius: 2px; resize: vertical; outline: none; transition: border-color 0.2s; }\n      .nu-textarea:focus { border-color: var(--nu-red); }\n\n      .demo-controls { position: fixed; top: 8px; right: 8px; background: var(--bg); border: 1px solid var(--border); padding: 8px; z-index: 999; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }\n      .demo-controls button { font-size: 10px; padding: 2px 6px; cursor: pointer; }\n\n      .shimmer-text { background: linear-gradient(90deg, var(--panel) 25%, var(--surface) 50%, var(--panel) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 2px; }\n      .skeleton-line { height: 14px; background: var(--panel); margin-bottom: 12px; border-radius: 2px; }\n      .skeleton-block { background: var(--panel); border-radius: 2px; width: 100%; }\n      @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }\n      .spin { animation: spin 1s linear infinite; }\n      @keyframes spin { 100% { transform: rotate(360deg); } }\n    `;\n    document.head.appendChild(style);\n    return () => { document.head.removeChild(style); document.head.removeChild(fontLink); };\n  }, []);\n\n  const handleSelectApp = (id) => {\n    setSelectedAppId(id);\n    setCurrentScreen('application_detail_view');\n  };\n\n  const handleGenerateDrafts = (strategy) => {\n    setDraftStrategy(strategy);\n    setCurrentScreen('draft_comparison_view');\n  };\n\n  const handleCopyDraft = (draft) => {\n    setApplications(apps => apps.map(a => a.id === selectedAppId ? { ...a, days_since_contact: 0, ghosting_risk_score: 10, status_health: 'Healthy' } : a));\n    \n    const newComm = {\n      id: `comm_${Date.now()}`,\n      application_id: selectedAppId,\n      sender_type: \"candidate\",\n      date: new Date().toISOString().split('T')[0],\n      raw_text: `Sent follow-up: ${draft.subject_line}\\n\\n${draft.body}`,\n      ai_intent: \"proactive follow-up\",\n      ai_sentiment: \"positive\"\n    };\n    setCommunications(prev => [...prev, newComm]);\n    \n    setCurrentScreen('application_detail_view');\n  };\n\n  const handleLogCommunication = (text, aiResult) => {\n    const newComm = {\n      id: `comm_${Date.now()}`,\n      application_id: selectedAppId,\n      sender_type: \"recruiter\",\n      date: new Date().toISOString().split('T')[0],\n      raw_text: text,\n      ai_intent: aiResult.true_intent,\n      ai_sentiment: aiResult.sentiment\n    };\n    setCommunications(prev => [...prev, newComm]);\n    \n    setApplications(apps => apps.map(a => a.id === selectedAppId ? { ...a, days_since_contact: 0, ghosting_risk_score: aiResult.sentiment.includes('positive') ? 20 : 50 } : a));\n    \n    setShowLogPanel(false);\n  };\n\n  const activeApp = applications.find(a => a.id === selectedAppId) || applications[0];\n  const noop = () => {};\n\n  return (\n    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>\n      <Header />\n      <DemoControls setScreen={setCurrentScreen} />\n      \n      <main style={{ flexGrow: 1, position: 'relative' }}>\n        <AnimatePresence mode=\"wait\">\n          {currentScreen === 'dashboard_view' && (\n            <DashboardView key=\"dash\" applications={applications} onSelectApp={handleSelectApp} />\n          )}\n          \n          {currentScreen === 'application_detail_view' && (\n            <ApplicationDetailView \n              key=\"detail\" \n              app={activeApp} \n              comms={communications}\n              onBack={() => setCurrentScreen('dashboard_view')}\n              onDraftClick={() => setCurrentScreen('draft_strategy_modal')}\n              onLogClick={() => setShowLogPanel(true)}\n            />\n          )}\n\n          {currentScreen === 'draft_strategy_modal' && (\n            <ApplicationDetailView \n              key=\"detail-bg\" \n              app={activeApp} \n              comms={communications}\n              onBack={noop} onDraftClick={noop} onLogClick={noop}\n            />\n          )}\n\n          {currentScreen === 'draft_comparison_view' && (\n            <DraftComparisonView \n              key=\"compare\"\n              app={activeApp}\n              comms={communications}\n              strategy={draftStrategy}\n              onCopy={handleCopyDraft}\n              onCancel={() => setCurrentScreen('application_detail_view')}\n            />\n          )}\n        </AnimatePresence>\n\n        <AnimatePresence>\n          {currentScreen === 'draft_strategy_modal' && (\n            <DraftStrategyModal \n              key=\"modal\"\n              onGenerate={handleGenerateDrafts}\n              onCancel={() => setCurrentScreen('application_detail_view')}\n            />\n          )}\n          \n          {showLogPanel && (\n            <LogCommunicationPanel \n              key=\"panel\"\n              onLog={handleLogCommunication}\n              onClose={() => setShowLogPanel(false)}\n            />\n          )}\n        </AnimatePresence>\n      </main>\n    </div>\n  );\n};\n\nfunction __test_state_transitions__() {\n  console.assert(typeof App === 'function', 'App must be a component');\n  return true;\n}\nif (typeof window !== 'undefined') {\n  window.__hicProtoTests = __test_state_transitions__;\n}"
+  },
+  "code_format": "react",
+  "research_goal": "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school",
+  "based_on": "no-ghosting-application-tracker",
+  "created_at": "2026-05-11T23:32:02.258965Z",
+  "updated_at": "2026-05-11T23:32:02.258965Z"
+}

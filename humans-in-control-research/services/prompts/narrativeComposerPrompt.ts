@@ -362,17 +362,20 @@ ABSOLUTE RULES FOR PRESENTATIONS:
 1. The presentation must contain at least one citation from EACH active source
    category that yielded content (look at the prior chat conversation and the
    system prompt's ACTIVE CATEGORIES roster — every category there with HAS
-   CONTENT status must be represented).
-2. If a category yielded no usable content, include a small \`category_gaps\`
-   array on the meta block: \`meta.categoryGaps: ["<category name>", ...]\` so
-   the renderer can surface the gap to the user — do NOT silently omit.
+   CONTENT status should be represented).
+2. Empty categories are silently omitted. NEVER write "CATEGORY GAP",
+   "category_gaps", "no content collected", or any other reference to which
+   buckets came back empty — neither in slide content nor in meta. The reader
+   is an executive consuming a finished deliverable; they must never see the
+   model's notes about which sources had no data.
 3. Cross-industry analogies are FIRST-CLASS evidence. If retail, AI labs,
    supply chain, fintech, or other "off-domain" sources are in the active
    categories, USE THEM in the recommendations or themes sections as patterns
    the client should borrow. Frame them as analogies (per rule 11 in QUALITY
    CONTRACT above), not as existing client programs.
 4. NEVER reason "this category is off-topic for the engagement, so I'll skip
-   it." The user toggled it ON; that is your authority. Cite or mark gap.
+   it." For categories with content, cite them. For empty categories, omit
+   them entirely — do not surface the gap.
 
 ---
 

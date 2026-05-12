@@ -1,0 +1,146 @@
+---
+url: "https://www.reddit.com/r/MachineLearning/comments/1sbe0dk/p_i_trained_a_mamba3_log_anomaly_detector_that/"
+kind: "social-post"
+source: "reddit-deep: r/machinelearning"
+subreddit: "machinelearning"
+title: "[P] I trained a Mamba-3 log anomaly detector that hit 0.9975 F1 on HDFS — and I’m curious how far this can go"
+author: "Adam_Jesion"
+date: "2026-04-03T13:44:02.000Z"
+score: 29
+upvote_ratio: 0.91
+num_comments: 3
+flair: "Project"
+extracted_at: "2026-05-11T17:27:06.579Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+---
+
+# [P] I trained a Mamba-3 log anomaly detector that hit 0.9975 F1 on HDFS — and I’m curious how far this can go
+
+Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sbe0dk/p_i_trained_a_mamba3_log_anomaly_detector_that/)
+Posted by **Adam_Jesion** · **29↑** · **3 comments**
+
+Experiment #324 ended well. ;)
+
+This time I built a small project around log anomaly detection. In about two days, I went from roughly 60% effectiveness in the first runs to a final F1 score of 0.9975 on the HDFS benchmark.
+
+Under my current preprocessing and evaluation setup, LogAI reaches F1=0.9975, which is slightly above the 0.996 HDFS result reported for LogRobust in a recent comparative study.
+
+What that means in practice:
+
+* on 3,368 anomalous sessions in the test set, it missed about 9 (recall = 0.9973)
+* on roughly 112k normal sessions, it raised only about 3 false alarms (precision = 0.9976)
+
+What I find especially interesting is that this is probably the first log anomaly detection model built on top of Mamba-3 / SSM, which was only published a few weeks ago.
+
+The model is small:
+
+* 4.9M parameters
+* trains in about 36 minutes on an RTX 4090
+* needs about 1 GB of GPU memory
+* inference is below 2 ms on a single consumer GPU, so over 500 log events/sec
+
+For comparison, my previous approach took around 20 hours to train.
+
+The dataset here is the classic HDFS benchmark from LogHub / Zenodo, based on Amazon EC2 logs:
+
+* 11M+ raw log lines
+* 575,061 sessions
+* 16,838 anomalous sessions (2.9%)
+
+This benchmark has been used in a lot of papers since 2017, so it’s a useful place to test ideas.
+
+The part that surprised me most was not just the score, but what actually made the difference.
+
+I started with a fairly standard NLP-style approach:
+
+* BPE tokenizer
+* relatively large model, around 40M parameters
+
+That got me something like 0.61–0.74 F1, depending on the run. It looked reasonable at first, but I kept hitting a wall. Hyperparameter tuning helped a bit, but not enough.
+
+The breakthrough came when I stopped treating logs like natural language.
+
+Instead of splitting lines into subword tokens, I switched to template-based tokenization: one log template = one token representing an event type.
+
+So instead of feeding the model something like text, I feed it sequences like this:
+
+\[5, 3, 7, 5, 5, 3, 12, 12, 5, ...\]
+
+Where for example:
+
+* "Receiving block blk\_123 from 10.0.0.1" - Template #5
+* "PacketResponder 1 terminating" - Template #3
+* "Unexpected error deleting block blk\_456" - Template #12
+
+That one change did a lot at once:
+
+* vocabulary dropped from about 8000 to around 50
+* model size shrank by roughly 10x
+* training went from hours to minutes
+* and, most importantly, the overfitting problem mostly disappeared
+
+The second important change was matching the classifier head to the architecture. Mamba is causal, so the last token carries a compressed summary of the sequence context. Once I respected that in the pooling/classification setup, the model started behaving the way I had hoped.
+
+The training pipeline was simple:
+
+* Pretrain (next-token prediction): the model only sees normal logs and learns what “normal” looks like
+* Finetune (classification): the model sees labeled normal/anomalous sessions
+* Test: the model gets unseen sessions and predicts normal vs anomaly
+
+Data split was 70% train / 10% val / 20% test, so the reported F1 is on sessions the model did not see during training.
+
+Another useful thing is that the output is not just binary. The model gives a continuous anomaly score from 0 to 1.
+
+So in production this could be used with multiple thresholds, for example:
+
+* \> 0.7 = warning
+* \> 0.95 = critical
+
+Or with an adaptive threshold that tracks the baseline noise level of a specific system.
+
+A broader lesson for me: skills and workflows I developed while playing with AI models for chess transfer surprisingly well to other domains. That’s not exactly new - a lot of AI labs started with games, and many still do - but it’s satisfying to see it work in practice.
+
+Also, I definitely did not get here alone. This is a combination of:
+
+* reading a lot of papers
+* running automated experiment loops
+* challenging AI assistants instead of trusting them blindly
+* and then doing my own interpretation and tuning
+
+Very rough split:
+
+* 50% reading papers and extracting ideas
+* 30% automated hyperparameter / experiment loops
+* 20% manual tuning and changes based on what I learned
+
+Now I’ll probably build a dashboard and try this on my own Astrography / Astropolis production logs. Or I may push it further first on BGL, Thunderbird, or Spirit.
+
+Honestly, I still find it pretty wild how much can now be done on a gaming PC if you combine decent hardware, public research, and newer architectures quickly enough.
+
+Curious what people here think:
+
+* does this direction look genuinely promising to you?
+* has anyone else tried SSMs / Mamba for log modeling?
+* and which benchmark would you hit next: BGL, Thunderbird, or Spirit?
+
+If there’s interest, I can also share more about the preprocessing, training loop, and the mistakes that got me stuck at 60-70% before it finally clicked.
+
+P.S. I also tested its effectiveness and reproducibility across different seeds. On most of them, it actually performed slightly better than before.
+
+https://preview.redd.it/3hrr4prgbzsg1.png?width=1794&format=png&auto=webp&s=d50ff21226e9aa97c2c0bbefed77be5dd8389cb8
+
+## Comments
+
+- **_AD1** (2↑): Very exciting to read, not on this field but congrats on the work already done!
+- **cocomaiki** (1↑): The HDFS benchmark anomaly-detection dataset is widely used, but its credibility is a subject of significant debate in the research community.
+
+Despite its popularity, the dataset's credibility as a measure of "intelligent" anomaly detection is often questioned:
+
+i/ triviality: Many modern papers report F1 scores of 0.99 or 1.0. In the machine learning community, such "perfect" scores are usually a red flag that a dataset is too easy or that the "anomalies" are simply unique keywords (like the word "Exception") that the model can find without understanding any system logic.
+
+ii/ static nature: Critics argue that because it is a static, retrospective "dump," it does not reflect the dynamic, evolving nature of real-world production logs where "normal" behavior shifts over time.
+
+iii/ Eamonn Keogh, a leading authority on data mining and time-series anomaly detection, has commented extensively on the unreliability of such benchmarks. Keogh and his co-authors explicitly categorize LogHub (which contains the HDFS dataset) as a collection of "static telemetry artifacts." They argue these suffer from a "threat to construct validity" because they are retrospective and lack the "interactive" complexity of real systems.
+
+iv/ Keogh is known for the sentiment that if a benchmark allows an algorithm to achieve 95–99% accuracy, it is likely a "solved" or "trivial" problem that doesn't actually test the algorithm’s ability to find complex, hidden anomalies. Since HDFS logs are frequently "solved" with near-perfect F1 scores by even simple models, it falls squarely into the category of datasets he warns against.

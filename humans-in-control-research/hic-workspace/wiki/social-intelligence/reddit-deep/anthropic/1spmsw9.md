@@ -1,0 +1,23 @@
+---
+url: "https://www.reddit.com/r/Anthropic/comments/1spmsw9/i_built_tokenmap_a_cli_tool_that_generates/"
+kind: "social-post"
+source: "reddit-deep: r/anthropic"
+subreddit: "anthropic"
+title: "I built Tokenmap: A CLI tool that generates GitHub-style heatmaps for your AI code assistant usage (Claude, Cursor, etc.)"
+author: "oliv_ia69"
+date: "2026-04-19T08:00:35.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 0
+flair: "Resources"
+extracted_at: "2026-05-11T17:26:51.916Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+---
+
+# I built Tokenmap: A CLI tool that generates GitHub-style heatmaps for your AI code assistant usage (Claude, Cursor, etc.)
+
+Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1spmsw9/i_built_tokenmap_a_cli_tool_that_generates/)
+Posted by **oliv_ia69** · **1↑** · **0 comments**
+
+_(no body — link/image post)_

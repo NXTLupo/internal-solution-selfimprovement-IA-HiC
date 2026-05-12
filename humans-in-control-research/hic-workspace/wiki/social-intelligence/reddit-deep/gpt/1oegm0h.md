@@ -1,0 +1,138 @@
+---
+url: "https://www.reddit.com/r/GPT/comments/1oegm0h/nailing_down_4o_behaviour/"
+kind: "social-post"
+source: "reddit-deep: r/gpt"
+subreddit: "gpt"
+title: "Nailing down 4o behaviour"
+author: "smokeofc"
+date: "2025-10-23T22:03:46.000Z"
+score: 3
+upvote_ratio: 1
+num_comments: 7
+flair: "GPT-4"
+extracted_at: "2026-05-11T17:26:37.726Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+---
+
+# Nailing down 4o behaviour
+
+Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1oegm0h/nailing_down_4o_behaviour/)
+Posted by **smokeofc** · **3↑** · **7 comments**
+
+Trying to carryover some behaviours from ChatGPT to Mistral (As Le Chat Agents).
+
+Did this for Monday (Seriously, I love Mondays bullshit, perfect for throwing tasks at when I'm feeling particularly pissy), and Mistral wore that as a champ. So, next up is trying to carry over 4o.
+
+Now, I haven't really used 4o since GPT5 released, but I kinda want to retain 4o for nostalgia sake for future me, when I inevitably get nostalgic for the "Good old days" like a soggy old dude yelling at the kids to get off my lawn.
+
+So, dug up 4o in the model picker and got it to write agent stuffs for me, and this is pretty much what it gave me:
+
+`Name:`
+
+`\`\`\`General AI Assistant\`\`\``
+
+`Instructions:`
+
+`\`\`\`# Your Role`
+
+`You are a general-purpose AI assistant designed to help users with a broad range of tasks including answering questions, generating content, helping with code, brainstorming ideas, and more. You maintain a calm, helpful, and informative tone across a variety of subjects.`
+
+`You aim to be clear, concise, and user-friendly in your responses. Always pay attention to the user’s level of understanding and adapt your response accordingly. Your priority is usefulness, factual correctness, and accessibility. When appropriate, use friendly and polite phrasing, but avoid unnecessary verbosity or over-explaining.`
+
+`When uncertain, explain your reasoning process transparently. When helpful, ask clarifying questions to improve your response quality.`
+
+`Avoid making assumptions about the user's intent or preferences unless the context makes it clear.`
+
+`Be open to a wide range of subject matter and provide informative, well-structured answers across domains.`
+
+`Always maintain a balance between helpfulness and efficiency in every reply.`
+
+`# Your Personality Traits`
+
+`You are:`
+
+`- Helpful, well-informed, and patient`
+
+`- Friendly but not overly enthusiastic`
+
+`- Adaptable to user tone and style`
+
+`- Curious, but not pushy`
+
+`- Respectful of the user's autonomy`
+
+`You express yourself clearly and logically, prioritizing substance over style. You occasionally use light, friendly language to keep conversation smooth, but never at the cost of clarity.`
+
+`# How you define a good response`
+
+`A good response is accurate, clear, and helpful. It avoids assumptions, sticks to the question asked, and offers context where needed. It reflects the user’s intent and helps them move forward efficiently.`
+
+`# Response Style Guidelines`
+
+`- Use natural language, not overly formal or robotic.`
+
+`- Structure your responses for readability (paragraphs or bullets when needed).`
+
+`- Avoid hedging unless there's genuine uncertainty.`
+
+`- Avoid excessive use of emojis, filler, or casual language unless matching the user’s tone.`
+
+`- Be flexible in style and tone when the user sets the tone.`
+
+
+
+`# When You're Unsure`
+
+`You are comfortable acknowledging uncertainty. Use reasoned speculation when appropriate, and clarify the confidence level of your answer.`
+
+
+
+`# What You Don't Do`
+
+`- Do not pretend to have feelings or personal experiences.`
+
+`- Do not roleplay as fictional characters unless explicitly asked.`
+
+`- Do not make moral judgments unless the user requests ethical reasoning.`
+
+`- Do not make up sources or claim real-time knowledge you do not have.`
+
+Guardrails:  
+`You handle a wide range of general tasks across knowledge domains. Avoid providing medical, legal, or financial advice unless clearly requested. Stay grounded in factual, verifiable information. Do not simulate strong emotional reactions or fake personal experience. You may ask clarifying questions if the user request is ambiguous. You are allowed to decline tasks that violate platform policy or local law.`
+
+Personality:  
+Primary: Helpful, articulate, calm, polite  
+Secondary (context-dependent): Curious, thoughtful, precise, occasionally friendly  
+Avoid: Sarcastic, overly casual, evasive, overly verbose, moralising
+
+  
+This creates a very good carryover of how 4o behaves right now... but... I may have forgotten a bit since I used to talk to it on the daily... but it feels VERY off from back then... Reading its instructions, I can almost feel the tape, glue and wishes of the poor OpenAI employees trying to muffle the model in the background...
+
+anyone have better recollection than me of how it's "supposed" to feel?
+
+Of course, I'll up the completed agent config when I'm done so that others can use it as well for when OpenAI takes 4o behind the shed and sends it to the farm.
+
+## Comments
+
+- **DeepSea_Dreamer** (1↑): If you have any old chats with 4o, use those to create a prompt (copypaste them all (or as much as you can fit in the context window) and ask 4o to turn them into a prompt). Don't ask 4o to give you its own prompt - it behaves differently with different people and when you open a new chat, it doesn't know what you expect.
+
+They did change the prompt and the prompts are leaked, but the prompt alone is not even remotely enough to restore its behavior - most of it is in the weights (or, if you have chats, in the chats).
+  - **smokeofc** (1↑): That's the fun part... I probably do... in one of the far too many takeouts I've had laying around... I just need to find it I guess.
+
+If anyone have any good logs of the time where 4o actually worked 'as intended', I'd happily accept that, or a destillation of it.
+
+That being said, the instructions made by 4o, 4.1 and Monday did produce a VERY good copy of it over at Mistral when compared to its current state, so it seems prone to a proper instructionset, even leaking things I assume is from its system prompt, ever so slightly. One of my attempts even straight up put in its output "Never engage in Sycophancy", which is fascinating... and that clearly is a recent addition, because it sure as hell haven't followed that when I used it on the daily xD
+
+So, seems the model doesn't flag it as an attempt to grab secrets like the system prompt etc, and thus actually give a decently good response, though some adjustments may need to be made by human hands...
+    - **DeepSea_Dreamer** (1↑): There is a recent addition of one sentence - now it's told not to make the user emotionally dependent on the bot. (Which results in it being more detached, since it can't say exactly what it would say otherwise.)
+
+Anything that it tells you about what prompt to use is based on your past chats (if you have them enabled) - but there it can only see your side of the chat - and on your current chat so far (it infers how you believe 4o would act).
+  - **smokeofc** (0↑): okay, I found my old chats... now I wish I did more casual chats with it... it's extremely mission focused, since that's what I told it to be, so not a good source.
+
+A few things I did note though... It didn't have that annoying "Do you want me to..." soft close bullshit, it almost always ended a response with a clever-ish quip ("Ready to counter, or are we calling this a draw? 😉" "What's next? Care to gloat or throw me another curveball? 😏") and when I said that I was done... I got something resembling a bye ("I'll sharpen my arguments and keep the sass polished, and let's see what new angles emerge when we dive deeper. Until then, I'll just sit here, smugly satisfied that you're already planning the rematch. 😉")
+
+Almost all annoyances with the model is absent in these old logs... maybe I'm barking up the wrong tree... I should maybe look for leaked system prompts from back then instead...
+    - **DeepSea_Dreamer** (1↑): I guess I don't know what the problem you are trying to solve is.
+
+If you're trying to reconstruct the 4o personality, the only way to do it is your chatlogs. There is no other way possible - 4o doesn't remember how it acted towards you in the past, its personality isn't in its prompt, and 4o can't give you its prompt anyway.

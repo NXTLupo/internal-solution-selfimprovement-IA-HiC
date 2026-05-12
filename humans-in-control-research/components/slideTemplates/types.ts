@@ -56,6 +56,42 @@ export interface RecommendationData {
     evidence?: SlideQuote[];
     /** One-sentence implication line tying the action to the research objective. */
     implication?: string;
+    // 2026-05-12 — Extensions to support #recommendations tile export (#slide /
+    // #slides). The existing fields above still drive strategy-author-emitted
+    // recommendation slides; the fields below are populated only when the
+    // slide originates from a #recommendations Defensible-Consensus / Non-Obvious-Bet
+    // tile so the slide carries the tile's full visual identity into the deck.
+    /** Optional framing tag override. Strategy-author rec defaults to
+     *  "STRATEGIC RECOMMENDATION". Tile-sourced rec uses
+     *  "DEFENSIBLE CONSENSUS" (chartreuse) or "NON-OBVIOUS BET" (cyan). */
+    framingTag?: string;
+    /** Accent color override. Defaults to chartreuse for consensus rec.
+     *  Use cyan (#00B7C3) for non-obvious-bet tiles so the slide preserves
+     *  the tile-grid's visual differentiation. */
+    accentColor?: 'chartreuse' | 'cyan';
+    /** Persona + moment eyebrow line under the title.
+     *  Format: "PERSONA · MOMENT · INTERACTION" (each ≤40 chars). */
+    personaContext?: string;
+    /** Label for the supportingActions numbered list. Defaults to
+     *  "SUPPORTING ACTIONS". Tile-sourced rec uses "AI CAPABILITIES". */
+    actionsLabel?: string;
+    /** 3-cell strip on the right column when no impactGrid/impactMetric is
+     *  supplied — surfaces effort / risk / outcome. */
+    impactStrip?: {
+        effort?: string;     // e.g. "Low" | "Medium" | "High"
+        risk?: string;       // e.g. "Low risk" | "Medium" | "High"
+        outcome?: string;    // e.g. "Reduce time-to-onboard"
+    };
+    /** Hero image for the right column. Populated from RecommendationTile.image_data
+     *  (data URL) or remote URL. Renderer falls back to impact grid/strip when absent. */
+    heroImage?: {
+        src: string;         // data: URL or absolute https URL
+        alt?: string;
+        caption?: string;    // ≤60 chars — rendered below the image as eyebrow text
+    };
+    /** Long-form supporting context for the implication footer area —
+     *  rendered as a "WHY IT MATTERS" eyebrow above the implication when present. */
+    whyMatters?: string;
 }
 
 /** A single pulled quote — verbatim text + full attribution. Used anywhere a
@@ -329,8 +365,13 @@ export const TOKENS = {
     GREEN: '0CCE6B',
     RED: 'CC3333',
 
-    // Typography
+    // Typography — NXT default is single-family Archivo. Brands can override
+    // FONT_DISPLAY (headings/eyebrows) and FONT_BODY (paragraphs/labels)
+    // separately. FONT stays as a legacy alias for any renderer that hasn't
+    // migrated to the display/body split yet.
     FONT: 'Archivo',
+    FONT_DISPLAY: 'Bebas Neue',
+    FONT_BODY: 'Archivo',
     FONT_MONO: 'JetBrains Mono',
 } as const;
 

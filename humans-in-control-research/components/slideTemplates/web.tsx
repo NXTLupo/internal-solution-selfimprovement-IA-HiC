@@ -337,89 +337,227 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
 };
 
 // === 2. RECOMMENDATION (strategy-author) ===
+// 2026-05-12 — REWRITTEN with strict band reservation to match exportRecommendation
+// in pptx.ts. The preview and PPTX export now render at PIXEL-EQUIVALENT geometry
+// (72 px/inch on 960x540 canvas):
+//
+//   HEADER  band:  y =  26 → 108 px  (0.36 → 1.50 in)
+//   BODY    band:  y = 112 → 428 px  (1.55 → 5.95 in)  — two columns
+//   FOOTER  band:  y = 446 → 511 px  (6.20 → 7.10 in)  — ONE closing line
+//   SOURCES band:  y = 518 → 540 px  (7.20 → 7.50 in)
+//
+// CRITICAL FIX: previous flex layout let WHY IT MATTERS + IMPLICATION + EVIDENCE
+// stack at the bottom and visually collide. Now bands are absolutely positioned,
+// only one of (implication | whyMatters) renders (priority: implication), and
+// evidence quote sits inside the BODY band with a hard height cap so it can
+// never bleed into the FOOTER.
 export const RecommendationSlide: React.FC<{ title: string; data: RecommendationData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
     const hasGrid = !!(data.impactGrid && (data.impactGrid.baseline || data.impactGrid.target || data.impactGrid.timeframe || data.impactGrid.owner));
     const hasEvidence = !!(data.evidence && data.evidence.length > 0);
+    const isCyan = data.accentColor === 'cyan';
+    const accent = isCyan ? '#00B7C3' : hex(T.CHARTREUSE_BRIGHT);
+    const framingTagText = data.framingTag || 'STRATEGIC RECOMMENDATION';
+    const actionsLabelText = data.actionsLabel || 'SUPPORTING ACTIONS';
+    const hasImage = !!(data.heroImage && data.heroImage.src);
+    const hasStrip = !!(data.impactStrip && (data.impactStrip.effort || data.impactStrip.risk || data.impactStrip.outcome));
+    const hasMetric = !!data.impactMetric;
+    const hasRight = hasImage || hasGrid || hasMetric || hasStrip;
+
+    // === BAND BOUNDARIES (pixels on the 540px-tall canvas, 72 px/inch) ===
+    const PAD_X = 30;           // matches PPTX contentX + 0.42"
+    const HEADER_Y = 26;
+    const BODY_Y = 112;
+    const BODY_BOTTOM = 428;
+    const FOOTER_Y = 446;
+    const FOOTER_H = 65;
+    const SOURCES_Y = 518;
+
+    // FOOTER: ONE closing line, priority implication > whyMatters (drop the other)
+    const footerText = data.implication || data.whyMatters || '';
+    const footerLabel = data.implication ? 'IMPLICATION' : (data.whyMatters ? 'WHY IT MATTERS' : '');
+
     return (
-    <div style={{ padding: '28px 40px 16px', display: 'flex', flexDirection: 'column', gap: 12, height: '100%' }}>
-        <div>
-            <Tag text="STRATEGIC RECOMMENDATION" brand={brand} />
-            <Title text={title} size={24} brand={brand} />
+    <div style={{ position: 'relative' as const, width: '100%', height: '100%', overflow: 'hidden' }}>
+
+        {/* ============================================================
+            HEADER BAND (26 → 108)
+            ============================================================ */}
+        <div style={{ position: 'absolute' as const, top: HEADER_Y, left: PAD_X, right: PAD_X, height: BODY_Y - HEADER_Y - 4 }}>
+            {data.framingTag ? (
+                <div style={{
+                    display: 'inline-block',
+                    fontSize: 8,
+                    fontFamily: `'${T.FONT}', sans-serif`,
+                    fontWeight: 800,
+                    letterSpacing: '3px',
+                    textTransform: 'uppercase' as const,
+                    color: '#FFFFFF',
+                    background: accent,
+                    padding: '3px 10px',
+                    marginBottom: 6,
+                }}>{framingTagText}</div>
+            ) : (
+                <Tag text={framingTagText} brand={brand} />
+            )}
+            <Title text={title} size={22} brand={brand} />
+            {data.personaContext && (
+                <div style={{
+                    fontSize: 8.5,
+                    fontFamily: `'${T.FONT}', sans-serif`,
+                    fontWeight: 700,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase' as const,
+                    color: hex(T.SECONDARY),
+                    marginTop: 4,
+                    whiteSpace: 'nowrap' as const,
+                    overflow: 'hidden' as const,
+                    textOverflow: 'clip' as const,
+                }}>{truncate(data.personaContext, 110)}</div>
+            )}
         </div>
-        <div style={{ display: 'flex', gap: 22, flex: 1, minHeight: 0 }}>
+
+        {/* ============================================================
+            BODY BAND (112 → 428) — two columns
+            ============================================================ */}
+        <div style={{ position: 'absolute' as const, top: BODY_Y, left: PAD_X, right: PAD_X, height: BODY_BOTTOM - BODY_Y, display: 'flex', gap: 22, overflow: 'hidden' }}>
             {/* LEFT — action + supporting actions + evidence strip */}
-            <div style={{ flex: 2, display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
-                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 700, fontSize: 15, color: hex(T.INK), lineHeight: 1.3, borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 12 }}>
+            <div style={{ flex: hasRight ? 1.5 : 1, display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
+                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 700, fontSize: 15, color: hex(T.INK), lineHeight: 1.3, borderLeft: `3px solid ${accent}`, paddingLeft: 12, flexShrink: 0 }}>
                     {data.actionTitle}
                 </div>
                 {data.rationale && (
-                    <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(data.rationale, 360)}</div>
+                    <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300, flexShrink: 0 }}>{truncate(data.rationale, 280)}</div>
                 )}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 2 }}>
-                    {data.supportingActions.slice(0, 5).map((a, i) => (
-                        <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
-                                {String(i + 1).padStart(2, '0')}
-                            </div>
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                                <div style={{ fontWeight: 700, fontSize: 10.5, color: hex(T.INK), marginBottom: 2, letterSpacing: '-0.005em' }}>{a.name}</div>
-                                <div style={{ fontSize: 9.5, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{truncate(a.description, 220)}</div>
-                            </div>
+                {data.supportingActions && data.supportingActions.length > 0 && (
+                    <>
+                        <div style={{
+                            fontSize: 7.5,
+                            fontWeight: 800,
+                            letterSpacing: '2.5px',
+                            textTransform: 'uppercase' as const,
+                            color: hex(T.SECONDARY),
+                            marginTop: 2,
+                            flexShrink: 0,
+                        }}>{actionsLabelText}</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 2, flexShrink: 0, overflow: 'hidden' }}>
+                            {data.supportingActions.slice(0, 4).map((a, i) => (
+                                <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                                    <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: accent, lineHeight: 1, flexShrink: 0, width: 28 }}>
+                                        {String(i + 1).padStart(2, '0')}
+                                    </div>
+                                    <div style={{ flex: 1, minWidth: 0 }}>
+                                        <div style={{ fontWeight: 700, fontSize: 10.5, color: hex(T.INK), marginBottom: 2, letterSpacing: '-0.005em' }}>{a.name}</div>
+                                        <div style={{ fontSize: 9.5, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(a.description, 150)}</div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                {/* EVIDENCE STRIP — transcript/corpus quotes that justify the action */}
+                    </>
+                )}
+                {/* EVIDENCE — only one quote, fixed height cap, clipped if overflows */}
                 {hasEvidence && (
-                    <div style={{ marginTop: 'auto', paddingTop: 8, borderTop: `1px solid ${hex(T.RULE)}` }}>
-                        <div style={{ fontSize: 7.5, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 6 }}>EVIDENCE</div>
-                        <QuoteStack quotes={(data.evidence || []).slice(0, 2)} size="compact" brand={brand} maxChars={180} />
+                    <div style={{ paddingTop: 8, borderTop: `1px solid ${hex(T.RULE)}`, marginTop: 4, flexShrink: 0, overflow: 'hidden', maxHeight: 76 }}>
+                        <div style={{ fontSize: 7.5, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 4 }}>EVIDENCE</div>
+                        <QuoteStack quotes={(data.evidence || []).slice(0, 1)} size="compact" brand={brand} maxChars={150} />
                     </div>
                 )}
             </div>
-            {/* RIGHT — 4-cell impact grid OR legacy hero number */}
-            {hasGrid ? (
-                <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 18, display: 'flex', flexDirection: 'column', gap: 12, borderTop: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, overflow: 'hidden' }}>
-                    <div style={{ fontSize: 8, fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY) }}>PROJECTED IMPACT</div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, flex: 1 }}>
+            {/* RIGHT — hero image + impact strip OR 4-cell grid OR hero number */}
+            {hasImage ? (
+                <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 8, overflow: 'hidden' }}>
+                    <div style={{ position: 'relative' as const, borderTop: `4px solid ${accent}`, background: hex(T.PALE), flexShrink: 0 }}>
+                        <img
+                            src={data.heroImage!.src}
+                            alt={data.heroImage!.alt || data.actionTitle}
+                            style={{ width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'cover' as const, display: 'block' }}
+                            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                        />
+                        {data.heroImage!.caption && (
+                            <div style={{
+                                fontSize: 7.5,
+                                fontFamily: `'${T.FONT}', sans-serif`,
+                                fontWeight: 700,
+                                letterSpacing: '2px',
+                                textTransform: 'uppercase' as const,
+                                color: hex(T.SECONDARY),
+                                padding: '6px 12px',
+                                background: hex(T.PALE),
+                                borderBottom: `1px solid ${hex(T.RULE)}`,
+                            }}>{truncate(data.heroImage!.caption, 50)}</div>
+                        )}
+                    </div>
+                    {hasStrip && (
+                        <div style={{ background: hex(T.PALE), padding: '10px 12px', display: 'flex', flexDirection: 'column', gap: 6, flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                            <div style={{ fontSize: 7, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY) }}>IMPACT PROFILE</div>
+                            {[
+                                { k: 'EFFORT', v: data.impactStrip?.effort },
+                                { k: 'RISK', v: data.impactStrip?.risk },
+                                { k: 'OUTCOME', v: data.impactStrip?.outcome },
+                            ].filter(c => c.v).map((c, i, arr) => (
+                                <div key={c.k} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, borderBottom: i < arr.length - 1 ? `1px solid ${hex(T.RULE)}` : 'none', paddingBottom: i < arr.length - 1 ? 4 : 0 }}>
+                                    <div style={{ fontSize: 7, fontWeight: 800, letterSpacing: '1.5px', color: accent, width: 50, flexShrink: 0, paddingTop: 1 }}>{c.k}</div>
+                                    <div style={{ fontSize: 9, color: hex(T.INK), lineHeight: 1.35, fontWeight: 600, flex: 1, minWidth: 0 }}>{truncate(c.v || '', 60)}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            ) : hasGrid ? (
+                <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 16, display: 'flex', flexDirection: 'column', gap: 10, borderTop: `4px solid ${accent}`, overflow: 'hidden' }}>
+                    <div style={{ fontSize: 8, fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), flexShrink: 0 }}>PROJECTED IMPACT</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, flex: 1, minHeight: 0 }}>
                         {[
                             { k: 'BASELINE', v: data.impactGrid?.baseline, color: T.MUTED },
                             { k: 'TARGET', v: data.impactGrid?.target, color: T.TEAL },
                             { k: 'TIMEFRAME', v: data.impactGrid?.timeframe, color: T.CYAN },
                             { k: 'OWNER', v: data.impactGrid?.owner, color: T.CHARTREUSE_BRIGHT },
                         ].map(c => (
-                            <div key={c.k} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            <div key={c.k} style={{ display: 'flex', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
                                 <div style={{ fontSize: 7, letterSpacing: '2px', color: hex(c.color), fontWeight: 800, textTransform: 'uppercase' as const }}>{c.k}</div>
-                                <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.3, fontWeight: 700 }}>{c.v ? truncate(c.v, 110) : '—'}</div>
+                                <div style={{ fontSize: 10.5, color: hex(T.INK), lineHeight: 1.3, fontWeight: 700, overflow: 'hidden' }}>{c.v ? truncate(c.v, 60) : ''}</div>
                             </div>
                         ))}
                     </div>
                     {data.impactMetric && (
-                        <div style={{ marginTop: 'auto', paddingTop: 10, borderTop: `1px solid ${hex(T.RULE)}` }}>
-                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: heroNumberSize(data.impactMetric.value, { max: 38, min: 20, baseChars: 4 }), color: hex(T.TEAL), lineHeight: 1, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{data.impactMetric.value}</div>
-                            <div style={{ fontSize: 9, color: hex(T.SECONDARY), marginTop: 4, lineHeight: 1.35 }}>{truncate(data.impactMetric.label, 80)}</div>
+                        <div style={{ paddingTop: 8, borderTop: `1px solid ${hex(T.RULE)}`, flexShrink: 0 }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: heroNumberSize(data.impactMetric.value, { max: 32, min: 18, baseChars: 4 }), color: hex(T.TEAL), lineHeight: 1, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'clip' as const }}>{data.impactMetric.value}</div>
+                            <div style={{ fontSize: 9, color: hex(T.SECONDARY), marginTop: 4, lineHeight: 1.35 }}>{truncate(data.impactMetric.label, 70)}</div>
                         </div>
                     )}
                 </div>
             ) : data.impactMetric && (() => {
-                const mSize = heroNumberSize(data.impactMetric.value, { max: 60, min: 30, baseChars: 4 });
+                const mSize = heroNumberSize(data.impactMetric.value, { max: 56, min: 28, baseChars: 4 });
                 return (
-                    <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 22, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, overflow: 'hidden' }}>
+                    <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 22, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: `4px solid ${accent}`, overflow: 'hidden' }}>
                         <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>PROJECTED IMPACT</div>
-                        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: mSize, color: hex(T.TEAL), lineHeight: 1.0, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{data.impactMetric.value}</div>
-                        <div style={{ fontSize: 10, color: hex(T.INK), marginTop: 10, lineHeight: 1.35, fontWeight: 500 }}>{truncate(data.impactMetric.label, 100)}</div>
+                        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: mSize, color: hex(T.TEAL), lineHeight: 1.0, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'clip' as const }}>{data.impactMetric.value}</div>
+                        <div style={{ fontSize: 10, color: hex(T.INK), marginTop: 10, lineHeight: 1.35, fontWeight: 500 }}>{truncate(data.impactMetric.label, 90)}</div>
                     </div>
                 );
             })()}
         </div>
-        {/* IMPLICATION line */}
-        {data.implication && (
-            <div style={{ fontSize: 10, color: hex(T.INK), fontWeight: 600, borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8 }}>
-                <span style={{ letterSpacing: '1.5px', fontSize: 7.5, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>IMPLICATION</span>
-                {truncate(data.implication, 260)}
+
+        {/* ============================================================
+            FOOTER BAND (446 → 511) — ONE closing line, period.
+            ============================================================ */}
+        {footerText && footerLabel && (
+            <div style={{ position: 'absolute' as const, top: FOOTER_Y, left: PAD_X, right: PAD_X, height: FOOTER_H, overflow: 'hidden', borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8, display: 'flex', gap: 12 }}>
+                <span style={{ letterSpacing: '1.5px', fontSize: 7.5, color: accent, fontWeight: 800, textTransform: 'uppercase' as const, flexShrink: 0, width: 90, paddingTop: 1 }}>{footerLabel}</span>
+                <span style={{ fontSize: 10, color: hex(T.INK), fontWeight: 600, lineHeight: 1.45, flex: 1, minWidth: 0 }}>{truncate(footerText, 220)}</span>
             </div>
         )}
-        <SourceFooter sources={sources} brand={brand} />
+
+        {/* ============================================================
+            SOURCES BAND (518 → 540)
+            ============================================================ */}
+        {sources && sources.length > 0 && (
+            <div style={{ position: 'absolute' as const, top: SOURCES_Y, left: PAD_X, right: PAD_X, height: 540 - SOURCES_Y - 4, overflow: 'hidden' }}>
+                <div style={{ fontSize: 8, color: hex(T.MUTED), borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 6, whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'clip' as const }}>
+                    Sources: {sources.join('  |  ')}
+                </div>
+            </div>
+        )}
     </div>
     );
 };

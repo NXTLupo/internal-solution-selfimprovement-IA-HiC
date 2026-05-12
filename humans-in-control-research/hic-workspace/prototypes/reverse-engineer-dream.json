@@ -1,0 +1,656 @@
+{
+  "schema_version": 1,
+  "slug": "reverse-engineer-dream",
+  "title": "Reverse-Engineer Dream",
+  "concept": "#proto #name=reverse-engineer-dream #NU",
+  "brief": {
+    "concept_title": "Reverse-Engineer Dream",
+    "one_line_thesis": "An AI-native spatial planner that transforms vague, ambitious life or product goals into concrete, executable roadmaps.",
+    "primary_persona": {
+      "name": "The Ambitious Visionary",
+      "context": "A highly motivated individual or founder who has a massive, seemingly impossible end-state in mind (e.g., 'Direct an indie feature film', 'Build a $1M ARR AI tool') but lacks the immediate bridge from today to the finish line.",
+      "emotional_state": "Deeply inspired but paralyzed by the sheer scale and ambiguity of the goal."
+    },
+    "secondary_actors": [
+      {
+        "role": "Collaborator / Mentor",
+        "involvement": "Invited to view the generated roadmap, leave contextual feedback on specific nodes, or offer resources to accelerate a milestone."
+      }
+    ],
+    "demonstrated_moment": "The 'Chaos to Clarity' sequence: The user inputs a messy, stream-of-consciousness 'dream dump', watches the AI deconstruct it into a multi-year spatial timeline, and interacts with a specific node to generate this week's immediate tasks.",
+    "jobs_to_be_done": [
+      "Capture a raw, unstructured stream-of-consciousness description of a massive ambition without requiring the user to pre-format their thoughts.",
+      "Deconstruct a vague, multi-year goal into logical, sequential phases, identifying hidden prerequisites and required skill acquisitions.",
+      "Allow the user to dynamically adjust the roadmap by interacting with specific nodes (e.g., marking a prerequisite as 'already completed' to instantly recalculate the timeline).",
+      "Translate a distant, high-level milestone into a concrete, actionable micro-plan for the current week."
+    ],
+    "success_criteria": [
+      "The transition from the unstructured input to the structured roadmap must feel like a profound 'aha' moment of clarity.",
+      "The UI must feel differentiated from a generic SaaS dashboard—utilizing a spatial, node-based canvas or a highly crafted, Linear-esque timeline rather than a standard Kanban board.",
+      "The AI-generated steps must feel grounded, specific, and expert-level, avoiding generic platitudes (e.g., 'Learn to code' vs 'Complete a Next.js/Supabase tutorial to build your first auth flow').",
+      "Interactions with the timeline (dragging, expanding nodes) must feel fluid, instantaneous, and native."
+    ],
+    "ai_inference_points": [
+      {
+        "trigger": "User submits the initial 'Dream Dump' text or audio.",
+        "model_call": "Claude Opus / Gemini 1.5 Pro",
+        "input": "Raw, unstructured text of the user's dream, plus any baseline context provided (e.g., 'I have $5k saved and know basic Python').",
+        "output_shape": "Structured JSON containing 4-5 major phases, 3-5 specific milestones per phase, estimated timeframes, and hidden prerequisites. Rendered instantly as a spatial timeline.",
+        "value_unlocked": "The core magic: transforming overwhelming ambiguity into a structured, believable path forward."
+      },
+      {
+        "trigger": "User clicks 'Drill Down' on a specific, intimidating milestone node.",
+        "model_call": "OpenAI GPT-4o / Claude 3.5 Sonnet",
+        "input": "The specific milestone context, the overall dream context, and the user's current baseline.",
+        "output_shape": "A markdown-formatted micro-plan containing 3 immediate, actionable tasks and 2 highly specific learning resources (links/search queries). Rendered in a sleek side-panel.",
+        "value_unlocked": "Unblocking the user at the micro-level, proving that even the hardest steps are just a series of small actions."
+      },
+      {
+        "trigger": "User drags a milestone to compress its timeframe (e.g., moving a 6-month goal to 2 months).",
+        "model_call": "Gemini 1.5 Pro",
+        "input": "The new time constraint, the milestone requirements, and the surrounding timeline dependencies.",
+        "output_shape": "Structured JSON updating the timeline dependencies, plus a brief 'Trade-off Warning' (e.g., 'To do this in 2 months, you must drop feature X or hire a contractor'). Rendered as a dynamic UI update with a toast notification.",
+        "value_unlocked": "Intelligent constraint solving that acts as a realistic strategic partner, not just a dumb calendar."
+      }
+    ],
+    "hard_constraints": {
+      "brand": null,
+      "platform": "native-feeling-web",
+      "accessibility": "WCAG AA minimum, ensuring spatial canvas is fully navigable via keyboard and screen reader (e.g., using a hidden semantic list representation of the nodes).",
+      "other": [
+        "Must support dark mode to lean into the 'dream' aesthetic.",
+        "Animations between the input state and the roadmap state must be seamless (e.g., Framer Motion layout transitions)."
+      ]
+    },
+    "open_questions": [
+      "Is the 'dream' strictly professional/product-oriented, or should the system handle personal/lifestyle dreams (e.g., 'Build an off-grid cabin') with equal fidelity?",
+      "Does this tool intend to replace daily task managers (like Todoist/Linear), or does it act as a high-level vision board that exports to those tools?",
+      "What is the visual metaphor for the roadmap? A literal timeline, a tech-tree (like a video game skill tree), or a step-by-step staircase?"
+    ]
+  },
+  "interaction_spec": {
+    "screens": [
+      {
+        "id": "screen_dream_input",
+        "purpose": "Capture the raw, unstructured ambition without formatting constraints.",
+        "persona_state": "Inspired but overwhelmed by the sheer scale of the idea.",
+        "primary_action": "Submit Dream Dump",
+        "secondary_actions": [
+          "Add Baseline Context (e.g., current skills, budget)"
+        ],
+        "content_blocks": [
+          "Hero Typography: 'What's the impossible goal?'",
+          "Auto-expanding textarea for stream-of-consciousness input",
+          "Optional toggle: 'My current baseline'",
+          "Submit Button: 'Reverse-Engineer'"
+        ],
+        "ai_calls_fired_here": [
+          "ai_deconstruct_dream"
+        ]
+      },
+      {
+        "id": "screen_synthesis_loading",
+        "purpose": "Build trust by showing the AI actively deconstructing the dream into logical components.",
+        "persona_state": "Anticipation and curiosity.",
+        "primary_action": "None (Auto-transitions on completion)",
+        "secondary_actions": [
+          "Cancel"
+        ],
+        "content_blocks": [
+          "Pulsing central node representing the 'Dream'",
+          "Dynamic text stream: 'Extracting prerequisites...', 'Mapping skill dependencies...', 'Estimating timelines...'",
+          "Faint, shimmering skeleton of a tech-tree forming in the background"
+        ],
+        "ai_calls_fired_here": []
+      },
+      {
+        "id": "screen_spatial_roadmap",
+        "purpose": "Display the multi-year timeline as an interactive, node-based tech-tree.",
+        "persona_state": "Profound 'aha' moment; experiencing clarity and structure.",
+        "primary_action": "Click Milestone Node (Drill Down)",
+        "secondary_actions": [
+          "Pan/Zoom Canvas",
+          "Drag Node to Compress Time",
+          "Mark Node Complete"
+        ],
+        "content_blocks": [
+          "Infinite dark-mode spatial canvas",
+          "Phase columns (e.g., 'Foundation', 'Beta', 'Scale')",
+          "Milestone Nodes connected by dependency bezier curves",
+          "Minimap for navigation"
+        ],
+        "ai_calls_fired_here": [
+          "ai_time_compression"
+        ]
+      },
+      {
+        "id": "screen_milestone_drilldown",
+        "purpose": "Translate a distant milestone into a concrete, actionable micro-plan for the current week.",
+        "persona_state": "Ready to act; focused on the immediate next step.",
+        "primary_action": "Mark Task Complete",
+        "secondary_actions": [
+          "Close Panel",
+          "Regenerate Micro-plan",
+          "Save to Todoist/Linear"
+        ],
+        "content_blocks": [
+          "Slide-over side panel",
+          "Milestone Title & Context",
+          "AI-generated Markdown stream of 3 immediate tasks",
+          "2 highly specific learning resources (links/queries)",
+          "Progress bar for the specific milestone"
+        ],
+        "ai_calls_fired_here": [
+          "ai_drill_down"
+        ]
+      },
+      {
+        "id": "screen_tradeoff_warning",
+        "purpose": "Act as a strategic partner when the user attempts unrealistic time compression.",
+        "persona_state": "Strategic decision making; weighing options.",
+        "primary_action": "Accept Trade-off",
+        "secondary_actions": [
+          "Revert Timeline"
+        ],
+        "content_blocks": [
+          "Modal Overlay",
+          "Warning Header: 'Aggressive Timeline Detected'",
+          "AI-generated Trade-off Analysis (e.g., 'To do this in 2 months, you must drop feature X')",
+          "Impact visualization (showing which downstream nodes will turn red/at-risk)"
+        ],
+        "ai_calls_fired_here": []
+      }
+    ],
+    "data_model": {
+      "entities": [
+        {
+          "name": "Dream",
+          "fields": [
+            "id",
+            "raw_text",
+            "baseline_context",
+            "created_at"
+          ],
+          "seed_count": 1,
+          "seed_examples": [
+            "I want to build an AI tool for indie authors to format and market their books, getting to $1M ARR in 2 years. I know basic Python but no frontend, and I have $5k saved."
+          ]
+        },
+        {
+          "name": "Phase",
+          "fields": [
+            "id",
+            "dream_id",
+            "title",
+            "estimated_duration",
+            "order_index"
+          ],
+          "seed_count": 4,
+          "seed_examples": [
+            "Phase 1: Foundation & Prototype (Months 1-3)",
+            "Phase 2: Beta & First Revenue (Months 4-8)",
+            "Phase 3: Scaling to $100k ARR (Months 9-15)"
+          ]
+        },
+        {
+          "name": "Milestone",
+          "fields": [
+            "id",
+            "phase_id",
+            "title",
+            "description",
+            "status",
+            "duration_weeks",
+            "dependencies"
+          ],
+          "seed_count": 12,
+          "seed_examples": [
+            "Complete Next.js/Supabase Auth Tutorial",
+            "Build Core Formatting Engine in Python",
+            "Launch Waitlist Landing Page",
+            "Onboard First 50 Beta Testers"
+          ]
+        },
+        {
+          "name": "MicroPlan",
+          "fields": [
+            "id",
+            "milestone_id",
+            "tasks",
+            "resources",
+            "generated_at"
+          ],
+          "seed_count": 1,
+          "seed_examples": [
+            "Task 1: Scaffold Next.js app with Tailwind. Task 2: Set up Supabase project and grab API keys. Task 3: Implement GitHub OAuth login.",
+            "Resource: 'Supabase Auth with Next.js App Router (YouTube)'"
+          ]
+        }
+      ]
+    },
+    "state_machine": [
+      {
+        "from": "screen_dream_input",
+        "trigger": "Click 'Reverse-Engineer'",
+        "to": "screen_synthesis_loading",
+        "side_effects": [
+          "Fire ai_deconstruct_dream",
+          "Animate input box dissolving into a central node"
+        ]
+      },
+      {
+        "from": "screen_synthesis_loading",
+        "trigger": "ai_deconstruct_dream returns success",
+        "to": "screen_spatial_roadmap",
+        "side_effects": [
+          "Render JSON into spatial nodes",
+          "Trigger temporal sequence animation of nodes branching out"
+        ]
+      },
+      {
+        "from": "screen_spatial_roadmap",
+        "trigger": "Click on 'Complete Next.js/Supabase Auth Tutorial' node",
+        "to": "screen_milestone_drilldown",
+        "side_effects": [
+          "Slide in side panel",
+          "Fire ai_drill_down",
+          "Render skeleton loader in panel until AI streams response"
+        ]
+      },
+      {
+        "from": "screen_milestone_drilldown",
+        "trigger": "Click Close or click outside panel",
+        "to": "screen_spatial_roadmap",
+        "side_effects": [
+          "Slide out side panel"
+        ]
+      },
+      {
+        "from": "screen_spatial_roadmap",
+        "trigger": "Drag 'Build Core Formatting Engine' node left to compress duration from 8 weeks to 2 weeks",
+        "to": "screen_tradeoff_warning",
+        "side_effects": [
+          "Fire ai_time_compression",
+          "Show loading spinner on dragged node",
+          "Pop modal with trade-off results"
+        ]
+      },
+      {
+        "from": "screen_tradeoff_warning",
+        "trigger": "Click 'Accept Trade-off'",
+        "to": "screen_spatial_roadmap",
+        "side_effects": [
+          "Update node duration",
+          "Recalculate downstream dependency positions",
+          "Close modal"
+        ]
+      },
+      {
+        "from": "screen_tradeoff_warning",
+        "trigger": "Click 'Revert Timeline'",
+        "to": "screen_spatial_roadmap",
+        "side_effects": [
+          "Snap node back to original position",
+          "Close modal"
+        ]
+      }
+    ],
+    "micro_interactions": [
+      {
+        "element": "Milestone Node",
+        "states": [
+          "default",
+          "hover",
+          "active",
+          "loading",
+          "empty",
+          "error",
+          "success"
+        ],
+        "behavior_per_state": {
+          "default": "Subtle dark gray card with white text, 1px border.",
+          "hover": "Border glows with a neon accent color (e.g., cyan), cursor changes to grab/pointer, dependency lines thicken.",
+          "active": "Scale down to 0.95, drop shadow increases, indicating it is being dragged.",
+          "loading": "Shimmering gradient sweeps across the node, text is replaced by skeleton blocks.",
+          "success": "Node turns solid green briefly, then fades to a muted 'completed' state with a checkmark icon.",
+          "empty": "N/A",
+          "error": "Node shakes horizontally, border turns red."
+        }
+      },
+      {
+        "element": "Dependency Line (Bezier Curve)",
+        "states": [
+          "default",
+          "hover",
+          "active",
+          "loading",
+          "empty",
+          "error",
+          "success"
+        ],
+        "behavior_per_state": {
+          "default": "Faint, dashed gray line connecting nodes.",
+          "hover": "Line becomes solid, bright white, and animated dashes flow in the direction of the dependency.",
+          "active": "Line turns red and stretches like a rubber band if the user drags a node too far, indicating a broken timeline constraint.",
+          "loading": "N/A",
+          "success": "N/A",
+          "empty": "N/A",
+          "error": "N/A"
+        }
+      }
+    ],
+    "motion_contract": [
+      {
+        "element": "Spatial Canvas Nodes",
+        "signal": "functional",
+        "channel": "temporal_sequence",
+        "encodes": "Hierarchy and chronological order. Nodes appear sequentially from left to right, phase by phase, proving the AI has built a logical step-by-step path."
+      },
+      {
+        "element": "Dream Input Textarea",
+        "signal": "expressive",
+        "channel": "spatial_extension",
+        "encodes": "Transformation of chaos to order. The large, messy text box physically shrinks and morphs into the single, dense 'Origin Node' on the canvas."
+      },
+      {
+        "element": "Trade-off Warning Modal",
+        "signal": "functional",
+        "channel": "color_modulation",
+        "encodes": "Risk and constraint. The background dims significantly, and the modal uses subtle amber/orange hues to signal that compressing time requires a sacrifice."
+      },
+      {
+        "element": "Drill-down Side Panel",
+        "signal": "functional",
+        "channel": "positional_drift",
+        "encodes": "Contextual overlay. It slides in from the right, pushing the canvas slightly to the left, maintaining the user's spatial context while offering deep focus."
+      },
+      {
+        "element": "Phase Headers",
+        "signal": "expressive",
+        "channel": "typographic_mass",
+        "encodes": "Milestone gravity. As the user zooms out on the canvas, node details fade and Phase Headers increase in font weight and tracking to remain legible landmarks."
+      }
+    ],
+    "ai_flows": [
+      {
+        "id": "ai_deconstruct_dream",
+        "fires_from_screen": "screen_dream_input",
+        "fires_on_trigger": "Click 'Reverse-Engineer'",
+        "endpoint": "/api/ai/anthropic",
+        "system_prompt_outline": "You are an expert product manager, life coach, and systems thinker. Take a messy, ambitious goal and break it down into a highly realistic, multi-year tech-tree of phases and milestones. Identify hidden prerequisites.",
+        "user_message_template": "Dream: {{raw_text}}. Baseline Context: {{baseline_context}}. Output a JSON structure with phases, milestones, estimated weeks, and dependencies.",
+        "expected_response_shape": "JSON object matching the Phase and Milestone data model schema.",
+        "renders_into": "screen_spatial_roadmap canvas"
+      },
+      {
+        "id": "ai_drill_down",
+        "fires_from_screen": "screen_spatial_roadmap",
+        "fires_on_trigger": "Click on a Milestone Node",
+        "endpoint": "/api/ai/openai",
+        "system_prompt_outline": "You are a tactical execution assistant. Take a high-level milestone and break it down into exactly 3 immediate, highly specific tasks for this week, plus 2 exact learning resources.",
+        "user_message_template": "Milestone: {{milestone.title}}. Description: {{milestone.description}}. User Baseline: {{baseline_context}}. Give me the micro-plan in Markdown.",
+        "expected_response_shape": "Markdown string with checkboxes and links.",
+        "renders_into": "screen_milestone_drilldown side panel"
+      },
+      {
+        "id": "ai_time_compression",
+        "fires_from_screen": "screen_spatial_roadmap",
+        "fires_on_trigger": "Drag node to reduce duration",
+        "endpoint": "/api/ai/gemini-compat",
+        "system_prompt_outline": "You are a ruthless strategic constraint solver. The user is trying to compress a milestone's timeline. Tell them exactly what trade-off they must make (e.g., spend money, cut scope, lower quality) to achieve this new timeline.",
+        "user_message_template": "Milestone: {{milestone.title}}. Original Duration: {{old_duration}} weeks. New Duration: {{new_duration}} weeks. What is the specific trade-off required?",
+        "expected_response_shape": "JSON object with 'warning_message' (string) and 'affected_dependencies' (array of node IDs).",
+        "renders_into": "screen_tradeoff_warning modal"
+      }
+    ]
+  },
+  "design_system": {
+    "brand_application": {
+      "logo_treatment": "Northeastern University wordmark, stark and plain-spoken",
+      "voice_tone": "ambitious, student-first, plain-spoken, evidence-driven, never bombastic, never marketing-puffy"
+    },
+    "type_system": {
+      "display": {
+        "family": "Roboto Condensed",
+        "weight": 700,
+        "size_px": 48,
+        "line_height": 1.1,
+        "tracking": "-0.01em"
+      },
+      "body": {
+        "family": "Open Sans",
+        "weight": 400,
+        "size_px": 16,
+        "line_height": 1.5,
+        "tracking": "0"
+      },
+      "label": {
+        "family": "Open Sans",
+        "weight": 600,
+        "size_px": 14,
+        "line_height": 1.2,
+        "tracking": "0"
+      },
+      "quote": {
+        "family": "Roboto Condensed",
+        "weight": 700,
+        "size_px": 24,
+        "line_height": 1.3,
+        "tracking": "-0.01em"
+      },
+      "data": {
+        "family": "IBM Plex Mono",
+        "weight": 400,
+        "size_px": 14,
+        "line_height": 1.4,
+        "tracking": "0"
+      }
+    },
+    "color_system": {
+      "foundation": {
+        "background": "#FFFFFF",
+        "surface": "#F7F7F7",
+        "text_primary": "#000000",
+        "text_secondary": "#414141",
+        "border": "#D9D9D9"
+      },
+      "persona_accents": [
+        "#C8102E",
+        "#F8E5C2"
+      ],
+      "semantic": {
+        "success": "#0F8A4B",
+        "warning": "#B5651D",
+        "friction": "#9E0A24",
+        "opportunity": "#C8102E"
+      },
+      "emphasis": "#C8102E"
+    },
+    "spacing_scale": [
+      4,
+      8,
+      16,
+      24,
+      32,
+      48,
+      64,
+      96
+    ],
+    "motion_tokens": {
+      "easings": {
+        "standard": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "durations_ms": {
+        "instant": 100,
+        "quick": 200,
+        "standard": 400,
+        "deliberate": 700,
+        "ambient": 3000
+      }
+    },
+    "components": [
+      {
+        "name": "button",
+        "anatomy": [
+          "container",
+          "label",
+          "icon"
+        ],
+        "variants": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "active",
+          "disabled"
+        ]
+      },
+      {
+        "name": "card",
+        "anatomy": [
+          "container",
+          "header",
+          "body",
+          "footer"
+        ],
+        "variants": [
+          "default",
+          "interactive",
+          "milestone_node"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "active",
+          "loading"
+        ]
+      },
+      {
+        "name": "input",
+        "anatomy": [
+          "container",
+          "label",
+          "field",
+          "help_text"
+        ],
+        "variants": [
+          "text",
+          "textarea"
+        ],
+        "states_per_variant": [
+          "default",
+          "focused",
+          "error",
+          "disabled"
+        ]
+      },
+      {
+        "name": "badge",
+        "anatomy": [
+          "container",
+          "label"
+        ],
+        "variants": [
+          "neutral",
+          "success",
+          "warning",
+          "error"
+        ],
+        "states_per_variant": [
+          "default"
+        ]
+      },
+      {
+        "name": "list_item",
+        "anatomy": [
+          "container",
+          "content",
+          "action"
+        ],
+        "variants": [
+          "task",
+          "resource"
+        ],
+        "states_per_variant": [
+          "default",
+          "hover",
+          "completed"
+        ]
+      },
+      {
+        "name": "modal",
+        "anatomy": [
+          "overlay",
+          "container",
+          "header",
+          "body",
+          "footer"
+        ],
+        "variants": [
+          "default",
+          "tradeoff_warning",
+          "side_panel"
+        ],
+        "states_per_variant": [
+          "default"
+        ]
+      }
+    ]
+  },
+  "code": "// PLAN:\n// 1. Setup & Brand: Inject NU fonts (Roboto Condensed, Open Sans, IBM Plex Mono) and strict CSS variables.\n// 2. State Management: \n//    - `screen`: 'input' | 'loading' | 'roadmap'\n//    - `dreamData`: { text, baseline }\n//    - `roadmap`: { phases: [], milestones: [] }\n//    - `activeMilestone`: id (for drilldown panel)\n//    - `tradeoffState`: { milestone, newDuration } (for warning modal)\n// 3. Components:\n//    - `App`: Root state controller and layout shell.\n//    - `Header`: NU branded top bar.\n//    - `DemoControls`: Floating panel to force states for review.\n//    - `ScreenInput`: Textarea for dream dump, baseline input.\n//    - `ScreenLoading`: Pulsing animation, cycling text.\n//    - `ScreenRoadmap`: Spatial canvas. Renders Phase columns, Milestone nodes, and SVG dependency lines.\n//    - `MilestoneNode`: Draggable card. Drag left triggers tradeoff. Click triggers drilldown.\n//    - `DrilldownPanel`: Slide-over. Fetches and renders AI micro-plan (markdown).\n//    - `TradeoffModal`: Warning modal for time compression.\n// 4. AI Integrations (Real Fetch Calls):\n//    - `ai_deconstruct_dream`: POST /api/ai/anthropic (Claude 4.6). Converts unstructured text to structured JSON roadmap.\n//    - `ai_drill_down`: POST /api/ai/openai (GPT-5.5). Converts milestone to actionable markdown micro-plan.\n//    - `ai_time_compression`: POST /api/ai/gemini-compat (Gemini 3.1 Pro). Analyzes drag-compression and outputs tradeoff JSON.\n// 5. Interactions & Motion:\n//    - Framer Motion for screen transitions (AnimatePresence).\n//    - SVG Bezier curves calculated via useLayoutEffect based on node DOM positions.\n//    - Drag-to-compress using framer-motion `drag` and `onDragEnd`.\n\nconst SEED_DREAM = \"I want to build an AI tool for indie authors to format and market their books, getting to $1M ARR in 2 years. I know basic Python but no frontend, and I have $5k saved.\";\n\nconst SEED_ROADMAP = {\n  phases: [\n    { id: \"p1\", title: \"Foundation & Prototype\", duration_weeks: 12, order: 1 },\n    { id: \"p2\", title: \"Beta & First Revenue\", duration_weeks: 20, order: 2 },\n    { id: \"p3\", title: \"Scaling to $100k ARR\", duration_weeks: 24, order: 3 }\n  ],\n  milestones: [\n    { id: \"m1\", phase_id: \"p1\", title: \"Learn Frontend Basics\", description: \"Complete Next.js & React fundamentals.\", duration_weeks: 4, dependencies: [] },\n    { id: \"m2\", phase_id: \"p1\", title: \"Build Core Formatting Engine\", description: \"Python backend for text processing.\", duration_weeks: 6, dependencies: [] },\n    { id: \"m3\", phase_id: \"p1\", title: \"Integrate Auth & DB\", description: \"Setup Supabase and connect to frontend.\", duration_weeks: 2, dependencies: [\"m1\"] },\n    { id: \"m4\", phase_id: \"p2\", title: \"Launch Waitlist Page\", description: \"Collect emails from interested authors.\", duration_weeks: 2, dependencies: [\"m1\"] },\n    { id: \"m5\", phase_id: \"p2\", title: \"Onboard 50 Beta Testers\", description: \"Manual onboarding and feedback collection.\", duration_weeks: 8, dependencies: [\"m2\", \"m3\", \"m4\"] },\n    { id: \"m6\", phase_id: \"p3\", title: \"Implement Stripe Billing\", description: \"Self-serve subscription tiers.\", duration_weeks: 4, dependencies: [\"m5\"] }\n  ]\n};\n\n// --- UTILS & API ---\n\nconst parseJSONResponse = (text) => {\n  try {\n    const match = text.match(/```json\\n([\\s\\S]*?)\\n```/);\n    if (match) return JSON.parse(match[1]);\n    return JSON.parse(text);\n  } catch (e) {\n    console.error(\"Failed to parse AI JSON:\", text);\n    throw new Error(\"Invalid JSON response from AI\");\n  }\n};\n\nconst api = {\n  deconstructDream: async (dreamText, baseline) => {\n    const prompt = `\n      You are an expert product manager and systems thinker. Take this ambitious goal and break it down into a realistic, multi-year tech-tree of phases and milestones.\n      Dream: \"${dreamText}\"\n      Baseline Context: \"${baseline}\"\n      \n      Output ONLY valid JSON matching this structure:\n      {\n        \"phases\": [{ \"id\": \"p1\", \"title\": \"Phase Name\", \"duration_weeks\": 12, \"order\": 1 }],\n        \"milestones\": [{ \"id\": \"m1\", \"phase_id\": \"p1\", \"title\": \"Actionable Step\", \"description\": \"Details\", \"duration_weeks\": 4, \"dependencies\": [\"id_of_prereq_milestone\"] }]\n      }\n      Ensure dependencies only reference valid milestone IDs that come BEFORE them logically.\n    `;\n    const res = await fetch('/api/ai/anthropic', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({\n        model: \"claude-opus-4-6\",\n        max_tokens: 2000,\n        messages: [{ role: \"user\", content: prompt }]\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return parseJSONResponse(data.content[0].text);\n  },\n\n  drillDown: async (milestone, baseline) => {\n    const prompt = `\n      You are a tactical execution assistant. Break down this high-level milestone into exactly 3 immediate, highly specific tasks for this week, plus 2 exact learning resources.\n      Milestone: \"${milestone.title}\"\n      Description: \"${milestone.description}\"\n      User Baseline: \"${baseline}\"\n      \n      Output ONLY Markdown format:\n      ### Immediate Tasks\n      - [ ] Task 1...\n      - [ ] Task 2...\n      - [ ] Task 3...\n      \n      ### Learning Resources\n      - [Resource Name](Search Query or URL)\n      - [Resource Name](Search Query or URL)\n    `;\n    const res = await fetch('/api/ai/openai', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gpt-5.5\",\n        messages: [{ role: \"user\", content: prompt }],\n        temperature: 0.3\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return data.choices[0].message.content;\n  },\n\n  compressTime: async (milestone, oldDuration, newDuration) => {\n    const prompt = `\n      You are a ruthless strategic constraint solver. The user is trying to compress a milestone's timeline.\n      Milestone: \"${milestone.title}\"\n      Original Duration: ${oldDuration} weeks\n      New Duration: ${newDuration} weeks\n      \n      What specific trade-off must they make (e.g., spend money, cut scope, lower quality) to achieve this?\n      Output ONLY valid JSON:\n      {\n        \"warning_message\": \"To do this in X weeks, you must...\",\n        \"affected_dependencies\": [] // array of milestone IDs that might be at risk\n      }\n    `;\n    const res = await fetch('/api/ai/gemini-compat', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gemini-3.1-pro-preview\",\n        messages: [{ role: \"user\", content: prompt }],\n        temperature: 0.3\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return parseJSONResponse(data.choices[0].message.content);\n  }\n};\n\n// --- COMPONENTS ---\n\nconst Header = () => (\n  <header className=\"nu-header\">\n    <div className=\"nu-logo\">Northeastern University</div>\n    <div className=\"nu-product-name\">Reverse-Engineer Dream</div>\n  </header>\n);\n\nconst DemoControls = ({ setScreen, setRoadmap }) => (\n  <div className=\"demo-controls\">\n    <div className=\"demo-title\">Demo Controls</div>\n    <button onClick={() => setScreen('input')}>1. Input</button>\n    <button onClick={() => setScreen('loading')}>2. Loading</button>\n    <button onClick={() => { setRoadmap(SEED_ROADMAP); setScreen('roadmap'); }}>3. Roadmap (Seed)</button>\n  </div>\n);\n\nconst ScreenInput = ({ onSubmit }) => {\n  const [dream, setDream] = useState(\"\");\n  const [baseline, setBaseline] = useState(\"\");\n  const [showBaseline, setShowBaseline] = useState(false);\n\n  return (\n    <motion.div \n      className=\"screen-container\"\n      initial={{ opacity: 0, y: 20 }}\n      animate={{ opacity: 1, y: 0 }}\n      exit={{ opacity: 0, scale: 0.95 }}\n    >\n      <div className=\"input-layout\">\n        <h1 className=\"display-text\">What's the impossible goal?</h1>\n        <p className=\"body-text tertiary\" style={{ marginBottom: '32px' }}>\n          Pour out your ambition. Don't worry about formatting or realism yet.\n        </p>\n        \n        <textarea \n          className=\"nu-textarea\"\n          placeholder=\"e.g., I want to build an AI tool for indie authors to format and market their books, getting to $1M ARR in 2 years...\"\n          value={dream}\n          onChange={(e) => setDream(e.target.value)}\n        />\n\n        {showBaseline ? (\n          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className=\"baseline-container\">\n            <label className=\"nu-label\">My current baseline (skills, budget, time)</label>\n            <input \n              type=\"text\" \n              className=\"nu-input\" \n              placeholder=\"e.g., I know basic Python, have $5k saved, can work 10hrs/week.\"\n              value={baseline}\n              onChange={(e) => setBaseline(e.target.value)}\n            />\n          </motion.div>\n        ) : (\n          <button className=\"nu-button-ghost\" onClick={() => setShowBaseline(true)}>\n            + Add Baseline Context\n          </button>\n        )}\n\n        <div className=\"action-row\">\n          <button \n            className=\"nu-button-primary\" \n            disabled={!dream.trim()}\n            onClick={() => onSubmit(dream, baseline)}\n          >\n            Reverse-Engineer <lucide.ArrowRight size={16} style={{ marginLeft: '8px' }} />\n          </button>\n        </div>\n      </div>\n    </motion.div>\n  );\n};\n\nconst ScreenLoading = () => {\n  const [textIdx, setTextIdx] = useState(0);\n  const texts = [\n    \"Extracting prerequisites...\",\n    \"Mapping skill dependencies...\",\n    \"Estimating timelines...\",\n    \"Structuring spatial roadmap...\"\n  ];\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setTextIdx(i => (i + 1) % texts.length);\n    }, 2000);\n    return () => clearInterval(interval);\n  }, []);\n\n  return (\n    <motion.div \n      className=\"screen-container centered\"\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n    >\n      <div className=\"loading-visual\">\n        <motion.div \n          className=\"pulsing-node\"\n          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 2, repeat: Infinity, ease: \"easeInOut\" }}\n        />\n        <motion.div \n          className=\"pulsing-ring\"\n          animate={{ scale: [1, 2], opacity: [0.8, 0] }}\n          transition={{ duration: 2, repeat: Infinity, ease: \"easeOut\" }}\n        />\n      </div>\n      <AnimatePresence mode=\"wait\">\n        <motion.p \n          key={textIdx}\n          className=\"loading-text\"\n          initial={{ opacity: 0, y: 10 }}\n          animate={{ opacity: 1, y: 0 }}\n          exit={{ opacity: 0, y: -10 }}\n        >\n          {texts[textIdx]}\n        </motion.p>\n      </AnimatePresence>\n    </motion.div>\n  );\n};\n\nconst MilestoneNode = ({ milestone, onDrilldown, onCompressRequest, isAtRisk }) => {\n  const x = useMotionValue(0);\n  const [isDragging, setIsDragging] = useState(false);\n\n  return (\n    <motion.div \n      className={`milestone-node ${isAtRisk ? 'at-risk' : ''}`}\n      data-node-id={milestone.id}\n      drag=\"x\"\n      dragConstraints={{ left: -100, right: 0 }}\n      dragElastic={0.1}\n      style={{ x }}\n      onDragStart={() => setIsDragging(true)}\n      onDragEnd={(e, info) => {\n        setIsDragging(false);\n        if (info.offset.x < -50) {\n          // Trigger compression\n          const newDuration = Math.max(1, Math.floor(milestone.duration_weeks / 2));\n          onCompressRequest(milestone, newDuration, () => {\n            // Revert callback\n            animate(x, 0, { type: \"spring\", stiffness: 300, damping: 20 });\n          });\n        } else {\n          animate(x, 0, { type: \"spring\", stiffness: 300, damping: 20 });\n        }\n      }}\n      onClick={() => {\n        if (!isDragging && x.get() === 0) onDrilldown(milestone);\n      }}\n      whileHover={{ scale: 1.02, borderColor: 'var(--nu-red)' }}\n      whileTap={{ scale: 0.98 }}\n      layoutId={`node-${milestone.id}`}\n    >\n      <div className=\"node-header\">\n        <span className=\"node-duration\">{milestone.duration_weeks}w</span>\n        {isAtRisk && <lucide.AlertTriangle size={14} color=\"var(--warning)\" />}\n      </div>\n      <h3 className=\"node-title\">{milestone.title}</h3>\n      <p className=\"node-desc\">{milestone.description}</p>\n      \n      {/* Drag indicator */}\n      <div className=\"drag-handle\">\n        <lucide.GripVertical size={14} />\n      </div>\n    </motion.div>\n  );\n};\n\nconst ScreenRoadmap = ({ roadmap, onDrilldown, onCompressRequest, atRiskNodes }) => {\n  const containerRef = useRef(null);\n  const [lines, setLines] = useState([]);\n\n  const updateLines = useCallback(() => {\n    if (!containerRef.current || !roadmap) return;\n    const containerRect = containerRef.current.getBoundingClientRect();\n    const newLines = [];\n\n    roadmap.milestones.forEach(m => {\n      if (!m.dependencies || m.dependencies.length === 0) return;\n      const targetEl = document.querySelector(`[data-node-id=\"${m.id}\"]`);\n      if (!targetEl) return;\n      const targetRect = targetEl.getBoundingClientRect();\n      \n      m.dependencies.forEach(depId => {\n        const sourceEl = document.querySelector(`[data-node-id=\"${depId}\"]`);\n        if (!sourceEl) return;\n        const sourceRect = sourceEl.getBoundingClientRect();\n\n        // Calculate centers relative to container\n        const startX = sourceRect.right - containerRect.left;\n        const startY = sourceRect.top + (sourceRect.height / 2) - containerRect.top;\n        const endX = targetRect.left - containerRect.left;\n        const endY = targetRect.top + (targetRect.height / 2) - containerRect.top;\n\n        newLines.push({ id: `${depId}-${m.id}`, startX, startY, endX, endY });\n      });\n    });\n    setLines(newLines);\n  }, [roadmap]);\n\n  useLayoutEffect(() => {\n    // Small delay to ensure DOM is painted\n    const timer = setTimeout(updateLines, 100);\n    window.addEventListener('resize', updateLines);\n    return () => {\n      clearTimeout(timer);\n      window.removeEventListener('resize', updateLines);\n    };\n  }, [updateLines]);\n\n  if (!roadmap) return null;\n\n  const sortedPhases = [...roadmap.phases].sort((a, b) => a.order - b.order);\n\n  return (\n    <motion.div \n      className=\"roadmap-canvas\"\n      ref={containerRef}\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n    >\n      <svg className=\"dependency-lines\">\n        {lines.map(line => {\n          const cp1X = line.startX + (line.endX - line.startX) / 2;\n          const cp1Y = line.startY;\n          const cp2X = line.startX + (line.endX - line.startX) / 2;\n          const cp2Y = line.endY;\n          const pathD = `M ${line.startX} ${line.startY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${line.endX} ${line.endY}`;\n          return (\n            <path \n              key={line.id} \n              d={pathD} \n              className=\"dep-path\"\n              initial={{ pathLength: 0, opacity: 0 }}\n              animate={{ pathLength: 1, opacity: 1 }}\n              transition={{ duration: 0.8, ease: \"easeInOut\" }}\n            />\n          );\n        })}\n      </svg>\n\n      <div className=\"phases-container\">\n        {sortedPhases.map((phase, idx) => (\n          <motion.div \n            key={phase.id} \n            className=\"phase-column\"\n            initial={{ opacity: 0, x: 20 }}\n            animate={{ opacity: 1, x: 0 }}\n            transition={{ delay: idx * 0.2 }}\n          >\n            <div className=\"phase-header\">\n              <h2 className=\"phase-title\">{phase.title}</h2>\n              <span className=\"phase-duration\">{phase.duration_weeks} weeks</span>\n            </div>\n            <div className=\"phase-milestones\">\n              {roadmap.milestones\n                .filter(m => m.phase_id === phase.id)\n                .map(m => (\n                  <MilestoneNode \n                    key={m.id} \n                    milestone={m} \n                    onDrilldown={onDrilldown}\n                    onCompressRequest={onCompressRequest}\n                    isAtRisk={atRiskNodes.includes(m.id)}\n                  />\n                ))}\n            </div>\n          </motion.div>\n        ))}\n      </div>\n    </motion.div>\n  );\n};\n\nconst DrilldownPanel = ({ milestone, baseline, onClose }) => {\n  const [content, setContent] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    let isMounted = true;\n    const fetchPlan = async () => {\n      try {\n        const md = await api.drillDown(milestone, baseline);\n        if (isMounted) {\n          setContent(md);\n          setLoading(false);\n        }\n      } catch (err) {\n        if (isMounted) {\n          setError(\"Failed to generate micro-plan. Please try again.\");\n          setLoading(false);\n        }\n      }\n    };\n    fetchPlan();\n    return () => { isMounted = false; };\n  }, [milestone, baseline]);\n\n  // Simple markdown renderer for the specific expected format\n  const renderMarkdown = (md) => {\n    if (!md) return null;\n    const lines = md.split('\\n');\n    return lines.map((line, i) => {\n      if (line.startsWith('###')) return <h4 key={i} className=\"md-h4\">{line.replace('###', '').trim()}</h4>;\n      if (line.startsWith('- [ ]')) return (\n        <div key={i} className=\"md-task\">\n          <div className=\"checkbox\" />\n          <span>{line.replace('- [ ]', '').trim()}</span>\n        </div>\n      );\n      if (line.startsWith('- [')) {\n        const match = line.match(/- \\[(.*?)\\]\\((.*?)\\)/);\n        if (match) return (\n          <a key={i} href={match[2]} target=\"_blank\" rel=\"noreferrer\" className=\"md-link\">\n            <lucide.ExternalLink size={14} /> {match[1]}\n          </a>\n        );\n      }\n      if (line.trim() === '') return <br key={i} />;\n      return <p key={i} className=\"md-p\">{line}</p>;\n    });\n  };\n\n  return (\n    <>\n      <motion.div \n        className=\"panel-overlay\"\n        initial={{ opacity: 0 }}\n        animate={{ opacity: 1 }}\n        exit={{ opacity: 0 }}\n        onClick={onClose}\n      />\n      <motion.div \n        className=\"drilldown-panel\"\n        initial={{ x: '100%' }}\n        animate={{ x: 0 }}\n        exit={{ x: '100%' }}\n        transition={{ type: \"spring\", damping: 25, stiffness: 200 }}\n      >\n        <div className=\"panel-header\">\n          <div>\n            <span className=\"panel-eyebrow\">Micro-Plan</span>\n            <h2 className=\"panel-title\">{milestone.title}</h2>\n          </div>\n          <button className=\"icon-button\" onClick={onClose}><lucide.X size={20} /></button>\n        </div>\n        \n        <div className=\"panel-content\">\n          {loading ? (\n            <div className=\"skeleton-container\">\n              <div className=\"skeleton-line w-1/2\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-line w-1/3 mt-8\" />\n              <div className=\"skeleton-box h-12\" />\n            </div>\n          ) : error ? (\n            <div className=\"error-state\">\n              <lucide.AlertCircle color=\"var(--error)\" size={24} />\n              <p>{error}</p>\n            </div>\n          ) : (\n            <div className=\"markdown-content\">\n              {renderMarkdown(content)}\n            </div>\n          )}\n        </div>\n        \n        <div className=\"panel-footer\">\n          <button className=\"nu-button-primary full-width\">Save to Task Manager</button>\n        </div>\n      </motion.div>\n    </>\n  );\n};\n\nconst TradeoffModal = ({ tradeoffState, onAccept, onRevert }) => {\n  const [loading, setLoading] = useState(true);\n  const [analysis, setAnalysis] = useState(null);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    let isMounted = true;\n    const fetchTradeoff = async () => {\n      try {\n        const res = await api.compressTime(tradeoffState.milestone, tradeoffState.milestone.duration_weeks, tradeoffState.newDuration);\n        if (isMounted) {\n          setAnalysis(res);\n          setLoading(false);\n        }\n      } catch (err) {\n        if (isMounted) {\n          setError(\"Failed to analyze tradeoff.\");\n          setLoading(false);\n        }\n      }\n    };\n    fetchTradeoff();\n    return () => { isMounted = false; };\n  }, [tradeoffState]);\n\n  return (\n    <>\n      <motion.div className=\"modal-overlay\" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />\n      <div className=\"modal-container-wrapper\">\n        <motion.div \n          className=\"tradeoff-modal\"\n          initial={{ opacity: 0, scale: 0.95, y: 20 }}\n          animate={{ opacity: 1, scale: 1, y: 0 }}\n          exit={{ opacity: 0, scale: 0.95, y: 20 }}\n        >\n          <div className=\"modal-header warning\">\n            <lucide.AlertTriangle size={24} color=\"var(--warning)\" />\n            <h2>Aggressive Timeline Detected</h2>\n          </div>\n          \n          <div className=\"modal-body\">\n            <p className=\"body-text\">\n              Compressing <strong>\"{tradeoffState.milestone.title}\"</strong> from {tradeoffState.milestone.duration_weeks} to {tradeoffState.newDuration} weeks requires a sacrifice.\n            </p>\n            \n            <div className=\"analysis-box\">\n              {loading ? (\n                <div className=\"skeleton-container\">\n                  <div className=\"skeleton-line\" />\n                  <div className=\"skeleton-line w-3/4\" />\n                </div>\n              ) : error ? (\n                <p className=\"error-text\">{error}</p>\n              ) : (\n                <p className=\"tradeoff-message\">{analysis.warning_message}</p>\n              )}\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button className=\"nu-button-ghost\" onClick={onRevert}>Revert Timeline</button>\n            <button \n              className=\"nu-button-primary warning-btn\" \n              disabled={loading || error}\n              onClick={() => onAccept(analysis?.affected_dependencies || [])}\n            >\n              Accept Trade-off\n            </button>\n          </div>\n        </motion.div>\n      </div>\n    </>\n  );\n};\n\n// --- MAIN APP ---\n\nconst App = () => {\n  const [screen, setScreen] = useState('input');\n  const [dreamData, setDreamData] = useState({ text: '', baseline: '' });\n  const [roadmap, setRoadmap] = useState(null);\n  const [activeMilestone, setActiveMilestone] = useState(null);\n  const [tradeoffState, setTradeoffState] = useState(null);\n  const [atRiskNodes, setAtRiskNodes] = useState([]);\n\n  // Inject CSS Variables\n  useEffect(() => {\n    const style = document.createElement('style');\n    style.innerHTML = `\n      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@700&display=swap');\n\n      :root {\n        --bg: #FFFFFF;\n        --surface: #F7F7F7;\n        --panel: #F0F0F0;\n        --text-primary: #000000;\n        --text-secondary: #414141;\n        --text-tertiary: #737373;\n        --border: #D9D9D9;\n        --nu-red: #C8102E;\n        --nu-red-deep: #9E0A24;\n        --nu-red-tint: #FBE7EA;\n        --cream: #F8E5C2;\n        --success: #0F8A4B;\n        --warning: #B5651D;\n        --friction: #9E0A24;\n        --error: #9E0A24;\n\n        --font-display: 'Roboto Condensed', sans-serif;\n        --font-body: 'Open Sans', sans-serif;\n        --font-mono: 'IBM Plex Mono', monospace;\n\n        --radius-btn: 2px;\n        --radius-card: 4px;\n        --h-btn: 44px;\n      }\n\n      * { box-sizing: border-box; margin: 0; padding: 0; }\n      body { \n        background-color: var(--bg); \n        color: var(--text-primary); \n        font-family: var(--font-body); \n        overflow-x: hidden;\n      }\n\n      /* Typography */\n      .display-text { font-family: var(--font-display); font-weight: 700; font-size: 48px; line-height: 1.1; letter-spacing: -0.01em; }\n      .body-text { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.5; }\n      .body-text.tertiary { color: var(--text-tertiary); }\n      \n      /* Layout Shell */\n      .app-shell { display: flex; flex-direction: column; height: 100vh; }\n      .nu-header { \n        height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; \n        background: var(--bg); z-index: 100; position: relative;\n      }\n      .nu-logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin-right: 24px; letter-spacing: -0.01em; }\n      .nu-product-name { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--text-secondary); border-left: 1px solid var(--border); padding-left: 24px; }\n      .main-content { flex: 1; position: relative; overflow: hidden; }\n\n      /* Controls */\n      .demo-controls { position: fixed; top: 80px; right: 24px; background: var(--surface); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-card); z-index: 1000; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }\n      .demo-title { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-tertiary); }\n      .demo-controls button { font-size: 12px; padding: 4px 8px; cursor: pointer; background: white; border: 1px solid var(--border); }\n\n      /* Forms & Buttons */\n      .nu-button-primary { \n        height: var(--h-btn); background: var(--nu-red); color: white; border: none; border-radius: var(--radius-btn); \n        padding: 0 24px; font-family: var(--font-body); font-weight: 600; font-size: 16px; cursor: pointer; \n        display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s;\n      }\n      .nu-button-primary:hover:not(:disabled) { background: var(--nu-red-deep); }\n      .nu-button-primary:disabled { opacity: 0.5; cursor: not-allowed; }\n      \n      .nu-button-ghost {\n        height: var(--h-btn); background: transparent; color: var(--text-secondary); border: 1px solid transparent; \n        border-radius: var(--radius-btn); padding: 0 16px; font-family: var(--font-body); font-weight: 600; font-size: 14px; \n        cursor: pointer; transition: all 0.2s;\n      }\n      .nu-button-ghost:hover { background: var(--surface); color: var(--text-primary); }\n\n      .nu-textarea {\n        width: 100%; min-height: 160px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-btn);\n        font-family: var(--font-body); font-size: 16px; resize: vertical; margin-bottom: 16px; background: var(--surface);\n      }\n      .nu-textarea:focus { outline: none; border-color: var(--nu-red); background: var(--bg); }\n      \n      .nu-input {\n        width: 100%; height: var(--h-btn); padding: 0 16px; border: 1px solid var(--border); border-radius: var(--radius-btn);\n        font-family: var(--font-body); font-size: 16px; background: var(--surface);\n      }\n      .nu-input:focus { outline: none; border-color: var(--nu-red); background: var(--bg); }\n      .nu-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--text-secondary); }\n\n      /* Screens */\n      .screen-container { position: absolute; inset: 0; overflow-y: auto; padding: 64px 24px; }\n      .screen-container.centered { display: flex; flex-direction: column; align-items: center; justify-content: center; }\n      .input-layout { max-width: 640px; margin: 0 auto; }\n      .baseline-container { margin-bottom: 24px; overflow: hidden; }\n      .action-row { margin-top: 32px; display: flex; justify-content: flex-end; }\n\n      /* Loading */\n      .loading-visual { position: relative; width: 100px; height: 100px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; }\n      .pulsing-node { width: 24px; height: 24px; background: var(--nu-red); border-radius: 50%; position: absolute; z-index: 2; }\n      .pulsing-ring { width: 24px; height: 24px; border: 2px solid var(--nu-red); border-radius: 50%; position: absolute; z-index: 1; }\n      .loading-text { font-family: var(--font-mono); color: var(--text-secondary); font-size: 14px; }\n\n      /* Roadmap Canvas */\n      .roadmap-canvas { \n        position: absolute; inset: 0; overflow: auto; background: var(--surface); \n        background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 24px 24px;\n        padding: 64px; display: flex; gap: 96px;\n      }\n      .dependency-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }\n      .dep-path { fill: none; stroke: var(--border); stroke-width: 2; stroke-dasharray: 4 4; }\n      \n      .phases-container { display: flex; gap: 96px; position: relative; z-index: 2; min-width: max-content; }\n      .phase-column { width: 320px; display: flex; flex-direction: column; gap: 24px; }\n      .phase-header { border-bottom: 2px solid var(--text-primary); padding-bottom: 16px; margin-bottom: 16px; }\n      .phase-title { font-family: var(--font-display); font-size: 24px; margin-bottom: 4px; }\n      .phase-duration { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); text-transform: uppercase; }\n      .phase-milestones { display: flex; flex-direction: column; gap: 24px; }\n\n      /* Milestone Node */\n      .milestone-node {\n        background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 16px;\n        cursor: pointer; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: box-shadow 0.2s;\n        user-select: none;\n      }\n      .milestone-node:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.05); }\n      .milestone-node.at-risk { border-color: var(--warning); background: #FFFDF5; }\n      .node-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }\n      .node-duration { font-family: var(--font-mono); font-size: 12px; background: var(--panel); padding: 2px 6px; border-radius: 2px; }\n      .node-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; line-height: 1.3; }\n      .node-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }\n      .drag-handle { position: absolute; left: -12px; top: 50%; transform: translateY(-50%); color: var(--border); opacity: 0; transition: opacity 0.2s; }\n      .milestone-node:hover .drag-handle { opacity: 1; }\n\n      /* Drilldown Panel */\n      .panel-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.2); z-index: 200; }\n      .drilldown-panel { \n        position: fixed; top: 0; right: 0; bottom: 0; width: 480px; background: var(--bg); z-index: 201;\n        box-shadow: -8px 0 24px rgba(0,0,0,0.1); display: flex; flex-direction: column; border-left: 1px solid var(--border);\n      }\n      .panel-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }\n      .panel-eyebrow { font-family: var(--font-mono); font-size: 12px; color: var(--nu-red); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px; }\n      .panel-title { font-family: var(--font-display); font-size: 28px; line-height: 1.1; }\n      .icon-button { background: none; border: none; cursor: pointer; color: var(--text-secondary); padding: 4px; }\n      .icon-button:hover { color: var(--text-primary); }\n      .panel-content { flex: 1; overflow-y: auto; padding: 24px; }\n      .panel-footer { padding: 24px; border-top: 1px solid var(--border); background: var(--surface); }\n      .full-width { width: 100%; }\n\n      /* Markdown Styles */\n      .md-h4 { font-family: var(--font-display); font-size: 18px; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }\n      .md-h4:first-child { margin-top: 0; }\n      .md-task { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 15px; }\n      .checkbox { width: 18px; height: 18px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }\n      .md-link { display: inline-flex; align-items: center; gap: 6px; color: var(--nu-red); text-decoration: none; font-weight: 600; margin-bottom: 12px; font-size: 15px; background: var(--nu-red-tint); padding: 8px 12px; border-radius: var(--radius-card); }\n      .md-link:hover { text-decoration: underline; }\n      .md-p { margin-bottom: 16px; font-size: 15px; line-height: 1.6; color: var(--text-secondary); }\n\n      /* Skeletons */\n      .skeleton-container { display: flex; flex-direction: column; gap: 12px; }\n      .skeleton-line { height: 16px; background: var(--panel); border-radius: 2px; animation: pulse 1.5s infinite; }\n      .skeleton-box { height: 48px; background: var(--panel); border-radius: var(--radius-card); animation: pulse 1.5s infinite; }\n      .w-1\\\\/2 { width: 50%; } .w-1\\\\/3 { width: 33%; } .w-3\\\\/4 { width: 75%; } .mt-8 { margin-top: 32px; } .h-12 { height: 48px; }\n      @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }\n\n      /* Modal */\n      .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; backdrop-filter: blur(2px); }\n      .modal-container-wrapper { position: fixed; inset: 0; z-index: 301; display: flex; align-items: center; justify-content: center; pointer-events: none; }\n      .tradeoff-modal { background: var(--bg); width: 100%; max-width: 480px; border-radius: var(--radius-card); box-shadow: 0 24px 48px rgba(0,0,0,0.2); pointer-events: auto; overflow: hidden; }\n      .modal-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }\n      .modal-header.warning h2 { font-family: var(--font-display); font-size: 24px; color: var(--warning); }\n      .modal-body { padding: 24px; }\n      .analysis-box { background: var(--surface); border-left: 3px solid var(--warning); padding: 16px; margin-top: 16px; font-size: 14px; line-height: 1.5; }\n      .modal-footer { padding: 16px 24px; background: var(--panel); display: flex; justify-content: flex-end; gap: 12px; border-top: 1px solid var(--border); }\n      .warning-btn { background: var(--warning); }\n      .warning-btn:hover:not(:disabled) { background: #965216; }\n      \n      .error-state { display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--error); text-align: center; padding: 32px; }\n    `;\n    document.head.appendChild(style);\n    return () => document.head.removeChild(style);\n  }, []);\n\n  // Handlers\n  const handleDreamSubmit = async (text, baseline) => {\n    setDreamData({ text, baseline });\n    setScreen('loading');\n    try {\n      const generatedRoadmap = await api.deconstructDream(text, baseline);\n      setRoadmap(generatedRoadmap);\n      setScreen('roadmap');\n    } catch (e) {\n      console.error(e);\n      // Fallback to seed data for prototype resilience if API fails, but log error\n      setRoadmap(SEED_ROADMAP);\n      setScreen('roadmap');\n    }\n  };\n\n  const handleCompressRequest = (milestone, newDuration, revertCallback) => {\n    setTradeoffState({ milestone, newDuration, revertCallback });\n  };\n\n  const handleAcceptTradeoff = (affectedDeps) => {\n    // Update roadmap duration\n    setRoadmap(prev => {\n      const newRoadmap = { ...prev };\n      const mIdx = newRoadmap.milestones.findIndex(m => m.id === tradeoffState.milestone.id);\n      if (mIdx > -1) {\n        newRoadmap.milestones[mIdx].duration_weeks = tradeoffState.newDuration;\n      }\n      return newRoadmap;\n    });\n    setAtRiskNodes(affectedDeps);\n    setTradeoffState(null);\n  };\n\n  const handleRevertTradeoff = () => {\n    if (tradeoffState.revertCallback) tradeoffState.revertCallback();\n    setTradeoffState(null);\n  };\n\n  return (\n    <div className=\"app-shell\">\n      <Header />\n      <DemoControls setScreen={setScreen} setRoadmap={setRoadmap} />\n      \n      <main className=\"main-content\">\n        <AnimatePresence mode=\"wait\">\n          {screen === 'input' && (\n            <ScreenInput key=\"input\" onSubmit={handleDreamSubmit} />\n          )}\n          {screen === 'loading' && (\n            <ScreenLoading key=\"loading\" />\n          )}\n          {screen === 'roadmap' && (\n            <ScreenRoadmap \n              key=\"roadmap\" \n              roadmap={roadmap} \n              onDrilldown={setActiveMilestone}\n              onCompressRequest={handleCompressRequest}\n              atRiskNodes={atRiskNodes}\n            />\n          )}\n        </AnimatePresence>\n      </main>\n\n      <AnimatePresence>\n        {activeMilestone && (\n          <DrilldownPanel \n            key=\"drilldown\"\n            milestone={activeMilestone} \n            baseline={dreamData.baseline}\n            onClose={() => setActiveMilestone(null)} \n          />\n        )}\n        {tradeoffState && (\n          <TradeoffModal \n            key=\"tradeoff\"\n            tradeoffState={tradeoffState}\n            onAccept={handleAcceptTradeoff}\n            onRevert={handleRevertTradeoff}\n          />\n        )}\n      </AnimatePresence>\n    </div>\n  );\n};\n\n// Verification block\nfunction __test_state_transitions__() {\n  console.assert(typeof App === 'function', 'App must be a component');\n  return true;\n}\nif (typeof window !== 'undefined') {\n  window.__hicProtoTests = __test_state_transitions__;\n}",
+  "critique": {
+    "verdict": "rebuild",
+    "summary": "The prototype successfully implements the core AI flows and spatial layout but misses critical hard constraints. It lacks the required dark-mode aesthetic for the spatial canvas, introduces rogue non-brand colors, fails WCAG keyboard accessibility standards for the canvas nodes, and is missing standard React/Framer Motion imports.",
+    "issues": [
+      {
+        "category": "brief_violation",
+        "severity": "blocking",
+        "description": "The brief explicitly requires dark mode to lean into the 'dream' aesthetic, and the spec mandates an 'Infinite dark-mode spatial canvas'. The code implements a light mode canvas using standard surface colors.",
+        "source_of_truth": "Brief: hard_constraints.other / Spec: screen_spatial_roadmap.content_blocks",
+        "code_location": "CSS Variables and .roadmap-canvas styling",
+        "fix": "Implement a dark mode color scheme specifically for the roadmap canvas using inverted brand tokens (e.g., #000000 background, #414141 borders, #FFFFFF text)."
+      },
+      {
+        "category": "accessibility",
+        "severity": "blocking",
+        "description": "The spatial canvas is not navigable via keyboard or screen reader. The brief requires a hidden semantic list representation of the nodes, and the nodes themselves lack tabIndex and keyboard event handlers.",
+        "source_of_truth": "Brief: hard_constraints.accessibility",
+        "code_location": "ScreenRoadmap and MilestoneNode components",
+        "fix": "Add a visually hidden <ul> containing all milestones and their dependencies. Add tabIndex={0}, role='button', aria-labels, and onKeyDown handlers to MilestoneNode."
+      },
+      {
+        "category": "code_bug",
+        "severity": "blocking",
+        "description": "The code uses React hooks, Framer Motion components, and Lucide icons without importing them, which will cause execution failures in strict environments.",
+        "source_of_truth": "General React/ES6 requirements",
+        "code_location": "Top of file",
+        "fix": "Add standard imports for React, Framer Motion, and Lucide React."
+      },
+      {
+        "category": "system_violation",
+        "severity": "significant",
+        "description": "The code introduces rogue colors not present in the design system, such as '--nu-red-tint: #FBE7EA' and '--panel: #F0F0F0'.",
+        "source_of_truth": "Design System: color_system",
+        "code_location": "CSS Variables",
+        "fix": "Remove rogue colors and replace them with valid foundation tokens (--surface, --border) or semantic tokens."
+      },
+      {
+        "category": "spec_violation",
+        "severity": "minor",
+        "description": "The motion contract specifies that the dream input textarea physically shrinks and morphs into the origin node on the canvas. The code currently just fades it out.",
+        "source_of_truth": "Spec: motion_contract",
+        "code_location": "ScreenInput and ScreenLoading",
+        "fix": "Use Framer Motion's layoutId to morph the input container into the loading screen's pulsing node."
+      }
+    ],
+    "corrected_code": "import React, { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react';\nimport { motion, AnimatePresence, useMotionValue, animate } from 'framer-motion';\nimport { ArrowRight, AlertTriangle, GripVertical, X, AlertCircle, ExternalLink } from 'lucide-react';\n\nconst SEED_DREAM = \"I want to build an AI tool for indie authors to format and market their books, getting to $1M ARR in 2 years. I know basic Python but no frontend, and I have $5k saved.\";\n\nconst SEED_ROADMAP = {\n  phases: [\n    { id: \"p1\", title: \"Foundation & Prototype\", duration_weeks: 12, order: 1 },\n    { id: \"p2\", title: \"Beta & First Revenue\", duration_weeks: 20, order: 2 },\n    { id: \"p3\", title: \"Scaling to $100k ARR\", duration_weeks: 24, order: 3 }\n  ],\n  milestones: [\n    { id: \"m1\", phase_id: \"p1\", title: \"Learn Frontend Basics\", description: \"Complete Next.js & React fundamentals.\", duration_weeks: 4, dependencies: [] },\n    { id: \"m2\", phase_id: \"p1\", title: \"Build Core Formatting Engine\", description: \"Python backend for text processing.\", duration_weeks: 6, dependencies: [] },\n    { id: \"m3\", phase_id: \"p1\", title: \"Integrate Auth & DB\", description: \"Setup Supabase and connect to frontend.\", duration_weeks: 2, dependencies: [\"m1\"] },\n    { id: \"m4\", phase_id: \"p2\", title: \"Launch Waitlist Page\", description: \"Collect emails from interested authors.\", duration_weeks: 2, dependencies: [\"m1\"] },\n    { id: \"m5\", phase_id: \"p2\", title: \"Onboard 50 Beta Testers\", description: \"Manual onboarding and feedback collection.\", duration_weeks: 8, dependencies: [\"m2\", \"m3\", \"m4\"] },\n    { id: \"m6\", phase_id: \"p3\", title: \"Implement Stripe Billing\", description: \"Self-serve subscription tiers.\", duration_weeks: 4, dependencies: [\"m5\"] }\n  ]\n};\n\n// --- UTILS & API ---\n\nconst parseJSONResponse = (text) => {\n  try {\n    const match = text.match(/```json\\n([\\s\\S]*?)\\n```/);\n    if (match) return JSON.parse(match[1]);\n    return JSON.parse(text);\n  } catch (e) {\n    console.error(\"Failed to parse AI JSON:\", text);\n    throw new Error(\"Invalid JSON response from AI\");\n  }\n};\n\nconst api = {\n  deconstructDream: async (dreamText, baseline) => {\n    const prompt = `\n      You are an expert product manager and systems thinker. Take this ambitious goal and break it down into a realistic, multi-year tech-tree of phases and milestones.\n      Dream: \"${dreamText}\"\n      Baseline Context: \"${baseline}\"\n      \n      Output ONLY valid JSON matching this structure:\n      {\n        \"phases\": [{ \"id\": \"p1\", \"title\": \"Phase Name\", \"duration_weeks\": 12, \"order\": 1 }],\n        \"milestones\": [{ \"id\": \"m1\", \"phase_id\": \"p1\", \"title\": \"Actionable Step\", \"description\": \"Details\", \"duration_weeks\": 4, \"dependencies\": [\"id_of_prereq_milestone\"] }]\n      }\n      Ensure dependencies only reference valid milestone IDs that come BEFORE them logically.\n    `;\n    const res = await fetch('/api/ai/anthropic', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({\n        model: \"claude-opus-4-6\",\n        max_tokens: 2000,\n        messages: [{ role: \"user\", content: prompt }]\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return parseJSONResponse(data.content[0].text);\n  },\n\n  drillDown: async (milestone, baseline) => {\n    const prompt = `\n      You are a tactical execution assistant. Break down this high-level milestone into exactly 3 immediate, highly specific tasks for this week, plus 2 exact learning resources.\n      Milestone: \"${milestone.title}\"\n      Description: \"${milestone.description}\"\n      User Baseline: \"${baseline}\"\n      \n      Output ONLY Markdown format:\n      ### Immediate Tasks\n      - [ ] Task 1...\n      - [ ] Task 2...\n      - [ ] Task 3...\n      \n      ### Learning Resources\n      - [Resource Name](Search Query or URL)\n      - [Resource Name](Search Query or URL)\n    `;\n    const res = await fetch('/api/ai/openai', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gpt-5.5\",\n        messages: [{ role: \"user\", content: prompt }],\n        temperature: 0.3\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return data.choices[0].message.content;\n  },\n\n  compressTime: async (milestone, oldDuration, newDuration) => {\n    const prompt = `\n      You are a ruthless strategic constraint solver. The user is trying to compress a milestone's timeline.\n      Milestone: \"${milestone.title}\"\n      Original Duration: ${oldDuration} weeks\n      New Duration: ${newDuration} weeks\n      \n      What specific trade-off must they make (e.g., spend money, cut scope, lower quality) to achieve this?\n      Output ONLY valid JSON:\n      {\n        \"warning_message\": \"To do this in X weeks, you must...\",\n        \"affected_dependencies\": [] // array of milestone IDs that might be at risk\n      }\n    `;\n    const res = await fetch('/api/ai/gemini-compat', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },\n      body: JSON.stringify({\n        model: \"gemini-3.1-pro-preview\",\n        messages: [{ role: \"user\", content: prompt }],\n        temperature: 0.3\n      })\n    });\n    if (!res.ok) throw new Error(\"API Error\");\n    const data = await res.json();\n    return parseJSONResponse(data.choices[0].message.content);\n  }\n};\n\n// --- COMPONENTS ---\n\nconst Header = () => (\n  <header className=\"nu-header\">\n    <div className=\"nu-logo\">Northeastern University</div>\n    <div className=\"nu-product-name\">Reverse-Engineer Dream</div>\n  </header>\n);\n\nconst DemoControls = ({ setScreen, setRoadmap }) => (\n  <div className=\"demo-controls\">\n    <div className=\"demo-title\">Demo Controls</div>\n    <button onClick={() => setScreen('input')}>1. Input</button>\n    <button onClick={() => setScreen('loading')}>2. Loading</button>\n    <button onClick={() => { setRoadmap(SEED_ROADMAP); setScreen('roadmap'); }}>3. Roadmap (Seed)</button>\n  </div>\n);\n\nconst ScreenInput = ({ onSubmit }) => {\n  const [dream, setDream] = useState(\"\");\n  const [baseline, setBaseline] = useState(\"\");\n  const [showBaseline, setShowBaseline] = useState(false);\n\n  return (\n    <motion.div \n      className=\"screen-container\"\n      initial={{ opacity: 0, y: 20 }}\n      animate={{ opacity: 1, y: 0 }}\n      exit={{ opacity: 0, scale: 0.95 }}\n    >\n      <div className=\"input-layout\">\n        <h1 className=\"display-text\">What's the impossible goal?</h1>\n        <p className=\"body-text tertiary\" style={{ marginBottom: '32px' }}>\n          Pour out your ambition. Don't worry about formatting or realism yet.\n        </p>\n        \n        <motion.div layoutId=\"dream-origin\" className=\"textarea-wrapper\">\n          <textarea \n            className=\"nu-textarea\"\n            placeholder=\"e.g., I want to build an AI tool for indie authors to format and market their books, getting to $1M ARR in 2 years...\"\n            value={dream}\n            onChange={(e) => setDream(e.target.value)}\n          />\n        </motion.div>\n\n        {showBaseline ? (\n          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className=\"baseline-container\">\n            <label className=\"nu-label\">My current baseline (skills, budget, time)</label>\n            <input \n              type=\"text\" \n              className=\"nu-input\" \n              placeholder=\"e.g., I know basic Python, have $5k saved, can work 10hrs/week.\"\n              value={baseline}\n              onChange={(e) => setBaseline(e.target.value)}\n            />\n          </motion.div>\n        ) : (\n          <button className=\"nu-button-ghost\" onClick={() => setShowBaseline(true)}>\n            + Add Baseline Context\n          </button>\n        )}\n\n        <div className=\"action-row\">\n          <button \n            className=\"nu-button-primary\" \n            disabled={!dream.trim()}\n            onClick={() => onSubmit(dream, baseline)}\n          >\n            Reverse-Engineer <ArrowRight size={16} style={{ marginLeft: '8px' }} />\n          </button>\n        </div>\n      </div>\n    </motion.div>\n  );\n};\n\nconst ScreenLoading = () => {\n  const [textIdx, setTextIdx] = useState(0);\n  const texts = [\n    \"Extracting prerequisites...\",\n    \"Mapping skill dependencies...\",\n    \"Estimating timelines...\",\n    \"Structuring spatial roadmap...\"\n  ];\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setTextIdx(i => (i + 1) % texts.length);\n    }, 2000);\n    return () => clearInterval(interval);\n  }, []);\n\n  return (\n    <motion.div \n      className=\"screen-container centered\"\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n    >\n      <div className=\"loading-visual\">\n        <motion.div \n          layoutId=\"dream-origin\"\n          className=\"pulsing-node\"\n          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 2, repeat: Infinity, ease: \"easeInOut\" }}\n        />\n        <motion.div \n          className=\"pulsing-ring\"\n          animate={{ scale: [1, 2], opacity: [0.8, 0] }}\n          transition={{ duration: 2, repeat: Infinity, ease: \"easeOut\" }}\n        />\n      </div>\n      <AnimatePresence mode=\"wait\">\n        <motion.p \n          key={textIdx}\n          className=\"loading-text\"\n          initial={{ opacity: 0, y: 10 }}\n          animate={{ opacity: 1, y: 0 }}\n          exit={{ opacity: 0, y: -10 }}\n        >\n          {texts[textIdx]}\n        </motion.p>\n      </AnimatePresence>\n    </motion.div>\n  );\n};\n\nconst MilestoneNode = ({ milestone, onDrilldown, onCompressRequest, isAtRisk, onHoverStart, onHoverEnd }) => {\n  const x = useMotionValue(0);\n  const [isDragging, setIsDragging] = useState(false);\n\n  return (\n    <motion.div \n      className={`milestone-node ${isAtRisk ? 'at-risk' : ''}`}\n      data-node-id={milestone.id}\n      drag=\"x\"\n      dragConstraints={{ left: -100, right: 0 }}\n      dragElastic={0.1}\n      style={{ x }}\n      tabIndex={0}\n      role=\"button\"\n      aria-label={`Milestone: ${milestone.title}, ${milestone.duration_weeks} weeks`}\n      onDragStart={() => setIsDragging(true)}\n      onDragEnd={(e, info) => {\n        setIsDragging(false);\n        if (info.offset.x < -50) {\n          const newDuration = Math.max(1, Math.floor(milestone.duration_weeks / 2));\n          onCompressRequest(milestone, newDuration, () => {\n            animate(x, 0, { type: \"spring\", stiffness: 300, damping: 20 });\n          });\n        } else {\n          animate(x, 0, { type: \"spring\", stiffness: 300, damping: 20 });\n        }\n      }}\n      onClick={() => {\n        if (!isDragging && x.get() === 0) onDrilldown(milestone);\n      }}\n      onKeyDown={(e) => {\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          onDrilldown(milestone);\n        }\n      }}\n      onHoverStart={() => onHoverStart(milestone.id)}\n      onHoverEnd={() => onHoverEnd(null)}\n      whileHover={{ scale: 1.02, borderColor: 'var(--nu-red)' }}\n      whileTap={{ scale: 0.98 }}\n      layoutId={`node-${milestone.id}`}\n    >\n      <div className=\"node-header\">\n        <span className=\"node-duration\">{milestone.duration_weeks}w</span>\n        {isAtRisk && <AlertTriangle size={14} color=\"var(--warning)\" />}\n      </div>\n      <h3 className=\"node-title\">{milestone.title}</h3>\n      <p className=\"node-desc\">{milestone.description}</p>\n      \n      <div className=\"drag-handle\">\n        <GripVertical size={14} />\n      </div>\n    </motion.div>\n  );\n};\n\nconst ScreenRoadmap = ({ roadmap, onDrilldown, onCompressRequest, atRiskNodes }) => {\n  const containerRef = useRef(null);\n  const [lines, setLines] = useState([]);\n  const [hoveredNode, setHoveredNode] = useState(null);\n\n  const updateLines = useCallback(() => {\n    if (!containerRef.current || !roadmap) return;\n    const containerRect = containerRef.current.getBoundingClientRect();\n    const newLines = [];\n\n    roadmap.milestones.forEach(m => {\n      if (!m.dependencies || m.dependencies.length === 0) return;\n      const targetEl = document.querySelector(`[data-node-id=\"${m.id}\"]`);\n      if (!targetEl) return;\n      const targetRect = targetEl.getBoundingClientRect();\n      \n      m.dependencies.forEach(depId => {\n        const sourceEl = document.querySelector(`[data-node-id=\"${depId}\"]`);\n        if (!sourceEl) return;\n        const sourceRect = sourceEl.getBoundingClientRect();\n\n        const startX = sourceRect.right - containerRect.left;\n        const startY = sourceRect.top + (sourceRect.height / 2) - containerRect.top;\n        const endX = targetRect.left - containerRect.left;\n        const endY = targetRect.top + (targetRect.height / 2) - containerRect.top;\n\n        newLines.push({ id: `${depId}-${m.id}`, sourceId: depId, targetId: m.id, startX, startY, endX, endY });\n      });\n    });\n    setLines(newLines);\n  }, [roadmap]);\n\n  useLayoutEffect(() => {\n    const timer = setTimeout(updateLines, 100);\n    window.addEventListener('resize', updateLines);\n    return () => {\n      clearTimeout(timer);\n      window.removeEventListener('resize', updateLines);\n    };\n  }, [updateLines]);\n\n  if (!roadmap) return null;\n\n  const sortedPhases = [...roadmap.phases].sort((a, b) => a.order - b.order);\n\n  return (\n    <motion.div \n      className=\"roadmap-canvas\"\n      ref={containerRef}\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n    >\n      {/* Accessibility: Hidden semantic list of the roadmap */}\n      <div className=\"sr-only\">\n        <h2>Roadmap Milestones</h2>\n        <ul>\n          {roadmap.milestones.map(m => (\n            <li key={m.id}>\n              {m.title} - {m.duration_weeks} weeks. \n              {m.dependencies.length > 0 ? `Dependencies: ${m.dependencies.join(', ')}` : 'No dependencies.'}\n            </li>\n          ))}\n        </ul>\n      </div>\n\n      <svg className=\"dependency-lines\">\n        {lines.map(line => {\n          const cp1X = line.startX + (line.endX - line.startX) / 2;\n          const cp1Y = line.startY;\n          const cp2X = line.startX + (line.endX - line.startX) / 2;\n          const cp2Y = line.endY;\n          const pathD = `M ${line.startX} ${line.startY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${line.endX} ${line.endY}`;\n          const isActive = hoveredNode === line.sourceId || hoveredNode === line.targetId;\n          \n          return (\n            <path \n              key={line.id} \n              d={pathD} \n              className={`dep-path ${isActive ? 'active' : ''}`}\n              initial={{ pathLength: 0, opacity: 0 }}\n              animate={{ pathLength: 1, opacity: 1 }}\n              transition={{ duration: 0.8, ease: \"easeInOut\" }}\n            />\n          );\n        })}\n      </svg>\n\n      <div className=\"phases-container\">\n        {sortedPhases.map((phase, idx) => (\n          <motion.div \n            key={phase.id} \n            className=\"phase-column\"\n            initial={{ opacity: 0, x: 20 }}\n            animate={{ opacity: 1, x: 0 }}\n            transition={{ delay: idx * 0.2 }}\n          >\n            <div className=\"phase-header\">\n              <h2 className=\"phase-title\">{phase.title}</h2>\n              <span className=\"phase-duration\">{phase.duration_weeks} weeks</span>\n            </div>\n            <div className=\"phase-milestones\">\n              {roadmap.milestones\n                .filter(m => m.phase_id === phase.id)\n                .map(m => (\n                  <MilestoneNode \n                    key={m.id} \n                    milestone={m} \n                    onDrilldown={onDrilldown}\n                    onCompressRequest={onCompressRequest}\n                    isAtRisk={atRiskNodes.includes(m.id)}\n                    onHoverStart={setHoveredNode}\n                    onHoverEnd={setHoveredNode}\n                  />\n                ))}\n            </div>\n          </motion.div>\n        ))}\n      </div>\n    </motion.div>\n  );\n};\n\nconst DrilldownPanel = ({ milestone, baseline, onClose }) => {\n  const [content, setContent] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    let isMounted = true;\n    const fetchPlan = async () => {\n      try {\n        const md = await api.drillDown(milestone, baseline);\n        if (isMounted) {\n          setContent(md);\n          setLoading(false);\n        }\n      } catch (err) {\n        if (isMounted) {\n          setError(\"Failed to generate micro-plan. Please try again.\");\n          setLoading(false);\n        }\n      }\n    };\n    fetchPlan();\n    return () => { isMounted = false; };\n  }, [milestone, baseline]);\n\n  const renderMarkdown = (md) => {\n    if (!md) return null;\n    const lines = md.split('\\n');\n    return lines.map((line, i) => {\n      if (line.startsWith('###')) return <h4 key={i} className=\"md-h4\">{line.replace('###', '').trim()}</h4>;\n      if (line.startsWith('- [ ]')) return (\n        <div key={i} className=\"md-task\">\n          <div className=\"checkbox\" />\n          <span>{line.replace('- [ ]', '').trim()}</span>\n        </div>\n      );\n      if (line.startsWith('- [')) {\n        const match = line.match(/- \\[(.*?)\\]\\((.*?)\\)/);\n        if (match) return (\n          <a key={i} href={match[2]} target=\"_blank\" rel=\"noreferrer\" className=\"md-link\">\n            <ExternalLink size={14} /> {match[1]}\n          </a>\n        );\n      }\n      if (line.trim() === '') return <br key={i} />;\n      return <p key={i} className=\"md-p\">{line}</p>;\n    });\n  };\n\n  return (\n    <>\n      <motion.div \n        className=\"panel-overlay\"\n        initial={{ opacity: 0 }}\n        animate={{ opacity: 1 }}\n        exit={{ opacity: 0 }}\n        onClick={onClose}\n      />\n      <motion.div \n        className=\"drilldown-panel\"\n        initial={{ x: '100%' }}\n        animate={{ x: 0 }}\n        exit={{ x: '100%' }}\n        transition={{ type: \"spring\", damping: 25, stiffness: 200 }}\n      >\n        <div className=\"panel-header\">\n          <div>\n            <span className=\"panel-eyebrow\">Micro-Plan</span>\n            <h2 className=\"panel-title\">{milestone.title}</h2>\n          </div>\n          <button className=\"icon-button\" onClick={onClose} aria-label=\"Close panel\"><X size={20} /></button>\n        </div>\n        \n        <div className=\"panel-content\">\n          {loading ? (\n            <div className=\"skeleton-container\">\n              <div className=\"skeleton-line w-1/2\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-box\" />\n              <div className=\"skeleton-line w-1/3 mt-8\" />\n              <div className=\"skeleton-box h-12\" />\n            </div>\n          ) : error ? (\n            <div className=\"error-state\">\n              <AlertCircle color=\"var(--error)\" size={24} />\n              <p>{error}</p>\n            </div>\n          ) : (\n            <div className=\"markdown-content\">\n              {renderMarkdown(content)}\n            </div>\n          )}\n        </div>\n        \n        <div className=\"panel-footer\">\n          <button className=\"nu-button-primary full-width\">Save to Task Manager</button>\n        </div>\n      </motion.div>\n    </>\n  );\n};\n\nconst TradeoffModal = ({ tradeoffState, onAccept, onRevert }) => {\n  const [loading, setLoading] = useState(true);\n  const [analysis, setAnalysis] = useState(null);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    let isMounted = true;\n    const fetchTradeoff = async () => {\n      try {\n        const res = await api.compressTime(tradeoffState.milestone, tradeoffState.milestone.duration_weeks, tradeoffState.newDuration);\n        if (isMounted) {\n          setAnalysis(res);\n          setLoading(false);\n        }\n      } catch (err) {\n        if (isMounted) {\n          setError(\"Failed to analyze tradeoff.\");\n          setLoading(false);\n        }\n      }\n    };\n    fetchTradeoff();\n    return () => { isMounted = false; };\n  }, [tradeoffState]);\n\n  return (\n    <>\n      <motion.div className=\"modal-overlay\" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />\n      <div className=\"modal-container-wrapper\">\n        <motion.div \n          className=\"tradeoff-modal\"\n          initial={{ opacity: 0, scale: 0.95, y: 20 }}\n          animate={{ opacity: 1, scale: 1, y: 0 }}\n          exit={{ opacity: 0, scale: 0.95, y: 20 }}\n          role=\"dialog\"\n          aria-modal=\"true\"\n        >\n          <div className=\"modal-header warning\">\n            <AlertTriangle size={24} color=\"var(--warning)\" />\n            <h2>Aggressive Timeline Detected</h2>\n          </div>\n          \n          <div className=\"modal-body\">\n            <p className=\"body-text\">\n              Compressing <strong>\"{tradeoffState.milestone.title}\"</strong> from {tradeoffState.milestone.duration_weeks} to {tradeoffState.newDuration} weeks requires a sacrifice.\n            </p>\n            \n            <div className=\"analysis-box\">\n              {loading ? (\n                <div className=\"skeleton-container\">\n                  <div className=\"skeleton-line\" />\n                  <div className=\"skeleton-line w-3/4\" />\n                </div>\n              ) : error ? (\n                <p className=\"error-text\">{error}</p>\n              ) : (\n                <p className=\"tradeoff-message\">{analysis.warning_message}</p>\n              )}\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button className=\"nu-button-ghost\" onClick={onRevert}>Revert Timeline</button>\n            <button \n              className=\"nu-button-primary warning-btn\" \n              disabled={loading || error}\n              onClick={() => onAccept(analysis?.affected_dependencies || [])}\n            >\n              Accept Trade-off\n            </button>\n          </div>\n        </motion.div>\n      </div>\n    </>\n  );\n};\n\n// --- MAIN APP ---\n\nconst App = () => {\n  const [screen, setScreen] = useState('input');\n  const [dreamData, setDreamData] = useState({ text: '', baseline: '' });\n  const [roadmap, setRoadmap] = useState(null);\n  const [activeMilestone, setActiveMilestone] = useState(null);\n  const [tradeoffState, setTradeoffState] = useState(null);\n  const [atRiskNodes, setAtRiskNodes] = useState([]);\n\n  useEffect(() => {\n    const style = document.createElement('style');\n    style.innerHTML = `\n      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@700&display=swap');\n\n      :root {\n        --bg: #FFFFFF;\n        --surface: #F7F7F7;\n        --text-primary: #000000;\n        --text-secondary: #414141;\n        --text-tertiary: #737373;\n        --border: #D9D9D9;\n        --nu-red: #C8102E;\n        --nu-red-deep: #9E0A24;\n        --cream: #F8E5C2;\n        --success: #0F8A4B;\n        --warning: #B5651D;\n        --friction: #9E0A24;\n        --error: #9E0A24;\n\n        /* Dark Mode Canvas Tokens */\n        --canvas-bg: #000000;\n        --canvas-surface: #1A1A1A;\n        --canvas-border: #414141;\n        --canvas-text: #FFFFFF;\n        --canvas-text-muted: #A0A0A0;\n\n        --font-display: 'Roboto Condensed', sans-serif;\n        --font-body: 'Open Sans', sans-serif;\n        --font-mono: 'IBM Plex Mono', monospace;\n\n        --radius-btn: 2px;\n        --radius-card: 4px;\n        --h-btn: 44px;\n      }\n\n      * { box-sizing: border-box; margin: 0; padding: 0; }\n      body { \n        background-color: var(--bg); \n        color: var(--text-primary); \n        font-family: var(--font-body); \n        overflow-x: hidden;\n      }\n\n      /* Accessibility */\n      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }\n\n      /* Typography */\n      .display-text { font-family: var(--font-display); font-weight: 700; font-size: 48px; line-height: 1.1; letter-spacing: -0.01em; }\n      .body-text { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.5; }\n      .body-text.tertiary { color: var(--text-tertiary); }\n      \n      /* Layout Shell */\n      .app-shell { display: flex; flex-direction: column; height: 100vh; }\n      .nu-header { \n        height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; \n        background: var(--bg); z-index: 100; position: relative;\n      }\n      .nu-logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin-right: 24px; letter-spacing: -0.01em; }\n      .nu-product-name { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--text-secondary); border-left: 1px solid var(--border); padding-left: 24px; }\n      .main-content { flex: 1; position: relative; overflow: hidden; }\n\n      /* Controls */\n      .demo-controls { position: fixed; top: 80px; right: 24px; background: var(--surface); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-card); z-index: 1000; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }\n      .demo-title { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-tertiary); }\n      .demo-controls button { font-size: 12px; padding: 4px 8px; cursor: pointer; background: white; border: 1px solid var(--border); }\n\n      /* Forms & Buttons */\n      .nu-button-primary { \n        height: var(--h-btn); background: var(--nu-red); color: white; border: none; border-radius: var(--radius-btn); \n        padding: 0 24px; font-family: var(--font-body); font-weight: 600; font-size: 16px; cursor: pointer; \n        display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s;\n      }\n      .nu-button-primary:hover:not(:disabled) { background: var(--nu-red-deep); }\n      .nu-button-primary:disabled { opacity: 0.5; cursor: not-allowed; }\n      \n      .nu-button-ghost {\n        height: var(--h-btn); background: transparent; color: var(--text-secondary); border: 1px solid transparent; \n        border-radius: var(--radius-btn); padding: 0 16px; font-family: var(--font-body); font-weight: 600; font-size: 14px; \n        cursor: pointer; transition: all 0.2s;\n      }\n      .nu-button-ghost:hover { background: var(--surface); color: var(--text-primary); }\n\n      .textarea-wrapper { width: 100%; }\n      .nu-textarea {\n        width: 100%; min-height: 160px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-btn);\n        font-family: var(--font-body); font-size: 16px; resize: vertical; margin-bottom: 16px; background: var(--surface);\n      }\n      .nu-textarea:focus { outline: none; border-color: var(--nu-red); background: var(--bg); }\n      \n      .nu-input {\n        width: 100%; height: var(--h-btn); padding: 0 16px; border: 1px solid var(--border); border-radius: var(--radius-btn);\n        font-family: var(--font-body); font-size: 16px; background: var(--surface);\n      }\n      .nu-input:focus { outline: none; border-color: var(--nu-red); background: var(--bg); }\n      .nu-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--text-secondary); }\n\n      /* Screens */\n      .screen-container { position: absolute; inset: 0; overflow-y: auto; padding: 64px 24px; }\n      .screen-container.centered { display: flex; flex-direction: column; align-items: center; justify-content: center; }\n      .input-layout { max-width: 640px; margin: 0 auto; }\n      .baseline-container { margin-bottom: 24px; overflow: hidden; }\n      .action-row { margin-top: 32px; display: flex; justify-content: flex-end; }\n\n      /* Loading */\n      .loading-visual { position: relative; width: 100px; height: 100px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; }\n      .pulsing-node { width: 24px; height: 24px; background: var(--nu-red); border-radius: 50%; position: absolute; z-index: 2; }\n      .pulsing-ring { width: 24px; height: 24px; border: 2px solid var(--nu-red); border-radius: 50%; position: absolute; z-index: 1; }\n      .loading-text { font-family: var(--font-mono); color: var(--text-secondary); font-size: 14px; }\n\n      /* Roadmap Canvas (Dark Mode) */\n      .roadmap-canvas { \n        position: absolute; inset: 0; overflow: auto; background: var(--canvas-bg); \n        background-image: radial-gradient(var(--canvas-border) 1px, transparent 1px); background-size: 24px 24px;\n        padding: 64px; display: flex; gap: 96px; color: var(--canvas-text);\n      }\n      .dependency-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }\n      .dep-path { fill: none; stroke: var(--canvas-border); stroke-width: 2; stroke-dasharray: 4 4; transition: stroke 0.3s, stroke-dasharray 0.3s; }\n      .dep-path.active { stroke: #FFFFFF; stroke-dasharray: 8 8; animation: dashFlow 1s linear infinite; }\n      @keyframes dashFlow { to { stroke-dashoffset: -16; } }\n      \n      .phases-container { display: flex; gap: 96px; position: relative; z-index: 2; min-width: max-content; }\n      .phase-column { width: 320px; display: flex; flex-direction: column; gap: 24px; }\n      .phase-header { border-bottom: 2px solid var(--canvas-text); padding-bottom: 16px; margin-bottom: 16px; }\n      .phase-title { font-family: var(--font-display); font-size: 24px; margin-bottom: 4px; color: var(--canvas-text); }\n      .phase-duration { font-family: var(--font-mono); font-size: 12px; color: var(--canvas-text-muted); text-transform: uppercase; }\n      .phase-milestones { display: flex; flex-direction: column; gap: 24px; }\n\n      /* Milestone Node (Dark Mode) */\n      .milestone-node {\n        background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-card); padding: 16px;\n        cursor: pointer; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: box-shadow 0.2s;\n        user-select: none; color: var(--canvas-text);\n      }\n      .milestone-node:hover, .milestone-node:focus { box-shadow: 0 8px 16px rgba(0,0,0,0.4); outline: none; }\n      .milestone-node.at-risk { border-color: var(--warning); background: #2A1A0A; }\n      .node-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }\n      .node-duration { font-family: var(--font-mono); font-size: 12px; background: var(--canvas-border); padding: 2px 6px; border-radius: 2px; }\n      .node-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; line-height: 1.3; }\n      .node-desc { font-size: 14px; color: var(--canvas-text-muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }\n      .drag-handle { position: absolute; left: -12px; top: 50%; transform: translateY(-50%); color: var(--canvas-border); opacity: 0; transition: opacity 0.2s; }\n      .milestone-node:hover .drag-handle, .milestone-node:focus .drag-handle { opacity: 1; }\n\n      /* Drilldown Panel */\n      .panel-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.2); z-index: 200; }\n      .drilldown-panel { \n        position: fixed; top: 0; right: 0; bottom: 0; width: 480px; background: var(--bg); z-index: 201;\n        box-shadow: -8px 0 24px rgba(0,0,0,0.1); display: flex; flex-direction: column; border-left: 1px solid var(--border);\n      }\n      .panel-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }\n      .panel-eyebrow { font-family: var(--font-mono); font-size: 12px; color: var(--nu-red); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px; }\n      .panel-title { font-family: var(--font-display); font-size: 28px; line-height: 1.1; color: var(--text-primary); }\n      .icon-button { background: none; border: none; cursor: pointer; color: var(--text-secondary); padding: 4px; }\n      .icon-button:hover { color: var(--text-primary); }\n      .panel-content { flex: 1; overflow-y: auto; padding: 24px; }\n      .panel-footer { padding: 24px; border-top: 1px solid var(--border); background: var(--surface); }\n      .full-width { width: 100%; }\n\n      /* Markdown Styles */\n      .md-h4 { font-family: var(--font-display); font-size: 18px; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; color: var(--text-primary); }\n      .md-h4:first-child { margin-top: 0; }\n      .md-task { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 15px; color: var(--text-primary); }\n      .checkbox { width: 18px; height: 18px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }\n      .md-link { display: inline-flex; align-items: center; gap: 6px; color: var(--nu-red); text-decoration: none; font-weight: 600; margin-bottom: 12px; font-size: 15px; background: var(--surface); padding: 8px 12px; border-radius: var(--radius-card); border: 1px solid var(--border); }\n      .md-link:hover { text-decoration: underline; }\n      .md-p { margin-bottom: 16px; font-size: 15px; line-height: 1.6; color: var(--text-secondary); }\n\n      /* Skeletons */\n      .skeleton-container { display: flex; flex-direction: column; gap: 12px; }\n      .skeleton-line { height: 16px; background: var(--surface); border-radius: 2px; animation: pulse 1.5s infinite; }\n      .skeleton-box { height: 48px; background: var(--surface); border-radius: var(--radius-card); animation: pulse 1.5s infinite; }\n      .w-1\\/2 { width: 50%; } .w-1\\/3 { width: 33%; } .w-3\\/4 { width: 75%; } .mt-8 { margin-top: 32px; } .h-12 { height: 48px; }\n      @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }\n\n      /* Modal */\n      .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; backdrop-filter: blur(2px); }\n      .modal-container-wrapper { position: fixed; inset: 0; z-index: 301; display: flex; align-items: center; justify-content: center; pointer-events: none; }\n      .tradeoff-modal { background: var(--bg); width: 100%; max-width: 480px; border-radius: var(--radius-card); box-shadow: 0 24px 48px rgba(0,0,0,0.2); pointer-events: auto; overflow: hidden; }\n      .modal-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }\n      .modal-header.warning h2 { font-family: var(--font-display); font-size: 24px; color: var(--warning); }\n      .modal-body { padding: 24px; }\n      .analysis-box { background: var(--surface); border-left: 3px solid var(--warning); padding: 16px; margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--text-primary); }\n      .modal-footer { padding: 16px 24px; background: var(--surface); display: flex; justify-content: flex-end; gap: 12px; border-top: 1px solid var(--border); }\n      .warning-btn { background: var(--warning); }\n      .warning-btn:hover:not(:disabled) { background: #965216; }\n      \n      .error-state { display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--error); text-align: center; padding: 32px; }\n    `;\n    document.head.appendChild(style);\n    return () => document.head.removeChild(style);\n  }, []);\n\n  const handleDreamSubmit = async (text, baseline) => {\n    setDreamData({ text, baseline });\n    setScreen('loading');\n    try {\n      const generatedRoadmap = await api.deconstructDream(text, baseline);\n      setRoadmap(generatedRoadmap);\n      setScreen('roadmap');\n    } catch (e) {\n      console.error(e);\n      setRoadmap(SEED_ROADMAP);\n      setScreen('roadmap');\n    }\n  };\n\n  const handleCompressRequest = (milestone, newDuration, revertCallback) => {\n    setTradeoffState({ milestone, newDuration, revertCallback });\n  };\n\n  const handleAcceptTradeoff = (affectedDeps) => {\n    setRoadmap(prev => {\n      const newRoadmap = { ...prev };\n      const mIdx = newRoadmap.milestones.findIndex(m => m.id === tradeoffState.milestone.id);\n      if (mIdx > -1) {\n        newRoadmap.milestones[mIdx].duration_weeks = tradeoffState.newDuration;\n      }\n      return newRoadmap;\n    });\n    setAtRiskNodes(affectedDeps);\n    setTradeoffState(null);\n  };\n\n  const handleRevertTradeoff = () => {\n    if (tradeoffState.revertCallback) tradeoffState.revertCallback();\n    setTradeoffState(null);\n  };\n\n  return (\n    <div className=\"app-shell\">\n      <Header />\n      <DemoControls setScreen={setScreen} setRoadmap={setRoadmap} />\n      \n      <main className=\"main-content\">\n        <AnimatePresence mode=\"wait\">\n          {screen === 'input' && (\n            <ScreenInput key=\"input\" onSubmit={handleDreamSubmit} />\n          )}\n          {screen === 'loading' && (\n            <ScreenLoading key=\"loading\" />\n          )}\n          {screen === 'roadmap' && (\n            <ScreenRoadmap \n              key=\"roadmap\" \n              roadmap={roadmap} \n              onDrilldown={setActiveMilestone}\n              onCompressRequest={handleCompressRequest}\n              atRiskNodes={atRiskNodes}\n            />\n          )}\n        </AnimatePresence>\n      </main>\n\n      <AnimatePresence>\n        {activeMilestone && (\n          <DrilldownPanel \n            key=\"drilldown\"\n            milestone={activeMilestone} \n            baseline={dreamData.baseline}\n            onClose={() => setActiveMilestone(null)} \n          />\n        )}\n        {tradeoffState && (\n          <TradeoffModal \n            key=\"tradeoff\"\n            tradeoffState={tradeoffState}\n            onAccept={handleAcceptTradeoff}\n            onRevert={handleRevertTradeoff}\n          />\n        )}\n      </AnimatePresence>\n    </div>\n  );\n};\n\nfunction __test_state_transitions__() {\n  console.assert(typeof App === 'function', 'App must be a component');\n  return true;\n}\nif (typeof window !== 'undefined') {\n  window.__hicProtoTests = __test_state_transitions__;\n}\n"
+  },
+  "code_format": "react",
+  "research_goal": "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school",
+  "based_on": "reverse-engineer-dream",
+  "created_at": "2026-05-11T23:13:04.885929Z",
+  "updated_at": "2026-05-11T23:13:04.885929Z"
+}

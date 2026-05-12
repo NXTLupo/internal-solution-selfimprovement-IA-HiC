@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "slug": "test-launcher",
+  "title": "Test Launcher",
+  "concept": "A minimal React prototype to verify the launcher endpoint and HTML wrapper work end-to-end.",
+  "brief": {
+    "concept_title": "Test Launcher"
+  },
+  "interaction_spec": {
+    "screens": []
+  },
+  "design_system": {
+    "color_system": {}
+  },
+  "code": "const App = () => {\n  const [count, setCount] = React.useState(0);\n  return (\n    <div style={{padding: 48, fontFamily: \"Bebas Neue, sans-serif\"}}>\n      <h1 style={{fontSize: 48, letterSpacing: 2, color: \"#0D0D0D\"}}>HiC PROTOTYPE LAUNCHER WORKS</h1>\n      <p style={{fontFamily: \"Archivo, sans-serif\", color: \"#525252\"}}>You clicked {count} times.</p>\n      <button onClick={() => setCount(c => c + 1)} style={{padding: \"12px 24px\", background: \"#B8B800\", color: \"#0D0D0D\", border: \"none\", fontWeight: 700, letterSpacing: 1, textTransform: \"uppercase\", cursor: \"pointer\"}}>Click me</button>\n    </div>\n  );\n};",
+  "critique": {
+    "verdict": "ship",
+    "summary": "test"
+  },
+  "code_format": "react",
+  "research_goal": "smoke test",
+  "based_on": "",
+  "created_at": "2026-05-11T18:32:24.627256Z",
+  "updated_at": "2026-05-11T18:32:24.627256Z"
+}

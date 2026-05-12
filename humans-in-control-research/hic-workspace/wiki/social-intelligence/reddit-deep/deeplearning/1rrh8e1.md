@@ -1,0 +1,75 @@
+---
+url: "https://www.reddit.com/r/deeplearning/comments/1rrh8e1/architecture_discussion_observability_guardrail/"
+kind: "social-post"
+source: "reddit-deep: r/deeplearning"
+subreddit: "deeplearning"
+title: "Architecture Discussion: Observability & guardrail layers for complex AI agents (Go, Neo4j, Qdrant)"
+author: "Infinite_Cat_8780"
+date: "2026-03-12T04:35:51.000Z"
+score: 1
+upvote_ratio: 0.6
+num_comments: 8
+flair: ""
+extracted_at: "2026-05-11T17:26:50.056Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+---
+
+# Architecture Discussion: Observability & guardrail layers for complex AI agents (Go, Neo4j, Qdrant)
+
+Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rrh8e1/architecture_discussion_observability_guardrail/)
+Posted by **Infinite_Cat_8780** · **1↑** · **8 comments**
+
+Tracing and securing complex agentic workflows in production is becoming a major bottleneck. Standard APM tools often fall short when dealing with non-deterministic outputs, nested tool calls, and agents spinning off sub-agents.
+
+I'm curious to get a sanity check on a specific architectural pattern for handling this in multi-agent systems.
+
+**The Proposed Tech Stack:**
+
+* **Core Backend:** Go (for high concurrency with minimal overhead during proxying).
+* **Graph State:** Neo4j (to map the actual relationships between nested agent calls and track complex attack vectors across different sessions).
+* **Vector Search:** Qdrant (for handling semantic search across past execution traces and agent memories).
+
+**Core Component Breakdown:**
+
+1. **Real-time Observability:** A proxy layer tracing every agent interaction in real-time. It tracks tokens in/out, latency, and assigns cost attribution down to the specific agent or sub-agent, rather than the overall application.
+2. **The Guard Layer:** A middleware sitting between the user and the LLM. If an agent or user attempts to exfiltrate sensitive data (AWS keys, SSN, proprietary data), it dynamically intercepts, redact, blocks, or flags the interaction before hitting the model.
+3. **Shadow AI Discovery:** A sidecar service (e.g., Python/FastAPI) that scans cloud audit logs to detect unapproved or rogue model usage across an organization's environment.
+
+**Looking for feedback:**
+
+For those running complex agentic workflows in production, how does this pattern compare to your current setup?
+
+* What does your observability stack look like?
+* Are you mostly relying on managed tools like LangSmith/Phoenix, or building custom telemetry?
+* How are you handling dynamic PII redaction and prompt injection blocking at the proxy level without adding massive latency?
+
+Would love to hear tear-downs of this architecture or hear what your biggest pain points are right now.
+
+## Comments
+
+- **Snappyfingurz** (2↑): using go for the proxy layer is a big win because the concurrency handling is based for low-latency agent tracing. neo4j is also a smart choice for mapping those nested agent relationships because tracking non-deterministic loops in a traditional rdbms is just pain.
+
+the guard layer intercepting pii before it hits the model is the real mvp here. adding that sidecar for shadow ai discovery is a great way to catch rogue model usage without slowing down the primary stack.
+  - **Infinite_Cat_8780** (1↑): Appreciate the sanity check! You hit the nail on the head regarding Go. The native concurrency with goroutines is an absolute game-changer when you need to proxy and trace massive volumes of nested tool calls without choking the system.
+
+And 100% agreed on the RDBMS pain. Trying to model non-deterministic, multi-agent loops in SQL is a nightmare; Neo4j just makes mapping those execution paths feel natural.
+- **RestaurantHefty322** (2↑): We run multi-agent setups in production and the observability side is honestly the hardest part. Few things from our experience:
+
+For tracing nested agent calls, we ended up with structured logging per agent invocation (parent_id, child_id, depth) piped into something queryable rather than a full graph DB. Neo4j is cool for visualizing the call tree after the fact but for real-time alerting you want something you can query fast with simple filters. We use clickhouse for that.
+
+On the guard layer - the latency concern is real. We do PII scanning async on a copy of the payload rather than inline blocking. Inline redaction on every request added 80-120ms which killed our p99. The tradeoff is you catch things slightly after the fact instead of preventing them, but for most cases that's acceptable since you can still flag and remediate before anything leaves your network.
+
+Biggest pain point for us was cost attribution. Token counting per sub-agent sounds simple until you have agents spawning agents 4 levels deep and you need to figure out which workflow is burning your budget.
+  - **Infinite_Cat_8780** (1↑): This is exactly the kind of battle-tested feedback I was looking for, thanks for sharing.
+
+**On tracing:** Your point on Neo4j vs. Clickhouse makes a ton of sense. Graph DBs are incredible for mapping complex attack vectors and nested relationships post-mortem, but I can definitely see how the query latency makes them a bottleneck for real-time alerting. Structured logging pushed to a columnar DB is a really smart, pragmatic pivot for speed.
+
+**On the guard layer:** The 80-120ms latency hit for inline scanning is the eternal struggle. Async PII scanning is a great tradeoff if the primary goal is data loss prevention rather than strict, real-time blocking of malicious prompt injections. We are heavily leaning into Go at the proxy level specifically to squeeze every millisecond out of that inline overhead, but preserving p99 latency is always the priority.
+
+**On cost attribution:** Complete nightmare once agents start spawning sub-agents 4 levels deep. Enforcing strict context propagation (parent/child span IDs) right at the proxy level seems to be the only way to avoid flying blind on budget.
+
+Appreciate the detailed breakdown! Out of curiosity, what are you using to handle the async PII scanning a local fast model or an external API?
+    - **RestaurantHefty322** (2↑): Regex patterns for the obvious stuff (credit cards, SSNs, AWS keys) and a small fine-tuned classifier for the fuzzier cases like names or addresses in free text. We tried routing through an LLM for detection but the latency and cost defeated the purpose. The regex layer catches 90% of what matters and the classifier handles the rest async - false positive rate is manageable since flagged items go to a review queue rather than getting auto-blocked.
+- **bonniew1554** (2↑): the stack makes sense but the neo4j layer is where i'd push back a little. for mapping nested agent calls, a graph db is powerful but the write latency under high concurrency in go can become a bottleneck faster than you'd expect, especially if sub agents are spawning in parallel bursts. a lighter option is storing traces as structured json in postgres with a ltree or jsonb index for relationship queries, which keeps the observability layer stateless and easier to scale horizontally. the qdrant choice for semantic trace search is solid and probably the strongest part of the design. the guard layer middleware pattern is the right call, just make sure your redaction runs before the embedding step or you risk leaking pii into the vector store. happy to dm a rough schema if useful.
+  - **Infinite_Cat_8780** (1↑): The Neo4j write latency concern under parallel sub-agent bursts is real and something we've had to architect around carefully. In Syntropy, the graph layer (/api/v1/graph-sync) is intentionally async and decoupled from the hot ingest path traces hit /api/v1/ingest first and land in the primary store immediately, then get synced to the graph layer in a background worker (/api/v1/workers). So Neo4j never blocks a live agent call. That said, your Postgres+ltree/jsonb suggestion is genuinely compelling for teams that want a simpler ops surface keeping the observability layer stateless and horizontally scalable is a real architectural win, especially at early scale. On the PII/embedding ordering this is a 100% valid call-out and one we enforce explicitly. In our guard middleware (/api/v1/guard), redaction runs as the first step in the pipeline before any embedding or semantic indexing happens. Leaking PII into a vector store is a much harder problem to fix retroactively than catching it inline, so it's a non-negotiable gate in the /api/v1/gateway proxy layer. Would genuinely appreciate seeing that Postgres schema if you're open to sharing especially curious how you handle the relationship traversal depth vs. query performance tradeoff once agent nesting goes 4-5 levels deep.

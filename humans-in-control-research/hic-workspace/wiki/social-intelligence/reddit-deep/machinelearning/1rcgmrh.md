@@ -1,0 +1,91 @@
+---
+url: "https://www.reddit.com/r/MachineLearning/comments/1rcgmrh/r_neural_pde_solvers_built_almost_purely_from/"
+kind: "social-post"
+source: "reddit-deep: r/machinelearning"
+subreddit: "machinelearning"
+title: "[R] Neural PDE solvers built (almost) purely from learned warps"
+author: "t_msr"
+date: "2026-02-23T12:53:35.000Z"
+score: 87
+upvote_ratio: 0.99
+num_comments: 21
+flair: "Research"
+extracted_at: "2026-05-11T17:27:06.574Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+---
+
+# [R] Neural PDE solvers built (almost) purely from learned warps
+
+Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rcgmrh/r_neural_pde_solvers_built_almost_purely_from/)
+Posted by **t_msr** · **87↑** · **21 comments**
+
+Full Disclaimer: This is my own work.
+
+TL;DR: We built a neural PDE solver entirely from learned coordinate warps (no fourier layers, no attention, (almost) no spatial convolutions). It easily outperforms all other models at a comparable scale on a wide selection of problems from The Well. For a visual TL;DR see the Project Page: [link](https://t-muser.github.io/flowers/)
+
+Paper: [RG](https://www.researchgate.net/publication/400979038_Flowers_A_Warp_Drive_for_Neural_PDE_Solvers)
+
+Code: [GitHub](https://github.com/t-muser/flowers/)
+
+My first PhD paper just appeared on ResearchGate (currently "on hold" at arxiv sadly...) and I'm really proud of it, so I wanted to share it here in the hopes that someone finds it as cool as I do!
+
+The basic idea is that we want to learn a PDE solver, i.e. something that maps an input state to an output state of a PDE-governed physical system. Approaching this as a learning problem is not new, there have even been special architectures (Neural Operators, most notably Fourier Neural Operators) developed for this. Since you can frame it as an image-to-image problem, you can also use the usual stack of CV models (UNets, ViTs) for this problem. This means, that generally people use one of these three types of models (FNOs, Convolutional UNets, or ViTs). We propose a different primitive: learned spatial warps. At each location x, the model predicts a displacement and samples features from the displaced coordinate. This is the only mechanism for spatial interaction. We then do a whole lot of engineering around this, mostly borrowing ideas from transformers: multiple heads (each head is its own warp), value projections, skip connections, norms, and a U-Net scaffold for multiscale structure. (The only convolutions in the model are the strided 2×2s used to build the U-Net, all spatial mixing within a scale comes from warping.)
+Because the displacements are predicted pointwise, the cost is linear in grid points, which makes it efficient even in 3D. We call the resulting model Flower, and it performs extremely well (see e.g. [this figure](https://i.imgur.com/cA96D65.png) or for full, raw numbers, Table 1 in the paper).
+
+We originally set out to make an improved version of an [older paper from our group](https://proceedings.neurips.cc/paper_files/paper/2020/hash/5e98d23afe19a774d1b2dcbefd5103eb-Abstract.html) on neural network Fourier Integral Operators (FIOs). This model was extremely hard to train, but it also didn't "look like" a neural network. Our goal for this project was to create a light-weight FIO which we can stack as a layer and combine with non-linearities. In the end, we eliminated a lot more components, as we found them to be unnecessary, and were really only left with warping.
+
+Why should this work for PDEs? We have some ideas, but they only cover part of the picture: Solutions to scalar conservation laws are constant along characteristics, and high-frequency waves propagate along rays, both of which are things warps can do naturally. We show more fleshed out versions of these ideas in the paper, in addition to a sketch of how stacking our basic component block becomes a Boltzmann-like equation in the limit (this is also interesting because my collaborators were able to construct a bridge between transformers and kinetic equations, yielding a Vlasov equation but not the full Boltzmann equation, see their [paper](https://arxiv.org/abs/2509.25611) on the matter).
+
+What's particularly satisfying is that the model actually discovers physically meaningful transport without being told to. On the shear flow dataset, the learned displacement fields align with the underlying fluid velocity, see this figure (Figure 6). In a sense, the model learns to predict what arrives at each point by looking "upstream", which is exactly we hoped for, based on the motivation!
+
+We test on 16 datasets mostly from The Well (which is a collection of really cool problems, have a look at this [video](https://polymathic-ai.org/the_well/assets/videos/background.mp4)) covering a wide range of PDEs, both in 2D and 3D. We compare Flower against an FNO, a convolutional U-Net, and an attention-based model, all at roughly the same 15-20Mio parameter count. (We slightly modified The Well's benchmark protocol: larger wall-clock budget but fewer learning rates covered; see Appendix A for details.) Flower achieves the best next-step prediction on every dataset, often by a wide margin. Same story for autoregressive rollouts over 20 steps, except for one (where all models perform extremely poorly).
+
+Here's another image visualizing predictions (on the 3D Rayleigh-Taylor problem): https://i.imgur.com/fHT8MPX.png
+
+We also tried scaling the model up. At 150M parameters, Flower outperforms Poseidon (628M params) on compressible Euler, despite Poseidon being a foundation model pretrained on diverse PDE data. Even our tiny 17M model matches Poseidon on this dataset (until 20 autoregressive steps at least). Performance improves smoothly with size, which suggests there's headroom left. Here's [a video](https://pub-4782cd68fddd4ce0af349ef3d1c56b27.r2.dev/euler_multi_quadrants_periodicBC.mp4) showing a long roll-out.
+
+Limits: The advantage over baselines generally shrinks on long rollouts compared to one-step prediction. I suspect part of this is that the pixel-wise nature of the VRMSE metric tends to reward blurrier predictions, but it may also be true that the model is more susceptible to noise (I need to re-run the validations with longer rollouts to find out). That said, I also observed genuine stability issues under specific conditions on very long rollouts for the Euler dataset used in the scaling study (I expect that this would be fixed by a little bit of auto-regressive fine-tuning). On other problems, e.g. shear flow we some to be more stable than other methods though.
+
+Finally, a non-limitation: We also tried to add a failure case for our model, a time-independent PDE (which we should perform badly on, per our motivations from theory). However, the model also seems to perform well on this problem (see Table 6 and/or Figure 11) and we are not sure why.
+
+If you read all of this, I really appreciate it (also if you just read the TL;DR and looked at the images)! If there's any feedback, be it for the model, the writing, the figures, etc. I'd also be happy to hear it :) Warps are a surprisingly rich primitive and there's a lot of design space left to explore and make these models stronger!
+
+
+**E: My replies keep getting caught in the spam filter, sorry.**
+
+## Comments
+
+- **SlayahhEUW** (11↑): Really fun to see new architectures that use qualities of the data more efficiently, looks like a stripped-down deformable DETR for sparse problems where feature averages are not driving the dynamics. I am in real-time computer graphics and the method could be applied to a lot of problems here I think.
+
+Question:  
+  
+I have used grid\_sample a lot and written Triton kernels to do it efficiently. The algorithm is guaranteed to be memory bound with grid-based sampling, gradient storing and interpolation. You have FLOPS in your solution, but if you shuffle data a lot, you might be slower than a larger/more FLOP solution that utilizes hardware better. Are there any measurements on throughput vs Poseidon or other Transformer-stack using methods?
+  - **t_msr** (8↑): Hey! I actually measure throughput for exactly this reason, I don't measure FLOPS (Throughput seems more aligned with reality and I think most programmatic FLOPS-counting approaches simply ignore grid_sample).
+See here: [link](https://till-m.github.io/flowers/#throughput)
+
+To answer your question, throughput for training seems to be slightly worse than what I get for scOT/POSEIDON, by about the same as it is better than the FNO, CNUnet trails all three by a considerable amount. For only the forward pass/inference in 2D, I would anecdotally say that the models are roughly on par, but this estimate is solely based on what I observed when I was making rollout videos.
+
+I've been thinking a lot about how to make grid_sample more efficient, so if you have any advice on writing triton kernels for it I'd be all ears.
+
+E: just to be explicit: scOT is the base architecture for POSEIDON.
+- **serikkehva** (7↑): Have you tried testing this concept on more advanced PDEs like e.g. weather prediction or some part of it? You mentioned that during long roll-out you see poorer performance, didn’t read the paper yet so the answer might me inside, but do you have any clues why?
+  - **t_msr** (5↑): Hey! Thanks for the question. We didn't try it, our goal with this paper was primarily to benchmark the model against other approaches and demonstrate that it performs competitively, so we kept the scope fairly narrow. I think we succeeded with that, so now it would be cool to have a look at "real" problems. 
+
+Weather forecasting does seem like a natural fit. I think it's usually short term enough to not run into serious roll-out problems. Also, for autoregressive weather models, as far as I know, there is often a little bit of autoregressive fine-tuning added at the end. Here we didn't do this since we were trying to not deviate too much from The Well's benchmarking set-up.
+- **oharub** (6↑): Hey author of The Well here, very interesting work, congrats!
+  - **t_msr** (4↑): Hey Ruben! Thanks for the great collection. Without such interesting problems to test on, this work would've probably never happened!
+- **Over_Elderberry_5279** (4↑): I had the same reaction. What changed my mind was realizing that execution details and feedback loops decide most real-world results. Once you instrument your workflow and iterate on concrete failure cases, outcomes get way more consistent.
+- **ManufacturerWeird161** (3↑): The warp-based approach here is brilliant—I’ve been wrestling with spectral methods in my own work, and seeing this perform so well on stiff problems like diffusion is genuinely exciting. Can’t wait to dig into the code this weekend.
+  - **t_msr** (3↑): Happy to hear! There's a file at the top of the repo that contains the entire model code and depends only on torch. That should be enough to get you started! If you run into any problems don't hesitate to open a github issue, I'd be happy to help :)
+- **[deleted]** (3↑): Building PDE solvers purely from coordinate warps instead of discretized operators is elegant. The question is how this handles discontinuities and shock waves where smooth warps break down.
+  - **t_msr** (1↑): This is such an excellent question! The warps are not necessarily smooth because we use a ReLU in the small MLP that calculates the warp field. Since ReLU is not smooth, the resulting warp is not smooth (experimentally ReLU there also works much better than Tanh, which I also tried).
+- **nooo-one** (3↑): Have you tested it on some PDEs where we have intermittent events? Is it able to capture them?
+  - **nooo-one** (2↑): Sorry! Congratulations nonetheless, it's a really good work.
+  - **t_msr** (2↑): I'm not sure what you mean by "intermittent events", could you explain a bit more?
+    - **nooo-one** (1↑): Like some non-linear PDEs solutions have shocks n all. These are called intermittent events.
+- **KiddWantidd** (3↑): sounds like really cool work. i don't know what is meant by "coordinate warps" here but i'll give the paper a read, i'm very intrigued!
+  - **t_msr** (2↑): Yes, the term "warp" is a bit overloaded, though I find that people's intuition usually aligns rather well with what we're doing. Mathematically we essentially have a [pullback](https://en.wikipedia.org/wiki/Pullback#Precomposition).
+- **Dima44321** (3↑): This is great! Any chance there is an extension to non-rectangular problems?
+  - **t_msr** (2↑): In principle this would be a possible and should work well. However, depending on what kind of non-rectangular you mean, it could take some serious modifications to grid_sample (e.g. if you want it to work on general meshes). The difficulty would lie in making these modifications while retaining the computational efficiency.
+- **lotus-reddit** (1↑): Figure 1 is awesome, is that entirely in TikZ?

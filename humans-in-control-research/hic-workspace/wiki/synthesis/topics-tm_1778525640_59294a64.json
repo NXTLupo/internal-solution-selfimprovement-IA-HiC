@@ -1,0 +1,2760 @@
+{
+  "job_id": "tm_1778525640_59294a64",
+  "completed_at": "2026-05-11T18:54:38.608362Z",
+  "research_goal": "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school",
+  "result": {
+    "topic_count": 20,
+    "noise_count": 7,
+    "doc_count": 100,
+    "topics": [
+      {
+        "id": 0,
+        "name": "Co-op Search Struggles",
+        "summary": "Students share frustrations and seek advice about low interview rates and rejections during the co-op application process.",
+        "sentiment": "negative",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "op",
+            0.2645538027410348
+          ],
+          [
+            "nuworks",
+            0.2253818475172217
+          ],
+          [
+            "interview",
+            0.22370946742591444
+          ],
+          [
+            "cs",
+            0.11306452230315084
+          ],
+          [
+            "advisor",
+            0.11269092375861085
+          ],
+          [
+            "good luck",
+            0.1025610570539945
+          ],
+          [
+            "interview rejected",
+            0.1025610570539945
+          ],
+          [
+            "25",
+            0.1025610570539945
+          ],
+          [
+            "rejected",
+            0.1025610570539945
+          ],
+          [
+            "said",
+            0.09633473342573748
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_3",
+          "rdeep_src_13_4",
+          "rdeep_src_13_16",
+          "rdeep_src_13_32",
+          "rdeep_src_13_44"
+        ],
+        "centroid": [
+          1.8018805980682373,
+          -6.635473728179932
+        ]
+      },
+      {
+        "id": 1,
+        "name": "NU.in Family Group Experience",
+        "summary": "NU.in participants discuss family groups, social events, and the role of Student Success Coordinators in building community abroad.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "family",
+            0.2149065196072497
+          ],
+          [
+            "friends",
+            0.13764269676425173
+          ],
+          [
+            "family group",
+            0.1344422983221385
+          ],
+          [
+            "students",
+            0.11870780809805977
+          ],
+          [
+            "groups",
+            0.11817683807354991
+          ],
+          [
+            "group",
+            0.11722173796759075
+          ],
+          [
+            "events",
+            0.10844502014347132
+          ],
+          [
+            "rooms",
+            0.1075538386577108
+          ],
+          [
+            "grubhub",
+            0.1075538386577108
+          ],
+          [
+            "nuin",
+            0.1075538386577108
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_12",
+          "rdeep_src_13_20",
+          "rdeep_src_13_45"
+        ],
+        "centroid": [
+          0.33312112589677173,
+          -5.7134989102681475
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Oakland Campus Academic Planning",
+        "summary": "Incoming students at Northeastern Oakland ask about housing, CS and math majors, honors programs, and the transition to Boston.",
+        "sentiment": "neutral",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "honors",
+            0.27476927165430576
+          ],
+          [
+            "oakland",
+            0.2616535951845994
+          ],
+          [
+            "cs math",
+            0.22897439304525477
+          ],
+          [
+            "cs",
+            0.21456046715990074
+          ],
+          [
+            "math",
+            0.20008876713180296
+          ],
+          [
+            "ur",
+            0.1634551497041779
+          ],
+          [
+            "major",
+            0.12621203950582396
+          ],
+          [
+            "single",
+            0.10774010537866313
+          ],
+          [
+            "really",
+            0.10251082330477466
+          ],
+          [
+            "ops",
+            0.101251541249872
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_17",
+          "rdeep_src_13_21",
+          "rdeep_src_13_31",
+          "rdeep_src_13_43",
+          "rdeep_src_13_49"
+        ],
+        "centroid": [
+          0.854902708530426,
+          -5.117337799072265
+        ]
+      },
+      {
+        "id": 3,
+        "name": "AI Tools for Job Seekers",
+        "summary": "Young professionals and students explore learning and using AI-powered tools to automate and improve their job search process.",
+        "sentiment": "positive",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "ai",
+            0.3260210203603559
+          ],
+          [
+            "use",
+            0.1890581798707611
+          ],
+          [
+            "want learn",
+            0.17110230778210805
+          ],
+          [
+            "use ai",
+            0.14143288859475636
+          ],
+          [
+            "learn use",
+            0.13688184622568644
+          ],
+          [
+            "tool",
+            0.12351468592181254
+          ],
+          [
+            "like",
+            0.12183020417381807
+          ],
+          [
+            "learn",
+            0.12030975082684797
+          ],
+          [
+            "ai job",
+            0.11679135039371359
+          ],
+          [
+            "young people",
+            0.11679135039371359
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_30",
+          "rdeep_src_14_39",
+          "rdeep_src_14_44"
+        ],
+        "centroid": [
+          19.948144912719727,
+          12.9225435256958
+        ]
+      },
+      {
+        "id": 4,
+        "name": "AI Career Impact and Adaptation",
+        "summary": "Early-career professionals discuss anxiety about AI automation and share strategies for leveraging AI to advance their careers.",
+        "sentiment": "mixed",
+        "post_count": 6,
+        "top_terms": [
+          [
+            "ai",
+            0.36796387628852156
+          ],
+          [
+            "skills",
+            0.1099079788909263
+          ],
+          [
+            "sales",
+            0.10673191148100605
+          ],
+          [
+            "tasks",
+            0.10337356456458033
+          ],
+          [
+            "like",
+            0.10226841702463518
+          ],
+          [
+            "use",
+            0.09335403903305714
+          ],
+          [
+            "vs",
+            0.07890099502580111
+          ],
+          [
+            "doc",
+            0.07689304453497768
+          ],
+          [
+            "decision making",
+            0.07689304453497768
+          ],
+          [
+            "wins",
+            0.07689304453497768
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_3",
+          "rdeep_src_14_11",
+          "rdeep_src_14_14",
+          "rdeep_src_14_18",
+          "rdeep_src_14_21",
+          "rdeep_src_14_38"
+        ],
+        "centroid": [
+          20.112218221028645,
+          12.538487752278646
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Career Transition Lessons Learned",
+        "summary": "Professionals across age groups reflect on career pivots, dissatisfaction with conventional success, and frameworks for meaningful career change.",
+        "sentiment": "mixed",
+        "post_count": 8,
+        "top_terms": [
+          [
+            "career",
+            0.21327927894289514
+          ],
+          [
+            "ve",
+            0.20617307723284548
+          ],
+          [
+            "work",
+            0.11958637540019439
+          ],
+          [
+            "2026",
+            0.09939898758341041
+          ],
+          [
+            "management",
+            0.09226195422905031
+          ],
+          [
+            "learned",
+            0.09065900004713773
+          ],
+          [
+            "reimbursement",
+            0.08991398084521696
+          ],
+          [
+            "moves",
+            0.08991398084521696
+          ],
+          [
+            "likable",
+            0.08991398084521696
+          ],
+          [
+            "passion",
+            0.08991398084521696
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_0",
+          "rdeep_src_14_5",
+          "rdeep_src_14_6",
+          "rdeep_src_14_12",
+          "rdeep_src_14_31",
+          "rdeep_src_14_40",
+          "rdeep_src_14_43",
+          "rdeep_src_14_48"
+        ],
+        "centroid": [
+          18.635642766952515,
+          12.50681471824646
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Northeastern Enrollment Value Questions",
+        "summary": "Prospective and waitlisted students evaluate whether Northeastern programs in London, Boston, and law school are worth the financial investment.",
+        "sentiment": "neutral",
+        "post_count": 4,
+        "top_terms": [
+          [
+            "law",
+            0.20454804006926655
+          ],
+          [
+            "northeastern",
+            0.1974468028286637
+          ],
+          [
+            "london",
+            0.17532689148794278
+          ],
+          [
+            "join",
+            0.16985496701861147
+          ],
+          [
+            "neu",
+            0.15188215602204896
+          ],
+          [
+            "welcome",
+            0.1390649598372136
+          ],
+          [
+            "year",
+            0.13479909517241154
+          ],
+          [
+            "op",
+            0.12921472534991224
+          ],
+          [
+            "school",
+            0.12238673695064128
+          ],
+          [
+            "boston",
+            0.12150572481763919
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_24",
+          "rdeep_src_13_27",
+          "rdeep_src_13_28",
+          "rdeep_src_13_40"
+        ],
+        "centroid": [
+          1.1166328191757202,
+          -5.9210697412490845
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Mid-Career Salary and Direction",
+        "summary": "Experienced workers confront stagnant pay, sudden job loss, and uncertainty about reinventing their professional identities later in life.",
+        "sentiment": "negative",
+        "post_count": 4,
+        "top_terms": [
+          [
+            "agency",
+            0.14992913667981697
+          ],
+          [
+            "job",
+            0.14684834759846202
+          ],
+          [
+            "ur",
+            0.13528784669519625
+          ],
+          [
+            "staffing",
+            0.1249409472331808
+          ],
+          [
+            "colleges universities",
+            0.11370991726903146
+          ],
+          [
+            "training",
+            0.11273987224599688
+          ],
+          [
+            "ask",
+            0.10327598324072167
+          ],
+          [
+            "pay",
+            0.10001081748684529
+          ],
+          [
+            "exp",
+            0.09995275778654464
+          ],
+          [
+            "ideas",
+            0.09995275778654464
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_1",
+          "rdeep_src_14_27",
+          "rdeep_src_14_36",
+          "rdeep_src_14_42"
+        ],
+        "centroid": [
+          18.105358600616455,
+          12.110743999481201
+        ]
+      },
+      {
+        "id": 8,
+        "name": "AI Threat to Creative Careers",
+        "summary": "Aspiring marketers and designers worry about AI replacing their fields and seek guidance on which skills remain worth learning.",
+        "sentiment": "negative",
+        "post_count": 7,
+        "top_terms": [
+          [
+            "ai",
+            0.21619301030085647
+          ],
+          [
+            "marketing",
+            0.21374653157655688
+          ],
+          [
+            "career",
+            0.16765059670914648
+          ],
+          [
+            "generation",
+            0.16063160147992284
+          ],
+          [
+            "fields",
+            0.13830657925541917
+          ],
+          [
+            "interests",
+            0.12047370110994213
+          ],
+          [
+            "looking",
+            0.10885895975860542
+          ],
+          [
+            "digital",
+            0.10797505370686228
+          ],
+          [
+            "replaced",
+            0.10589822731293229
+          ],
+          [
+            "design",
+            0.0996087247247053
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_2",
+          "rdeep_src_14_4",
+          "rdeep_src_14_20",
+          "rdeep_src_14_22",
+          "rdeep_src_14_26",
+          "rdeep_src_14_29",
+          "rdeep_src_14_49"
+        ],
+        "centroid": [
+          19.62002726963588,
+          11.90653909955706
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Coding Career Passion Debate",
+        "summary": "Young professionals weigh whether to abandon current roles to learn coding and break into tech, with warnings about passion requirements.",
+        "sentiment": "mixed",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "passionate",
+            0.17781835867207765
+          ],
+          [
+            "tech",
+            0.17270807362781562
+          ],
+          [
+            "executive",
+            0.15630505905918582
+          ],
+          [
+            "ones",
+            0.15504180831646017
+          ],
+          [
+            "growth executive",
+            0.1422546869376621
+          ],
+          [
+            "code",
+            0.1336186242453288
+          ],
+          [
+            "coding",
+            0.1293939896590852
+          ],
+          [
+            "learn",
+            0.12560587172932045
+          ],
+          [
+            "learn code",
+            0.12504404724734866
+          ],
+          [
+            "growth",
+            0.11952783045672034
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_9",
+          "rdeep_src_14_19",
+          "rdeep_src_14_24"
+        ],
+        "centroid": [
+          19.27785809834798,
+          11.431746164957682
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Software Engineering AI Disruption",
+        "summary": "Software engineers and entry-level developers question how AI-generated code and automation affect their long-term career stability.",
+        "sentiment": "negative",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "ai",
+            0.2792304198077367
+          ],
+          [
+            "level",
+            0.1959701863455982
+          ],
+          [
+            "software",
+            0.17545877727119105
+          ],
+          [
+            "online",
+            0.14482212825992039
+          ],
+          [
+            "engineering",
+            0.1188956213970481
+          ],
+          [
+            "dev",
+            0.10861659619494028
+          ],
+          [
+            "entry level",
+            0.10861659619494028
+          ],
+          [
+            "playwright",
+            0.10772400472834094
+          ],
+          [
+            "learning career",
+            0.10772400472834094
+          ],
+          [
+            "jump ship",
+            0.10772400472834094
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_7",
+          "rdeep_src_14_16",
+          "rdeep_src_14_32"
+        ],
+        "centroid": [
+          20.21165593465169,
+          11.1535062789917
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Early Career Focus Uncertainty",
+        "summary": "Recent graduates and students feel torn between AI, web development, cybersecurity, and other technical career directions.",
+        "sentiment": "mixed",
+        "post_count": 6,
+        "top_terms": [
+          [
+            "ai",
+            0.25384981807626544
+          ],
+          [
+            "cybersecurity",
+            0.13928397260021
+          ],
+          [
+            "projects",
+            0.13309095141174307
+          ],
+          [
+            "focus",
+            0.10996161656933294
+          ],
+          [
+            "retail",
+            0.10975188312476591
+          ],
+          [
+            "small projects",
+            0.10975188312476591
+          ],
+          [
+            "direction",
+            0.1044629794501575
+          ],
+          [
+            "role",
+            0.09706366876807984
+          ],
+          [
+            "early",
+            0.09569388983721677
+          ],
+          [
+            "learning",
+            0.09205322021239679
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_1",
+          "rdeep_src_14_10",
+          "rdeep_src_14_17",
+          "rdeep_src_14_25",
+          "rdeep_src_14_37",
+          "rdeep_src_14_46"
+        ],
+        "centroid": [
+          19.73874505360921,
+          10.849304676055908
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Co-op Graduation Timeline Planning",
+        "summary": "Undergraduates ask whether they can fit co-ops, minors, and AP credits into a four-year graduation plan at Northeastern.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "summer",
+            0.3037112354062698
+          ],
+          [
+            "minor",
+            0.29009958757421267
+          ],
+          [
+            "credits",
+            0.25260329816607424
+          ],
+          [
+            "summer classes",
+            0.23512153227719346
+          ],
+          [
+            "ap credits",
+            0.18287230288226156
+          ],
+          [
+            "ap",
+            0.18287230288226156
+          ],
+          [
+            "graduate years",
+            0.15674768818479565
+          ],
+          [
+            "ops",
+            0.15402930534418277
+          ],
+          [
+            "op",
+            0.14119352989883419
+          ],
+          [
+            "graduate",
+            0.13287366549024304
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_13",
+          "rdeep_src_13_25",
+          "rdeep_src_13_30"
+        ],
+        "centroid": [
+          0.8768338362375895,
+          -5.6676076253255205
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Northeastern Student Social Resources",
+        "summary": "Students share AI-built campus tools, discuss making friends as transfers, and cope with social challenges at Northeastern.",
+        "sentiment": "mixed",
+        "post_count": 5,
+        "top_terms": [
+          [
+            "claude",
+            0.17305937999879617
+          ],
+          [
+            "really",
+            0.1502780012250127
+          ],
+          [
+            "credits",
+            0.1438413209577967
+          ],
+          [
+            "transfer",
+            0.1363659615151133
+          ],
+          [
+            "run",
+            0.12979453499909713
+          ],
+          [
+            "neu",
+            0.1275815737821842
+          ],
+          [
+            "northeastern",
+            0.1275815737821842
+          ],
+          [
+            "friends",
+            0.12692013886619838
+          ],
+          [
+            "students",
+            0.12040633485643004
+          ],
+          [
+            "school",
+            0.11422812497957853
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_9",
+          "rdeep_src_13_15",
+          "rdeep_src_13_38",
+          "rdeep_src_13_39",
+          "rdeep_src_13_46"
+        ],
+        "centroid": [
+          1.423143094778061,
+          -5.760756492614746
+        ]
+      },
+      {
+        "id": 14,
+        "name": "MS Program Admissions and Value",
+        "summary": "Admitted and prospective master's students evaluate Northeastern CS, AI, and analytics programs regarding scholarships, co-ops, workload, and ROI.",
+        "sentiment": "neutral",
+        "post_count": 9,
+        "top_terms": [
+          [
+            "ms",
+            0.1971523692481597
+          ],
+          [
+            "cs",
+            0.1791646213359579
+          ],
+          [
+            "neu",
+            0.17888397732432545
+          ],
+          [
+            "students",
+            0.16038229709713744
+          ],
+          [
+            "program",
+            0.15030785110781744
+          ],
+          [
+            "gpa",
+            0.14137564230870553
+          ],
+          [
+            "boston",
+            0.12919398362312395
+          ],
+          [
+            "current",
+            0.1266176029714243
+          ],
+          [
+            "analytics",
+            0.12132453492194444
+          ],
+          [
+            "5010",
+            0.11472041695829475
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_0",
+          "rdeep_src_13_5",
+          "rdeep_src_13_10",
+          "rdeep_src_13_14",
+          "rdeep_src_13_19",
+          "rdeep_src_13_29",
+          "rdeep_src_13_34",
+          "rdeep_src_13_42",
+          "rdeep_src_13_47"
+        ],
+        "centroid": [
+          0.24971130448910925,
+          -7.1244246164957685
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Co-op Employer and Advice Sharing",
+        "summary": "Northeastern students and alumni exchange co-op placement experiences, compare private versus public sector roles, and name specific employers.",
+        "sentiment": "positive",
+        "post_count": 6,
+        "top_terms": [
+          [
+            "op",
+            0.22787299694371546
+          ],
+          [
+            "harvard",
+            0.16721188711701696
+          ],
+          [
+            "northeastern",
+            0.1643609703107019
+          ],
+          [
+            "coop",
+            0.1378578362451861
+          ],
+          [
+            "employers",
+            0.12254029888460988
+          ],
+          [
+            "students",
+            0.1209914498204042
+          ],
+          [
+            "mit",
+            0.11118486023895391
+          ],
+          [
+            "northeastern students",
+            0.10032713227021019
+          ],
+          [
+            "neu",
+            0.09861658218642114
+          ],
+          [
+            "grad",
+            0.09240706128364547
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_11",
+          "rdeep_src_13_22",
+          "rdeep_src_13_23",
+          "rdeep_src_13_26",
+          "rdeep_src_13_35",
+          "rdeep_src_13_41"
+        ],
+        "centroid": [
+          1.2302370965480804,
+          -6.377108891805013
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Data and AI Skill Building",
+        "summary": "Professionals consider whether to pursue ACCA, SQL, ML, or AI credentials to pivot into data-driven or tech recruiting careers.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "acca",
+            0.19973786749873237
+          ],
+          [
+            "data",
+            0.19105828400687494
+          ],
+          [
+            "ai",
+            0.18585492603409837
+          ],
+          [
+            "understanding",
+            0.17901589120092182
+          ],
+          [
+            "ml",
+            0.1756746279602456
+          ],
+          [
+            "technologies",
+            0.13315857833248826
+          ],
+          [
+            "recruiting",
+            0.13202261922454006
+          ],
+          [
+            "learning",
+            0.12564600290762362
+          ],
+          [
+            "sql",
+            0.11704842855331711
+          ],
+          [
+            "ml ai",
+            0.11704842855331711
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_13",
+          "rdeep_src_14_28",
+          "rdeep_src_14_47"
+        ],
+        "centroid": [
+          19.237593332926433,
+          11.157469113667807
+        ]
+      },
+      {
+        "id": 17,
+        "name": "AI Career Pivot Strategies",
+        "summary": "Workers in SAP, data annotation, and other fields seek advice on transitioning into legitimate AI engineering or adjacent technical roles.",
+        "sentiment": "mixed",
+        "post_count": 4,
+        "top_terms": [
+          [
+            "ai",
+            0.2884656361772548
+          ],
+          [
+            "sap",
+            0.20254206511594364
+          ],
+          [
+            "apo",
+            0.17360748438509457
+          ],
+          [
+            "data",
+            0.1277410718078245
+          ],
+          [
+            "career",
+            0.12079565117607649
+          ],
+          [
+            "math",
+            0.11669732031362953
+          ],
+          [
+            "monitoring",
+            0.11573832292339638
+          ],
+          [
+            "company",
+            0.10527486778746646
+          ],
+          [
+            "want",
+            0.10447501792488656
+          ],
+          [
+            "ai engineer",
+            0.10173575740463346
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_14_23",
+          "rdeep_src_14_35",
+          "rdeep_src_14_41",
+          "rdeep_src_14_45"
+        ],
+        "centroid": [
+          19.19998264312744,
+          10.750658750534058
+        ]
+      },
+      {
+        "id": 18,
+        "name": "International Student Co-op Access",
+        "summary": "International master's students question whether Northeastern co-op and employer networks genuinely serve non-domestic students in the current job market.",
+        "sentiment": "negative",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "international",
+            0.2637202337134942
+          ],
+          [
+            "op",
+            0.2564427122062899
+          ],
+          [
+            "scm",
+            0.2174737798561229
+          ],
+          [
+            "students",
+            0.2112238458615832
+          ],
+          [
+            "msem",
+            0.17397902388489833
+          ],
+          [
+            "international business",
+            0.17397902388489833
+          ],
+          [
+            "international students",
+            0.17249483068271118
+          ],
+          [
+            "ms",
+            0.17249483068271118
+          ],
+          [
+            "northeastern",
+            0.15825025172861443
+          ],
+          [
+            "ms ece",
+            0.15293022501426737
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_2",
+          "rdeep_src_13_7",
+          "rdeep_src_13_48"
+        ],
+        "centroid": [
+          0.5741617381572723,
+          -6.667159875233968
+        ]
+      },
+      {
+        "id": 19,
+        "name": "Regional Campus Co-op Outcomes",
+        "summary": "Students at Northeastern's Arlington, Boston, and DC campuses compare co-op availability and program strength across locations.",
+        "sentiment": "neutral",
+        "post_count": 3,
+        "top_terms": [
+          [
+            "arlington",
+            0.3388568841408521
+          ],
+          [
+            "op",
+            0.2497352165751387
+          ],
+          [
+            "students",
+            0.23935894269772345
+          ],
+          [
+            "boston",
+            0.21135232519554045
+          ],
+          [
+            "dc",
+            0.16942844207042604
+          ],
+          [
+            "northeastern",
+            0.1409015501303603
+          ],
+          [
+            "campus",
+            0.13908225635619823
+          ],
+          [
+            "arlington dc",
+            0.13554275365634083
+          ],
+          [
+            "consulting",
+            0.10750916435851278
+          ],
+          [
+            "students ops",
+            0.10165706524225562
+          ]
+        ],
+        "post_ids": [
+          "rdeep_src_13_6",
+          "rdeep_src_13_36",
+          "rdeep_src_13_37"
+        ],
+        "centroid": [
+          0.7436951001485189,
+          -6.843279997507731
+        ]
+      }
+    ],
+    "documents": [
+      {
+        "id": "rdeep_src_13_0",
+        "title": "MS in AI (CV) at NEU Boston — worth accepting if my goal is Data Engineering?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qrsmw6/ms_in_ai_cv_at_neu_boston_worth_accepting_if_my/",
+        "cluster": 14,
+        "x": 0.16403628885746002,
+        "y": -7.029987812042236,
+        "score": 3,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_1",
+        "title": "profs are beefing up assignments to compensate for ai usage…… but it’s hurting anti-ai students",
+        "url": "https://www.reddit.com/r/NEU/comments/1s80ww1/profs_are_beefing_up_assignments_to_compensate/",
+        "cluster": 11,
+        "x": 20.575571060180664,
+        "y": 11.627291679382324,
+        "score": 199,
+        "num_comments": 58,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_2",
+        "title": "How strong is NEU co-op/employer access for MS ECE/CS students in this market?",
+        "url": "https://www.reddit.com/r/NEU/comments/1t9rbp8/how_strong_is_neu_coopemployer_access_for_ms/",
+        "cluster": 18,
+        "x": 0.49023815989494324,
+        "y": -6.948879718780518,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_3",
+        "title": "CS Co-Op Success Rate",
+        "url": "https://www.reddit.com/r/NEU/comments/1qepjl3/cs_coop_success_rate/",
+        "cluster": 0,
+        "x": 1.4551079273223877,
+        "y": -6.83429479598999,
+        "score": 15,
+        "num_comments": 13,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_4",
+        "title": "Business students struggling to get co-ops? I can maybe help",
+        "url": "https://www.reddit.com/r/NEU/comments/1s2p3g6/business_students_struggling_to_get_coops_i_can/",
+        "cluster": 0,
+        "x": 1.7815499305725098,
+        "y": -6.686145305633545,
+        "score": 0,
+        "num_comments": 5,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_5",
+        "title": "Admitted to MS in ECE – looking for student experiences (difficulty, workload, internships, timeline)",
+        "url": "https://www.reddit.com/r/NEU/comments/1swpk5d/admitted_to_ms_in_ece_looking_for_student/",
+        "cluster": 14,
+        "x": 0.24096247553825378,
+        "y": -7.058265686035156,
+        "score": 2,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_6",
+        "title": "Northeastern MS Cybersecurity Admit (Fall 2026) – Do Most Students Get Co-ops",
+        "url": "https://www.reddit.com/r/NEU/comments/1sghe1l/northeastern_ms_cybersecurity_admit_fall_2026_do/",
+        "cluster": 19,
+        "x": 0.7484596967697144,
+        "y": -6.581550121307373,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_7",
+        "title": "Admitted MSEM (SCM concentration) – Is the Co-op advantage real for international students given the recent merger?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qlcw6i/admitted_msem_scm_concentration_is_the_coop/",
+        "cluster": 18,
+        "x": 0.6834086179733276,
+        "y": -6.720061302185059,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_8",
+        "title": "Confused about CPT rules: Can F1 students work on campus during a full-time co-op?",
+        "url": "https://www.reddit.com/r/NEU/comments/1pip8lq/confused_about_cpt_rules_can_f1_students_work_on/",
+        "cluster": -1,
+        "x": 0.9907191395759583,
+        "y": -7.254481792449951,
+        "score": 2,
+        "num_comments": 4,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_9",
+        "title": "Struggling to find NEU info? I built a free 24/7 AI assistant for students",
+        "url": "https://www.reddit.com/r/NEU/comments/1phh5kl/struggling_to_find_neu_info_i_built_a_free_247_ai/",
+        "cluster": 13,
+        "x": 1.8755087852478027,
+        "y": -5.784006118774414,
+        "score": 0,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_10",
+        "title": "NEU MS CS/DS/AI programs — scholarships, pacing, co-ops?",
+        "url": "https://www.reddit.com/r/NEU/comments/1nr1hl9/neu_ms_csdsai_programs_scholarships_pacing_coops/",
+        "cluster": 14,
+        "x": 0.05423979088664055,
+        "y": -6.778172969818115,
+        "score": 5,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_11",
+        "title": "Looking for co-op advice. Private vs public organizations experience?",
+        "url": "https://www.reddit.com/r/NEU/comments/1kmso1a/looking_for_coop_advice_private_vs_public/",
+        "cluster": 15,
+        "x": 1.2237504720687866,
+        "y": -6.738696098327637,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_12",
+        "title": "N.U.in alumni, how did your Student Success Coordinator contribute to your experience and what was it like being in a \"family group\"?",
+        "url": "https://www.reddit.com/r/NEU/comments/1kmt74a/nuin_alumni_how_did_your_student_success/",
+        "cluster": 1,
+        "x": 0.3493921458721161,
+        "y": -5.688958644866943,
+        "score": 2,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_13",
+        "title": "NORTHEASTERN CO-OP QUESTION",
+        "url": "https://www.reddit.com/r/NEU/comments/1sbikpz/northeastern_coop_question/",
+        "cluster": 12,
+        "x": 0.8947687149047852,
+        "y": -5.591314792633057,
+        "score": 21,
+        "num_comments": 28,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_14",
+        "title": "Is NEU MSAI worth it for an international student taking a loan in the current job market?",
+        "url": "https://www.reddit.com/r/NEU/comments/1t2moco/is_neu_msai_worth_it_for_an_international_student/",
+        "cluster": 14,
+        "x": 0.2655089497566223,
+        "y": -6.681582927703857,
+        "score": 0,
+        "num_comments": 21,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_15",
+        "title": "Running out of Claude credits? Mahoraga is here.",
+        "url": "https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/",
+        "cluster": 13,
+        "x": 1.9171961545944214,
+        "y": -6.007481098175049,
+        "score": 13,
+        "num_comments": 18,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_16",
+        "title": "How cooked am I for finding a co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1t7thch/how_cooked_am_i_for_finding_a_coop/",
+        "cluster": 0,
+        "x": 1.7945839166641235,
+        "y": -6.6316046714782715,
+        "score": 6,
+        "num_comments": 15,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_17",
+        "title": "NEU Oakland: single vs. random roommate (first-year)",
+        "url": "https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/",
+        "cluster": 2,
+        "x": 0.4976463317871094,
+        "y": -4.916204452514648,
+        "score": 2,
+        "num_comments": 11,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_18",
+        "title": "Unsatisfactory Grade for leaving Co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1qs6czs/unsatisfactory_grade_for_leaving_coop/",
+        "cluster": -1,
+        "x": 1.0844252109527588,
+        "y": -7.359458923339844,
+        "score": 38,
+        "num_comments": 18,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_19",
+        "title": "Indian student confused about Northeastern MSBA (Fall 2026) – Need honest reality check",
+        "url": "https://www.reddit.com/r/NEU/comments/1t8obv2/indian_student_confused_about_northeastern_msba/",
+        "cluster": 14,
+        "x": 0.425218403339386,
+        "y": -7.164734363555908,
+        "score": 0,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_20",
+        "title": "NYC Scholars",
+        "url": "https://www.reddit.com/r/NEU/comments/1sit5cw/nyc_scholars/",
+        "cluster": 1,
+        "x": 0.4652295410633087,
+        "y": -5.8284831047058105,
+        "score": 6,
+        "num_comments": 9,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_21",
+        "title": "CS+ math major",
+        "url": "https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/",
+        "cluster": 2,
+        "x": 1.283414363861084,
+        "y": -5.168632507324219,
+        "score": 5,
+        "num_comments": 18,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_22",
+        "title": "NEU co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1s6p3he/neu_coop/",
+        "cluster": 15,
+        "x": 1.0015394687652588,
+        "y": -6.46973991394043,
+        "score": 8,
+        "num_comments": 10,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_23",
+        "title": "Advice about NEU from someone who graduated a few years ago.",
+        "url": "https://www.reddit.com/r/NEU/comments/1qhktqt/advice_about_neu_from_someone_who_graduated_a_few/",
+        "cluster": 15,
+        "x": 1.6377092599868774,
+        "y": -5.698403835296631,
+        "score": 120,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_24",
+        "title": "Is NEU London Scholars worth it??",
+        "url": "https://www.reddit.com/r/NEU/comments/1s97y4u/is_neu_london_scholars_worth_it/",
+        "cluster": 6,
+        "x": 0.5708125829696655,
+        "y": -6.0428876876831055,
+        "score": 1,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_25",
+        "title": "Can I do a minor and co-op(s) and still graduate in 4 years?",
+        "url": "https://www.reddit.com/r/NEU/comments/1s69uen/can_i_do_a_minor_and_coops_and_still_graduate_in/",
+        "cluster": 12,
+        "x": 0.740658700466156,
+        "y": -5.21158504486084,
+        "score": 2,
+        "num_comments": 8,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_26",
+        "title": "Wellington Management Co-op",
+        "url": "https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/",
+        "cluster": 15,
+        "x": 1.109972357749939,
+        "y": -6.856096267700195,
+        "score": 6,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_27",
+        "title": "Email implies I got in even though I'm on the wiatlist? What does this mean?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rz9nuq/email_implies_i_got_in_even_though_im_on_the/",
+        "cluster": 6,
+        "x": 1.333702802658081,
+        "y": -5.784916877746582,
+        "score": 8,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_28",
+        "title": "northeastern worth it?",
+        "url": "https://www.reddit.com/r/NEU/comments/1sxmgsq/northeastern_worth_it/",
+        "cluster": 6,
+        "x": 1.1662181615829468,
+        "y": -5.924792766571045,
+        "score": 3,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_29",
+        "title": "Khoury MSCS (Boston) Beginner with 1yr Frontend exp | Fall '26",
+        "url": "https://www.reddit.com/r/NEU/comments/1t1jbbn/khoury_mscs_boston_beginner_with_1yr_frontend_exp/",
+        "cluster": 14,
+        "x": 0.6449160575866699,
+        "y": -7.424621105194092,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_30",
+        "title": "Can you substitute co-op with research?",
+        "url": "https://www.reddit.com/r/NEU/comments/1stgml3/can_you_substitute_coop_with_research/",
+        "cluster": 12,
+        "x": 0.9950740933418274,
+        "y": -6.199923038482666,
+        "score": 1,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_31",
+        "title": "Incoming CS and Math",
+        "url": "https://www.reddit.com/r/NEU/comments/1t9q0np/incoming_cs_and_math/",
+        "cluster": 2,
+        "x": 1.1733847856521606,
+        "y": -5.196102142333984,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_32",
+        "title": "Fall 2026 Co-op Search Check-in: 50 apps on NUworks, 1 interview (rejected). Am I cooked? Is it too late?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rvkwpb/fall_2026_coop_search_checkin_50_apps_on_nuworks/",
+        "cluster": 0,
+        "x": 2.0192062854766846,
+        "y": -6.677231311798096,
+        "score": 3,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_33",
+        "title": "Admitted as a 2nd-Year Intl Transfer for BS in CS — Confused about the \"bad\" reputation online & wondering if my fee waivers are actually good? Seeking honest advice!",
+        "url": "https://www.reddit.com/r/NEU/comments/1s7wpnb/admitted_as_a_2ndyear_intl_transfer_for_bs_in_cs/",
+        "cluster": -1,
+        "x": 0.13187195360660553,
+        "y": -6.252523422241211,
+        "score": 1,
+        "num_comments": 5,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_34",
+        "title": "MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars?",
+        "url": "https://www.reddit.com/r/NEU/comments/1t3dfr3/ms_cs_align_boston_anyone_actually_received/",
+        "cluster": 14,
+        "x": 0.06925658881664276,
+        "y": -7.018138408660889,
+        "score": 2,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_35",
+        "title": "Name your CO-OP/Internship",
+        "url": "https://www.reddit.com/r/NEU/comments/1spc8gi/name_your_coopinternship/",
+        "cluster": 15,
+        "x": 1.4337655305862427,
+        "y": -6.4381914138793945,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_36",
+        "title": "Northeastern MPP: Boston vs Arlington (DC)?",
+        "url": "https://www.reddit.com/r/NEU/comments/1saxq34/northeastern_mpp_boston_vs_arlington_dc/",
+        "cluster": 19,
+        "x": 0.6044051647186279,
+        "y": -6.822933673858643,
+        "score": 1,
+        "num_comments": 4,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_37",
+        "title": "NEU Boston's Co-op Program",
+        "url": "https://www.reddit.com/r/NEU/comments/1roe0vp/neu_bostons_coop_program/",
+        "cluster": 19,
+        "x": 0.8782204389572144,
+        "y": -7.125356197357178,
+        "score": 11,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_38",
+        "title": "Feeling like time’s running out to really meet people at NEU?",
+        "url": "https://www.reddit.com/r/NEU/comments/1qc0jin/feeling_like_times_running_out_to_really_meet/",
+        "cluster": 13,
+        "x": 1.9948601722717285,
+        "y": -6.068515777587891,
+        "score": 38,
+        "num_comments": 9,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_39",
+        "title": "How do you make friends as a transfer?",
+        "url": "https://www.reddit.com/r/NEU/comments/1l14bco/how_do_you_make_friends_as_a_transfer/",
+        "cluster": 13,
+        "x": 0.3656565248966217,
+        "y": -5.445361614227295,
+        "score": 25,
+        "num_comments": 38,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_40",
+        "title": "Looking for current northeastern students I can talk to about finances",
+        "url": "https://www.reddit.com/r/NEU/comments/1s4onhq/looking_for_current_northeastern_students_i_can/",
+        "cluster": 6,
+        "x": 1.3957977294921875,
+        "y": -5.9316816329956055,
+        "score": 0,
+        "num_comments": 3,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_41",
+        "title": "Cell and Molecular Biology MCB",
+        "url": "https://www.reddit.com/r/NEU/comments/1rmhmxl/cell_and_molecular_biology_mcb/",
+        "cluster": 15,
+        "x": 0.9746854901313782,
+        "y": -6.061525821685791,
+        "score": 0,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_42",
+        "title": "MS CS at Northeastern — professors, grading difficulty (high GPA?), best courses, and RA/TA positions",
+        "url": "https://www.reddit.com/r/NEU/comments/1qjl6nr/ms_cs_at_northeastern_professors_grading/",
+        "cluster": 14,
+        "x": 0.16372676193714142,
+        "y": -7.480315685272217,
+        "score": 0,
+        "num_comments": 10,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_43",
+        "title": "3 questions (bioengineering, pre-med, honors college)",
+        "url": "https://www.reddit.com/r/NEU/comments/1s94ws0/3_questions_bioengineering_premed_honors_college/",
+        "cluster": 2,
+        "x": 0.8708446025848389,
+        "y": -5.361359596252441,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_44",
+        "title": "What else can I do with my degree?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/",
+        "cluster": 0,
+        "x": 1.958954930305481,
+        "y": -6.348092555999756,
+        "score": 5,
+        "num_comments": 2,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_45",
+        "title": "Accepted into NU.in! Questions about the program and more!",
+        "url": "https://www.reddit.com/r/NEU/comments/1r3i7sq/accepted_into_nuin_questions_about_the_program/",
+        "cluster": 1,
+        "x": 0.18474169075489044,
+        "y": -5.6230549812316895,
+        "score": 3,
+        "num_comments": 6,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_46",
+        "title": "Transferring to Northeastern",
+        "url": "https://www.reddit.com/r/NEU/comments/1qv98p0/transferring_to_northeastern/",
+        "cluster": 13,
+        "x": 0.9624938368797302,
+        "y": -5.498417854309082,
+        "score": 1,
+        "num_comments": 7,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_47",
+        "title": "Academic probation as a graduate student (GPA still below 3.0)",
+        "url": "https://www.reddit.com/r/NEU/comments/1pmz8cc/academic_probation_as_a_graduate_student_gpa/",
+        "cluster": 14,
+        "x": 0.2195364236831665,
+        "y": -7.484002590179443,
+        "score": 6,
+        "num_comments": 12,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_48",
+        "title": "International Business",
+        "url": "https://www.reddit.com/r/NEU/comments/1s14391/international_business/",
+        "cluster": 18,
+        "x": 0.5488384366035461,
+        "y": -6.332538604736328,
+        "score": 3,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_13_49",
+        "title": "Prospective Student: Oakland to Boston (Business + Public Health) — Is the transition/ROI worth it?",
+        "url": "https://www.reddit.com/r/NEU/comments/1rxqt4p/prospective_student_oakland_to_boston_business/",
+        "cluster": 2,
+        "x": 0.44922345876693726,
+        "y": -4.944390296936035,
+        "score": 7,
+        "num_comments": 0,
+        "subreddit": "neu"
+      },
+      {
+        "id": "rdeep_src_14_0",
+        "title": "Anyone else realize they’re getting “successful” at a career they don’t even want?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1sf5nwh/anyone_else_realize_theyre_getting_successful_at/",
+        "cluster": 5,
+        "x": 18.651899337768555,
+        "y": 11.999282836914062,
+        "score": 47,
+        "num_comments": 24,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_1",
+        "title": "I never prioritized career or salary growth now i learned im barely payed above entry despite 10 years experience and expanded responsibilities. How do i start to better myself.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1szrtnp/i_never_prioritized_career_or_salary_growth_now_i/",
+        "cluster": 7,
+        "x": 18.10851287841797,
+        "y": 12.370511054992676,
+        "score": 25,
+        "num_comments": 22,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_2",
+        "title": "Is digital marketing still a good career choice with AI growing so fast?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1sbbn4i/is_digital_marketing_still_a_good_career_choice/",
+        "cluster": 8,
+        "x": 20.116130828857422,
+        "y": 12.100292205810547,
+        "score": 5,
+        "num_comments": 21,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_3",
+        "title": "How are you personally handling AI career anxiety right now?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1rir3az/how_are_you_personally_handling_ai_career_anxiety/",
+        "cluster": 4,
+        "x": 19.797121047973633,
+        "y": 12.451769828796387,
+        "score": 8,
+        "num_comments": 17,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_4",
+        "title": "What Career Path Should I Choose in an AI-Driven World?\"",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1t73721/what_career_path_should_i_choose_in_an_aidriven/",
+        "cluster": 8,
+        "x": 19.543676376342773,
+        "y": 11.800920486450195,
+        "score": 0,
+        "num_comments": 6,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_5",
+        "title": "Lessons learned from changing careers four times by age 35",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1oq3f7a/lessons_learned_from_changing_careers_four_times/",
+        "cluster": 5,
+        "x": 18.628034591674805,
+        "y": 12.576641082763672,
+        "score": 89,
+        "num_comments": 20,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_6",
+        "title": "What I learned from being completely lost in my career",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/",
+        "cluster": 5,
+        "x": 18.68593978881836,
+        "y": 12.585474014282227,
+        "score": 188,
+        "num_comments": 23,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_7",
+        "title": "How to protect my career as a software engineer in the age of AI?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/",
+        "cluster": 10,
+        "x": 20.10466766357422,
+        "y": 11.20702838897705,
+        "score": 3,
+        "num_comments": 24,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_8",
+        "title": "Planning to switch careers to AI and ML",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1ta9pxd/planning_to_switch_careers_to_ai_and_ml/",
+        "cluster": -1,
+        "x": 19.505876541137695,
+        "y": 11.194951057434082,
+        "score": 1,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_9",
+        "title": "Should I quit my Growth Executive career at 22 to learn coding?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1q6jv7z/should_i_quit_my_growth_executive_career_at_22_to/",
+        "cluster": 9,
+        "x": 19.37155532836914,
+        "y": 11.437467575073242,
+        "score": 0,
+        "num_comments": 15,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_10",
+        "title": "Confused about where to focus early in my career (AI/DS student)",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1t10rxz/confused_about_where_to_focus_early_in_my_career/",
+        "cluster": 11,
+        "x": 19.47870635986328,
+        "y": 10.727532386779785,
+        "score": 1,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_11",
+        "title": "AI Interview Successes",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1t7evts/ai_interview_successes/",
+        "cluster": 4,
+        "x": 19.7050838470459,
+        "y": 12.721386909484863,
+        "score": 1,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_12",
+        "title": "What actually gets people promoted quickly (and what doesn’t)",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qv82oc/what_actually_gets_people_promoted_quickly_and/",
+        "cluster": 5,
+        "x": 18.30805015563965,
+        "y": 12.78856372833252,
+        "score": 1170,
+        "num_comments": 137,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_13",
+        "title": "Can I realistically complete ACCA while building AI/Data skills, or should I commit to one career path?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1t2jhrt/can_i_realistically_complete_acca_while_building/",
+        "cluster": 16,
+        "x": 19.130859375,
+        "y": 11.116093635559082,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_14",
+        "title": "Leveraging AI to accelerate your career",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/",
+        "cluster": 4,
+        "x": 20.21632194519043,
+        "y": 12.531834602355957,
+        "score": 2,
+        "num_comments": 3,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_15",
+        "title": "I used to think career shifts were about learning new skills. I’m not so sure anymore.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qj055z/i_used_to_think_career_shifts_were_about_learning/",
+        "cluster": -1,
+        "x": 19.505117416381836,
+        "y": 12.365704536437988,
+        "score": 0,
+        "num_comments": 11,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_16",
+        "title": "I can’t stand the idea of being an \"AI Supervisor\" for my entry-level career. Is Research or Consulting a better path?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1smilw2/i_cant_stand_the_idea_of_being_an_ai_supervisor/",
+        "cluster": 10,
+        "x": 20.35991096496582,
+        "y": 11.003162384033203,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_17",
+        "title": "Engineering careers in the AI era..?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1ryskvh/engineering_careers_in_the_ai_era/",
+        "cluster": 11,
+        "x": 20.24260902404785,
+        "y": 11.33301067352295,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_18",
+        "title": "LinkedIn just dropped its “Jobs on the Rise” report again, and it raises an uncomfortable question about where careers are actually headed",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qbqvb4/linkedin_just_dropped_its_jobs_on_the_rise_report/",
+        "cluster": 4,
+        "x": 20.239337921142578,
+        "y": 12.266033172607422,
+        "score": 896,
+        "num_comments": 161,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_19",
+        "title": "Breaking into tech and AI- is it worth it to learn coding/computer science?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1l1n875/breaking_into_tech_and_ai_is_it_worth_it_to_learn/",
+        "cluster": 9,
+        "x": 19.32826805114746,
+        "y": 11.259320259094238,
+        "score": 4,
+        "num_comments": 36,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_20",
+        "title": "Maintenance Technician Looking to Transition into IT/Design — Confused About What Skills Are Still Worth Learning in the Age of AI",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/",
+        "cluster": 8,
+        "x": 19.793209075927734,
+        "y": 11.711970329284668,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_21",
+        "title": "How are you protecting your career from AI automation?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/",
+        "cluster": 4,
+        "x": 20.52383804321289,
+        "y": 12.503006935119629,
+        "score": 2,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_22",
+        "title": "Looking to finally transition to a remote career, but my head is spinning — what’s actually worth learning in 2026?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1r7zhei/looking_to_finally_transition_to_a_remote_career/",
+        "cluster": 8,
+        "x": 18.820573806762695,
+        "y": 11.829996109008789,
+        "score": 1,
+        "num_comments": 3,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_23",
+        "title": "Career Advice Needed: SAP BW → APO → What Next (IBP, S/4HANA, or AI?)",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1rr2krj/career_advice_needed_sap_bw_apo_what_next_ibp/",
+        "cluster": 17,
+        "x": 19.389677047729492,
+        "y": 10.466994285583496,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_24",
+        "title": "Do not go into tech unless you are REALLY passionate",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1r56ruu/do_not_go_into_tech_unless_you_are_really/",
+        "cluster": 9,
+        "x": 19.133750915527344,
+        "y": 11.598450660705566,
+        "score": 592,
+        "num_comments": 188,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_25",
+        "title": "Need Career Advice: Stay in Retail or Move to Customer Success Role in Spain?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1ro11ty/need_career_advice_stay_in_retail_or_move_to/",
+        "cluster": 11,
+        "x": 19.140607833862305,
+        "y": 10.419960975646973,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_26",
+        "title": "Advice for an 18-Year-Old Lost on Career: Low Grades, Self-Doubt, AI Fears—Open to Anything!",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1r5dw3n/advice_for_an_18yearold_lost_on_career_low_grades/",
+        "cluster": 8,
+        "x": 19.183853149414062,
+        "y": 11.742588996887207,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_27",
+        "title": "Nearly 60, blown through two successful “identity based” careers, need new ideas",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1n7fvra/nearly_60_blown_through_two_successful_identity/",
+        "cluster": 7,
+        "x": 18.292463302612305,
+        "y": 12.102136611938477,
+        "score": 12,
+        "num_comments": 17,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_28",
+        "title": "career switch into ML/AI",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1q3w7dj/career_switch_into_mlai/",
+        "cluster": 16,
+        "x": 19.664409637451172,
+        "y": 11.380376815795898,
+        "score": 1,
+        "num_comments": 5,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_29",
+        "title": "is marketing or design as a career more likey to be replaced by ai?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qrxpmu/is_marketing_or_design_as_a_career_more_likey_to/",
+        "cluster": 8,
+        "x": 19.97859764099121,
+        "y": 11.93389892578125,
+        "score": 1,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_30",
+        "title": "Duolingo for Career Success: Users Wanted",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1quhe2l/duolingo_for_career_success_users_wanted/",
+        "cluster": 3,
+        "x": 19.769411087036133,
+        "y": 13.038227081298828,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_31",
+        "title": "2026 is shaping up to be a massive year for career shifts. But a successful transition isn't just about what you do, it's about when you pull the trigger.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qte9l8/2026_is_shaping_up_to_be_a_massive_year_for/",
+        "cluster": 5,
+        "x": 18.82457160949707,
+        "y": 12.292871475219727,
+        "score": 0,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_32",
+        "title": "Backend .NET dev (6+ yrs) assigned to AI-generated Playwright + React tests – good learning or career risk?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qzhwol/backend_net_dev_6_yrs_assigned_to_aigenerated/",
+        "cluster": 10,
+        "x": 20.17038917541504,
+        "y": 11.250328063964844,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_33",
+        "title": "Is Ai developer a good career?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1puwbaw/is_ai_developer_a_good_career/",
+        "cluster": -1,
+        "x": 19.939193725585938,
+        "y": 10.901422500610352,
+        "score": 0,
+        "num_comments": 5,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_34",
+        "title": "I didn’t plan a career shift into AI... It kind of happened while solving a hiring problem",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qhzslh/i_didnt_plan_a_career_shift_into_ai_it_kind_of/",
+        "cluster": -1,
+        "x": 19.356016159057617,
+        "y": 12.535147666931152,
+        "score": 0,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_35",
+        "title": "25F, currently in AI data annotation (Innodata), but I want a real AI career, and I’m scared of the impact of the AI bubble bursting soon. How do I build stability and move beyond these roles?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/",
+        "cluster": 17,
+        "x": 19.33757209777832,
+        "y": 10.870139122009277,
+        "score": 7,
+        "num_comments": 7,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_36",
+        "title": "Blindsided After Being Let Go From a Job I Was Poached For After Just A Month",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qc6zgh/blindsided_after_being_let_go_from_a_job_i_was/",
+        "cluster": 7,
+        "x": 17.949514389038086,
+        "y": 11.91092300415039,
+        "score": 412,
+        "num_comments": 275,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_37",
+        "title": "Unsure about my career direction after graduation (AI vs Web Dev)",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qseozs/unsure_about_my_career_direction_after_graduation/",
+        "cluster": 11,
+        "x": 19.775468826293945,
+        "y": 10.703582763671875,
+        "score": 1,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_38",
+        "title": "How AI is actually changing the way early-career people work",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1qhzam6/how_ai_is_actually_changing_the_way_earlycareer/",
+        "cluster": 4,
+        "x": 20.191606521606445,
+        "y": 12.756895065307617,
+        "score": 0,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_39",
+        "title": "Student here doing a project on how people in their careers feel about AI — need some help!",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1osbo2p/student_here_doing_a_project_on_how_people_in/",
+        "cluster": 3,
+        "x": 20.229337692260742,
+        "y": 12.705320358276367,
+        "score": 3,
+        "num_comments": 6,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_40",
+        "title": "Has anyone successfully transitioned careers while feeling scared and unsure how to do it?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1q6nckl/has_anyone_successfully_transitioned_careers/",
+        "cluster": 5,
+        "x": 18.95412826538086,
+        "y": 12.536503791809082,
+        "score": 2,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_41",
+        "title": "Career shift to AI",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1osd4c4/career_shift_to_ai/",
+        "cluster": 17,
+        "x": 19.064716339111328,
+        "y": 10.869300842285156,
+        "score": 1,
+        "num_comments": 5,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_42",
+        "title": "“ Off boarded” after 4 weeks for a job I moved across the country for.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1s2plnv/off_boarded_after_4_weeks_for_a_job_i_moved/",
+        "cluster": 7,
+        "x": 18.07094383239746,
+        "y": 12.059405326843262,
+        "score": 643,
+        "num_comments": 103,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_43",
+        "title": "What’s the smartest move to make in your 20s/30s/40s for long term career success? make a text",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1n87v5n/whats_the_smartest_move_to_make_in_your_20s30s40s/",
+        "cluster": 5,
+        "x": 18.237504959106445,
+        "y": 12.848854064941406,
+        "score": 24,
+        "num_comments": 7,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_44",
+        "title": "Automate your Job Search with AI; What We Built and Learned",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1n0pl7e/automate_your_job_search_with_ai_what_we_built/",
+        "cluster": 3,
+        "x": 19.845685958862305,
+        "y": 13.024083137512207,
+        "score": 79,
+        "num_comments": 2,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_45",
+        "title": "Worked at jobs where I did not learn anything. Looking to switch and restart my career. need advice.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1onkdto/worked_at_jobs_where_i_did_not_learn_anything/",
+        "cluster": 17,
+        "x": 19.007965087890625,
+        "y": 10.7962007522583,
+        "score": 1,
+        "num_comments": 3,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_46",
+        "title": "Need Career Advice: Cybersecurity Role at Established Company vs Cybersecurity/DevOps Role at AI Logistics Startup",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1p4dwdl/need_career_advice_cybersecurity_role_at/",
+        "cluster": 11,
+        "x": 19.219507217407227,
+        "y": 10.284449577331543,
+        "score": 1,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_47",
+        "title": "26M Recruiter — Should I Learn SQL/Power BI/AI to Switch Into Data or Tech Recruiting? Is It Too Late",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1oz6ne8/26m_recruiter_should_i_learn_sqlpower_biai_to/",
+        "cluster": 16,
+        "x": 18.917510986328125,
+        "y": 10.975936889648438,
+        "score": 1,
+        "num_comments": 1,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_48",
+        "title": "I was stuck in a 'successful' career that made me miserable. Here's the framework that finally got me unstuck.",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1n6jpd3/i_was_stuck_in_a_successful_career_that_made_me/",
+        "cluster": 5,
+        "x": 18.795013427734375,
+        "y": 12.426326751708984,
+        "score": 5,
+        "num_comments": 7,
+        "subreddit": "careeradvice"
+      },
+      {
+        "id": "rdeep_src_14_49",
+        "title": "If you had to restart your marketing career today, what 5 skills would you learn first and why?",
+        "url": "https://www.reddit.com/r/careeradvice/comments/1oxkvqw/if_you_had_to_restart_your_marketing_career_today/",
+        "cluster": 8,
+        "x": 19.904150009155273,
+        "y": 12.226106643676758,
+        "score": 0,
+        "num_comments": 0,
+        "subreddit": "careeradvice"
+      }
+    ],
+    "topic_similarities": [
+      {
+        "source": 0,
+        "target": 1,
+        "weight": 0.366
+      },
+      {
+        "source": 0,
+        "target": 2,
+        "weight": 0.359
+      },
+      {
+        "source": 0,
+        "target": 6,
+        "weight": 0.503
+      },
+      {
+        "source": 0,
+        "target": 12,
+        "weight": 0.428
+      },
+      {
+        "source": 0,
+        "target": 13,
+        "weight": 0.512
+      },
+      {
+        "source": 0,
+        "target": 14,
+        "weight": 0.381
+      },
+      {
+        "source": 0,
+        "target": 15,
+        "weight": 0.615
+      },
+      {
+        "source": 0,
+        "target": 18,
+        "weight": 0.449
+      },
+      {
+        "source": 0,
+        "target": 19,
+        "weight": 0.481
+      },
+      {
+        "source": 1,
+        "target": 2,
+        "weight": 0.558
+      },
+      {
+        "source": 1,
+        "target": 6,
+        "weight": 0.552
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "weight": 0.647
+      },
+      {
+        "source": 1,
+        "target": 13,
+        "weight": 0.478
+      },
+      {
+        "source": 1,
+        "target": 14,
+        "weight": 0.414
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "weight": 0.473
+      },
+      {
+        "source": 1,
+        "target": 18,
+        "weight": 0.504
+      },
+      {
+        "source": 1,
+        "target": 19,
+        "weight": 0.454
+      },
+      {
+        "source": 2,
+        "target": 6,
+        "weight": 0.542
+      },
+      {
+        "source": 2,
+        "target": 12,
+        "weight": 0.645
+      },
+      {
+        "source": 2,
+        "target": 13,
+        "weight": 0.538
+      },
+      {
+        "source": 2,
+        "target": 14,
+        "weight": 0.323
+      },
+      {
+        "source": 2,
+        "target": 15,
+        "weight": 0.432
+      },
+      {
+        "source": 2,
+        "target": 18,
+        "weight": 0.388
+      },
+      {
+        "source": 2,
+        "target": 19,
+        "weight": 0.366
+      },
+      {
+        "source": 3,
+        "target": 4,
+        "weight": 0.705
+      },
+      {
+        "source": 3,
+        "target": 5,
+        "weight": 0.421
+      },
+      {
+        "source": 3,
+        "target": 7,
+        "weight": 0.332
+      },
+      {
+        "source": 3,
+        "target": 8,
+        "weight": 0.484
+      },
+      {
+        "source": 3,
+        "target": 9,
+        "weight": 0.38
+      },
+      {
+        "source": 3,
+        "target": 10,
+        "weight": 0.359
+      },
+      {
+        "source": 3,
+        "target": 11,
+        "weight": 0.324
+      },
+      {
+        "source": 3,
+        "target": 16,
+        "weight": 0.345
+      },
+      {
+        "source": 3,
+        "target": 17,
+        "weight": 0.303
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "weight": 0.404
+      },
+      {
+        "source": 4,
+        "target": 7,
+        "weight": 0.328
+      },
+      {
+        "source": 4,
+        "target": 8,
+        "weight": 0.555
+      },
+      {
+        "source": 4,
+        "target": 9,
+        "weight": 0.419
+      },
+      {
+        "source": 4,
+        "target": 10,
+        "weight": 0.419
+      },
+      {
+        "source": 4,
+        "target": 11,
+        "weight": 0.366
+      },
+      {
+        "source": 4,
+        "target": 16,
+        "weight": 0.38
+      },
+      {
+        "source": 4,
+        "target": 17,
+        "weight": 0.333
+      },
+      {
+        "source": 5,
+        "target": 7,
+        "weight": 0.602
+      },
+      {
+        "source": 5,
+        "target": 8,
+        "weight": 0.464
+      },
+      {
+        "source": 5,
+        "target": 9,
+        "weight": 0.444
+      },
+      {
+        "source": 5,
+        "target": 10,
+        "weight": 0.325
+      },
+      {
+        "source": 5,
+        "target": 11,
+        "weight": 0.334
+      },
+      {
+        "source": 5,
+        "target": 16,
+        "weight": 0.404
+      },
+      {
+        "source": 5,
+        "target": 17,
+        "weight": 0.352
+      },
+      {
+        "source": 6,
+        "target": 12,
+        "weight": 0.741
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "weight": 0.743
+      },
+      {
+        "source": 6,
+        "target": 14,
+        "weight": 0.403
+      },
+      {
+        "source": 6,
+        "target": 15,
+        "weight": 0.68
+      },
+      {
+        "source": 6,
+        "target": 18,
+        "weight": 0.52
+      },
+      {
+        "source": 6,
+        "target": 19,
+        "weight": 0.501
+      },
+      {
+        "source": 7,
+        "target": 8,
+        "weight": 0.396
+      },
+      {
+        "source": 7,
+        "target": 9,
+        "weight": 0.425
+      },
+      {
+        "source": 7,
+        "target": 10,
+        "weight": 0.302
+      },
+      {
+        "source": 7,
+        "target": 11,
+        "weight": 0.326
+      },
+      {
+        "source": 7,
+        "target": 16,
+        "weight": 0.403
+      },
+      {
+        "source": 7,
+        "target": 17,
+        "weight": 0.364
+      },
+      {
+        "source": 8,
+        "target": 9,
+        "weight": 0.631
+      },
+      {
+        "source": 8,
+        "target": 10,
+        "weight": 0.511
+      },
+      {
+        "source": 8,
+        "target": 11,
+        "weight": 0.485
+      },
+      {
+        "source": 8,
+        "target": 16,
+        "weight": 0.543
+      },
+      {
+        "source": 8,
+        "target": 17,
+        "weight": 0.448
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "weight": 0.506
+      },
+      {
+        "source": 9,
+        "target": 11,
+        "weight": 0.574
+      },
+      {
+        "source": 9,
+        "target": 16,
+        "weight": 0.783
+      },
+      {
+        "source": 9,
+        "target": 17,
+        "weight": 0.593
+      },
+      {
+        "source": 10,
+        "target": 11,
+        "weight": 0.64
+      },
+      {
+        "source": 10,
+        "target": 16,
+        "weight": 0.507
+      },
+      {
+        "source": 10,
+        "target": 17,
+        "weight": 0.479
+      },
+      {
+        "source": 11,
+        "target": 16,
+        "weight": 0.63
+      },
+      {
+        "source": 11,
+        "target": 17,
+        "weight": 0.646
+      },
+      {
+        "source": 12,
+        "target": 13,
+        "weight": 0.643
+      },
+      {
+        "source": 12,
+        "target": 14,
+        "weight": 0.387
+      },
+      {
+        "source": 12,
+        "target": 15,
+        "weight": 0.558
+      },
+      {
+        "source": 12,
+        "target": 18,
+        "weight": 0.489
+      },
+      {
+        "source": 12,
+        "target": 19,
+        "weight": 0.458
+      },
+      {
+        "source": 13,
+        "target": 14,
+        "weight": 0.357
+      },
+      {
+        "source": 13,
+        "target": 15,
+        "weight": 0.608
+      },
+      {
+        "source": 13,
+        "target": 18,
+        "weight": 0.446
+      },
+      {
+        "source": 13,
+        "target": 19,
+        "weight": 0.439
+      },
+      {
+        "source": 14,
+        "target": 15,
+        "weight": 0.448
+      },
+      {
+        "source": 14,
+        "target": 18,
+        "weight": 0.641
+      },
+      {
+        "source": 14,
+        "target": 19,
+        "weight": 0.638
+      },
+      {
+        "source": 15,
+        "target": 18,
+        "weight": 0.582
+      },
+      {
+        "source": 15,
+        "target": 19,
+        "weight": 0.597
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "weight": 0.71
+      },
+      {
+        "source": 18,
+        "target": 19,
+        "weight": 0.804
+      }
+    ],
+    "duration_seconds": 38.3
+  }
+}

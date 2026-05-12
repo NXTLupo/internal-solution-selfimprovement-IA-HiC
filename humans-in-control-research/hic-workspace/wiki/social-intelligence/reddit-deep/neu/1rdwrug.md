@@ -1,0 +1,74 @@
+---
+url: "https://www.reddit.com/r/NEU/comments/1rdwrug/cs_at_northeastern_oakland_honest_takes/"
+kind: "social-post"
+source: "reddit-deep: r/neu"
+subreddit: "neu"
+title: "CS at Northeastern Oakland. Honest takes?"
+author: "Optimal_Yam1084"
+date: "2026-02-24T23:38:19.000Z"
+score: 5
+upvote_ratio: 0.86
+num_comments: 10
+flair: "Advice & Experiences"
+extracted_at: "2026-05-12T19:19:22.625Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+---
+
+# CS at Northeastern Oakland. Honest takes?
+
+Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rdwrug/cs_at_northeastern_oakland_honest_takes/)
+Posted by **Optimal_Yam1084** · **5↑** · **10 comments**
+
+Hi everyone! I got admitted to Northeastern University Oakland as a Computer Science major, and I had a few questions for current students or alumni.
+
+Does being close to San Francisco actually help CS students?
+
+* Are there any meaningful networking events, internships, or startup connections available during freshman year?
+
+Are there real research opportunities for freshman CS students at Oakland?
+
+* How accessible are labs, faculty projects, or research assistant roles?
+
+How does the Oakland campus compare academically to Boston for CS, especially if you’re coming in with AP credits?
+
+* I took several ap classes and expect to skip a lot of intro courses and jump straight into CS core classes. Are those upper level/core CS classes as rigorous and available at Oakland?
+
+Do students from Northeastern (including Oakland) land big tech roles?
+
+* I’m curious how common it is for students to end up at places like FAANG/big tech through internships or coops.
+
+I'd really appreciate anything. Thanks!
+
+## Comments
+
+- **espertus** (2↑): I'm sure you're more interested in hearing from students than faculty, but I thought it might be useful for me to answer this question:
+
+>How does the Oakland campus compare academically to Boston for CS, especially if you’re coming in with AP credits?
+
+The first 3 CS classes ([CS 2000](https://neu-pdi.github.io/cs2000-public-resources/), [CS 2100](https://neu-pdi.github.io/cs2100-public-resources/), and [CS 3100](https://neu-pdi.github.io/cs3100-public-resources/)) have been standardized across campuses. The Oakland faculty teach exactly the same material with the same assignments, quizzes, and deadlines.
+
+There are also CS electives. Those vary by instructor, whether they are offered in Boston, Oakland, London, etc.
+
+We will be offering more CS electives next year because we will be having sophomores on campus (continuing students who decided to remain in Oakland).
+
+There is a new elective that was offered only on the Oakland campus this spring, [Undergraduate Programming Practicum](https://www.khoury.northeastern.edu/undergraduate-professional-practicum/). I don't know all the details (since I don't teach it), but I know some students are working with scientists at Oak Ridge National Laboratory, where my colleague [Miguel Fuentes-Cabrera](https://www.khoury.northeastern.edu/people/miguel-fuentes-cabrera/) worked previously.
+
+I hope current and former Oakland students will also weigh in. In the meantime, I encourage you to search this subreddit for "Oakland".
+  - **Optimal_Yam1084** (2↑): Thanks for the detailed response! I appreciate the faculty perspective. If you don’t mind one broader question: for an incoming CS student starting in Oakland who wants to make the most out of their first year, what would you recommend prioritizing academically?
+    - **espertus** (1↑): There's nothing you need to do to prepare. Enjoy your last semester of high school and the summer!
+  - **ButchUnicorn** (1↑): Are the faculty in Oakland tenured?
+    - **espertus** (5↑): The answer to that is complicated...
+
+Most of the [Khoury faculty in Oakland](https://www.khoury.northeastern.edu/people/?filters%5B%5D=locations%7C41338) are on the teaching professor ladder, which is parallel to the tenure-track/tenured professor ladder (with assistant, associate, and full ranks). Many teaching faculty do research, especially but not exclusively in pedagogy, but their primary job and passion is teaching. While not eligible for tenure, teaching faculty have job security and are not considered adjuncts. As a full teaching professor, I get 5-year contracts, and the university has to give me a year's advance notice if they will not renew the contract. 
+
+Mills College professors kept their tenure status when Northeastern acquired Mills. I was in that category and could have remained a tenured professor within Mills College at Northeastern University (MCNU) but went through the Khoury hiring process and accepted an offer attractive enough to give up my tenured MCNU position. A colleague of mine chose to decline a similar offer because she valued tenure more.
+- **Ok-Witness9664** (2↑): I was a first year CS at Oakland and have mostly positive things to say. Like you, i came in with credits and took primarily cs courses my freshman year and can say that the rigor and experience is on par with boston. Professors like espertus and wang make class fun and interesting to go to and i learned a lot as someone that had limited CS experience. 
+
+I also did research which was competitive to land, but very doable if you have the right skills. I was able to get a ton of business connects from NEU’s “husky treks” where you’re able to tour many different businesses and can connect if you play your cards right. Most of my year at Oakland was securing a high gpa and polishing my resume for sophomore year and taking as many hard classes to get them out of the way since there unfortunately isn’t much to do off campus unless you take a 40$ uber to SF or up to berkeley.
+
+Overall, it’s a strong choice. Yes, students do land huge SWE roles but ultimately it’s their interview prep that does that for them. NEU is a big name (in boston atleast) and there’s a huge student hub for co-ops that is unmatched by any school. I picked NEU over higher ranked T20s and can tell you that when I compare internship opportunities with my friends from those schools, we have it better.
+- **One_Objective777** (1↑): I had a great experience in Oakland for my CS courses. One of my profs was former research at oak ridge labs and super knowledgeable and nice. My other was a genius from IIT, and another from MIT.
+
+Wasn’t overwhelming but I really think if you put in effort to connect with them you’ll get a lot out of it
+  - **One_Objective777** (1↑): Also to add that I do Oakland second semester and now at fang internship after 2 coops

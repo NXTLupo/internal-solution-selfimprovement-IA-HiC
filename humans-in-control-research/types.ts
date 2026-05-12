@@ -96,6 +96,26 @@ export interface EvidenceItem {
   citation: Citation; // Full citation details
 }
 
+// 2026-05-12 — R1 (Verbalized Confidence). The model emits a self-assessment
+// per atomic claim and a per-deliverable envelope. Both are OPTIONAL — any
+// consumer that does not understand the new fields ignores them. The two
+// types power the Reinforcement-Inference trigger (the composite uncertainty
+// signal). See plans/reinforcement-inference-uplift.md.
+export type ClaimConfidence = 'high' | 'medium' | 'low';
+
+export interface SelfAssessment {
+  overallConfidence: ClaimConfidence;
+  // 1-3 short descriptors / claim IDs naming the specific claims that would
+  // not survive senior pushback. Empty array allowed but only when the model
+  // genuinely cannot identify a weakest link.
+  leastDefensibleClaims: string[];
+  // 1-2 sentences naming the SPECIFIC weakness (evidence thin, segment
+  // overgeneralized, citation indirect, claim extrapolated). Must not contain
+  // generic phrases ("limited data", "more research needed") or QA-annotation
+  // strings ("evidence gap", "TBD") — these are stripped by the post-processor.
+  rationale: string;
+}
+
 export interface Theme {
   name: string;
   description: string;
@@ -103,6 +123,9 @@ export interface Theme {
   citations: Citation[]; // All supporting evidence
   isCrossDocument: boolean; // True if supported by >1 file
   status?: 'approved' | 'skipped' | 'priority'; // New: User weighting
+  // 2026-05-12 — R1 Verbalized Confidence (per-claim).
+  confidence?: ClaimConfidence;
+  confidenceRationale?: string;     // ≤12 words on why this score
 }
 
 export interface StrategicAnalysis {
@@ -460,6 +483,9 @@ export interface StepResult_Ingestion {
 export interface StepResult_Themes {
     methodology: string;
     themes: Theme[];
+    // 2026-05-12 — R1 Verbalized Confidence (per-deliverable envelope).
+    // Optional: legacy generations without VC simply omit this field.
+    selfAssessment?: SelfAssessment;
 }
 
 export interface StepResult_Personas {

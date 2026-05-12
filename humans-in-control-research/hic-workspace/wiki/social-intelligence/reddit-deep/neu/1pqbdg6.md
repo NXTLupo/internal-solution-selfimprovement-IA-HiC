@@ -1,0 +1,75 @@
+---
+url: "https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/"
+kind: "social-post"
+source: "reddit-deep: r/neu"
+subreddit: "neu"
+title: "Navigating the full-time SDE search as a Dec 2025 MS grad - my story and what worked"
+author: "dark_stallion_99"
+date: "2025-12-19T04:00:11.000Z"
+score: 41
+upvote_ratio: 0.93
+num_comments: 7
+flair: "Co-op & Career"
+extracted_at: "2026-05-12T20:36:08.374Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+---
+
+# Navigating the full-time SDE search as a Dec 2025 MS grad - my story and what worked
+
+Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/)
+Posted by **dark_stallion_99** · **41↑** · **7 comments**
+
+Just wanted to share my job search experience for anyone going through this grind. Started applying seriously in late August after an internship and it's been quite the rollercoaster.
+
+Applied to around 50 companies across the board. Big tech like Google and PayPal, YC startups, and mid-stage companies in healthcare and logistics. About half ghosted, and most screening calls didn't go anywhere, especially once H1B sponsorship came up. Made it to final rounds with 6 companies including Notion and a few other SF-based startups. Some worked out, some didn't.
+
+The conversion rate from application to final round was rough, around 10%. But once I got to onsite stages, things felt more in my control. Ended up with a couple offers and accepted one that felt right for what I want to build next.
+
+For anyone job searching right now, a few things that helped me:
+
+* Keep applying even when it feels pointless. The numbers game is real but so is persistence. Use your network aggressively. LinkedIn, alumni connections, and even cold emails to founders worked better than I expected.
+* I built an agentic pipeline using n8n that automated job curation and filtering. Followed some creators who shared automation workflows and customized it to only surface roles where I had a realistic shot based on tech stack match, company stage, and sponsorship likelihood. Saved me from wasting time on dead-end applications and let me focus my energy on quality applications. If you're technical, automating the grunt work of job searching is worth the initial setup time.
+* **Practice live coding consistently. Not just solving problems on LeetCode but actually coding in real-time environments like CodeSignal or CodeSandbox where you're writing and running code under pressure. This matters way more in actual interviews than just understanding the algorithm.**
+* **For graphs specifically, go beyond Number of Islands. Study harder graph problems like shortest path algorithms, topological sort, and union find. The easy graph problems don't show up as much in real interviews and the jump to medium/hard graph questions is significant.**
+
+**(last 2 points are really important)**
+
+If you're an international student, lead with your work quality and let sponsorship come up naturally. Don't let it discourage you from applying to places that seem like a reach.
+
+Happy to answer questions if anyone's going through similar stuff. Keep grinding people!
+
+https://preview.redd.it/kihrn1w4438g1.png?width=1200&format=png&auto=webp&s=76b7d0f50bf046e756c619c2f01ead20818c39ae
+
+## Comments
+
+- **navneetjoshi7** (1↑): Bro how are you getting 11 fuckin callbacks in 53 applications!!?? That is absolutely nuts. Mind sharing how you get interviews please?
+  - **dark_stallion_99** (4↑): Honestly, I got strategic about it:
+
+**1. Targeted Research (50-55 companies)** I didn't spray and resume everywhere. I researched startups with solid revenue, good products, and sponsorship history. Made a list and focused on quality over quantity.
+
+**2. Quality Applications (53 companies)** Each application was tailored - not generic. I showed I actually understood what they were building and why I'd fit.
+
+**3. Networked Before/After Applying.** This was key. I found people already working there (mid-level or higher), reached out on LinkedIn, and had genuine conversations. I resonated with them on company mission and values - not just "can you refer me?"
+
+**4. Cold Outreach That Worked** Mixed cold emails and LinkedIn messages. Wasn't pushy, just showed genuine interest in what they're building and how I could contribute.
+
+The math: 53 applications → 11 callbacks (21% response rate). The difference was treating each company like I actually wanted to work there, not just sending out mass applications. Once I got the interviews, I was prepared enough to drive it home!
+    - **navneetjoshi7** (1↑): Appreciate you sharing the breakdown, that’s really helpful.
+
+A couple of follow-ups on execution, if you don’t mind:
+
+1. When you tailored applications, what changed most per company, resume bullets, the overall narrative, or how you positioned your past work?
+2. For outreach, did you usually connect before applying or after, and were you mostly reaching out to engineers on the team, hiring managers, or recruiters?
+3. Were these roles mainly early-stage startups, later-stage startups, or mid-size companies, and roughly what seniority level were you targeting?
+4. Did timing play a big role for you, like applying very soon after a role opened?
+
+Trying to calibrate where my approach might differ.
+
+Thanks again, and congrats on the results.
+- **Particular-Quote3369** (1↑): would you mind sharing a bit about your background and internship
+  - **dark_stallion_99** (2↑): 2 years as SWE before grad school, 1 co-op during, and 3 genuinely strong projects I can leverage in any interview to demonstrate real impact and technical depth. Internship/coop at a healthcare startup!
+- **DarthValarMorghulis** (1↑): Can you suggest how I can secure a Coop by May 26?
+  - **dark_stallion_99** (1↑): Make a list of companies u genuinely want to work for. Each company find 5 people at max. These 5 people can be someone who are active on LinkedIn! Now interact with them. Even when you send them connection requests send it with a note. 
+Talk to them. Dont ask for a job directly. 
+And then pivot the topic to potential employment opportunity once they start believing in ur story and why u are a good fit. Meanwhile obv study and do projects that boosts ur skills. Simple.

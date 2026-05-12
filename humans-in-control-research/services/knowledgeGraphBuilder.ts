@@ -113,6 +113,20 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
         const tier = src.credibilityTier || 3;
         const tierStyle = getTierStyle(tier);
 
+        // 2026-05-11 — Aggregate per-source relevance to the research goal.
+        // Each item carries a 0-100 relevanceScore from filterAndScoreItems
+        // (LLM-scored vs. the goal). The source's "weight" is the SUM of those
+        // scores so a source with 30 highly-relevant items outranks one with
+        // 80 marginal items. Stored on `evidenceCount` so the Analyst Desk
+        // treemap (which sizes tiles by evidenceCount) can reuse the same
+        // visualization for both themes and sources without code changes.
+        // Falls back to itemCount if relevanceScore wasn't populated.
+        const relevanceSum = src.items.reduce(
+            (acc: number, it: any) => acc + (typeof it.relevanceScore === 'number' ? it.relevanceScore : 50),
+            0,
+        );
+        const meanRelevance = src.items.length > 0 ? Math.round(relevanceSum / src.items.length) : 50;
+
         nodes.push({
             id: sourceId,
             type: 'source',
@@ -120,10 +134,15 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
             tier,
             color: tierStyle.fill,
             size: 20 + Math.min(src.items.length * 2, 30),
+            // evidenceCount drives treemap tile sizing — for sources, this is
+            // the relevance-weighted count of items contributed to the corpus.
+            evidenceCount: Math.round(relevanceSum / 10) || src.items.length,
             metadata: {
                 itemCount: src.items.length,
                 query: src.query,
                 tierStyle,
+                meanRelevance,
+                relevanceSum,
             },
         });
 

@@ -29,6 +29,8 @@ export interface HashtagDirective {
     summary: string;
     /** Multi-line longer description for the help artifact. */
     description: string;
+    /** Alternate forms the user might type that route here (plurals, aliases). Lowercase, with leading #. */
+    aliases?: string[];
     /** Hashtags this directive often combines with (e.g. #brief + #NXT). */
     combinesWith?: string[];
     /** Modifiers this directive accepts (e.g. `--variants k`). */
@@ -39,10 +41,12 @@ export interface HashtagDirective {
     requiresContext: boolean;
     /** Whether the directive runs verbalized sampling under the hood. */
     usesVerbalizedSampling: boolean;
+    /** Whether the directive runs the Verbalized Confidence directive (R1 self-assessment envelope). */
+    usesVerbalizedConfidence?: boolean;
     /** When this was added — helps users orient to what's new. */
     introduced: string;
     /** Optional output type for the help artifact's grouping. */
-    outputType?: 'prototype' | 'html_artifact' | 'presentation' | 'recommendation_tiles' | 'library_list' | 'chat_response';
+    outputType?: 'prototype' | 'html_artifact' | 'presentation' | 'recommendation_tiles' | 'library_list' | 'chat_response' | 'freeform_slide' | 'slide_template';
 }
 
 export const DIRECTIVES: HashtagDirective[] = [
@@ -134,6 +138,233 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: true,
         introduced: '2026-05-11',
         outputType: 'recommendation_tiles',
+    },
+
+    // ────────────────────────────────────────────────────────────────────
+    // Design Desk freeform-HTML artifacts (5 diagram kinds + persona).
+    // These route through chat → design-desk/services/chatToFreeform.ts
+    // and produce a single freeform HTML slide that inherits the matching
+    // exemplar's visual treatment for NXT or NU brand. Currently DO NOT
+    // use Verbalized Sampling or Verbalized Confidence — VS/VC rollout to
+    // this pipeline is the next scope after R1 calibrates on themes.
+    // ────────────────────────────────────────────────────────────────────
+    {
+        id: '#journey',
+        name: 'Customer Journey Map',
+        category: 'consulting-deliverable',
+        summary: 'Generate a customer journey map as a freeform HTML slide (stages, touchpoints, pain points, moments of truth).',
+        description:
+            'Produces a brand-styled journey-map artifact via the Design Desk freeform-HTML pipeline. Renders stages with persona-grounded actions, touchpoints, pain points, emotion intensity, and moment-of-truth markers. Inherits NXT or NU exemplar treatment (10-point design spec). Stage 1: corpus → journey JSON. Stage 2: JSON → HTML body inside the brand exemplar shell. Universal tone rules applied. Falls back from DeepSeek V4 Flash to Gemini 3.1 Pro or GPT-5.4 on provider error.',
+        aliases: ['#journeys'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#journey First-year applicant from interest to enrolled #NU',
+            '#journey Donor lifecycle from cultivation to stewardship #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-05-04',
+        outputType: 'freeform_slide',
+    },
+    {
+        id: '#blueprint',
+        name: 'Service Blueprint',
+        category: 'consulting-deliverable',
+        summary: 'Generate a future-state service blueprint with the 5-swimlane Bitner model + fail points + recommendations.',
+        description:
+            'Produces a service-blueprint HTML slide. Same 10-point design spec as #journey but framed as FUTURE STATE — pain points solved, recommendations layered. Swimlanes: customer actions, frontstage, backstage, support, physical evidence. Fail points flagged. Persona-grounded. Brand inheritance via NXT or NU exemplar.',
+        aliases: ['#blueprints'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#blueprint Skill-gap coaching for SME co-ops #NU',
+            '#blueprint Advancement onboarding for new mid-major institutions',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-05-04',
+        outputType: 'freeform_slide',
+    },
+    {
+        id: '#arch',
+        name: 'System Architecture Diagram',
+        category: 'consulting-deliverable',
+        summary: 'Generate a system architecture diagram (C4 + TOGAF context view) as a freeform HTML slide.',
+        description:
+            'Produces a system-architecture HTML slide showing components, integration flows, data stores, and external systems. Inherits C4 + TOGAF context conventions. Nodes annotated with citations from the corpus. Brand inheritance via NXT or NU exemplar.',
+        aliases: ['#architecture'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#arch Donor data platform with Slate, EverTrue, and Microsoft Copilot #NXT',
+            '#arch CLR verification system: skills graph + verifier + display layer',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-05-04',
+        outputType: 'freeform_slide',
+    },
+    {
+        id: '#roadmap',
+        name: 'Strategic Roadmap',
+        category: 'consulting-deliverable',
+        summary: 'Generate a NOW / NEXT / LATER roadmap as a freeform HTML slide with dependencies and milestones.',
+        description:
+            'Produces a roadmap HTML slide with three horizon columns. Initiatives placed with dependency arrows, milestones, owner badges, and gating criteria. Brand inheritance via NXT or NU exemplar. Currently does not VS-pick the timeline shape — this is a candidate for VS uplift (alternatives: Gantt strip / Wardley horizon / domain-skill matrix).',
+        aliases: ['#roadmaps'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#roadmap 6-month CLR-skill-gap-coach rollout #NU',
+            '#roadmap 2026 advancement modernization sequence',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-05-04',
+        outputType: 'freeform_slide',
+    },
+    {
+        id: '#org',
+        name: 'Org Chart',
+        category: 'consulting-deliverable',
+        summary: 'Generate an org chart as a freeform HTML slide — reporting lines, roles, and named stakeholders from the corpus.',
+        description:
+            'Produces an org-chart HTML slide with reporting hierarchy, named roles, named individuals where the corpus supports it, and stakeholder annotations. Brand inheritance via NXT or NU exemplar. Particularly evidence-sensitive — quality depends on uploaded client docs that name people and reporting lines.',
+        aliases: ['#orgs', '#orgchart', '#orgcharts'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#org Northeastern Advancement Office reporting hierarchy #NU',
+            '#org Co-op program stakeholders: Liz, Jen, deans, employer partners',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-05-04',
+        outputType: 'freeform_slide',
+    },
+    {
+        id: '#persona',
+        name: 'CX Persona Card',
+        category: 'consulting-deliverable',
+        summary: 'Generate a CX persona card (Cooper goal-directed + JTBD) rendered through the AI chat path with the persona-card slide template.',
+        description:
+            'Produces persona cards through the AI chat path (NOT the design-desk freeform pipeline). Uses the persona-architect skill — two-phase: Phase A roster (archetype identification), Phase B enrichment (per-persona detail with lifeGoal / experienceGoal / functionalGoal, JTBD, motivations with verbatim corpus quotes, attributes, behaviors, tech usage). Renders inside the persona-card slide template. PPTX export available. NOT YET wired to Verbalized Sampling or Verbalized Confidence — Phase B is the highest-leverage persona surface for both, planned in R1 rollout.',
+        aliases: ['#personas'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#persona First-year applicant overwhelmed by application volume #NU',
+            '#personas Donor archetypes for a mid-major advancement office',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-15',
+        outputType: 'slide_template',
+    },
+
+    // ────────────────────────────────────────────────────────────────────
+    // Slide-template-rendering directives. These route through
+    // sendChatMessage (corpusChatService.ts). Combined with #slide they
+    // emit dedicated slide templates (prd-feature, gap-matrix, etc.).
+    // Without #slide they emit chat prose with embedded :::deliverable
+    // fences. Currently NO VS/VC applied — these go through the same
+    // chat path as everything else and inherit only the universal tone
+    // rules + prompt-improvement learned constraints.
+    // ────────────────────────────────────────────────────────────────────
+    {
+        id: '#prd',
+        name: 'Product Requirements (PRD features)',
+        category: 'consulting-deliverable',
+        summary: 'Generate PRD features (problem, user story, acceptance criteria, MoSCoW priority, citations) — chat + slide-template.',
+        description:
+            'Loads the prd-compiler skill. Produces PRD feature blocks using the Cagan/SVPG 16-section framework: problem statement, user stories, acceptance criteria, success metrics, functional/NFRs, wireframe notes, risks, timeline. Combined with #slide, renders the prd-feature slide template. Chat-grade output otherwise.',
+        aliases: ['#prds'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#prd Co-op readiness self-assessment widget #slide',
+            '#prd Donor identification AI assistant for advancement officers',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-10',
+        outputType: 'slide_template',
+    },
+    {
+        id: '#gap',
+        name: 'Gap Analysis',
+        category: 'consulting-deliverable',
+        summary: 'Generate a capability gap analysis with Gartner 5-level maturity scoring, severity, risk register.',
+        description:
+            'Loads the gap-analysis-evaluator skill. Produces capability gaps with currentMaturity / targetMaturity (1-5 Gartner scale), severity (critical/high/medium/low), business impact, evidence citations, quick wins, and risk register. Combined with #slide, renders the gap-matrix slide template.',
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#gap Advancement data quality and donor segmentation #slide',
+            '#gap First-year academic-to-career bridge capability assessment',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-10',
+        outputType: 'slide_template',
+    },
+    {
+        id: '#audit',
+        name: 'Tech Audit (Systems Inventory)',
+        category: 'consulting-deliverable',
+        summary: 'Generate a systems inventory with risk, consolidation opportunities, and integration map.',
+        description:
+            'Loads the tech-audit-inspector skill. Two-phase audit: systems inventory (each system tagged by category, status, risk, integration) → consolidation opportunities. Combined with #slide, renders the systems-inventory slide template.',
+        aliases: ['#audits', '#techaudit'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#audit Advancement office tech stack — what to keep, consolidate, retire #slide',
+            '#audit First-year career services systems and overlap points',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-10',
+        outputType: 'slide_template',
+    },
+    {
+        id: '#compete',
+        name: 'Competitive Analysis',
+        category: 'consulting-deliverable',
+        summary: 'Generate a competitive matrix (peers, benchmark dimensions, maturity, gap summary).',
+        description:
+            'Loads the competitive-analyst skill. Dual-mode: named entity extraction (Slate, EverTrue, Anthology) + archetype analysis (peer institutions vs aspirational peers). Produces benchmark dimensions, maturity matrix, gap summary. Combined with #slide, renders the competitive-matrix template.',
+        aliases: ['#competitive', '#competitives', '#competitors'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#compete Mid-major advancement offices using AI for donor identification #slide',
+            '#competitive How Slate, EverTrue, and Salesforce position vs Microsoft Copilot for advancement',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-10',
+        outputType: 'slide_template',
+    },
+    {
+        id: '#strategy',
+        name: 'Strategy Recommendations (Rumelt Kernel)',
+        category: 'consulting-deliverable',
+        summary: 'Generate strategic recommendations using Rumelt\'s Kernel: diagnosis → guiding policy → coherent actions.',
+        description:
+            'Loads the strategy-author skill. Produces Rumelt-kernel-grounded strategic recommendations: ONE diagnosis naming THE central challenge with specific evidence, ONE guiding policy stating the strategic approach as a DECISION, and 5-7 coherent actions that reinforce each other. Plus 15-section strategy document. Combined with #slide, renders strategy-relevant templates (timeline, principles, theme-arc).',
+        aliases: ['#strategies'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        examples: [
+            '#strategy Win first-year co-op readiness for SME employers #NU',
+            '#strategy Reposition advancement office around verified outcomes',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        usesVerbalizedConfidence: false,
+        introduced: '2026-04-10',
+        outputType: 'slide_template',
     },
     {
         id: '#brief',
@@ -282,6 +513,35 @@ export const DIRECTIVES: HashtagDirective[] = [
     // Modifier-only (not standalone)
     // ────────────────────────────────────────────────────────────────────
     {
+        id: '#slide',
+        name: 'Render as 16:9 Slide',
+        category: 'system',
+        summary: 'Render the next deliverable inside a 16:9 slide frame (NXT or NU branded).',
+        description: 'View modifier. Combines with any deliverable that has a slide-template implementation (#prd, #gap, #audit, #compete, #strategy, #persona, #journey, #blueprint, #arch, #roadmap, #org). When present, the output is rendered as a SlideCanvas with brand-applied styling and is eligible for PPTX/PDF export. Without #slide, the same deliverable renders as chat prose or freeform-HTML.',
+        combinesWith: ['#NXT', '#NU', '#prd', '#gap', '#audit', '#compete', '#strategy', '#persona', '#journey', '#blueprint', '#arch', '#roadmap', '#org'],
+        examples: [
+            '#gap Advancement data quality #slide #NXT',
+            '#persona First-year applicant overwhelmed by volume #slide #NU',
+        ],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-04-10',
+    },
+    {
+        id: '#slides',
+        name: 'Multi-Slide Composition',
+        category: 'system',
+        summary: 'Render multiple deliverables in this turn as a continuous multi-slide composition.',
+        description: 'View modifier. Like #slide but for compositions — every slide-template emitted in the same chat turn renders sequentially as a multi-slide block. Used when a single prompt produces multiple slide kinds (e.g. "#themes #personas #recs #slides").',
+        combinesWith: ['#NXT', '#NU'],
+        examples: [
+            'Show me themes, personas, and recs as a deck — #slides #NU',
+        ],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-04-10',
+    },
+    {
         id: '#NXT',
         name: 'NXT Brand (default)',
         category: 'system',
@@ -306,21 +566,51 @@ export const DIRECTIVES: HashtagDirective[] = [
 ];
 
 export function findDirective(idOrText: string): HashtagDirective | undefined {
-    const norm = idOrText.toLowerCase().trim();
-    return DIRECTIVES.find(d => d.id === norm || d.id === '#' + norm.replace(/^#/, ''));
+    const raw = idOrText.toLowerCase().trim();
+    const norm = raw.startsWith('#') ? raw : '#' + raw;
+    return DIRECTIVES.find(d =>
+        d.id === norm
+        || (Array.isArray(d.aliases) && d.aliases.includes(norm))
+    );
 }
 
 /** Used by autocomplete: suggest directives that match a partial token. */
 export function searchDirectives(partial: string, limit = 8): HashtagDirective[] {
     const norm = partial.toLowerCase().trim().replace(/^#/, '');
-    if (!norm) return DIRECTIVES.filter(d => d.category !== 'system').slice(0, limit);
-    return DIRECTIVES
-        .filter(d =>
-            d.id.toLowerCase().replace(/^#/, '').startsWith(norm)
-            || d.name.toLowerCase().includes(norm)
-            || d.summary.toLowerCase().includes(norm)
-        )
-        .slice(0, limit);
+    if (!norm) {
+        // Bare '#' — show every non-system directive in registration order (which
+        // groups them by category: experience-builder → consulting-deliverable →
+        // browse → edit-refine). The autocomplete UI groups visually beyond this.
+        // Note: limit is raised when partial is empty so users see the full set,
+        // not a truncated 8-row dropdown. Callers can still pass an explicit
+        // limit to override.
+        const nonSystem = DIRECTIVES.filter(d => d.category !== 'system');
+        return nonSystem.slice(0, Math.max(limit, nonSystem.length));
+    }
+    // Score directives by how well they match. A direct id-startsWith outranks
+    // an alias-startsWith outranks a name/summary substring match. This keeps
+    // the most "expected" hit (#per → #persona) above looser ones.
+    const scored: Array<{ d: HashtagDirective; score: number }> = [];
+    for (const d of DIRECTIVES) {
+        const idTail = d.id.toLowerCase().replace(/^#/, '');
+        let score = 0;
+        if (idTail.startsWith(norm)) score = 100;
+        else if (idTail.includes(norm)) score = 60;
+        if (Array.isArray(d.aliases)) {
+            for (const a of d.aliases) {
+                const aTail = a.toLowerCase().replace(/^#/, '');
+                if (aTail.startsWith(norm)) score = Math.max(score, 80);
+                else if (aTail.includes(norm)) score = Math.max(score, 40);
+            }
+        }
+        if (d.name.toLowerCase().includes(norm)) score = Math.max(score, 30);
+        if (d.summary.toLowerCase().includes(norm)) score = Math.max(score, 10);
+        if (score > 0) scored.push({ d, score });
+    }
+    return scored
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit)
+        .map(s => s.d);
 }
 
 export function directivesByCategory(): Record<DirectiveCategory, HashtagDirective[]> {

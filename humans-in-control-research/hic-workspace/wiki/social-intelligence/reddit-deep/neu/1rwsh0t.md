@@ -1,0 +1,38 @@
+---
+url: "https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/"
+kind: "social-post"
+source: "reddit-deep: r/neu"
+subreddit: "neu"
+title: "What else can I do with my degree?"
+author: "Dry-Succotash7300"
+date: "2026-03-18T03:11:18.000Z"
+score: 6
+upvote_ratio: 0.8
+num_comments: 2
+flair: "Co-op & Career"
+extracted_at: "2026-05-12T20:36:08.374Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+---
+
+# What else can I do with my degree?
+
+Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/)
+Posted by **Dry-Succotash7300** · **6↑** · **2 comments**
+
+I am graduating with my CS degree next month and I'm realizing that software development roles may not be a feasible option anymore with the collapsing demand for juniors. I have been searching for months and the job boards get dryer and dryer each week. My last phone screener hasn't gotten back to me, a phone interview before that rejected me within the first 5 minutes of the call because they need an immediate start, one company told me via email they also need an immediate start, and another told me I was a "potential fit" but still had to put my application "on hold" for vague reasons. Every single avenue, even ones that seem like opportunities, pan out to absolutely nothing and I don't really see what more I can do. The career studio said my resume was excellent, hyped my projects, and just recommended tailoring which I've been doing. Networking has led to nothing; I mean the career fair last month was one of the most humiliating, degrading experiences I've had at Northeastern with the crowd that showed up. There were hundreds of people in Cabot and they had us waiting 30+ minutes in line to talk to a recruiter who forgot our faces the second we left and was only entertaining us out of professional courtesy because they knew each individual person they talked to had a slim chance of being picked out of the application pile.
+
+Then the final nail in the coffin, I don't have anywhere to go after graduation, I don't have the privilege of being able to ride off family members for months while I "figure things out" so I made a version of my resume where I removed all my relevant coursework, personal and academic projects, programming languages, frameworks, deployment tools, LinkedIn and GitHub links, etc. and rewrote my engineering co-ops to sound like content management and IT positions then sent it off to staffing companies for admin roles in the middle of the night. I got calls from two of those companies immediately the next morning and one of them actually had a position available for me, I just couldn't accept because it was immediate start.
+
+So given that I had to completely erase almost every single thing I accomplished and learned since coming to Northeastern to get reliable traction, I'm not feeling particularly optimistic about my chances at traditional software engineering roles. But the thought of having to throw everything away and settle for front desk roles that pay $22 an hour is depressing given this degree was supposed to be my chance at social mobility, I genuinely don't see a reason why I shouldn't just end it all already. My last resort would be to skill build while working an admin job so I don't get trapped there, has anyone successfully found an adjacent career, something manageable to pick up with existing skills from the degree?
+
+## Comments
+
+- **HigherEdPro** (7↑): Dear OP - I am reaching out as it appears the DMs are not open to receiving messages. Please know that help is available. If you are located in Boston, UHCS offers drop in hours daily from 11 AM to 2 PM, Tuesday and Thursday evening from 5 PM to 7:30 PM. You can also call to make an appointment and I’m happy to help you set time to talk with someone on our team. 
+
+For urgent mental health support 24/7 call +1.877.233.9477. 
+
+[Find@Northeastern](https://healthandwellness.northeastern.edu/findnortheastern/)
+
+It sounds like sounds like you’re having a challenging time and working very hard. Support is available - please reach out to me here through direct message, responding to this post, or emailing me directly k.moran@northeastern.edu.
+- **Willing_Ordinary_735** (3↑): Yes, i was in similar position as you. I was international cs major that graduated last year. DM if you want to chat it out.

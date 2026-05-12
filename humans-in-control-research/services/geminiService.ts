@@ -4,6 +4,7 @@ import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, S
 import { tryRepairJson } from './aiRouter';
 import { getActiveConstraints } from './promptImprovementEngine';
 import { buildEvidenceCatalogBlock, loadDeliverableContext, renderDeliverableContextBlock } from './evidenceCatalogBuilder';
+import { buildVerbalizedConfidenceDirective, inspectCalibration, normalizeSelfAssessment } from './verbalizedConfidence';
 
 // --- CONSTANTS ---
 const DEFAULT_STYLE: SlideStyle = {
@@ -707,21 +708,29 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('THEMES'); } catch (e) { /* skill unavailable */ }
 
-        // 2026-05-12 — Sprint 1 VS uplift: load the verbalized-sampling skill
-        // so Pass 1 BREADTH operates under the VS discipline. The model is
-        // asked to generate 24 candidate themes with explicit probability
-        // annotations (p < 0.10 — moderate tail). Downstream we keep the top
-        // ~15 by 1/p * evidence_density. This dramatically increases the
-        // theme set's diversity vs. the prior list-level prompt, which
-        // collapsed to ~15 conventional themes per run.
-        let vsDirective = '';
-        try {
-            const resp = await fetch('/skills/verbalized-sampling/SKILL.md');
-            if (resp.ok) {
-                vsDirective = await resp.text();
-                console.log(`[Themes] Loaded verbalized-sampling SKILL.md (${vsDirective.length} chars) for Pass 1 BREADTH VS-Standard application`);
-            }
-        } catch { /* dev environment without the proxy will skip silently — Pass 1 still works without VS, just less diverse */ }
+        // 2026-05-12 — VS REVERTED for themes (Sprint 1 rollback).
+        //
+        // Verbalized Sampling was originally applied here to surface "non-
+        // obvious tail themes". In practice, that produced 20 themes with 1
+        // evidence each and 100% source concentration — thin slop, not real
+        // themes. The bug was structural:
+        //
+        //   • VS forces probability < 0.10 ("anti-modal sampling")
+        //   • Themes are EMPIRICAL CLUSTERS, defined by CONVERGENT evidence
+        //     across multiple sources — the opposite of anti-modal
+        //   • The downstream ranking `1/p × evidence_density` boosts rare-but-
+        //     thin themes over convergent-but-modal ones (the 1/p multiplier
+        //     outweighs evidence_density at low p)
+        //   • Combined with k=24 + HARD FLOOR 12, the model invented themes
+        //     from single mentions to hit the count at the right rarity
+        //
+        // VS stays in production for #recommendations, prototype Stage 1, and
+        // html-deliverable layout/IA picks — surfaces where ideation is the
+        // value proposition. Theme extraction is empirical, not creative.
+        //
+        // Verbalized Confidence (R1) stays — that's a different mechanic
+        // (per-claim uncertainty surfacing, doesn't force tail sampling) and
+        // remains correct for themes.
 
         // Tier B1 + B2 (2026-04-28) — multi-angle, cross-engagement archive
         // augmentation BEFORE constructing the theme prompt.
@@ -852,7 +861,22 @@ ${blocks.join('\n')}
             console.warn('[generateThemes] archive augmentation skipped:', err?.message || err);
         }
 
-        const prompt = `${vsDirective ? `=== AGENT SKILL: VERBALIZED SAMPLING (apply to this generation) ===\n${vsDirective}\n=== END VS SKILL ===\n\n=== VS DIRECTIVE APPLIED TO THIS TASK ===\nGenerate k=24 candidate themes. Every theme must carry a "probability" field with value < 0.10 (moderate-tail sampling). The probability annotation is your commitment device — writing probability < 0.10 forbids you from regressing to the modal/conventional theme set. Conventional themes (e.g. "System Fragmentation and Shadow IT Workarounds", "Application Volume Stress", "Internal Co-creation") are exactly what mode-collapsed LLMs default to on any higher-ed corpus. The user has those themes already — this generation surfaces the non-obvious findings the corpus actually supports. Downstream selection keeps the top 15 themes ranked by (1/probability × evidence_density), so producing 24 candidates with low probabilities is the path to the most interesting final theme set. The schema below is unchanged except that every theme now includes a required "probability" numeric field.\n=== END VS DIRECTIVE ===\n\n` : ''}${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
+        // 2026-05-12 — R1 Verbalized Confidence (entropy proxy for the
+        // Reinforcement-Inference trigger). Themes are the canonical corpus-
+        // synthesis surface and the foundational input to every downstream
+        // deliverable — they get the directive first as the calibration-gate
+        // smoke test. If Gemini does not emit a calibrated high/medium/low
+        // distribution here (the surface with the most genuine uncertainty),
+        // the directive needs hardening before propagating to the other 14
+        // sites in R1. See plans/reinforcement-inference-uplift.md.
+        const vcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'theme synthesis',
+            claimNoun: 'theme',
+            claimNounPlural: 'themes',
+            maxHighFraction: 0.60,
+        });
+
+        const prompt = `${vcDirective}\n${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
@@ -1025,16 +1049,34 @@ Output JSON.`;
                             // are populated in Pass 2 by Claude Opus 4.7 via
                             // _enrichThemesDepth, fanning out per-theme in parallel.
                             goalAlignment: { type: Type.NUMBER },
-                            // 2026-05-12 — Sprint 1 VS uplift. probability is the
-                            // model's verbalized confidence per the verbalized-
-                            // sampling discipline. Used downstream to rank by
-                            // (1/probability * evidence_density) so the most
-                            // non-obvious-but-evidenced themes float to the top.
-                            probability: { type: Type.NUMBER },
+                            // 2026-05-12 — VS probability field removed.
+                            // Themes are now convergent-evidence-driven, not
+                            // tail-distribution-driven. See the rollback note
+                            // at the top of generateThemes for the rationale.
+                            // 2026-05-12 — R1 Verbalized Confidence. Per-theme
+                            // self-assessment used as the entropy proxy for the
+                            // Reinforcement-Inference trigger. Optional in the
+                            // schema (legacy paths still work); calibration is
+                            // enforced in the prompt directive, not the schema.
+                            confidence: { type: Type.STRING },
+                            confidenceRationale: { type: Type.STRING },
                         },
                         required: ["name", "description", "quote", "citations", "isCrossDocument"]
                     }
-                }
+                },
+                // 2026-05-12 — R1 Verbalized Confidence (deliverable envelope).
+                // The model names the 1-3 themes it would expect senior pushback
+                // on, plus an overall confidence rating and a specific rationale.
+                // Used by R3's reinforceIfUncertain() to decide whether to
+                // re-ask the generation with the prior payload anchored.
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "themes"]
         };
@@ -1045,6 +1087,21 @@ Output JSON.`;
         // its own Claude-fallback) if the Pro call fails for any reason.
         const result = await this._runBreadthPass(prompt, schema, onStream);
         if (!result.themes) result.themes = [];
+
+        // 2026-05-12 — R1 calibration inspection (themes are the
+        // calibration-gate smoke test for the Verbalized Confidence directive).
+        // Normalize the envelope first so malformed model output is dropped
+        // silently rather than poisoning downstream consumers. Then log the
+        // per-theme high/medium/low distribution. If the distribution collapses
+        // to "high" across runs, the directive needs hardening before we
+        // propagate it to the other 14 R1 sites. The snapshot is structured —
+        // R4 will route it to the wiki uncertainty ledger; for now it is
+        // console-only and read by humans during the smoke test.
+        const normalizedAssessment = normalizeSelfAssessment((result as any).selfAssessment);
+        if (normalizedAssessment) (result as any).selfAssessment = normalizedAssessment;
+        else delete (result as any).selfAssessment;
+        inspectCalibration('themes', result.themes as any[], normalizedAssessment, 0.60);
+
         // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
         // but models still occasionally manufacture them when evidence is thin.
         // This filter catches themes whose NAME describes what the corpus LACKS
@@ -1087,40 +1144,57 @@ Output JSON.`;
             console.warn(`[Themes] Rejected ${rejected.length}/${beforeCount} meta-themes (complaints about the corpus, not findings): ${rejected.map(n => `"${n}"`).join(', ')}`);
         }
 
-        // 2026-05-12 — Sprint 1 VS RANKING. If the model emitted probability
-        // values on every theme (per the VS directive), re-rank by
-        // (1/probability * evidence_density) and keep the top 15. Themes
-        // without a probability are sorted last (preserved at full diversity
-        // for backward compat with older calls that didn't trigger VS).
-        // evidence_density = (count of distinct sourceNames cited) + (count
-        // of distinct citation rows) / 10 — favors themes with cross-source
-        // grounding. Effect: non-obvious-but-evidenced themes float to the
-        // top; modal themes with low evidence sink.
+        // 2026-05-12 — THICK-EVIDENCE FILTER (replaces the prior VS-rank).
+        //
+        // Themes must be CONVERGENT patterns — multi-source, multi-citation.
+        // The prompt rule "every theme MUST cite sources from at least 2
+        // DIFFERENT source names" was being ignored under VS pressure (the
+        // model preferred hitting the k=24 target over honoring the citation
+        // rule). Now that VS is removed, we ALSO enforce the rule with teeth:
+        // any theme with < 2 distinct sources OR < 2 total citations is
+        // dropped. The remaining themes are the ones with actual convergent
+        // evidence — what theme extraction is supposed to produce.
+        //
+        // Then we sort by evidence density (descending) so the highest-quality
+        // themes appear first. No ranking by rarity — modal patterns are the
+        // GOAL here.
         try {
-            const themesWithVS = result.themes.filter((t: any) => typeof t.probability === 'number' && t.probability > 0);
-            if (themesWithVS.length >= 8) {
-                const scoreOf = (t: any): number => {
-                    const p = typeof t.probability === 'number' && t.probability > 0 ? t.probability : 0.5;
-                    const cits = Array.isArray(t.citations) ? t.citations : [];
-                    const distinctSources = new Set(cits.map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim()).filter(Boolean));
-                    const evidenceDensity = distinctSources.size + cits.length / 10;
-                    return (1 / p) * Math.max(evidenceDensity, 0.5);
-                };
-                const scored = result.themes.map((t: any) => ({ t, score: scoreOf(t) }))
-                    .sort((a, b) => b.score - a.score);
-                const TOP_N = 15;
-                const kept = scored.slice(0, TOP_N).map(s => s.t);
-                const dropped = scored.slice(TOP_N).map(s => s.t);
-                console.log(`[Themes] VS-rank: kept top ${kept.length} of ${result.themes.length} candidates by (1/p × evidence_density).`);
-                if (dropped.length > 0) {
-                    console.log(`[Themes] VS-rank: dropped ${dropped.length} lower-score candidates: ${dropped.slice(0, 5).map((t: any) => `"${t.name}"`).join(', ')}${dropped.length > 5 ? '…' : ''}`);
-                }
-                result.themes = kept;
-            } else {
-                console.log(`[Themes] VS-rank: only ${themesWithVS.length} themes have probability values — skipping VS ranking, keeping the full set.`);
+            const beforeFilter = result.themes.length;
+            const thick = result.themes.filter((t: any) => {
+                const cits = Array.isArray(t.citations) ? t.citations : [];
+                if (cits.length < 2) return false;
+                const distinctSources = new Set(
+                    cits.map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim()).filter(Boolean)
+                );
+                return distinctSources.size >= 2;
+            });
+            if (thick.length < beforeFilter) {
+                const dropped = result.themes.filter((t: any) => !thick.includes(t));
+                console.log(`[Themes] thick-evidence filter: kept ${thick.length} of ${beforeFilter} (dropped ${dropped.length} with < 2 distinct sources)`);
+                console.log(`[Themes] dropped: ${dropped.slice(0, 5).map((t: any) => `"${t.name}"`).join(', ')}${dropped.length > 5 ? '…' : ''}`);
             }
-        } catch (rankErr: any) {
-            console.warn('[Themes] VS-rank failed (non-fatal):', rankErr?.message || rankErr);
+            // Sort by evidence density descending — the most convergent themes
+            // appear first in the analyst desk.
+            const densityOf = (t: any): number => {
+                const cits = Array.isArray(t.citations) ? t.citations : [];
+                const distinctSources = new Set(
+                    cits.map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim()).filter(Boolean)
+                );
+                return distinctSources.size * 10 + cits.length;
+            };
+            const sorted = thick.slice().sort((a: any, b: any) => densityOf(b) - densityOf(a));
+            const TOP_N = 18;   // generous cap; below 18 is "however many honestly convergent themes the corpus supports"
+            if (sorted.length > 0) {
+                result.themes = sorted.slice(0, TOP_N);
+                console.log(`[Themes] sorted by evidence density (desc), kept top ${result.themes.length} of ${sorted.length}`);
+            } else if (beforeFilter > 0) {
+                // Edge case — every theme was dropped by the thickness filter.
+                // Keep the original set so the user sees SOMETHING, but warn
+                // loudly so the prompt can be tightened or the corpus enlarged.
+                console.warn(`[Themes] thick-evidence filter dropped ALL ${beforeFilter} themes. Falling back to original set so the analyst desk renders. Investigate corpus quality.`);
+            }
+        } catch (filterErr: any) {
+            console.warn('[Themes] thick-evidence filter failed (non-fatal):', filterErr?.message || filterErr);
         }
 
         // 2026-04-29 — BREADTH FLOOR ENFORCEMENT. If theme extraction comes
@@ -1652,6 +1726,13 @@ Output JSON.`;
         onStream(`Identified ${roster.personas.length} archetypes: ${roster.personas.map(p => p.name).join(', ')}`);
 
         // --- PHASE B: Enrich each persona individually ---
+        // 2026-05-12 — R1 Verbalized Confidence per-persona. The existing
+        // `confidenceLevel` (EVIDENCED/PARTIALLY_EVIDENCED/HYPOTHESIS) is a
+        // coarse rating retained for legacy consumers. The new
+        // `selfAssessment` envelope adds the formal RI-trigger signals (overall
+        // high/medium/low + leastDefensibleClaims + rationale). The two coexist;
+        // selfAssessment is what the reinforceIfUncertain() wrapper will key
+        // off in R3.
         const enrichSchema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -1660,12 +1741,20 @@ Output JSON.`;
                 goals: { type: Type.OBJECT, properties: { lifeGoal: {type:Type.STRING}, experienceGoal: {type:Type.STRING}, functionalGoal: {type:Type.STRING} } },
                 fiveWs: { type: Type.OBJECT, properties: { who: {type:Type.STRING}, what: {type:Type.STRING}, whenWhere: {type:Type.STRING}, why: {type:Type.STRING} } },
                 attributes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: {type:Type.STRING}, behavior: {type:Type.STRING} }, required: ["name", "behavior"] } },
-                motivations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
+                motivations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING}, confidence: {type:Type.STRING}, confidenceRationale: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
                 tasks: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING} }, required: ["label"] } },
-                painPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
-                opportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
+                painPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING}, confidence: {type:Type.STRING}, confidenceRationale: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
+                opportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING}, confidence: {type:Type.STRING}, confidenceRationale: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
                 confidenceLevel: { type: Type.STRING },
                 evidenceCount: { type: Type.NUMBER },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["bio", "jtbd", "goals", "fiveWs", "attributes", "motivations", "painPoints"]
         };
@@ -1701,7 +1790,20 @@ Output JSON.`;
             let personaSkill = '';
             try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); personaSkill = await loadSkillPrompt('PERSONAS'); } catch (e) { /* skill unavailable */ }
 
-            const enrichPrompt = `${personaSkill ? `=== AGENT SKILL: PERSONA ARCHITECT ===\n${personaSkill}\n=== END SKILL ===\n\n` : ''}You are a CX persona researcher. Research goal: "${this.goal}".
+            // 2026-05-12 — R1 Verbalized Confidence on Phase B enrichment.
+            // Per-persona "claim" is the persona itself; per-array-item
+            // confidence on motivations / painPoints / opportunities lets the
+            // composite RI signal triangulate weak claims. Max-high-fraction
+            // is 0.50 (stricter than themes' 0.60) because persona enrichment
+            // routinely overstates evidence — most claims are "medium" once
+            // honestly calibrated.
+            const personaVcDirective = buildVerbalizedConfidenceDirective({
+                deliverable: 'persona enrichment',
+                claimNoun: 'persona',
+                claimNounPlural: 'personas',
+                maxHighFraction: 0.50,
+            });
+            const enrichPrompt = `${personaSkill ? `=== AGENT SKILL: PERSONA ARCHITECT ===\n${personaSkill}\n=== END SKILL ===\n\n` : ''}${personaVcDirective}\nYou are a CX persona researcher. Research goal: "${this.goal}".
 
 ENRICH this persona with COMPLETE detail grounded in the RESEARCH EVIDENCE provided below. Every pain point, motivation, and opportunity must cite a specific source. Output a JSON object with ALL fields populated.
 
@@ -1763,6 +1865,37 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
                     confidenceLevel: 'HYPOTHESIS', evidenceCount: 0,
                 });
             }
+        }
+
+        // 2026-05-12 — R1 calibration inspection (Phase B). The enrichSchema
+        // emits a per-persona selfAssessment envelope; we normalize and log
+        // the distribution of overallConfidence across the persona set. If
+        // every persona returns "high" we'll see calibration=COLLAPSED in the
+        // console and know the directive needs tightening for this surface.
+        // Maps each persona to a synthetic { confidence } shape so the shared
+        // inspectCalibration helper can score the distribution.
+        const personaConfidenceClaims = enrichedPersonas.map(p => ({
+            confidence: p?.selfAssessment?.overallConfidence as ('high' | 'medium' | 'low' | undefined),
+        }));
+        // Aggregate envelope: most-frequent overallConfidence across personas
+        // gives us a deliverable-level signal. Empty if nothing emitted.
+        const personaSelfAssessments = enrichedPersonas
+            .map(p => normalizeSelfAssessment(p?.selfAssessment))
+            .filter(Boolean) as Array<NonNullable<ReturnType<typeof normalizeSelfAssessment>>>;
+        if (personaSelfAssessments.length > 0) {
+            // Roll up: aggregate leastDefensibleClaims across personas
+            const aggregate = {
+                overallConfidence: (personaSelfAssessments.find(a => a.overallConfidence === 'low')?.overallConfidence
+                    || personaSelfAssessments.find(a => a.overallConfidence === 'medium')?.overallConfidence
+                    || 'high') as 'high' | 'medium' | 'low',
+                leastDefensibleClaims: personaSelfAssessments.flatMap(a => a.leastDefensibleClaims).slice(0, 6),
+                rationale: personaSelfAssessments.map(a => a.rationale).filter(Boolean).join(' | ').slice(0, 400),
+            };
+            inspectCalibration('personas', personaConfidenceClaims, aggregate, 0.50);
+            // Write the aggregate to the result for downstream consumers (R3 trigger)
+            (enrichedPersonas as any).__aggregateSelfAssessment = aggregate;
+        } else {
+            inspectCalibration('personas', personaConfidenceClaims, undefined, 0.50);
         }
 
         // --- POST-PROCESSING: safety defaults + Cooper goal fix ---
@@ -2080,7 +2213,17 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}CRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
+        // 2026-05-12 — R1 Verbalized Confidence on journey/blueprint stages.
+        // Per-stage claims (painPoint, fail_point, emotion intensity) often
+        // extrapolate beyond the corpus — VC surfaces which stages the model
+        // itself flagged as weakest so the RI trigger can re-ask them.
+        const journeyVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'service blueprint',
+            claimNoun: 'stage',
+            claimNounPlural: 'stages',
+            maxHighFraction: 0.55,
+        });
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${journeyVcDirective}\nCRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
 
 SWIMLANE CELL CONTENT (B-01): Every intersection of [Persona] x [Stage] MUST have content.
 For each cell, describe: what this persona does at this stage, their emotional state, and their key need.
@@ -2172,13 +2315,27 @@ Output JSON.`;
                     technologySystems: { type: Type.STRING },
                     emotionIntensity: { type: Type.INTEGER },
                     citations: { type: Type.ARRAY, items: { type: Type.STRING } },
-                    evidenceBasis: { type: Type.STRING }
-                }, required: ["phase", "actors", "actorNeeds", "actorBehaviors", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint", "opportunityForImprovement", "valueProposition", "momentOfTruth", "fail_point", "technologySystems", "emotionIntensity", "citations", "evidenceBasis"] } }
+                    evidenceBasis: { type: Type.STRING },
+                    confidence: { type: Type.STRING },
+                    confidenceRationale: { type: Type.STRING }
+                }, required: ["phase", "actors", "actorNeeds", "actorBehaviors", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint", "opportunityForImprovement", "valueProposition", "momentOfTruth", "fail_point", "technologySystems", "emotionIntensity", "citations", "evidenceBasis"] } },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "stages"]
         };
         const result = await this.executeStepResilient<StepResult_JourneyMap>(prompt, schema, [], onStream, 'ServiceBlueprint');
         if (!result.stages) result.stages = [];
+        // 2026-05-12 — R1 calibration inspection on journey stages.
+        const journeyAssessment = normalizeSelfAssessment((result as any).selfAssessment);
+        if (journeyAssessment) (result as any).selfAssessment = journeyAssessment; else delete (result as any).selfAssessment;
+        inspectCalibration('journey-map', result.stages as any[], journeyAssessment, 0.55);
 
         // Phase 2: Enrich stages with thin evidence (token exhaustion on later stages)
         const thinStages = result.stages.filter(s => !s.citations?.length || !s.evidenceBasis || !s.fail_point);
@@ -2324,7 +2481,17 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}SECTION COMPLETENESS REQUIREMENT (PRD-03): Generate ALL 16 sections per the Cagan/SVPG framework:
+        // 2026-05-12 — R1 Verbalized Confidence on PRD features. PRD priorities
+        // (Must/Should/Could/Won't) and acceptance criteria are exactly the
+        // claims that benefit from explicit self-assessment — the model knows
+        // which features are reaching beyond evidence.
+        const prdVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'PRD',
+            claimNoun: 'feature',
+            claimNounPlural: 'features',
+            maxHighFraction: 0.55,
+        });
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${prdVcDirective}\nSECTION COMPLETENESS REQUIREMENT (PRD-03): Generate ALL 16 sections per the Cagan/SVPG framework:
 1. Problem statement (data-backed, THE most important section)
 2. User stories ("As a [persona], I want [goal] so that [benefit]")
 3. Acceptance criteria (Given/When/Then format)
@@ -2390,13 +2557,25 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, successMetrics: { type: Type.ARRAY, items: { type: Type.STRING } }, sections: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sectionNumber: { type: Type.INTEGER }, title: { type: Type.STRING }, content: { type: Type.STRING }, evidenceGap: { type: Type.STRING } }, required: ["sectionNumber", "title", "content"] } }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING }, acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["name", "priority", "description", "citations", "evidenceBasis"] } } }, required: ["title", "purposeAndObjectives", "successMetrics", "sections", "features"] }
+                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, successMetrics: { type: Type.ARRAY, items: { type: Type.STRING } }, sections: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sectionNumber: { type: Type.INTEGER }, title: { type: Type.STRING }, content: { type: Type.STRING }, evidenceGap: { type: Type.STRING } }, required: ["sectionNumber", "title", "content"] } }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING }, acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING }, confidence: { type: Type.STRING }, confidenceRationale: { type: Type.STRING } }, required: ["name", "priority", "description", "citations", "evidenceBasis"] } } }, required: ["title", "purposeAndObjectives", "successMetrics", "sections", "features"] },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "prd"]
         };
         // PHASE 1: Generate PRD framework (title, purpose, metrics, sections)
         onStream('Phase 1: Generating PRD framework and sections...');
         const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream);
+        // 2026-05-12 — R1 calibration inspection on PRD features.
+        const prdAssessment = normalizeSelfAssessment((result as any).selfAssessment);
+        if (prdAssessment) (result as any).selfAssessment = prdAssessment; else delete (result as any).selfAssessment;
+        inspectCalibration('prd', (result as any)?.prd?.features as any[] || [], prdAssessment, 0.55);
         if (!result.prd) result.prd = { title: "Untitled", purposeAndObjectives: "", features: [], successMetrics: [], sections: [] } as any;
         if (!result.prd.features) result.prd.features = [];
         if (!result.prd.successMetrics) result.prd.successMetrics = [];
@@ -2475,7 +2654,18 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
+        // 2026-05-12 — R1 Verbalized Confidence on roadmap initiatives. The
+        // existing `confidenceLevel` per item (HIGH/MEDIUM/EXPLORATORY) is a
+        // horizon proxy retained for legacy consumers. The new VC envelope
+        // adds the formal RI-trigger signal so the model can flag which
+        // success metrics or dependencies are reaching beyond evidence.
+        const roadmapVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'roadmap',
+            claimNoun: 'initiative',
+            claimNounPlural: 'initiatives',
+            maxHighFraction: 0.45,
+        });
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${roadmapVcDirective}\nSTEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
 
 MANDATORY ROADMAP FIELDS (R-01, R-03):
 Every roadmap initiative MUST include ALL of these fields:
@@ -2527,13 +2717,25 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING }, dependencies: { type: Type.STRING }, successMetric: { type: Type.STRING }, strategicTheme: { type: Type.STRING }, confidenceLevel: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["initiative", "horizon", "owner", "description", "successMetric", "strategicTheme", "confidenceLevel", "citations", "evidenceBasis"] } } }, required: ["vision", "items"] }
+                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING }, dependencies: { type: Type.STRING }, successMetric: { type: Type.STRING }, strategicTheme: { type: Type.STRING }, confidenceLevel: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING }, confidence: { type: Type.STRING }, confidenceRationale: { type: Type.STRING } }, required: ["initiative", "horizon", "owner", "description", "successMetric", "strategicTheme", "confidenceLevel", "citations", "evidenceBasis"] } } }, required: ["vision", "items"] },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "roadmap"]
         };
         const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream);
         if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
         if (!result.roadmap.items) result.roadmap.items = [];
+        // 2026-05-12 — R1 calibration inspection on roadmap initiatives.
+        const roadmapAssessment = normalizeSelfAssessment((result as any).selfAssessment);
+        if (roadmapAssessment) (result as any).selfAssessment = roadmapAssessment; else delete (result as any).selfAssessment;
+        inspectCalibration('roadmap', result.roadmap.items as any[], roadmapAssessment, 0.45);
 
         // Phase 2: Enrich roadmap items with thin evidence
         const thinItems = result.roadmap.items.filter(i => !i.citations?.length || !i.evidenceBasis);
@@ -3332,7 +3534,16 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
+        // 2026-05-12 — R1 Verbalized Confidence on gap analysis. Severity
+        // calls and maturity scores are exactly the claims where the model
+        // routinely overreaches — VC tightens calibration on those.
+        const gapVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'gap analysis',
+            claimNoun: 'capability gap',
+            claimNounPlural: 'capability gaps',
+            maxHighFraction: 0.45,
+        });
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${gapVcDirective}\nSTEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
 
 CAPABILITY EXTRACTION METHOD — follow these steps to DERIVE gaps from the research:
 
@@ -3381,16 +3592,28 @@ Output JSON.`;
                     assessmentScope: { type: Type.STRING },
                     currentState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, maturity: { type: Type.NUMBER }, evidence: { type: Type.STRING } }, required: ["capability", "maturity", "evidence"] } },
                     desiredState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, targetMaturity: { type: Type.NUMBER }, rationale: { type: Type.STRING } }, required: ["capability", "targetMaturity", "rationale"] } },
-                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["capability", "currentMaturity", "targetMaturity", "gap", "severity", "impact", "effort", "citations", "evidenceBasis"] } },
+                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING }, confidence: { type: Type.STRING }, confidenceRationale: { type: Type.STRING } }, required: ["capability", "currentMaturity", "targetMaturity", "gap", "severity", "impact", "effort", "citations", "evidenceBasis"] } },
                     prioritizedActions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, priority: { type: Type.STRING }, timeline: { type: Type.STRING }, gapReference: { type: Type.STRING } }, required: ["action", "priority", "timeline"] } },
                     quickWins: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } }, required: ["action", "impact", "effort"] } },
                     riskRegister: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { risk: { type: Type.STRING }, likelihood: { type: Type.STRING }, impact: { type: Type.STRING }, mitigation: { type: Type.STRING } }, required: ["risk", "likelihood", "impact", "mitigation"] } },
-                }, required: ["assessmentScope", "currentState", "desiredState", "gaps", "prioritizedActions", "quickWins", "riskRegister"] }
+                }, required: ["assessmentScope", "currentState", "desiredState", "gaps", "prioritizedActions", "quickWins", "riskRegister"] },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "analysis"]
         };
         const gapResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'GapAnalysis');
         const analysis = gapResult?.analysis || {};
+        // 2026-05-12 — R1 calibration inspection on gaps.
+        const gapAssessment = normalizeSelfAssessment(gapResult?.selfAssessment);
+        if (gapAssessment) gapResult.selfAssessment = gapAssessment; else delete gapResult?.selfAssessment;
+        inspectCalibration('gap-analysis', (analysis?.gaps || []) as any[], gapAssessment, 0.45);
 
         // Phase 2: Enrich thin gaps + fill missing actions/risks
         const gaps = analysis.gaps || [];
@@ -3451,8 +3674,17 @@ Output JSON.`;
         // TWO-PHASE: Systems inventory first, then analysis.
         // Single-call approach truncates to 1 system due to output token limits.
 
+        // 2026-05-12 — R1 Verbalized Confidence on systems inventory. Vendor
+        // and integration claims fabricate easily; VC tightens calibration on
+        // those by forcing the model to flag unverified systems.
+        const auditVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'tech audit',
+            claimNoun: 'system',
+            claimNounPlural: 'systems',
+            maxHighFraction: 0.50,
+        });
         onStream("Phase A: Scanning for technology systems...");
-        const inventoryPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}TECH AUDIT: SYSTEMS INVENTORY.
+        const inventoryPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${auditVcDirective}\nTECH AUDIT: SYSTEMS INVENTORY.
 Research goal: "${this.goal}".
 
 Scan the entire research corpus for EVERY mention of technology systems, software platforms, tools, databases, APIs, vendors, and digital processes. You MUST find at least 8 systems. If the research mentions any organization, they use technology — identify it.
@@ -3494,13 +3726,26 @@ ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
                 systems: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
                     name: { type: Type.STRING }, vendor: { type: Type.STRING }, category: { type: Type.STRING },
                     users: { type: Type.STRING }, department: { type: Type.STRING }, status: { type: Type.STRING },
-                    citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING }
-                }, required: ["name", "category", "status", "citations", "evidenceBasis"] } }
+                    citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING },
+                    confidence: { type: Type.STRING }, confidenceRationale: { type: Type.STRING }
+                }, required: ["name", "category", "status", "citations", "evidenceBasis"] } },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "systems"]
         };
         const inventory = await this.executeStep<any>(inventoryPrompt, inventorySchema, [], onStream);
         const systems = inventory.systems || [];
+        // 2026-05-12 — R1 calibration inspection on tech audit systems.
+        const auditAssessment = normalizeSelfAssessment(inventory?.selfAssessment);
+        if (auditAssessment) inventory.selfAssessment = auditAssessment; else delete inventory?.selfAssessment;
+        inspectCalibration('tech-audit', systems as any[], auditAssessment, 0.50);
 
         onStream(`Found ${systems.length} systems. Phase B: Analyzing integrations and capabilities...`);
         const analysisPrompt = `STEP: TECH AUDIT PHASE B — INTEGRATION & CAPABILITY ANALYSIS.
@@ -3535,7 +3780,7 @@ Output JSON.`;
         };
         const analysis = await this.executeStep<any>(analysisPrompt, analysisSchema, [], onStream);
 
-        const techAuditResult = {
+        const techAuditResult: any = {
             methodology: inventory.methodology,
             audit: {
                 systemsInventory: systems,
@@ -3545,6 +3790,8 @@ Output JSON.`;
                 recommendations: analysis.recommendations || [],
             }
         };
+        // 2026-05-12 — preserve the R1 selfAssessment envelope on the rolled-up result
+        if (inventory?.selfAssessment) techAuditResult.selfAssessment = inventory.selfAssessment;
 
         // Validate and auto-retry if evidence is thin
         const techAuditValidation = validateDeliverableOutput(techAuditResult, 'tech_audit');
@@ -3565,7 +3812,16 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: COMPETITIVE ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
+        // 2026-05-12 — R1 Verbalized Confidence on competitive peers. Named
+        // entity strength claims and maturity scores fabricate easily; VC
+        // forces the model to flag peers where it overreached.
+        const competitiveVcDirective = buildVerbalizedConfidenceDirective({
+            deliverable: 'competitive analysis',
+            claimNoun: 'peer',
+            claimNounPlural: 'peers',
+            maxHighFraction: 0.50,
+        });
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: COMPETITIVE ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${competitiveVcDirective}\nSTEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
 
 TWO ANALYSIS MODES — use BOTH:
 
@@ -3632,7 +3888,9 @@ Output JSON.`;
                         differentiators: { type: Type.ARRAY, items: { type: Type.STRING } },
                         isArchetype: { type: Type.BOOLEAN },
                         citations: { type: Type.ARRAY, items: { type: Type.STRING } },
-                        evidenceBasis: { type: Type.STRING }
+                        evidenceBasis: { type: Type.STRING },
+                        confidence: { type: Type.STRING },
+                        confidenceRationale: { type: Type.STRING }
                     }, required: ["name", "position", "strengths", "weaknesses", "differentiators", "citations", "evidenceBasis"] } },
                     benchmarkDimensions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
                         dimension: { type: Type.STRING },
@@ -3653,12 +3911,24 @@ Output JSON.`;
                         urgency: { type: Type.STRING },
                         action: { type: Type.STRING }
                     }, required: ["dimension", "ourScore", "bestInClass", "gap", "action"] } },
-                }, required: ["industryContext", "peers", "benchmarkDimensions", "maturityMatrix", "gapSummary"] }
+                }, required: ["industryContext", "peers", "benchmarkDimensions", "maturityMatrix", "gapSummary"] },
+                selfAssessment: {
+                    type: Type.OBJECT,
+                    properties: {
+                        overallConfidence: { type: Type.STRING },
+                        leastDefensibleClaims: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        rationale: { type: Type.STRING },
+                    },
+                },
             },
             required: ["methodology", "analysis"]
         };
         const compResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'CompetitiveAnalysis');
         const analysis = compResult?.analysis || {};
+        // 2026-05-12 — R1 calibration inspection on competitive peers.
+        const compAssessment = normalizeSelfAssessment(compResult?.selfAssessment);
+        if (compAssessment) compResult.selfAssessment = compAssessment; else delete compResult?.selfAssessment;
+        inspectCalibration('competitive-analysis', (analysis?.peers || []) as any[], compAssessment, 0.50);
 
         // Phase 2: Enrich thin peers + fill missing dimensions/matrix/gaps
         const peers = analysis.peers || [];

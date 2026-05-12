@@ -1486,39 +1486,66 @@ export async function loadGenerationContext(
     options?: {
         industry?: string;
         engagement?: string;
+        // 2026-05-11 — Lazy-context controls. Default is LITE mode: load
+        // only what's irreducibly needed for the specific deliverable
+        // (framework spec + anti-patterns + brand + benchmarks). Pages like
+        // social-intelligence, research-context, and methodology
+        // descriptions rarely change a deliverable's content and were
+        // burning ~30-70KB of every prompt's token budget. Callers that
+        // genuinely need the extra context can pass `eagerExtras: true`.
+        eagerExtras?: boolean;
     }
 ): Promise<GenerationContext> {
     const frameworkKey = OUTPUT_TO_FRAMEWORK[outputType] || 'personas';
     const benchmarkKeys = FRAMEWORK_BENCHMARKS[frameworkKey] || ['cx-metrics'];
+    const wantExtras = options?.eagerExtras === true;
 
-    // Load all wiki pages in parallel — frameworks, anti-patterns, benchmarks, brand,
-    // social intelligence, research context, and methodology pages
-    const [
-        framework, antiPatterns, brand,
-        // Social intelligence pages
-        sentimentPipeline, topicModeling, cxMesh,
-        // Research context pages
-        researchModes, knowledgeGraph, documentIngestion, methodology, analyticalLenses, sourceConnectors,
-        // Benchmark pages
-        ...benchmarkPages
-    ] = await Promise.all([
+    // Core load — these are the irreducibles that affect EVERY generation
+    // of this output type. Tight, fast, ~5-15KB total.
+    const corePromises: Array<Promise<WikiPage | null | any>> = [
         readWikiPage(`frameworks/${frameworkKey}.md`),
         readWikiPage(`anti-patterns/${frameworkKey}.md`),
         loadBrandConfig(),
-        // Social intelligence
+    ];
+
+    // Extras — only loaded when caller explicitly opts in. The model can
+    // request these on-demand via fetch_wiki_resource() (see chat tools),
+    // and the wiki manifest in the system prompt lists them for the
+    // model to know they exist.
+    const extraPromises: Array<Promise<WikiPage | null>> = wantExtras ? [
         readWikiPage('social-intelligence/sentiment-pipeline.md'),
         readWikiPage('social-intelligence/topic-modeling.md'),
         readWikiPage('social-intelligence/cx-mesh.md'),
-        // Research context
         readWikiPage('deep-research/research-modes.md'),
         readWikiPage('deep-research/knowledge-graph.md'),
         readWikiPage('deep-research/document-ingestion.md'),
         readWikiPage('methodologies/research-fabric.md'),
         readWikiPage('methodologies/analytical-lenses.md'),
         readWikiPage('sources-registry/connector-catalog.md'),
-        // Benchmarks
-        ...benchmarkKeys.map(key => readWikiPage(`benchmarks/${key}.md`)),
+    ] : [];
+
+    const benchmarkPromises = benchmarkKeys.map(key => readWikiPage(`benchmarks/${key}.md`));
+
+    const [framework, antiPatterns, brand, ...rest] = await Promise.all([
+        ...corePromises,
+        ...extraPromises,
+        ...benchmarkPromises,
     ]);
+
+    // Slice the `rest` array into extras + benchmarks based on whether
+    // extras were requested. Keeps the destructure shape stable.
+    const extraCount = wantExtras ? 9 : 0;
+    const extraPages = rest.slice(0, extraCount) as Array<WikiPage | null>;
+    const benchmarkPages = rest.slice(extraCount) as Array<WikiPage | null>;
+    const sentimentPipeline = extraPages[0] || null;
+    const topicModeling = extraPages[1] || null;
+    const cxMesh = extraPages[2] || null;
+    const researchModes = extraPages[3] || null;
+    const knowledgeGraph = extraPages[4] || null;
+    // documentIngestion was loaded but never read into the returned context — preserve that
+    const methodology = extraPages[6] || null;
+    const analyticalLenses = extraPages[7] || null;
+    const sourceConnectors = extraPages[8] || null;
 
     // Optional: industry and engagement context
     let industryAdaptation: string | undefined;
@@ -1566,6 +1593,152 @@ export async function loadGenerationContext(
         industryAdaptation,
         engagementContext,
     };
+}
+
+// ============================================================
+// LAZY WIKI MANIFEST + FETCH-ON-DEMAND — 2026-05-11
+// ============================================================
+//
+// The eager loadGenerationContext path used to drag 15+ wiki pages into
+// every prompt. Most of those pages (social-intelligence, research-context,
+// methodology descriptions, etc.) rarely change the actual output but
+// burned 30-70KB of every token budget. Now we ship the model a compact
+// MANIFEST instead — one line per available resource — and let the model
+// call fetch_wiki_resource(path) only when it genuinely needs the full body.
+//
+// This mirrors the "100 tokens per skill scan" pattern from the SEAL-MCP
+// research: scan-then-pull, not pull-everything-just-in-case.
+
+/** A single resource entry in the wiki manifest the model sees. */
+export interface WikiManifestEntry {
+    path: string;       // e.g., "benchmarks/cx-metrics.md"
+    kind: string;       // e.g., "benchmark", "anti-pattern", "framework"
+    title: string;      // human-readable title from frontmatter or filename
+    summary: string;    // one-sentence "what this offers" — from frontmatter `description` if present, else first heading
+}
+
+/**
+ * Cache the manifest in-memory for the SPA session. Rebuilt once per
+ * page load (essentially per browser tab open). Wiki rarely changes
+ * mid-session, and a stale manifest just means newly-added pages aren't
+ * surfaced until the next refresh — acceptable tradeoff.
+ */
+let _wikiManifestCache: WikiManifestEntry[] | null = null;
+
+/**
+ * Build a compact manifest of wiki resources the model can lazy-fetch.
+ * Lists frameworks, anti-patterns, benchmarks, evidence, social-intelligence,
+ * deep-research, methodologies, industries — but NOT article archives
+ * (those have their own fetch_wiki_articles tool with semantic search).
+ *
+ * Output is sorted by kind then by path for stable prompt diffs.
+ */
+export async function buildWikiManifest(forceRefresh = false): Promise<WikiManifestEntry[]> {
+    if (_wikiManifestCache && !forceRefresh) return _wikiManifestCache;
+
+    const proxyBase = (typeof window !== 'undefined' ? 'http://localhost:5012' : '');
+
+    // Directories we expose to the model. Article archives are deliberately
+    // excluded — those are searched via fetch_wiki_articles (semantic), not
+    // listed verbatim (~1,300 files would blow up the manifest).
+    const dirs = [
+        'frameworks', 'anti-patterns', 'benchmarks', 'evidence',
+        'social-intelligence', 'deep-research', 'methodologies',
+        'industries', 'exemplars', 'brand',
+    ];
+
+    const entries: WikiManifestEntry[] = [];
+
+    await Promise.all(dirs.map(async (dir) => {
+        try {
+            const resp = await fetch(`${proxyBase}/api/wiki/list/${dir}`);
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const files: string[] = (data.files || []).filter((f: string) => f.endsWith('.md'));
+
+            // For each .md file in this dir, read just the frontmatter (cheap)
+            // to extract title + description for the manifest line.
+            await Promise.all(files.map(async (fname) => {
+                const path = `${dir}/${fname}`;
+                try {
+                    const page = await readWikiPage(path);
+                    if (!page) return;
+                    // Frontmatter is typed as Record<string, unknown>-shaped — cast
+                    // for property access. We tolerate any string-coercible value.
+                    const fm: Record<string, any> = (page.frontmatter as any) || {};
+                    const title = fm.title || page.title || fname.replace(/\.md$/, '');
+                    // Prefer an explicit `description` frontmatter; fall back to
+                    // the first non-heading paragraph of the body trimmed to ~140 chars.
+                    let summary = String(fm.description || '').trim();
+                    if (!summary) {
+                        const body = page.content || '';
+                        const firstPara = body.split(/\n{2,}/).find(p =>
+                            p.trim() && !p.startsWith('#') && !p.startsWith('---')
+                        ) || '';
+                        summary = firstPara.replace(/\s+/g, ' ').slice(0, 140).trim();
+                    }
+                    entries.push({
+                        path,
+                        kind: dir.replace(/s$/, ''), // simple plural→singular
+                        title: String(title).trim(),
+                        summary: summary || '(no description)',
+                    });
+                } catch { /* skip unreadable file */ }
+            }));
+        } catch { /* skip missing dir */ }
+    }));
+
+    // Sort: kind, then path. Stable across sessions.
+    entries.sort((a, b) => a.kind.localeCompare(b.kind) || a.path.localeCompare(b.path));
+    _wikiManifestCache = entries;
+    return entries;
+}
+
+/**
+ * Render the manifest as a compact text block ready to inject into a system
+ * prompt. ~70-150 tokens per entry depending on title/summary length.
+ * Typical full manifest: ~40 entries × ~100 tokens = ~4KB.
+ */
+export async function renderWikiManifestForPrompt(): Promise<string> {
+    const entries = await buildWikiManifest();
+    if (entries.length === 0) {
+        return '(no additional wiki resources available)';
+    }
+    const lines = entries.map(e =>
+        `  [${e.path}] ${e.kind}: ${e.title} — ${e.summary}`
+    );
+    return lines.join('\n');
+}
+
+/**
+ * Fetch a single wiki resource by manifest path. Validates the path is one
+ * we surfaced in the manifest (so the model can't fish arbitrary paths) and
+ * returns the full body content. Used by the fetch_wiki_resource tool.
+ */
+export async function fetchWikiResourceByPath(path: string): Promise<{
+    ok: boolean; path: string; title?: string; content?: string; error?: string;
+}> {
+    // Defensive: reject path traversal + non-manifest paths
+    if (!path || path.includes('..') || path.startsWith('/')) {
+        return { ok: false, path, error: 'Invalid path' };
+    }
+    const manifest = await buildWikiManifest();
+    const validPaths = new Set(manifest.map(e => e.path));
+    if (!validPaths.has(path)) {
+        return { ok: false, path, error: 'Path not in manifest (use one from buildWikiManifest)' };
+    }
+    try {
+        const page = await readWikiPage(path);
+        if (!page) return { ok: false, path, error: 'Wiki page not found' };
+        return {
+            ok: true,
+            path,
+            title: page.title,
+            content: page.content,
+        };
+    } catch (e: any) {
+        return { ok: false, path, error: e?.message || 'Read failed' };
+    }
 }
 
 /**

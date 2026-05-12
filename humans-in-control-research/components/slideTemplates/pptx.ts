@@ -324,70 +324,282 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
 }
 
 // 2. RECOMMENDATION
-function exportRecommendation(s: any, slideTitle: string, data: RecommendationData, sources: string[], geom: PanelGeom) {
+// 2026-05-12 — REWRITE with strict band reservation. Previous version used
+// hardcoded Y positions (evidence at 5.65, whyMatters at 6.4, implication at
+// 6.7) which produced massive overlap when tile-sourced rec slides carried
+// all the optional fields (personaContext, heroImage, impactStrip, evidence,
+// whyMatters, implication). The rewrite reserves explicit Y bands:
+//
+//   HEADER  (0.36 → 1.50): framing tag pill + title + persona eyebrow
+//   BODY    (1.55 → 5.95): two-column flow with hard band cap
+//   FOOTER  (6.10 → 7.10): ONE consolidated closing line (implication > whyMatters
+//                           > nothing). The chat tile carries both fields; the
+//                           single-slide export picks the strongest closing.
+//   SOURCES (7.20 → 7.45): existing sourceFooter helper
+//
+// The 0.85" footer band is held back from the body so the BODY zone has a
+// guaranteed 4.40" of vertical real estate. Inside BODY, both columns track
+// their own y cursors and stop emitting blocks when they'd exceed 5.95.
+//
+// Evidence quotes are now rendered as the LAST left-column block IF the
+// supporting-actions list left enough room; otherwise dropped silently.
+// This matches the user's mental model: "the slide shows the strongest
+// claims; the chat tile shows every field."
+function exportRecommendation(s: any, slideTitle: string, data: RecommendationData, sources: string[], geom: PanelGeom, imageUrl?: string) {
     const tx = geom.contentX + 0.42;
     const tw = geom.contentW - 0.84;
-    let y = 0.36;
 
-    tag(s, tx, y, tw, 'STRATEGIC RECOMMENDATION');
-    y += 0.26;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.74;
+    const isCyan = data.accentColor === 'cyan';
+    const accent = isCyan ? '00B7C3' : T.CHARTREUSE_BRIGHT;
+    const framingTagText = data.framingTag || 'STRATEGIC RECOMMENDATION';
+    const actionsLabelText = data.actionsLabel || 'SUPPORTING ACTIONS';
 
-    const hasGrid = !!(data.impactGrid && (data.impactGrid.baseline || data.impactGrid.target || data.impactGrid.timeframe || data.impactGrid.owner));
-    const hasMetric = !!data.impactMetric;
-    const hasRight = hasGrid || hasMetric;
-    const hasEvidence = !!(data.evidence && data.evidence.length > 0);
-    const leftW = hasRight ? tw * 0.62 : tw;
-    const rightX = tx + leftW + 0.32;
-    const rightW = tw - leftW - 0.32;
+    // === BAND BOUNDARIES (inches). HOLD THESE LINES. ===
+    const HEADER_Y      = 0.36;
+    const BODY_Y        = 1.55;
+    const BODY_BOTTOM   = 5.95;   // body cannot extend past here
+    const FOOTER_Y      = 6.20;
+    const FOOTER_BOTTOM = 7.10;
+    const SOURCES_Y     = 7.20;
+    void SOURCES_Y;  // documented for orientation; sourceFooter places itself
 
-    // Action title (left, with chartreuse rule)
-    s.addShape('rect' as any, { x: tx, y, w: 0.04, h: 0.55, fill: { color: T.CHARTREUSE_BRIGHT } });
-    s.addText(data.actionTitle, { x: tx + 0.18, y, w: leftW - 0.18, h: 0.55, fontSize: 15, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.25 });
-    y += 0.65;
-    if (data.rationale) {
-        s.addText(truncate(data.rationale, 360), { x: tx, y, w: leftW, h: 0.7, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
-        y += 0.78;
+    // ============================================================
+    // HEADER BAND (0.36 → 1.50)
+    // ============================================================
+    let y = HEADER_Y;
+    if (data.framingTag) {
+        s.addShape('rect' as any, { x: tx, y, w: 1.55, h: 0.22, fill: { color: accent } });
+        s.addText(framingTagText, { x: tx, y, w: 1.55, h: 0.22, fontSize: 7, color: 'FFFFFF', fontFace: FONT, bold: true, charSpacing: 3, valign: 'middle', align: 'center' });
+    } else {
+        tag(s, tx, y, tw, framingTagText);
     }
-    // Numbered actions
-    const acts = data.supportingActions.slice(0, 5);
-    let ay = y;
-    acts.forEach((a, i) => {
-        s.addText(String(i + 1).padStart(2, '0'), { x: tx, y: ay, w: 0.7, h: 0.4, fontSize: 22, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top' });
-        s.addText(a.name, { x: tx + 0.72, y: ay, w: leftW - 0.72, h: 0.22, fontSize: 10.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
-        s.addText(truncate(a.description, 220), { x: tx + 0.72, y: ay + 0.22, w: leftW - 0.72, h: 0.48, fontSize: 9.5, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
-        ay += 0.6;
-    });
-
-    // EVIDENCE strip at bottom of left column
-    if (hasEvidence) {
-        const evY = 5.65;
-        s.addShape('line' as any, { x: tx, y: evY - 0.06, w: leftW, h: 0, line: { color: T.RULE, width: 0.5 } });
-        s.addText('EVIDENCE', { x: tx, y: evY, w: leftW, h: 0.2, fontSize: 7.5, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2.5 });
-        let ey = evY + 0.24;
-        (data.evidence || []).slice(0, 2).map(prepQuote).filter(Boolean).forEach(ev => {
-            if (!ev) return;
-            s.addShape('rect' as any, { x: tx, y: ey, w: 0.03, h: 0.42, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${smartQuoteClip(ev.text, 180)}"`, { x: tx + 0.12, y: ey, w: leftW - 0.12, h: 0.42, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
-            const attr = attributionLine(ev);
-            if (attr) s.addText(attr, { x: tx + 0.12, y: ey + 0.44, w: leftW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
-            ey += 0.72;
+    y = 0.64;
+    title(s, tx, y, tw, slideTitle, 22);
+    y = 1.22;
+    // Persona eyebrow — ONE LINE, hard-clipped at ~110 chars (well under tw at 8pt)
+    if (data.personaContext) {
+        s.addText(truncate(data.personaContext, 110), {
+            x: tx, y, w: tw, h: 0.22,
+            fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true,
+            charSpacing: 1.5, valign: 'top',
         });
     }
 
-    // RIGHT panel — 4-cell impact grid OR legacy hero number
+    // ============================================================
+    // BODY BAND (1.55 → 5.95)  — two columns, each with its own y cursor
+    // ============================================================
+    const heroImageSrc = (data.heroImage && data.heroImage.src) || imageUrl;
+    const hasImage = !!heroImageSrc;
+    const hasGrid = !!(data.impactGrid && (data.impactGrid.baseline || data.impactGrid.target || data.impactGrid.timeframe || data.impactGrid.owner));
+    const hasMetric = !!data.impactMetric;
+    const hasStrip = !!(data.impactStrip && (data.impactStrip.effort || data.impactStrip.risk || data.impactStrip.outcome));
+    const hasRight = hasImage || hasGrid || hasMetric || hasStrip;
+    const hasEvidence = !!(data.evidence && data.evidence.length > 0);
+    const leftW = hasRight ? tw * 0.60 : tw;
+    const rightX = tx + leftW + 0.32;
+    const rightW = tw - leftW - 0.32;
+
+    // --- LEFT COLUMN ---
+    let ly = BODY_Y;
+
+    // Action title with accent rule (always shown)
+    s.addShape('rect' as any, { x: tx, y: ly, w: 0.04, h: 0.55, fill: { color: accent } });
+    s.addText(data.actionTitle, {
+        x: tx + 0.18, y: ly, w: leftW - 0.18, h: 0.55,
+        fontSize: 15, color: T.INK, fontFace: FONT, bold: true,
+        valign: 'top', lineSpacingMultiple: 1.25,
+    });
+    ly += 0.62;
+
+    // Rationale (capped at 3 lines worth = ~280 chars at 10pt)
+    if (data.rationale) {
+        const rH = 0.80;
+        s.addText(truncate(data.rationale, 280), {
+            x: tx, y: ly, w: leftW, h: rH,
+            fontSize: 10, color: T.BODY, fontFace: FONT,
+            valign: 'top', lineSpacingMultiple: 1.5,
+        });
+        ly += rH + 0.10;
+    }
+
+    // Supporting actions — cap at 4, then evidence (if remaining height allows)
+    const acts = (data.supportingActions || []).slice(0, 4);
+    if (acts.length > 0) {
+        s.addText(actionsLabelText, {
+            x: tx, y: ly, w: leftW, h: 0.20,
+            fontSize: 7.5, color: T.SECONDARY, fontFace: FONT, bold: true,
+            charSpacing: 2.5, valign: 'top',
+        });
+        ly += 0.24;
+
+        // Reserve 0.60" for evidence if hasEvidence is true AND fits
+        const evidenceReserve = hasEvidence ? 0.70 : 0;
+        const actsAvailable = BODY_BOTTOM - ly - evidenceReserve - 0.05;
+        // Per-action height: target 0.58 but compress if needed
+        const targetH = 0.58;
+        const perActionH = Math.min(targetH, Math.max(0.42, actsAvailable / acts.length));
+        const descChars = perActionH < 0.50 ? 100 : (perActionH < 0.55 ? 140 : 180);
+
+        acts.forEach((a, i) => {
+            const ay = ly + i * perActionH;
+            if (ay + perActionH > BODY_BOTTOM) return;  // hard stop
+            s.addText(String(i + 1).padStart(2, '0'), {
+                x: tx, y: ay, w: 0.65, h: 0.30,
+                fontSize: Math.round(perActionH > 0.55 ? 22 : 18),
+                color: accent, fontFace: FONT, valign: 'top',
+            });
+            s.addText(a.name, {
+                x: tx + 0.70, y: ay, w: leftW - 0.70, h: 0.22,
+                fontSize: 10.5, color: T.INK, fontFace: FONT, bold: true,
+                valign: 'top',
+            });
+            s.addText(truncate(a.description || '', descChars), {
+                x: tx + 0.70, y: ay + 0.22, w: leftW - 0.70, h: perActionH - 0.24,
+                fontSize: 9.5, color: T.BODY, fontFace: FONT,
+                valign: 'top', lineSpacingMultiple: 1.35,
+            });
+        });
+        ly += acts.length * perActionH;
+    }
+
+    // Evidence strip — only render if there's room left in the body band
+    if (hasEvidence && (BODY_BOTTOM - ly) >= 0.60) {
+        const evY = ly + 0.04;
+        s.addShape('line' as any, { x: tx, y: evY - 0.04, w: leftW, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText('EVIDENCE', {
+            x: tx, y: evY, w: leftW, h: 0.18,
+            fontSize: 7.5, color: T.SECONDARY, fontFace: FONT, bold: true,
+            charSpacing: 2.5,
+        });
+        const ev = (data.evidence || []).slice(0, 1).map(prepQuote).filter(Boolean)[0];  // ONE quote max
+        if (ev) {
+            const eqY = evY + 0.22;
+            const qH = Math.min(0.38, BODY_BOTTOM - eqY - 0.04);
+            s.addShape('rect' as any, { x: tx, y: eqY, w: 0.03, h: qH, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${smartQuoteClip(ev.text, 150)}"`, {
+                x: tx + 0.12, y: eqY, w: leftW - 0.12, h: qH,
+                fontSize: 9, color: T.INK, fontFace: FONT, italic: true,
+                valign: 'top', lineSpacingMultiple: 1.4,
+            });
+        }
+    }
+
+    // --- RIGHT COLUMN ---
     if (hasRight) {
-        const panelY = 1.4;
-        const panelH = 4.6;
-        s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: panelH, fill: { color: T.PALE } });
-        s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: 0.06, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText('PROJECTED IMPACT', { x: rightX + 0.22, y: panelY + 0.32, w: rightW - 0.44, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3 });
+        const panelY = BODY_Y;
+        const panelH = BODY_BOTTOM - BODY_Y;   // exactly 4.40
+        const panelBottom = panelY + panelH;
+
+        // Accent strip at top of the right column
+        s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: 0.06, fill: { color: accent } });
+
+        if (hasImage) {
+            // Image takes ~55% of panel height if impact strip below, else ~80%
+            const captionH = data.heroImage?.caption ? 0.26 : 0;
+            const imgH = hasStrip ? panelH * 0.52 : panelH * 0.82;
+            const imgY = panelY + 0.06;
+            try {
+                s.addImage({
+                    data: heroImageSrc, x: rightX, y: imgY, w: rightW, h: imgH,
+                    sizing: { type: 'cover', w: rightW, h: imgH } as any,
+                });
+            } catch (e) { /* graceful fallback — accent strip stays */ }
+
+            if (data.heroImage?.caption) {
+                s.addText(truncate(data.heroImage.caption, 50), {
+                    x: rightX, y: imgY + imgH, w: rightW, h: captionH,
+                    fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true,
+                    charSpacing: 2, valign: 'middle', align: 'left',
+                    margin: [0.05, 0.16, 0.05, 0.16] as any,
+                    fill: { color: T.PALE },
+                });
+            }
+
+            if (hasStrip) {
+                const stripY = imgY + imgH + captionH + 0.06;
+                const stripH = panelBottom - stripY;
+                s.addShape('rect' as any, { x: rightX, y: stripY, w: rightW, h: stripH, fill: { color: T.PALE } });
+                s.addText('IMPACT PROFILE', {
+                    x: rightX + 0.16, y: stripY + 0.08, w: rightW - 0.32, h: 0.18,
+                    fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true,
+                    charSpacing: 2,
+                });
+                const rows = [
+                    { k: 'EFFORT', v: data.impactStrip?.effort },
+                    { k: 'RISK', v: data.impactStrip?.risk },
+                    { k: 'OUTCOME', v: data.impactStrip?.outcome },
+                ].filter(r => r.v);
+                const rowsAvail = stripH - 0.32;
+                const rowH = Math.max(0.32, rowsAvail / Math.max(rows.length, 1));
+                rows.forEach((r, i) => {
+                    const ry = stripY + 0.30 + i * rowH;
+                    if (ry + rowH > panelBottom) return;
+                    s.addText(r.k, {
+                        x: rightX + 0.16, y: ry, w: 0.65, h: 0.18,
+                        fontSize: 7, color: accent, fontFace: FONT, bold: true,
+                        charSpacing: 1.5, valign: 'top',
+                    });
+                    s.addText(truncate(r.v || '', 60), {
+                        x: rightX + 0.85, y: ry, w: rightW - 1.00, h: rowH - 0.04,
+                        fontSize: 9, color: T.INK, fontFace: FONT, bold: true,
+                        valign: 'top', lineSpacingMultiple: 1.3,
+                    });
+                    if (i < rows.length - 1) {
+                        s.addShape('line' as any, {
+                            x: rightX + 0.16, y: ry + rowH - 0.04, w: rightW - 0.32, h: 0,
+                            line: { color: T.RULE, width: 0.4 },
+                        });
+                    }
+                });
+            }
+        } else if (hasStrip) {
+            // Impact strip alone — fills the full right panel
+            s.addShape('rect' as any, { x: rightX, y: panelY + 0.06, w: rightW, h: panelH - 0.06, fill: { color: T.PALE } });
+            s.addText('IMPACT PROFILE', {
+                x: rightX + 0.22, y: panelY + 0.28, w: rightW - 0.44, h: 0.22,
+                fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3,
+            });
+            const rows = [
+                { k: 'EFFORT', v: data.impactStrip?.effort },
+                { k: 'RISK', v: data.impactStrip?.risk },
+                { k: 'OUTCOME', v: data.impactStrip?.outcome },
+            ].filter(r => r.v);
+            const startY = panelY + 0.66;
+            const rowsAvail = panelH - 0.80;
+            const rowH = Math.max(0.55, rowsAvail / Math.max(rows.length, 1));
+            rows.forEach((r, i) => {
+                const ry = startY + i * rowH;
+                if (ry + rowH > panelBottom) return;
+                s.addText(r.k, {
+                    x: rightX + 0.22, y: ry, w: 1.0, h: 0.24,
+                    fontSize: 9, color: accent, fontFace: FONT, bold: true,
+                    charSpacing: 2, valign: 'top',
+                });
+                s.addText(truncate(r.v || '', 180), {
+                    x: rightX + 0.22, y: ry + 0.26, w: rightW - 0.44, h: rowH - 0.30,
+                    fontSize: 11, color: T.INK, fontFace: FONT, bold: true,
+                    valign: 'top', lineSpacingMultiple: 1.4,
+                });
+                if (i < rows.length - 1) {
+                    s.addShape('line' as any, {
+                        x: rightX + 0.22, y: ry + rowH - 0.06, w: rightW - 0.44, h: 0,
+                        line: { color: T.RULE, width: 0.5 },
+                    });
+                }
+            });
+        } else if (hasGrid || hasMetric) {
+            // Strategy-author paths — render PALE panel + PROJECTED IMPACT header
+            s.addShape('rect' as any, { x: rightX, y: panelY + 0.06, w: rightW, h: panelH - 0.06, fill: { color: T.PALE } });
+            s.addText('PROJECTED IMPACT', {
+                x: rightX + 0.22, y: panelY + 0.28, w: rightW - 0.44, h: 0.22,
+                fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3,
+            });
+        }
 
         if (hasGrid) {
-            const gridY = panelY + 0.74;
+            const gridY = panelY + 0.66;
             const cellW = (rightW - 0.5) / 2;
-            const cellH = 1.0;
+            const cellH = 0.95;
             const cells = [
                 { k: 'BASELINE', v: data.impactGrid?.baseline, color: T.MUTED },
                 { k: 'TARGET', v: data.impactGrid?.target, color: T.TEAL },
@@ -396,32 +608,48 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
             ];
             cells.forEach((c, i) => {
                 const cx = rightX + 0.22 + (i % 2) * (cellW + 0.12);
-                const cy = gridY + Math.floor(i / 2) * (cellH + 0.12);
+                const cy = gridY + Math.floor(i / 2) * (cellH + 0.10);
+                if (cy + cellH > panelBottom - 0.10) return;
                 s.addText(c.k, { x: cx, y: cy, w: cellW, h: 0.2, fontSize: 7, color: c.color, fontFace: FONT, bold: true, charSpacing: 2 });
-                s.addText(c.v ? truncate(c.v, 60) : '—', { x: cx, y: cy + 0.24, w: cellW, h: cellH - 0.3, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3 });
+                s.addText(c.v ? truncate(c.v, 60) : '—', { x: cx, y: cy + 0.22, w: cellW, h: cellH - 0.26, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3 });
             });
-            // Optional hero number below grid
             if (data.impactMetric) {
-                const mY = panelY + panelH - 1.0;
+                const mY = panelBottom - 0.95;
                 s.addShape('line' as any, { x: rightX + 0.22, y: mY - 0.05, w: rightW - 0.44, h: 0, line: { color: T.RULE, width: 0.5 } });
-                const fs = heroPt(data.impactMetric.value, 32, 18, 4);
+                const fs = heroPt(data.impactMetric.value, 30, 18, 4);
                 s.addText(data.impactMetric.value, { x: rightX + 0.22, y: mY, w: rightW - 0.44, h: 0.5, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -2 });
-                s.addText(truncate(data.impactMetric.label, 80), { x: rightX + 0.22, y: mY + 0.54, w: rightW - 0.44, h: 0.38, fontSize: 9, color: T.SECONDARY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+                s.addText(truncate(data.impactMetric.label, 80), { x: rightX + 0.22, y: mY + 0.50, w: rightW - 0.44, h: 0.36, fontSize: 9, color: T.SECONDARY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
             }
-        } else if (data.impactMetric) {
-            const fs = heroPt(data.impactMetric.value, 56, 26, 4);
-            s.addText(data.impactMetric.value, { x: rightX + 0.22, y: panelY + 0.74, w: rightW - 0.44, h: 1.3, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -3 });
-            s.addText(truncate(data.impactMetric.label, 100), { x: rightX + 0.22, y: panelY + 2.2, w: rightW - 0.44, h: 1.0, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        } else if (data.impactMetric && !hasImage && !hasStrip) {
+            const fs = heroPt(data.impactMetric.value, 52, 24, 4);
+            s.addText(data.impactMetric.value, { x: rightX + 0.22, y: panelY + 0.66, w: rightW - 0.44, h: 1.2, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -3 });
+            s.addText(truncate(data.impactMetric.label, 100), { x: rightX + 0.22, y: panelY + 2.0, w: rightW - 0.44, h: 0.9, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
         }
     }
 
-    // IMPLICATION footer
-    if (data.implication) {
-        s.addShape('line' as any, { x: tx, y: 6.62, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
-        s.addText('IMPLICATION', { x: tx, y: 6.7, w: 1.2, h: 0.2, fontSize: 7.5, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
-        s.addText(truncate(data.implication, 260), { x: tx + 1.24, y: 6.7, w: tw - 1.24, h: 0.4, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
+    // ============================================================
+    // FOOTER BAND (6.20 → 7.10) — ONE closing line, period.
+    // Priority: implication > whyMatters. Drop the other to avoid overlap.
+    // ============================================================
+    const footerText = data.implication || data.whyMatters || '';
+    const footerLabel = data.implication ? 'IMPLICATION' : (data.whyMatters ? 'WHY IT MATTERS' : '');
+    if (footerText && footerLabel) {
+        const footerH = FOOTER_BOTTOM - FOOTER_Y;
+        s.addShape('line' as any, { x: tx, y: FOOTER_Y - 0.06, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(footerLabel, {
+            x: tx, y: FOOTER_Y, w: 1.4, h: 0.22,
+            fontSize: 7.5, color: accent, fontFace: FONT, bold: true, charSpacing: 2,
+        });
+        s.addText(truncate(footerText, 240), {
+            x: tx + 1.45, y: FOOTER_Y, w: tw - 1.45, h: footerH - 0.08,
+            fontSize: 10, color: T.INK, fontFace: FONT, bold: true,
+            valign: 'top', lineSpacingMultiple: 1.45,
+        });
     }
 
+    // ============================================================
+    // SOURCES FOOTER (handled by helper — places itself at slide bottom)
+    // ============================================================
     sourceFooter(s, tx, tw, sources);
 }
 
@@ -1535,6 +1763,10 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
         return;
     }
 
+    // 2026-05-12 — Persona cards bake the image into the left-hand panel via
+    // addBaseShell; tile-sourced recommendation slides render the image on
+    // the right side via exportRecommendation, so we DO NOT want the base
+    // shell to consume it. Only persona-card triggers shell-baked image.
     const useImage = args.template === 'persona-card' && !!args.imageUrl;
     const geom = await addBaseShell(s, useImage, args.imageUrl);
 
@@ -1543,7 +1775,7 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
             if (args.persona) await exportPersona(s, args.title, args.persona, sources, geom);
             break;
         case 'recommendation':
-            if (args.recommendation) exportRecommendation(s, args.title, args.recommendation, sources, geom);
+            if (args.recommendation) exportRecommendation(s, args.title, args.recommendation, sources, geom, args.imageUrl);
             break;
         case 'theme-cluster':
             if (args.themeCluster) exportThemeCluster(s, args.title, args.themeCluster, sources, geom);

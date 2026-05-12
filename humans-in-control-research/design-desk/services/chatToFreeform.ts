@@ -343,6 +343,114 @@ function perKindGuidance(kind: FreeformKind): string {
     }
 }
 
+/**
+ * 2026-05-12 — Verbalized-Sampling emphasis preamble for freeform-HTML
+ * artifacts (journey, blueprint, org, arch, roadmap). The per-kind design
+ * spec already locks the LAYOUT (swimlanes, exact y-coordinates, font roles).
+ * What still mode-collapses is which step/lane/metric gets visual emphasis,
+ * which framing angle dominates, and which moment is treated as the focal
+ * "key finding". VS at the EMPHASIS layer forces the model to enumerate four
+ * candidate framings (the modal one + three non-modal) before committing.
+ *
+ * This is the same mechanic as VS for themes/recommendations — surface k
+ * candidates with probabilities, commit to one — but transposed onto the
+ * narrative-emphasis dimensions of a single diagram. The probability < 0.25
+ * threshold is looser than themes/recs because the layout constraints already
+ * narrow the candidate space substantially; deeper tail sampling would push
+ * the model into incompatible framings.
+ */
+function buildEmphasisVSPreamble(kind: FreeformKind): string {
+    // Per-kind emphasis axes — what the model gets to vary across candidates.
+    const axes: Record<FreeformKind, { focal: string; framing: string; emotion: string; metric: string }> = {
+        journey: {
+            focal: 'which step is the focal moment-of-truth (one and only one)',
+            framing: 'whether the journey is framed as friction-cascade, expectation-mismatch, capability-gap, or trust-erosion',
+            emotion: 'which emotion peak anchors the synthesis row (frustration vs anxiety vs hope vs determination)',
+            metric: 'which projected-impact metric becomes the inverted "key finding" tile',
+        },
+        blueprint: {
+            focal: 'which step carries the intervention emphasis (one and only one)',
+            framing: 'whether the redesign is framed as friction-removal, value-creation, automation-shift, or trust-rebuild',
+            emotion: 'which emotion arc the outcome curve depicts (rust to accent vs mute to accent vs accent throughout)',
+            metric: 'which projected-impact tile becomes the inverted "key finding"',
+        },
+        arch: {
+            focal: 'which system box is the anchor / central component (one and only one)',
+            framing: 'whether the architecture is framed by data flow, by integration map, by capability tier, or by failure modes',
+            emotion: 'n/a - architecture has no emotion arc',
+            metric: 'which capability dimension dominates the right-rail paragraph',
+        },
+        roadmap: {
+            focal: 'which initiative is the "today-marker" focal commitment (one and only one)',
+            framing: 'whether the roadmap is framed by capability building, by stakeholder readiness, by risk reduction, or by quick-win sequencing',
+            emotion: 'n/a - roadmap is sequencing, not emotion',
+            metric: 'which workstream gets the inverted "key finding" emphasis',
+        },
+        org: {
+            focal: 'which role/team is the anchor of the chart (one and only one)',
+            framing: 'whether the org is framed by reporting hierarchy, by capability domains, by stakeholder coalitions, or by decision authority',
+            emotion: 'n/a - org chart has no emotion arc',
+            metric: 'which stakeholder annotation becomes the corner callout',
+        },
+    };
+    const a = axes[kind];
+    if (!a || !a.focal) return '';
+    return `
+=== EMPHASIS VS PREAMBLE — apply BEFORE drafting the body ===
+
+The per-kind layout spec below locks the STRUCTURE (lanes, coordinates, font
+roles, swimlane positions). What still mode-collapses is EMPHASIS — which
+moment is highlighted, which framing dominates, which metric becomes the key
+finding. Before drafting body content, write a brief <emphasis_vs> block
+enumerating FOUR candidate framings with explicit probabilities. ONE of them
+will be your modal/conventional choice (the obvious framing every consultant
+would pick); THREE must be non-modal alternatives explicitly grounded in
+DIFFERENT facets of the corpus.
+
+For each candidate, emit:
+  - probability: a numeric value in (0, 0.25). NO candidate may exceed 0.25.
+  - focal: ${a.focal}
+  - framing: ${a.framing}
+  - emotion: ${a.emotion}
+  - metric: ${a.metric}
+  - rationale: one sentence (≤30 words) on why a senior reviewer would defend this choice over the others
+
+Then commit to ONE candidate via <commit_to>candidate_N</commit_to>. The
+remaining body draft inherits that candidate's focal/framing/emotion/metric
+choices throughout.
+
+CRITICAL: writing probability < 0.25 is your commitment device. DO NOT
+default to the highest-probability "modal" candidate just because it's safe.
+The user already has the modal framing in their head — your value is
+surfacing the framing the model would otherwise mode-collapse away from.
+
+Format:
+
+<emphasis_vs>
+  <candidate id="1" probability="0.22">
+    focal: ...
+    framing: ...
+    emotion: ...
+    metric: ...
+    rationale: ...
+  </candidate>
+  <candidate id="2" probability="0.18">
+    ...
+  </candidate>
+  <candidate id="3" probability="0.12">
+    ...
+  </candidate>
+  <candidate id="4" probability="0.08">
+    ...
+  </candidate>
+</emphasis_vs>
+<commit_to>candidate_N</commit_to>
+<why_committed>One sentence on why this candidate beats the alternatives.</why_committed>
+
+=== END EMPHASIS VS PREAMBLE ===
+`;
+}
+
 function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string; brandSkill: string; diagramSkill: string }): string {
     const sections: string[] = [];
 
@@ -352,6 +460,14 @@ function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string;
     // catastrophizing metaphors / hyperbole / jargon in any text emitted
     // inside the rendered HTML.
     sections.push(UNIVERSAL_TONE_RULES_INLINE);
+
+    // 2026-05-12 — Emphasis-VS preamble. Forces the model to enumerate 4
+    // candidate framings with probabilities and commit to one before
+    // drafting body content. Layered ABOVE the locked layout spec so the
+    // body construction honors the chosen framing rather than mode-
+    // collapsing to the modal one.
+    const vsPreamble = buildEmphasisVSPreamble(args.kind);
+    if (vsPreamble) sections.push(vsPreamble);
 
     // OPENING HAMMER — CAPS-LOCK critical instruction. Pattern adopted from the
     // Intelligence Augmentation Journey Mapper (internal-solutions-journeymapper),

@@ -118,7 +118,19 @@
       "Edit(/.claude/skills/verbalized-sampling/**)",
       "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:5011/skills/verbalized-sampling/SKILL.md\" -UseBasicParsing -Method Head; \"OK status=$\\($r.StatusCode\\) length=$\\($r.Headers['Content-Length']\\)\" } catch { \"FAIL $\\($_.Exception.Message\\)\" })",
       "Edit(/.claude/skills/html-deliverable-composer/**)",
-      "PowerShell($r = Invoke-WebRequest -Uri 'http://localhost:5012/api/artifacts/smoke-test' -Method DELETE -UseBasicParsing; $r.Content)"
+      "PowerShell($r = Invoke-WebRequest -Uri 'http://localhost:5012/api/artifacts/smoke-test' -Method DELETE -UseBasicParsing; $r.Content)",
+      "Bash(/mingw64/bin/pdftotext \"D:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/skills/intelligence/reinforcement_inference.pdf\" -)",
+      "Bash(/mingw64/bin/pdftotext \"D:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/skills/intelligence/reinforcement_inference.pdf\" /tmp/ri.txt)",
+      "Bash(/mingw64/bin/pdftotext -layout \"D:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/skills/intelligence/reinforcement_inference.pdf\" /tmp/ri.txt)",
+      "Bash(Get-ChildItem -Path \"d:\\\\NXT-HUMANS_AI_CX_WORKBENCH\\\\humans-in-control-research\\\\hic-workspace\\\\wiki\\\\\" -Directory | Select-Object Name)",
+      "Edit(/.claude/skills/reinforcement-inference/**)",
+      "PowerShell(Push-Location 'd:\\\\NXT-HUMANS_AI_CX_WORKBENCH\\\\humans-in-control-research'; npm run build 2>&1 | Select-Object -Last 60; $code = $LASTEXITCODE; Pop-Location; \"EXIT: $code\")",
+      "PowerShell(docker exec hic-research grep -c 'leastDefensibleClaims' /usr/share/nginx/html/assets/index-DjaaekT-.js 2>&1)",
+      "PowerShell(docker exec hic-research grep -c 'calibration=' /usr/share/nginx/html/assets/index-DjaaekT-.js 2>&1)",
+      "PowerShell(\"---\")",
+      "PowerShell($bundle = \\(curl -s 'http://localhost:5011/' | Select-String -Pattern 'index-[A-Za-z0-9_-]+\\\\.js' -AllMatches\\).Matches[0].Value; \"BUNDLE: $bundle\"; \"---\"; docker exec hic-research grep -oE 'v3\\\\.[0-9]+|reinforcementInferenceR1|verbalizedSamplingThemes|leastDefensibleClaims' \"/usr/share/nginx/html/assets/$bundle\" 2>&1 | Sort-Object -Unique)",
+      "PowerShell($resp = Invoke-WebRequest -Uri 'http://localhost:5011/' -UseBasicParsing; $bundle = \\($resp.Content | Select-String -Pattern 'index-[A-Za-z0-9_-]+\\\\.js' -AllMatches\\).Matches[0].Value; \"BUNDLE: $bundle\"; \"---\"; docker exec hic-research grep -oE 'v3\\\\.[0-9]+|reinforcementInferenceR1|verbalizedSamplingThemes|leastDefensibleClaims|VerbalizedConfidence' \"/usr/share/nginx/html/assets/$bundle\" 2>&1 | Sort-Object -Unique)",
+      "PowerShell(Push-Location 'd:\\\\NXT-HUMANS_AI_CX_WORKBENCH\\\\humans-in-control-research'; $build = npm run build 2>&1; $code = $LASTEXITCODE; Pop-Location; if \\($code -eq 0\\) { \"BUILD OK\"; \\($build | Select-String 'built in'\\) } else { $build | Select-Object -Last 30 })"
     ],
     "additionalDirectories": [
       "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills",
