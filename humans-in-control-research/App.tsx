@@ -1708,6 +1708,16 @@ const App = () => {
         topicModelResult, knowledgeGraph, liveSourceResults, redditDeepItems,
     ]);
 
+    // 2026-05-14 — Expose handleSaveSession on window so the global
+    // chunkLoadGuard banner can persist the user's work BEFORE forcing a
+    // reload. Stale-chunk reloads were destroying mid-flight engagements;
+    // saving first preserves everything so the user can resume from the
+    // Continue Session list after the reload completes.
+    useEffect(() => {
+        (window as any).__hicSaveSession = handleSaveSession;
+        return () => { delete (window as any).__hicSaveSession; };
+    }, [handleSaveSession]);
+
     // 2026-05-11 — Load a saved session. Hydrates all state and switches the
     // app to the results view so the user can immediately interact with the
     // restored engagement (incl. AI Analyst chat that's context-aware of the
@@ -2544,26 +2554,35 @@ const App = () => {
             // without burning any AI tokens.
             (async () => {
                 try {
-                    const { loadEngagementBundles, loadCachedRedditPostsFromWiki } = await import('./services/wikiCacheLoader');
-                    // Engagement deliverables -> direct state hydration
+                    const { loadEngagementBundles, loadCachedRedditPostsFromWiki, assembleCachedCorpus } = await import('./services/wikiCacheLoader');
+
+                    // Track which deliverable kinds were hydrated from cached
+                    // engagements so the re-synthesis step below SKIPS them
+                    // (don't pay to regenerate what's already in cache).
+                    const hydratedKinds = new Set<string>();
+
+                    // 1. Engagement deliverables -> direct state hydration
                     if (librarySel!.engagementSlugs.length > 0) {
                         const bundles = await loadEngagementBundles(librarySel!.engagementSlugs);
                         let hydratedCount = 0;
                         bundles.forEach(b => {
-                            if (b.themes) { setThemesResult(b.themes); hydratedCount++; }
-                            if (b.personas) { setPersonasResult(b.personas); hydratedCount++; }
-                            if (b.journey) { setJourneyResult(b.journey); hydratedCount++; }
-                            if (b.gap) { setGapResult(b.gap); hydratedCount++; }
-                            if (b.recs) { setRecsResult(b.recs); hydratedCount++; }
-                            if (b.competitive) { setCompetitiveResult(b.competitive); hydratedCount++; }
+                            if (b.themes) { setThemesResult(b.themes); hydratedKinds.add('themes'); hydratedCount++; }
+                            if (b.personas) { setPersonasResult(b.personas); hydratedKinds.add('personas'); hydratedCount++; }
+                            if (b.journey) { setJourneyResult(b.journey); hydratedKinds.add('journey'); hydratedCount++; }
+                            if (b.gap) { setGapResult(b.gap); hydratedKinds.add('gap'); hydratedCount++; }
+                            if (b.recs) { setRecsResult(b.recs); hydratedKinds.add('recs'); hydratedCount++; }
+                            if (b.competitive) { setCompetitiveResult(b.competitive); hydratedKinds.add('competitive'); hydratedCount++; }
                         });
                         console.log(`[startAnalysis] Hydrated ${hydratedCount} deliverables from ${bundles.length} cached engagement(s).`);
-                        setThinkingEvents(prev => [...prev, {
-                            type: 'INSIGHT',
-                            content: `[CACHE] Loaded ${hydratedCount} deliverables from ${bundles.length} cached engagement(s) — no generation cost.`,
-                        }]);
+                        if (hydratedCount > 0) {
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'INSIGHT',
+                                content: `[CACHE] Loaded ${hydratedCount} deliverables from ${bundles.length} cached engagement(s) — no generation cost for those kinds.`,
+                            }]);
+                        }
                     }
-                    // Social posts -> redditDeepItems
+
+                    // 2. Social posts -> redditDeepItems
                     if (librarySel!.socialSubreddits.length > 0) {
                         const social = await loadCachedRedditPostsFromWiki(librarySel!.socialSubreddits);
                         if (social && social.posts.length > 0) {
@@ -2574,15 +2593,136 @@ const App = () => {
                             }]);
                         }
                     }
-                    // Mark collection as complete so the Analyst Desk renders.
+
+                    // 3. Assemble the cached corpus from ALL selections (engagement
+                    // source archives + standalone source archives + theme cluster
+                    // summaries + social posts). This is what feeds re-synthesis.
+                    const corpus = await assembleCachedCorpus(librarySel!);
+                    if (corpus.text && corpus.chars > 0) {
+                        corpusTextRef.current = corpus.text;
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[CACHE] Assembled corpus from cache — ${Math.round(corpus.chars / 1024)}KB across ${corpus.itemCount} item(s): ${corpus.breakdown.engagements} engagement source archive(s), ${corpus.breakdown.themeClusters} theme cluster(s), ${corpus.breakdown.sources} source archive(s), ${corpus.breakdown.socialPosts} social post(s).`,
+                        }]);
+                    }
+
+                    // 4. Initialize the synthesis session against the cached
+                    // corpus. Mirrors the live path's GenAISession setup so the
+                    // chat panel + KG auto-synthesis behave the same way they
+                    // do after a fresh data collection.
+                    const collectedDataFiles: any[] = [];
+                    if (corpus.text && corpus.chars > 0) {
+                        try {
+                            const base64 = btoa(unescape(encodeURIComponent(corpus.text.slice(0, 2_000_000))));
+                            collectedDataFiles.push({
+                                name: `cached_intelligence_${Date.now()}.txt`,
+                                type: 'text/plain',
+                                size: corpus.text.length,
+                                data: base64,
+                            });
+                        } catch (encErr) {
+                            console.warn('[startAnalysis] cached corpus encode failed (non-fatal):', encErr);
+                        }
+                    }
+                    sessionRef.current = new GenAISession(researchGoal, analysisApproach, selectedOutputs);
+
+                    // 5. Mark data collection complete so the Analyst Desk renders.
                     setIsCollectingData(false);
                     setCollectionPhase('done' as any);
-                    setStatusMessage('Cached intelligence loaded. Use the chat to explore or compose deliverables.');
-                    setNotification(`Loaded ${totalSelections} cached item${totalSelections === 1 ? '' : 's'} — no data collection or generation cost incurred.`);
+
+                    // 6. Re-synthesize on the cached corpus. Skip kinds that
+                    // were already hydrated from engagement bundles.
+                    //
+                    // Each stage wrapped in its own try/catch + persistence
+                    // hook so a single failure can't kill the chain.
+                    classicKgSynthesisRef.current.status = 'running';
+                    const session = sessionRef.current;
+                    const noop = () => { /* unused stream callback */ };
+
+                    // Engagement slug for deliverable persistence so the NEW
+                    // synthesis results also get written to wiki for next time.
+                    const { buildEngagementSlug, writeEngagementDeliverable } = await import('./services/wikiService');
+                    const persistSlug = buildEngagementSlug(researchGoal || 'cached-resynthesis', 60);
+                    const persist = async (kind: 'themes' | 'personas' | 'journey' | 'gap' | 'recs' | 'competitive' | 'blueprint', data: any) => {
+                        try { await writeEngagementDeliverable(persistSlug, kind, data); }
+                        catch (e) { console.warn(`[Cache resynth] persist ${kind} failed (non-fatal):`, e); }
+                    };
+
+                    if (collectedDataFiles.length > 0) {
+                        // Ingest the cached corpus into the GenAISession BEFORE
+                        // running the synthesis chain. Without this, the session's
+                        // generateThemes/Personas/etc. fire with no context and
+                        // hallucinate from the goal alone. Mirrors the live path's
+                        // ingestion step (App.tsx ~line 4233).
+                        try {
+                            setStatusMessage('Ingesting cached corpus into synthesis session…');
+                            await session.ingestContext(collectedDataFiles, noop);
+                        } catch (ingestErr) {
+                            console.warn('[Cache resynth] Ingestion failed, aborting chain:', ingestErr);
+                            classicKgSynthesisRef.current.status = 'failed';
+                            setStatusMessage('Cached corpus ingestion failed. Hydrated deliverables (if any) are still loaded.');
+                            return;
+                        }
+                        setStatusMessage('Re-synthesizing on cached corpus — themes, personas, recommendations…');
+
+                        // THEMES
+                        let themes: any = (themesResult as any) || null;
+                        if (!hydratedKinds.has('themes')) {
+                            try {
+                                themes = await session.generateThemes(undefined, noop);
+                                if (themes) { setThemesResult(themes); persist('themes', themes); }
+                            } catch (err) { console.warn('[Cache resynth] Themes failed:', err); }
+                        }
+                        // PERSONAS
+                        if (!hydratedKinds.has('personas')) {
+                            try {
+                                const personas = await session.generatePersonas(themes, undefined, noop, noop);
+                                if (personas) { setPersonasResult(personas); persist('personas', personas); }
+                            } catch (err) { console.warn('[Cache resynth] Personas failed:', err); }
+                        }
+                        // RECOMMENDATIONS
+                        if (!hydratedKinds.has('recs')) {
+                            try {
+                                const recs = await session.generateRecommendations(undefined, noop);
+                                if (recs) { setRecsResult(recs); persist('recs', recs); }
+                            } catch (err) { console.warn('[Cache resynth] Recommendations failed:', err); }
+                        }
+                        // JOURNEY MAP
+                        if (!hydratedKinds.has('journey')) {
+                            try {
+                                const journey = await session.generateJourneyMap(undefined, noop);
+                                if (journey) { setJourneyResult(journey); persist('journey', journey); }
+                            } catch (err) { console.warn('[Cache resynth] Journey failed:', err); }
+                        }
+                        // GAP ANALYSIS
+                        if (!hydratedKinds.has('gap')) {
+                            try {
+                                const gap = await session.generateGapAnalysis(undefined, noop);
+                                if (gap) { setGapResult(gap); persist('gap', gap); }
+                            } catch (err) { console.warn('[Cache resynth] Gap failed:', err); }
+                        }
+                        // COMPETITIVE
+                        if (!hydratedKinds.has('competitive')) {
+                            try {
+                                const comp = await session.generateCompetitiveAnalysis(undefined, noop);
+                                if (comp) { setCompetitiveResult(comp); persist('competitive', comp); }
+                            } catch (err) { console.warn('[Cache resynth] Competitive failed:', err); }
+                        }
+
+                        classicKgSynthesisRef.current.status = 'complete';
+                        setStatusMessage(`Re-synthesis complete from cached intelligence. ${hydratedKinds.size > 0 ? hydratedKinds.size + ' deliverable(s) reused from cache; ' : ''}fresh synthesis produced for the rest.`);
+                    } else {
+                        // No corpus assembled — all selections were engagement
+                        // deliverables (already hydrated). Nothing to synthesize.
+                        setStatusMessage('Cached intelligence loaded. Use the chat to explore or compose deliverables.');
+                    }
+
+                    setNotification(`Loaded ${totalSelections} cached item${totalSelections === 1 ? '' : 's'} — no data collection occurred.`);
                     setTimeout(() => setNotification(null), 6000);
                 } catch (hydrationErr: any) {
                     console.warn('[startAnalysis] Library hydration failed (non-fatal):', hydrationErr);
                     setStatusMessage(`Cached-data load partially failed: ${hydrationErr?.message || 'unknown'}. You can still use the chat.`);
+                    classicKgSynthesisRef.current.status = 'failed';
                 }
             })();
             return;

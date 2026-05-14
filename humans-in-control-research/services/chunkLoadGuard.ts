@@ -137,7 +137,26 @@ function showStaleBundleBanner(source: string, detail?: unknown): void {
             'font-family:inherit', 'font-size:11px', 'font-weight:700',
             'letter-spacing:1.5px', 'text-transform:uppercase',
         ].join(';');
-        reloadBtn.onclick = () => {
+        reloadBtn.onclick = async () => {
+            // 2026-05-14 — Save the user's session BEFORE reloading so a stale-
+            // chunk forced reload doesn't destroy mid-flight work. App.tsx
+            // registers __hicSaveSession on mount; we call it (silently) and
+            // wait up to 4s before reloading anyway. The user can resume from
+            // the Continue Session list on the landing page after reload.
+            try {
+                reloadBtn.disabled = true;
+                reloadBtn.textContent = 'Saving your work...';
+                const saver = (window as any).__hicSaveSession;
+                if (typeof saver === 'function') {
+                    await Promise.race([
+                        saver({ silent: true }),
+                        new Promise(res => setTimeout(res, 4000)),
+                    ]);
+                    reloadBtn.textContent = 'Reloading...';
+                }
+            } catch (e) {
+                console.warn('[ChunkLoadGuard] pre-reload save failed (reloading anyway):', e);
+            }
             if (typeof window !== 'undefined' && typeof window.location?.reload === 'function') {
                 window.location.reload();
             }

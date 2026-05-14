@@ -180,6 +180,209 @@ export async function loadEngagementBundles(slugs: string[]): Promise<CachedEnga
     return Promise.all(slugs.map(loadEngagementBundle));
 }
 
+// =============================================================================
+// Cached-corpus assembly — turn library selections into a synthesis-ready
+// corpus string so the pipeline can run themes / personas / etc. on cached
+// inputs WITHOUT any live data collection.
+// =============================================================================
+
+/** Read a source archive markdown body (wiki/sources/<path>.md). */
+export async function loadSourceArchiveBody(archivePath: string): Promise<string | null> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${archivePath}`);
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        const raw = typeof data === 'string' ? data : (data?.content || '');
+        return raw || null;
+    } catch (e) {
+        console.warn(`[CacheLoader] source archive read failed for ${archivePath}:`, e);
+        return null;
+    }
+}
+
+/**
+ * Load the selected theme clusters from their synthesis JSON files and
+ * turn each into a corpus-ready text block: cluster name + summary +
+ * top terms + sample post titles. The shape mirrors what the
+ * generateThemes() prompt expects to see in the corpus.
+ */
+export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promise<{ text: string; clusterCount: number; filesScanned: number }> {
+    if (!Array.isArray(clusterIds) || clusterIds.length === 0) {
+        return { text: '', clusterCount: 0, filesScanned: 0 };
+    }
+    // Cluster IDs look like "topics-tm_<job>_<hash>.json#<index>" — group by file
+    const byFile = new Map<string, Set<number>>();
+    clusterIds.forEach(id => {
+        const [file, indexStr] = id.split('#');
+        const idx = Number(indexStr);
+        if (!file || !isFinite(idx)) return;
+        if (!byFile.has(file)) byFile.set(file, new Set());
+        byFile.get(file)!.add(idx);
+    });
+
+    const blocks: string[] = [];
+    let clusterCount = 0;
+    let filesScanned = 0;
+    for (const [file, indices] of byFile) {
+        try {
+            const resp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/${file}`);
+            if (!resp.ok) continue;
+            const data = await resp.json();
+            const raw = typeof data === 'string' ? data : (data?.content || '');
+            if (!raw) continue;
+            const payload = JSON.parse(raw);
+            filesScanned++;
+            const topics = Array.isArray(payload?.result?.topics) ? payload.result.topics : [];
+            const engagementGoal = payload?.research_goal || '';
+            topics.forEach((t: any, i: number) => {
+                const tid = t.id ?? i;
+                if (!indices.has(tid)) return;
+                clusterCount++;
+                const lines: string[] = [];
+                lines.push(`=== CACHED THEME CLUSTER (${t.sentiment || 'unknown'} sentiment, ${t.post_count || 0} posts) ===`);
+                lines.push(`Name: ${t.name || `Topic ${tid}`}`);
+                if (t.summary) lines.push(`Summary: ${t.summary}`);
+                const terms = Array.isArray(t.top_terms) ? t.top_terms : [];
+                if (terms.length > 0) {
+                    const cleanTerms = terms.slice(0, 10).map((x: any) => {
+                        const s = String(x);
+                        const c = s.indexOf(',');
+                        return c > 0 ? s.slice(0, c) : s;
+                    }).join(', ');
+                    lines.push(`Top terms: ${cleanTerms}`);
+                }
+                // Sample post titles if the synthesis stores them
+                const samplePosts = Array.isArray(t.sample_posts) ? t.sample_posts.slice(0, 5)
+                    : Array.isArray(t.representative_posts) ? t.representative_posts.slice(0, 5) : [];
+                if (samplePosts.length > 0) {
+                    lines.push(`Representative posts:`);
+                    samplePosts.forEach((p: any) => {
+                        const title = typeof p === 'string' ? p : (p?.title || '');
+                        if (title) lines.push(`  - ${title}`);
+                    });
+                }
+                if (engagementGoal) lines.push(`(from prior engagement: ${engagementGoal.slice(0, 80)})`);
+                blocks.push(lines.join('\n'));
+            });
+        } catch (e) {
+            console.warn(`[CacheLoader] synthesis cluster scan failed for ${file}:`, e);
+        }
+    }
+
+    if (clusterCount > 0) {
+        console.log(`[CacheLoader] theme-cluster corpus assembled — ${clusterCount} clusters from ${filesScanned} synthesis files.`);
+    }
+    return { text: blocks.join('\n\n'), clusterCount, filesScanned };
+}
+
+export interface AssembledCachedCorpus {
+    text: string;
+    /** How many distinct cached items contributed. */
+    itemCount: number;
+    /** Total characters (rough corpus size — for cost estimation + UI). */
+    chars: number;
+    /** Per-axis breakdown for the thinking-stream log. */
+    breakdown: {
+        engagements: number;
+        themeClusters: number;
+        sources: number;
+        socialPosts: number;
+    };
+}
+
+/**
+ * Assemble a full synthesis-ready corpus from a Library selection. Combines:
+ *   - Engagement source archives (read via wiki/sources/<archive>.md)
+ *   - Selected theme clusters (from wiki/synthesis/*.json)
+ *   - Selected source archives (markdown bodies)
+ *   - Selected subreddits (cached reddit-deep posts as prose)
+ *
+ * Output is a single text blob the GenAISession can ingest as if it were a
+ * freshly-collected corpus. Caller is responsible for setting it into state
+ * and triggering the synthesis chain.
+ *
+ * Fails safe — any individual loader error is logged and that section is
+ * skipped; the rest of the corpus still assembles.
+ */
+export async function assembleCachedCorpus(selection: {
+    engagementSlugs: string[];
+    themeClusterIds: string[];
+    sourceArchivePaths: string[];
+    socialSubreddits: string[];
+}): Promise<AssembledCachedCorpus> {
+    const t0 = Date.now();
+    const sections: string[] = [];
+    let engagementCount = 0;
+    let themeClusterCount = 0;
+    let sourceCount = 0;
+    let socialPostCount = 0;
+
+    // Engagement source archives — each engagement may have a source archive
+    // at wiki/sources/<slug>.md that lists every source pulled during that run.
+    if (selection.engagementSlugs.length > 0) {
+        const engagementSections = await Promise.all(selection.engagementSlugs.map(async (slug) => {
+            const archive = await loadSourceArchiveBody(`sources/${slug}.md`);
+            if (!archive) return null;
+            engagementCount++;
+            return `=== CACHED ENGAGEMENT SOURCES (${slug}) ===\n${archive.slice(0, 80000)}`;
+        }));
+        engagementSections.filter(Boolean).forEach(s => sections.push(s as string));
+    }
+
+    // Standalone source archives
+    if (selection.sourceArchivePaths.length > 0) {
+        const sourceSections = await Promise.all(selection.sourceArchivePaths.map(async (path) => {
+            const body = await loadSourceArchiveBody(path);
+            if (!body) return null;
+            sourceCount++;
+            return `=== CACHED SOURCE ARCHIVE (${path}) ===\n${body.slice(0, 80000)}`;
+        }));
+        sourceSections.filter(Boolean).forEach(s => sections.push(s as string));
+    }
+
+    // Theme clusters
+    if (selection.themeClusterIds.length > 0) {
+        const themeBlock = await loadSynthesisClustersAsCorpus(selection.themeClusterIds);
+        if (themeBlock.text) {
+            sections.push(themeBlock.text);
+            themeClusterCount = themeBlock.clusterCount;
+        }
+    }
+
+    // Social — turn cached posts into prose blocks
+    if (selection.socialSubreddits.length > 0) {
+        const social = await loadCachedRedditPostsFromWiki(selection.socialSubreddits);
+        if (social && social.posts.length > 0) {
+            socialPostCount = social.posts.length;
+            const lines: string[] = [`=== CACHED SOCIAL INTELLIGENCE (${social.posts.length} Reddit posts from ${social.subreddits_loaded.length} subreddit${social.subreddits_loaded.length === 1 ? '' : 's'}) ===`];
+            social.posts.slice(0, 200).forEach((p, i) => {
+                const sub = p.subreddit || '?';
+                const score = typeof p.score === 'number' ? `score=${p.score}` : '';
+                const title = (p.title || '').slice(0, 200);
+                const body = (p.selftext || '').slice(0, 1500);
+                lines.push(`--- post ${i + 1} · r/${sub} · ${score} ---\nTitle: ${title}\n${body ? `Body: ${body}` : ''}`);
+            });
+            sections.push(lines.join('\n\n'));
+        }
+    }
+
+    const text = sections.join('\n\n');
+    const elapsed = Date.now() - t0;
+    const itemCount = engagementCount + themeClusterCount + sourceCount + socialPostCount;
+    console.log(`[CacheLoader] assembled cached corpus — ${text.length.toLocaleString()} chars from ${itemCount} items (${engagementCount} engagements, ${themeClusterCount} clusters, ${sourceCount} source archives, ${socialPostCount} social posts) in ${elapsed}ms.`);
+    return {
+        text,
+        itemCount,
+        chars: text.length,
+        breakdown: {
+            engagements: engagementCount,
+            themeClusters: themeClusterCount,
+            sources: sourceCount,
+            socialPosts: socialPostCount,
+        },
+    };
+}
+
 /**
  * Load cached reddit-deep posts for the supplied subreddit slugs. Reads in
  * parallel for speed. Returns null if no subreddits selected; empty result
