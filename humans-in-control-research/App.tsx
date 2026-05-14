@@ -1107,6 +1107,11 @@ const App = () => {
     // collection + brief generation entirely.
     const [resumeSuppressed, setResumeSuppressed] = useState(false);
     const [cachedResumePayload, setCachedResumePayload] = useState<ResumeSelection | null>(null);
+    // 2026-05-14 — Ref-mirror of cachedResumePayload so startAnalysis() can
+    // read it from the async function body without stale closures. Used to
+    // short-circuit data collection when the user picked T4 build-only.
+    const cachedResumePayloadRef = useRef<ResumeSelection | null>(null);
+    useEffect(() => { cachedResumePayloadRef.current = cachedResumePayload; }, [cachedResumePayload]);
     // 2026-05-14 — Knowledge Library: full-screen panel that visualizes
     // everything cached in the wiki (engagements / themes / sources / social)
     // and lets the researcher pick what to feed into the next run. Fresh
@@ -2490,6 +2495,25 @@ const App = () => {
              if (!hasKey) {
                  await (window as any).aistudio.openSelectKey();
              }
+        }
+
+        // 2026-05-14 — If the user resumed an engagement via the
+        // ResumeEngagementPanel and chose "build only" mode, their intent is
+        // to iterate on the cached briefs WITHOUT re-running data collection.
+        // Short-circuit the orchestrator entirely: drop into the Analyst Desk
+        // view with the chat panel already showing the cached briefs (the
+        // CorpusChatPanel useEffect on initialCachedBriefs handles the
+        // injection). The user clicks Build on one of the briefs to actually
+        // start prototype work (Stages 2-5 only).
+        const resumed = cachedResumePayloadRef.current;
+        if (resumed && resumed.mode === 't4-build-only') {
+            setAppState(AppState.ANALYZING);
+            setShowCorpusChat(true);
+            setStatusMessage(`Resumed engagement "${resumed.manifest.research_goal.slice(0, 60)}…" — your ${resumed.briefsFile.briefs.length} cached briefs are ready in the chat. Pick one and click Build.`);
+            setNotification('Cached briefs ready — click Build on one in the chat to make a prototype. No new data collection needed.');
+            setTimeout(() => setNotification(null), 6000);
+            console.log('[startAnalysis] T4 short-circuit — skipping data collection; chat has cached briefs ready');
+            return;
         }
 
         setAppState(AppState.ANALYZING);
@@ -5032,26 +5056,27 @@ ${synthesisParts.join('\n')}
                                      </div>
 
                                      {(() => {
-                                         // 2026-05-14 — Knowledge Library selections satisfy the
-                                         // "have data" gate too. If the researcher has selected
-                                         // cached themes/sources/social/engagements from the
-                                         // Library, they don't need to upload anything new or
-                                         // enable a fresh source — they can start analysis on
-                                         // the cached intelligence alone.
+                                         // 2026-05-14 — Knowledge Library selections + resumed
+                                         // engagements satisfy the "have data" gate. T4 resume
+                                         // (build-only) skips data collection entirely; library
+                                         // selection augments a fresh or partial run.
                                          const librarySelectionCount = librarySelection
                                              ? librarySelection.engagementSlugs.length + librarySelection.themeClusterIds.length + librarySelection.sourceArchivePaths.length + librarySelection.socialSubreddits.length
                                              : 0;
                                          const hasLibrarySelection = librarySelectionCount > 0;
-                                         const canStart = files.length > 0 || hasDataSources || hasLibrarySelection;
-                                         const label = !canStart
-                                             ? 'Upload Data, Enable Sources, or Select from Knowledge Library to Begin'
-                                             : hasLibrarySelection && files.length === 0 && !hasDataSources
-                                                 ? `Run Analysis with ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'}`
-                                                 : hasLibrarySelection
-                                                     ? `Collect Data & Run Analysis (reusing ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'})`
-                                                     : hasDataSources
-                                                         ? 'Collect Data & Initialize Analysis'
-                                                         : 'Initialize Analysis Agent';
+                                         const isT4Resume = cachedResumePayload?.mode === 't4-build-only';
+                                         const canStart = files.length > 0 || hasDataSources || hasLibrarySelection || isT4Resume;
+                                         const label = isT4Resume
+                                             ? `Open cached briefs (skip data collection, ${cachedResumePayload!.briefsFile.briefs.length} briefs ready)`
+                                             : !canStart
+                                                 ? 'Upload Data, Enable Sources, or Select from Knowledge Library to Begin'
+                                                 : hasLibrarySelection && files.length === 0 && !hasDataSources
+                                                     ? `Run Analysis with ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'}`
+                                                     : hasLibrarySelection
+                                                         ? `Collect Data & Run Analysis (reusing ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'})`
+                                                         : hasDataSources
+                                                             ? 'Collect Data & Initialize Analysis'
+                                                             : 'Initialize Analysis Agent';
                                          return (
                                              <button
                                                  onClick={startAnalysis}
