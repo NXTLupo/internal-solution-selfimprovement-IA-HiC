@@ -15,6 +15,7 @@ import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './components/P
 import { useSubredditSuggester, SuggesterButton, SuggesterPanel } from './components/SubredditSuggester';
 import { CostMeterChip } from './components/CostMeterChip';
 import { ResumeEngagementPanel, useEngagementMatches, type ResumeSelection } from './components/ResumeEngagementPanel';
+import { CachedSynthesisOverlay, type CachedSynthesisStageId } from './components/CachedSynthesisOverlay';
 import { KnowledgeLibrary, type LibrarySelection } from './components/KnowledgeLibrary';
 import { KnowledgeLibraryPreview } from './components/KnowledgeLibraryPreview';
 import type { WikiLibrarySummary } from './services/wikiLibraryAggregator';
@@ -1112,6 +1113,25 @@ const App = () => {
     // short-circuit data collection when the user picked T4 build-only.
     const cachedResumePayloadRef = useRef<ResumeSelection | null>(null);
     useEffect(() => { cachedResumePayloadRef.current = cachedResumePayload; }, [cachedResumePayload]);
+    // 2026-05-14 — Cached-synthesis stage tracker drives the overlay UI so
+    // the researcher sees clear, step-by-step progress during the library
+    // short-circuit path. Without this, the RESEARCH ASSEMBLY BOARD goes
+    // blank and there's no visible feedback that work is happening.
+    const [cachedSynthStage, setCachedSynthStage] = useState<CachedSynthesisStageId>('idle');
+    const [cachedSynthCompleted, setCachedSynthCompleted] = useState<Set<string>>(new Set());
+    const [cachedSynthItemCount, setCachedSynthItemCount] = useState<number>(0);
+    const [cachedSynthDetail, setCachedSynthDetail] = useState<string>('');
+    const [cachedSynthError, setCachedSynthError] = useState<string>('');
+    const advanceCachedSynthStage = useCallback((next: CachedSynthesisStageId, detail = '') => {
+        setCachedSynthStage(prev => {
+            // When transitioning forward, mark the previous stage complete.
+            if (prev && prev !== 'idle' && prev !== 'complete' && prev !== 'failed' && prev !== next) {
+                setCachedSynthCompleted(c => new Set([...c, prev]));
+            }
+            return next;
+        });
+        setCachedSynthDetail(detail);
+    }, []);
     // 2026-05-14 — Knowledge Library: full-screen panel that visualizes
     // everything cached in the wiki (engagements / themes / sources / social)
     // and lets the researcher pick what to feed into the next run. Fresh
@@ -2549,6 +2569,16 @@ const App = () => {
             console.log(`[startAnalysis] Library short-circuit — ${totalSelections} cached items selected; skipping data collection.`);
             setAppState(AppState.ANALYZING);
             setStatusMessage(`Synthesizing from ${totalSelections} cached items — no live data collection needed.`);
+            // 2026-05-14 — Initialize the cached-synthesis overlay state so
+            // the user sees prominent step-by-step progress instead of a
+            // blank Research Assembly Board. Each generate* call transitions
+            // the stage via advanceCachedSynthStage; the overlay renders all
+            // 10 stages with checkmarks for completed ones.
+            setCachedSynthStage('hydrating-deliverables');
+            setCachedSynthCompleted(new Set());
+            setCachedSynthItemCount(totalSelections);
+            setCachedSynthDetail('');
+            setCachedSynthError('');
             // Hydrate cached engagement deliverables into state. This puts the
             // Analyst Desk into the same populated state as a completed run,
             // without burning any AI tokens.
@@ -2563,6 +2593,7 @@ const App = () => {
 
                     // 1. Engagement deliverables -> direct state hydration
                     if (librarySel!.engagementSlugs.length > 0) {
+                        advanceCachedSynthStage('hydrating-deliverables', `Reading ${librarySel!.engagementSlugs.length} engagement bundle(s)…`);
                         const bundles = await loadEngagementBundles(librarySel!.engagementSlugs);
                         let hydratedCount = 0;
                         bundles.forEach(b => {
@@ -2594,9 +2625,14 @@ const App = () => {
                         }
                     }
 
+                    if (librarySel!.socialSubreddits.length > 0) {
+                        advanceCachedSynthStage('loading-social', `Reading ${librarySel!.socialSubreddits.length} subreddit folder(s)…`);
+                    }
+
                     // 3. Assemble the cached corpus from ALL selections (engagement
                     // source archives + standalone source archives + theme cluster
                     // summaries + social posts). This is what feeds re-synthesis.
+                    advanceCachedSynthStage('assembling-corpus', `Stitching together every selected item into one corpus blob…`);
                     const corpus = await assembleCachedCorpus(librarySel!);
                     if (corpus.text && corpus.chars > 0) {
                         corpusTextRef.current = corpus.text;
@@ -2655,11 +2691,14 @@ const App = () => {
                         // hallucinate from the goal alone. Mirrors the live path's
                         // ingestion step (App.tsx ~line 4233).
                         try {
+                            advanceCachedSynthStage('ingesting', `Feeding ${Math.round(corpus.chars / 1024)}KB cached corpus into Gemini…`);
                             setStatusMessage('Ingesting cached corpus into synthesis session…');
                             await session.ingestContext(collectedDataFiles, noop);
                         } catch (ingestErr) {
                             console.warn('[Cache resynth] Ingestion failed, aborting chain:', ingestErr);
                             classicKgSynthesisRef.current.status = 'failed';
+                            setCachedSynthError(`Corpus ingestion failed: ${(ingestErr as any)?.message || 'unknown'}`);
+                            setCachedSynthStage('failed');
                             setStatusMessage('Cached corpus ingestion failed. Hydrated deliverables (if any) are still loaded.');
                             return;
                         }
@@ -2669,6 +2708,7 @@ const App = () => {
                         let themes: any = (themesResult as any) || null;
                         if (!hydratedKinds.has('themes')) {
                             try {
+                                advanceCachedSynthStage('themes', 'Generating themes from cached corpus…');
                                 themes = await session.generateThemes(undefined, noop);
                                 if (themes) { setThemesResult(themes); persist('themes', themes); }
                             } catch (err) { console.warn('[Cache resynth] Themes failed:', err); }
@@ -2676,6 +2716,7 @@ const App = () => {
                         // PERSONAS
                         if (!hydratedKinds.has('personas')) {
                             try {
+                                advanceCachedSynthStage('personas', 'Building personas from cached corpus…');
                                 const personas = await session.generatePersonas(themes, undefined, noop, noop);
                                 if (personas) { setPersonasResult(personas); persist('personas', personas); }
                             } catch (err) { console.warn('[Cache resynth] Personas failed:', err); }
@@ -2683,6 +2724,7 @@ const App = () => {
                         // RECOMMENDATIONS
                         if (!hydratedKinds.has('recs')) {
                             try {
+                                advanceCachedSynthStage('recs', 'Synthesizing recommendations from cached corpus…');
                                 const recs = await session.generateRecommendations(undefined, noop);
                                 if (recs) { setRecsResult(recs); persist('recs', recs); }
                             } catch (err) { console.warn('[Cache resynth] Recommendations failed:', err); }
@@ -2690,6 +2732,7 @@ const App = () => {
                         // JOURNEY MAP
                         if (!hydratedKinds.has('journey')) {
                             try {
+                                advanceCachedSynthStage('journey', 'Mapping the service journey from cached corpus…');
                                 const journey = await session.generateJourneyMap(undefined, noop);
                                 if (journey) { setJourneyResult(journey); persist('journey', journey); }
                             } catch (err) { console.warn('[Cache resynth] Journey failed:', err); }
@@ -2697,6 +2740,7 @@ const App = () => {
                         // GAP ANALYSIS
                         if (!hydratedKinds.has('gap')) {
                             try {
+                                advanceCachedSynthStage('gap', 'Scoring capability gaps from cached corpus…');
                                 const gap = await session.generateGapAnalysis(undefined, noop);
                                 if (gap) { setGapResult(gap); persist('gap', gap); }
                             } catch (err) { console.warn('[Cache resynth] Gap failed:', err); }
@@ -2704,16 +2748,19 @@ const App = () => {
                         // COMPETITIVE
                         if (!hydratedKinds.has('competitive')) {
                             try {
+                                advanceCachedSynthStage('competitive', 'Reading the competitive landscape from cached corpus…');
                                 const comp = await session.generateCompetitiveAnalysis(undefined, noop);
                                 if (comp) { setCompetitiveResult(comp); persist('competitive', comp); }
                             } catch (err) { console.warn('[Cache resynth] Competitive failed:', err); }
                         }
 
                         classicKgSynthesisRef.current.status = 'complete';
+                        advanceCachedSynthStage('complete', `Done. ${hydratedKinds.size > 0 ? hydratedKinds.size + ' deliverable(s) reused from cache; ' : ''}fresh synthesis produced for the rest.`);
                         setStatusMessage(`Re-synthesis complete from cached intelligence. ${hydratedKinds.size > 0 ? hydratedKinds.size + ' deliverable(s) reused from cache; ' : ''}fresh synthesis produced for the rest.`);
                     } else {
                         // No corpus assembled — all selections were engagement
                         // deliverables (already hydrated). Nothing to synthesize.
+                        advanceCachedSynthStage('complete', 'Cached deliverables loaded; no corpus to re-synthesize against.');
                         setStatusMessage('Cached intelligence loaded. Use the chat to explore or compose deliverables.');
                     }
 
@@ -2723,6 +2770,8 @@ const App = () => {
                     console.warn('[startAnalysis] Library hydration failed (non-fatal):', hydrationErr);
                     setStatusMessage(`Cached-data load partially failed: ${hydrationErr?.message || 'unknown'}. You can still use the chat.`);
                     classicKgSynthesisRef.current.status = 'failed';
+                    setCachedSynthError(String(hydrationErr?.message || hydrationErr));
+                    setCachedSynthStage('failed');
                 }
             })();
             return;
@@ -5337,7 +5386,22 @@ ${synthesisParts.join('\n')}
 
                   {/* ANALYZING STATE */}
                   {appState === AppState.ANALYZING && (
-                      <div className="flex-1 p-8 bg-[var(--bg-primary)] h-full overflow-hidden flex flex-col">
+                      <div className="flex-1 p-8 bg-[var(--bg-primary)] h-full overflow-auto flex flex-col">
+                           {/* 2026-05-14 — Cached-synthesis overlay. Shows
+                               step-by-step progress when the user picked
+                               cached items via the Library or Resume panel
+                               (the orchestrator is skipped, so the normal
+                               LiveResearchBoard surfaces nothing — without
+                               this overlay the screen looks frozen.) */}
+                           <CachedSynthesisOverlay
+                               show={cachedSynthStage !== 'idle'}
+                               stage={cachedSynthStage}
+                               completed={cachedSynthCompleted}
+                               itemCount={cachedSynthItemCount}
+                               detail={cachedSynthDetail}
+                               error={cachedSynthError}
+                               accentColor="#00B7C3"
+                           />
                            <LiveResearchBoard
                                ingestion={ingestionResult}
                                themes={themesResult}
