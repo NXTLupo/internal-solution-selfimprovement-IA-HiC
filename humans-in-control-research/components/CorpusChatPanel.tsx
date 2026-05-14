@@ -53,6 +53,7 @@ import { safeDynamicImport } from '../services/safeDynamicImport';
 import { compose as composeNarrative } from '../services/narrativeComposer';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
+import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './PromptEnhancer';
 // --- Mid-chat upload dropzone (2026-05-08) ---
 import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
@@ -97,6 +98,18 @@ interface Props {
      *  the App can serialize the latest history when saving. */
     initialMessages?: ChatMessage[];
     onMessagesChange?: (messages: ChatMessage[]) => void;
+    /** 2026-05-14 — T4 build-only iteration. When the IDLE-screen resume
+     *  picker loads cached briefs from a prior engagement, App passes them
+     *  here. The chat panel renders an assistant message with the cached
+     *  briefs ready for selection — click Build → handleApproveBrief runs
+     *  Stages 2-5 only against the cached brief, skipping all data
+     *  collection + Pass 1/2 brief generation. */
+    initialCachedBriefs?: {
+        briefs: any[];
+        meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string };
+        sourceSlug: string;
+        mode: 't4-build-only' | 't3-briefs';
+    };
 }
 
 /**
@@ -605,6 +618,19 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
     const [editingSlug, setEditingSlug] = useState<string | null>(null);
     const [editInstruction, setEditInstruction] = useState('');
     const [busySlug, setBusySlug] = useState<string | null>(null);
+    // 2026-05-14 — Enhancer for the inline revision instruction. Same Gemini
+    // Flash service the chats use, but the 'revision' surface biases the
+    // rubric toward imperative surgical tweaks rather than open prompts.
+    const revisionEnhancer = usePromptEnhancer({
+        input: editInstruction,
+        setInput: setEditInstruction,
+        surface: 'revision',
+        getContext: () => {
+            const slug = editingSlug || '';
+            const item = items.find(i => i.slug === slug);
+            return item ? `Revising presentation: ${item.title} (${item.brand || 'NXT'} brand)` : '';
+        },
+    });
 
     if (!items || items.length === 0) return null;
 
@@ -706,19 +732,21 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
                         {/* Inline edit form */}
                         {isEditing && (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 6 }}>
+                                <EnhancePreview handle={revisionEnhancer} accentColor="#00B7C3" />
                                 <textarea
                                     value={editInstruction}
                                     onChange={e => setEditInstruction(e.target.value)}
-                                    placeholder="What change? e.g. 'make recommendations more aggressive'"
-                                    rows={2}
-                                    style={{ padding: 6, border: '1px solid #DDD', fontSize: 10, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none' }}
+                                    placeholder="What change? e.g. 'replace Microsoft case with Salesforce, drop infrastructure-cost section'"
+                                    rows={3}
+                                    style={{ padding: 8, border: '1px solid #DDD', fontSize: 11, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', minHeight: 60, lineHeight: 1.5 }}
                                 />
-                                <div style={{ display: 'flex', gap: 6 }}>
+                                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                                     <button
                                         onClick={() => handleEditSubmit(item.slug)}
                                         disabled={isBusy || !editInstruction.trim()}
                                         style={chipStyle('#B8B800', '#0D0D0D')}
                                     >{isBusy ? 'Composing…' : 'Compose revision'}</button>
+                                    <EnhanceButton handle={revisionEnhancer} accentColor="#00B7C3" compact disabled={isBusy} />
                                     <button
                                         onClick={() => { setEditingSlug(null); setEditInstruction(''); }}
                                         disabled={isBusy}
@@ -1049,6 +1077,38 @@ const PrototypeLaunchCard: React.FC<{
     const accentColor = brand === 'NU' ? '#C00000' : '#B8B800';
     const verdict = meta?.verdict;
     const verdictColor = verdict === 'ship' ? '#0CCE6B' : verdict === 'refine' ? '#FD8E2E' : verdict === 'rebuild' ? '#CC6644' : '#525252';
+    const [exporting, setExporting] = useState(false);
+    const [exportError, setExportError] = useState('');
+
+    const handleExportZip = async () => {
+        if (!meta?.slug) { setExportError('No prototype slug available'); return; }
+        setExporting(true);
+        setExportError('');
+        try {
+            const [{ getPrototype }, { exportPrototypeAsZip }] = await Promise.all([
+                safeDynamicImport(() => import('../services/prototypeLibrary'), 'prototypeLibrary (zip export)'),
+                safeDynamicImport(() => import('../services/prototypeExporter'), 'prototypeExporter'),
+            ]);
+            const artifact = await getPrototype(meta.slug);
+            await exportPrototypeAsZip({
+                title: artifact.title || meta.title || meta.slug,
+                slug: meta.slug,
+                brand: artifact.brand || meta.brand,
+                code: artifact.code,
+                based_on: artifact.based_on || meta.based_on,
+                research_goal: (artifact as any).researchGoal || (artifact as any).research_goal,
+                brief: (artifact as any).brief || (artifact as any).approved_brief,
+                critique: artifact.critique,
+                code_format: (artifact as any).code_format,
+            });
+        } catch (e: any) {
+            console.error('[PrototypeLaunchCard] zip export failed:', e);
+            setExportError(String(e?.message || e).slice(0, 200));
+        } finally {
+            setExporting(false);
+        }
+    };
+
     return (
         <div style={{
             marginTop: 10,
@@ -1059,8 +1119,9 @@ const PrototypeLaunchCard: React.FC<{
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: 16,
+            flexWrap: 'wrap',
         }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ flex: '1 1 280px', minWidth: 0 }}>
                 <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: accentColor, marginBottom: 4 }}>
                     Interactive Prototype · {brand}
                 </div>
@@ -1074,25 +1135,49 @@ const PrototypeLaunchCard: React.FC<{
                     {verdict && <span style={{ marginLeft: 8, color: verdictColor, fontWeight: 700, textTransform: 'uppercase' }}>{verdict}</span>}
                     {meta?.based_on && <span style={{ marginLeft: 8 }}>· based on: {meta.based_on}</span>}
                 </div>
+                {exportError && (
+                    <div style={{ marginTop: 6, fontSize: 10, color: '#CC6644' }}>Export failed: {exportError}</div>
+                )}
             </div>
-            <button
-                onClick={() => window.open(url, '_blank', 'noopener,noreferrer,width=1280,height=900')}
-                style={{
-                    padding: '10px 18px',
-                    background: accentColor,
-                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
-                    border: 'none',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    letterSpacing: '1.5px',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer',
-                    flexShrink: 0,
-                }}
-                aria-label="Launch prototype in new window"
-            >
-                Launch ↗
-            </button>
+            <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
+                <button
+                    onClick={handleExportZip}
+                    disabled={exporting || !meta?.slug}
+                    title={meta?.slug ? 'Download a runnable Vite project zip — package.json, vite.config, src/App, README, brief.json, critique.json' : 'Save the prototype first to export'}
+                    style={{
+                        padding: '10px 14px',
+                        background: 'transparent',
+                        color: exporting ? '#999' : '#0D0D0D',
+                        border: `1px solid ${exporting ? '#CCC' : '#0D0D0D'}`,
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: '1.5px',
+                        textTransform: 'uppercase',
+                        cursor: exporting || !meta?.slug ? 'not-allowed' : 'pointer',
+                        fontFamily: "'Archivo', sans-serif",
+                    }}
+                    aria-label="Export prototype as runnable Vite project zip"
+                >
+                    {exporting ? 'Bundling…' : 'Export ZIP ↓'}
+                </button>
+                <button
+                    onClick={() => window.open(url, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                    style={{
+                        padding: '10px 18px',
+                        background: accentColor,
+                        color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                        border: 'none',
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: '1.5px',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                    }}
+                    aria-label="Launch prototype in new window"
+                >
+                    Launch ↗
+                </button>
+            </div>
         </div>
     );
 };
@@ -1406,6 +1491,18 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
     const [editingSlug, setEditingSlug] = useState<string | null>(null);
     const [editInstruction, setEditInstruction] = useState('');
     const [confirmDeleteSlug, setConfirmDeleteSlug] = useState<string | null>(null);
+    // 2026-05-14 — Enhancer for prototype revision instructions. Same 'revision'
+    // surface rubric — imperative, surgical, deltas not redesigns.
+    const protoRevisionEnhancer = usePromptEnhancer({
+        input: editInstruction,
+        setInput: setEditInstruction,
+        surface: 'revision',
+        getContext: () => {
+            const slug = editingSlug || '';
+            const item = items.find(i => i.slug === slug);
+            return item ? `Revising prototype: ${item.title} (${item.brand || ''})` : '';
+        },
+    });
     return (
         <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
             {items.map(p => (
@@ -1433,13 +1530,15 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                     </div>
                     {editingSlug === p.slug ? (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            <EnhancePreview handle={protoRevisionEnhancer} accentColor="#00B7C3" />
                             <textarea
                                 value={editInstruction}
                                 onChange={e => setEditInstruction(e.target.value)}
-                                placeholder="What should change? e.g., 'Add a dark mode toggle' or 'Make the chat feel more conversational'"
-                                style={{ width: '100%', minHeight: 60, padding: 8, fontSize: 11, fontFamily: 'Archivo, sans-serif', border: '1px solid #E5E5E5', resize: 'vertical' }}
+                                placeholder="What should change? e.g. 'add dark-mode toggle wired to design-system tokens', 'increase seed records from 15 to 30', 'replace single-shot AI call with Claude-style tool loop'"
+                                rows={4}
+                                style={{ width: '100%', minHeight: 88, padding: 10, fontSize: 11, fontFamily: 'Archivo, sans-serif', border: '1px solid #E5E5E5', resize: 'vertical', lineHeight: 1.5 }}
                             />
-                            <div style={{ display: 'flex', gap: 4 }}>
+                            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                                 <button
                                     onClick={async () => {
                                         const instr = editInstruction.trim();
@@ -1452,6 +1551,7 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                                 >
                                     Apply Edit
                                 </button>
+                                <EnhanceButton handle={protoRevisionEnhancer} accentColor="#00B7C3" compact />
                                 <button
                                     onClick={() => { setEditingSlug(null); setEditInstruction(''); }}
                                     style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#F5F5F0', color: '#525252', border: '1px solid #E5E5E5', cursor: 'pointer', textTransform: 'uppercase' }}
@@ -2031,8 +2131,19 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
     win.document.title = `${brief.title} · Product Brief`;
 }
 
-const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard) => void; isBuilding: boolean; brand: 'NXT' | 'NU'; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
+const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard, customization?: string) => void; isBuilding: boolean; brand: 'NXT' | 'NU'; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
     const [expanded, setExpanded] = useState(false); // collapsed by default; popup window is the primary deep-dive surface
+    // 2026-05-14 — Brief-customization slot. Last-mile tweaks the user wants
+    // applied BEFORE the 7-stage pipeline runs. The text gets prepended to
+    // the concept passed into Stage 2 so every downstream stage sees it.
+    const [showCustomization, setShowCustomization] = useState(false);
+    const [customization, setCustomization] = useState('');
+    const customizationEnhancer = usePromptEnhancer({
+        input: customization,
+        setInput: setCustomization,
+        surface: 'brief-customization',
+        getContext: () => `Brief: ${brief.title} (${brief.frame_label}, p=${Math.round((brief.probability || 0) * 100)}%) · ${brief.one_line_thesis || ''}`.slice(0, 600),
+    });
     const frameColor = brief.frame_label === 'convention-honoring' ? '#0D0D0D'
         : brief.frame_label === 'shifted-frame' ? '#00B7C3'
         : brief.frame_label === 'adjacent-vertical' ? '#B8B800'
@@ -2099,9 +2210,9 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                     style={exportBtnStyle}
                 >.json</button>
                 <button
-                    onClick={() => onApprove(brief)}
+                    onClick={() => onApprove(brief, customization.trim() || undefined)}
                     disabled={isBuilding || !!(brief as any)._pass2_failed}
-                    title={(brief as any)._pass2_failed ? 'Cannot build from a skeleton-only brief — regenerate the brief set first' : 'Build this brief into a prototype'}
+                    title={(brief as any)._pass2_failed ? 'Cannot build from a skeleton-only brief — regenerate the brief set first' : (customization.trim() ? 'Build this brief with your customization tweaks applied' : 'Build this brief into a prototype')}
                     style={{
                         padding: '8px 18px',
                         background: (brief as any)._pass2_failed ? '#E5E5E5' : (isBuilding ? '#E5E5E5' : '#0D0D0D'),
@@ -2112,9 +2223,40 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                         cursor: (isBuilding || (brief as any)._pass2_failed) ? 'not-allowed' : 'pointer',
                     }}
                 >
-                    {(brief as any)._pass2_failed ? '⚠ Build disabled' : (isBuilding ? 'Building…' : `▶ Build this brief`)}
+                    {(brief as any)._pass2_failed ? '⚠ Build disabled' : (isBuilding ? 'Building…' : (customization.trim() ? `▶ Build with tweaks` : `▶ Build this brief`))}
                 </button>
             </div>
+            {/* Brief-customization slot — last-mile tweaks applied before the
+                7-stage pipeline runs. Collapsed by default; click to expand. */}
+            {!isBuilding && !(brief as any)._pass2_failed && (
+                <div style={{ borderTop: '1px solid #E5E5E5', background: showCustomization ? '#FAFCFD' : '#FFFFFF' }}>
+                    <button
+                        type="button"
+                        onClick={() => setShowCustomization(v => !v)}
+                        style={{ width: '100%', padding: '8px 18px', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: 1.2, color: customization.trim() ? '#00B7C3' : '#525252', textTransform: 'uppercase' }}
+                    >
+                        {showCustomization ? '−' : '+'} Refine brief before building {customization.trim() ? `· ${customization.trim().length} chars staged` : '(optional surgical tweaks)'}
+                    </button>
+                    {showCustomization && (
+                        <div style={{ padding: '0 18px 14px' }}>
+                            <EnhancePreview handle={customizationEnhancer} accentColor="#00B7C3" />
+                            <textarea
+                                value={customization}
+                                onChange={e => setCustomization(e.target.value)}
+                                placeholder="Surgical tweaks: 'seed 30 student records, not 15', 'add a faculty-advisor screen', 'lean harder into NU red than chartreuse', 'replace single-shot AI call with Claude-style tool loop'"
+                                rows={4}
+                                style={{ width: '100%', padding: 10, border: '1px solid #DDD', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', minHeight: 96, lineHeight: 1.5, boxSizing: 'border-box' }}
+                            />
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 6 }}>
+                                <span style={{ fontSize: 10, color: '#737373', fontStyle: 'italic' }}>
+                                    Threaded into every downstream stage as additional grounding.
+                                </span>
+                                <EnhanceButton handle={customizationEnhancer} accentColor="#00B7C3" />
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )}
             {/* Title + thesis */}
             <div style={{ padding: '16px 18px' }}>
                 <h3 style={{ fontFamily: "'Archivo', sans-serif", fontSize: 18, fontWeight: 700, margin: '0 0 6px 0', color: '#0D0D0D', lineHeight: 1.25 }}>{brief.title}</h3>
@@ -2255,7 +2397,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 const ProductBriefsGrid: React.FC<{
     briefs: ProductBriefForCard[];
     meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string };
-    onApprove: (brief: ProductBriefForCard) => void;
+    onApprove: (brief: ProductBriefForCard, customization?: string) => void;
 }> = ({ briefs, meta, onApprove }) => {
     const [building, setBuilding] = useState<string | null>(null);
     return (
@@ -2270,9 +2412,9 @@ const ProductBriefsGrid: React.FC<{
                     idx={i}
                     brand={meta.brand}
                     isBuilding={building === (b.id || `brief-${i}`)}
-                    onApprove={(brief) => {
+                    onApprove={(brief, customization) => {
                         setBuilding(brief.id || `brief-${i}`);
-                        onApprove(brief);
+                        onApprove(brief, customization);
                     }}
                 />
             ))}
@@ -3207,7 +3349,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     );
 };
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange }) => {
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 — Mirror messages up to the App so a session-save can
     // serialize the conversation. Effect-based callback (not inline)
@@ -3228,6 +3370,40 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         onMessagesChange?.(messages);
     }, [messages, onMessagesChange]);
     const [input, setInput] = useState('');
+    // 2026-05-14 — T4 build-only iteration. When the parent supplies cached
+    // briefs from a resumed engagement, inject them as an assistant message
+    // so the user goes straight to brief-selection without re-running Pass 1+2.
+    const _injectedCachedBriefsRef = useRef(false);
+    useEffect(() => {
+        if (_injectedCachedBriefsRef.current) return;
+        if (!initialCachedBriefs || !initialCachedBriefs.briefs?.length) return;
+        _injectedCachedBriefsRef.current = true;
+        const cb = initialCachedBriefs;
+        const briefMsg: ChatMessage = {
+            id: `msg_${Date.now()}_resume`,
+            role: 'assistant',
+            content: `Here are the ${cb.briefs.length} product briefs from your earlier work on this engagement. Pick the one you want to turn into a working prototype and click Build — it typically takes 4–8 minutes.`,
+            timestamp: Date.now(),
+            prototypeBriefs: cb.briefs as any,
+            prototypeBriefsMeta: cb.meta as any,
+        };
+        setMessages(prev => [...prev, briefMsg]);
+        console.log(`[Resume] loaded ${cb.briefs.length} cached briefs from ${cb.sourceSlug} (${cb.mode})`);
+    }, [initialCachedBriefs]);
+    // 2026-05-14 — Prompt enhancer (Gemini Flash). Reads live engagement
+    // context (research goal + recent active categories) so the rewrite is
+    // grounded in what the user is actually working on.
+    const enhancer = usePromptEnhancer({
+        input,
+        setInput,
+        surface: 'analyst',
+        getContext: () => {
+            const live = getContext ? getContext() : context;
+            const goal = live?.researchGoal || '';
+            const cats = (live?.activeCategories || []).slice(0, 8).join(', ');
+            return `Research goal: ${goal}${cats ? `\nActive source categories: ${cats}` : ''}`.trim();
+        },
+    });
     // 2026-05-07 — Default chat model promoted to Gemini 3.1 Pro. DeepSeek
     // V4 Flash produced jargon-heavy AI-slop narratives; Gemini 3.1 Pro has
     // 1M context and follows multi-step rules reliably with professional tone.
@@ -3850,6 +4026,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         brief: any,
         meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string },
         sourceMsgId: string,
+        customization?: string,
     ) => {
         const buildMsgId = `msg_${Date.now()}_proto_build`;
         const stageLog: string[] = [];
@@ -3861,21 +4038,30 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         const renderStatus = () => {
             const totalElapsed = Math.round((Date.now() - buildStartedAt) / 1000);
             const runningLine = currentRunningStage
-                ? `\n\n⏳ ${currentRunningStage.label}: ${currentRunningStage.name} — running ${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s (model is thinking; this stage can take 60-180s with high thinking budget)`
+                ? `\n\nCurrently working on: ${currentRunningStage.name} (${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s elapsed on this step)`
                 : '';
-            const elapsedLine = `\n\n⏱ Total elapsed: ${totalElapsed}s · The whole pipeline typically runs 4-8 minutes end-to-end.`;
+            const elapsedLine = `\n\nTotal elapsed: ${totalElapsed}s · Most prototypes finish in 4–8 minutes.`;
             setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                 ...m,
-                content: `Building approved brief: **${brief.title}** (${meta.brand})…\n\n${stageLog.slice(-12).join('\n')}${runningLine}${elapsedLine}`,
+                content: `Building your prototype: **${brief.title}** (${meta.brand})…\n\n${stageLog.slice(-12).join('\n')}${runningLine}${elapsedLine}`,
             } : m));
         };
         setMessages(prev => [...prev, {
             id: buildMsgId,
             role: 'assistant',
-            content: `Building approved brief: **${brief.title}** (${meta.brand})…\n\nPipeline: Stage 2 (Interaction Architect) → Stage 3 (Visual Designer) → Stage 3.5 (Build Recipe Author) → Stage 4 (Coder executes recipe verbatim) → Stage 5 (Critic audits against assertions). Stage 1 is skipped — your brief IS the spec.\n\n⏱ Total elapsed: 0s · Each stage shows live elapsed time while it's running.`,
+            content: `Building your prototype: **${brief.title}** (${meta.brand})…\n\nDesigning the interactions, generating realistic data, writing the code, and auditing the result. You'll see each step finish as it completes — typically 4–8 minutes start to finish.`,
             timestamp: Date.now(),
         }]);
         const heartbeat = window.setInterval(renderStatus, 4000);
+        // 2026-05-14 — Snapshot per-model cost totals at build start so we can
+        // diff against them at end-of-build. The chat surface reports BOTH
+        // the build's total dollar cost AND which models the user was billed
+        // for (e.g., "$5.43 — Claude Opus 4.7 $1.85, GPT-5.5 $2.32, Gemini
+        // 3.1 Pro $1.26"). The bottom-right cost chip shows cumulative
+        // engagement totals; this chat line shows the single-build delta.
+        const _costMeter = await safeDynamicImport(() => import('../services/costMeter'), 'costMeter (start snapshot)');
+        const { snapshotByModel: _snapshotByModel, summarizeBuildCost: _summarizeBuildCost } = _costMeter;
+        const modelSnapshotAtBuildStart = _snapshotByModel ? _snapshotByModel() : {};
         try {
             const [{ buildPrototype }, { productBriefToExperienceBrief, productBriefToRichContext }, { savePrototype }] = await Promise.all([
                 safeDynamicImport(() => import('../services/prototypeBuilder'), 'prototypeBuilder (post-brief build)'),
@@ -3884,7 +4070,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             ]);
             const experienceBrief = productBriefToExperienceBrief(brief);
             const richBriefText = productBriefToRichContext(brief);
-            const conceptForPipeline = `${richBriefText}\n\n=== ORIGINAL ENGAGEMENT CONTEXT (the rich consulting brief the briefs were generated from) ===\n${meta.originalConcept}`;
+            const customizationBlock = customization && customization.trim()
+                ? `\n\n=== USER-SUPPLIED LAST-MILE CUSTOMIZATION (surgical tweaks the user added before clicking Build — apply these in every downstream stage; they OVERRIDE any conflicting hint in the brief or original context) ===\n${customization.trim()}`
+                : '';
+            const conceptForPipeline = `${richBriefText}\n\n=== ORIGINAL ENGAGEMENT CONTEXT (the rich consulting brief the briefs were generated from) ===\n${meta.originalConcept}${customizationBlock}`;
             const artifact = await buildPrototype({
                 concept: conceptForPipeline,
                 brand: meta.brand,
@@ -3894,21 +4083,39 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 approvedBrief: experienceBrief,
                 onProgress: (n, name, status, detail) => {
                     const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
-                    const stageLabel = n === 25 ? 'Stage 2.5' : n === 35 ? 'Stage 3.5' : `Stage ${n}`;
+                    // Map the underlying step numbers (1, 2, 25, 3, 35, 4, 5) to
+                    // a clean user-facing sequence (1 through 6). Step 1 (concept
+                    // analysis) is usually skipped when the user picked a brief,
+                    // so the visible sequence runs from 1 of 6 (interaction
+                    // design) through 6 of 6 (quality review).
+                    const stepOrder: Record<number, number> = { 1: 0, 2: 1, 25: 2, 3: 3, 35: 4, 4: 5, 5: 6 };
+                    const totalSteps = 6;
+                    const stepIdx = stepOrder[n] ?? n;
+                    const stepLabel = stepIdx > 0 ? `Step ${stepIdx} of ${totalSteps}` : 'Setup';
+                    // Translate the underlying specialist names into plain English.
+                    const FRIENDLY_NAMES: Record<string, string> = {
+                        'Concept Decomposer': 'Concept analysis',
+                        'Interaction Architect': 'Interaction design',
+                        'Simulated User Sessions': 'Real-user scenarios',
+                        'Visual Designer': 'Visual design',
+                        'Build Recipe Author': 'Implementation plan',
+                        'Prototype Coder': 'Code generation',
+                        'Critic + Refiner': 'Quality review',
+                    };
+                    const friendlyName = FRIENDLY_NAMES[name] || name;
                     if (status === 'running') {
-                        currentRunningStage = { label: stageLabel, name, startedAt: Date.now() };
-                        stageLog.push(`${icon} ${stageLabel}: ${name} — started`);
+                        currentRunningStage = { label: stepLabel, name: friendlyName, startedAt: Date.now() };
+                        stageLog.push(`${icon} ${stepLabel} · ${friendlyName} — in progress`);
                     } else {
-                        // done/failed — finalize the stage line + clear the running marker
-                        const elapsed = currentRunningStage && currentRunningStage.label === stageLabel
+                        // done/failed — finalize the line + clear the running marker
+                        const elapsed = currentRunningStage && currentRunningStage.label === stepLabel
                             ? ` (${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s)`
                             : '';
-                        // Replace the last "started" line for this stage with the final outcome
-                        const lastIdx = stageLog.findIndex(l => l.includes(`${stageLabel}: ${name} — started`));
-                        const finalLine = `${icon} ${stageLabel}: ${name}${detail ? ` — ${detail}` : ''}${elapsed}`;
+                        const lastIdx = stageLog.findIndex(l => l.includes(`${stepLabel} · ${friendlyName} — in progress`));
+                        const finalLine = `${icon} ${stepLabel} · ${friendlyName}${detail ? ` — ${detail}` : ''}${elapsed}`;
                         if (lastIdx >= 0) stageLog[lastIdx] = finalLine;
                         else stageLog.push(finalLine);
-                        if (currentRunningStage?.label === stageLabel) currentRunningStage = null;
+                        if (currentRunningStage?.label === stepLabel) currentRunningStage = null;
                     }
                     renderStatus();
                 },
@@ -3916,9 +4123,24 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const saved = await savePrototype(artifact);
             window.clearInterval(heartbeat);
             const totalSec = Math.round((Date.now() - buildStartedAt) / 1000);
+            const totalMin = totalSec >= 60 ? `${Math.floor(totalSec / 60)} min ${totalSec % 60}s` : `${totalSec}s`;
+            // Friendly quality summary — map the audit verdict to plain English.
+            const verdict = artifact.critique?.verdict || 'ship';
+            const qualityLine = verdict === 'ship'
+                ? 'Quality check passed — ready to share.'
+                : verdict === 'refine'
+                    ? 'Quality check found a few fixable items — review the notes below.'
+                    : 'Quality check flagged concerns — please review before sharing.';
+            // Per-build cost = delta from the start-of-build snapshot. Surfaces
+            // the dollar amount AND names the models the user was billed for
+            // (so they always know which providers their spend went to).
+            const buildCostSummary = _summarizeBuildCost
+                ? _summarizeBuildCost(modelSnapshotAtBuildStart)
+                : '';
+            const costLine = buildCostSummary ? `\n\n${buildCostSummary}` : '';
             setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                 ...m,
-                content: `Prototype ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB) · built in ${totalSec}s.\n\nVerdict: ${artifact.critique?.verdict || '—'}. Built from approved brief "${brief.frame_label}" (p=${brief.probability}). Click LAUNCH to open in a new window.\n\n${stageLog.join('\n')}`,
+                content: `Your prototype is ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB) · built in ${totalMin}.\n\n${qualityLine} Click LAUNCH to open it in a new window.${costLine}\n\n${stageLog.join('\n')}`,
                 prototypeUrl: `http://localhost:5012${saved.view_url}`,
                 prototypeMeta: {
                     slug: saved.slug,
@@ -5087,6 +5309,53 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         originalConcept: conceptText,
                     },
                 } : m));
+                // 2026-05-14 — Persist the 5 briefs to wiki for T4 build-only
+                // iteration. Slug uses the engagement goal so subsequent visits
+                // to the same goal can resume from this cached brief set without
+                // re-running Pass 1+2 (saves $15-22 per re-iteration).
+                try {
+                    const { writeEngagementBriefs, writeEngagementManifest, buildEngagementSlug } = await safeDynamicImport(
+                        () => import('../services/wikiService'),
+                        'wikiService (brief persistence)',
+                    );
+                    const { getRunTotals } = await safeDynamicImport(
+                        () => import('../services/costMeter'),
+                        'costMeter (snapshot)',
+                    );
+                    const goalForSlug = liveCtx?.researchGoal || protoDirective.concept || 'untitled-engagement';
+                    const slug = buildEngagementSlug(goalForSlug, 60);
+                    const briefRecords = briefs.map((b: any, idx: number) => ({
+                        id: b.id || `brief-${idx + 1}`,
+                        frame_label: b.frame_label,
+                        probability: b.probability,
+                        title: b.title,
+                        brand: protoDirective.brand,
+                        based_on: protoDirective.basedOn,
+                        research_goal: liveCtx?.researchGoal || '',
+                        original_concept: conceptText,
+                        brief: b,
+                    }));
+                    const runTotals = getRunTotals ? getRunTotals() : { totalUSD: 0 };
+                    await writeEngagementBriefs(slug, {
+                        slug,
+                        research_goal: liveCtx?.researchGoal || '',
+                        brand: protoDirective.brand,
+                        briefs: briefRecords,
+                        cost_usd_at_generation: runTotals.totalUSD,
+                    } as any);
+                    await writeEngagementManifest(slug, {
+                        research_goal: liveCtx?.researchGoal || '',
+                        brand: protoDirective.brand,
+                        cached: {
+                            briefs: { count: briefs.length, path: `engagements/${slug}/briefs.json` },
+                        },
+                        cost_usd_total: runTotals.totalUSD,
+                    });
+                    console.log(`[T4 cache] Persisted ${briefs.length} briefs + manifest at engagements/${slug}/`);
+                } catch (cacheErr) {
+                    // Cache writes are non-fatal — brief generation already succeeded.
+                    console.warn('[T4 cache] brief persistence failed (non-fatal):', cacheErr);
+                }
             } catch (e: any) {
                 setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
@@ -5906,7 +6175,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     <ProductBriefsGrid
                                         briefs={msg.prototypeBriefs as any[]}
                                         meta={msg.prototypeBriefsMeta as any}
-                                        onApprove={(brief) => handleApproveBrief(brief, msg.prototypeBriefsMeta as any, msg.id)}
+                                        onApprove={(brief, customization) => handleApproveBrief(brief, msg.prototypeBriefsMeta as any, msg.id, customization)}
                                     />
                                 )}
 
@@ -6149,6 +6418,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         ))}
                     </div>
                 )}
+                <EnhancePreview handle={enhancer} accentColor="#00B7C3" />
                 <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
                     {/* Paperclip + drag-drop dropzone (shared component) */}
                     <ChatAttachmentDropzone
@@ -6161,7 +6431,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     <div style={{ flex: 1, position: 'relative' }}>
                         <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}
                             placeholder="Ask about your research data... Try #help for all hashtag directives."
-                            rows={2} style={{ width: '100%', padding: '8px 10px', border: '1px solid #E0E0E0', fontSize: 11, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box' }} />
+                            rows={4} style={{ width: '100%', padding: '10px 12px', border: '1px solid #E0E0E0', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box', minHeight: 88 }} />
                         <HashtagAutocomplete
                             input={input}
                             inputRef={inputRef}
@@ -6184,13 +6454,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             }}
                         />
                     </div>
+                    <EnhanceButton handle={enhancer} accentColor="#00B7C3" disabled={isLoading} />
                     <button onClick={() => handleSend()} disabled={(!input.trim() && pendingAttachments.length === 0) || isLoading} style={{
                         padding: '0 14px', background: isLoading ? '#CCC' : '#B8B800', color: '#0D0D0D', border: 'none',
                         fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: isLoading ? 'default' : 'pointer',
                     }}>Send</button>
                 </div>
                 <div style={{ fontSize: 8, color: '#AAA', marginTop: 4 }}>
-                    Shift+Enter for new line | {modelConfig?.name} ({modelConfig?.contextWindow})
+                    Shift+Enter for new line | Enhance rewrites your prompt via Gemini Flash | {modelConfig?.name} ({modelConfig?.contextWindow})
                     {skillManifest.length > 0 && ` | ${skillManifest.filter(s => s.category === 'research-deliverable').length} skills`}
                     {' | '}
                     <span

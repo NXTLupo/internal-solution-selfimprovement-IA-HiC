@@ -2125,3 +2125,238 @@ function estimateSpecificity(text: string): number {
 
     return Math.min(5, score);
 }
+
+// =============================================================================
+// 2026-05-14 — Engagement cache layer (Tier 4 build-only iteration support).
+//
+// Persists generated artifacts under wiki/engagements/<slug>/ so a subsequent
+// run of the same engagement can resume from cache instead of regenerating.
+// Each engagement has:
+//
+//   wiki/engagements/<slug>/
+//     manifest.json         — what's cached + timestamps + cost stamps
+//     briefs.json           — the 5 product briefs from prototypeBriefGenerator
+//     themes.json           — themes JSON (future)
+//     deliverables.json     — personas/journey/gap/comp/blueprint (future)
+//     prototypes/<id>.json  — built prototypes (future)
+//
+// All paths are relative to the wiki root and go through the same proxy
+// /api/wiki/{read,write,list} endpoints as everything else.
+// =============================================================================
+
+export interface EngagementBriefRecord {
+    id: string;
+    frame_label: string;
+    probability: number;
+    title: string;
+    brand: 'NXT' | 'NU';
+    based_on?: string;
+    research_goal?: string;
+    original_concept: string;
+    brief: any;             // full ProductBrief JSON
+}
+
+export interface EngagementBriefsFile {
+    schema_version: 1;
+    slug: string;
+    research_goal: string;
+    brand: 'NXT' | 'NU';
+    created_at: string;
+    updated_at: string;
+    briefs: EngagementBriefRecord[];
+    /** model mode used to generate (opus | hybrid | gpt) so we can show provenance on reload. */
+    brief_model_mode?: 'opus' | 'hybrid' | 'gpt';
+    /** Approximate cost in USD at generation time (cost meter snapshot). */
+    cost_usd_at_generation?: number;
+}
+
+export interface EngagementManifest {
+    schema_version: 1;
+    slug: string;
+    research_goal: string;
+    brand?: 'NXT' | 'NU';
+    created_at: string;
+    updated_at: string;
+    /** Quick-glance counts so the IDLE-screen resume picker can show "5 briefs · 3 prototypes" without loading the full files. */
+    cached: {
+        briefs?: { count: number; path: string; brief_model_mode?: 'opus' | 'hybrid' | 'gpt' };
+        themes?: { count: number; path: string };
+        personas?: { count: number; path: string };
+        prototypes?: { count: number; ids: string[] };
+        engagement_md?: { path: string };
+    };
+    /** Cumulative cost meter snapshot across the engagement's lifetime. */
+    cost_usd_total?: number;
+}
+
+const ENGAGEMENT_DIR = 'engagements';
+
+function engagementBriefsPath(slug: string): string {
+    return `${ENGAGEMENT_DIR}/${slug}/briefs.json`;
+}
+function engagementManifestPath(slug: string): string {
+    return `${ENGAGEMENT_DIR}/${slug}/manifest.json`;
+}
+
+// 2026-05-14 Phase B — Deliverable persistence. The pipeline generates a
+// rich JSON for themes/personas/journey/gap/recs/competitive/blueprint, but
+// those have never been written to disk (only included in session snapshots).
+// Persisting them per-engagement enables the Knowledge Library to cache-load
+// on subsequent runs against the same goal.
+export type DeliverableKind =
+    | 'themes' | 'personas' | 'journey' | 'gap' | 'recs' | 'competitive' | 'blueprint';
+
+function deliverablePath(slug: string, kind: DeliverableKind): string {
+    return `${ENGAGEMENT_DIR}/${slug}/${kind}.json`;
+}
+
+/**
+ * Persist a deliverable JSON to wiki/engagements/<slug>/<kind>.json. Best-
+ * effort: returns false on any error rather than throwing — deliverable
+ * generation already succeeded, we don't want to fail the user's run because
+ * cache-write hit a transient proxy issue.
+ */
+export async function writeEngagementDeliverable(
+    slug: string,
+    kind: DeliverableKind,
+    payload: any,
+): Promise<boolean> {
+    if (!slug || !kind || payload == null) return false;
+    try {
+        const wrapped = {
+            schema_version: 1,
+            kind,
+            slug,
+            saved_at: new Date().toISOString(),
+            data: payload,
+        };
+        return await writeWikiPage(deliverablePath(slug, kind), JSON.stringify(wrapped, null, 2));
+    } catch (e) {
+        console.warn(`[WikiService] writeEngagementDeliverable failed for ${slug}/${kind} (non-fatal):`, e);
+        return false;
+    }
+}
+
+/** Read a previously persisted deliverable. Returns the unwrapped payload or null. */
+export async function readEngagementDeliverable<T = any>(slug: string, kind: DeliverableKind): Promise<T | null> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${deliverablePath(slug, kind)}`);
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        const raw = typeof data === 'string' ? data : (data?.content || '');
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return (parsed?.data ?? parsed) as T;
+    } catch (e) {
+        return null;
+    }
+}
+
+/** Persist the 5 generated briefs under wiki/engagements/<slug>/briefs.json. */
+export async function writeEngagementBriefs(slug: string, payload: Omit<EngagementBriefsFile, 'schema_version' | 'created_at' | 'updated_at'> & { created_at?: string }): Promise<boolean> {
+    const now = new Date().toISOString();
+    const full: EngagementBriefsFile = {
+        schema_version: 1,
+        created_at: payload.created_at || now,
+        updated_at: now,
+        ...payload,
+    };
+    return writeWikiPage(engagementBriefsPath(slug), JSON.stringify(full, null, 2));
+}
+
+/** Read the cached briefs for an engagement, or null if none. */
+export async function readEngagementBriefs(slug: string): Promise<EngagementBriefsFile | null> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${engagementBriefsPath(slug)}`);
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        // Proxy returns { content: "..." } for read endpoint
+        const raw = typeof data === 'string' ? data : (data?.content || '');
+        if (!raw) return null;
+        return JSON.parse(raw) as EngagementBriefsFile;
+    } catch (e) {
+        console.warn(`[WikiService] readEngagementBriefs failed for ${slug}:`, e);
+        return null;
+    }
+}
+
+/** Write the engagement manifest. Merges with existing if present so callers can update specific cache entries. */
+export async function writeEngagementManifest(slug: string, partial: Partial<EngagementManifest> & Pick<EngagementManifest, 'research_goal'>): Promise<boolean> {
+    const now = new Date().toISOString();
+    const existing = await readEngagementManifest(slug);
+    // Start with what was there, layer the caller's partial on top, then force-set
+    // computed fields. Spread order matters — computed fields go LAST so they win.
+    const merged: EngagementManifest = {
+        ...(existing || {} as EngagementManifest),
+        ...partial,
+        cached: { ...(existing?.cached || {}), ...(partial.cached || {}) },
+        slug,
+        schema_version: 1,
+        created_at: existing?.created_at || partial.created_at || now,
+        updated_at: now,
+    };
+    return writeWikiPage(engagementManifestPath(slug), JSON.stringify(merged, null, 2));
+}
+
+/** Read the engagement manifest, or null if none. */
+export async function readEngagementManifest(slug: string): Promise<EngagementManifest | null> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${engagementManifestPath(slug)}`);
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        const raw = typeof data === 'string' ? data : (data?.content || '');
+        if (!raw) return null;
+        return JSON.parse(raw) as EngagementManifest;
+    } catch (e) {
+        console.warn(`[WikiService] readEngagementManifest failed for ${slug}:`, e);
+        return null;
+    }
+}
+
+/**
+ * List every engagement manifest available, sorted by updated_at desc.
+ * Used by the IDLE-screen resume picker to surface prior engagements that
+ * semantically match the current goal.
+ */
+export async function listEngagementManifests(): Promise<EngagementManifest[]> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/list/${ENGAGEMENT_DIR}`);
+        if (!resp.ok) return [];
+        const data = await resp.json();
+        // FIXED 2026-05-14: each engagement lives in its OWN subdirectory
+        // (engagements/<slug>/manifest.json), so we read from the proxy's
+        // dirs[] field (the files[] field would only contain stray .md files
+        // in the engagements root, none of which are manifests).
+        const dirNames: string[] = Array.isArray(data?.dirs)
+            ? data.dirs.map((d: any) => String(d).replace(/\/$/, '')).filter(Boolean)
+            : [];
+        const manifests = await Promise.all(dirNames.map(async (slug) => {
+            const m = await readEngagementManifest(slug);
+            return m;
+        }));
+        return manifests
+            .filter((m): m is EngagementManifest => !!m)
+            .sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''));
+    } catch (e) {
+        console.warn('[WikiService] listEngagementManifests failed:', e);
+        return [];
+    }
+}
+
+/**
+ * Simple keyword-overlap match between an entered research goal and existing
+ * manifests. Returns matches scored 0-1 sorted descending, with a min
+ * threshold of 0.25 to suppress noise. Cheap pre-filter; the UI surfaces
+ * matches so the user can decide whether to resume.
+ */
+export function scoreGoalMatch(enteredGoal: string, manifestGoal: string): number {
+    const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(t => t.length >= 4);
+    const stop = new Set(['identify', 'understand', 'analyze', 'explore', 'develop', 'create', 'build', 'design', 'comprehensive', 'strategy', 'based', 'current', 'their', 'these', 'those', 'which', 'where', 'while', 'within']);
+    const a = new Set(norm(enteredGoal).filter(t => !stop.has(t)));
+    const b = new Set(norm(manifestGoal).filter(t => !stop.has(t)));
+    if (a.size === 0 || b.size === 0) return 0;
+    let overlap = 0;
+    a.forEach(t => { if (b.has(t)) overlap++; });
+    return overlap / Math.max(a.size, b.size);
+}
+

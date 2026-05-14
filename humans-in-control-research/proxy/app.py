@@ -7088,14 +7088,20 @@ async def wiki_append(req: WikiAppendRequest):
 
 @app.get("/api/wiki/list/{path:path}")
 async def wiki_list(path: str):
-    """List files in a wiki directory."""
+    """List entries in a wiki directory.
+    Returns both files and subdirectories so callers like the Knowledge
+    Library aggregator can walk dir-of-dirs structures (e.g. social-intelligence/
+    reddit-deep/<subreddit>/ or engagements/<slug>/). Backward-compatible: the
+    `files` key still contains only files; subdirs come back in `dirs`."""
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, path))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
     if not os.path.isdir(safe_path):
         return JSONResponse({"error": "Not a directory"}, status_code=404)
-    files = sorted([f for f in os.listdir(safe_path) if os.path.isfile(os.path.join(safe_path, f))])
-    return {"path": path, "files": files}
+    entries = sorted(os.listdir(safe_path))
+    files = [e for e in entries if os.path.isfile(os.path.join(safe_path, e))]
+    dirs = [e for e in entries if os.path.isdir(os.path.join(safe_path, e))]
+    return {"path": path, "files": files, "dirs": dirs}
 
 
 @app.get("/api/wiki/read/{path:path}")

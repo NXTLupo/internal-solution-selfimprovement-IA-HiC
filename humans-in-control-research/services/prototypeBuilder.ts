@@ -1201,7 +1201,11 @@ Before producing the critique, audit the code against these BLOCKING failure mod
 6. Check the code for runnability: will it execute as-is? Imports correct? Common bugs? No bare \`const { useState } = React;\` redeclarations? No \`export\` statements?
 7. Check accessibility: contrast, keyboard navigation, reduced motion, ARIA where needed.
 8. Produce a Critique Report.
-9. If verdict is "refine" OR "rebuild", output \`corrected_code\` with ALL fixes applied — full file, no diffs. The corrected_code must pass every check in the depth_and_ai_checklist.
+9. \`corrected_code\` emission rule (TOKEN-BUDGET CRITICAL):
+   - verdict = "refine"  → emit corrected_code (full file, no diffs). It must pass every check.
+   - verdict = "rebuild" → set corrected_code = null. The pipeline ships the original and routes for human review; emitting a rebuilt file here wastes ~20K output tokens and risks mid-string truncation that breaks the critique JSON.
+   - verdict = "ship"    → set corrected_code = null.
+10. KEEP YOUR OUTPUT WITHIN ~50K TOKENS. The audit must fit in the response window. Be terse in failed_sessions[].missing_piece (≤ 20 words each) and issues[].description (≤ 30 words each). Avoid prose in fix[]; one imperative sentence each.
 </instructions>
 
 <output_schema>
@@ -1217,7 +1221,7 @@ Before producing the critique, audit the code against these BLOCKING failure mod
         "session_id": "session-XX",
         "persona_name": "string",
         "bucket": "modal | edge | tail",
-        "missing_piece": "string — what specifically is missing for THIS user, 1 sentence"
+        "missing_piece": "string — ≤ 20 words, name the missing element only"
       }
     ]
   },
@@ -1355,6 +1359,65 @@ function sanitizeJsonControlChars(s: string): string {
     return out.join('');
 }
 
+// 2026-05-14 — Truncation recovery for max-tokens overflow.
+// When a stage returns JSON cut off mid-string (or mid-array/object), close
+// the open string + balance the bracket stack so the parser can salvage the
+// completed portion. The trailing record will be partial but the upper-level
+// fields (verdict, summary, coverage_pct) are recoverable. Returns null if
+// the input is already balanced and doesn't need recovery.
+function recoverTruncatedJson(s: string): string | null {
+    let inString = false;
+    let escape = false;
+    const stack: string[] = [];
+    let lastValueClosePos = -1; // last position where a string/value cleanly closed at depth >= 1
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (escape) { escape = false; continue; }
+        if (inString) {
+            if (c === '\\') { escape = true; continue; }
+            if (c === '"') { inString = false; if (stack.length > 0) lastValueClosePos = i; continue; }
+            continue;
+        }
+        if (c === '"') { inString = true; continue; }
+        if (c === '{' || c === '[') { stack.push(c); continue; }
+        if (c === '}' || c === ']') { stack.pop(); if (stack.length > 0) lastValueClosePos = i; continue; }
+    }
+    if (!inString && stack.length === 0) return null;
+    // If we're inside a string, the trailing partial value is unsafe — truncate
+    // back to the last clean value close and re-balance from there. This drops
+    // the half-written record but preserves the prior complete entries.
+    let repaired = s;
+    if (inString) {
+        if (lastValueClosePos >= 0) {
+            // Trim trailing comma/whitespace after the last clean close
+            let end = lastValueClosePos + 1;
+            while (end < repaired.length && /[\s,]/.test(repaired[end])) end++;
+            repaired = repaired.slice(0, lastValueClosePos + 1);
+            // Re-scan the bracket stack after truncation
+            const restack: string[] = [];
+            let s2 = false, e2 = false;
+            for (let i = 0; i < repaired.length; i++) {
+                const c = repaired[i];
+                if (e2) { e2 = false; continue; }
+                if (s2) { if (c === '\\') { e2 = true; continue; } if (c === '"') s2 = false; continue; }
+                if (c === '"') s2 = true;
+                else if (c === '{' || c === '[') restack.push(c);
+                else if (c === '}' || c === ']') restack.pop();
+            }
+            stack.length = 0;
+            restack.forEach(b => stack.push(b));
+        } else {
+            // Mid-string but no prior clean close — just close the string
+            repaired += '"';
+        }
+    }
+    while (stack.length > 0) {
+        const open = stack.pop();
+        repaired += (open === '{') ? '}' : ']';
+    }
+    return repaired;
+}
+
 function tryParseJson<T>(text: string, stageName: string): T {
     // Strip ``` fences if model adds them despite instructions
     let cleaned = text.trim();
@@ -1366,27 +1429,74 @@ function tryParseJson<T>(text: string, stageName: string): T {
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
-        // 2026-05-13 — Recovery path for the #1 LLM JSON failure mode:
-        // raw control characters (newlines, tabs, CR) inside string literals.
-        // This happens routinely when the model emits multi-line code in a
-        // "corrected_code" or "summary" field. Sanitize and retry once.
         const msg = String(e?.message || e);
-        const looksLikeControlCharErr = /control character|control char|unexpected token.*in JSON|unterminated string/i.test(msg);
+        const looksLikeControlCharErr = /control character|control char|unexpected token.*in JSON/i.test(msg);
+        const looksLikeTruncation = /unterminated string|unexpected end of (json|data|input)/i.test(msg);
+
+        // Recovery #1 — control chars inside strings (multi-line code in a field
+        // emitted with literal newlines instead of "\n").
         if (looksLikeControlCharErr) {
             try {
                 const sanitized = sanitizeJsonControlChars(cleaned);
                 const parsed = JSON.parse(sanitized);
                 console.warn(`[${stageName}] recovered from control-char JSON error via sanitization (${cleaned.length} chars input).`);
                 return parsed;
-            } catch (e2: any) {
-                throw new Error(
-                    `${stageName} returned invalid JSON and sanitization didn't help: ` +
-                    `${e.message} → ${e2?.message || e2}. First 200 chars: ${cleaned.slice(0, 200)}`
-                );
-            }
+            } catch { /* fall through to truncation recovery */ }
         }
+
+        // Recovery #2 — truncation (max_tokens overflow mid-string/array/object).
+        // Close the open string and balance the bracket stack so the parser can
+        // salvage the completed prefix. The trailing partial record is dropped.
+        if (looksLikeTruncation || looksLikeControlCharErr) {
+            try {
+                const sanitized = sanitizeJsonControlChars(cleaned);
+                const recovered = recoverTruncatedJson(sanitized);
+                if (recovered) {
+                    const parsed = JSON.parse(recovered);
+                    console.warn(`[${stageName}] recovered from truncated JSON via bracket-balance (${cleaned.length} → ${recovered.length} chars). Trailing record may be partial.`);
+                    return parsed;
+                }
+            } catch { /* fall through to error */ }
+        }
+
         throw new Error(`${stageName} returned invalid JSON: ${e.message}. First 200 chars: ${cleaned.slice(0, 200)}`);
     }
+}
+
+// 2026-05-14 — Last-resort critique extractor for when Stage 5 returns
+// JSON so malformed that even bracket-balance recovery can't parse it.
+// Regex out the top-level fields the UI cares about so the prototype still
+// ships with a meaningful (if degraded) audit summary instead of failing.
+function extractPartialCritique(text: string, parseErrorMsg: string): CritiqueReport {
+    const verdictMatch = text.match(/"verdict"\s*:\s*"(ship|refine|rebuild)"/i);
+    const summaryMatch = text.match(/"summary"\s*:\s*"((?:[^"\\]|\\.)*)"/);
+    const coverageMatch = text.match(/"coverage_pct"\s*:\s*(\d+(?:\.\d+)?)/);
+    const passedMatch = text.match(/"sessions_passed"\s*:\s*(\d+)/);
+    const totalMatch = text.match(/"sessions_total"\s*:\s*(\d+)/);
+    const verdict = (verdictMatch?.[1]?.toLowerCase() as 'ship' | 'refine' | 'rebuild') || 'ship';
+    const summary = summaryMatch?.[1]
+        ? summaryMatch[1].replace(/\\n/g, ' ').replace(/\\"/g, '"').slice(0, 500)
+        : 'Critique JSON was malformed; prototype shipped without full audit.';
+    const sessionCoverage = coverageMatch ? {
+        coverage_pct: Number(coverageMatch[1]),
+        sessions_passed: passedMatch ? Number(passedMatch[1]) : 0,
+        sessions_total: totalMatch ? Number(totalMatch[1]) : 0,
+        failed_sessions: [],
+    } : undefined;
+    return {
+        verdict,
+        summary,
+        ...(sessionCoverage ? { session_coverage: sessionCoverage } : {}),
+        issues: [{
+            category: 'code_bug',
+            severity: 'minor',
+            description: `Stage 5 critique JSON malformed (likely max-tokens truncation): ${parseErrorMsg.slice(0, 200)}`,
+            source_of_truth: 'meta',
+            code_location: '-',
+            fix: 'Re-run prototype build; if truncation persists, reduce session count or further tighten Stage 5 schema.',
+        }],
+        corrected_code: null,
+    };
 }
 
 function stripCodeFences(text: string): string {
@@ -1588,10 +1698,10 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`,
             true,
             'max',
-            32000,
+            64000, // 2026-05-14 — bumped from 32K. Stage 5 must traverse the entire recipe + code + up to 30 sessions and still fit failed_sessions[] descriptions. 32K truncated mid-string at ~58KB on a coverage=40% (rebuild) audit.
         );
     } catch (e: any) {
-        // Critic failure shouldn't kill the pipeline — return what we have
+        // Critic transport failure (HTTP/network) — return what we have
         fire(5, 'Critic + Refiner', 'failed', e.message);
         const fallbackCritique: CritiqueReport = {
             verdict: 'ship',
@@ -1601,7 +1711,19 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         };
         return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique: fallbackCritique });
     }
-    const critique = tryParseJson<CritiqueReport>(critiqueText, 'Stage 5');
+    // 2026-05-14 — JSON parse failure must NOT kill the build. Stages 1-4 + 3.5
+    // already succeeded; the prototype is in `code` and is shippable. If the
+    // critique JSON is unparseable even after truncation recovery, extract
+    // verdict/summary/coverage_pct heuristically and ship a partial critique.
+    let critique: CritiqueReport;
+    try {
+        critique = tryParseJson<CritiqueReport>(critiqueText, 'Stage 5');
+    } catch (parseErr: any) {
+        console.warn(`[Stage 5] JSON parse failed; extracting heuristic critique. ${parseErr?.message || parseErr}`);
+        critique = extractPartialCritique(critiqueText, parseErr?.message || String(parseErr));
+        fire(5, 'Critic + Refiner', 'done', `partial critique extracted (JSON malformed) — shipping prototype, mark for human review`);
+        return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique });
+    }
     const coverageStr = critique.session_coverage
         ? `coverage ${critique.session_coverage.coverage_pct}% (${critique.session_coverage.sessions_passed}/${critique.session_coverage.sessions_total})`
         : '';

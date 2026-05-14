@@ -19,6 +19,8 @@
 // Returns the parsed JSON response on success. Throws with a clear
 // user-facing error message on persistent failure.
 
+import { recordAICall } from './costMeter';
+
 const PROXY_BASE = 'http://localhost:5012';
 
 export type RetryProgress = (attempt: number, total: number, status: string) => void;
@@ -88,6 +90,7 @@ export async function callAIWithRetry(
 
     const timeoutMs = options.requestTimeoutMs ?? 300_000;
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        const callStart = Date.now();
         try {
             const resp = await fetch(url, {
                 method: 'POST',
@@ -96,7 +99,18 @@ export async function callAIWithRetry(
                 signal: AbortSignal.timeout(timeoutMs),
             });
             if (resp.ok) {
-                return resp.json();
+                const parsed = await resp.json();
+                // 2026-05-14 — Cost meter accounting. The body may carry the
+                // model id directly (Gemini native) or nested (OpenAI compat).
+                // We try the obvious locations; recordAICall normalizes.
+                try {
+                    const modelHint = body?.model || body?.config?.model || undefined;
+                    recordAICall({ label, model: modelHint, response: parsed, durationMs: Date.now() - callStart });
+                } catch (meterErr) {
+                    // Cost meter must never break a real call.
+                    console.warn('[CostMeter] record failed (non-fatal):', meterErr);
+                }
+                return parsed;
             }
             lastStatus = resp.status;
             lastErrText = await resp.text().catch(() => '');

@@ -5,6 +5,7 @@
 
 import React, { useState, useRef } from 'react';
 import { UXBrief, HeuristicDimensionId, HEURISTIC_DIMENSION_LABELS } from '../types';
+import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './PromptEnhancer';
 
 interface Props {
     onSubmit: (brief: UXBrief, screenshots: { base64: string; mimeType: string; dataUri: string }[]) => void;
@@ -40,6 +41,24 @@ const HeuristicBriefIntake: React.FC<Props> = ({ onSubmit, isAnalyzing }) => {
     const [competitiveContext, setCompetitiveContext] = useState('');
     const [experienceType, setExperienceType] = useState<UXBrief['experienceType']>('marketing_website');
     const [dimensions, setDimensions] = useState<HeuristicDimensionId[]>([...ALL_DIMENSIONS]);
+
+    // 2026-05-14 — Enhancer for the competitive context field. The downstream
+    // heuristic analyzer uses this to position the product against named
+    // competitors; vague "competing with similar apps" produces weak findings.
+    const competitiveEnhancer = usePromptEnhancer({
+        input: competitiveContext,
+        setInput: setCompetitiveContext,
+        surface: 'analyst',
+        getContext: () => {
+            const fields = [
+                productName && `Product: ${productName}`,
+                experienceType && `Type: ${experienceType.replace(/_/g, ' ')}`,
+                targetAudience.length > 0 && `Audience: ${targetAudience.join(', ')}`,
+                businessGoals.length > 0 && `Goals: ${businessGoals.join(', ')}`,
+            ].filter(Boolean).join('\n');
+            return `This is the COMPETITIVE CONTEXT field of a UX heuristic-evaluation brief. The rewrite should name 3-5 specific competitors with their positioning, not vague categories.\n\n${fields}`;
+        },
+    });
 
     const handleFiles = async (files: FileList | null) => {
         if (!files) return;
@@ -204,12 +223,18 @@ const HeuristicBriefIntake: React.FC<Props> = ({ onSubmit, isAnalyzing }) => {
             {/* Competitive Context */}
             <div>
                 <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Competitive Context (optional)</label>
-                <input
+                <EnhancePreview handle={competitiveEnhancer} accentColor="#00B7C3" />
+                <textarea
                     value={competitiveContext}
                     onChange={(e) => setCompetitiveContext(e.target.value)}
-                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded p-3 text-sm focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none"
-                    placeholder="e.g. Competing against Amazon, Shopify..."
+                    rows={3}
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded p-3 text-sm focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none resize-y"
+                    style={{ fontFamily: "'Archivo', sans-serif", lineHeight: 1.5, minHeight: 72 }}
+                    placeholder="e.g. Competing against Amazon (broad marketplace + Prime), Shopify (merchant-side tooling), and Walmart.com (logistics)..."
                 />
+                <div className="flex justify-end mt-2">
+                    <EnhanceButton handle={competitiveEnhancer} accentColor="#00B7C3" />
+                </div>
             </div>
 
             {/* Evaluation Dimensions */}

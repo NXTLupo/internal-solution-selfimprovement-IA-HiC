@@ -13,6 +13,7 @@ import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type 
 // 2026-05-08 — Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
 import ChatAttachmentDropzone, { type ChatAttachment } from '../components/ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
+import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/PromptEnhancer';
 
 interface ChatMsg {
     id: string;
@@ -137,6 +138,18 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     const [ctx, setCtx] = useState<DesignContext>(() => loadDesignContext());
     // 2026-05-08 — Pending mid-chat attachments staged for the next send.
     const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
+    // 2026-05-14 — Prompt enhancer (Gemini Flash). Uses the live design
+    // context (research goal + brand) so the rewrite is grounded.
+    const enhancer = usePromptEnhancer({
+        input,
+        setInput,
+        surface: 'design',
+        getContext: () => {
+            const goal = ctx.researchGoal || '';
+            const brand = (ctx as any).brand || '';
+            return `Research goal: ${goal}${brand ? `\nBrand: ${brand}` : ''}`.trim();
+        },
+    });
     const endRef = useRef<HTMLDivElement>(null);
     // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
     const panelRef = useRef<HTMLDivElement>(null);
@@ -461,6 +474,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     </div>
                 )}
 
+                <EnhancePreview handle={enhancer} accentColor="#00B7C3" />
                 <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
                     <ChatAttachmentDropzone
                         onAttachmentsAdded={atts => setPendingAttachments(prev => [...prev, ...atts])}
@@ -474,18 +488,24 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
                         placeholder="Start with a hashtag: #persona, #journey, #org"
-                        rows={2}
-                        style={{ flex: 1, padding: 8, border: '1px solid #DDD', fontFamily: "'Archivo', sans-serif", fontSize: 13, resize: 'none', boxSizing: 'border-box' }}
+                        rows={4}
+                        style={{ flex: 1, padding: 10, border: '1px solid #DDD', fontFamily: "'Archivo', sans-serif", fontSize: 13, resize: 'vertical', boxSizing: 'border-box', minHeight: 96, lineHeight: 1.5 }}
                     />
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 6 }}>
-                    <button onClick={send} disabled={busy || (!input.trim() && pendingAttachments.length === 0)}
-                        style={{ padding: '6px 16px', background: '#0D0D0D', color: '#FFFFFF', border: 'none',
-                            fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase',
-                            cursor: busy || (!input.trim() && pendingAttachments.length === 0) ? 'not-allowed' : 'pointer',
-                            opacity: busy || (!input.trim() && pendingAttachments.length === 0) ? 0.5 : 1 }}>
-                        Send
-                    </button>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 6 }}>
+                    <span style={{ fontSize: 9, color: '#999', letterSpacing: 0.5 }}>
+                        Shift+Enter for new line · Enhance rewrites via Gemini Flash
+                    </span>
+                    <div style={{ display: 'flex', gap: 6 }}>
+                        <EnhanceButton handle={enhancer} accentColor="#00B7C3" disabled={busy} />
+                        <button onClick={send} disabled={busy || (!input.trim() && pendingAttachments.length === 0)}
+                            style={{ padding: '6px 16px', background: '#0D0D0D', color: '#FFFFFF', border: 'none',
+                                fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase',
+                                cursor: busy || (!input.trim() && pendingAttachments.length === 0) ? 'not-allowed' : 'pointer',
+                                opacity: busy || (!input.trim() && pendingAttachments.length === 0) ? 0.5 : 1 }}>
+                            Send
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

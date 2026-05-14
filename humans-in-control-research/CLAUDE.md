@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **Active work in progress (2026-05-14)**: read [HANDOFF_2026_05_14_COST_AND_T4.md](HANDOFF_2026_05_14_COST_AND_T4.md) FIRST if you are picking up the cost-savings / brief-quality / T4 build-only iteration work. That doc captures uncommitted state, the user's open design question (multi-model orchestration + determinism, NOT just Opus fallback), and the next moves. Without it you will not have full context on the in-flight `prototypeBriefGenerator.ts` hybrid path, the cost meter, the engagement-cache layer in `wikiService.ts`, or the five-surface prompt enhancer.
+
 > **Read first**: the repo root [CLAUDE.md](../CLAUDE.md) (Docker platform topology, port map, cross-service context) and [.claude/CLAUDE.md](../.claude/CLAUDE.md) (NXT design system, citation protocol, 350+ banned phrases, consulting frameworks). This file covers only what is unique to `humans-in-control-research/`.
 
 ## Architecture at a Glance

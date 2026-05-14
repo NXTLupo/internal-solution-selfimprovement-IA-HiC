@@ -31,6 +31,11 @@ const PROXY_BASE = 'http://localhost:5012';
 // exhaustive on per-brief enumeration (pass 2). Each pass uses the shared
 // aiRetryClient for fetch-level retry + 5-min timeout protection.
 const BRIEF_MODEL = 'claude-opus-4-7';
+// 2026-05-14 — Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
+// structured deepening tasks; we keep Opus for Pass 1 (divergent framing)
+// and a narrative-only fallback for thin briefs (see assessNarrativeQuality
+// + refineNarrativeFieldsViaOpus).
+const BRIEF_MODEL_GPT55 = 'gpt-5.5';
 
 export type FrameLabel =
     | 'convention-honoring'
@@ -161,6 +166,14 @@ export interface BriefGenerationOptions {
     researchGoal?: string;
     basedOn?: string;                   // Slug if from a tile
     onProgress?: (stage: 'thinking' | 'parsing' | 'done' | 'failed', detail?: string) => void;
+    /**
+     * 2026-05-14 — Model selection for the deepening pass:
+     *   'opus'   — all Opus 4.7 (legacy default; highest narrative quality; $15-22 per run)
+     *   'hybrid' — Opus 4.7 for Pass 1, GPT-5.5 for Pass 2, narrative quality gate
+     *              with Opus narrative-only refinement for thin briefs. Default. ~$5-9 per run.
+     *   'gpt'    — all GPT-5.5 (cheapest; ~$4-7 per run; some narrative drift accepted)
+     */
+    briefModelMode?: 'opus' | 'hybrid' | 'gpt';
 }
 
 // =============================================================================
@@ -429,6 +442,178 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
 }
 
 /**
+ * Call GPT-5.5 via the proxy's /api/ai/openai endpoint with a system prompt
+ * + user content, returning parsed JSON. Mirrors callOpusJson's interface so
+ * the hybrid Pass 2 path can swap one helper for the other.
+ *
+ * Uses response_format json_object so GPT-5.5 emits clean JSON. max_completion_tokens
+ * is the new field name (max_tokens is deprecated on GPT-5.x).
+ */
+async function callGpt55Json<T>(systemPrompt: string, userContent: string, label: string, maxTokens = 16000): Promise<T> {
+    const body = {
+        model: BRIEF_MODEL_GPT55,
+        messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userContent },
+        ],
+        response_format: { type: 'json_object' },
+        max_completion_tokens: maxTokens,
+        temperature: 0.9,
+    };
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const data = await callAIWithRetry('openai', body, {
+        label,
+        headers: { 'x-openai-endpoint': 'chat' },
+        requestTimeoutMs: 300_000,
+    });
+    const text = (data?.choices?.[0]?.message?.content || '').trim();
+    if (!text) {
+        const finish = data?.choices?.[0]?.finish_reason || 'no output';
+        throw new Error(`${label} returned empty payload (finish_reason=${finish}).`);
+    }
+    let cleaned = text;
+    if (cleaned.startsWith('```')) {
+        cleaned = cleaned.split('```', 3)[1] || cleaned;
+        if (cleaned.startsWith('json')) cleaned = cleaned.slice(4);
+        cleaned = cleaned.trim();
+    }
+    const firstBrace = cleaned.indexOf('{');
+    const lastBrace = cleaned.lastIndexOf('}');
+    if (firstBrace > 0 || lastBrace < cleaned.length - 1) {
+        if (firstBrace >= 0 && lastBrace > firstBrace) {
+            cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+        }
+    }
+    try {
+        return JSON.parse(cleaned);
+    } catch (e: any) {
+        try {
+            return JSON.parse(sanitizeJsonControlChars(cleaned));
+        } catch (e2: any) {
+            throw new Error(`${label} returned invalid JSON: ${e?.message || e}. First 300 chars: ${cleaned.slice(0, 300)}`);
+        }
+    }
+}
+
+/**
+ * 2026-05-14 — Narrative-quality gate. Identifies briefs whose structured
+ * fields parsed cleanly but whose narrative-rich fields came back thin —
+ * the failure mode where GPT-5.5 produces good schemas but clinical prose.
+ * Returns the field names that fell short so the Opus refinement pass knows
+ * what to regenerate.
+ */
+interface NarrativeQualityResult {
+    pass: boolean;
+    missing: string[];
+    score: number;        // 0-100
+}
+function assessNarrativeQuality(b: ProductBrief): NarrativeQualityResult {
+    const issues: string[] = [];
+    const personaContext = b.primary_persona?.context || '';
+    const emotionalState = b.primary_persona?.emotional_state || '';
+    const painPoints = b.primary_persona?.pain_points || [];
+    const demoMoment = b.demonstrated_moment || '';
+    const narrativeArc = b.narrative_arc || [];
+
+    if (personaContext.length < 150) issues.push('primary_persona.context');
+    if (emotionalState.length < 50) issues.push('primary_persona.emotional_state');
+    const richPainPoints = painPoints.filter(p => typeof p === 'string' && p.length >= 40);
+    if (richPainPoints.length < 3) issues.push('primary_persona.pain_points');
+    if (demoMoment.length < 200) issues.push('demonstrated_moment');
+    if (narrativeArc.length < 3) issues.push('narrative_arc');
+    else {
+        // Check that narrative arc beats have non-trivial content
+        const thinBeats = narrativeArc.filter(beat =>
+            !beat.user_moment || beat.user_moment.length < 30
+            || !beat.feeling || beat.feeling.length < 15
+        ).length;
+        if (thinBeats > Math.ceil(narrativeArc.length / 2)) issues.push('narrative_arc');
+    }
+
+    const totalChecks = 5;
+    const score = Math.round(((totalChecks - issues.length) / totalChecks) * 100);
+    return { pass: issues.length === 0, missing: issues, score };
+}
+
+/**
+ * 2026-05-14 — When the narrative-quality gate flags a brief, ask Opus to
+ * re-emit ONLY the narrative fields, anchored by the brief's existing
+ * structural shape. Preserves the GPT-5.5 use_cases / screens / ai_capabilities
+ * / seed_data / feature_roadmap (which are typically fine) and replaces the
+ * thin prose fields with Opus output.
+ *
+ * Cost shape: ~25% of a full Opus deepen call instead of the full thing,
+ * because the prompt is tighter and the output is narrative fields only.
+ */
+const NARRATIVE_REFINEMENT_SYSTEM = `<role>
+You are an IDEO senior researcher refining the narrative-rich fields of a product brief whose structural fields are already approved. The use cases, screens, AI capabilities, seed data, and roadmap are LOCKED — your job is to re-author ONLY the narrative fields with the depth and texture they currently lack.
+</role>
+
+<narrative_quality_bar>
+- primary_persona.context: 150-280 chars. Specific moment, role, organizational position. Anchor to a named scene, not a category ("Wednesday morning, three open browser tabs, second co-op deadline this quarter" beats "a busy student").
+- primary_persona.emotional_state: 50-120 chars. Name the specific feeling-mix (e.g. "Tight chest. Defaulting to whichever opportunity her advisor sent — not the one she'd pick if she had room to think").
+- primary_persona.pain_points: 3-5 entries, each 40-100 chars, NAMING specific obstacles not generic complaints. "Cycles through 27 untagged Handshake postings each session" beats "too many options".
+- demonstrated_moment: 200-400 chars. The headline scene the prototype captures. Sensory + specific.
+- narrative_arc: 5-8 beats from Minute 1 → Month 3+. Each beat: user_moment 30-90 chars, ai_moment 25-80 chars, feeling 15-50 chars. Emotional shift across beats must be visible.
+- why_this_frame: 1-2 sentences. The argument for why THIS framing exists vs. the modal alternative.
+</narrative_quality_bar>
+
+<no_verbatim_research_quotes>
+Distill insights, never reproduce first-person testimonial spans. No string longer than 80 chars should read like direct user speech.
+</no_verbatim_research_quotes>
+
+<output_format>
+Return ONLY a JSON object containing the refined narrative fields — nothing else:
+
+{
+  "primary_persona": {
+    "name": "string — preserve the existing name",
+    "role": "string — preserve the existing role",
+    "context": "string — 150-280 chars, sensory + specific",
+    "emotional_state": "string — 50-120 chars, name the feeling-mix",
+    "pain_points": ["string", "string", "string"],
+    "jtbd": "string — preserve or sharpen"
+  },
+  "demonstrated_moment": "string — 200-400 chars",
+  "narrative_arc": [
+    { "timeframe": "Minute 1", "user_moment": "string", "ai_moment": "string", "feeling": "string" }
+  ],
+  "why_this_frame": "string — 1-2 sentences"
+}
+
+Do not include any other field. The pipeline will merge your output into the existing brief, preserving structural fields verbatim.
+</output_format>`;
+
+async function refineNarrativeFieldsViaOpus(brief: ProductBrief, conceptContext: string): Promise<Partial<ProductBrief>> {
+    const userContent = [
+        `INPUT CONCEPT:`,
+        conceptContext,
+        ``,
+        `EXISTING BRIEF (structural fields locked; refine narrative ONLY):`,
+        JSON.stringify({
+            id: brief.id,
+            frame_label: brief.frame_label,
+            probability: brief.probability,
+            title: brief.title,
+            one_line_thesis: brief.one_line_thesis,
+            why_this_frame: brief.why_this_frame,
+            primary_persona: brief.primary_persona,
+            demonstrated_moment: brief.demonstrated_moment,
+            use_cases: brief.use_cases?.slice(0, 4)?.map(u => ({ name: u.name, ai_role: u.ai_role })),
+            narrative_arc: brief.narrative_arc,
+        }, null, 2),
+        ``,
+        `Re-emit ONLY the JSON object with refined primary_persona / demonstrated_moment / narrative_arc / why_this_frame fields.`,
+    ].join('\n');
+    return await callOpusJson<Partial<ProductBrief>>(
+        NARRATIVE_REFINEMENT_SYSTEM,
+        userContent,
+        `Brief Narrative Refinement — ${brief.frame_label}`,
+        4000,
+    );
+}
+
+/**
  * Generate FIVE distinct product briefs via two-pass Verbalized Sampling.
  *
  *   Pass 1: ONE Opus call returns 5 skeleton framings (~10K tokens of output).
@@ -471,21 +656,23 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     }));
 
     // ---- Pass 2: deepen each skeleton in parallel ----
-    // 2026-05-13 — Bumped max_tokens 16K → 32K because the v2 schema (8-12 use
-    // cases + 7-10 screens + 5-8 AI capabilities + 5+ fully-formed sample
-    // records + feature_roadmap + narrative_arc + interaction_choreography)
-    // routinely exceeds 16K output and gets truncated mid-JSON, dropping the
-    // brief into skeleton-fallback with empty fields.
-    //
-    // Also added: small stagger between call starts so 5 parallel Opus calls
-    // don't burst-trigger Anthropic's tier rate limits. Failure visibility:
-    // each fallback carries an `_pass2_failed` marker so the UI can flag
-    // skeleton-only briefs explicitly rather than silently showing empty data.
-    fire?.('thinking', `Pass 2/2 — deepening all ${skeletons.length} briefs in parallel (Claude Opus 4.7 · 5 parallel calls, 32K tokens each, staggered starts)…`);
+    // 2026-05-14 — HYBRID MODE.
+    //   • opus   : all-Opus 4.7 (legacy; highest narrative quality; ~$15-22)
+    //   • hybrid : Pass 2 on GPT-5.5 + narrative-quality gate + Opus narrative-only
+    //              refinement for thin briefs. Default. ~$5-9 per run. ~60% savings,
+    //              quality protected by construction.
+    //   • gpt    : all-GPT-5.5, no Opus refinement. Max cost savings, accept narrative
+    //              drift. ~$4-7 per run.
+    const mode = opts.briefModelMode || 'hybrid';
+    const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.7'
+        : mode === 'gpt' ? 'GPT-5.5'
+        : 'GPT-5.5 + Opus narrative gate';
+    fire?.('thinking', `Pass 2/2 — deepening all ${skeletons.length} briefs in parallel (${deepenModelLabel} · 5 parallel calls, 32K tokens each, staggered starts)…`);
 
-    const STAGGER_MS = 250;  // 250ms between call starts (5 calls = 1s of stagger)
+    const STAGGER_MS = 250;  // 250ms between call starts to dodge tier rate limits
     let pass2Successes = 0;
     let pass2Failures = 0;
+    let pass2Refined = 0;    // hybrid: how many briefs needed Opus narrative refinement
     const failureReasons: string[] = [];
 
     const deepResults = await Promise.allSettled(skeletons.map(async (sk, i) => {
@@ -500,35 +687,101 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             `Now produce the FULL exhaustive ProductBrief JSON for THIS skeleton — every field per the schema, every count per the exhaustiveness_floor. Output ONLY the JSON.`,
         ].join('\n');
         try {
-            const full = await callOpusJson<ProductBrief>(
+            // Route Pass 2 by mode.
+            const callFn = mode === 'opus' ? callOpusJson : callGpt55Json;
+            const callLabel = `Brief Deepen Pass — brief ${i + 1} (${sk.frame_label})`;
+            let full = await callFn<ProductBrief>(
                 STAGE_DEEPEN_SYSTEM,
                 userContent,
-                `Brief Deepen Pass — brief ${i + 1} (${sk.frame_label})`,
+                callLabel,
                 32000,
             );
             pass2Successes++;
-            // Sanity-check structural completeness — if Opus returned a JSON
-            // but skipped large sections, flag it. A "deepened" brief with
-            // 0 use_cases is structurally a fallback even if it parsed.
+            // Structural completeness check (unchanged from prior version).
             const useCaseCount = (full as any)?.use_cases?.length || 0;
             const screenCount = (full as any)?.key_screens?.length || 0;
             const aiCount = (full as any)?.ai_capabilities?.length || 0;
             if (useCaseCount < 3 || screenCount < 3 || aiCount < 2) {
                 console.warn(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) parsed but under-specified: ${useCaseCount} use cases, ${screenCount} screens, ${aiCount} AI caps — likely truncated mid-generation`);
             }
-            return {
+            full = {
                 ...full,
                 id: sk.id,
                 frame_label: sk.frame_label,
                 probability: sk.probability,
             } as ProductBrief;
+
+            // Narrative-quality gate (only when hybrid; pure-GPT mode accepts drift,
+            // pure-Opus mode doesn't need it).
+            if (mode === 'hybrid') {
+                const gate = assessNarrativeQuality(full);
+                if (!gate.pass) {
+                    console.log(`[Brief Narrative Gate] brief ${i + 1} (${sk.frame_label}) score=${gate.score}/100, missing: ${gate.missing.join(', ')} — refining via Opus`);
+                    try {
+                        const refined = await refineNarrativeFieldsViaOpus(full, opts.concept);
+                        // Merge ONLY the narrative fields — preserve structural GPT output.
+                        if (refined.primary_persona) {
+                            full.primary_persona = {
+                                ...full.primary_persona,
+                                ...refined.primary_persona,
+                                // Always keep the name/role from the structural pass
+                                name: full.primary_persona.name || refined.primary_persona.name || '',
+                                role: full.primary_persona.role || refined.primary_persona.role || '',
+                            };
+                        }
+                        if (typeof refined.demonstrated_moment === 'string' && refined.demonstrated_moment.length > 0) {
+                            full.demonstrated_moment = refined.demonstrated_moment;
+                        }
+                        if (Array.isArray(refined.narrative_arc) && refined.narrative_arc.length >= 3) {
+                            full.narrative_arc = refined.narrative_arc;
+                        }
+                        if (typeof refined.why_this_frame === 'string' && refined.why_this_frame.length > 0) {
+                            full.why_this_frame = refined.why_this_frame;
+                        }
+                        pass2Refined++;
+                        (full as any)._narrative_refined = true;
+                        (full as any)._narrative_gate_score = gate.score;
+                    } catch (refErr: any) {
+                        // Narrative refinement is best-effort. If Opus fails too,
+                        // ship the GPT brief as-is — at least the structural fields work.
+                        console.warn(`[Brief Narrative Gate] Opus refinement failed for brief ${i + 1}, shipping GPT output as-is: ${refErr?.message || refErr}`);
+                        (full as any)._narrative_refinement_failed = String(refErr?.message || refErr).slice(0, 200);
+                    }
+                } else {
+                    (full as any)._narrative_gate_score = gate.score;
+                }
+            }
+            return full;
         } catch (e: any) {
             pass2Failures++;
             const reason = e?.message || String(e);
             failureReasons.push(`brief ${i + 1} (${sk.frame_label}): ${reason.slice(0, 200)}`);
             console.error(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) HARD FAIL — falling back to skeleton:`, reason);
-            // Fallback: synthesize a minimal ProductBrief from the skeleton so the
-            // user still sees 5 cards, BUT mark it so the UI surfaces "deepening failed"
+            // 2026-05-14 — If hybrid/gpt mode failed, try once more on Opus before
+            // falling back to skeleton. Often a GPT 429 or schema issue won't recur
+            // on Opus. Saves the brief from being skeleton-only.
+            if (mode !== 'opus') {
+                try {
+                    console.log(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) — retrying on Opus as a fallback`);
+                    const opusFull = await callOpusJson<ProductBrief>(
+                        STAGE_DEEPEN_SYSTEM,
+                        userContent,
+                        `Brief Deepen Pass (Opus fallback) — brief ${i + 1} (${sk.frame_label})`,
+                        32000,
+                    );
+                    pass2Failures--;
+                    pass2Successes++;
+                    return {
+                        ...opusFull,
+                        id: sk.id,
+                        frame_label: sk.frame_label,
+                        probability: sk.probability,
+                        _opus_fallback: true,
+                    } as ProductBrief;
+                } catch (opusErr: any) {
+                    console.error(`[Brief Deepen] Opus fallback also failed for brief ${i + 1}:`, opusErr);
+                }
+            }
             return { ...skeletonToFallbackBrief(sk), _pass2_failed: true, _pass2_reason: reason } as ProductBrief;
         }
     }));
@@ -543,11 +796,12 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     });
 
     const avgUseCases = Math.round(briefs.reduce((n, b) => n + (b.use_cases?.length || 0), 0) / briefs.length);
+    const refinedDetail = pass2Refined > 0 ? ` · ${pass2Refined} narrative-refined via Opus gate` : '';
     if (pass2Failures > 0) {
         console.error(`[Brief Generator] Pass 2 FAILED on ${pass2Failures}/${briefs.length} briefs. Reasons:\n${failureReasons.join('\n')}`);
-        fire?.('done', `${pass2Successes}/${briefs.length} briefs deepened · ${pass2Failures} fell back to skeletons (check console; likely token truncation or rate limit)`);
+        fire?.('done', `${pass2Successes}/${briefs.length} briefs deepened · ${pass2Failures} fell back to skeletons${refinedDetail} (check console; likely token truncation or rate limit)`);
     } else {
-        fire?.('done', `${briefs.length}/${briefs.length} briefs deepened · avg ${avgUseCases} use cases per brief`);
+        fire?.('done', `${briefs.length}/${briefs.length} briefs deepened · avg ${avgUseCases} use cases per brief${refinedDetail}`);
     }
     return briefs;
 }

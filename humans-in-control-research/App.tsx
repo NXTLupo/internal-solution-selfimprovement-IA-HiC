@@ -11,6 +11,14 @@ import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
 import AnalystDeskKnowledgeGraph from './components/AnalystDeskKnowledgeGraph';
 import WikiArchiveBrowser from './components/WikiArchiveBrowser';
 import CorpusChatPanel from './components/CorpusChatPanel';
+import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './components/PromptEnhancer';
+import { useSubredditSuggester, SuggesterButton, SuggesterPanel } from './components/SubredditSuggester';
+import { CostMeterChip } from './components/CostMeterChip';
+import { ResumeEngagementPanel, useEngagementMatches, type ResumeSelection } from './components/ResumeEngagementPanel';
+import { KnowledgeLibrary, type LibrarySelection } from './components/KnowledgeLibrary';
+import { KnowledgeLibraryPreview } from './components/KnowledgeLibraryPreview';
+import type { WikiLibrarySummary } from './services/wikiLibraryAggregator';
+import { resetRun as resetCostMeter, summarizeRun as summarizeCostRun } from './services/costMeter';
 import ChatWorkbench from './components/ChatWorkbench';
 import { DesignDesk } from './design-desk';
 import { saveDesignContext } from './design-desk/services/designContext';
@@ -1073,10 +1081,80 @@ const App = () => {
     const [showMethodology, setShowMethodology] = useState<OutputOption | null>(null);
     const [selectedOutputs, setSelectedOutputs] = useState<OutputOption[]>(['PERSONAS', 'STRATEGY_DECK']);
     const [researchGoal, setResearchGoal] = useState("Identify emerging needs in the remote work sector.");
+    // 2026-05-14 — Prompt enhancer for the Research Goal. This is the most
+    // load-bearing prompt in the whole system — it drives source retrieval,
+    // multi-angle query expansion, themes, personas, deck, and prototype
+    // briefs. Sharpening it here cascades into every downstream artifact.
+    const goalEnhancer = usePromptEnhancer({
+        input: researchGoal,
+        setInput: setResearchGoal,
+        surface: 'research-goal',
+        getContext: () => {
+            const fileSummary = files.length > 0
+                ? `Uploaded files (${files.length}): ${files.slice(0, 5).map(f => f.name).join(', ')}${files.length > 5 ? '...' : ''}`
+                : '';
+            return fileSummary;
+        },
+    });
     // 2026-05-10 — Comma-separated subreddits the user wants targeted by the
     // deep-Reddit fetcher. Parsed at submit-time into a clean list of slugs
     // (no "r/" prefix). Empty means "let the engine pick from the goal."
     const [subredditsInput, setSubredditsInput] = useState("");
+    // 2026-05-14 — Build-only iteration support. When the user's entered
+    // research goal semantically matches a prior engagement (via keyword
+    // overlap on the cached manifests), surface a resume picker. Selecting
+    // a cached engagement loads its persisted briefs and skips data
+    // collection + brief generation entirely.
+    const [resumeSuppressed, setResumeSuppressed] = useState(false);
+    const [cachedResumePayload, setCachedResumePayload] = useState<ResumeSelection | null>(null);
+    // 2026-05-14 — Knowledge Library: full-screen panel that visualizes
+    // everything cached in the wiki (engagements / themes / sources / social)
+    // and lets the researcher pick what to feed into the next run. Fresh
+    // research remains a first-class option — opening the Library is purely
+    // additive.
+    const [libraryOpen, setLibraryOpen] = useState(false);
+    const [librarySelection, setLibrarySelection] = useState<LibrarySelection | null>(null);
+    const [librarySummarySnapshot, setLibrarySummarySnapshot] = useState<WikiLibrarySummary | null>(null);
+    // 2026-05-14 Phase B — ref-mirror of librarySelection so long-running
+    // async pipeline steps (themes / personas / orchestrator) can read the
+    // latest selection without re-rendering. Also lets effects keep the ref
+    // in sync without re-running the pipeline.
+    const librarySelectionRef = useRef<LibrarySelection | null>(null);
+    useEffect(() => { librarySelectionRef.current = librarySelection; }, [librarySelection]);
+    const handleLibraryApply = useCallback((sel: LibrarySelection, summary: WikiLibrarySummary) => {
+        setLibrarySelection(sel);
+        setLibrarySummarySnapshot(summary);
+        setLibraryOpen(false);
+        console.log('[KnowledgeLibrary] selection applied', sel);
+    }, []);
+    const handleLibraryClear = useCallback(() => {
+        setLibrarySelection(null);
+        setLibrarySummarySnapshot(null);
+    }, []);
+    const { matches: engagementMatches, loading: engagementMatchLoading } = useEngagementMatches({
+        researchGoal,
+        suppressed: resumeSuppressed || cachedResumePayload !== null,
+    });
+    // When the goal changes substantially, un-suppress so matches can re-appear.
+    const _lastGoalRef = useRef(researchGoal);
+    useEffect(() => {
+        if (_lastGoalRef.current !== researchGoal) {
+            _lastGoalRef.current = researchGoal;
+            if (resumeSuppressed) setResumeSuppressed(false);
+        }
+    }, [researchGoal, resumeSuppressed]);
+
+    // 2026-05-14 — Subreddit suggester (Gemini Flash). Derives 5-8 recommended
+    // communities from the research goal + uploaded files. Distinct from the
+    // prompt enhancer because it GENERATES rather than rewrites.
+    const subredditSuggester = useSubredditSuggester({
+        researchGoal,
+        currentValue: subredditsInput,
+        onChange: setSubredditsInput,
+        fileContext: files.length > 0
+            ? `${files.length} uploaded file${files.length > 1 ? 's' : ''}: ${files.slice(0, 5).map(f => f.name).join(', ')}`
+            : undefined,
+    });
     const [analysisApproach, setAnalysisApproach] = useState("Standard Ethnographic Analysis");
     const [streamingLog, setStreamingLog] = useState<string[]>([]);
     const [thinkingEvents, setThinkingEvents] = useState<ThinkingEvent[]>([]);
@@ -2416,6 +2494,10 @@ const App = () => {
 
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
+        // 2026-05-14 — Reset the per-run cost accumulator so the floating
+        // chip starts at $0 for each new engagement. summarizeRun() at the
+        // end of the prototype build emits the final tally to chat.
+        resetCostMeter(`engagement: ${researchGoal.slice(0, 60)}`);
         // 2026-05-11 — Reset session state for a fresh run. The new run gets
         // a new slug (derived from goal at save time); the auto-save guard
         // re-arms so the natural completion event will fire saveSession once.
@@ -3453,6 +3535,30 @@ const App = () => {
                         deepItems.push(...srcResult.items);
                     }
                 }
+                // 2026-05-14 Phase B — If the researcher selected subreddits in the
+                // Knowledge Library, hydrate cached posts from wiki and merge them
+                // into deepItems. Fails safe: any error → live deepItems used as-is.
+                const _libSel = librarySelectionRef.current;
+                if (_libSel && Array.isArray(_libSel.socialSubreddits) && _libSel.socialSubreddits.length > 0) {
+                    try {
+                        const { loadCachedRedditPostsFromWiki } = await import('./services/wikiCacheLoader');
+                        const cached = await loadCachedRedditPostsFromWiki(_libSel.socialSubreddits);
+                        if (cached && cached.posts.length > 0) {
+                            // De-dupe by id when both live + cached are present.
+                            const seenIds = new Set(deepItems.map((p: any) => p?.id).filter(Boolean));
+                            const merged = cached.posts.filter(p => !p.id || !seenIds.has(p.id));
+                            if (merged.length > 0) {
+                                deepItems.push(...merged);
+                                setThinkingEvents(prev => [...prev, {
+                                    type: 'PHASE',
+                                    content: `[CACHE] Loaded ${merged.length} cached Reddit posts from ${cached.subreddits_loaded.length} subreddit(s) — skipped a live Reddit API call.`,
+                                }]);
+                            }
+                        }
+                    } catch (cacheErr) {
+                        console.warn('[Phase B] reddit cache load failed (non-fatal):', cacheErr);
+                    }
+                }
                 if (deepItems.length >= 10) {
                     setRedditDeepItems(deepItems);
                     setThinkingEvents(prev => [...prev, {
@@ -3887,6 +3993,25 @@ ${synthesisParts.join('\n')}
 
                 // Fire and forget — runs in parallel to the chat flow. Failures are caught per stage.
                 (async () => {
+                    // 2026-05-14 Phase B — Deliverable persistence helper.
+                    // Persists every successful generate* result as JSON under
+                    // wiki/engagements/<slug>/<kind>.json so subsequent runs
+                    // against this goal can cache-load from disk (next-session
+                    // wiring: cache READ for deliverables).
+                    let _persistSlug: string | null = null;
+                    const persistDeliverable = async (kind: 'themes' | 'personas' | 'journey' | 'gap' | 'recs' | 'competitive' | 'blueprint', data: any) => {
+                        try {
+                            if (!_persistSlug) {
+                                const { buildEngagementSlug } = await import('./services/wikiService');
+                                _persistSlug = buildEngagementSlug(researchGoal || 'untitled-engagement', 60);
+                            }
+                            const { writeEngagementDeliverable } = await import('./services/wikiService');
+                            const ok = await writeEngagementDeliverable(_persistSlug, kind, data);
+                            if (ok) console.log(`[Phase B] persisted ${kind}.json to engagements/${_persistSlug}/`);
+                        } catch (persistErr) {
+                            console.warn(`[Phase B] persist ${kind} failed (non-fatal):`, persistErr);
+                        }
+                    };
                     try {
                         // Ingest the curated corpus into the legacy Gemini session so downstream
                         // synthesis stages have the source material in their chat history.
@@ -3928,7 +4053,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Extracting themes for knowledge graph…");
                                 themes = await session.generateThemes(undefined, noop);
-                                if (themes && stillActive()) setThemesResult(themes);
+                                if (themes && stillActive()) {
+                                    setThemesResult(themes);
+                                    persistDeliverable('themes', themes);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Themes failed:', err); }
                         }
 
@@ -3937,7 +4065,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Synthesizing personas for knowledge graph…");
                                 const personas = await session.generatePersonas(themes, undefined, noop, noop);
-                                if (personas && stillActive()) setPersonasResult(personas);
+                                if (personas && stillActive()) {
+                                    setPersonasResult(personas);
+                                    persistDeliverable('personas', personas);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Personas failed:', err); }
                         }
 
@@ -3946,7 +4077,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Synthesizing recommendations for knowledge graph…");
                                 const recs = await session.generateRecommendations(undefined, noop);
-                                if (recs && stillActive()) setRecsResult(recs);
+                                if (recs && stillActive()) {
+                                    setRecsResult(recs);
+                                    persistDeliverable('recs', recs);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Recommendations failed:', err); }
                         }
 
@@ -3955,7 +4089,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Mapping service journey for knowledge graph…");
                                 const journey = await session.generateJourneyMap(undefined, noop);
-                                if (journey && stillActive()) setJourneyResult(journey);
+                                if (journey && stillActive()) {
+                                    setJourneyResult(journey);
+                                    persistDeliverable('journey', journey);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Journey failed:', err); }
                         }
 
@@ -3964,7 +4101,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Scoring capability gaps for knowledge graph…");
                                 const gap = await session.generateGapAnalysis(undefined, noop);
-                                if (gap && stillActive()) setGapResult(gap);
+                                if (gap && stillActive()) {
+                                    setGapResult(gap);
+                                    persistDeliverable('gap', gap);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Gap analysis failed:', err); }
                         }
 
@@ -3973,7 +4113,10 @@ ${synthesisParts.join('\n')}
                             try {
                                 setStatusMessage("Data collected. Analyzing competitive landscape for knowledge graph…");
                                 const comp = await session.generateCompetitiveAnalysis(undefined, noop);
-                                if (comp && stillActive()) setCompetitiveResult(comp);
+                                if (comp && stillActive()) {
+                                    setCompetitiveResult(comp);
+                                    persistDeliverable('competitive', comp);  // Phase B
+                                }
                             } catch (err) { console.warn('[KG Auto-Synthesis] Competitive failed:', err); }
                         }
 
@@ -4296,7 +4439,49 @@ ${synthesisParts.join('\n')}
 
     return (
         <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[var(--nxt-lime)] selection:text-white overflow-hidden flex flex-col">
-             
+             {/* Cost meter chip — floats bottom-right, hidden until first AI call. */}
+             <CostMeterChip accentColor="#00B7C3" />
+
+             {/* Knowledge Library — full-screen modal triggered from the IDLE
+                 page entry. Renders nothing when closed. researchGoal is passed
+                 in so the library can highlight items most relevant to what
+                 the researcher is currently working on. */}
+             <KnowledgeLibrary
+                 isOpen={libraryOpen}
+                 onClose={() => setLibraryOpen(false)}
+                 onApply={handleLibraryApply}
+                 accentColor="#00B7C3"
+                 researchGoal={researchGoal}
+             />
+
+             {/* 2026-05-14 — T4 resume chat. When the user picks a cached engagement
+                 from the IDLE-screen resume panel, this CorpusChatPanel mounts in
+                 isolation with the cached briefs ready for selection. Builds run
+                 Stages 2-5 only, skipping data collection + brief generation. */}
+             {appState === AppState.IDLE && cachedResumePayload && (
+                 <CorpusChatPanel
+                     isOpen={showCorpusChat}
+                     onToggle={() => { setShowCorpusChat(false); setCachedResumePayload(null); }}
+                     getContext={() => ({
+                         corpusText: '',
+                         uploadedFileContents: '',
+                         uploadedFiles: [],
+                         researchGoal,
+                     } as any)}
+                     context={{} as any}
+                     initialCachedBriefs={{
+                         briefs: cachedResumePayload.briefsFile.briefs.map(r => r.brief),
+                         meta: {
+                             brand: cachedResumePayload.briefsFile.brand,
+                             researchGoal: cachedResumePayload.briefsFile.research_goal,
+                             originalConcept: cachedResumePayload.briefsFile.briefs[0]?.original_concept || cachedResumePayload.briefsFile.research_goal || '',
+                         },
+                         sourceSlug: cachedResumePayload.manifest.slug,
+                         mode: cachedResumePayload.mode,
+                     }}
+                 />
+             )}
+
              {/* HEADER */}
              <div className="flex justify-between items-center px-8 py-5 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] z-20">
                  <Logo />
@@ -4429,6 +4614,21 @@ ${synthesisParts.join('\n')}
                                      </div>
                                 </div>
 
+                                {/* 2026-05-14 — Knowledge Library landing-page preview. Renders
+                                    ABOVE Continue Session because it's the second-brain entry
+                                    point — "what's in my wiki" is the FIRST thing a researcher
+                                    should see. Lightweight (count-only on mount); the full
+                                    library modal opens via "Browse library". */}
+                                {appMode === 'research' && (
+                                    <KnowledgeLibraryPreview
+                                        onOpen={() => setLibraryOpen(true)}
+                                        selection={librarySelection}
+                                        onClear={handleLibraryClear}
+                                        accentColor="#00B7C3"
+                                        researchGoal={researchGoal}
+                                    />
+                                )}
+
                                 {/* 2026-05-11 (HiC-Session-Save) — Continue Session picker.
                                     Loads saved sessions from the proxy. Shows last 6 by
                                     most-recently saved. Hidden when there are none. */}
@@ -4507,27 +4707,55 @@ ${synthesisParts.join('\n')}
                                 {appMode === 'research' && (
                                 <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-8 shadow-none mb-12">
                                      <div className="mb-8">
-                                         <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Research Goal</label>
-                                         <input
+                                         <div className="flex items-baseline justify-between mb-2">
+                                             <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest">Research Goal</label>
+                                             <span className="text-[10px] text-[var(--text-tertiary)] italic">
+                                                 The most load-bearing prompt — drives sources, themes, personas, deck, prototypes
+                                             </span>
+                                         </div>
+                                         <EnhancePreview handle={goalEnhancer} accentColor="#00B7C3" />
+                                         <textarea
                                              value={researchGoal}
                                              onChange={(e) => setResearchGoal(e.target.value)}
-                                             className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-4 text-lg font-medium focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all"
-                                             placeholder="e.g. Understand the pain points of remote workers..."
+                                             rows={4}
+                                             className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-4 text-base font-medium focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all resize-y"
+                                             style={{ fontFamily: "'Archivo', sans-serif", lineHeight: 1.5, minHeight: 110 }}
+                                             placeholder="e.g. Identify unmet co-op program needs for Northeastern undergraduates over the next 24 months, with a focus on employer-side friction and student-side decision points."
+                                         />
+                                         <div className="flex justify-end mt-2">
+                                             <EnhanceButton handle={goalEnhancer} accentColor="#00B7C3" />
+                                         </div>
+                                         {/* 2026-05-14 — T4 resume picker. Appears only when the entered
+                                             goal semantically matches a prior engagement's cached briefs. */}
+                                         <ResumeEngagementPanel
+                                             matches={engagementMatches}
+                                             loading={engagementMatchLoading}
+                                             accentColor="#00B7C3"
+                                             onSelect={(sel) => {
+                                                 setCachedResumePayload(sel);
+                                                 setShowCorpusChat(true);
+                                                 console.log(`[T4 Resume] selected ${sel.mode} for engagement ${sel.manifest.slug} — ${sel.briefsFile.briefs.length} cached briefs ready`);
+                                             }}
+                                             onDismiss={() => setResumeSuppressed(true)}
                                          />
                                          {/* 2026-05-10 — Subreddit input drives the deep-Reddit fetcher.
                                              Comma-separated, "r/" prefix optional. Empty = engine infers
                                              from the goal. Whatever the user enters here gets pulled
                                              deeply (full post bodies + comment trees) for topic
                                              modeling in the Analyst Desk's Topic Modeling tab. */}
-                                         <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mt-6 mb-2">
-                                             Reddit Communities <span className="font-light text-[10px] tracking-normal normal-case text-[var(--text-tertiary)] ml-1">(comma-separated — pulled deeply with comments)</span>
-                                         </label>
+                                         <div className="flex items-baseline justify-between mt-6 mb-2 gap-3">
+                                             <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest">
+                                                 Reddit Communities <span className="font-light text-[10px] tracking-normal normal-case text-[var(--text-tertiary)] ml-1">(comma-separated — pulled deeply with comments)</span>
+                                             </label>
+                                             <SuggesterButton handle={subredditSuggester} accentColor="#00B7C3" />
+                                         </div>
                                          <input
                                              value={subredditsInput}
                                              onChange={(e) => setSubredditsInput(e.target.value)}
                                              className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-3 text-sm font-mono focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all"
                                              placeholder="r/CareerAdvice, r/cscareerquestions, r/AskAcademia"
                                          />
+                                         <SuggesterPanel handle={subredditSuggester} accentColor="#00B7C3" />
                                          {/* Phase 1.9 — prior engagement match hint. Appears when the
                                              current goal semantically overlaps with wiki/engagements
                                              or wiki/synthesis from a prior run. Gives the operator a
@@ -4803,13 +5031,37 @@ ${synthesisParts.join('\n')}
                                          )}
                                      </div>
 
-                                     <button
-                                         onClick={startAnalysis}
-                                         disabled={files.length === 0 && !hasDataSources}
-                                         className={`w-full py-4 rounded text-sm font-bold uppercase tracking-widest transition-all transform hover:scale-[1.01] active:scale-[0.99] ${(files.length > 0 || hasDataSources) ? 'bg-[var(--nxt-lime)] text-[var(--nxt-teal)] hover:brightness-110' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
-                                     >
-                                         {(files.length > 0 || hasDataSources) ? (hasDataSources ? 'Collect Data & Initialize Analysis' : 'Initialize Analysis Agent') : 'Upload Data or Enable Sources to Begin'}
-                                     </button>
+                                     {(() => {
+                                         // 2026-05-14 — Knowledge Library selections satisfy the
+                                         // "have data" gate too. If the researcher has selected
+                                         // cached themes/sources/social/engagements from the
+                                         // Library, they don't need to upload anything new or
+                                         // enable a fresh source — they can start analysis on
+                                         // the cached intelligence alone.
+                                         const librarySelectionCount = librarySelection
+                                             ? librarySelection.engagementSlugs.length + librarySelection.themeClusterIds.length + librarySelection.sourceArchivePaths.length + librarySelection.socialSubreddits.length
+                                             : 0;
+                                         const hasLibrarySelection = librarySelectionCount > 0;
+                                         const canStart = files.length > 0 || hasDataSources || hasLibrarySelection;
+                                         const label = !canStart
+                                             ? 'Upload Data, Enable Sources, or Select from Knowledge Library to Begin'
+                                             : hasLibrarySelection && files.length === 0 && !hasDataSources
+                                                 ? `Run Analysis with ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'}`
+                                                 : hasLibrarySelection
+                                                     ? `Collect Data & Run Analysis (reusing ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'})`
+                                                     : hasDataSources
+                                                         ? 'Collect Data & Initialize Analysis'
+                                                         : 'Initialize Analysis Agent';
+                                         return (
+                                             <button
+                                                 onClick={startAnalysis}
+                                                 disabled={!canStart}
+                                                 className={`w-full py-4 rounded text-sm font-bold uppercase tracking-widest transition-all transform hover:scale-[1.01] active:scale-[0.99] ${canStart ? 'bg-[var(--nxt-lime)] text-[var(--nxt-teal)] hover:brightness-110' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+                                             >
+                                                 {label}
+                                             </button>
+                                         );
+                                     })()}
                                 </div>
                                 )}
 
