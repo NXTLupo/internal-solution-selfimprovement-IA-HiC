@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "What else can I do with my degree?"
 author: "Dry-Succotash7300"
 date: "2026-03-18T03:11:18.000Z"
-score: 6
-upvote_ratio: 0.8
+score: 5
+upvote_ratio: 0.78
 num_comments: 2
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.374Z"
+extracted_at: "2026-05-13T23:02:38.929Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # What else can I do with my degree?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/)
-Posted by **Dry-Succotash7300** · **6↑** · **2 comments**
+Posted by **Dry-Succotash7300** · **5↑** · **2 comments**
 
 I am graduating with my CS degree next month and I'm realizing that software development roles may not be a feasible option anymore with the collapsing demand for juniors. I have been searching for months and the job boards get dryer and dryer each week. My last phone screener hasn't gotten back to me, a phone interview before that rejected me within the first 5 minutes of the call because they need an immediate start, one company told me via email they also need an immediate start, and another told me I was a "potential fit" but still had to put my application "on hold" for vague reasons. Every single avenue, even ones that seem like opportunities, pan out to absolutely nothing and I don't really see what more I can do. The career studio said my resume was excellent, hyped my projects, and just recommended tailoring which I've been doing. Networking has led to nothing; I mean the career fair last month was one of the most humiliating, degrading experiences I've had at Northeastern with the crowd that showed up. There were hundreds of people in Cabot and they had us waiting 30+ minutes in line to talk to a recruiter who forgot our faces the second we left and was only entertaining us out of professional courtesy because they knew each individual person they talked to had a slim chance of being picked out of the application pile.
 
@@ -28,7 +28,7 @@ So given that I had to completely erase almost every single thing I accomplished
 
 ## Comments
 
-- **HigherEdPro** (7↑): Dear OP - I am reaching out as it appears the DMs are not open to receiving messages. Please know that help is available. If you are located in Boston, UHCS offers drop in hours daily from 11 AM to 2 PM, Tuesday and Thursday evening from 5 PM to 7:30 PM. You can also call to make an appointment and I’m happy to help you set time to talk with someone on our team. 
+- **HigherEdPro** (6↑): Dear OP - I am reaching out as it appears the DMs are not open to receiving messages. Please know that help is available. If you are located in Boston, UHCS offers drop in hours daily from 11 AM to 2 PM, Tuesday and Thursday evening from 5 PM to 7:30 PM. You can also call to make an appointment and I’m happy to help you set time to talk with someone on our team. 
 
 For urgent mental health support 24/7 call +1.877.233.9477. 
 

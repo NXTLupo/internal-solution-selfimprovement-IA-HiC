@@ -8,7 +8,7 @@ author: ""
 date: "2026-04-26T18:01:07.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-12T15:08:31.036863+00:00"
+extracted_at: "2026-05-12T21:01:21.358706+00:00"
 chars: 2461
 ---
 
@@ -34,9 +34,9 @@ I've already emailed my academic advisor but got an auto-reply saying they'll re
 [12↑ disfiguredcoconut] there’s nothing you can do but hope you passed. if you’re not on financial aid then academic probation isn’t a big deal at all. don’t email and grade grub it’s too late for that
 [1↑ Routine-Collection36] This might not be true
 [1↑ disfiguredcoconut] so are you gonna tell us how or be mysterious?
-[9↑ Extension_Radish_139] If you fail the class then you just retake it and the grade replaces the F on your transcript, so it will have basically 0 bearing on your GPA. And a bad grade shouldn’t affect your co op offer
+[8↑ Extension_Radish_139] If you fail the class then you just retake it and the grade replaces the F on your transcript, so it will have basically 0 bearing on your GPA. And a bad grade shouldn’t affect your co op offer
 [2↑ trapdoorinthesunn] Retaking a class removes the F from the transcript?
-[8↑ SovereignPhobia] The typical policy is one or two retakes that replace the previous grade. This is more or less across the board for all universities unless otherwise stated.
+[6↑ SovereignPhobia] The typical policy is one or two retakes that replace the previous grade. This is more or less across the board for all universities unless otherwise stated.
 
 btw bad grades do affect offers for some conditional internships and stuff like that, but it's not super common
 [1↑ Extension_Radish_139] It doesn’t remove the F, but it replaces the grade in your GPA

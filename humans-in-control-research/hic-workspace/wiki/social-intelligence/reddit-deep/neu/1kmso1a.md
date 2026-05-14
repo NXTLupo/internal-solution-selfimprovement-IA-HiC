@@ -10,7 +10,7 @@ score: 2
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-12T20:36:08.377Z"
+extracted_at: "2026-05-13T20:23:48.325Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---

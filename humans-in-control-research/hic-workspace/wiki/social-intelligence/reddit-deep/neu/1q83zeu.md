@@ -10,7 +10,7 @@ score: 3
 upvote_ratio: 0.8
 num_comments: 1
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T20:36:08.375Z"
+extracted_at: "2026-05-13T18:45:41.306Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -29,4 +29,4 @@ Thanks!
 
 ## Comments
 
-- **Bubbly_Following7930** (3↑): It's a tough job market.
+- **Bubbly_Following7930** (5↑): It's a tough job market.

@@ -10,7 +10,7 @@ score: 32
 upvote_ratio: 0.87
 num_comments: 20
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-12T19:19:22.617Z"
+extracted_at: "2026-05-13T23:02:38.867Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -33,11 +33,11 @@ Someone please help a girl out!!!
 - **Da_Woodge** (17↑): I did NUIN and really enjoyed it. Most of the classes you will take are gen eds and are totally fine to not do on the main campus. I personally had no issue when returning to boston, I would suggest joining a club related to your major. There is a lot of rich people, but that is the same for the regular campus as well lol.
 - **Universe2001** (11↑): Go for it.
   - **11hyunjin** (3↑): is this my sign from the Universe chat
-- **Lazy_War9398** (16↑): You won't be starting uni a semester later than everyone else if that helps. You'll be able to make friends while you're abroad as well, and northeastern generally (IMO) does a good job of helping ppl acclimatize to Boston after spending their first semester or year somewhere else
+- **Lazy_War9398** (17↑): You won't be starting uni a semester later than everyone else if that helps. You'll be able to make friends while you're abroad as well, and northeastern generally (IMO) does a good job of helping ppl acclimatize to Boston after spending their first semester or year somewhere else
   - **11hyunjin** (3↑): AHHH okay thanks this relieved some of my anxiety abt it
 - **sunflowerplanting** (8↑): i got in too! i’m heavily thinking of going it’s a once in a life experience 😁
   - **Cold_Collection_6077** (1↑): Can you pls share cost of the program? My daughter got in London program but price is very high. Is it worth spending so much?
-- **This_Impress7889** (7↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
+- **This_Impress7889** (6↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
   - **11hyunjin** (1↑): can i ask if you were an international student or a US citizen? bc I had some confusions abt the F1 visa stuff
   - **paigu-fan** (1↑): I know the location is first come first serve. Did you have to reserve your spot the moment the website on the portal opened?
     - **11hyunjin** (1↑): they said the locations will be announced in the spring so still waiting

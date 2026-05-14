@@ -7,10 +7,10 @@ title: "Fall 2026 Co-op Search Check-in: 50 apps on NUworks, 1 interview (reject
 author: "DrawerAmazing6498"
 date: "2026-03-16T20:17:59.000Z"
 score: 3
-upvote_ratio: 0.67
+upvote_ratio: 0.71
 num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T15:03:54.711Z"
+extracted_at: "2026-05-13T23:02:38.894Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -38,7 +38,7 @@ Any advice, reality checks, or just shared misery would be highly appreciated ri
 
 ## Comments
 
-- **ChilllFam** (4↑): Im in CS, I have applied to 75 through NUworks and 25 or so more from other job boards. I have my first interview tomorrow, and have gotten 3 OA’s other than that. Kind of in a similar position. Not too sure how to feel right now, but hoping something sticks soon.
+- **ChilllFam** (3↑): Im in CS, I have applied to 75 through NUworks and 25 or so more from other job boards. I have my first interview tomorrow, and have gotten 3 OA’s other than that. Kind of in a similar position. Not too sure how to feel right now, but hoping something sticks soon.
   - **DrawerAmazing6498** (1↑): well,good luck!
 - **[deleted]** (3↑): I'm in CS. Only got one interview (rejected).
 - **saagggssss** (2↑): You should do both. Nu works and LinkedIn. And in this current job market for tech, you most likely need to do more. I had a call back of 1.5%. I interned in summer 25 and had 300+ applications.

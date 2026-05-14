@@ -10,7 +10,7 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 8
 flair: "Academics"
-extracted_at: "2026-05-12T19:19:22.623Z"
+extracted_at: "2026-05-13T23:02:38.888Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -24,7 +24,7 @@ Prospective undergrad student to the oakland campus here, I’m interested in pu
 
 ## Comments
 
-- **International_Bat972** (6↑): i had a ton of AP credits and im doing exactly what you're saying (coop + econ minor + 4 yrs). especially at NEU, i'd recommend taking summer 1 classes at least one time. the spring semester ends in april, while summer 1 ends in june (like most places).
+- **International_Bat972** (7↑): i had a ton of AP credits and im doing exactly what you're saying (coop + econ minor + 4 yrs). especially at NEU, i'd recommend taking summer 1 classes at least one time. the spring semester ends in april, while summer 1 ends in june (like most places).
 - **OrangeElectric** (3↑): u might have to do some summer classes (most people do), and for the minor since its related to your major there should be some overlap in requirements! (im cs + design minor in game design, and some of my CS coursework overlaps with game design requirements as a minor)
   - **Additional-Spring27** (1↑): would you say a lot of people end up doing minors, or is it mostly co-ops?
     - **OrangeElectric** (3↑): people do both!! what your ap credits are does matter, (do you have any calc, physics, etc & english?) It is a lot more feasible to graduate in 4 yrs and do 2 co-ops with a minor if you are able to skip some 1st year courses

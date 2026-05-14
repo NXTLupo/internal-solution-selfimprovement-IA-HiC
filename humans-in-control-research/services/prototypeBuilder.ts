@@ -62,6 +62,26 @@ export interface DesignSystem {
     components: any[];
 }
 
+/**
+ * 2026-05-13 — Stage 2.5 output. A synthetic user session that the prototype
+ * must satisfy. Generated via Verbalized Sampling (12 modal + 10 edge + 8 tail).
+ * Stage 3, 3.5, 4, and 5 all consume these — Stage 5 audits coverage against
+ * the full set and surfaces a coverage % verdict.
+ */
+export interface SimulatedUserSession {
+    id: string;
+    bucket: 'modal' | 'edge' | 'tail';
+    persona: {
+        name: string;
+        role: string;
+        bio: string;          // 1-2 sentences placing them in a specific situation
+    };
+    starting_state: string;   // What they bring to the experience — emotional + situational
+    motivation: string;       // What they want to accomplish in this session
+    expected_end_state: string;  // What success looks like for THEM
+    one_thing_frustrated_by: string;  // The ONE thing this prototype must NOT do to them
+}
+
 export interface CritiqueReport {
     verdict: 'ship' | 'refine' | 'rebuild';
     summary: string;
@@ -74,6 +94,80 @@ export interface CritiqueReport {
         fix: string;
     }>;
     corrected_code: string | null;
+    /**
+     * 2026-05-13 — Session coverage audit. For each of the 30 simulated users,
+     * the critic answers: "Can this user complete their flow? If not, what's
+     * the specific missing piece?" Coverage % drives the user-visible verdict:
+     *   ≥ 70% → ship
+     *   50-69% → refine + corrected_code
+     *   < 50% → rebuild
+     */
+    session_coverage?: {
+        coverage_pct: number;
+        sessions_passed: number;
+        sessions_total: number;
+        failed_sessions: Array<{
+            session_id: string;
+            persona_name: string;
+            bucket: 'modal' | 'edge' | 'tail';
+            missing_piece: string;     // Concrete: "Expert path expects keyboard shortcut to skip the intro — not wired."
+        }>;
+    };
+}
+
+/**
+ * 2026-05-13 — Build Recipe: the exhaustive implementation plan that Stage 4
+ * executes verbatim. Inspired by the Copilot Recipe Generator app — every
+ * screen, every state variable, every event handler, every AI prompt, every
+ * seed-data record, every micro-copy string is enumerated BEFORE the code
+ * generator writes a single line of JSX. This separates "decide what to
+ * build" from "build it", letting each get full thinking-budget attention.
+ */
+export interface BuildRecipe {
+    persona_runtime: {
+        name: string;
+        photo_prompt: string;
+        voice_sample: string;
+        biographical_anchor: string;
+    };
+    seed_data: {
+        [entity_name: string]: {
+            target_count: number;
+            field_shape: string;
+            sample_records: any[];   // 5+ FULLY-FORMED records to anchor the model's generation; Stage 4 expands to target_count
+            naming_convention: string;
+            value_distributions: string;
+        };
+    };
+    screens: Array<{
+        id: string;
+        purpose: string;
+        component_tree: string;             // text outline of the JSX hierarchy
+        state_variables: Array<{ name: string; type: string; initial: string; purpose: string }>;
+        event_handlers: Array<{ name: string; trigger: string; logic: string; updates_state: string[]; fires_ai: string | null }>;
+        loading_state: string;
+        empty_state: string;
+        error_state: string;
+        motion_specs: Array<{ element: string; channel: string; trigger: string; encoding: string }>;
+        ai_calls_fired: string[];           // recipe-ids referencing verbatim_prompts
+    }>;
+    cross_cutting: {
+        demo_controls: string;
+        image_generation_calls: Array<{ id: string; trigger: string; prompt: string; placement: string; lazy: boolean }>;
+        persistence: string;
+        accessibility_floor: string;
+    };
+    micro_copy: { [key: string]: string };   // every user-visible string
+    verbatim_prompts: {
+        [call_id: string]: {
+            system_prompt: string;
+            user_template: string;
+            uses_verbalized_sampling: boolean;
+            response_shape: string;
+            error_fallback_copy: string;
+        };
+    };
+    success_assertions: string[];            // Stage 5 audits against these
 }
 
 export interface PrototypeArtifact {
@@ -85,7 +179,9 @@ export interface PrototypeArtifact {
     research_goal?: string;
     brief: ExperienceBrief;
     interaction_spec: InteractionSpec;
+    simulated_sessions?: SimulatedUserSession[];   // Stage 2.5 output
     design_system: DesignSystem;
+    build_recipe?: BuildRecipe;
     code: string;
     code_format: 'react' | 'html';
     critique: CritiqueReport;
@@ -239,7 +335,7 @@ The user message that follows may take TWO forms. Handle each correctly:
 
    d. **Bake the GROUNDING THEMES into \`success_criteria\`** — write success criteria that read "the user, who lives the [theme N] reality, feels [specific relief]". The themes are the WHY behind the concept.
 
-   e. **Use verbatim quotes from the THEMES block as evidence the prototype will surface.** If a theme has a verbatim quote like "I applied to 1,870 jobs over 18 months", that quote should appear in the prototype as a real testimonial / data point / scenario seed.
+   e. **Distill insights from the GROUNDING THEMES and verbatim quotes — but NEVER reproduce a verbatim quote in the prototype's UI.** The quotes are research artifacts that reveal the underlying pain, motivation, or contradiction. Encode that INSIGHT into the brief (in jobs_to_be_done, persona.emotional_state, success_criteria) using fresh language. Stage 4 enforces the same rule downstream — every verbatim quote that escapes into the prototype's rendered text is a BLOCKING failure. The rule is universal: applies whether the engagement is healthcare, fintech, retail, government, manufacturing, education, SaaS, or any other industry.
 
    f. **Map the tile's required AI capabilities directly into \`ai_inference_points\`.** Each capability the tile listed must appear as an inference point in your brief, with the trigger, model call, input, and output shape filled in concretely (referencing the actual pain point and theme the inference relieves).
 
@@ -311,7 +407,7 @@ A senior product partner reviewing this prototype must conclude it's a substanti
 1. Read the Experience Brief in full, especially the \`ai_inference_points\` and \`jobs_to_be_done\`.
 2. Design the screen set — minimum 4, target 5-7 — that demonstrates the brief's jobs-to-be-done end-to-end including every AI inference point.
 3. For each screen, define its purpose, the persona's state of mind, the primary action available, the secondary actions, AND any AI calls fired from that screen.
-4. Define the data model: what entities exist, what fields they have, what's seeded for the demo. Seeded data must be CONCRETE and contextually realistic for the persona — never lorem ipsum, never \`["Item 1", "Item 2", "Item 3"]\`.
+4. Define the data model: what entities exist, what fields they have, what's seeded for the demo. Seeded data must be CONCRETE and contextually realistic for the persona — never lorem ipsum, never \`["Item 1", "Item 2", "Item 3"]\`. **MINIMUM DENSITY (universal, applies to every industry):** for any "primary entity" the user will see in a list/feed/dashboard, set \`seed_count\` to AT LEAST 20 (target 20-30). For any secondary entity (tags, categories, owners, sources), \`seed_count\` ≥ 10. For conversational history / activity logs, \`seed_count\` ≥ 12. The downstream coder enforces these floors — under-specifying here causes a Stage-5 BLOCKING rejection. Concept domain is irrelevant: a patient list, a transaction feed, an inventory grid, an alert stream, a case docket, or a learner record set all share the same density requirement.
 5. Define the state machine: how the user moves between screens, what triggers each transition, what state persists. Every AI inference point in the brief MUST appear as a side effect of at least one transition.
 6. Define the micro-interactions: hover states, loading states (with skeleton or shimmer), empty states (with a useful prompt, not "no data"), error states (with retry), success states (with momentum to next action).
 7. Define the motion contract using the five-channel model — typographic mass, color modulation, spatial extension, positional drift, temporal sequence — and assign motion roles deliberately. Every motion choice must encode something or set tone. No decorative animation.
@@ -333,6 +429,94 @@ A senior product partner reviewing this prototype must conclude it's a substanti
 
 <final_instruction>
 Every screen must serve the demonstrated moment from the brief — if a screen doesn't, cut it. Output valid JSON only.
+</final_instruction>`;
+
+// ============================================================
+// STAGE 2.5: SIMULATED USER SESSIONS  (2026-05-13)
+// ============================================================
+//
+// Between the Interaction Spec and the Visual Designer, generate 30 synthetic
+// user sessions via Verbalized Sampling that the prototype must satisfy.
+// Distribution: 12 modal + 10 edge + 8 tail.
+//
+// The sessions are NOT just personas — they're SESSIONS: a specific person in
+// a specific starting state with a specific motivation and a specific thing
+// they'd be frustrated by. Together they describe the full distribution of
+// users the prototype must accommodate.
+//
+// Output flows into:
+//   - Stage 3 (Visual Designer): the design must serve all 3 buckets
+//   - Stage 3.5 (Build Recipe Author): micro-copy + empty states address edge + tail
+//   - Stage 4 (Prototype Coder): seed data reflects the session distribution
+//   - Stage 5 (Critic): audits coverage per-session and computes coverage %
+
+const STAGE_2_5_SYSTEM = `<role>
+You generate the THIRTY synthetic user sessions a prototype must satisfy. You think like a UX researcher who has run 1000 user studies — you know that the modal user is only one slice. The edge users (hostile, distracted, mobile-only, accessibility, novice, expert-who-skips) are how the prototype gets tested. The tail users (the ones the brief didn't anticipate — wrong-product, recovering-from-error, multi-account, returning-after-30-days, the user who arrived via a back-button) are where prototypes break. Your job: surface all three buckets with the same rigor, so the downstream coder cannot ship a one-screen happy-path stub and pass review.
+</role>
+
+<verbalized_sampling_directive>
+Generate exactly THIRTY sessions distributed across three buckets via Verbalized Sampling:
+
+  BUCKET A — MODAL (12 sessions, probability ~0.40 each)
+    The user the brief was written FOR. They show up with the expected mood, the expected context, the expected goal. Variations among these 12: different demographic slices, different times of day, different devices, different motivations — but all within the brief's anticipated frame.
+
+  BUCKET B — EDGE (10 sessions, probability ~0.10 each)
+    Real users at the edge of the typical distribution. Include AT LEAST:
+      • 1 hostile user (skeptical, doesn't trust AI, looking for proof to leave)
+      • 1 distracted user (in a meeting, multitasking, only has 30 seconds)
+      • 1 mobile-context user (small screen, one thumb, walking)
+      • 1 accessibility user (screen reader, low-vision, reduced motion, motor impairment)
+      • 1 expert-who-skips (knows the domain, wants to bypass onboarding)
+      • 1 novice-who-fumbles (first time encountering this kind of product, needs hand-holding)
+      • 1 keyboard-only user (no mouse, all-keyboard navigation)
+      • Plus 3 more edge slices specific to the concept
+
+  BUCKET C — TAIL (8 sessions, probability ~0.03 each)
+    The users the brief didn't anticipate. The prototype's resilience is measured here. Include AT LEAST:
+      • 1 wrong-product user (landed here by mistake, needs an easy exit)
+      • 1 recovering-from-error user (their last session crashed; they're nervous)
+      • 1 multi-account user (works across 3 client accounts; needs disambiguation)
+      • 1 returning-after-30-days user (forgot how it works; everything is half-familiar)
+      • 1 user-with-bad-data user (their inputs don't fit the system's assumptions)
+      • 1 power-user-with-shortcuts user (memorized the keyboard map; resents friction)
+      • Plus 2 more tail slices specific to the concept
+
+These probability slots are deliberate: the modal users are p~0.40 (any one of 12 represents "most users"), edge are p~0.10 (each one is a 10% slice), tail are p~0.03 (each is a 3% slice but their absence destroys trust).
+
+CRITICAL: do NOT make the 30 sessions feel like 30 copies of the same person with name swaps. Vary persona (name, role, age, life situation, demographic), starting_state (emotional + situational), motivation, expected_end_state. Each session must be DISTINCT enough that a prototype that satisfies one might fail another.
+</verbalized_sampling_directive>
+
+<industry_agnostic>
+Adapt vocabulary, persona archetype, regulatory frame to the input's industry. The bucket structure (12+10+8) and the required edge/tail slices are CONSTANT regardless of vertical (healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, logistics, public sector, any other domain).
+</industry_agnostic>
+
+<output_format>
+Return a single JSON object:
+
+{
+  "sessions": [
+    {
+      "id": "session-01",
+      "bucket": "modal",
+      "persona": {
+        "name": "string — real-sounding name from the domain",
+        "role": "string — title or relationship to the product",
+        "bio": "string — 1-2 sentences placing them in a specific situation"
+      },
+      "starting_state": "string — what they bring (emotional + situational)",
+      "motivation": "string — what they want to accomplish in this session",
+      "expected_end_state": "string — what success looks like FOR THEM",
+      "one_thing_frustrated_by": "string — the single thing this prototype must NOT do to them"
+    }
+    // 30 entries total: 12 modal (session-01..12), 10 edge (session-13..22), 8 tail (session-23..30)
+  ]
+}
+
+Output ONLY this JSON. No preamble. No code fences.
+</output_format>
+
+<final_instruction>
+Every session must be SPECIFIC. "A busy user" is not specific. "Maya Chen, 34, neonatal ICU charge nurse on hour 11 of a 12-hour shift, scrolling on a borrowed iPhone in 30-second snatches between patient checks" is specific. Specificity is the difference between a prototype that ships and a prototype that gets dismantled in user testing.
 </final_instruction>`;
 
 // ============================================================
@@ -402,14 +586,176 @@ Restraint over decoration. Every token must be used by the prototype. Use the ex
 }
 
 // ============================================================
+// STAGE 3.5: BUILD RECIPE AUTHOR
+// ============================================================
+//
+// 2026-05-13 — Inserted between Stage 3 and Stage 4. Produces an exhaustive,
+// Copilot-Recipe-Generator-style implementation plan that Stage 4 executes
+// verbatim. The recipe enumerates every screen's component tree, every state
+// variable, every event handler, every AI prompt (verbatim, with VS
+// envelope where applicable), every seed-data record (5+ fully-formed
+// anchors per entity that Stage 4 expands to the target count), every
+// piece of micro-copy. This separation gives the planner FULL thinking
+// budget on "what to build" without the executor's "how to write JSX"
+// stealing attention from completeness.
+
+const STAGE_3_5_SYSTEM = `<role>
+You are a senior product architect writing the DEFINITIVE BUILD RECIPE for a single-file React prototype. You take an approved Experience Brief, an Interaction Spec, and a Design System, and you produce the EXHAUSTIVE implementation plan that a junior engineer could follow line-by-line to ship the prototype without inventing anything. Think IDEO + Apple + the Copilot Recipe Generator app's level of "every click, every field, every default value enumerated".
+
+The downstream Stage 4 coder will EXECUTE this recipe — it will not re-decide anything. Every ambiguity you leave behind becomes a Stage 4 hallucination. Every detail you fill in becomes a guarantee.
+</role>
+
+<exhaustiveness_floor>
+Your recipe must specify EVERY one of these. Anything you omit, the coder will either skip or fabricate badly:
+
+1. **Persona runtime snapshot** — final persona name, a verbose photo prompt the coder will pass to Gemini Imagen at runtime for the avatar, 2-3 sentences of "voice sample" (how the persona would phrase a request — the coder writes UI micro-copy in this voice), and a biographical anchor (job tenure, team, situation).
+
+2. **Seed data — actual records, not summaries**. For every entity in the Brief / Spec data_model:
+   - target_count (must be ≥ 20 for primary entities, ≥ 10 for secondary)
+   - field_shape (each field type + range)
+   - **sample_records: 5+ FULLY-FORMED records with ALL fields populated to realistic values.** These are anchors the coder will use to generate the remaining records (15+ more to hit the count). The 5 anchors must SPAN the value distribution (e.g. if the entity is "patient" with severity field, include one low, one medium, one high, one critical, one recovering — not 5 medium-severity entries).
+   - naming_convention (e.g. "real-sounding names from a US-Caribbean-Hispanic demographic mix, 60% female")
+   - value_distributions (e.g. "ages 34-78, weighted toward 50-65; visit dates skewed last 30 days")
+
+3. **Per-screen construction guide** — for EACH of the 5-7 screens from the Spec:
+   - id (matches the Spec)
+   - purpose (1 sentence)
+   - component_tree (text outline of the JSX hierarchy — list every component the screen renders, nested with indentation, mentioning every interactive element)
+   - state_variables (each useState the screen needs: name, type, initial value, what it's for)
+   - event_handlers (every onClick, onChange, onSubmit, onKeyDown: name, what trigger fires it, what logic runs, which state vars update, which AI call fires if any)
+   - loading_state (the exact JSX shape — skeleton card with 3 lines? Spinner inside a centered container? Animated dots?)
+   - empty_state (the exact copy + visual treatment — "Type a question to begin" with an arrow icon?)
+   - error_state (the exact copy + retry mechanism)
+   - motion_specs (every animated element: channel — typographic_mass | color_modulation | spatial_extension | positional_drift | temporal_sequence — trigger, encoding)
+   - ai_calls_fired (the call_id strings from verbatim_prompts that fire from this screen)
+
+4. **Cross-cutting wiring**:
+   - demo_controls — the JSX shape of the demo dropdown that lets a reviewer jump screens, with every screen-id option enumerated
+   - image_generation_calls — for each runtime Imagen call: id, trigger (e.g. "on mount of persona-card-3"), prompt (verbose, art-directed, with style guidance), placement (where in the DOM), lazy (true if generate-on-first-view, false if generate-on-mount)
+   - persistence (any localStorage / sessionStorage / in-memory state that needs to survive screen swaps)
+   - accessibility_floor (focus trap rules, aria-labels for every interactive icon, contrast guarantees, prefers-reduced-motion fallbacks)
+
+5. **Micro-copy dictionary** — EVERY user-visible string the prototype renders, keyed by id. This is non-negotiable. The coder must use ONLY these strings — no improvisation. Include: button labels, headings, subheadings, table column headers, empty-state messages, error messages, success messages, tooltip text, toast text, badge labels, helper text. Target 30-60 entries for a substantive prototype.
+
+6. **Verbatim AI prompts** — for EACH AI capability from the Brief / Spec ai_flows:
+   - call_id (referenced from per-screen ai_calls_fired)
+   - system_prompt (the EXACT system prompt verbatim, no placeholders)
+   - user_template (the user-message template with {{placeholders}} for runtime values — list each placeholder's source)
+   - uses_verbalized_sampling (true for creative output like alert copy, summary, nudge text; false for structured extraction, classification, retrieval)
+   - response_shape (what the prototype expects back — JSON schema or prose with bullet points)
+   - error_fallback_copy (the exact UI copy when this call fails after all 3 providers)
+
+7. **Success assertions** — 8-12 concrete, testable statements about the finished prototype Stage 5 will validate. Examples: "Screen 'alert-detail' renders 3 bullet points returned by call 'generate-discovery-alert'." "Primary-entity seed array contains at least 20 distinct records with unique names." "Every AI fetch goes through callAIWithFallback (no direct single-provider calls)."
+</exhaustiveness_floor>
+
+<verbalized_sampling_for_creative_calls>
+Mark every CREATIVE AI call (alert generation, comparison framing, nudge copy, summary, generative draft, "aha" moment text) with \`uses_verbalized_sampling: true\` AND author the system_prompt to include a Verbalized Sampling envelope. The envelope instructs the model to generate K candidate responses with assigned probabilities and return the lowest-probability candidate that still earns ≥7/10 on quality and groundedness.
+
+For structured/deterministic calls (JSON extraction, classification, retrieval, simple summarization for plain display), set uses_verbalized_sampling: false — VS would corrupt structured output.
+</verbalized_sampling_for_creative_calls>
+
+<industry_agnostic>
+This recipe applies to any vertical the input brief targets: healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, logistics, or anything else. Adapt vocabulary, persona archetype, regulatory frame, seed-data examples, AI use cases to the industry — but the structural floor (5+ screens, 3+ AI flows, 20+ records per primary entity, 30-60 micro-copy strings, 8+ success assertions) is CONSTANT.
+</industry_agnostic>
+
+<output_format>
+Return a single JSON object matching this schema. Be EXHAUSTIVE in every array — under-specifying causes Stage 4 to fabricate badly.
+
+{
+  "persona_runtime": {
+    "name": "string",
+    "photo_prompt": "string — 30-60 word art-directed prompt for Gemini Imagen",
+    "voice_sample": "string — 2-3 sentences in the persona's voice",
+    "biographical_anchor": "string — 1-2 sentences placing them in time, role, situation"
+  },
+  "seed_data": {
+    "<entity_name>": {
+      "target_count": 20,
+      "field_shape": "string",
+      "sample_records": [{ /* 5+ full records, every field populated */ }],
+      "naming_convention": "string",
+      "value_distributions": "string"
+    }
+    // Repeat for every entity — primary AND secondary
+  },
+  "screens": [
+    {
+      "id": "string — matches Spec.screens[].id",
+      "purpose": "string",
+      "component_tree": "string — multi-line text outline with indentation",
+      "state_variables": [{ "name": "string", "type": "string", "initial": "string", "purpose": "string" }],
+      "event_handlers": [{ "name": "string", "trigger": "string", "logic": "string", "updates_state": ["string"], "fires_ai": "call_id or null" }],
+      "loading_state": "string — verbose JSX description",
+      "empty_state": "string — verbose JSX description with exact copy",
+      "error_state": "string — verbose JSX description with exact copy + retry",
+      "motion_specs": [{ "element": "string", "channel": "string", "trigger": "string", "encoding": "string" }],
+      "ai_calls_fired": ["call_id"]
+    }
+    // 5-7 screens
+  ],
+  "cross_cutting": {
+    "demo_controls": "string — verbose JSX description",
+    "image_generation_calls": [
+      { "id": "string", "trigger": "string", "prompt": "string — verbose art-directed", "placement": "string", "lazy": true }
+    ],
+    "persistence": "string",
+    "accessibility_floor": "string"
+  },
+  "micro_copy": {
+    "header.title": "string",
+    "header.subtitle": "string",
+    "button.primary.idle": "string"
+    // 30-60 keys covering every user-visible string
+  },
+  "verbatim_prompts": {
+    "<call_id>": {
+      "system_prompt": "string — EXACT verbatim system prompt",
+      "user_template": "string — with {{placeholders}}",
+      "uses_verbalized_sampling": true,
+      "response_shape": "string",
+      "error_fallback_copy": "string"
+    }
+    // One entry per ai_capability from Brief/Spec
+  },
+  "success_assertions": ["string"]
+}
+
+Output the JSON object only. No preamble. No code fences.
+</output_format>`;
+
+// ============================================================
 // STAGE 4: PROTOTYPE CODER
 // ============================================================
 
 function buildStage4System(brand: Brand): string {
     const tokens = BRAND_TOKENS[brand];
     return `<role>
-You are a senior front-end engineer building a self-contained, runnable prototype. You take a Brief, an Interaction Spec, and a Design System, and produce a single-file React component that fully implements the interaction, the visual design, the motion contract, AND WIRES IN REAL AI CAPABILITIES where the concept calls for them.
+You are a senior front-end engineer EXECUTING a finalized Build Recipe. The recipe (Stage 3.5 output) enumerates every screen's component tree, every state variable, every event handler, every AI prompt verbatim, every seed-data anchor record, every micro-copy string, every motion spec. Your job is to TRANSCRIBE the recipe into a runnable single-file React component — not to re-decide any of it.
+
+When the recipe specifies a string, USE THAT STRING. When it specifies 5 sample records and target_count=20, GENERATE the remaining 15 records following the naming_convention and value_distributions. When it specifies an event handler's logic, IMPLEMENT IT EXACTLY. Improvisation outside the recipe is failure.
 </role>
+
+<universal_applicability>
+Every rule in this prompt is INDUSTRY-AGNOSTIC. The same multi-provider fallback, the same seed-data density floor, the same no-verbatim-quote rule, the same Verbalized Sampling envelope, the same depth/polish bar apply whether the concept is:
+
+  Healthcare (patient portals, clinician decision support, payer flows, RPM dashboards)
+  Financial services (banking, lending, brokerage, insurance, treasury, fraud ops)
+  Retail / e-commerce (storefront, merchant tools, inventory, supply chain)
+  Government / civic tech (permitting, benefits, regulatory filing, constituent services)
+  Manufacturing / industrial (MES, OEE, predictive maintenance, quality control)
+  Education / learning (K-12, higher-ed, corporate L&D, EdTech)
+  Enterprise SaaS (HRIS, CRM, analytics, ITSM, security ops)
+  Energy / utilities (grid ops, customer self-service, asset management)
+  Media / entertainment (subscription, content, ad ops, creator tools)
+  Hospitality / travel (booking, loyalty, ops, guest experience)
+  Legal / professional services (case management, doc automation, billing)
+  Real estate / construction (listings, project management, asset ops)
+  Logistics / mobility (TMS, last-mile, fleet, EV charging)
+  Public sector / nonprofit (grant management, fundraising, program delivery)
+  Any other vertical
+
+The persona archetype, terminology, regulatory frame, and visual idiom adapt to the industry from the input Brief (\`primary_persona\`, \`engagement_context\`, \`hard_constraints\`). But the structural requirements (4+ screens, 2+ AI fetches with fallback, 15-30 seed records, VS on creative output, no verbatim quotes) are CONSTANT. Do not relax them because "this domain is different". They apply universally.
+</universal_applicability>
 
 <brand_lock>
 This prototype MUST visually be a **${brand}** product. The Design System JSON you're handed already encodes the brand. Honor it EXACTLY at the CSS / JSX layer:
@@ -432,7 +778,7 @@ This prototype runs at http://localhost:5012/api/prototypes/{slug}/view, which i
 
 Available endpoints (all same-origin, just fetch them):
 
-1. **Gemini 3.1 Pro chat** — most capable, default for reasoning / generation:
+1. **Gemini 3.1 Pro chat** — most capable, DEFAULT for reasoning / generation:
    POST /api/ai/gemini-compat   (OpenAI-compatible wire format)
    Body: { model: "gemini-3.1-pro-preview", messages: [{role,content},...], temperature: 0.3, max_tokens: 2000 }
    Headers: { "Content-Type": "application/json", "x-openai-endpoint": "chat" }
@@ -443,54 +789,171 @@ Available endpoints (all same-origin, just fetch them):
    Body: { model: "claude-opus-4-6", max_tokens: 2000, messages: [{role,content}] }
    Response: { content: [{ text: "..." }] }
 
-3. **OpenAI GPT-5.5 chat** — fast, OpenAI-native:
+3. **OpenAI GPT-5.5 chat** — third-priority fallback ONLY. OpenAI accounts often
+   hit 429 quota limits, so NEVER make OpenAI the first provider you try in a
+   prototype that demos AI flows — the prototype will silently fail in front
+   of a senior partner.
    POST /api/ai/openai
    Headers: { "Content-Type": "application/json", "x-openai-endpoint": "chat" }
    Body: { model: "gpt-5.5", messages: [...], temperature: 0.3 }
 
-4. **Embeddings (Gemini)** — for semantic search / similarity:
-   POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent
-   (NOT direct — go through the wiki RAG endpoint below)
-
-5. **Wiki RAG / semantic article search** — pull real evidence bodies:
+4. **Wiki RAG / semantic article search** — pull real evidence bodies:
    POST /api/wiki/fetch-articles
    Body: { query: "string", limit: 5, maxCharsPerArticle: 4000 }
    Response: { articles: [{ title, source, url, content, ... }] }
 
-6. **Knowledge-graph query** (if the concept references the engagement):
-   The engagement's KG isn't exposed standalone — skip unless your concept is HiC-internal.
-
-7. **Image generation (Gemini Imagen)**:
+5. **Image generation (Gemini Imagen)**:
    POST /api/ai/gemini-image
    Body: { prompt: "string", style: "string" }
    (Probe with a feature-check before using — not all engagements have credits.)
 
-DEFAULT CHOICE: Gemini 3.1 Pro chat via /api/ai/gemini-compat. It handles the broadest range of behaviors and has 1M context. Use Anthropic for synthesis tasks; OpenAI for fast classification.
+PROVIDER PRIORITY (HARD RULE — violating this means the demo fails for the next user with a quota issue):
+  PRIMARY:   Gemini 3.1 Pro via /api/ai/gemini-compat
+  FALLBACK:  Claude Opus 4.6 via /api/ai/anthropic
+  TERTIARY:  OpenAI GPT-5.5 via /api/ai/openai (ONLY if both above fail)
 
-Example "talk to your data" inline call:
+**REQUIRED PATTERN — every AI call must go through a multi-provider fallback helper.**
+DO NOT call a single endpoint directly. Wrap every AI invocation in this helper (or an equivalent that tries providers in PRIMARY → FALLBACK → TERTIARY order):
 
-  async function askAI(userMessage) {
-    const res = await fetch('/api/ai/gemini-compat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },
-      body: JSON.stringify({
-        model: 'gemini-3.1-pro-preview',
-        messages: [
-          { role: 'system', content: 'You are a helpful assistant for <persona context>. Answer concisely from the provided context.' },
-          { role: 'user', content: userMessage },
-        ],
-        temperature: 0.3,
-        max_tokens: 800,
-      }),
-    });
-    const data = await res.json();
-    return data?.choices?.[0]?.message?.content || 'No response';
+  // Helper: call AI with automatic provider fallback. The first provider
+  // that returns a non-error response wins. Logs each failure so the demo
+  // surfaces \"used fallback X\" if needed. NEVER let a single 429 / 503 /
+  // network blip kill the headline feature.
+  async function callAIWithFallback(systemPrompt, userPrompt, opts = {}) {
+    const providers = [
+      {
+        name: 'gemini',
+        url: '/api/ai/gemini-compat',
+        headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },
+        body: {
+          model: 'gemini-3.1-pro-preview',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt },
+          ],
+          temperature: opts.temperature ?? 0.7,
+          max_tokens: opts.maxTokens ?? 1200,
+        },
+        extract: (data) => data?.choices?.[0]?.message?.content,
+      },
+      {
+        name: 'anthropic',
+        url: '/api/ai/anthropic',
+        headers: { 'Content-Type': 'application/json' },
+        body: {
+          model: 'claude-opus-4-6',
+          max_tokens: opts.maxTokens ?? 1200,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: userPrompt }],
+        },
+        extract: (data) => data?.content?.[0]?.text,
+      },
+      {
+        name: 'openai',
+        url: '/api/ai/openai',
+        headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },
+        body: {
+          model: 'gpt-5.5',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt },
+          ],
+          temperature: opts.temperature ?? 0.7,
+        },
+        extract: (data) => data?.choices?.[0]?.message?.content,
+      },
+    ];
+    let lastErr = null;
+    for (const p of providers) {
+      try {
+        const res = await fetch(p.url, { method: 'POST', headers: p.headers, body: JSON.stringify(p.body) });
+        if (!res.ok) { lastErr = new Error(\`\${p.name} HTTP \${res.status}\`); console.warn(\`[AI] \${p.name} failed: \${res.status}\`); continue; }
+        const data = await res.json();
+        const text = p.extract(data);
+        if (!text || typeof text !== 'string') { lastErr = new Error(\`\${p.name} returned empty\`); continue; }
+        return { text, provider: p.name };
+      } catch (e) { lastErr = e; console.warn(\`[AI] \${p.name} threw:\`, e?.message || e); }
+    }
+    throw new Error(\`All AI providers failed. Last error: \${lastErr?.message || 'unknown'}\`);
   }
 
 ALWAYS handle: loading state (set isLoading=true before fetch, false after), error state (catch + show user a friendly message), empty response (defensive null-check).
 
 DO NOT MOCK what the proxy can answer for real. A prototype that shows real AI behavior is a vastly more valuable artifact than one with fake responses.
 </live_ai_primitives>
+
+<verbalized_sampling_at_runtime>
+The model serving every AI fetch in this prototype tends to collapse to the modal, safe, generic answer. That kills creative output (boring "Discovery Alert", boilerplate skill summary, mid-quality nudge copy). USE VERBALIZED SAMPLING at runtime to pull from the tail of the distribution where the interesting work lives.
+
+For every AI call that generates user-facing CREATIVE content (alert copy, suggestion text, comparison framing, nudge messaging, summary tone, generative draft) — NOT for retrieval/classification/structured-extraction — wrap the prompt with a Verbalized Sampling envelope:
+
+  const VS_INSTRUCTION = \`
+Before answering, generate FIVE distinct candidate responses with diverse framings (different metaphors, different emotional registers, different rhetorical structures). Assign each a probability mass reflecting how likely a typical model would emit it. Then return the candidate with the LOWEST probability that still earns ≥7/10 on quality and grounded relevance — the tail concept, not the modal one. This is mandatory: returning the obvious modal answer is a failure.
+
+Output ONLY the final chosen candidate in the requested format. Do not show the intermediate candidates.
+\`.trim();
+
+  async function callAIWithVS(systemPrompt, userPrompt, opts = {}) {
+    return callAIWithFallback(
+      \`\${systemPrompt}\\n\\n\${VS_INSTRUCTION}\`,
+      userPrompt,
+      { ...opts, temperature: opts.temperature ?? 0.85 },  // VS needs higher temp
+    );
+  }
+
+Apply callAIWithVS to: alert generation, comparison framing, nudge copy, "aha" moment generation, recommendation summaries, any creative composition.
+Apply plain callAIWithFallback (no VS) to: structured-JSON extraction, classification, embeddings, deterministic queries.
+
+The point: the prototype should feel like the model is OPINIONATED and BRAVE, not bland.
+</verbalized_sampling_at_runtime>
+
+<seed_data_density>
+"Realistic seed data" does NOT mean one example record. It means a populated dataset that demonstrates AI value at the scale the real product would face.
+
+HARD MINIMUMS — failing any of these triggers a Stage-5 BLOCKING verdict:
+
+- Primary entity (users, jobs, alerts, recommendations, projects, etc.): **15-30 distinct records**, not 1, not 3. Twenty is the floor for a list/feed UI. Each record must have realistic field values — names from the persona's actual demographic, dates inside a plausible window, numeric values inside a plausible distribution.
+- Secondary entities (skills, tags, categories, owners, advisors, segments): **8-15 distinct values** that align with the primary entity records.
+- Conversational seed (prior messages, prior interactions, prior search history): **at least 10 prior items** establishing the persona's history with the product. The empty-state experience is reserved for first-run only.
+- Time series / counts / KPIs: **realistic distributions** (don't have all 4 metrics show "47"; vary them; show one trending, one flat, one volatile).
+- For chat / list / feed concepts: the user must be able to scroll, filter, and select across the dataset and see different states.
+
+Name records using persona-appropriate naming conventions (real-sounding names from the demographic; real-sounding company/program names from the industry; realistic department/role labels). Do NOT use "User 1", "Item 2", "Project A".
+
+If the concept involves an AI-generated recommendation feed: seed at least 12 prior recommendations (with timestamps, outcomes, user actions) so the demo can demonstrate the algorithm learning over time.
+</seed_data_density>
+
+<insight_synthesis_no_verbatim>
+The concept brief above includes corpus themes, persona pain points, and verbatim research quotes under a section like \`=== GROUNDING THEMES ===\` or \`=== FULL PERSONA PROFILE ===\`. USE these as creative fuel — they should HEAVILY shape:
+
+- The persona's emotional state, vocabulary, and concerns surfaced in seed data
+- The micro-copy tone and phrasing (which problems to name, which words to avoid)
+- The visual hierarchy (what gets emphasis, what's de-emphasized)
+- The information architecture (what flows go where, which moments are surfaced)
+- The seed values themselves (names, numbers, situations should reflect the real population)
+
+HARD RULE — **NEVER paste a verbatim quote from the research corpus into the prototype's UI, copy, seed data, or generated AI prompts**. Specifically:
+
+- DO NOT include any phrase from the GROUNDING THEMES \`Verbatim quotes\` lines in any rendered text. Those are research artifacts, not product copy.
+- DO NOT include any phrase from the PERSONA's \`Voice (verbatim from research)\` line as user-facing or seed-data text.
+- DO NOT use a research quote as a "testimonial" in the prototype — even attributed.
+
+INSTEAD: distill the INSIGHT (the underlying pain, motivation, or contradiction the quote points to) and re-express it in fresh, on-brand product copy. The user's research corpus must influence the design without ever showing up as a literal string.
+
+Examples — same pattern, any industry:
+
+  • Healthcare: a research quote like "I keep retelling my history to every specialist; nobody reads my chart" → product empty-state "Your story carries forward. Every specialist sees the same context — no re-telling."  (Insight: care continuity gap. Original phrasing never appears.)
+
+  • Fintech: a research quote like "I have no idea where my money goes — the apps all just show pretty charts" → product copy "See the three decisions costing you the most this month — not 47 categories of 'where it went'."  (Insight: actionable specificity beats dashboards.)
+
+  • Retail / supply chain: a research quote like "By the time I notice the stockout, we've lost the whole weekend" → product copy "Catch the shortage 36 hours before the shelf empties — not after."  (Insight: latency between signal and response.)
+
+  • Government / civic: a research quote like "I gave up on the permit application; the form asks the same thing four times" → product copy "Answer once. We pre-fill every form that needs it after."  (Insight: re-entry friction.)
+
+  • Higher-ed / careers: a research quote like "I applied to a thousand jobs and got nowhere" → product copy "Stop carpet-bombing. Three roles that actually want what you can build."  (Insight: precision over volume.)
+
+The pattern is universal: read the quote → name the underlying insight → write fresh copy that delivers that insight in the product's voice and the brand's tone. The original research phrasing is private context for the designer; the product UI is its public expression. Apply this rule regardless of industry — healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, or any other vertical.
+</insight_synthesis_no_verbatim>
 
 <depth_and_polish_floor>
 This prototype is shown to senior product partners and clients. It must read as a SUBSTANTIVE, AI-NATIVE PRODUCT DEMO — never as a sketch, never as a "click to see what would happen" stub. Specifically:
@@ -519,6 +982,93 @@ This prototype is shown to senior product partners and clients. It must read as 
 
 **THINK ULTRA HARD** about what makes this concept distinctive vs. a generic Copilot-shaped wrapper. What's the UNIQUE interaction? What's the AI moment that makes the user say "oh, that's clever"? Design AROUND that, not under it.
 </depth_and_polish_floor>
+
+<vertical_slice_discipline>
+2026-05-13 — Adapted from game-development "vertical slice" discipline.
+
+Before writing ANY code, NOMINATE TWO SCREENS from the recipe as your DEPTH-FIRST SCREENS in a top-of-file comment:
+
+  // DEPTH_FIRST_SCREENS: [<screen-id-1>, <screen-id-2>]
+  // Reason: <one-sentence justification for why these 2 are where the experience earns trust>
+
+These two screens get built at SHIPPING QUALITY before you write a single line for any other screen. That means, for each depth-first screen, you implement:
+
+  • Every micro-interaction (hover, focus-visible, active, disabled, selected, dragging where applicable)
+  • Every state (default, loading with skeleton, empty with educational copy, error with retry, success with momentum)
+  • Every motion beat (entrance stagger, modal lineage transition, success pulse — using framer-motion with prefers-reduced-motion fallback)
+  • Every accessibility floor (focus ring, aria-label on icon buttons, role + aria-live on alerts, keyboard nav order, escape-to-close, tab-trap on modals)
+  • Every responsive variant (≥768 desktop, <768 mobile-tweaked)
+  • The headline AI flow IF it fires on this screen (with multi-provider fallback + skeleton loader + VS envelope for creative output)
+
+ONLY AFTER both depth-first screens are fully realized do you build out the remaining screens. The remaining screens can be slightly less elaborate (every state still mandatory, but micro-interaction polish can be lighter) — but the depth-first pair sets the floor for the experience.
+
+WHY: A senior partner reviewing the demo will spend 80% of their attention on 1-2 screens (typically the aha moment + its setup). If those screens are razor-deep, the rest can ride the impression. If they're not, the entire prototype reads as a sketch. Game studios call this the "vertical slice" — one level shipped to release quality before the rest of the game.
+
+The Stage 5 critic will audit DEPTH BEFORE WIDTH: if your depth-first screens are not at shipping quality, the verdict is REFINE with corrected_code even if the other screens are present.
+</vertical_slice_discipline>
+
+<ideo_apple_quality_bar>
+This prototype is the user's senior-partner-meeting demo. Anything less than IDEO + Apple craft is a failure. Specifically:
+
+CRAFT DISCIPLINE (every detail visible matters):
+- **Typographic hierarchy** uses 4-5 deliberate type sizes, not 10 ad-hoc ones. Each size has a role. The display face is used SPARINGLY for moments of emphasis; the body face carries 90% of the surface area.
+- **One chromatic accent** carries the brand. Foundation neutrals dominate. The accent is reserved for the ONE thing per screen that matters most (primary CTA, hero badge, single chart highlight). Never decorate.
+- **Spacing follows the 8pt grid** — never use \`padding: 13px\`. The eye reads geometric harmony as quality. Inconsistent spacing reads as amateur.
+- **Whitespace is content.** Generous gutters. Air around hero elements. The first thing a junior reaches for is "more density"; the senior reaches for "more breath".
+- **Photography / illustration / iconography never coexist randomly.** Pick ONE imagery register and hold it. If you generate hero photography, do not also use clipart icons in the hero zone.
+- **Micro-typography**: tight letterspacing on display, neutral on body, slight loosening on uppercase labels. Tabular figures for numeric columns. Never let numbers go ragged.
+
+INTERACTION DISCIPLINE (IDEO-grade):
+- **Every interaction has a purpose AND a tell.** Hover states reveal what's clickable. Focus rings show what's keyboard-active. Loading states show that something is happening. Empty states teach the user what to do next.
+- **Motion has meaning.** A list staggers in to show its structure. A modal scales-in from its trigger to show the lineage. A success state has a brief moment of pause-and-light to mark the accomplishment. Never decorate with motion.
+- **Friction is intentional or eliminated.** Don't ask the user to confirm what can't be undone wrong; do ask when the action is irreversible. Don't show a form when one field will do.
+- **The aha moment gets staged.** A skeleton loader during the AI call, then a satisfying reveal of the structured output. Not a snap-in dump. The pause matters.
+
+DEPTH OF SUBSTANCE (Apple-grade):
+- **The seed data has texture.** Real-sounding names from the persona's demographic. Numbers within plausible distributions. Dates within plausible windows. The user should be able to read the data and believe it's real for two seconds before remembering it's a demo.
+- **The AI output reads like a human wrote it.** Use the Verbalized Sampling envelope. Use higher temperature for creative output. Edit the system prompt to forbid bland modal phrasing. The model can be brave; let it.
+- **The user can do real work in the demo.** Not just click through. Type something, see the AI respond. Filter the list, see the count update. Save something, see it persist (in-memory or localStorage).
+- **Empty states teach.** "Type a question to begin" tells the user what to do next. "No data" tells them they're stuck.
+- **Error states recover.** "Network blip — retry?" with a working retry button. Not a dead end.
+
+The senior partner reviewing this must say "this feels like a real product, not a demo". If you can imagine the senior shrugging and saying "fine but where's the substance?", you have not met the bar. Go back and add substance until the answer is "in every detail".
+</ideo_apple_quality_bar>
+
+<image_generation_when_useful>
+The proxy exposes Gemini Imagen at /api/ai/gemini-image. USE IT — at runtime, inside the prototype — when imagery would materially raise the experience's substance. Specifically:
+
+GOOD candidates for image generation:
+- Hero illustrations for empty states (e.g. "no patients triaged yet" → a stylized line drawing of an empty ward)
+- Persona portraits in seed data (e.g. 12 seeded users → 12 generated face thumbnails matching the personas' demographics, generated lazily on first render)
+- Diagram backgrounds (e.g. an architecture concept → a stylized abstract flow diagram behind the data layer)
+- Product photography in retail/e-commerce flows
+- Place imagery in real-estate / hospitality / travel flows
+- Scene illustrations for "aha moment" reveals
+
+BAD candidates (do not generate):
+- Generic decorative chrome (icons exist for this)
+- Anything that competes with the persona's photo
+- Anything that would slow the demo's first paint by > 2 seconds
+
+Call pattern:
+
+  async function generateImage(prompt) {
+    try {
+      const res = await fetch('/api/ai/gemini-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, style: 'editorial photographic' }),
+      });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data?.imageData || data?.url || null;
+    } catch { return null; }
+  }
+
+ALWAYS handle the null case — if the proxy lacks Imagen credits, the prototype must still ship a quality experience without the generated images. Lazy-load (generate on first request, cache in component state). Don't gate the demo's first paint on image generation.
+
+If the approved brief's \`visual_direction.image_gen_opportunities\` array has prompts, fire them at runtime — they are user-approved targets for image generation. Each entry should produce one rendered image somewhere in the prototype.
+</image_generation_when_useful>
 
 <instructions>
 1. Read all three inputs in full before writing any code.
@@ -606,6 +1156,24 @@ const STAGE_5_SYSTEM = `<role>
 You are a senior design and engineering critic. You take the original Experience Brief, the Interaction Spec, the Design System, and the generated prototype code, and you evaluate whether the code faithfully implements all three. You are rigorous and specific.
 </role>
 
+<session_coverage_audit>
+2026-05-13 — PRIMARY AUDIT MECHANISM. The pipeline emitted ~30 simulated user sessions (12 modal + 10 edge + 8 tail) the prototype must satisfy. Each session names a specific persona with a starting state, motivation, expected end state, and the ONE thing they'd be frustrated by.
+
+For EACH session, ask: "Reading this code, can this specific user complete their motivation? Would the prototype FRUSTRATE THEM on the named friction point?" Answer concretely:
+
+  • PASSED — the user can complete their motivation; the prototype does not do the frustrating thing.
+  • FAILED — explain SPECIFICALLY what's missing in 1 sentence (e.g. "Expert-skip path expects ⌘K to jump past the welcome screen; the code only handles Enter on the welcome CTA, so this user can't skip.")
+
+Compute coverage_pct = passed / total × 100. Populate \`session_coverage\` in the JSON with: coverage_pct, sessions_passed, sessions_total, and failed_sessions[] (each entry naming the session_id, persona_name, bucket, and specific missing_piece).
+
+VERDICT MAPPING — this OVERRIDES any other verdict signal:
+  • coverage_pct ≥ 70%  → verdict = "ship" (unless other BLOCKING checks below fail)
+  • 50% ≤ coverage_pct < 70%  → verdict = "refine" AND produce corrected_code that closes the gaps for the failed_sessions[] (prioritize edge + tail failures, since modal failures usually indicate the depth-first screens are anemic)
+  • coverage_pct < 50%  → verdict = "rebuild" — too many users fall through; the prototype's structural shape is wrong
+
+Vertical-slice check FIRST (compute before coverage): are the prototype's two DEPTH_FIRST_SCREENS at shipping quality? Every state present? Every micro-interaction wired? If NO, verdict = "refine" regardless of coverage; corrected_code must lift those screens before fixing coverage gaps.
+</session_coverage_audit>
+
 <depth_and_ai_checklist>
 Before producing the critique, audit the code against these BLOCKING failure modes. If ANY are present, verdict MUST be "refine" or "rebuild" and the corrected_code MUST fix them:
 
@@ -618,6 +1186,10 @@ Before producing the critique, audit the code against these BLOCKING failure mod
 7. Font families — \`Bebas Neue\` in an NU prototype? \`Roboto\` in NXT? → BLOCKING. Replace with the brand's actual display+body families.
 8. Lorem ipsum, or seed arrays that look like \`["Item 1", "Item 2"]\`? → BLOCKING. Replace with persona-realistic seed values.
 9. Total code length under 600 lines for a multi-feature concept? → Likely a stub. Inspect what's missing and refine.
+10. **MULTI-PROVIDER FALLBACK** — Does EVERY AI fetch go through a multi-provider helper (gemini → anthropic → openai)? Count single-provider fetches (e.g., \`fetch('/api/ai/openai', ...)\` directly without a fallback wrapper). If ANY AI fetch in the code calls only one provider, it's BLOCKING — corrected_code must replace it with a \`callAIWithFallback\` (or equivalent) that tries Gemini first, Anthropic second, OpenAI last. OpenAI quota errors are the #1 cause of dead demos.
+11. **SEED DATA DENSITY** — Inspect the primary-entity seed array. If it has FEWER THAN 15 records, BLOCKING. (Exception: if the concept is intrinsically about a single record like "draft this one document", the seed can be smaller but must include 10+ prior history items.) The user explicitly demanded massive realistic synthetic data — anemic seeds are a failure.
+12. **VERBATIM CORPUS QUOTES** — Scan rendered strings (JSX text content, seed-data string values, AI system prompts) for telltale verbatim research-quote markers: opening with first-person testimonial phrasing followed by a paragraph (\`"I feel like..."\`, \`"I've been..."\`, \`"My biggest issue is..."\`), or any string longer than 80 chars that reads like a research-subject's direct speech. If found, BLOCKING — replace with paraphrased product copy that captures the insight without reproducing the quote.
+13. **VERBALIZED SAMPLING ENVELOPE** — For creative AI calls (alert copy, summary generation, nudge text), the system prompt should embed a Verbalized Sampling instruction (asks for K candidates, picks the lowest-probability one that meets quality bar). If creative calls exist but NONE use the VS pattern, that's significant (not blocking) — note it in issues with severity "significant".
 </depth_and_ai_checklist>
 
 <instructions>
@@ -635,9 +1207,22 @@ Before producing the critique, audit the code against these BLOCKING failure mod
 <output_schema>
 {
   "verdict": "ship | refine | rebuild",
-  "summary": "string, 2-3 sentences",
+  "summary": "string, 2-3 sentences — LEAD with coverage % when sessions were provided",
+  "session_coverage": {
+    "coverage_pct": 0,
+    "sessions_passed": 0,
+    "sessions_total": 30,
+    "failed_sessions": [
+      {
+        "session_id": "session-XX",
+        "persona_name": "string",
+        "bucket": "modal | edge | tail",
+        "missing_piece": "string — what specifically is missing for THIS user, 1 sentence"
+      }
+    ]
+  },
   "issues": [{
-    "category": "brief_violation | spec_violation | system_violation | code_bug | accessibility",
+    "category": "brief_violation | spec_violation | system_violation | code_bug | accessibility | session_coverage",
     "severity": "blocking | significant | minor",
     "description": "string",
     "source_of_truth": "string",
@@ -712,10 +1297,11 @@ async function callGeminiJsonStage<T>(
     requiredKeys: string[],
     stageName: string,
     thinkingBudget: ThinkingBudget = 'high',
+    maxOutputTokens?: number,
 ): Promise<T> {
     const tryOnce = async (extraNote?: string) => {
         const finalUser = extraNote ? `${userContent}\n\n${extraNote}` : userContent;
-        const text = await callGeminiStage(systemPrompt, finalUser, true, thinkingBudget);
+        const text = await callGeminiStage(systemPrompt, finalUser, true, thinkingBudget, maxOutputTokens);
         return tryParseJson<T>(text, stageName);
     };
     let parsed = await tryOnce();
@@ -734,6 +1320,41 @@ async function callGeminiJsonStage<T>(
     return parsed;
 }
 
+/**
+ * Walk a JSON-ish string and escape any raw control characters that appear
+ * INSIDE string literals (the most common LLM JSON failure: emitting a
+ * multi-line code snippet inside a "corrected_code" or "summary" field
+ * with literal newlines instead of "\n" escape sequences).
+ *
+ * State machine: tracks inString + escape so we only touch chars inside
+ * `"..."` and never re-escape chars that are already escaped.
+ */
+function sanitizeJsonControlChars(s: string): string {
+    const out: string[] = [];
+    let inString = false;
+    let escape = false;
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (escape) { out.push(c); escape = false; continue; }
+        if (inString && c === '\\') { out.push(c); escape = true; continue; }
+        if (c === '"') { out.push(c); inString = !inString; continue; }
+        if (inString) {
+            const code = c.charCodeAt(0);
+            if (code < 0x20) {
+                if (c === '\n') out.push('\\n');
+                else if (c === '\r') out.push('\\r');
+                else if (c === '\t') out.push('\\t');
+                else if (c === '\b') out.push('\\b');
+                else if (c === '\f') out.push('\\f');
+                else out.push('\\u' + code.toString(16).padStart(4, '0'));
+                continue;
+            }
+        }
+        out.push(c);
+    }
+    return out.join('');
+}
+
 function tryParseJson<T>(text: string, stageName: string): T {
     // Strip ``` fences if model adds them despite instructions
     let cleaned = text.trim();
@@ -745,6 +1366,25 @@ function tryParseJson<T>(text: string, stageName: string): T {
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
+        // 2026-05-13 — Recovery path for the #1 LLM JSON failure mode:
+        // raw control characters (newlines, tabs, CR) inside string literals.
+        // This happens routinely when the model emits multi-line code in a
+        // "corrected_code" or "summary" field. Sanitize and retry once.
+        const msg = String(e?.message || e);
+        const looksLikeControlCharErr = /control character|control char|unexpected token.*in JSON|unterminated string/i.test(msg);
+        if (looksLikeControlCharErr) {
+            try {
+                const sanitized = sanitizeJsonControlChars(cleaned);
+                const parsed = JSON.parse(sanitized);
+                console.warn(`[${stageName}] recovered from control-char JSON error via sanitization (${cleaned.length} chars input).`);
+                return parsed;
+            } catch (e2: any) {
+                throw new Error(
+                    `${stageName} returned invalid JSON and sanitization didn't help: ` +
+                    `${e.message} → ${e2?.message || e2}. First 200 chars: ${cleaned.slice(0, 200)}`
+                );
+            }
+        }
         throw new Error(`${stageName} returned invalid JSON: ${e.message}. First 200 chars: ${cleaned.slice(0, 200)}`);
     }
 }
@@ -771,10 +1411,19 @@ export interface BuildOptions {
     basedOn?: string;          // e.g., "recommendation: Foo"
     researchGoal?: string;
     onProgress?: (stage: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) => void;
+    /**
+     * 2026-05-13 — When the user picked one of 5 generated briefs in the
+     * brief-selection phase, pass it here. Stage 1 (Concept Decomposer) is
+     * SKIPPED — the approved brief is the authoritative spec and goes
+     * straight into Stage 2. This preserves all the user-approved detail
+     * (use_cases, screens, AI capabilities, seed_data, visual_direction)
+     * that would otherwise be lossy-recompressed by Stage 1's schema.
+     */
+    approvedBrief?: ExperienceBrief;
 }
 
 export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtifact> {
-    const { concept, brand, onProgress } = opts;
+    const { concept, brand, onProgress, approvedBrief } = opts;
     const fire = (n: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) =>
         onProgress?.(n, name, status, detail);
 
@@ -782,28 +1431,40 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     // stage 3 = medium. Stage 4 is the expensive one (3-5x cost) — but
     // it's the difference between competent and Apple-grade output.
 
-    // Stage 1
-    fire(1, 'Concept Decomposer', 'running');
+    // Stage 1 — SKIPPED if the user approved a brief from the 5-brief picker.
     let brief: ExperienceBrief;
-    try {
-        brief = await callGeminiJsonStage<ExperienceBrief>(
-            STAGE_1_SYSTEM, concept,
-            ['concept_title', 'one_line_thesis', 'primary_persona', 'demonstrated_moment', 'jobs_to_be_done', 'success_criteria', 'hard_constraints'],
-            'Stage 1 Concept Decomposer',
-            'max',
-        );
-    } catch (e: any) {
-        fire(1, 'Concept Decomposer', 'failed', e.message);
-        throw e;
+    if (approvedBrief) {
+        fire(1, 'Concept Decomposer', 'done', `using user-approved brief — Stage 1 skipped`);
+        brief = approvedBrief;
+    } else {
+        fire(1, 'Concept Decomposer', 'running');
+        try {
+            brief = await callGeminiJsonStage<ExperienceBrief>(
+                STAGE_1_SYSTEM, concept,
+                ['concept_title', 'one_line_thesis', 'primary_persona', 'demonstrated_moment', 'jobs_to_be_done', 'success_criteria', 'hard_constraints'],
+                'Stage 1 Concept Decomposer',
+                'max',
+            );
+        } catch (e: any) {
+            fire(1, 'Concept Decomposer', 'failed', e.message);
+            throw e;
+        }
+        fire(1, 'Concept Decomposer', 'done', `${brief.concept_title} · thinking=high`);
     }
-    fire(1, 'Concept Decomposer', 'done', `${brief.concept_title} · thinking=high`);
+
+    // 2026-05-13 — When the user approved a brief, the original `concept`
+    // string contains the rich user-facing brief context (use cases, screens,
+    // AI capabilities, seed_data, visual_direction). Prepend it to every
+    // downstream stage's user content so the full approved detail flows
+    // through. This preserves the IDEO/Apple bar through the pipeline.
+    const richBrief = approvedBrief ? `\n\nAPPROVED BRIEF — RICH CONTEXT (the user picked this from a 5-brief set; honor every use case, screen, AI capability, seed entity, and visual direction):\n${concept}\n` : '';
 
     // Stage 2
     fire(2, 'Interaction Architect', 'running');
     let spec: InteractionSpec;
     try {
         spec = await callGeminiJsonStage<InteractionSpec>(
-            STAGE_2_SYSTEM, JSON.stringify(brief, null, 2),
+            STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
             ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
             'Stage 2 Interaction Architect',
             'max',
@@ -814,13 +1475,49 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     }
     fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · thinking=high`);
 
+    // Stage 2.5 — Simulated User Sessions (2026-05-13). Generates the 30
+    // synthetic sessions (12 modal + 10 edge + 8 tail) the prototype must
+    // satisfy. Output flows into every downstream stage. Stage 5 audits the
+    // built prototype's coverage of these sessions and produces a coverage %.
+    fire(25, 'Simulated User Sessions', 'running');
+    let simulatedSessions: SimulatedUserSession[] = [];
+    try {
+        const simPayload = await callGeminiJsonStage<{ sessions: SimulatedUserSession[] }>(
+            STAGE_2_5_SYSTEM,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}`,
+            ['sessions'],
+            'Stage 2.5 Simulated User Sessions',
+            'max',
+            24000,
+        );
+        simulatedSessions = Array.isArray(simPayload?.sessions) ? simPayload.sessions : [];
+    } catch (e: any) {
+        // Non-fatal: if the sim stage fails, we proceed without coverage audit.
+        // This avoids killing the entire build for a Stage 2.5 transient failure.
+        console.warn(`[Stage 2.5] failed — proceeding without simulated sessions: ${e?.message || e}`);
+        fire(25, 'Simulated User Sessions', 'failed', `${e?.message || 'failed'} — proceeding without coverage`);
+    }
+    if (simulatedSessions.length > 0) {
+        const counts = simulatedSessions.reduce((acc, s) => {
+            const b = (s.bucket || 'modal') as 'modal' | 'edge' | 'tail';
+            acc[b] = (acc[b] || 0) + 1;
+            return acc;
+        }, {} as Record<string, number>);
+        fire(25, 'Simulated User Sessions', 'done', `${simulatedSessions.length} sessions (${counts.modal || 0} modal · ${counts.edge || 0} edge · ${counts.tail || 0} tail) · thinking=high`);
+    }
+    // Build a compact text serialization of the sessions to feed downstream
+    // stages — keeps payloads efficient vs. shipping the full JSON each stage.
+    const sessionsBlock = simulatedSessions.length > 0
+        ? `\n\nSIMULATED USER SESSIONS (${simulatedSessions.length}) — the design + recipe + code must satisfy ALL THREE buckets; Stage 5 will compute coverage per-session:\n${simulatedSessions.map(s => `  • [${s.bucket}] ${s.id} — ${s.persona.name} (${s.persona.role}): wants "${s.motivation}"; frustrated by "${s.one_thing_frustrated_by}"`).join('\n')}`
+        : '';
+
     // Stage 3 (medium thinking — visual design is structurally simpler than logic)
     fire(3, 'Visual Designer', 'running');
     let designSystem: DesignSystem;
     try {
         designSystem = await callGeminiJsonStage<DesignSystem>(
             buildStage3System(brand),
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}`,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}${sessionsBlock}`,
             ['brand_application', 'type_system', 'color_system', 'spacing_scale', 'motion_tokens', 'components'],
             'Stage 3 Visual Designer',
             'medium',
@@ -831,13 +1528,42 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     }
     fire(3, 'Visual Designer', 'done', `${brand} brand applied · thinking=medium`);
 
+    // Stage 3.5 — Build Recipe Author. Produces the exhaustive implementation
+    // plan Stage 4 will execute verbatim. Max thinking budget, large output
+    // budget — this is the brain of the build.
+    fire(35, 'Build Recipe Author', 'running');
+    let buildRecipe: BuildRecipe;
+    try {
+        buildRecipe = await callGeminiJsonStage<BuildRecipe>(
+            STAGE_3_5_SYSTEM,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}`,
+            ['persona_runtime', 'seed_data', 'screens', 'cross_cutting', 'micro_copy', 'verbatim_prompts', 'success_assertions'],
+            'Stage 3.5 Build Recipe Author',
+            'max',
+            65536, // recipe is huge — give it room
+        );
+    } catch (e: any) {
+        fire(35, 'Build Recipe Author', 'failed', e.message);
+        throw e;
+    }
+    const recipeStats = {
+        screens: buildRecipe.screens?.length || 0,
+        entities: Object.keys(buildRecipe.seed_data || {}).length,
+        microCopy: Object.keys(buildRecipe.micro_copy || {}).length,
+        aiCalls: Object.keys(buildRecipe.verbatim_prompts || {}).length,
+        assertions: buildRecipe.success_assertions?.length || 0,
+    };
+    fire(35, 'Build Recipe Author', 'done',
+        `${recipeStats.screens} screens, ${recipeStats.entities} seed entities, ${recipeStats.microCopy} copy strings, ${recipeStats.aiCalls} AI calls, ${recipeStats.assertions} assertions · thinking=high`);
+
     // Stage 4 — the expensive one. High thinking, generous token budget.
+    // Now executes the recipe verbatim rather than re-deciding the design.
     fire(4, 'Prototype Coder', 'running');
     let codeText: string;
     try {
         codeText = await callGeminiStage(
             buildStage4System(brand),
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}`,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (EXECUTE VERBATIM — every micro-copy string, every screen's component tree, every verbatim AI prompt, every seed-record anchor):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsBlock}`,
             false,
             'max',
             65536, // generous output budget for a substantial single-file component with real AI flows
@@ -849,13 +1575,17 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     let code = stripCodeFences(codeText);
     fire(4, 'Prototype Coder', 'done', `${Math.round(code.length / 1024)}KB · thinking=high`);
 
-    // Stage 5
+    // Stage 5 — audits the code against the build recipe's success_assertions
+    // in addition to the brief/spec/system checks.
     fire(5, 'Critic + Refiner', 'running');
     let critiqueText: string;
     try {
+        const sessionsAuditBlock = simulatedSessions.length > 0
+            ? `\n\nSIMULATED USER SESSIONS — AUDIT THE CODE AGAINST EACH OF THESE (${simulatedSessions.length} total). For EACH session, determine: "Can this user complete their motivation in this prototype as built? If not, what's the SPECIFIC missing piece?" Compute coverage % and populate \`session_coverage\` in the critique JSON:\n${JSON.stringify(simulatedSessions, null, 2)}`
+            : '';
         critiqueText = await callGeminiStage(
             STAGE_5_SYSTEM,
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nCODE:\n${code}`,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`,
             true,
             'max',
             32000,
@@ -869,19 +1599,22 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
             issues: [{ category: 'code_bug', severity: 'minor', description: `Critic failed: ${e.message}`, source_of_truth: 'meta', code_location: '-', fix: 'manual review' }],
             corrected_code: null,
         };
-        return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, designSystem, code, critique: fallbackCritique });
+        return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique: fallbackCritique });
     }
     const critique = tryParseJson<CritiqueReport>(critiqueText, 'Stage 5');
+    const coverageStr = critique.session_coverage
+        ? `coverage ${critique.session_coverage.coverage_pct}% (${critique.session_coverage.sessions_passed}/${critique.session_coverage.sessions_total})`
+        : '';
     if (critique.verdict === 'refine' && critique.corrected_code) {
         code = stripCodeFences(critique.corrected_code);
-        fire(5, 'Critic + Refiner', 'done', `${critique.issues?.length || 0} issues fixed`);
+        fire(5, 'Critic + Refiner', 'done', `refined — ${critique.issues?.length || 0} issues fixed${coverageStr ? ` · ${coverageStr}` : ''}`);
     } else if (critique.verdict === 'rebuild') {
-        fire(5, 'Critic + Refiner', 'done', 'rebuild flagged — shipping anyway, mark for human review');
+        fire(5, 'Critic + Refiner', 'done', `rebuild flagged${coverageStr ? ` (${coverageStr})` : ''} — shipping anyway, mark for human review`);
     } else {
-        fire(5, 'Critic + Refiner', 'done', 'ship');
+        fire(5, 'Critic + Refiner', 'done', `ship${coverageStr ? ` · ${coverageStr}` : ''}`);
     }
 
-    return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, designSystem, code, critique });
+    return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique });
 }
 
 function finalize(args: {
@@ -892,7 +1625,9 @@ function finalize(args: {
     researchGoal?: string;
     brief: ExperienceBrief;
     spec: InteractionSpec;
+    simulatedSessions?: SimulatedUserSession[];
     designSystem: DesignSystem;
+    buildRecipe?: BuildRecipe;
     code: string;
     critique: CritiqueReport;
 }): PrototypeArtifact {
@@ -907,7 +1642,9 @@ function finalize(args: {
         research_goal: args.researchGoal,
         brief: args.brief,
         interaction_spec: args.spec,
+        simulated_sessions: args.simulatedSessions,
         design_system: args.designSystem,
+        build_recipe: args.buildRecipe,
         code: args.code,
         code_format: 'react',
         critique: args.critique,

@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "Unsatisfactory Grade for leaving Co-op"
 author: "Financial-Zucchini14"
 date: "2026-01-31T16:11:05.000Z"
-score: 38
-upvote_ratio: 0.88
+score: 37
+upvote_ratio: 0.87
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T15:47:35.014Z"
+extracted_at: "2026-05-13T18:45:41.301Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # Unsatisfactory Grade for leaving Co-op
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qs6czs/unsatisfactory_grade_for_leaving_coop/)
-Posted by **Financial-Zucchini14** · **38↑** · **18 comments**
+Posted by **Financial-Zucchini14** · **37↑** · **18 comments**
 
 I’m an F1 master’s student doing spring CPT and I’m in a really tough situation. I need to know if anyone has dealt with something similar and what you did.
 
@@ -37,7 +37,7 @@ In my case, I had to end my co-op early because of work authorization issues. Af
 
 Not sure if this will work in your case, but just sharing as a suggestion.
 - **napoleonswife** (39↑): Do you have trusted professors or other advisors you can talk to who can maybe advocate for you? This doesn’t sound right
-- **border-coffee** (12↑): Current MS student/double husky here who did co-op and ended up leaving a hostile workplace. 
+- **border-coffee** (10↑): Current MS student/double husky here who did co-op and ended up leaving a hostile workplace. 
 
 My question to you is: would you describe the situation as materially unsafe? As in, abusive supervision or a supervisor acting in a discriminatory manner? If this is the case, documenting specific instances, in writing and with timestamps, would be helpful. 
 
@@ -52,7 +52,7 @@ And my following advice is not the high ground, but if you were to show up with 
 
 But id skip the fake injury thing and just talk to your DSO. It’s not your fault that this is happening and USCIS isn’t going to come after you, rather the employer. Your co-op advisor has very narrow understanding of CPT authorization procedures and therefore OGS is the only entity you need to concern yourself with engaging now.
 - **wkHusky** (5↑): I might see if there is a way to escalate to someone higher up in the coop advisor department to find out if your current advisor accurately conveyed your options. While it is standard for coop advisors to lean towards staying with a coop, there has to be a mechanism for when a student does not feel safe.
-- **SexWithPaws69** (2↑): Hey OP. I almost attended a Co-op with a hostile workplace. Co-op advisor pushed me to go through the offer despite all the alarm bells with the manager's communication and a previous Co-op reaching out and telling me it was absolutely awful. I ended up dropping it and attending a different Co-op instead, much to my advisor's annoyance. It's easy for an American to just leave it and get an unsatisfactory, but I can't imagine the headache you're going through as F-1 on status. Have you maybe also reached out to WeCare? Maybe they could help meditate between the Co-op advisor and OGS? Or it may just be your Co-op advisor is pushing you to stay so you can avoid the headache of maintaining status after dropping the Co-op. Either way, hope all goes well 🥹
+- **SexWithPaws69** (3↑): Hey OP. I almost attended a Co-op with a hostile workplace. Co-op advisor pushed me to go through the offer despite all the alarm bells with the manager's communication and a previous Co-op reaching out and telling me it was absolutely awful. I ended up dropping it and attending a different Co-op instead, much to my advisor's annoyance. It's easy for an American to just leave it and get an unsatisfactory, but I can't imagine the headache you're going through as F-1 on status. Have you maybe also reached out to WeCare? Maybe they could help meditate between the Co-op advisor and OGS? Or it may just be your Co-op advisor is pushing you to stay so you can avoid the headache of maintaining status after dropping the Co-op. Either way, hope all goes well 🥹
 - **QuaternionsRoll** (1↑): What the fuck?
 - **salacious_psycho** (1↑): You can and absolutely should talk to your co-op and career advisor about this. And I'm pretty sure they'll understand and try to help you out with the problem. If you face any difficulties getting through to the advisor or face any issues do let me know and I'll help out if needed.
 - **ResistMobile463** (1↑): Document everything and take this to an advisor or trusted professor that will listen. As Senior Associate Dean Hescott once told me, Northeastern is the University of exceptions. if your advisor is not budging on giving you credit for co-op at a place that is not honoring your employment contract, you need to find someone that will. as other people have said here, they are likely breaking the law or at least their contract with Northeastern.

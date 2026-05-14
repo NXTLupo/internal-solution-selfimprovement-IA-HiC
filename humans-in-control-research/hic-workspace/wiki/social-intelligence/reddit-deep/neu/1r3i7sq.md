@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "Accepted into NU.in! Questions about the program and more!"
 author: "Standard-Side-1747"
 date: "2026-02-13T06:48:32.000Z"
-score: 5
-upvote_ratio: 0.78
+score: 6
+upvote_ratio: 0.8
 num_comments: 6
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.374Z"
+extracted_at: "2026-05-13T20:23:48.338Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # Accepted into NU.in! Questions about the program and more!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1r3i7sq/accepted_into_nuin_questions_about_the_program/)
-Posted by **Standard-Side-1747** · **5↑** · **6 comments**
+Posted by **Standard-Side-1747** · **6↑** · **6 comments**
 
 The program honestly sounds like so much fun! looking at the catalog from last year, there isn't a single destination I would be opposed to going. It seems like a great way to make friends and not getting lost in a big sea of people as soon as you step on campus.
 

@@ -7,10 +7,10 @@ title: "Recent Grad: AMA"
 author: "Ok-Impression-3082"
 date: "2025-05-24T20:11:51.000Z"
 score: 22
-upvote_ratio: 0.83
+upvote_ratio: 0.84
 num_comments: 65
 flair: ""
-extracted_at: "2026-05-12T20:36:08.370Z"
+extracted_at: "2026-05-13T23:02:38.861Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -49,14 +49,14 @@ Edit: while I was in DMSB, my closest friends were all CS and engineering so I d
 
 Housing after freshmen year typically is on campus for second year then off campus for 3rd or 4th year. People frequently live on the east side of campus, near Fenway, or Mission Hill (most popular) in there 3rd or 4th years. After year 2 it’s really hard to get on campus housing and it’s also more expensive.
     - **Birch_mom72** (2↑): How would you respond to all the negativity about NEU…the acceptance numbers, it being overrated, shipping people off to other campuses, etc. Thx!
-- **usctrojan98** (4↑): What were your coops (company, location, role) and did you like what you ended up doing? Did it help in your job search? Did you end up at one of those places for your full time job?
-  - **Ok-Impression-3082** (8↑): 1. Wayfair - data analyst - Boston
+- **usctrojan98** (5↑): What were your coops (company, location, role) and did you like what you ended up doing? Did it help in your job search? Did you end up at one of those places for your full time job?
+  - **Ok-Impression-3082** (9↑): 1. Wayfair - data analyst - Boston
 2. Gordon brothers - valuations analyst - Boston
 
 It definitely helped me get invaluable experience with data, excel, and working in the corporate world. It also provided me with return offers which can be hard to come by (I didn’t accept for personal reasons but it was a great opportunity.) 
 
 It absolutely has helped me in my job search and definitely gave me an edge. Also to make such amazing connections.
-- **Eve-7260** (4↑): how is the business curriculum? is it very loose or strict in structure? how hard was it to switch majors or double major/add minors? how about class sizes?
+- **Eve-7260** (3↑): how is the business curriculum? is it very loose or strict in structure? how hard was it to switch majors or double major/add minors? how about class sizes?
   - **Ok-Impression-3082** (3↑): Class sizes are 20 or 30-40 after freshmen year. Freshmen year you’ll get some massive ones. Changing majors isn’t too bad but you may need to do some extra time/summer sessions. Adding minors same thing, be okay with extra time however not difficult. 
 
 IMO the curriculum is right in the middle. There’s categories you need to fulfill but you get to choose the types of classes within those categories. It’s rather loose in that regard. 
@@ -65,7 +65,7 @@ For example, a finance class you need can be a choice of 10 different types of c
 
 I thought the curriculum was great but mundane in year 1
 - **pa982** (2↑): Would you care to expand a bit on the overcrowding?
-  - **Ok-Impression-3082** (11↑): Of course. During the COVID year (2021), northeastern accidentally over accepted too many people. This sort of had a waterfall effect into the later years where the campus became unusually crowded, and this is more of a norm now rather than something that will change. This is mainly an issue with the library and gym being difficult to get a seat or needing to wait in line for machines. During freshmen year it can also cause congestion in the dining hall.
+  - **Ok-Impression-3082** (12↑): Of course. During the COVID year (2021), northeastern accidentally over accepted too many people. This sort of had a waterfall effect into the later years where the campus became unusually crowded, and this is more of a norm now rather than something that will change. This is mainly an issue with the library and gym being difficult to get a seat or needing to wait in line for machines. During freshmen year it can also cause congestion in the dining hall.
     - **pa982** (2↑): I see. How major of an impact would you say this has on the undergraduate experience?
 - **Opposite-Friend-4411** (2↑): Any suggestions on how to get calls for coop interviews? (For data roles) Getting into the first shortlist seems to be the toughest 😭
   - **Ok-Impression-3082** (1↑): Not sure what u mean by first shortlist. 
@@ -83,7 +83,7 @@ Also, how hard it is to get on campus jobs.
 Doubt you’ll get an on campus job as they usually go to international students. Plenty of options right off campus though
   - **everincity** (1↑): In my experience, NEU offers a lot of aid & academic scholarships if you need it. NEU ended up being more than 5 times cheaper than my state school.
 - **usctrojan98** (1↑): Can you expand on social struggle?
-  - **Ok-Impression-3082** (5↑): I’m very outgoing so it wasn’t much of an issue, however if you aren’t on a sports team, in Greek life, or well connected in a club, many would say it can be hard to make friends and can get lonely. Especially in the winter months when people go out less. It’s really important to put yourself out there if you go to NEU.
+  - **Ok-Impression-3082** (4↑): I’m very outgoing so it wasn’t much of an issue, however if you aren’t on a sports team, in Greek life, or well connected in a club, many would say it can be hard to make friends and can get lonely. Especially in the winter months when people go out less. It’s really important to put yourself out there if you go to NEU.
     - **usctrojan98** (2↑): Most, if not all, large colleges will have that challenge, I’d imagine. The cold makes it harder to get out and hang in public areas to bump into other people, but other than that, you’ve gotta make effort to make friends like in any other place. 
 
 Were you in NUin?

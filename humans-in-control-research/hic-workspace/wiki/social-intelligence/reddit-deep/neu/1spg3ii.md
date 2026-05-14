@@ -7,10 +7,10 @@ title: "Having a bad time Financially need a part time job"
 author: "Any_Violinist_3325"
 date: "2026-04-19T02:05:20.000Z"
 score: 4
-upvote_ratio: 0.64
+upvote_ratio: 0.67
 num_comments: 10
 flair: "Campus Life"
-extracted_at: "2026-05-12T19:19:22.618Z"
+extracted_at: "2026-05-13T23:02:38.869Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -32,7 +32,7 @@ Thank you
 
 ## Comments
 
-- **Routine-Collection36** (4↑): Finding a job at NEU is a humiliation ritual, it’s very difficult
+- **Routine-Collection36** (5↑): Finding a job at NEU is a humiliation ritual, it’s very difficult
   - **Any_Violinist_3325** (1↑): Fr it’s just frustrating
 - **Wandering_Traveler_1** (3↑): Do you know any classmates with on campus jobs, or have a good relationship with professors that you can look into TAing for? In my experience it more came down to others putting in a good word for me to their boss because I had that relationship with them
   - **Any_Violinist_3325** (1↑): No I don’t have any friends working on campus

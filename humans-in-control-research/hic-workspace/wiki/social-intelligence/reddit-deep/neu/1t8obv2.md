@@ -7,10 +7,10 @@ title: "Indian student confused about Northeastern MSBA (Fall 2026) – Need hon
 author: "Dull-Technology5468"
 date: "2026-05-09T21:57:15.000Z"
 score: 0
-upvote_ratio: 0.13
+upvote_ratio: 0.2
 num_comments: 7
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-12T20:36:08.370Z"
+extracted_at: "2026-05-13T23:02:38.874Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -54,7 +54,7 @@ Would really appreciate honest feedback, even if negative. Thank you.
 
 ## Comments
 
-- **Rhynocerous** (6↑): From an outsider perspective the giant education loan pipeline seems very exploitative. I hope you get some genuine advice brother. Did they give you a two week deadline? If so do not let that rush your decision, you should be able to defer or postpone the deposit. It's rolling admissions, the timelimit is made up.
+- **Rhynocerous** (5↑): From an outsider perspective the giant education loan pipeline seems very exploitative. I hope you get some genuine advice brother. Did they give you a two week deadline? If so do not let that rush your decision, you should be able to defer or postpone the deposit. It's rolling admissions, the timelimit is made up.
 - **-BananaStand-** (3↑): It’s is extremely expensive place to live, it’s good you are doing some research. Also the job market here is horrible right now.
 
 As someone who grew up in Singapore, and have had friends from other countries move here, this is not an amazing place to live right now. Social values are very different here.

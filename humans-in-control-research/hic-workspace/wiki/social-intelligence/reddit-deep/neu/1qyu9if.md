@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "CS+ math major"
 author: "Fun-Succotash-7160"
 date: "2026-02-08T00:29:24.000Z"
-score: 5
-upvote_ratio: 0.86
+score: 4
+upvote_ratio: 0.75
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.371Z"
+extracted_at: "2026-05-13T23:02:38.882Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # CS+ math major
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/)
-Posted by **Fun-Succotash-7160** · **5↑** · **18 comments**
+Posted by **Fun-Succotash-7160** · **4↑** · **18 comments**
 
 Hey everyone!
 
@@ -50,7 +50,7 @@ Would really appreciate any insight, honest takes, or personal experiences. Than
 
 ## Comments
 
-- **ChilllFam** (6↑): I transferred here from a community college for CS with an AI concentration and these are my takes on your questions.
+- **ChilllFam** (7↑): I transferred here from a community college for CS with an AI concentration and these are my takes on your questions.
 
 1: The academics here are out of this world, I’m sure it’s pretty similar to most top schools, but regardless, the professors here are really on top of their shit and know what they’re doing. I haven’t had a professor yet that doesn’t seem like an absolute expert in their field. I have professors that do legitimate cutting edge research on AI/ML, so there is no shortage of knowledge or opportunities in that regard.
 

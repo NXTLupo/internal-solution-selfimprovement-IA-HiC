@@ -10,7 +10,7 @@ score: 0
 upvote_ratio: 0.29
 num_comments: 21
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.369Z"
+extracted_at: "2026-05-13T23:02:38.854Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -42,14 +42,14 @@ Would really appreciate honest experiences from current students, recent grads, 
 
 ## Comments
 
-- **greenOcto** (5↑): Short answer it’s high risk/ high reward. Things can go really well if everything goes right for you. But it also comes with a significant chance of failure.
+- **greenOcto** (7↑): Short answer it’s high risk/ high reward. Things can go really well if everything goes right for you. But it also comes with a significant chance of failure.
   - **Seshuuu** (0↑): Yes, with hardwork things get paid off..
     - **greenOcto** (7↑): It’s also a lot of luck. So I would be very careful when taking this decision. I have friends suffering from a mountain of debt that they won’t be able to pay for the next 10 to 15 years and skill wasn’t a factor with them not getting a job.
-- **beetroot747** (6↑): International alum here. People going for AI/ML courses have always faced additional scrutiny at visa interviews.
+- **beetroot747** (5↑): International alum here. People going for AI/ML courses have always faced additional scrutiny at visa interviews.
 
 And while the job market has been bad for a while, you’ll also need to consider the current atmosphere where there are discussions around pausing H1-B visas and removing OPT altogether. Things have changed in the past year and a half and it’s a lot more challenging for international students now.
   - **Serenity-Quest** (1↑): What about COOP/OPT without a full time job for intl?
-  - **Seshuuu** (-5↑): Challenging but possible, I know I'm being optimistic. Is it strict 'No' from your side?
+  - **Seshuuu** (-4↑): Challenging but possible, I know I'm being optimistic. Is it strict 'No' from your side?
     - **beetroot747** (1↑): You’re being too optimistic. I’m not saying no, just that it’s a 10x bigger gamble now than it was for me when I started at NEU in 2019.
 - **Mobile-Finding-3779** (2↑): Shit
   - **Seshuuu** (-2↑): Why?
@@ -59,7 +59,7 @@ And while the job market has been bad for a while, you’ll also need to conside
   - **Seshuuu** (0↑): I kept doing it...since last 6 months the more I wait the worse the situation is getting. I feel like doing something before the door is completely closed
     - **salacious_psycho** (2↑): It'll not improve unless the whole "situation" changes sadly. I would def do not recommend anyone to pour a fortune into something that has virtually no chances to go to fruition.
     - **beetroot747** (1↑): Wait a few more years
-- **OddActive2516** (-10↑): Not worth it
+- **OddActive2516** (-8↑): Not worth it
 
 Buddy it's Northeastern and not CMU or UMass. There's no brand
 

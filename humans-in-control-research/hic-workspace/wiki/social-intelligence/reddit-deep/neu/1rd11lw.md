@@ -7,10 +7,10 @@ title: "College advice"
 author: "Ill_Carpet3621"
 date: "2026-02-24T01:37:31.000Z"
 score: 9
-upvote_ratio: 1
+upvote_ratio: 0.92
 num_comments: 4
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-12T13:29:54.774Z"
+extracted_at: "2026-05-13T20:23:48.338Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---

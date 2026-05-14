@@ -1620,6 +1620,666 @@ function labelsFromContext(ctx?: EngagementContext) {
         cmpAlignCol: `Alignment (${stakeholdersLabel})`,
     };
 }
+// 2026-05-13 — Product Brief comparison grid. Emitted by #proto after the
+// VS brief generator returns 5 distinct framings. Each card surfaces the
+// brief's frame label, persona, demonstrated moment, use cases, screens,
+// AI capabilities, seed data sketch, and visual direction — with a single
+// BUILD THIS button that hands the brief to buildPrototype as
+// approvedBrief, skipping Stage 1.
+interface ProductBriefForCard {
+    id: string;
+    frame_label: string;
+    probability: number;
+    title: string;
+    one_line_thesis: string;
+    why_this_frame?: string;
+    primary_persona?: { name?: string; role?: string; context?: string; emotional_state?: string; pain_points?: string[]; jtbd?: string };
+    secondary_actors?: Array<{ role: string; involvement: string }>;
+    demonstrated_moment?: string;
+    use_cases?: Array<{ name: string; trigger?: string; flow?: string; ai_role?: string; outcome?: string }>;
+    key_screens?: Array<{ name: string; purpose?: string; primary_element?: string; motion_character?: string }>;
+    ai_capabilities?: Array<{ name: string; user_action?: string; ai_model?: string; input_data?: string; output?: string; user_benefit?: string }>;
+    seed_data?: { primary_entities?: Array<{ name: string; target_count: number; example_records_summary?: string }>; secondary_entities?: Array<{ name: string; target_count: number; example_records_summary?: string }> };
+    visual_direction?: { aesthetic_keywords?: string; hero_treatment?: string; motion_character?: string; image_gen_opportunities?: string[] };
+    success_criteria?: string[];
+    hard_constraints?: { brand?: string | null; platform?: string; accessibility?: string; other?: string[] };
+}
+
+/** 2026-05-13 — Export a ProductBrief as Markdown, plain text, or JSON.
+ *  Triggers a download on click. */
+function downloadFile(filename: string, content: string, mime: string): void {
+    try {
+        const blob = new Blob([content], { type: mime });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+    } catch (e) {
+        console.warn('[brief export] failed:', e);
+    }
+}
+
+function briefToMarkdown(b: ProductBriefForCard): string {
+    const lines: string[] = [];
+    lines.push(`# ${b.title}`);
+    lines.push('');
+    lines.push(`*Frame: ${b.frame_label} · probability ${Math.round((b.probability || 0) * 100)}%*`);
+    lines.push('');
+    lines.push(`> ${b.one_line_thesis}`);
+    if (b.why_this_frame) {
+        lines.push('');
+        lines.push(`**Why this frame:** ${b.why_this_frame}`);
+    }
+    if (b.primary_persona) {
+        lines.push('');
+        lines.push('## Primary persona');
+        if (b.primary_persona.name) lines.push(`**${b.primary_persona.name}** — ${b.primary_persona.role || ''}`);
+        if (b.primary_persona.context) lines.push(b.primary_persona.context);
+        if (b.primary_persona.emotional_state) lines.push(`*Emotional state:* ${b.primary_persona.emotional_state}`);
+        if (b.primary_persona.jtbd) lines.push(`**JTBD:** ${b.primary_persona.jtbd}`);
+        if (b.primary_persona.pain_points && b.primary_persona.pain_points.length > 0) {
+            lines.push('');
+            lines.push('**Pain points:**');
+            for (const p of b.primary_persona.pain_points) lines.push(`- ${p}`);
+        }
+    }
+    if (b.secondary_actors && b.secondary_actors.length > 0) {
+        lines.push('');
+        lines.push('## Secondary actors');
+        for (const a of b.secondary_actors) lines.push(`- **${a.role}** — ${a.involvement}`);
+    }
+    if (b.demonstrated_moment) {
+        lines.push('');
+        lines.push('## Demonstrated moment');
+        lines.push(b.demonstrated_moment);
+    }
+    if (b.use_cases && b.use_cases.length > 0) {
+        lines.push('');
+        lines.push(`## Use cases (${b.use_cases.length})`);
+        b.use_cases.forEach((u, i) => {
+            lines.push('');
+            lines.push(`### ${i + 1}. ${u.name}`);
+            if (u.trigger) lines.push(`- **Trigger:** ${u.trigger}`);
+            if (u.flow) lines.push(`- **Flow:** ${u.flow}`);
+            if (u.ai_role) lines.push(`- **AI role:** ${u.ai_role}`);
+            if (u.outcome) lines.push(`- **Outcome:** ${u.outcome}`);
+        });
+    }
+    if (b.key_screens && b.key_screens.length > 0) {
+        lines.push('');
+        lines.push(`## Key screens (${b.key_screens.length})`);
+        b.key_screens.forEach((s, i) => {
+            lines.push('');
+            lines.push(`**${i + 1}. ${s.name}**`);
+            if (s.purpose) lines.push(`- Purpose: ${s.purpose}`);
+            if (s.primary_element) lines.push(`- Primary element: ${s.primary_element}`);
+            if (s.motion_character) lines.push(`- Motion: ${s.motion_character}`);
+        });
+    }
+    if (b.ai_capabilities && b.ai_capabilities.length > 0) {
+        lines.push('');
+        lines.push(`## AI capabilities (${b.ai_capabilities.length})`);
+        b.ai_capabilities.forEach((c, i) => {
+            lines.push('');
+            lines.push(`### ${i + 1}. ${c.name}`);
+            if (c.ai_model) lines.push(`- **Model:** ${c.ai_model}`);
+            if (c.user_action) lines.push(`- **User action:** ${c.user_action}`);
+            if (c.input_data) lines.push(`- **Input:** ${c.input_data}`);
+            if (c.output) lines.push(`- **Output:** ${c.output}`);
+            if (c.user_benefit) lines.push(`- **User benefit:** ${c.user_benefit}`);
+        });
+    }
+    if (b.seed_data) {
+        lines.push('');
+        lines.push('## Seed data');
+        if (b.seed_data.primary_entities && b.seed_data.primary_entities.length > 0) {
+            lines.push('');
+            lines.push('### Primary entities');
+            for (const e of b.seed_data.primary_entities) {
+                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` — ${e.example_records_summary}` : ''}`);
+            }
+        }
+        if (b.seed_data.secondary_entities && b.seed_data.secondary_entities.length > 0) {
+            lines.push('');
+            lines.push('### Secondary entities');
+            for (const e of b.seed_data.secondary_entities) {
+                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` — ${e.example_records_summary}` : ''}`);
+            }
+        }
+    }
+    if (b.visual_direction) {
+        lines.push('');
+        lines.push('## Visual direction');
+        if (b.visual_direction.aesthetic_keywords) lines.push(`- **Aesthetic:** ${b.visual_direction.aesthetic_keywords}`);
+        if (b.visual_direction.hero_treatment) lines.push(`- **Hero treatment:** ${b.visual_direction.hero_treatment}`);
+        if (b.visual_direction.motion_character) lines.push(`- **Motion character:** ${b.visual_direction.motion_character}`);
+        if (b.visual_direction.image_gen_opportunities && b.visual_direction.image_gen_opportunities.length > 0) {
+            lines.push('');
+            lines.push('### Imagen prompts');
+            b.visual_direction.image_gen_opportunities.forEach((p, i) => lines.push(`${i + 1}. ${p}`));
+        }
+    }
+    if (b.success_criteria && b.success_criteria.length > 0) {
+        lines.push('');
+        lines.push(`## Success criteria (${b.success_criteria.length})`);
+        for (const s of b.success_criteria) lines.push(`- ${s}`);
+    }
+    if (b.hard_constraints) {
+        lines.push('');
+        lines.push('## Hard constraints');
+        if (b.hard_constraints.brand) lines.push(`- **Brand:** ${b.hard_constraints.brand}`);
+        if (b.hard_constraints.platform) lines.push(`- **Platform:** ${b.hard_constraints.platform}`);
+        if (b.hard_constraints.accessibility) lines.push(`- **Accessibility:** ${b.hard_constraints.accessibility}`);
+        if (b.hard_constraints.other && b.hard_constraints.other.length > 0) {
+            for (const o of b.hard_constraints.other) lines.push(`- ${o}`);
+        }
+    }
+    return lines.join('\n');
+}
+
+function briefToPlainText(b: ProductBriefForCard): string {
+    // Markdown stripped of formatting tokens — usable as plain text.
+    return briefToMarkdown(b)
+        .replace(/^#+\s*/gm, '')
+        .replace(/\*\*(.*?)\*\*/g, '$1')
+        .replace(/\*(.*?)\*/g, '$1')
+        .replace(/^>\s*/gm, '');
+}
+
+function briefSlug(b: ProductBriefForCard): string {
+    return (b.title || 'brief')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .substring(0, 60)
+        .replace(/-+$/, '') || 'brief';
+}
+
+/** 2026-05-13 v2 — Render a ProductBrief as a standalone HTML document and
+ *  open it in a real popup window. Gives the user a dedicated review surface
+ *  rather than cramping the brief inside the chat thread. */
+function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): void {
+    const win = window.open('', '_blank', 'width=1200,height=900,scrollbars=yes,resizable=yes');
+    if (!win) {
+        alert('Popup blocked. Allow popups for localhost:5011 to open the brief in a dedicated window.');
+        return;
+    }
+    const isNU = brand === 'NU';
+    const accent = isNU ? '#C8102E' : '#B8B800';
+    const accentDark = isNU ? '#9E0A24' : '#8A8A00';
+    const display = isNU ? "'Roboto Condensed', sans-serif" : "'Bebas Neue', 'Archivo', sans-serif";
+    const body = isNU ? "'Open Sans', sans-serif" : "'Archivo', sans-serif";
+    const ink = isNU ? '#141D30' : '#0D0D0D';
+    const probPct = Math.round((brief.probability || 0) * 100);
+
+    const escapeHtml = (s: string): string => s
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+    const sectionHtml = (title: string, content: string): string =>
+        `<section><h2>${escapeHtml(title)}</h2>${content}</section>`;
+
+    const listHtml = (items: string[]): string => items.length
+        ? `<ul>${items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>`
+        : '<p class="empty">—</p>';
+
+    const personaHtml = brief.primary_persona
+        ? `<div class="persona">
+             <div class="persona-name">${escapeHtml(brief.primary_persona.name || '')} <span class="persona-role">— ${escapeHtml(brief.primary_persona.role || '')}</span></div>
+             ${brief.primary_persona.context ? `<p>${escapeHtml(brief.primary_persona.context)}</p>` : ''}
+             ${brief.primary_persona.emotional_state ? `<p class="emotion">Emotional state: ${escapeHtml(brief.primary_persona.emotional_state)}</p>` : ''}
+             ${brief.primary_persona.jtbd ? `<p><strong>JTBD:</strong> ${escapeHtml(brief.primary_persona.jtbd)}</p>` : ''}
+             ${brief.primary_persona.pain_points && brief.primary_persona.pain_points.length > 0
+                ? `<div class="subhead">Pain points</div>${listHtml(brief.primary_persona.pain_points)}`
+                : ''}
+           </div>`
+        : '';
+
+    const useCasesHtml = brief.use_cases && brief.use_cases.length > 0
+        ? brief.use_cases.map((u, i) => `
+             <div class="card">
+               <div class="card-num">${i + 1}</div>
+               <div class="card-body">
+                 <div class="card-title">${escapeHtml(u.name)}</div>
+                 ${u.trigger ? `<div><strong>Trigger:</strong> ${escapeHtml(u.trigger)}</div>` : ''}
+                 ${u.flow ? `<div><strong>Flow:</strong> ${escapeHtml(u.flow)}</div>` : ''}
+                 ${u.ai_role ? `<div><strong>AI role:</strong> ${escapeHtml(u.ai_role)}</div>` : ''}
+                 ${u.outcome ? `<div><strong>Outcome:</strong> ${escapeHtml(u.outcome)}</div>` : ''}
+               </div>
+             </div>`).join('')
+        : '<p class="empty">—</p>';
+
+    const screensHtml = brief.key_screens && brief.key_screens.length > 0
+        ? brief.key_screens.map((s, i) => `
+             <div class="card">
+               <div class="card-num">${i + 1}</div>
+               <div class="card-body">
+                 <div class="card-title">${escapeHtml(s.name)}</div>
+                 ${s.purpose ? `<div><strong>Purpose:</strong> ${escapeHtml(s.purpose)}</div>` : ''}
+                 ${s.primary_element ? `<div><strong>Primary element:</strong> ${escapeHtml(s.primary_element)}</div>` : ''}
+                 ${s.motion_character ? `<div><strong>Motion:</strong> ${escapeHtml(s.motion_character)}</div>` : ''}
+               </div>
+             </div>`).join('')
+        : '<p class="empty">—</p>';
+
+    const aiHtml = brief.ai_capabilities && brief.ai_capabilities.length > 0
+        ? brief.ai_capabilities.map((c, i) => `
+             <div class="card">
+               <div class="card-num">${i + 1}</div>
+               <div class="card-body">
+                 <div class="card-title">${escapeHtml(c.name)}</div>
+                 ${c.ai_model ? `<div><strong>Model:</strong> ${escapeHtml(c.ai_model)}</div>` : ''}
+                 ${c.user_action ? `<div><strong>User action:</strong> ${escapeHtml(c.user_action)}</div>` : ''}
+                 ${c.input_data ? `<div><strong>Input:</strong> ${escapeHtml(c.input_data)}</div>` : ''}
+                 ${c.output ? `<div><strong>Output:</strong> ${escapeHtml(c.output)}</div>` : ''}
+                 ${c.user_benefit ? `<div><strong>User benefit:</strong> ${escapeHtml(c.user_benefit)}</div>` : ''}
+               </div>
+             </div>`).join('')
+        : '<p class="empty">—</p>';
+
+    const seedHtml = brief.seed_data
+        ? `${(brief.seed_data.primary_entities || []).map((e: any) => `
+             <div class="seed-row">
+               <div class="seed-name"><strong>${escapeHtml(e.name)}</strong> <span class="seed-meta">primary · target ${e.target_count}</span></div>
+               ${e.example_records_summary ? `<div class="seed-summary">${escapeHtml(e.example_records_summary)}</div>` : ''}
+               ${e.field_shape ? `<div class="seed-meta">Shape: ${escapeHtml(e.field_shape)}</div>` : ''}
+               ${e.naming_convention ? `<div class="seed-meta">Naming: ${escapeHtml(e.naming_convention)}</div>` : ''}
+               ${e.value_distributions ? `<div class="seed-meta">Distribution: ${escapeHtml(e.value_distributions)}</div>` : ''}
+             </div>`).join('')}
+           ${(brief.seed_data.secondary_entities || []).map((e: any) => `
+             <div class="seed-row secondary">
+               <div class="seed-name">${escapeHtml(e.name)} <span class="seed-meta">secondary · target ${e.target_count}</span></div>
+               ${e.example_records_summary ? `<div class="seed-summary">${escapeHtml(e.example_records_summary)}</div>` : ''}
+             </div>`).join('')}`
+        : '<p class="empty">—</p>';
+
+    // v2 fields (optional)
+    const dataExamples = (brief as any).data_examples as Array<any> | undefined;
+    const dataExamplesHtml = dataExamples && dataExamples.length > 0
+        ? dataExamples.map(de => `
+             <div class="seed-row">
+               <div class="seed-name"><strong>${escapeHtml(de.name)}</strong> <span class="seed-meta">target ${de.target_count}</span></div>
+               ${de.field_shape ? `<div class="seed-meta">${escapeHtml(de.field_shape)}</div>` : ''}
+               ${Array.isArray(de.sample_records) && de.sample_records.length > 0
+                ? `<pre class="json">${escapeHtml(JSON.stringify(de.sample_records.slice(0, 6), null, 2))}</pre>`
+                : ''}
+             </div>`).join('')
+        : '';
+
+    const roadmap = (brief as any).feature_roadmap as Array<any> | undefined;
+    const roadmapHtml = roadmap && roadmap.length > 0
+        ? roadmap.map(p => `
+             <div class="phase">
+               <div class="phase-head"><span class="phase-label">${escapeHtml(p.phase || '')}</span> · ${escapeHtml(p.label || '')}</div>
+               ${Array.isArray(p.deliverables) ? `<ul>${p.deliverables.map((d: string) => `<li>${escapeHtml(d)}</li>`).join('')}</ul>` : ''}
+               ${p.success_metric ? `<div class="phase-success"><strong>Success metric:</strong> ${escapeHtml(p.success_metric)}</div>` : ''}
+             </div>`).join('')
+        : '';
+
+    const arc = (brief as any).narrative_arc as Array<any> | undefined;
+    const arcHtml = arc && arc.length > 0
+        ? arc.map(n => `
+             <div class="beat">
+               <div class="beat-time">${escapeHtml(n.timeframe || '')}</div>
+               <div class="beat-body">
+                 ${n.user_moment ? `<div><strong>User:</strong> ${escapeHtml(n.user_moment)}</div>` : ''}
+                 ${n.ai_moment ? `<div><strong>AI:</strong> ${escapeHtml(n.ai_moment)}</div>` : ''}
+                 ${n.feeling ? `<div class="emotion"><strong>Feeling:</strong> ${escapeHtml(n.feeling)}</div>` : ''}
+               </div>
+             </div>`).join('')
+        : '';
+
+    const choreo = (brief as any).interaction_choreography as Array<any> | undefined;
+    const choreoHtml = choreo && choreo.length > 0
+        ? `<ol class="choreo">${choreo.map(c => `
+             <li>
+               <div class="choreo-action">${escapeHtml(c.user_action || '')}</div>
+               ${c.system_response ? `<div><strong>System:</strong> ${escapeHtml(c.system_response)}</div>` : ''}
+               ${c.motion_or_feedback ? `<div class="emotion">${escapeHtml(c.motion_or_feedback)}${c.timing_ms ? ` (${c.timing_ms}ms)` : ''}</div>` : ''}
+             </li>`).join('')}</ol>`
+        : '';
+
+    const visualHtml = brief.visual_direction
+        ? `<div>
+             ${brief.visual_direction.aesthetic_keywords ? `<div><strong>Aesthetic:</strong> ${escapeHtml(brief.visual_direction.aesthetic_keywords)}</div>` : ''}
+             ${brief.visual_direction.hero_treatment ? `<div><strong>Hero:</strong> ${escapeHtml(brief.visual_direction.hero_treatment)}</div>` : ''}
+             ${brief.visual_direction.motion_character ? `<div><strong>Motion:</strong> ${escapeHtml(brief.visual_direction.motion_character)}</div>` : ''}
+             ${brief.visual_direction.image_gen_opportunities && brief.visual_direction.image_gen_opportunities.length > 0
+                ? `<div class="subhead">Imagen prompts (${brief.visual_direction.image_gen_opportunities.length})</div><ol>${brief.visual_direction.image_gen_opportunities.map((p: string) => `<li>${escapeHtml(p)}</li>`).join('')}</ol>`
+                : ''}
+           </div>`
+        : '<p class="empty">—</p>';
+
+    const html = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>${escapeHtml(brief.title)} · Product Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200..900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  body { margin: 0; padding: 0; font-family: ${body}; color: ${ink}; background: #FAFAFA; line-height: 1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 48px 56px 96px; background: #FFFFFF; min-height: 100vh; }
+  .hero { padding-bottom: 32px; border-bottom: 3px solid ${accent}; margin-bottom: 40px; }
+  .frame-chip { display: inline-block; padding: 6px 12px; background: ${accent}; color: ${isNU ? '#FFFFFF' : ink}; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .prob { display: inline-block; margin-left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #525252; }
+  h1 { font-family: ${display}; font-size: 44px; font-weight: 700; margin: 14px 0 12px; letter-spacing: -0.01em; line-height: 1.1; }
+  .thesis { font-size: 18px; color: #404040; line-height: 1.5; max-width: 760px; }
+  .why-frame { margin-top: 12px; font-style: italic; color: #525252; font-size: 14px; max-width: 760px; }
+  h2 { font-family: ${display}; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin: 56px 0 18px; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; }
+  section { margin-bottom: 8px; }
+  .persona { background: #F8F8F4; padding: 20px 24px; border-left: 4px solid ${accent}; }
+  .persona-name { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .persona-role { font-weight: 400; color: #525252; }
+  .emotion { color: #525252; font-style: italic; }
+  .subhead { margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #525252; }
+  ul, ol { padding-left: 22px; }
+  ul li, ol li { margin-bottom: 6px; }
+  .card { display: flex; gap: 16px; padding: 14px 18px; border: 1px solid #E5E5E5; margin-bottom: 10px; background: #FFFFFF; }
+  .card-num { flex-shrink: 0; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: ${accent}; width: 36px; }
+  .card-body { flex: 1; font-size: 14px; }
+  .card-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .seed-row { padding: 10px 14px; border-left: 3px solid ${accent}; background: #F8F8F4; margin-bottom: 8px; }
+  .seed-row.secondary { border-left-color: #C5C5C5; background: #F4F4F4; }
+  .seed-name { font-size: 14px; margin-bottom: 4px; }
+  .seed-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #737373; }
+  .seed-summary { font-size: 13px; color: #404040; margin: 4px 0; }
+  pre.json { background: #0D0D0D; color: #B8B800; padding: 12px 14px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.4; margin: 8px 0; max-height: 360px; }
+  .phase { padding: 16px 20px; border: 1px solid #E5E5E5; margin-bottom: 12px; background: #FFFFFF; }
+  .phase-head { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .phase-label { color: ${accent}; }
+  .phase-success { margin-top: 8px; font-style: italic; color: #525252; font-size: 13px; }
+  .beat { display: flex; gap: 16px; padding: 12px 16px; border-left: 2px solid ${accent}; background: #F8F8F4; margin-bottom: 8px; }
+  .beat-time { flex-shrink: 0; width: 110px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: ${accentDark}; }
+  .beat-body { flex: 1; font-size: 14px; }
+  .choreo li { margin-bottom: 12px; padding: 10px 14px; background: #F8F8F4; border-left: 2px solid ${accent}; list-style-position: outside; }
+  .choreo-action { font-weight: 700; margin-bottom: 4px; }
+  .empty { color: #999; }
+  .footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #E5E5E5; font-size: 12px; color: #737373; }
+</style>
+</head><body>
+<div class="wrap">
+  <div class="hero">
+    <span class="frame-chip">${escapeHtml(brief.frame_label || '')}</span>
+    <span class="prob">p = ${probPct}%</span>
+    <h1>${escapeHtml(brief.title)}</h1>
+    <div class="thesis">${escapeHtml(brief.one_line_thesis || '')}</div>
+    ${brief.why_this_frame ? `<div class="why-frame">${escapeHtml(brief.why_this_frame)}</div>` : ''}
+  </div>
+  ${sectionHtml('Primary persona', personaHtml)}
+  ${brief.demonstrated_moment ? sectionHtml('Demonstrated moment', `<p>${escapeHtml(brief.demonstrated_moment)}</p>`) : ''}
+  ${brief.use_cases && brief.use_cases.length > 0 ? sectionHtml(`Use cases (${brief.use_cases.length})`, useCasesHtml) : ''}
+  ${brief.key_screens && brief.key_screens.length > 0 ? sectionHtml(`Key screens (${brief.key_screens.length})`, screensHtml) : ''}
+  ${brief.ai_capabilities && brief.ai_capabilities.length > 0 ? sectionHtml(`AI capabilities (${brief.ai_capabilities.length})`, aiHtml) : ''}
+  ${seedHtml ? sectionHtml('Seed data', seedHtml) : ''}
+  ${dataExamplesHtml ? sectionHtml('Data examples (anchor records)', dataExamplesHtml) : ''}
+  ${roadmapHtml ? sectionHtml('Feature roadmap', roadmapHtml) : ''}
+  ${arcHtml ? sectionHtml('Narrative arc', arcHtml) : ''}
+  ${choreoHtml ? sectionHtml('Interaction choreography', choreoHtml) : ''}
+  ${visualHtml ? sectionHtml('Visual direction', visualHtml) : ''}
+  ${brief.success_criteria && brief.success_criteria.length > 0 ? sectionHtml(`Success criteria (${brief.success_criteria.length})`, listHtml(brief.success_criteria)) : ''}
+  <div class="footer">Brief ID: ${escapeHtml(brief.id || '')} · Brand: ${brand} · Generated by HiC Research · Claude Opus 4.7</div>
+</div>
+</body></html>`;
+
+    win.document.open();
+    win.document.write(html);
+    win.document.close();
+    win.document.title = `${brief.title} · Product Brief`;
+}
+
+const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard) => void; isBuilding: boolean; brand: 'NXT' | 'NU'; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
+    const [expanded, setExpanded] = useState(false); // collapsed by default; popup window is the primary deep-dive surface
+    const frameColor = brief.frame_label === 'convention-honoring' ? '#0D0D0D'
+        : brief.frame_label === 'shifted-frame' ? '#00B7C3'
+        : brief.frame_label === 'adjacent-vertical' ? '#B8B800'
+        : brief.frame_label === 'inverted-actor' ? '#CC6644'
+        : '#7C3AED'; // radical = purple
+    const frameTextColor = brief.frame_label === 'convention-honoring' || brief.frame_label === 'adjacent-vertical' ? '#0D0D0D' : '#FFFFFF';
+    const probPct = `${Math.round((brief.probability || 0) * 100)}%`;
+    const slug = briefSlug(brief);
+    const exportBtnStyle: React.CSSProperties = {
+        padding: '6px 10px', background: 'transparent', color: '#0D0D0D',
+        border: '1px solid #D9D9D9', cursor: 'pointer',
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 700,
+        letterSpacing: 1, textTransform: 'uppercase',
+    };
+    return (
+        <div style={{
+            border: '1px solid #E5E5E5',
+            background: '#FFFFFF',
+            padding: 0,
+            marginBottom: 14,
+            overflow: 'hidden',
+        }}>
+            {/* Header strip */}
+            <div style={{ padding: '12px 16px', borderBottom: '1px solid #E5E5E5', background: '#FAFAF5', display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                <span style={{
+                    background: frameColor, color: frameTextColor,
+                    padding: '4px 10px', borderRadius: 2,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 9, fontWeight: 700, letterSpacing: 1.2,
+                    textTransform: 'uppercase',
+                }}>
+                    BRIEF {idx + 1} · {brief.frame_label.replace(/-/g, ' ')}
+                </span>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: '#525252' }}>p = {probPct}</span>
+                {(brief as any)._pass2_failed && (
+                    <span
+                        title={`Pass 2 deepening failed for this brief. Reason: ${(brief as any)._pass2_reason || 'unknown'}. The fields below are skeleton-only — not safe to build from. Regenerate the brief set.`}
+                        style={{
+                            background: '#CC6644', color: '#FFFFFF',
+                            padding: '3px 8px', borderRadius: 2,
+                            fontFamily: "'JetBrains Mono', monospace",
+                            fontSize: 8, fontWeight: 700, letterSpacing: 1.2,
+                            textTransform: 'uppercase',
+                        }}
+                    >⚠ SKELETON ONLY — DEEPENING FAILED</span>
+                )}
+                <div style={{ flex: 1 }} />
+                <button
+                    type="button"
+                    onClick={() => downloadFile(`${slug}.md`, briefToMarkdown(brief), 'text/markdown;charset=utf-8')}
+                    title="Download brief as Markdown"
+                    style={exportBtnStyle}
+                >.md</button>
+                <button
+                    type="button"
+                    onClick={() => downloadFile(`${slug}.txt`, briefToPlainText(brief), 'text/plain;charset=utf-8')}
+                    title="Download brief as plain text"
+                    style={exportBtnStyle}
+                >.txt</button>
+                <button
+                    type="button"
+                    onClick={() => downloadFile(`${slug}.json`, JSON.stringify(brief, null, 2), 'application/json;charset=utf-8')}
+                    title="Download brief as JSON"
+                    style={exportBtnStyle}
+                >.json</button>
+                <button
+                    onClick={() => onApprove(brief)}
+                    disabled={isBuilding || !!(brief as any)._pass2_failed}
+                    title={(brief as any)._pass2_failed ? 'Cannot build from a skeleton-only brief — regenerate the brief set first' : 'Build this brief into a prototype'}
+                    style={{
+                        padding: '8px 18px',
+                        background: (brief as any)._pass2_failed ? '#E5E5E5' : (isBuilding ? '#E5E5E5' : '#0D0D0D'),
+                        color: (brief as any)._pass2_failed ? '#999' : (isBuilding ? '#999' : '#B8B800'),
+                        border: 'none',
+                        fontFamily: "'Archivo', sans-serif", fontSize: 11, fontWeight: 700,
+                        letterSpacing: 1.2, textTransform: 'uppercase',
+                        cursor: (isBuilding || (brief as any)._pass2_failed) ? 'not-allowed' : 'pointer',
+                    }}
+                >
+                    {(brief as any)._pass2_failed ? '⚠ Build disabled' : (isBuilding ? 'Building…' : `▶ Build this brief`)}
+                </button>
+            </div>
+            {/* Title + thesis */}
+            <div style={{ padding: '16px 18px' }}>
+                <h3 style={{ fontFamily: "'Archivo', sans-serif", fontSize: 18, fontWeight: 700, margin: '0 0 6px 0', color: '#0D0D0D', lineHeight: 1.25 }}>{brief.title}</h3>
+                <div style={{ fontFamily: "'Archivo', sans-serif", fontSize: 13, color: '#525252', lineHeight: 1.45 }}>{brief.one_line_thesis}</div>
+                {brief.why_this_frame && (
+                    <div style={{ marginTop: 8, fontFamily: "'Archivo', sans-serif", fontSize: 11, color: '#737373', fontStyle: 'italic', lineHeight: 1.45 }}>{brief.why_this_frame}</div>
+                )}
+            </div>
+            {/* Quick stats row */}
+            <div style={{ padding: '0 18px 12px', display: 'flex', gap: 16, flexWrap: 'wrap', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#737373', letterSpacing: 1, textTransform: 'uppercase' }}>
+                {brief.use_cases && <span>{brief.use_cases.length} USE CASES</span>}
+                {brief.key_screens && <span>{brief.key_screens.length} SCREENS</span>}
+                {brief.ai_capabilities && <span>{brief.ai_capabilities.length} AI FLOWS</span>}
+                {brief.seed_data?.primary_entities && <span>{brief.seed_data.primary_entities.reduce((n, e) => n + (e.target_count || 0), 0)} SEED RECORDS</span>}
+                {brief.visual_direction?.image_gen_opportunities && brief.visual_direction.image_gen_opportunities.length > 0 && <span>{brief.visual_direction.image_gen_opportunities.length} IMAGEN PROMPTS</span>}
+            </div>
+            <div style={{ display: 'flex', borderTop: '1px solid #E5E5E5' }}>
+                <button
+                    type="button"
+                    onClick={() => openBriefInWindow(brief, brand)}
+                    title="Open the full brief in a dedicated window"
+                    style={{ flex: 2, padding: '10px 18px', background: 'transparent', border: 'none', borderRight: '1px solid #E5E5E5', cursor: 'pointer', fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: 1.2, color: '#0D0D0D', textAlign: 'left', textTransform: 'uppercase' }}
+                >
+                    ↗ Open brief in new window
+                </button>
+                <button
+                    type="button"
+                    onClick={() => setExpanded(!expanded)}
+                    title="Preview key sections inline"
+                    style={{ flex: 1, padding: '10px 18px', background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 600, letterSpacing: 1.2, color: '#525252', textAlign: 'left', textTransform: 'uppercase' }}
+                >
+                    {expanded ? '− Collapse inline preview' : '+ Inline preview'}
+                </button>
+            </div>
+            {expanded && (
+                <div style={{ padding: '0 18px 18px', borderTop: '1px solid #F0F0F0', fontFamily: "'Archivo', sans-serif", fontSize: 12, color: '#0D0D0D' }}>
+                    {brief.primary_persona && (
+                        <Section title="PRIMARY PERSONA">
+                            <div style={{ marginBottom: 4 }}><strong>{brief.primary_persona.name}</strong> — {brief.primary_persona.role}</div>
+                            <div style={{ color: '#525252', marginBottom: 4 }}>{brief.primary_persona.context}</div>
+                            {brief.primary_persona.emotional_state && <div style={{ color: '#737373', fontStyle: 'italic', marginBottom: 6 }}>Emotional state: {brief.primary_persona.emotional_state}</div>}
+                            {brief.primary_persona.jtbd && <div><strong>JTBD:</strong> {brief.primary_persona.jtbd}</div>}
+                            {brief.primary_persona.pain_points && brief.primary_persona.pain_points.length > 0 && (
+                                <div style={{ marginTop: 4 }}>
+                                    <div style={{ fontSize: 10, color: '#737373', fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 2 }}>Pain points</div>
+                                    <ul style={{ margin: 0, paddingLeft: 18 }}>{brief.primary_persona.pain_points.map((p, i) => <li key={i} style={{ marginBottom: 2 }}>{p}</li>)}</ul>
+                                </div>
+                            )}
+                        </Section>
+                    )}
+                    {brief.demonstrated_moment && (
+                        <Section title="DEMONSTRATED MOMENT"><div>{brief.demonstrated_moment}</div></Section>
+                    )}
+                    {brief.use_cases && brief.use_cases.length > 0 && (
+                        <Section title={`USE CASES (${brief.use_cases.length})`}>
+                            {brief.use_cases.map((u, i) => (
+                                <div key={i} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: i < brief.use_cases!.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
+                                    <div style={{ fontWeight: 700, marginBottom: 2 }}>{i + 1}. {u.name}</div>
+                                    {u.trigger && <div style={{ color: '#525252', fontSize: 11 }}><strong>Trigger:</strong> {u.trigger}</div>}
+                                    {u.flow && <div style={{ color: '#525252', fontSize: 11 }}><strong>Flow:</strong> {u.flow}</div>}
+                                    {u.ai_role && <div style={{ color: '#525252', fontSize: 11 }}><strong>AI role:</strong> {u.ai_role}</div>}
+                                    {u.outcome && <div style={{ color: '#525252', fontSize: 11 }}><strong>Outcome:</strong> {u.outcome}</div>}
+                                </div>
+                            ))}
+                        </Section>
+                    )}
+                    {brief.key_screens && brief.key_screens.length > 0 && (
+                        <Section title={`KEY SCREENS (${brief.key_screens.length})`}>
+                            {brief.key_screens.map((s, i) => (
+                                <div key={i} style={{ marginBottom: 6 }}>
+                                    <div style={{ fontWeight: 700 }}>{i + 1}. {s.name}</div>
+                                    {s.purpose && <div style={{ color: '#525252', fontSize: 11 }}>{s.purpose}</div>}
+                                    {s.primary_element && <div style={{ color: '#737373', fontSize: 10 }}>Primary: {s.primary_element}</div>}
+                                </div>
+                            ))}
+                        </Section>
+                    )}
+                    {brief.ai_capabilities && brief.ai_capabilities.length > 0 && (
+                        <Section title={`AI CAPABILITIES (${brief.ai_capabilities.length})`}>
+                            {brief.ai_capabilities.map((c, i) => (
+                                <div key={i} style={{ marginBottom: 8, paddingBottom: 6, borderBottom: i < brief.ai_capabilities!.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
+                                    <div style={{ fontWeight: 700, marginBottom: 2 }}>{i + 1}. {c.name}</div>
+                                    {c.ai_model && <div style={{ color: '#525252', fontSize: 11 }}><strong>Model:</strong> {c.ai_model}</div>}
+                                    {c.user_action && <div style={{ color: '#525252', fontSize: 11 }}><strong>User action:</strong> {c.user_action}</div>}
+                                    {c.user_benefit && <div style={{ color: '#525252', fontSize: 11 }}><strong>Benefit:</strong> {c.user_benefit}</div>}
+                                </div>
+                            ))}
+                        </Section>
+                    )}
+                    {brief.seed_data && (
+                        <Section title="SEED DATA SKETCH">
+                            {brief.seed_data.primary_entities?.map((e, i) => (
+                                <div key={`p${i}`} style={{ marginBottom: 4 }}>
+                                    <strong>{e.name}</strong> <span style={{ color: '#737373' }}>(target {e.target_count})</span>
+                                    {e.example_records_summary && <div style={{ color: '#525252', fontSize: 11 }}>{e.example_records_summary}</div>}
+                                </div>
+                            ))}
+                            {brief.seed_data.secondary_entities?.map((e, i) => (
+                                <div key={`s${i}`} style={{ marginBottom: 4, fontSize: 11, color: '#525252' }}>
+                                    <em>{e.name}</em> (target {e.target_count})
+                                </div>
+                            ))}
+                        </Section>
+                    )}
+                    {brief.visual_direction && (
+                        <Section title="VISUAL DIRECTION">
+                            {brief.visual_direction.aesthetic_keywords && <div><strong>Aesthetic:</strong> {brief.visual_direction.aesthetic_keywords}</div>}
+                            {brief.visual_direction.hero_treatment && <div style={{ color: '#525252' }}><strong>Hero:</strong> {brief.visual_direction.hero_treatment}</div>}
+                            {brief.visual_direction.motion_character && <div style={{ color: '#525252' }}><strong>Motion:</strong> {brief.visual_direction.motion_character}</div>}
+                            {brief.visual_direction.image_gen_opportunities && brief.visual_direction.image_gen_opportunities.length > 0 && (
+                                <div style={{ marginTop: 4 }}>
+                                    <div style={{ fontSize: 10, color: '#737373', fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase' }}>Imagen prompts ({brief.visual_direction.image_gen_opportunities.length})</div>
+                                    <ul style={{ margin: 0, paddingLeft: 18, fontSize: 11 }}>
+                                        {brief.visual_direction.image_gen_opportunities.slice(0, 5).map((p, i) => <li key={i} style={{ color: '#525252', marginBottom: 2 }}>{p}</li>)}
+                                    </ul>
+                                </div>
+                            )}
+                        </Section>
+                    )}
+                    {brief.success_criteria && brief.success_criteria.length > 0 && (
+                        <Section title={`SUCCESS CRITERIA (${brief.success_criteria.length})`}>
+                            <ul style={{ margin: 0, paddingLeft: 18 }}>{brief.success_criteria.map((s, i) => <li key={i} style={{ marginBottom: 2 }}>{s}</li>)}</ul>
+                        </Section>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+};
+
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+    <div style={{ marginTop: 12 }}>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 700, letterSpacing: 1.5, color: '#0D0D0D', textTransform: 'uppercase', marginBottom: 4 }}>{title}</div>
+        <div>{children}</div>
+    </div>
+);
+
+const ProductBriefsGrid: React.FC<{
+    briefs: ProductBriefForCard[];
+    meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string };
+    onApprove: (brief: ProductBriefForCard) => void;
+}> = ({ briefs, meta, onApprove }) => {
+    const [building, setBuilding] = useState<string | null>(null);
+    return (
+        <div style={{ marginTop: 14 }}>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 700, letterSpacing: 1.5, color: '#525252', textTransform: 'uppercase', marginBottom: 8 }}>
+                {briefs.length} BRIEFS · BRAND {meta.brand} · PICK ONE
+            </div>
+            {briefs.map((b, i) => (
+                <ProductBriefCard
+                    key={b.id || i}
+                    brief={b}
+                    idx={i}
+                    brand={meta.brand}
+                    isBuilding={building === (b.id || `brief-${i}`)}
+                    onApprove={(brief) => {
+                        setBuilding(brief.id || `brief-${i}`);
+                        onApprove(brief);
+                    }}
+                />
+            ))}
+        </div>
+    );
+};
+
 // Single tile renderer extracted so the grid can render groups (e.g.,
 // initiative-dependent vs. independent) with the same template.
 const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext; onExportSlide?: (tile: RecommendationTile) => void; isExporting?: boolean; brand?: BrandId }> = ({ tile, idx, onPickCommand, context, onExportSlide, isExporting, brand }) => {
@@ -2229,17 +2889,24 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
         if (exportingId) return;
         setExportingId(tile.slug || tile.title);
         try {
-            const [{ exportSlideToPPTX }, { tileToExportSlideArgs }, { getBrand }] = await Promise.all([
+            // 2026-05-12 — Per-tile export now produces a MULTI-SLIDE mini-deck
+            // (overview + case + execution + stakeholders + plan + risks) so
+            // the rich consulting brief in the chat tile makes it to PPTX.
+            // Falls back to a single-slide deck automatically when the tile
+            // is anemic (only the overview survives the substantive-content
+            // guards in tileToExportSlidesMulti).
+            const [{ exportDeckToPPTX }, { tileToExportSlidesMulti }, { getBrand }] = await Promise.all([
                 safeDynamicImport(() => import('./slideTemplates/pptx'), 'pptx exporter (rec single)'),
                 safeDynamicImport(() => import('../services/recommendationTileToSlide'), 'rec tile adapter'),
                 safeDynamicImport(() => import('./slideTemplates/brands'), 'brand tokens'),
             ]);
             const brandTokens = getBrand(resolvedBrandId);
             const isBet = tile.frame === 'non_obvious_bet';
-            const args = tileToExportSlideArgs(tile as any, isBet, brandTokens);
-            await exportSlideToPPTX(args);
+            const slides = tileToExportSlidesMulti(tile as any, isBet, brandTokens);
+            const deckName = `${tile.title.slice(0, 60).trim()} · ${resolvedBrandId.toUpperCase()}`;
+            await exportDeckToPPTX(slides, deckName);
         } catch (e: any) {
-            console.warn('[#recommendations] single-slide export failed:', e?.message || e);
+            console.warn('[#recommendations] single-tile multi-slide export failed:', e?.message || e);
             alert(`Slide export failed: ${e?.message || 'unknown error'}`);
         } finally {
             setExportingId(null);
@@ -3175,6 +3842,106 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
     };
 
+    // 2026-05-13 — Phase B of the #proto flow. User clicked BUILD THIS on
+    // one of the 5 briefs. Run buildPrototype with the chosen brief as
+    // `approvedBrief` (skips Stage 1) and the original rich concept text as
+    // `concept` (flows through Stages 2-4 as additional grounding).
+    const handleApproveBrief = async (
+        brief: any,
+        meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string },
+        sourceMsgId: string,
+    ) => {
+        const buildMsgId = `msg_${Date.now()}_proto_build`;
+        const stageLog: string[] = [];
+        const buildStartedAt = Date.now();
+        // Heartbeat state: while a stage is "running", we re-render the status
+        // every 4s with elapsed seconds so the user never sees a dead-looking
+        // panel during a 60-180s Gemini call.
+        let currentRunningStage: { label: string; name: string; startedAt: number } | null = null;
+        const renderStatus = () => {
+            const totalElapsed = Math.round((Date.now() - buildStartedAt) / 1000);
+            const runningLine = currentRunningStage
+                ? `\n\n⏳ ${currentRunningStage.label}: ${currentRunningStage.name} — running ${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s (model is thinking; this stage can take 60-180s with high thinking budget)`
+                : '';
+            const elapsedLine = `\n\n⏱ Total elapsed: ${totalElapsed}s · The whole pipeline typically runs 4-8 minutes end-to-end.`;
+            setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                ...m,
+                content: `Building approved brief: **${brief.title}** (${meta.brand})…\n\n${stageLog.slice(-12).join('\n')}${runningLine}${elapsedLine}`,
+            } : m));
+        };
+        setMessages(prev => [...prev, {
+            id: buildMsgId,
+            role: 'assistant',
+            content: `Building approved brief: **${brief.title}** (${meta.brand})…\n\nPipeline: Stage 2 (Interaction Architect) → Stage 3 (Visual Designer) → Stage 3.5 (Build Recipe Author) → Stage 4 (Coder executes recipe verbatim) → Stage 5 (Critic audits against assertions). Stage 1 is skipped — your brief IS the spec.\n\n⏱ Total elapsed: 0s · Each stage shows live elapsed time while it's running.`,
+            timestamp: Date.now(),
+        }]);
+        const heartbeat = window.setInterval(renderStatus, 4000);
+        try {
+            const [{ buildPrototype }, { productBriefToExperienceBrief, productBriefToRichContext }, { savePrototype }] = await Promise.all([
+                safeDynamicImport(() => import('../services/prototypeBuilder'), 'prototypeBuilder (post-brief build)'),
+                safeDynamicImport(() => import('../services/prototypeBriefGenerator'), 'prototypeBriefGenerator (adapter)'),
+                safeDynamicImport(() => import('../services/prototypeLibrary'), 'prototypeLibrary (save)'),
+            ]);
+            const experienceBrief = productBriefToExperienceBrief(brief);
+            const richBriefText = productBriefToRichContext(brief);
+            const conceptForPipeline = `${richBriefText}\n\n=== ORIGINAL ENGAGEMENT CONTEXT (the rich consulting brief the briefs were generated from) ===\n${meta.originalConcept}`;
+            const artifact = await buildPrototype({
+                concept: conceptForPipeline,
+                brand: meta.brand,
+                basedOn: meta.basedOn,
+                researchGoal: meta.researchGoal,
+                title: brief.title,
+                approvedBrief: experienceBrief,
+                onProgress: (n, name, status, detail) => {
+                    const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
+                    const stageLabel = n === 25 ? 'Stage 2.5' : n === 35 ? 'Stage 3.5' : `Stage ${n}`;
+                    if (status === 'running') {
+                        currentRunningStage = { label: stageLabel, name, startedAt: Date.now() };
+                        stageLog.push(`${icon} ${stageLabel}: ${name} — started`);
+                    } else {
+                        // done/failed — finalize the stage line + clear the running marker
+                        const elapsed = currentRunningStage && currentRunningStage.label === stageLabel
+                            ? ` (${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s)`
+                            : '';
+                        // Replace the last "started" line for this stage with the final outcome
+                        const lastIdx = stageLog.findIndex(l => l.includes(`${stageLabel}: ${name} — started`));
+                        const finalLine = `${icon} ${stageLabel}: ${name}${detail ? ` — ${detail}` : ''}${elapsed}`;
+                        if (lastIdx >= 0) stageLog[lastIdx] = finalLine;
+                        else stageLog.push(finalLine);
+                        if (currentRunningStage?.label === stageLabel) currentRunningStage = null;
+                    }
+                    renderStatus();
+                },
+            });
+            const saved = await savePrototype(artifact);
+            window.clearInterval(heartbeat);
+            const totalSec = Math.round((Date.now() - buildStartedAt) / 1000);
+            setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                ...m,
+                content: `Prototype ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB) · built in ${totalSec}s.\n\nVerdict: ${artifact.critique?.verdict || '—'}. Built from approved brief "${brief.frame_label}" (p=${brief.probability}). Click LAUNCH to open in a new window.\n\n${stageLog.join('\n')}`,
+                prototypeUrl: `http://localhost:5012${saved.view_url}`,
+                prototypeMeta: {
+                    slug: saved.slug,
+                    title: artifact.title,
+                    brand: artifact.brand,
+                    based_on: artifact.based_on,
+                    verdict: artifact.critique?.verdict,
+                    code_chars: artifact.code.length,
+                },
+            } : m));
+        } catch (e: any) {
+            window.clearInterval(heartbeat);
+            console.warn('[#proto] post-brief build failed:', e?.message || e);
+            const totalSec = Math.round((Date.now() - buildStartedAt) / 1000);
+            setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                ...m,
+                content: `Build failed for brief "${brief.title}" after ${totalSec}s: ${e?.message || 'unknown error'}.\n\n${stageLog.join('\n')}`,
+            } : m));
+        }
+        // sourceMsgId reference reserved for future "edit-and-rebuild" flow
+        void sourceMsgId;
+    };
+
     // --- Send ---
     const handleSend = async (queryOverride?: string) => {
         let query = queryOverride || input.trim();
@@ -4038,28 +4805,25 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // --- #proto (SINGULAR — build new prototype) — 2026-05-11 ---------
-        // `#proto <concept>` triggers the 5-stage pipeline. `#NXT`/`#NU`
-        // flags select the brand. Result is saved + a launcher card posted.
+        // --- #proto (SINGULAR — generate 5 briefs, user approves one) — 2026-05-13 ---
+        // `#proto <concept>` now triggers a TWO-PHASE flow:
+        //   Phase A: Verbalized-Sampling brief generator returns 5 distinct
+        //            product briefs covering modal → tail framings of the
+        //            concept. User reviews comparison cards in chat.
+        //   Phase B: User clicks BUILD THIS on a brief → handleApproveBrief
+        //            runs the build pipeline (Stage 2 → 3 → 3.5 → 4 → 5)
+        //            with the approved brief, skipping Stage 1 entirely.
+        // `#NXT`/`#NU` flags select the brand (passed through both phases).
         const protoDirective = parsePrototypeDirective(query);
         if (protoDirective.triggered) {
-            const buildMsgId = `msg_${Date.now()}_proto_build`;
-            const stageLog: string[] = [];
+            const briefsMsgId = `msg_${Date.now()}_proto_briefs`;
             setMessages(prev => [...prev, {
-                id: buildMsgId,
+                id: briefsMsgId,
                 role: 'assistant',
-                content: `Building experience prototype (brand=${protoDirective.brand})…\n\nThis runs a 5-stage pipeline:\n  1. Concept Decomposer\n  2. Interaction Architect\n  3. Visual Designer (${protoDirective.brand} brand)\n  4. Prototype Coder (with real AI primitives wired)\n  5. Critic + Refiner`,
+                content: `Generating 5 product briefs for this concept via Verbalized Sampling (brand=${protoDirective.brand})…\n\nEach brief is a distinct framing — modal at the head of the distribution, surprising-but-grounded at the tail. The deepest, most detailed brief gets chosen by you, then executes through an exhaustive Build Recipe.`,
                 timestamp: Date.now(),
             }]);
             try {
-                const { buildPrototype } = await safeDynamicImport(
-                    () => import('../services/prototypeBuilder'),
-                    'prototypeBuilder (build)',
-                );
-                const { savePrototype } = await safeDynamicImport(
-                    () => import('../services/prototypeLibrary'),
-                    'prototypeLibrary (save)',
-                );
                 const liveCtx = getContext ? getContext() : context;
 
                 // 2026-05-11 — When the user clicked a recommendation tile,
@@ -4285,52 +5049,48 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         goalBlock,
                         ``,
                         `=== BUILD INSTRUCTIONS ===`,
-                        `Think ultra hard about the persona's actual pain points above. Build a multi-screen experience that:`,
-                        `  1. Opens in a state reflecting the persona's actual emotional/situational reality (not a generic "welcome"). Reference their context from the FULL PERSONA PROFILE.`,
-                        `  2. Demonstrates the implementation steps from the BRIEF as live, working interactions — at least 1-2 of those steps should be a screen the user navigates to and an AI flow they fire.`,
-                        `  3. Uses verbatim quotes from the THEMES / verbatim_quote_evidence block as in-product evidence/testimonials — NEVER lorem ipsum.`,
-                        `  4. References the persona by their real name throughout. Names from the uploads should appear in seed data (real co-op partners, real programs).`,
-                        `  5. Demonstrates the "aha" interaction explicitly as one screen-or-state with the AI call wired LIVE to /api/ai/gemini-compat (or /api/ai/anthropic, /api/wiki/fetch-articles depending on capability).`,
-                        `  6. Surfaces the expected_impact metrics as visible KPI badges where natural.`,
-                        `  7. Honors every guardrail in guardrail_fit — visibly. If "no new platform" is in the guardrails, the prototype's chrome should communicate "this lives inside [existing system]" (e.g., a Copilot Studio badge in the header).`,
+                        `Build a multi-screen experience grounded in the persona's actual pain points above. The downstream pipeline will:`,
+                        `  • Generate 5 distinct product briefs via Verbalized Sampling. The user picks ONE.`,
+                        `  • Author an exhaustive Build Recipe (every screen, every state, every AI prompt, every seed-data anchor, every micro-copy string).`,
+                        `  • Execute the recipe to produce a substantive IDEO/Apple-grade prototype with 4+ screens, 2+ AI fetches via multi-provider fallback, 20+ seed records per primary entity, no verbatim research quotes, and Verbalized Sampling on creative AI output.`,
+                        `Apply industry-agnostic rigor — the same standards regardless of vertical (healthcare, fintech, retail, government, manufacturing, education, etc.). Distill insights from the GROUNDING THEMES and persona voice into the design; never reproduce research quotes verbatim in the prototype UI.`,
                         ``,
                         protoDirective.concept ? `User's additional direction for this specific build: ${protoDirective.concept}` : '',
                     ].filter(Boolean).join('\n');
                 }
 
-                const artifact = await buildPrototype({
+                const { generatePrototypeBriefs } = await safeDynamicImport(
+                    () => import('../services/prototypeBriefGenerator'),
+                    'prototypeBriefGenerator (5-brief phase)',
+                );
+                const briefs = await generatePrototypeBriefs({
                     concept: conceptText,
                     brand: protoDirective.brand,
-                    basedOn: protoDirective.basedOn,
+                    industry: matchedContext?.industry,
                     researchGoal: liveCtx?.researchGoal || '',
-                    title: matchedTile?.title,
-                    onProgress: (n, name, status, detail) => {
-                        const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
-                        stageLog.push(`${icon} Stage ${n}: ${name}${detail ? ` — ${detail}` : ''}`);
-                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    basedOn: protoDirective.basedOn,
+                    onProgress: (stage, detail) => {
+                        setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                             ...m,
-                            content: `Building experience prototype (brand=${protoDirective.brand})…\n\n${stageLog.slice(-10).join('\n')}`,
+                            content: `Generating 5 product briefs (brand=${protoDirective.brand})… [${stage}${detail ? ` — ${detail}` : ''}]`,
                         } : m));
                     },
                 });
-                const saved = await savePrototype(artifact);
-                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
-                    content: `Prototype ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB).\n\nVerdict: ${artifact.critique?.verdict || '—'}. Click LAUNCH to open in a new window.`,
-                    prototypeUrl: `http://localhost:5012${saved.view_url}`,
-                    prototypeMeta: {
-                        slug: saved.slug,
-                        title: artifact.title,
-                        brand: artifact.brand,
-                        based_on: artifact.based_on,
-                        verdict: artifact.critique?.verdict,
-                        code_chars: artifact.code.length,
+                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" — review them and click BUILD THIS on the one you want shipped. The chosen brief flows through Stage 2 → 3 → 3.5 (Build Recipe) → 4 → 5 with no Stage 1 lossy compression.`,
+                    prototypeBriefs: briefs,
+                    prototypeBriefsMeta: {
+                        brand: protoDirective.brand,
+                        basedOn: protoDirective.basedOn,
+                        researchGoal: liveCtx?.researchGoal || '',
+                        originalConcept: conceptText,
                     },
                 } : m));
             } catch (e: any) {
-                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
-                    content: `Prototype build failed at one of the 5 stages: ${e?.message || 'unknown error'}.\n\n${stageLog.join('\n')}`,
+                    content: `Brief generation failed: ${e?.message || 'unknown error'}. Try again, or simplify the concept.`,
                 } : m));
             }
             setIsLoading(false);
@@ -5134,6 +5894,19 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     <PrototypeLaunchCard
                                         url={msg.prototypeUrl}
                                         meta={msg.prototypeMeta}
+                                    />
+                                )}
+
+                                {/* 2026-05-13 — Product Brief comparison grid.
+                                    Set by the #proto handler with 5 briefs from the
+                                    VS brief generator. User clicks BUILD THIS to
+                                    fire the Stage 2→3→3.5→4→5 pipeline against
+                                    the approved brief. */}
+                                {Array.isArray(msg.prototypeBriefs) && msg.prototypeBriefs.length > 0 && msg.prototypeBriefsMeta && (
+                                    <ProductBriefsGrid
+                                        briefs={msg.prototypeBriefs as any[]}
+                                        meta={msg.prototypeBriefsMeta as any}
+                                        onApprove={(brief) => handleApproveBrief(brief, msg.prototypeBriefsMeta as any, msg.id)}
                                     />
                                 )}
 

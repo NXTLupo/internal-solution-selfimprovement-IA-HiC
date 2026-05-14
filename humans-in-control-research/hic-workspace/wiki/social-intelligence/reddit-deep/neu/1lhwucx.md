@@ -10,7 +10,7 @@ score: 4
 upvote_ratio: 0.64
 num_comments: 10
 flair: ""
-extracted_at: "2026-05-12T20:36:08.376Z"
+extracted_at: "2026-05-13T14:57:39.792Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -24,8 +24,8 @@ i’m a rising third year mech e undergrad and have been searching for a fall co
 
 ## Comments
 
-- **FunkensteinsMeunster** (48↑): No, don’t reject it. 17/hr is more than both of my coops as an undergrad (2020 and 2022). All the other clubs and stuff is just resume padding bullshit anyway, you’ll need actual references in a year or two to get, y’know, an actual job.
-  - **IllustriousKing1166** (2↑): Yea this is my biggest concern. The money isn’t the biggest factor to me just one of the many. As for the clubs, I’ve been wanting to join both for project experience and I was planning to look into research. I’m on a 5 year track so i was thinking pushing this cycle wouldn’t be the worst idea because I still have two left, but I’m still not sure. I do need those rec letters though😭
+- **FunkensteinsMeunster** (49↑): No, don’t reject it. 17/hr is more than both of my coops as an undergrad (2020 and 2022). All the other clubs and stuff is just resume padding bullshit anyway, you’ll need actual references in a year or two to get, y’know, an actual job.
+  - **IllustriousKing1166** (1↑): Yea this is my biggest concern. The money isn’t the biggest factor to me just one of the many. As for the clubs, I’ve been wanting to join both for project experience and I was planning to look into research. I’m on a 5 year track so i was thinking pushing this cycle wouldn’t be the worst idea because I still have two left, but I’m still not sure. I do need those rec letters though😭
     - **FunkensteinsMeunster** (7↑): I’d still say take it — one semester of not doing clubs isn’t the end of the world, and you can do research etc during summer 1/2 next year. Pushing a coop back isn’t really a good idea imo. It sounds like you’re in STEM (me too, I did bio) which means you’re likely done with the intro things like calc 1/2 chem 1/2 or whatever, which means a coop in the fall makes the best sense timeline wise. Plus if you get a coop in Boston next time you can maybe get onto eboard roles for clubs you try out in the spring. At this point in the fall cycle I tend to think of it as a “beggars can’t be choosers” kind of thing which I admit isn’t always appropriate, but this sounds like a good opportunity that just might not have not been your first choice.
 - **forza511** (18↑): Class of ‘22 here. 
 

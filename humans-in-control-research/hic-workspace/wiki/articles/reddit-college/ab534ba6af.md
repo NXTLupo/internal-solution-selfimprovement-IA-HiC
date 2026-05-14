@@ -2,19 +2,19 @@
 url: "https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/"
 url_hash: "ab534ba6af"
 kind: "article"
-source: "reddit: College"
+source: "reddit: college"
 title: "Prof nearly made me tear up in class"
 author: ""
 date: "2025-11-01T11:16:16.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-12T17:13:35.898463+00:00"
+extracted_at: "2026-05-13T20:28:42.222115+00:00"
 chars: 1361
 ---
 
 # Prof nearly made me tear up in class
 
-Source: [reddit: College](https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/)
+Source: [reddit: college](https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/)
 
 So. Here it goes. I am currently in the first semester and we got handed the results for our this one subject's midsems a day or so back.
 

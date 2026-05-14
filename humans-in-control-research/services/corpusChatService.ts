@@ -75,6 +75,17 @@ export interface ChatMessage {
     /** 2026-05-11 — Prototype library items. Set when user typed `#prototypes`
      *  (plural). Renderer surfaces a card grid with Launch / Edit / Delete. */
     prototypeLibraryItems?: any[];
+    /** 2026-05-13 — Brief-selection payload. Set when the user typed `#proto`
+     *  and the brief generator returned 5 distinct product briefs. The
+     *  renderer surfaces each as a comparison card with full use-case detail
+     *  and a BUILD THIS button that fires the build with the chosen brief. */
+    prototypeBriefs?: any[];        // ProductBrief[] — typed loose to avoid circular import
+    prototypeBriefsMeta?: {
+        brand: 'NXT' | 'NU';
+        basedOn?: string;
+        researchGoal?: string;
+        originalConcept: string;     // the rich concept text the user submitted; passed to buildPrototype later
+    };
     /** 2026-05-11 — Structured recommendation tiles emitted by #recommendations.
      *  Renderer surfaces each as an elegant tile with thumbnail + concise PRD
      *  highlights + clickable mockup variants. Thumbnails populate asynchronously

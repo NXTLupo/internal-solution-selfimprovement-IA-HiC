@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "10 mistakes I made at Northeastern so you can avoid them"
 author: "RaminSoup"
 date: "2025-12-28T23:18:11.000Z"
-score: 76
+score: 74
 upvote_ratio: 0.84
 num_comments: 23
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T15:03:54.699Z"
+extracted_at: "2026-05-13T20:23:48.327Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # 10 mistakes I made at Northeastern so you can avoid them
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1py5pe6/10_mistakes_i_made_at_northeastern_so_you_can/)
-Posted by **RaminSoup** · **76↑** · **23 comments**
+Posted by **RaminSoup** · **74↑** · **23 comments**
 
 1. Living off campus before I was ready. The distance from campus and dealing with roaches was not worth it. 
 
@@ -54,10 +54,10 @@ If you're interested in the business route, do something more specialized like a
 - **just4shitsandgigles** (5↑): for the 4th point, did you not read about the incomplete process beforehand? the terms are super clear in the application and contract. if you don’t complete your course work within the 30 days after the semester ends your final grade will be the work you’ve already turned in. 
 
 as a grad student, i had unforeseen medical issues, applied for an incomplete, and ended with an A in the course after turning in the late work.
-- **MeRobo1** (7↑): how are u building an app with buisness and cj are u super technical ? if ur using ai with no coding knowledge might as well give up coming from someone who has done it in the era of ai
+- **MeRobo1** (5↑): how are u building an app with buisness and cj are u super technical ? if ur using ai with no coding knowledge might as well give up coming from someone who has done it in the era of ai
 - **Leather_Comedian_316** (2↑): Wow ngl I would be giving the opposite advice on a lot of these points
-- **D_Anger_Dan** (5↑): Re #5: I got my degree in psychology in 88 and worked it into a job paying $275k a year traveling the world and making incredible change in the lives of many.
-  - **Grayowl2** (6↑): that was in 1988. You could've gotten a job with 
+- **D_Anger_Dan** (6↑): Re #5: I got my degree in psychology in 88 and worked it into a job paying $275k a year traveling the world and making incredible change in the lives of many.
+  - **Grayowl2** (5↑): that was in 1988. You could've gotten a job with 
  a firm handshake and any degree 🙄
   - **Emergency_Stop1** (5↑): Can you tell me more? Curious about what you do!!
     - **HermitMio** (1↑): I am curious as well

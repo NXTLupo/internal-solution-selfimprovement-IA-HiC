@@ -10,7 +10,7 @@ score: 121
 upvote_ratio: 0.95
 num_comments: 6
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T20:36:08.371Z"
+extracted_at: "2026-05-13T20:23:48.330Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -62,9 +62,9 @@ Cheers.
 
 ## Comments
 
-- **Independent-Lab6410** (12↑): Big upvote from a finance grad with data science minor. Also very interesting take on Boston, never thought about it that way but pretty spot on.
-- **border-coffee** (5↑): Totally agree with you on Boston being weird socially post-college
-- **oweoyahdkcns18273** (4↑): Thank you for posting this. This subreddit & reddit in general can be so negative at times so this was cool to read.
-- **CheesyPanther** (5↑): As a recent Econ grad, I also emphasize getting a data science minor. It literally got me my job
+- **Independent-Lab6410** (11↑): Big upvote from a finance grad with data science minor. Also very interesting take on Boston, never thought about it that way but pretty spot on.
+- **border-coffee** (6↑): Totally agree with you on Boston being weird socially post-college
+- **oweoyahdkcns18273** (5↑): Thank you for posting this. This subreddit & reddit in general can be so negative at times so this was cool to read.
+- **CheesyPanther** (4↑): As a recent Econ grad, I also emphasize getting a data science minor. It literally got me my job
 - **theproductdev** (2↑): Wasn’t sure if Morgan Stanley or Fidelity Sponsors
 - **Bulky-Command9731** (1↑): what do you think of cybersecurity ? will it get me anywhere ?

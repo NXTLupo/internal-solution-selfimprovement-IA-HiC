@@ -10,7 +10,7 @@ score: 0
 upvote_ratio: 0.25
 num_comments: 11
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T15:47:35.017Z"
+extracted_at: "2026-05-13T18:45:41.302Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -48,7 +48,7 @@ Summer 2025: Internship - June to Mid August
 Fall 2025: Co-op - Mid August to December
 Summer 2026: Internship - May to Mid August 
 Fall 2026: Co-op - Mid August to Mid December
-- **Joshi1381** (4↑): Not CS but I know many who are. Start personal projects ASAP. Coops and internships are not guaranteed in the slightest. Your projects will help you stand out and then once you get your first coop/internship then more doors will open.
+- **Joshi1381** (5↑): Not CS but I know many who are. Start personal projects ASAP. Coops and internships are not guaranteed in the slightest. Your projects will help you stand out and then once you get your first coop/internship then more doors will open.
 
 Network as well you aren’t “landing in big tech” unless you know people in big tech
 - **Frosty-Blacksmith614** (3↑): Do impressive shit, learn and specialize with a tech stack and be comfortable with 1-2 others. 

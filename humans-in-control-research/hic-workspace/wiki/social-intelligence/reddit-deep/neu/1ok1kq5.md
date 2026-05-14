@@ -7,10 +7,10 @@ title: "Applied through nu works no reply yet"
 author: "Rich-Independence184"
 date: "2025-10-30T14:42:15.000Z"
 score: 3
-upvote_ratio: 0.72
+upvote_ratio: 0.8
 num_comments: 8
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T15:47:35.047Z"
+extracted_at: "2026-05-13T18:45:41.306Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---

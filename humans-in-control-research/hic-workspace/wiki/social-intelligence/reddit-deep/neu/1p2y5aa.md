@@ -10,7 +10,7 @@ score: 2
 upvote_ratio: 0.6
 num_comments: 11
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T17:09:38.652Z"
+extracted_at: "2026-05-13T18:45:41.305Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -56,7 +56,7 @@ Any advice, reality checks, or experiences appreciated. Thanks.
 
 ## Comments
 
-- **VegetableTitle6726** (22↑): Just going to go down the list:
+- **VegetableTitle6726** (21↑): Just going to go down the list:
 
 1) you’re a freshman at one of the minor campuses, classes are very easy and you’re judging people as not “academically ambitious” after 3 months. You’re a freshman, everywhere you go will be the same group of fresh out of high school kids messing around. 
 
@@ -71,9 +71,9 @@ Long story short? I’d transfer. You definitely don’t seem like the kind of p
   - **lillobby6** (1↑): You also can choose to just not do co-op and be a regular student (as I don’t believe CE requires it). I think NUIn fufils the global experience requirement (not sure on the 100% though).
 - **SussyBananas** (22↑): I know a lot of people who have transferred TO here. Boston campus is academically rigorous compared to NUin I swear. I was a straight A student in high school and now I’m not + you can never find a seat in the library so u feel it’s pretty telling that people care hwre
   - **marcusgern** (18↑): yeah id give it at least a semester in boston. some (all?) of the NUin programs are pretty notoriously.. uh… academically disinterested which is obviously a huge appeal for some but neu proper is different. YMMV tremendously based on major as for how much work NEU is and how academically ambitious the average student in ur class is but there’s a lot of pretty impressive people here. also since boston campus is so much larger theres far more opportunity to find your people…
-  - **ChilllFam** (3↑): Can second this. I just transferred here from community college while I was top of my class with a 4.0 and president of everything related to my major. I’m just another guy here. Def will not have a 4.0 after my first semester here.
+  - **ChilllFam** (5↑): Can second this. I just transferred here from community college while I was top of my class with a 4.0 and president of everything related to my major. I’m just another guy here. Def will not have a 4.0 after my first semester here.
   - **Ok-Customer6683** (3↑): I agree the library is busy all the time, but I doubt if it is busy with people wanting to study. It is just like a huge dining hall sometimes. I feel like it’s just toooo noisy to be regarded as a good place to study. And also the snell library is probably the library with the fewest books I’ve ever seen… There are not computers available at snell either.
-    - **SussyBananas** (7↑): Yeah I don’t study there I study in my room lowk OP I’m insanely locked in 24/7 so ngl there r ppl locked in at this school
+    - **SussyBananas** (6↑): Yeah I don’t study there I study in my room lowk OP I’m insanely locked in 24/7 so ngl there r ppl locked in at this school
 - **Maleficent-Dream8031** (9↑): i just transferred this year into northeastern on a full ride. my main advice in transferring is this: many schools go need aware for transfers and will reject you just for the reason you applied for financial aid. if you apply to transfer you must apply everywhere, i also recommend to applying to at minimum ten schools because transfer admissions are way more selective than first year ones despite what the acceptance rates state
 - **StockTelephone11** (2↑): How are you liking Ireland? What classes are you taking currently?
 - **Far_Papaya_5376** (2↑): This is such a dumb post - why are you posting on NEU about leaving? Go to the Reddit pages of the schools you are considering transferring into and ask for recommendations there. There is no advice to be given on leaving (perhaps on staying) - it’s simply paperwork from Northeastern’s side. All the advice is on the places you are applying to.

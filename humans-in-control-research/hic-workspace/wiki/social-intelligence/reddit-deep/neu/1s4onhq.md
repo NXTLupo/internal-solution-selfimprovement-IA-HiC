@@ -10,7 +10,7 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 3
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T19:19:22.627Z"
+extracted_at: "2026-05-13T23:02:38.915Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -24,6 +24,6 @@ I'm a class of 2026 high school senior, and I'm stuck between 2 schools, one of 
 
 ## Comments
 
-- **ButchUnicorn** (5↑): If you are worried about affording Northeastern, I can tell you that you can’t afford it.
+- **ButchUnicorn** (6↑): If you are worried about affording Northeastern, I can tell you that you can’t afford it.
 - **Bubbly_Following7930** (3↑): You apply and interview for co-ops. You're not guaranteed to get one. Salary ranges based on the industry, type of job, your experience.
 - **NoGanache7059** (3↑): Please please take the cheaper school I regret coming here every day

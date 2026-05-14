@@ -10,7 +10,7 @@ score: 15
 upvote_ratio: 0.95
 num_comments: 13
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.372Z"
+extracted_at: "2026-05-13T23:02:38.894Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -26,10 +26,10 @@ I have a prior internship and my GPA is high, so I hope I have good chances but 
 
 ## Comments
 
-- **Gabraf** (8↑): 5 days ago in the admitted student webinar for Khoury they said that around 75% of students get a co-op per year
-  - **ChilllFam** (4↑): Good to know, just gotta hope I'm not in the bottom 25%
-- **Turbulent-Toe1278** (5↑): Based off my advisor, half of the people on my co-op class didn’t get a co-op offer by December for spring cycle if that gives you an idea
-- **cumminghippo** (8↑): If you actually put in the time and work to apply, you will most likely get one. They don’t guarantee one though
+- **Gabraf** (6↑): 5 days ago in the admitted student webinar for Khoury they said that around 75% of students get a co-op per year
+  - **ChilllFam** (5↑): Good to know, just gotta hope I'm not in the bottom 25%
+- **Turbulent-Toe1278** (4↑): Based off my advisor, half of the people on my co-op class didn’t get a co-op offer by December for spring cycle if that gives you an idea
+- **cumminghippo** (6↑): If you actually put in the time and work to apply, you will most likely get one. They don’t guarantee one though
   - **ChilllFam** (12↑): Thank you, cumminghippo
 - **androidslash** (3↑): i myself didnt get any response from nuworks because i got mine from direct applying, but i have seen people getting jobs from nuworks, infact my close friend got it from nuworks, i have noticed the interview process of jobs on nuworks is relatively easier (no leetcode and normal technical round) and that makes sense because you are just competing with northeastern students (many jobs on nuworks are there to hire student from northeastern only).
   - **ChilllFam** (2↑): What's your GPA/resume look like?

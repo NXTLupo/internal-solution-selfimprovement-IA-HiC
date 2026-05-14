@@ -70,6 +70,16 @@ export interface RecommendationTileInput {
     execution_in_nu_stack?: string;
     microsoft_copilot_fit?: string;
     guardrail_fit?: string;
+    // Consulting-depth structured fields (the rich data the chat tile shows
+    // inside its COLLAPSE CONSULTING BRIEF section; these must reach the deck)
+    key_stakeholders?: Array<{ name_or_role: string; involvement: string }>;
+    implementation_steps?: Array<{ step: string; owner?: string; dependencies?: string[]; estimated_effort?: string }>;
+    risks_constraints?: Array<{ risk: string; severity?: string; mitigation: string }>;
+    expected_impact?: string;
+    verbatim_quote_evidence?: string;
+    frame?: 'defensible_consensus' | 'non_obvious_bet';
+    probability?: number;
+    diverges_from?: string;
 }
 
 const truncate = (s: string | undefined, n: number): string => {
@@ -138,6 +148,9 @@ function buildEvidence(t: RecommendationTileInput): RecommendationData['evidence
 /**
  * Map a single tile to ExportSlideArgs. `isBet` controls accent color +
  * framing tag (Defensible Consensus chartreuse vs Non-Obvious Bet cyan).
+ *
+ * Returns the OVERVIEW slide only — for the full multi-slide expansion
+ * (case, execution, stakeholders, plan, risks) use tileToExportSlidesMulti.
  */
 export function tileToExportSlideArgs(
     tile: RecommendationTileInput,
@@ -174,6 +187,343 @@ export function tileToExportSlideArgs(
         sources: tile.evidence_sources,
         brand,
     };
+}
+
+// =============================================================================
+// MULTI-SLIDE EXPANSION — one concept → 1-6 slides
+// =============================================================================
+//
+// The chat tile carries WAY more detail than a single slide can absorb:
+//   • thesis + full description + why_matters_target_segment + long_term_outcome
+//   • execution_in_existing_stack + preferred_stack_fit + existing_stack_reuse
+//     + non_starter_check + execution_path + initiative_dependency_explanation
+//   • key_stakeholders[] + implementation_steps[] + risks_constraints[]
+//   • expected_impact + verbatim_quote_evidence + stakeholder_guardrail_fit
+//
+// Cramming all that into one slide produces an anemic export (per user feedback
+// 2026-05-12). Instead, expand into a small per-concept deck:
+//
+//   01 · OVERVIEW            — title, persona/moment/aha, AI capabilities,
+//                              effort/risk/outcome, hero image, implication
+//   02 · THE CASE            — full description, why-it-matters, long-term
+//                              outcome, initiative dependency, verbatim quote
+//   03 · EXECUTION & STACK   — execution-in-existing-stack, preferred-stack-fit,
+//                              existing-stack-reuse, non-starter-check
+//   04 · STAKEHOLDERS        — key_stakeholders numbered with involvement
+//   05 · IMPLEMENTATION PLAN — implementation_steps numbered with owner/effort/deps
+//   06 · RISKS & IMPACT      — risks_constraints + mitigations, expected_impact
+//
+// Each slide is conditional on data presence — anemic concepts stay at 1 slide;
+// rich concepts expand to 5-6. The accent color (chartreuse vs cyan) is
+// consistent across all slides of a concept, matching its consensus/bet frame.
+
+/** First non-empty string from a candidate list (already trimmed). */
+function pickStr(...candidates: Array<string | undefined>): string | undefined {
+    for (const c of candidates) {
+        if (c && c.trim().length > 0) return c.trim();
+    }
+    return undefined;
+}
+
+/** Resolved field accessors — handles legacy field-name aliases in one place. */
+function fields(t: RecommendationTileInput) {
+    return {
+        whyMatters: pickStr(t.why_matters_target_segment, t.why_matters_first_year),
+        longTerm: pickStr(t.long_term_outcome_through_line, t.long_term_coop_readiness),
+        initiativeDep: pickStr(t.initiative_dependency_explanation, t.clr_dependency_explanation),
+        stackExec: pickStr(t.execution_in_existing_stack, t.execution_in_nu_stack),
+        stackFit: pickStr(t.preferred_stack_fit, t.microsoft_copilot_fit),
+        guardrailFit: pickStr(t.stakeholder_guardrail_fit, t.guardrail_fit),
+        evidence: (t.evidence_sources || []).filter(s => typeof s === 'string' && s.trim().length > 0),
+    };
+}
+
+/**
+ * Builder for one slide of the multi-deck. Returns null when the slide has
+ * insufficient content (less than 2 substantive fields) so we don't emit
+ * blank "EXECUTION & STACK" slides for concepts that didn't carry that data.
+ */
+function buildSlide(args: {
+    tile: RecommendationTileInput;
+    isBet: boolean;
+    brand?: Brand;
+    sectionLabel: string;           // e.g. "02 · THE CASE"
+    eyebrow?: string;                // personaContext eyebrow line
+    actionTitle: string;
+    rationale?: string;
+    supportingActions: Array<{ name: string; description: string }>;
+    actionsLabel: string;
+    impactStrip?: RecommendationData['impactStrip'];
+    heroImage?: RecommendationData['heroImage'];
+    implication?: string;
+    evidence?: RecommendationData['evidence'];
+    minActions?: number;             // suppress slide unless this many supportingActions
+    minRationaleLen?: number;        // OR rationale exceeds this length
+}): ExportSlideArgs | null {
+    const minActions = args.minActions ?? 2;
+    const minRationaleLen = args.minRationaleLen ?? 120;
+    const hasEnoughActions = args.supportingActions.length >= minActions;
+    const hasRichRationale = !!(args.rationale && args.rationale.length >= minRationaleLen);
+    const hasImpact = !!(args.impactStrip && (args.impactStrip.effort || args.impactStrip.risk || args.impactStrip.outcome));
+    const hasImplication = !!(args.implication && args.implication.length > 20);
+    // Substantive = enough actions, OR rich rationale, OR impact strip + implication
+    const substantive = hasEnoughActions || hasRichRationale || (hasImpact && hasImplication);
+    if (!substantive) return null;
+
+    const recommendation: RecommendationData = {
+        actionTitle: args.actionTitle,
+        rationale: args.rationale,
+        supportingActions: args.supportingActions,
+        framingTag: args.sectionLabel,
+        accentColor: args.isBet ? 'cyan' : 'chartreuse',
+        personaContext: args.eyebrow,
+        actionsLabel: args.actionsLabel,
+        impactStrip: args.impactStrip,
+        heroImage: args.heroImage,
+        implication: args.implication,
+        evidence: args.evidence,
+    };
+    return {
+        template: 'recommendation',
+        title: args.tile.title,
+        recommendation,
+        sources: args.tile.evidence_sources,
+        brand: args.brand,
+    };
+}
+
+/** Slide 1 — OVERVIEW. Always emitted. */
+function buildOverviewSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs {
+    const f = fields(t);
+    return {
+        template: 'recommendation',
+        title: t.title,
+        recommendation: {
+            actionTitle: t.thesis || t.description?.slice(0, 200) || t.title,
+            rationale: t.description || t.thesis,
+            supportingActions: buildAiCapabilityActions(t),
+            framingTag: `01 · ${isBet ? 'NON-OBVIOUS BET' : 'DEFENSIBLE CONSENSUS'}`,
+            accentColor: isBet ? 'cyan' : 'chartreuse',
+            personaContext: buildPersonaContext(t),
+            actionsLabel: 'AI CAPABILITIES',
+            impactStrip: buildImpactStrip(t),
+            heroImage: (t.image_data || t.image_url)
+                ? {
+                    src: t.image_data || t.image_url || '',
+                    alt: t.image_prompt || t.title,
+                    caption: t.image_prompt ? truncate(t.image_prompt, 60) : undefined,
+                }
+                : undefined,
+            implication: f.longTerm || f.guardrailFit,
+            evidence: buildEvidence(t),
+        },
+        sources: t.evidence_sources,
+        brand,
+    };
+}
+
+/** Slide 2 — THE CASE: why it matters, long-term outcome, initiative dependency. */
+function buildCaseSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
+    const f = fields(t);
+    const actions: Array<{ name: string; description: string }> = [];
+    if (f.whyMatters) actions.push({ name: 'Why this matters now', description: f.whyMatters });
+    if (f.longTerm) actions.push({ name: 'Long-term outcome', description: f.longTerm });
+    if (f.initiativeDep) actions.push({ name: 'Initiative dependency', description: f.initiativeDep });
+
+    const verbatim = t.verbatim_quote_evidence?.trim();
+    const evidence: RecommendationData['evidence'] | undefined = verbatim
+        ? [{ text: verbatim, source: f.evidence[0] || 'Corpus quote' }]
+        : undefined;
+
+    return buildSlide({
+        tile: t, isBet, brand,
+        sectionLabel: '02 · THE CASE',
+        eyebrow: t.persona ? truncate(t.persona, 110) : undefined,
+        actionTitle: f.whyMatters ? truncate(f.whyMatters, 140) : 'Why this concept earns the slot',
+        rationale: t.description && t.description.length > 240 ? t.description : undefined,
+        supportingActions: actions,
+        actionsLabel: 'THE CASE',
+        implication: f.longTerm,
+        evidence,
+        minActions: 2,
+        minRationaleLen: 240,
+    });
+}
+
+/** Slide 3 — EXECUTION & STACK. */
+function buildExecutionStackSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
+    const f = fields(t);
+    const actions: Array<{ name: string; description: string }> = [];
+    if (t.existing_stack_reuse) actions.push({ name: 'Existing stack reuse', description: t.existing_stack_reuse });
+    if (f.stackFit) actions.push({ name: 'Preferred-stack fit', description: f.stackFit });
+    if (t.non_starter_check) actions.push({ name: 'Non-starter check', description: t.non_starter_check });
+    if (t.execution_path) actions.push({ name: 'Execution path', description: t.execution_path });
+
+    const impactStrip: RecommendationData['impactStrip'] | undefined = (t.effort_estimate || t.risk_level || t.initiative_dependent != null)
+        ? {
+            effort: t.effort_estimate,
+            risk: t.risk_level,
+            outcome: t.initiative_dependent === true
+                ? 'Depends on a named initiative'
+                : t.initiative_dependent === false
+                    ? 'Operates independently of the named initiative'
+                    : undefined,
+        }
+        : undefined;
+
+    return buildSlide({
+        tile: t, isBet, brand,
+        sectionLabel: '03 · EXECUTION & STACK',
+        eyebrow: f.stackFit ? truncate(f.stackFit, 110) : undefined,
+        actionTitle: f.stackExec
+            ? truncate(f.stackExec, 200)
+            : 'How this rides on existing systems',
+        rationale: f.stackExec && f.stackExec.length > 200 ? f.stackExec : undefined,
+        supportingActions: actions,
+        actionsLabel: 'STACK & EXECUTION',
+        impactStrip,
+        implication: f.guardrailFit,
+        minActions: 2,
+        minRationaleLen: 200,
+    });
+}
+
+/** Slide 4 — STAKEHOLDERS. */
+function buildStakeholdersSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
+    const stakeholders = (t.key_stakeholders || []).filter(s => s?.name_or_role && s?.involvement);
+    if (stakeholders.length < 2) return null;
+
+    const actions = stakeholders.slice(0, 5).map(s => ({
+        name: s.name_or_role.trim(),
+        description: s.involvement.trim(),
+    }));
+
+    return buildSlide({
+        tile: t, isBet, brand,
+        sectionLabel: '04 · STAKEHOLDERS',
+        actionTitle: 'The people who own this work',
+        supportingActions: actions,
+        actionsLabel: 'KEY STAKEHOLDERS',
+        implication: fields(t).guardrailFit,
+        minActions: 2,
+    });
+}
+
+/** Slide 5 — IMPLEMENTATION PLAN. */
+function buildImplementationSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
+    const steps = (t.implementation_steps || []).filter(s => s?.step);
+    if (steps.length < 2) return null;
+
+    const actions = steps.slice(0, 5).map(s => {
+        const meta: string[] = [];
+        if (s.owner) meta.push(`Owner: ${s.owner}`);
+        if (s.estimated_effort) meta.push(`Effort: ${s.estimated_effort}`);
+        if (s.dependencies && s.dependencies.length > 0) meta.push(`Deps: ${s.dependencies.slice(0, 3).join(', ')}`);
+        const metaLine = meta.length > 0 ? ` — ${meta.join(' · ')}` : '';
+        return {
+            name: truncate(s.step, 80),
+            description: metaLine.replace(/^\s*—\s*/, ''),
+        };
+    });
+
+    const totalEffort = steps.map(s => s.estimated_effort).filter(Boolean).join(' + ') || undefined;
+    const firstOwner = steps.find(s => s.owner)?.owner;
+    const depCount = steps.reduce((n, s) => n + (s.dependencies?.length || 0), 0);
+
+    const impactStrip: RecommendationData['impactStrip'] | undefined = (totalEffort || firstOwner || depCount > 0)
+        ? {
+            effort: totalEffort ? truncate(totalEffort, 110) : undefined,
+            risk: firstOwner ? `Kickoff owner: ${firstOwner}` : undefined,
+            outcome: depCount > 0 ? `${depCount} dependency hand-off${depCount === 1 ? '' : 's'}` : undefined,
+        }
+        : undefined;
+
+    return buildSlide({
+        tile: t, isBet, brand,
+        sectionLabel: '05 · IMPLEMENTATION PLAN',
+        actionTitle: 'How this gets built',
+        supportingActions: actions,
+        actionsLabel: 'STEPS',
+        impactStrip,
+        implication: fields(t).longTerm,
+        minActions: 2,
+    });
+}
+
+/** Slide 6 — RISKS & IMPACT. */
+function buildRisksImpactSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
+    const f = fields(t);
+    const risks = (t.risks_constraints || []).filter(r => r?.risk && r?.mitigation);
+    const hasRisks = risks.length >= 1;
+    const hasImpact = !!(t.expected_impact && t.expected_impact.trim().length > 30);
+    if (!hasRisks && !hasImpact) return null;
+
+    const actions = risks.slice(0, 5).map(r => ({
+        name: r.severity
+            ? `[${r.severity.toUpperCase()}] ${truncate(r.risk, 70)}`
+            : truncate(r.risk, 90),
+        description: r.mitigation,
+    }));
+
+    const verbatim = t.verbatim_quote_evidence?.trim();
+    const evidence: RecommendationData['evidence'] | undefined = verbatim && hasRisks
+        ? [{ text: verbatim, source: f.evidence[0] || 'Corpus quote' }]
+        : undefined;
+
+    const severityCounts = risks.reduce((acc, r) => {
+        const sev = (r.severity || '').toLowerCase();
+        acc[sev] = (acc[sev] || 0) + 1;
+        return acc;
+    }, {} as Record<string, number>);
+    const highSev = severityCounts['high'] || severityCounts['critical'] || 0;
+    const impactStrip: RecommendationData['impactStrip'] | undefined = (hasImpact || hasRisks)
+        ? {
+            effort: hasImpact ? truncate(t.expected_impact || '', 110) : undefined,
+            risk: hasRisks ? `${risks.length} tracked risk${risks.length === 1 ? '' : 's'}${highSev > 0 ? ` (${highSev} high)` : ''}` : undefined,
+            outcome: f.longTerm ? truncate(f.longTerm, 110) : undefined,
+        }
+        : undefined;
+
+    return buildSlide({
+        tile: t, isBet, brand,
+        sectionLabel: '06 · RISKS & IMPACT',
+        actionTitle: hasImpact ? truncate(t.expected_impact || '', 200) : 'Risks and mitigations',
+        rationale: hasImpact && (t.expected_impact?.length || 0) > 200 ? t.expected_impact : undefined,
+        supportingActions: actions,
+        actionsLabel: 'RISKS & MITIGATIONS',
+        impactStrip,
+        implication: f.guardrailFit,
+        evidence,
+        minActions: hasImpact ? 0 : 1,        // expected_impact alone can carry the slide
+        minRationaleLen: 0,
+    });
+}
+
+/**
+ * Expand a single tile into a 1-6 slide mini-deck.
+ *
+ * Always emits the Overview slide. Each subsequent slide is conditional on
+ * having ≥2 substantive supporting fields OR a rich rationale OR (impact strip
+ * + implication). Anemic tiles produce 1 slide; rich tiles produce 5-6.
+ */
+export function tileToExportSlidesMulti(
+    tile: RecommendationTileInput,
+    isBet: boolean,
+    brand?: Brand,
+): ExportSlideArgs[] {
+    const slides: ExportSlideArgs[] = [];
+    slides.push(buildOverviewSlide(tile, isBet, brand));
+    const candidates: Array<ExportSlideArgs | null> = [
+        buildCaseSlide(tile, isBet, brand),
+        buildExecutionStackSlide(tile, isBet, brand),
+        buildStakeholdersSlide(tile, isBet, brand),
+        buildImplementationSlide(tile, isBet, brand),
+        buildRisksImpactSlide(tile, isBet, brand),
+    ];
+    for (const c of candidates) {
+        if (c) slides.push(c);
+    }
+    return slides;
 }
 
 /**
@@ -213,7 +563,7 @@ export function tilesToDeckExportArgs(args: {
             brand,
         });
         for (const t of consensusTiles) {
-            slides.push(tileToExportSlideArgs(t, false, brand));
+            for (const slide of tileToExportSlidesMulti(t, false, brand)) slides.push(slide);
         }
     }
 
@@ -231,7 +581,7 @@ export function tilesToDeckExportArgs(args: {
             brand,
         });
         for (const t of betTiles) {
-            slides.push(tileToExportSlideArgs(t, true, brand));
+            for (const slide of tileToExportSlidesMulti(t, true, brand)) slides.push(slide);
         }
     }
 

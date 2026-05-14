@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "northeastern for a poli sci/pre-law?"
 author: "Curious-Actuary5981"
 date: "2026-04-24T20:09:42.000Z"
-score: 3
-upvote_ratio: 0.67
+score: 2
+upvote_ratio: 0.6
 num_comments: 7
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T19:19:22.618Z"
+extracted_at: "2026-05-13T23:02:38.872Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # northeastern for a poli sci/pre-law?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1suqqe6/northeastern_for_a_poli_sciprelaw/)
-Posted by **Curious-Actuary5981** · **3↑** · **7 comments**
+Posted by **Curious-Actuary5981** · **2↑** · **7 comments**
 
 hii, i’m a senior currently trying to make my final college decision. as the title says, im looking to major in poli sci, and im also looking to double major in international studies or sociology (still not completely sure, but something else social sciences/humanities related). after undergrad i want to pursue a masters in public policy or admin or go to law school (i would rather do the former, but my parents want me to do the latter and im seeing if maybe ill warm up to the idea in college). 
 

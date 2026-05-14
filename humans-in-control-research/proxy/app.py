@@ -6566,29 +6566,51 @@ async def scheduler_poll_youtube_channels(request: _S5Request):
 
 from fastapi import Request
 
-# 2026-05-03 — /api/ai/anthropic endpoint removed on this branch
-# (HiC-Gemini-Primary). The HiC pipeline routes exclusively through
-# /api/ai/gemini, /api/ai/gemini-compat, and /api/ai/openai. Re-adding
-# Anthropic requires restoring this endpoint AND restoring the SPA-side
-# adapters (anthropicService.ts, claudeAdapter.ts), the model registry
-# entries, and the dispatch branches in the chat/composer.
-#
-# Stub left in place so that if a stale SPA bundle (cached by a browser)
-# tries to reach /api/ai/anthropic, the user gets a clear 410 Gone instead
-# of a 404 (which would silently retry).
+# 2026-05-13 — /api/ai/anthropic RESTORED. The HiC-Gemini-Primary branch
+# removed this endpoint; the v3.9+ pipeline requires it back (the Claude
+# Opus 4.7 brief generator routes here, and the runtime VS-with-fallback
+# helper in the prototype builder uses it as the 2nd-priority provider).
+# Passes the request body straight through to api.anthropic.com/v1/messages
+# with the server-side ANTHROPIC_API_KEY attached as x-api-key.
 
 @app.post("/api/ai/anthropic")
-async def proxy_anthropic_removed(request: Request):
-    return JSONResponse(
-        {
-            "error": (
-                "Anthropic endpoint removed on this branch (HiC-Gemini-Primary). "
-                "Hard-refresh the SPA to pick up the bundle that routes to "
-                "/api/ai/gemini-compat or /api/ai/openai instead."
+async def proxy_anthropic(request: Request):
+    """Proxy requests to Anthropic API. Adds API key server-side, keeps CORS clean."""
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "ANTHROPIC_API_KEY not configured"}, status_code=500)
+
+    try:
+        body = await request.json()
+        model = body.get("model", "claude-opus-4-7")
+        content_size = len(json.dumps(body))
+        logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars")
+
+        headers = {
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+            "Content-Type": "application/json",
+        }
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                json=body,
+                headers=headers,
+                timeout=300.0,
             )
-        },
-        status_code=410,
-    )
+            try:
+                result = resp.json()
+            except Exception:
+                result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
+            if resp.status_code != 200:
+                logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
+            return JSONResponse(result, status_code=resp.status_code)
+    except httpx.TimeoutException:
+        logger.error("Anthropic proxy timeout")
+        return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
+    except Exception as e:
+        logger.error(f"Anthropic proxy error: {e}")
+        return JSONResponse({"error": f"Anthropic proxy error: {str(e)[:200]}"}, status_code=502)
 
 
 @app.post("/api/ai/gemini")

@@ -43,6 +43,11 @@ export interface CallAIOptions {
     headers?: Record<string, string>;
     /** Optional progress callback fired on each retry. */
     onRetry?: RetryProgress;
+    /** Per-request fetch timeout in milliseconds. Default 300_000 (5 min).
+     *  Long-running stages like prototype Stage 4 / Stage 3.5 can take 90-180s
+     *  with high thinking budget; we cap at 5 min so a truly hung backend
+     *  fails cleanly instead of blocking the UI forever. */
+    requestTimeoutMs?: number;
 }
 
 /** Map endpoint id to its proxy URL + the model-family name surfaced in error messages. */
@@ -81,12 +86,14 @@ export async function callAIWithRetry(
     let lastStatus = 0;
     let lastErrText = '';
 
+    const timeoutMs = options.requestTimeoutMs ?? 300_000;
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         try {
             const resp = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
                 body: JSON.stringify(body),
+                signal: AbortSignal.timeout(timeoutMs),
             });
             if (resp.ok) {
                 return resp.json();

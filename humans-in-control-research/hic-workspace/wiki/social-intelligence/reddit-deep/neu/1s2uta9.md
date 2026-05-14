@@ -10,7 +10,7 @@ score: 2
 upvote_ratio: 0.6
 num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.372Z"
+extracted_at: "2026-05-13T23:02:38.892Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -24,10 +24,10 @@ Im in Electrical engineering and this is my first co-op search. I recently got a
 
 ## Comments
 
-- **Jn369** (38↑): good chance to practice interviewing. maybe you’ll end up liking the position, worst case you don’t like it and got some practice being in a real interview. also since it’s your first, it might be worth taking and trying to target something you like better as your second and third co-ops. ask your peers in your major how easy/difficult it was to get a co-op position. if this ends up being the only offer you get and you don’t accept you might regret it.
-  - **Googiegogomez** (9↑): Better to have the experience of the interview and a potential position then hold out for something that may never materialize.
-- **snowtweet** (10↑): An interview doesn't always equal you'll get an offer, plus it's good experience. You just never know. Good luck to you!
-- **espressofeenbean** (7↑): Take it, offers are rare. Not to scare you but you usually won’t hear back from most places, so maximize ur options
-- **rust_tg** (6↑): An interview is not at all a commitment
-- **Ok-Impression-3082** (10↑): Do the interview, you don’t have to take it
+- **Jn369** (32↑): good chance to practice interviewing. maybe you’ll end up liking the position, worst case you don’t like it and got some practice being in a real interview. also since it’s your first, it might be worth taking and trying to target something you like better as your second and third co-ops. ask your peers in your major how easy/difficult it was to get a co-op position. if this ends up being the only offer you get and you don’t accept you might regret it.
+  - **Googiegogomez** (7↑): Better to have the experience of the interview and a potential position then hold out for something that may never materialize.
+- **snowtweet** (9↑): An interview doesn't always equal you'll get an offer, plus it's good experience. You just never know. Good luck to you!
+- **espressofeenbean** (9↑): Take it, offers are rare. Not to scare you but you usually won’t hear back from most places, so maximize ur options
+- **rust_tg** (7↑): An interview is not at all a commitment
+- **Ok-Impression-3082** (9↑): Do the interview, you don’t have to take it
 - **mrmight-** (1↑): Even if you take it, you may end up liking it.  It’s a coop for a few months, not a lifelong commitment.  I took a job just because I hated my last one and I’ve been doing it for 15yrs.   You never know unless you go for it. Especially if there is nothing else for you.

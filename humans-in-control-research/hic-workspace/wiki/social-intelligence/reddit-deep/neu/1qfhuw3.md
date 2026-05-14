@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "Northeastern Co-op Chrome Extension"
 author: "turtlecap1324"
 date: "2026-01-17T16:37:12.000Z"
-score: 70
-upvote_ratio: 0.98
+score: 73
+upvote_ratio: 0.99
 num_comments: 9
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T15:03:54.707Z"
+extracted_at: "2026-05-13T23:02:38.889Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # Northeastern Co-op Chrome Extension
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qfhuw3/northeastern_coop_chrome_extension/)
-Posted by **turtlecap1324** · **70↑** · **9 comments**
+Posted by **turtlecap1324** · **73↑** · **9 comments**
 
 # 🔗 Link: [https://nucoop.app/](https://nucoop.app/)
 
@@ -60,5 +60,5 @@ You're welcome!
   - **turtlecap1324** (1↑): Thank you, twin🙏🙏
 - **AcademicWeapon149** (1↑): OP, this looks really good! Happy cake day too 🍰
   - **turtlecap1324** (2↑): Thank you! Didn’t even realize that today was that day lol
-- **Yyyapi** (-7↑): This Chrome extension feels like cake and kiwi for your brain—pure knowledge in a turtlecap that smooths workflows so well that when shit happens, the friction just fades. Love northeastern and its little innovators.
-  - **turtlecap1324** (9↑): Bud.
+- **Yyyapi** (-9↑): This Chrome extension feels like cake and kiwi for your brain—pure knowledge in a turtlecap that smooths workflows so well that when shit happens, the friction just fades. Love northeastern and its little innovators.
+  - **turtlecap1324** (7↑): Bud.

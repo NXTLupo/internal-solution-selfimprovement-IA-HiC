@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "Wellington Management Co-op"
 author: "poem2521"
 date: "2026-04-07T01:51:19.000Z"
-score: 6
+score: 7
 upvote_ratio: 1
-num_comments: 6
+num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T19:19:22.623Z"
+extracted_at: "2026-05-13T23:02:38.885Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # Wellington Management Co-op
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/)
-Posted by **poem2521** · **6↑** · **6 comments**
+Posted by **poem2521** · **7↑** · **7 comments**
 
 Does anyone have experience with co-op at Wellington Management? I'll be joining them this June - Dec for my second and (maybe) final co-op but would like to know if they usually give a full-time offer. 
 
@@ -43,3 +43,4 @@ My manager spoke highly of her time there - she spent over a decade there. Menti
 They accept a good amt of co-ops, FT not guaranteed.
 - **DetectiveElectrical2** (2↑): I worked as a software engineering co-op there a few years back. I know a couple of people that did summer internships who got return offers. But i’m not sure if co-ops did. At least I don’t know of any.
 - **biggestfart3608** (1↑): asset private stock trading management where you suck nice cocks til they are clean
+  - **Difficult-Review283** (1↑): very mature
