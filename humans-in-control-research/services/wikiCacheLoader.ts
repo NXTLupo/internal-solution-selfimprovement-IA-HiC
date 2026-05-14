@@ -117,6 +117,69 @@ export interface RedditCacheLoadResult {
     bytes_loaded_estimate: number;
 }
 
+// =============================================================================
+// Engagement-bundle loader — read ALL persisted deliverables for an engagement
+// =============================================================================
+
+export interface CachedEngagementBundle {
+    slug: string;
+    themes?: any;
+    personas?: any;
+    journey?: any;
+    gap?: any;
+    recs?: any;
+    competitive?: any;
+    blueprint?: any;
+    /** Count of deliverables successfully loaded. Zero means the engagement
+     *  predates Phase B persistence; caller should fall back to live generation. */
+    loaded_count: number;
+}
+
+const DELIVERABLE_KINDS = ['themes', 'personas', 'journey', 'gap', 'recs', 'competitive', 'blueprint'] as const;
+
+/**
+ * Load every persisted deliverable for an engagement in parallel. Returns
+ * { loaded_count } so the caller can decide whether the engagement has
+ * anything worth using (zero = legacy engagement, fall back to generation).
+ *
+ * Reads from wiki/engagements/<slug>/<kind>.json which the Phase B WRITE
+ * side populates after each generate*() call in the auto-synthesis chain.
+ */
+export async function loadEngagementBundle(slug: string): Promise<CachedEngagementBundle> {
+    if (!slug) return { slug: '', loaded_count: 0 };
+    const t0 = Date.now();
+    const results = await Promise.all(DELIVERABLE_KINDS.map(async (kind) => {
+        try {
+            const resp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${slug}/${kind}.json`);
+            if (!resp.ok) return { kind, payload: null };
+            const data = await resp.json();
+            const raw = typeof data === 'string' ? data : (data?.content || '');
+            if (!raw) return { kind, payload: null };
+            const parsed = JSON.parse(raw);
+            // writeEngagementDeliverable wraps as { schema_version, kind, slug, saved_at, data }
+            return { kind, payload: parsed?.data ?? parsed };
+        } catch (e) {
+            return { kind, payload: null };
+        }
+    }));
+    const bundle: CachedEngagementBundle = { slug, loaded_count: 0 };
+    results.forEach(({ kind, payload }) => {
+        if (payload != null) {
+            (bundle as any)[kind] = payload;
+            bundle.loaded_count++;
+        }
+    });
+    if (bundle.loaded_count > 0) {
+        console.log(`[CacheLoader] engagement bundle ${slug} HIT — ${bundle.loaded_count}/${DELIVERABLE_KINDS.length} deliverables loaded in ${Date.now() - t0}ms.`);
+    }
+    return bundle;
+}
+
+/** Convenience: load multiple engagement bundles in parallel. */
+export async function loadEngagementBundles(slugs: string[]): Promise<CachedEngagementBundle[]> {
+    return Promise.all(slugs.map(loadEngagementBundle));
+}
+
 /**
  * Load cached reddit-deep posts for the supplied subreddit slugs. Reads in
  * parallel for speed. Returns null if no subreddits selected; empty result

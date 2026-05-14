@@ -2516,6 +2516,78 @@ const App = () => {
             return;
         }
 
+        // 2026-05-14 — SECOND SHORT-CIRCUIT: Knowledge Library selection.
+        // If the user picked items in the Library modal (themes / sources /
+        // social / engagements), their intent is "use this cached intelligence
+        // INSTEAD of fresh data collection." Skip the orchestrator entirely.
+        // Hydrate any selected engagement bundles into deliverable state
+        // (themes/personas/journey/gap/recs/competitive). Drop into the
+        // Analyst Desk view populated with the cached work.
+        const librarySel = librarySelectionRef.current;
+        const hasLibraryItems = librarySel && (
+            librarySel.engagementSlugs.length > 0 ||
+            librarySel.themeClusterIds.length > 0 ||
+            librarySel.sourceArchivePaths.length > 0 ||
+            librarySel.socialSubreddits.length > 0
+        );
+        if (hasLibraryItems) {
+            const totalSelections =
+                librarySel!.engagementSlugs.length +
+                librarySel!.themeClusterIds.length +
+                librarySel!.sourceArchivePaths.length +
+                librarySel!.socialSubreddits.length;
+            console.log(`[startAnalysis] Library short-circuit — ${totalSelections} cached items selected; skipping data collection.`);
+            setAppState(AppState.ANALYZING);
+            setStatusMessage(`Synthesizing from ${totalSelections} cached items — no live data collection needed.`);
+            // Hydrate cached engagement deliverables into state. This puts the
+            // Analyst Desk into the same populated state as a completed run,
+            // without burning any AI tokens.
+            (async () => {
+                try {
+                    const { loadEngagementBundles, loadCachedRedditPostsFromWiki } = await import('./services/wikiCacheLoader');
+                    // Engagement deliverables -> direct state hydration
+                    if (librarySel!.engagementSlugs.length > 0) {
+                        const bundles = await loadEngagementBundles(librarySel!.engagementSlugs);
+                        let hydratedCount = 0;
+                        bundles.forEach(b => {
+                            if (b.themes) { setThemesResult(b.themes); hydratedCount++; }
+                            if (b.personas) { setPersonasResult(b.personas); hydratedCount++; }
+                            if (b.journey) { setJourneyResult(b.journey); hydratedCount++; }
+                            if (b.gap) { setGapResult(b.gap); hydratedCount++; }
+                            if (b.recs) { setRecsResult(b.recs); hydratedCount++; }
+                            if (b.competitive) { setCompetitiveResult(b.competitive); hydratedCount++; }
+                        });
+                        console.log(`[startAnalysis] Hydrated ${hydratedCount} deliverables from ${bundles.length} cached engagement(s).`);
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'INSIGHT',
+                            content: `[CACHE] Loaded ${hydratedCount} deliverables from ${bundles.length} cached engagement(s) — no generation cost.`,
+                        }]);
+                    }
+                    // Social posts -> redditDeepItems
+                    if (librarySel!.socialSubreddits.length > 0) {
+                        const social = await loadCachedRedditPostsFromWiki(librarySel!.socialSubreddits);
+                        if (social && social.posts.length > 0) {
+                            setRedditDeepItems(social.posts);
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[CACHE] Loaded ${social.posts.length} Reddit posts from ${social.subreddits_loaded.length} cached subreddit(s) — no live Reddit fetch.`,
+                            }]);
+                        }
+                    }
+                    // Mark collection as complete so the Analyst Desk renders.
+                    setIsCollectingData(false);
+                    setCollectionPhase('done' as any);
+                    setStatusMessage('Cached intelligence loaded. Use the chat to explore or compose deliverables.');
+                    setNotification(`Loaded ${totalSelections} cached item${totalSelections === 1 ? '' : 's'} — no data collection or generation cost incurred.`);
+                    setTimeout(() => setNotification(null), 6000);
+                } catch (hydrationErr: any) {
+                    console.warn('[startAnalysis] Library hydration failed (non-fatal):', hydrationErr);
+                    setStatusMessage(`Cached-data load partially failed: ${hydrationErr?.message || 'unknown'}. You can still use the chat.`);
+                }
+            })();
+            return;
+        }
+
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
         // 2026-05-14 — Reset the per-run cost accumulator so the floating
@@ -5066,14 +5138,18 @@ ${synthesisParts.join('\n')}
                                          const hasLibrarySelection = librarySelectionCount > 0;
                                          const isT4Resume = cachedResumePayload?.mode === 't4-build-only';
                                          const canStart = files.length > 0 || hasDataSources || hasLibrarySelection || isT4Resume;
+                                         // 2026-05-14 — Library selection = "synthesize from cache",
+                                         // not "run fresh collection + library on top". The button
+                                         // label must reflect that no data collection will run.
+                                         const librarySelectionOnly = hasLibrarySelection && files.length === 0 && !hasDataSources;
                                          const label = isT4Resume
                                              ? `Open cached briefs (skip data collection, ${cachedResumePayload!.briefsFile.briefs.length} briefs ready)`
                                              : !canStart
                                                  ? 'Upload Data, Enable Sources, or Select from Knowledge Library to Begin'
-                                                 : hasLibrarySelection && files.length === 0 && !hasDataSources
-                                                     ? `Run Analysis with ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'}`
+                                                 : librarySelectionOnly
+                                                     ? `Synthesize from ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'} (skip data collection)`
                                                      : hasLibrarySelection
-                                                         ? `Collect Data & Run Analysis (reusing ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'})`
+                                                         ? `Run Analysis (reusing ${librarySelectionCount} cached item${librarySelectionCount === 1 ? '' : 's'} + fresh sources)`
                                                          : hasDataSources
                                                              ? 'Collect Data & Initialize Analysis'
                                                              : 'Initialize Analysis Agent';
