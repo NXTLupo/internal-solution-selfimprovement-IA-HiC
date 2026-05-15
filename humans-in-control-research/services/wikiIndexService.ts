@@ -119,7 +119,17 @@ export async function fetchWikiIndex(opts: {
 
         const url = `${PROXY}/api/wiki/index${params.toString() ? '?' + params.toString() : ''}`;
         const resp = await fetch(url, {
-            signal: opts.signal || AbortSignal.timeout(10000),
+            // 2026-05-15 — Bumped 10s → 60s. The wiki now has 1,569 articles
+            // across 56+ subdirs and the proxy's /api/wiki/index endpoint
+            // walks every file to build the response. On cold start (no
+            // server-side cache) the 10s timeout fires before the proxy
+            // finishes enumerating, and the silent [] return surfaces in the
+            // UI as "Wiki archive is empty" even though the wiki has 244+
+            // sources and 987+ evidence items loaded in the Analyst Desk.
+            // 60s matches the wider proxy budget used by fetch-articles (45s)
+            // and parse-upload (60s+). Hashtag flows already show the new
+            // LiveProcessingIndicator so the user can see the wait.
+            signal: opts.signal || AbortSignal.timeout(60_000),
         });
         if (!resp.ok) {
             console.warn(`[wikiIndex] fetch failed: HTTP ${resp.status}`);
@@ -128,7 +138,8 @@ export async function fetchWikiIndex(opts: {
         const data: WikiIndexResponse = await resp.json();
         return data.entries || [];
     } catch (e: any) {
-        console.warn('[wikiIndex] fetch error:', e?.message || e);
+        const isTimeout = (e?.name === 'TimeoutError') || /timed out|signal timed out/i.test(e?.message || '');
+        console.warn(`[wikiIndex] fetch error (${isTimeout ? 'TIMEOUT after 60s — wiki enumeration too slow' : 'other'}):`, e?.message || e);
         return [];
     }
 }

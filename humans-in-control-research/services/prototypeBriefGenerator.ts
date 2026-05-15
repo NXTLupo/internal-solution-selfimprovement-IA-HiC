@@ -761,7 +761,14 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     //              quality protected by construction.
     //   • gpt    : all-GPT-5.5, no Opus refinement. Max cost savings, accept narrative
     //              drift. ~$4-7 per run.
-    const mode = opts.briefModelMode || 'hybrid';
+    // 2026-05-15 — Default changed 'hybrid' → 'opus' because the user's OpenAI
+    // quota is exhausted (HTTP 429 on every brief-deepen pass observed in
+    // production). Hybrid mode wastes 3 retry attempts × 5 briefs = 15 wasted
+    // OpenAI calls + ~30s of latency before falling back to Opus anyway. Until
+    // OpenAI quota is restored, default to all-Opus and avoid the 429 cascade.
+    // Caller can still pass briefModelMode: 'hybrid' or 'gpt' explicitly to opt
+    // back in once the quota is healthy.
+    const mode = opts.briefModelMode || 'opus';
     const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.7'
         : mode === 'gpt' ? 'GPT-5.5'
         : 'GPT-5.5 + Opus narrative gate';

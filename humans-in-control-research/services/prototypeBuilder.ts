@@ -1655,35 +1655,35 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     // through. This preserves the IDEO/Apple bar through the pipeline.
     const richBrief = approvedBrief ? `\n\nAPPROVED BRIEF — RICH CONTEXT (the user picked this from a 5-brief set; honor every use case, screen, AI capability, seed entity, and visual direction):\n${concept}\n` : '';
 
-    // Stage 2 — Interaction Architect (GPT-5.5 since 2026-05-15)
-    // Structured JSON output, deterministic, no creative divergence needed.
-    // Swapped from Gemini 3.1 Pro to GPT-5.5 for cost + speed on this stage.
-    // Falls back to Gemini if GPT-5.5 fails or quota-rate-limits.
+    // Stage 2 — Interaction Architect
+    // 2026-05-15 — Reverted to Gemini-primary because the user's OpenAI quota
+    // is exhausted (HTTP 429 cascade). GPT-5.5 is the fallback when Gemini
+    // fails. Will flip back to GPT-5.5-primary once OpenAI quota is restored.
     fire(2, 'Interaction Architect', 'running');
     let spec: InteractionSpec;
     try {
-        spec = await callGpt55JsonStage<InteractionSpec>(
+        spec = await callGeminiJsonStage<InteractionSpec>(
             STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
             ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
             'Stage 2 Interaction Architect',
             'max',
-            16000,
         );
-    } catch (gptErr: any) {
-        console.warn(`[Stage 2] GPT-5.5 failed (${gptErr?.message || gptErr}) — falling back to Gemini 3.1 Pro.`);
+    } catch (gemErr: any) {
+        console.warn(`[Stage 2] Gemini failed (${gemErr?.message || gemErr}) — falling back to GPT-5.5.`);
         try {
-            spec = await callGeminiJsonStage<InteractionSpec>(
+            spec = await callGpt55JsonStage<InteractionSpec>(
                 STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
                 ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
                 'Stage 2 Interaction Architect (fallback)',
                 'max',
+                16000,
             );
         } catch (e: any) {
             fire(2, 'Interaction Architect', 'failed', e.message);
             throw e;
         }
     }
-    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · gpt-5.5`);
+    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · gemini-3.1-pro`);
 
     // Stage 2.5 — Simulated User Sessions (2026-05-13). Generates the 30
     // synthetic sessions (12 modal + 10 edge + 8 tail) the prototype must
@@ -1872,13 +1872,12 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         const sessionsAuditBlock = simulatedSessions.length > 0
             ? `\n\nSIMULATED USER SESSIONS — AUDIT THE CODE AGAINST EACH OF THESE (${simulatedSessions.length} total). For EACH session, determine: "Can this user complete their motivation in this prototype as built? If not, what's the SPECIFIC missing piece?" Compute coverage % and populate \`session_coverage\` in the critique JSON:\n${JSON.stringify(simulatedSessions, null, 2)}`
             : '';
-        // Stage 5 — Critic (GPT-5.5 since 2026-05-15). Deterministic JSON
-        // audit task, no creative divergence. Falls back to Gemini if 5.5 fails.
+        // Stage 5 — Critic
+        // 2026-05-15 — Reverted to Gemini-primary because OpenAI quota is
+        // exhausted. GPT-5.5 is the fallback. Will flip back to GPT-5.5-primary
+        // once OpenAI quota is restored.
         const stage5User = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`;
         try {
-            critiqueText = await callGpt55Stage(STAGE_5_SYSTEM, stage5User, true, 'max', 64000);
-        } catch (gptErr: any) {
-            console.warn(`[Stage 5] GPT-5.5 failed (${gptErr?.message || gptErr}) — falling back to Gemini 3.1 Pro.`);
             critiqueText = await callGeminiStage(
                 STAGE_5_SYSTEM,
                 stage5User,
@@ -1886,6 +1885,9 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
                 'max',
                 64000, // Stage 5 must traverse the entire recipe + code + up to 30 sessions and still fit failed_sessions[] descriptions
             );
+        } catch (gemErr: any) {
+            console.warn(`[Stage 5] Gemini failed (${gemErr?.message || gemErr}) — falling back to GPT-5.5.`);
+            critiqueText = await callGpt55Stage(STAGE_5_SYSTEM, stage5User, true, 'max', 64000);
         }
     } catch (e: any) {
         // Critic transport failure (HTTP/network) — return what we have
