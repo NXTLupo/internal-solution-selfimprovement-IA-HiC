@@ -3349,6 +3349,72 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     );
 };
 
+// 2026-05-15 — Live processing indicator. Replaces the static "Analyzing the
+// research…" placeholder with a real affordance: pulsing chartreuse dot,
+// live elapsed-time counter (MM:SS, ticks every second), and the current
+// status string (which the running handler can mutate by editing the
+// message's content). Renders when the assistant message's content starts
+// with a known processing prefix; auto-disappears the moment the handler
+// replaces the placeholder with the real response.
+//
+// Why a self-contained component: the elapsed-time tick uses its own
+// useEffect, so parent re-renders (caused by other messages arriving)
+// don't reset the counter. Driven by msg.timestamp as the start anchor.
+const LiveProcessingIndicator: React.FC<{ startedAt: number; status: string; modelName?: string }> = ({ startedAt, status, modelName }) => {
+    const [now, setNow] = React.useState(Date.now());
+    React.useEffect(() => {
+        const t = setInterval(() => setNow(Date.now()), 1000);
+        return () => clearInterval(t);
+    }, []);
+    const elapsedSec = Math.max(0, Math.floor((now - startedAt) / 1000));
+    const mm = Math.floor(elapsedSec / 60);
+    const ss = elapsedSec % 60;
+    const elapsedLabel = mm > 0 ? `${mm}:${String(ss).padStart(2, '0')}` : `${ss}s`;
+    return (
+        <div style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            padding: '10px 12px', background: '#0D0D0D', color: '#fff',
+            borderLeft: '3px solid #B8B800',
+            fontFamily: 'JetBrains Mono, monospace', fontSize: 11,
+            letterSpacing: 0.4, marginTop: 4, marginBottom: 4,
+        }}>
+            <span style={{
+                width: 9, height: 9, borderRadius: '50%', background: '#B8B800',
+                animation: 'lpi-pulse 1.2s ease-in-out infinite', flexShrink: 0,
+                display: 'inline-block',
+            }} />
+            <span style={{ color: '#B8B800', fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase' as const, fontSize: 10 }}>{elapsedLabel}</span>
+            <span style={{ color: '#fff', flex: 1, lineHeight: 1.4 }}>{status}</span>
+            {modelName && (
+                <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: 9, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{modelName}</span>
+            )}
+            <style>{`@keyframes lpi-pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(1.35); } }`}</style>
+        </div>
+    );
+};
+
+// Returns true if a message's content looks like a long-running placeholder.
+// Match prefixes only — handlers may append step detail (e.g. "Generating 5
+// product briefs... [thinking — Pass 1/2 ...]") and we still want the
+// indicator. Case-insensitive.
+function isProcessingPlaceholder(content: string): boolean {
+    if (!content) return false;
+    const c = content.toLowerCase();
+    return (
+        c.startsWith('analyzing the research') ||
+        c.startsWith('generating ') ||
+        c.startsWith('building ') ||
+        c.startsWith('composing ') ||
+        c.startsWith('preparing ') ||
+        c.startsWith('thinking') ||
+        c.startsWith('searching ') ||
+        c.startsWith('embedding ') ||
+        c.startsWith('synthesizing ') ||
+        c.startsWith('generating the ') ||
+        c.startsWith('drafting ')
+    );
+}
+
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 — Mirror messages up to the App so a session-save can
@@ -6123,7 +6189,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 fontSize: 11, lineHeight: 1.6, whiteSpace: 'pre-wrap',
                                 borderLeft: msg.role === 'assistant' ? `3px solid ${AVAILABLE_MODELS.find(m => m.id === msg.model)?.color || '#888'}` : 'none',
                             }}>
-                                {msg.role === 'assistant' ? (() => {
+                                {msg.role === 'assistant' && isProcessingPlaceholder(msg.content) && (
+                                    <LiveProcessingIndicator
+                                        startedAt={msg.timestamp || Date.now()}
+                                        status={msg.content}
+                                        modelName={(AVAILABLE_MODELS.find(m => m.id === msg.model)?.name) || modelConfig?.name}
+                                    />
+                                )}
+                                {msg.role === 'assistant' && !isProcessingPlaceholder(msg.content) ? (() => {
                                     const cleaned = cleanResponseText(msg.content, hasCards);
                                     if (!cleaned) return null;
                                     // Parse NXT visual blocks
