@@ -1772,6 +1772,104 @@ body { padding-bottom: 80px; min-height: 100vh; }
 [data-brand="nu"] .p-concept .cn-quote { font-family: 'Spectral', serif; font-weight: 400; }
 .p-concept .cn-attr { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--b-rule-soft); }
 
+/* ═══════════════════════════════════════════════════════════════════
+   ROUND 10 — PATTERNS 83–87 — Pioneered in the Counterfactual Co-op
+   exemplar app. These five patterns address the gap exposed by
+   "Three People, Three Paths" output: thin tri-column vignettes
+   without dual-timeline, counterfactual, forecast, or interactive
+   mix shifters. Each pattern below answers one of those misses.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══ 83 · TIME-MACHINE (dual-track timeline, side-by-side comparison) ═══ */
+.p-time-machine { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 24px; }
+.p-tm-head { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; padding-bottom: 14px; margin-bottom: 18px; border-bottom: 1px solid var(--b-rule); }
+.p-tm-track-label { font-family: var(--b-display); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-tm-track-label { font-family: 'Spectral', serif; font-weight: 400; font-style: italic; text-transform: none; letter-spacing: -0.005em; font-size: 16px; }
+.p-tm-track-label.brand-only { color: var(--b-warn); }
+.p-tm-track-label.balanced { color: var(--b-accent-3); text-align: right; }
+.p-tm-divider { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; align-self: center; }
+.p-tm-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.p-tm-track { position: relative; }
+.p-tm-axis { position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: var(--b-rule); }
+.p-tm-track.brand-only .p-tm-axis { background: var(--b-warn); opacity: 0.4; }
+.p-tm-track.balanced .p-tm-axis { background: var(--b-accent-3); opacity: 0.4; }
+.p-tm-week { display: grid; grid-template-columns: 40px 1fr; gap: 8px; margin-bottom: 12px; }
+.p-tm-marker { width: 12px; height: 12px; border-radius: 50%; background: var(--b-rule); border: 3px solid var(--b-panel); margin-left: 12px; }
+.p-tm-marker.event { background: var(--b-warn); }
+.p-tm-track.balanced .p-tm-marker.event { background: var(--b-accent); }
+.p-tm-week-num { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); text-transform: uppercase; letter-spacing: 0.5px; padding-top: 2px; }
+.p-tm-event { font-size: 11px; line-height: 1.5; color: var(--b-ink); }
+.p-tm-event .stat { font-family: var(--b-mono-font); font-weight: 700; color: var(--b-ink); }
+
+/* ═══ 84 · FORECAST-BAND (P10/P50/P90 confidence band chart) ═══ */
+.p-forecast-band { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 20px; }
+.p-forecast-band h4 { font-family: var(--b-display); font-size: 14px; letter-spacing: 1px; color: var(--b-ink); text-transform: uppercase; margin-bottom: 4px; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-forecast-band h4 { font-family: 'Spectral', serif; font-weight: 500; text-transform: none; font-size: 16px; letter-spacing: -0.005em; }
+.p-forecast-band .desc { font-size: 11px; color: var(--b-secondary); margin-bottom: 14px; line-height: 1.5; }
+.p-forecast-band-chart { position: relative; height: 140px; }
+.p-forecast-band-chart svg { width: 100%; height: 100%; }
+.p-forecast-band .legend { display: flex; gap: 14px; padding-top: 10px; margin-top: 10px; border-top: 1px solid var(--b-rule-soft); font-family: var(--b-mono-font); font-size: 9px; color: var(--b-secondary); letter-spacing: 0.5px; text-transform: uppercase; }
+.p-forecast-band .legend .key { display: inline-flex; align-items: center; gap: 5px; }
+.p-forecast-band .legend .sw { width: 10px; height: 6px; }
+.p-forecast-band .legend .sw.warn { background: var(--b-warn); opacity: 0.45; }
+.p-forecast-band .legend .sw.accent { background: var(--b-accent); opacity: 0.5; }
+
+/* ═══ 85 · PORTFOLIO-MIX (interactive slider with live forecast readout) ═══ */
+.p-portfolio-mix { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 22px; }
+.p-portfolio-mix h4 { font-family: var(--b-display); font-size: 14px; letter-spacing: 1px; color: var(--b-ink); text-transform: uppercase; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-portfolio-mix h4 { font-family: 'Spectral', serif; font-weight: 500; text-transform: none; font-size: 16px; }
+.p-portfolio-mix .sub { font-size: 11px; color: var(--b-secondary); margin: 4px 0 14px; line-height: 1.5; }
+.p-pm-track { position: relative; height: 10px; background: linear-gradient(90deg, var(--b-warn) 0%, var(--b-warn) 25%, var(--b-accent) 75%, var(--b-accent) 100%); border-radius: var(--b-radius); }
+.p-pm-handle { position: absolute; top: -7px; width: 20px; height: 24px; background: var(--b-ink); transform: translateX(-50%); cursor: ew-resize; border-radius: var(--b-radius); }
+.p-pm-handle::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 3px; height: 10px; background: var(--b-accent); }
+.p-pm-labels { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+.p-pm-readout { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding-top: 14px; margin-top: 14px; border-top: 1px solid var(--b-rule); }
+.p-pm-readout .cell { text-align: left; }
+.p-pm-readout .v { font-family: var(--b-display); font-size: 22px; line-height: 1; color: var(--b-ink); font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-pm-readout .v { font-family: 'Spectral', serif; font-weight: 300; font-size: 26px; }
+.p-pm-readout .v.down { color: var(--b-warn); }
+.p-pm-readout .v.up { color: var(--b-accent); }
+.p-pm-readout .l { font-family: var(--b-mono-font); font-size: 8px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 3px; }
+
+/* ═══ 86 · VIGNETTE-TRIO (three anonymized alumni snapshots side-by-side) ═══ */
+.p-vignette-trio-pat { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.p-vignette-pat { background: var(--b-panel); border: 1px solid var(--b-rule); border-left: 3px solid var(--b-ink); padding: 14px; }
+.p-vignette-pat.brand-only { border-left-color: var(--b-warn); }
+.p-vignette-pat.mixed { border-left-color: var(--b-accent-2); }
+.p-vignette-pat.balanced { border-left-color: var(--b-accent); }
+.p-vignette-pat-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 6px; border-bottom: 1px solid var(--b-rule-soft); margin-bottom: 6px; }
+.p-vignette-pat-id { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+.p-vignette-pat-arch { font-family: var(--b-mono-font); font-size: 8px; padding: 1px 5px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700; }
+.p-vignette-pat.brand-only .p-vignette-pat-arch { background: var(--b-warn); color: #fff; }
+.p-vignette-pat.mixed .p-vignette-pat-arch { background: var(--b-accent-2); color: #fff; }
+.p-vignette-pat.balanced .p-vignette-pat-arch { background: var(--b-accent); color: var(--b-ink); }
+[data-brand="nu"] .p-vignette-pat.balanced .p-vignette-pat-arch { color: #fff; }
+.p-vignette-pat-stat { font-family: var(--b-display); font-size: 18px; color: var(--b-ink); margin-bottom: 4px; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-vignette-pat-stat { font-family: 'Spectral', serif; font-weight: 500; font-size: 20px; }
+.p-vignette-pat-stat .num.warn { color: var(--b-warn); }
+.p-vignette-pat-stat .num.success { color: var(--b-accent); }
+.p-vignette-pat ul { list-style: none; padding: 0; margin-top: 6px; }
+.p-vignette-pat li { padding: 3px 0 3px 12px; font-size: 10px; line-height: 1.5; color: var(--b-ink); position: relative; }
+.p-vignette-pat li::before { content: '|'; position: absolute; left: 0; top: 3px; color: var(--b-accent); font-weight: 700; }
+.p-vignette-pat.brand-only li::before { color: var(--b-warn); }
+.p-vignette-pat.mixed li::before { color: var(--b-accent-2); }
+
+/* ═══ 87 · COUNTERFACTUAL (what-if reveal with 4-stat pull row) ═══ */
+.p-counterfactual-pat { background: var(--b-panel); border: 1px solid var(--b-rule); border-left: 4px solid var(--b-accent); padding: 20px; }
+.p-cf-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.p-cf-tag { font-family: var(--b-display); font-size: 10px; letter-spacing: 2px; padding: 3px 8px; background: var(--b-accent); color: var(--b-ink); text-transform: uppercase; font-weight: 700; }
+[data-brand="nu"] .p-cf-tag { color: #fff; }
+.p-cf-meta { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+.p-counterfactual-pat h4 { font-family: var(--b-display); font-size: 20px; line-height: 1.1; color: var(--b-ink); text-transform: uppercase; margin-bottom: 8px; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-counterfactual-pat h4 { font-family: 'Spectral', serif; font-weight: 400; text-transform: none; font-size: 24px; }
+.p-counterfactual-pat h4 em { color: var(--b-accent-3); font-style: normal; }
+.p-counterfactual-pat .body { font-size: 12px; line-height: 1.55; color: var(--b-body); }
+.p-counterfactual-pat .pull-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--b-rule); }
+.p-counterfactual-pat .pull-cell .v { font-family: var(--b-display); font-size: 22px; line-height: 1; color: var(--b-ink); font-weight: var(--b-display-weight); }
+[data-brand="nu"] .p-counterfactual-pat .pull-cell .v { font-family: 'Spectral', serif; font-weight: 300; }
+.p-counterfactual-pat .pull-cell .v.success { color: var(--b-accent-3); }
+.p-counterfactual-pat .pull-cell .l { font-family: var(--b-mono-font); font-size: 8px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 3px; }
+
 /* ═══════ FOOTER ═══════ */
 .footer { max-width: 1600px; margin: 80px auto 0; padding: 24px 32px; border-top: 1px solid var(--b-rule); font-family: var(--b-mono-font); font-size: 10px; color: var(--b-muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .footer a { color: var(--b-accent-2); text-decoration: none; }
@@ -1796,7 +1894,7 @@ body { padding-bottom: 80px; min-height: 100vh; }
       <button data-brand-pick="nxt" class="active">NXT</button>
       <button data-brand-pick="nu">NU</button>
     </div>
-    <div class="section-sub">Design system showcase · 82 patterns · live brand toggle</div>
+    <div class="section-sub">Design system showcase · 92 patterns · live brand toggle</div>
   </div>
 </header>
 
@@ -1819,6 +1917,7 @@ body { padding-bottom: 80px; min-height: 100vh; }
     <a href="#sec-rich">Hero · industries</a>
     <a href="#sec-promo-modules">Onboarding · loader · presentation</a>
     <a href="#sec-healthcare">Healthcare deep dive</a>
+    <a href="#sec-counterfactual">Counterfactual &amp; cohort forecasting</a>
   </div>
 </nav>
 <style>
@@ -4622,8 +4721,187 @@ body { padding-bottom: 80px; min-height: 100vh; }
   </div>
 </section>
 
+<!-- ─── COUNTERFACTUAL & COHORT FORECASTING DEEP DIVE ─── -->
+<section class="section" id="sec-counterfactual">
+  <div class="section-head">
+    <h2>Counterfactual &amp; cohort forecasting</h2>
+    <span class="count">05 patterns · time machine · forecast band · portfolio mix · vignette trio · counterfactual reveal</span>
+  </div>
+  <p style="font-family: var(--b-mono-font); font-size: 11px; color: var(--b-secondary); max-width: 780px; line-height: 1.55; margin-bottom: 24px; letter-spacing: 0.2px;">
+    Pioneered in the Counterfactual Co-op exemplar. These five patterns let an AI surface the consequences of a path-not-taken — dual-track timelines, P10/P50/P90 forecast bands, interactive policy sliders, anonymized peer vignettes, and a single before-and-after probability reveal. Composers should reach for these any time the user is asking "what if I had…" or "what should I do next?" with multi-year stakes.
+  </p>
+  <div class="pattern-grid">
+
+    <!-- pattern 88 · TIME MACHINE -->
+    <article class="pattern">
+      <div class="pattern-head">
+        <div class="pattern-label">PATTERN 88 · TIME MACHINE</div>
+        <div class="pattern-title">Dual-track timeline (brand-only vs. balanced)</div>
+        <p class="pattern-desc">Side-by-side 14-week comparison of two paths — one a high-prestige single-brand track, one a balanced portfolio. Each track shows the same week numbers and synchronizes events so the reader can read divergence at a glance.</p>
+      </div>
+      <div class="pattern-stage">
+        <div class="p-time-machine" style="max-width: 640px;">
+          <div class="p-tm-head">
+            <div class="p-tm-track-label brand-only">Brand-only path</div>
+            <div class="p-tm-divider">·  diverge  ·</div>
+            <div class="p-tm-track-label balanced">Balanced path</div>
+          </div>
+          <div class="p-tm-tracks">
+            <div class="p-tm-track brand-only">
+              <div class="p-tm-axis"></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W01</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">Apply only to <span class="stat">Goldman, McKinsey, Google</span></div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W04</div><div><div class="p-tm-marker"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">No callbacks · <span class="stat">resume re-review</span></div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W08</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">Round 3 reject · <span class="stat">Goldman</span></div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W12</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">No offers in hand</div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W14</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;"><span class="stat">11%</span> placement probability</div></div></div>
+            </div>
+            <div class="p-tm-track balanced">
+              <div class="p-tm-axis"></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W01</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">Apply to <span class="stat">3 reach + 4 match + 2 safety</span></div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W04</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">2 callbacks: <span class="stat">Wayfair, Capital One</span></div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W08</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">Reach round 2 (<span class="stat">McKinsey</span>) + offer hand (<span class="stat">Wayfair</span>)</div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W12</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;">Accept Wayfair · keep applying reach</div></div></div>
+              <div class="p-tm-week"><div class="p-tm-week-num">W14</div><div><div class="p-tm-marker event"></div><div class="p-tm-event" style="margin-top:-12px; padding-left:18px;"><span class="stat">64%</span> placement probability</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- pattern 89 · FORECAST BAND -->
+    <article class="pattern">
+      <div class="pattern-head">
+        <div class="pattern-label">PATTERN 89 · FORECAST BAND</div>
+        <div class="pattern-title">P10 / P50 / P90 confidence band</div>
+        <p class="pattern-desc">Time-series chart with three lines — pessimistic floor (P10), median (P50), optimistic ceiling (P90) — and a tinted band between P10 and P90. Communicates uncertainty without flattening the median.</p>
+      </div>
+      <div class="pattern-stage">
+        <div class="p-forecast-band" style="max-width: 460px; width: 100%;">
+          <h4>Placement probability · weeks 1–14</h4>
+          <p class="desc">Brand-only path under the warn band; balanced path under the accent band. Bands widen at the planning horizon — predictability decays the further out we model.</p>
+          <div class="p-forecast-band-chart">
+            <svg viewBox="0 0 460 140" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="warn-band-fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#CC6644" stop-opacity="0.55"/><stop offset="100%" stop-color="#CC6644" stop-opacity="0.30"/></linearGradient>
+                <linearGradient id="accent-band-fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00B7C3" stop-opacity="0.55"/><stop offset="100%" stop-color="#00B7C3" stop-opacity="0.30"/></linearGradient>
+              </defs>
+              <!-- horizontal gridlines -->
+              <line x1="0" y1="20" x2="460" y2="20" stroke="#E5E5E5" stroke-width="1"/>
+              <line x1="0" y1="60" x2="460" y2="60" stroke="#E5E5E5" stroke-width="1"/>
+              <line x1="0" y1="100" x2="460" y2="100" stroke="#E5E5E5" stroke-width="1"/>
+              <!-- balanced (accent) band: P10 = lower / P90 = upper -->
+              <path d="M0,128 L60,118 L120,108 L180,90 L240,72 L300,58 L360,42 L420,28 L460,20 L460,46 L420,58 L360,72 L300,84 L240,96 L180,108 L120,118 L60,128 L0,134 Z" fill="url(#accent-band-fade)" opacity="0.45"/>
+              <!-- balanced median -->
+              <path d="M0,131 L60,123 L120,114 L180,99 L240,84 L300,71 L360,57 L420,43 L460,33" stroke="#00B7C3" stroke-width="2" fill="none"/>
+              <!-- brand-only band -->
+              <path d="M0,128 L60,122 L120,116 L180,110 L240,104 L300,98 L360,92 L420,86 L460,82 L460,108 L420,112 L360,116 L300,120 L240,124 L180,128 L120,131 L60,133 L0,135 Z" fill="url(#warn-band-fade)" opacity="0.32"/>
+              <!-- brand-only median -->
+              <path d="M0,131 L60,127 L120,122 L180,118 L240,114 L300,110 L360,106 L420,101 L460,98" stroke="#CC6644" stroke-width="2" fill="none" stroke-dasharray="2 2"/>
+              <!-- vertical week ticks -->
+              <line x1="0" y1="135" x2="0" y2="140" stroke="#9CA3AF"/>
+              <line x1="153" y1="135" x2="153" y2="140" stroke="#9CA3AF"/>
+              <line x1="307" y1="135" x2="307" y2="140" stroke="#9CA3AF"/>
+              <line x1="460" y1="135" x2="460" y2="140" stroke="#9CA3AF"/>
+              <text x="2" y="138" font-family="JetBrains Mono, monospace" font-size="8" fill="#6B7280">W01</text>
+              <text x="148" y="138" font-family="JetBrains Mono, monospace" font-size="8" fill="#6B7280">W05</text>
+              <text x="302" y="138" font-family="JetBrains Mono, monospace" font-size="8" fill="#6B7280">W10</text>
+              <text x="438" y="138" font-family="JetBrains Mono, monospace" font-size="8" fill="#6B7280">W14</text>
+            </svg>
+          </div>
+          <div class="legend">
+            <span class="key"><span class="sw warn"></span> brand-only P10–P90</span>
+            <span class="key"><span class="sw accent"></span> balanced P10–P90</span>
+            <span class="key" style="margin-left:auto;">N = 97 alumni</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- pattern 90 · PORTFOLIO MIX -->
+    <article class="pattern">
+      <div class="pattern-head">
+        <div class="pattern-label">PATTERN 90 · PORTFOLIO MIX</div>
+        <div class="pattern-title">Interactive policy slider with live readout</div>
+        <p class="pattern-desc">A single draggable handle on a brand-only-to-balanced gradient. Three live readouts update on slider change — placement probability, expected median offer, and time-to-first-callback. Forces the user to feel the tradeoff.</p>
+      </div>
+      <div class="pattern-stage">
+        <div class="p-portfolio-mix" style="max-width: 460px; width: 100%;">
+          <h4>Policy dial · brand mix</h4>
+          <p class="sub">Sam Chen's current setting weights 90% reach, 10% match. Drag toward balanced to lift probability — at the cost of brand prestige in the median offer.</p>
+          <div class="p-pm-track">
+            <div class="p-pm-handle" style="left: 64%;"></div>
+          </div>
+          <div class="p-pm-labels">
+            <span>100% brand-only</span>
+            <span>balanced 60/30/10</span>
+          </div>
+          <div class="p-pm-readout">
+            <div class="cell"><div class="v up">42%</div><div class="l">placement · W14</div></div>
+            <div class="cell"><div class="v">$78k</div><div class="l">median offer</div></div>
+            <div class="cell"><div class="v down">W08</div><div class="l">first callback</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- pattern 91 · VIGNETTE TRIO -->
+    <article class="pattern">
+      <div class="pattern-head">
+        <div class="pattern-label">PATTERN 91 · VIGNETTE TRIO</div>
+        <div class="pattern-title">Three anonymized alumni archetypes</div>
+        <p class="pattern-desc">Three side-by-side snapshots from the cohort — one for each path archetype (brand-only, mixed, balanced). Each shows an anonymized alumni ID, a headline outcome stat, and 2–3 path-defining decisions. The reader infers the rule from the population, not the lecture.</p>
+      </div>
+      <div class="pattern-stage" style="padding: 12px;">
+        <div class="p-vignette-trio-pat" style="max-width: 600px; width: 100%;">
+          <div class="p-vignette-pat brand-only">
+            <div class="p-vignette-pat-head"><span class="p-vignette-pat-id">NUW-0247-K · '21</span><span class="p-vignette-pat-arch">Brand-only</span></div>
+            <div class="p-vignette-pat-stat">No placement · <span class="num warn">W14</span></div>
+            <ul><li>Applied to 6 reach firms only</li><li>2 round-2 rejects, no offers</li><li>Took unpaid summer fellowship</li></ul>
+          </div>
+          <div class="p-vignette-pat mixed">
+            <div class="p-vignette-pat-head"><span class="p-vignette-pat-id">NUW-0309-K · '22</span><span class="p-vignette-pat-arch">Mixed</span></div>
+            <div class="p-vignette-pat-stat">Wayfair offer · <span class="num">W10</span></div>
+            <ul><li>4 reach + 3 match + 1 safety</li><li>1 reach reject, 1 match offer</li><li>Accepted match, declined reach round-3</li></ul>
+          </div>
+          <div class="p-vignette-pat balanced">
+            <div class="p-vignette-pat-head"><span class="p-vignette-pat-id">NUW-0418-K · '20</span><span class="p-vignette-pat-arch">Balanced</span></div>
+            <div class="p-vignette-pat-stat">Capital One offer · <span class="num success">W06</span></div>
+            <ul><li>3 reach + 4 match + 2 safety</li><li>2 match offers in hand by W06</li><li>Kept applying reach through W12</li></ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- pattern 92 · COUNTERFACTUAL REVEAL -->
+    <article class="pattern">
+      <div class="pattern-head">
+        <div class="pattern-label">PATTERN 92 · COUNTERFACTUAL REVEAL</div>
+        <div class="pattern-title">Before-and-after probability shift</div>
+        <p class="pattern-desc">A single bold sentence states the counterfactual: had the user adopted policy X, here is the probability shift. Below: a 4-stat pull row that quantifies the move (probability, expected offer, time-to-callback, regret).</p>
+      </div>
+      <div class="pattern-stage">
+        <div class="p-counterfactual-pat" style="max-width: 460px; width: 100%;">
+          <div class="p-cf-head">
+            <span class="p-cf-tag">Counterfactual</span>
+            <span class="p-cf-meta">Sam Chen · NUW-0247 · cohort '21</span>
+          </div>
+          <h4>Had you balanced the portfolio in W01, your W14 placement probability would have moved from <em>11%</em> to <em>64%</em>.</h4>
+          <p class="body">The cohort model fit on 97 anonymized alumni shows a 53-point lift driven mostly by the 4 match applications you didn't send. Match firms callback rate is 38% versus 6% for reach, and 2 of 3 cohort members who landed reach offers also held a match offer.</p>
+          <div class="pull-row">
+            <div class="pull-cell"><div class="v success">+53</div><div class="l">probability pts</div></div>
+            <div class="pull-cell"><div class="v">$78k</div><div class="l">median offer</div></div>
+            <div class="pull-cell"><div class="v success">W06</div><div class="l">first callback</div></div>
+            <div class="pull-cell"><div class="v">2 of 3</div><div class="l">reach-with-match</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <footer class="footer">
-  <div>NXT × NU Design System Showcase · 87 AI experience patterns · hand-authored · live brand toggle · Gemini image slots wired · sticky TOC · healthcare deep-dive</div>
+  <div>NXT × NU Design System Showcase · 92 AI experience patterns · hand-authored · live brand toggle · Gemini image slots wired · sticky TOC · healthcare + counterfactual deep dives</div>
   <div><a href="/hic-workspace/wiki/inspiration-hub/">← Back to Inspiration Hub</a></div>
 </footer>
 

@@ -33,19 +33,22 @@
     }
   },
   "sections": [
-    { "id": "conversation",   "label": "Conversation primitives" },
-    { "id": "reasoning",      "label": "Reasoning surfaces" },
-    { "id": "decision",       "label": "Decision surfaces" },
-    { "id": "generation",     "label": "Generation surfaces" },
-    { "id": "oversight",      "label": "Oversight & evaluation" },
-    { "id": "configuration",  "label": "Configuration & memory" },
-    { "id": "workflow",       "label": "Workflow & control" },
-    { "id": "search",         "label": "Search & retrieval" },
-    { "id": "data",           "label": "Data visualization" },
-    { "id": "trust",          "label": "Trust & calibration" },
-    { "id": "promo",          "label": "A-Spot promotional banners" }
+    { "id": "conversation",     "label": "Conversation primitives" },
+    { "id": "reasoning",        "label": "Reasoning surfaces" },
+    { "id": "decision",         "label": "Decision surfaces" },
+    { "id": "generation",       "label": "Generation surfaces" },
+    { "id": "oversight",        "label": "Oversight & evaluation" },
+    { "id": "configuration",    "label": "Configuration & memory" },
+    { "id": "workflow",         "label": "Workflow & control" },
+    { "id": "search",           "label": "Search & retrieval" },
+    { "id": "data",             "label": "Data visualization" },
+    { "id": "trust",            "label": "Trust & calibration" },
+    { "id": "promo",            "label": "A-Spot promotional banners" },
+    { "id": "promo-modules",    "label": "Onboarding · loader · presentation" },
+    { "id": "healthcare",       "label": "Healthcare deep dive" },
+    { "id": "counterfactual",   "label": "Counterfactual & cohort forecasting" }
   ],
-  "total_patterns": 77,
+  "total_patterns": 92,
   "patterns": [
     { "id": "p-chat",      "number": 1,  "name": "Citation-grounded chat",        "section": "conversation",   "primitives": ["user turn", "assistant turn", "citation pill", "regenerate", "copy"], "best_for": ["multi-turn Q&A", "research-grounded answers", "evidence-tied responses"] },
     { "id": "p-stream",    "number": 2,  "name": "Streaming token-by-token",      "section": "conversation",   "primitives": ["pulsing orb", "token cascade", "cursor", "token meter"], "best_for": ["long generation", "live response", "model awareness"] },
@@ -123,20 +126,57 @@
     { "id": "p-info-flow",   "number": 74, "name": "Process flow infographic",          "section": "data",  "primitives": ["node chain", "done/active/queued states", "labels"], "best_for": ["onboarding sequences", "claims journeys", "application funnels", "admissions flow"] },
     { "id": "p-info-matrix", "number": 75, "name": "Comparison matrix infographic",     "section": "data",  "primitives": ["criteria rows", "option columns", "win cell", "AI verdict tag"], "best_for": ["plan pickers", "vendor selection", "tier comparison ads", "college choice"] },
     { "id": "p-info-funnel", "number": 76, "name": "Predictive funnel infographic",     "section": "data",  "primitives": ["stage rows", "live + predicted bars", "live/pred legend"], "best_for": ["ad-budget planners", "marketing dashboards", "admission funnel forecast"] },
-    { "id": "p-info-geo",    "number": 77, "name": "Geo heatmap infographic",           "section": "data",  "primitives": ["map surface", "hot/warm/cool pins", "legend row"], "best_for": ["regional demand ads", "store locator promos", "alumni density", "campus presence"] }
+    { "id": "p-info-geo",    "number": 77, "name": "Geo heatmap infographic",           "section": "data",  "primitives": ["map surface", "hot/warm/cool pins", "legend row"], "best_for": ["regional demand ads", "store locator promos", "alumni density", "campus presence"] },
+    { "id": "p-hero-aspot",       "number": 78, "name": "Multi-vertical hero A-Spot (4 variants)",       "section": "promo-modules", "primitives": ["industry-tinted backdrop", "headline + display number", "dual CTA", "supporting strap"], "best_for": ["sector-specific landing heroes", "education / healthcare / finance / commerce splash"] },
+    { "id": "p-onboard",          "number": 79, "name": "Onboarding flow",                                "section": "promo-modules", "primitives": ["step rail", "current step content", "skip / next CTAs", "progress dots"], "best_for": ["first-run onboarding", "feature-introduction tours", "permission-setup flows"] },
+    { "id": "p-slideshow-loader", "number": 80, "name": "Slideshow loader",                               "section": "promo-modules", "primitives": ["progressing thumbnails", "active slide highlight", "loader bar"], "best_for": ["multi-step generation feedback", "loading-as-content", "process visibility"] },
+    { "id": "p-presentation",     "number": 81, "name": "Presentation module",                            "section": "promo-modules", "primitives": ["title", "subtitle", "key stat", "supporting body"], "best_for": ["section dividers", "marketing presentations", "in-app announcements"] },
+    { "id": "p-concept-block",    "number": 82, "name": "Abstract concept block",                         "section": "promo-modules", "primitives": ["geometric backdrop", "concept name", "supporting body"], "best_for": ["editorial pull surfaces", "topic introductions", "framework explainers"] },
+    { "id": "p-patient-header",   "number": 83, "name": "Patient context strip",                          "section": "healthcare",    "primitives": ["headshot", "MRN", "age/sex", "allergies tag", "acuity dot"], "best_for": ["clinical app headers", "wrong-patient prevention", "always-on identity"] },
+    { "id": "p-vitals",           "number": 84, "name": "Vitals panel with normal-range zones",           "section": "healthcare",    "primitives": ["4-up grid", "current value", "normal-range zone", "trend arrow"], "best_for": ["monitor surfaces", "ICU dashboards", "rounding views"] },
+    { "id": "p-med-recon",        "number": 85, "name": "Medication reconciliation with AI flags",        "section": "healthcare",    "primitives": ["per-med row", "name + dose + frequency", "AI risk flag", "interaction callout"], "best_for": ["admission medlists", "pharmacy review", "discharge reconciliation"] },
+    { "id": "p-care-team",        "number": 86, "name": "Care team panel",                                "section": "healthcare",    "primitives": ["role avatars", "name + specialty", "on-call indicator", "page CTA"], "best_for": ["clinical team coordination", "consult routing", "shift handoff"] },
+    { "id": "p-symptom-triage",   "number": 87, "name": "Symptom triage with differential",               "section": "healthcare",    "primitives": ["chief complaint", "AI differential list", "confidence bars", "next-step routing"], "best_for": ["ED triage", "telehealth intake", "nurse-line decision support"] },
+    { "id": "p-time-machine",     "number": 88, "name": "Time machine (dual-track timeline)",             "section": "counterfactual","primitives": ["two parallel tracks", "synchronized week markers", "diverging events", "outcome stat at horizon"], "best_for": ["path-not-taken visualizations", "counterfactual storytelling", "decision-coaching surfaces", "policy comparisons"] },
+    { "id": "p-forecast-band",    "number": 89, "name": "P10/P50/P90 forecast band",                      "section": "counterfactual","primitives": ["P10 floor line", "P50 median line", "P90 ceiling line", "tinted uncertainty band", "horizon ticks"], "best_for": ["uncertainty-aware predictions", "cohort modeling", "scenario forecasts", "planning under risk"] },
+    { "id": "p-portfolio-mix",    "number": 90, "name": "Portfolio mix slider",                           "section": "counterfactual","primitives": ["gradient track", "draggable handle", "policy labels", "live 3-cell readout"], "best_for": ["policy tradeoff exploration", "what-if dial surfaces", "interactive recommendations", "advisor-coaching tools"] },
+    { "id": "p-vignette-trio",    "number": 91, "name": "Vignette trio (3 anonymized archetypes)",         "section": "counterfactual","primitives": ["3-column grid", "anonymized ID + archetype tag", "headline outcome stat", "2-3 decision bullets"], "best_for": ["population-as-evidence", "peer-archetype reveals", "alumni cohort comparisons", "decision pattern teaching"] },
+    { "id": "p-counterfactual",   "number": 92, "name": "Counterfactual reveal (before/after shift)",      "section": "counterfactual","primitives": ["counterfactual tag", "if-then sentence with em-highlighted figures", "narrative body", "4-stat pull row"], "best_for": ["coaching moments", "policy advice surfaces", "what-if explanations", "advisor-grade recommendations"] }
   ],
   "composition_rules": {
-    "min_patterns_per_prototype": 3,
-    "max_patterns_per_prototype": 12,
+    "min_patterns_per_prototype": 8,
+    "max_patterns_per_prototype": 18,
     "must_annotate_with": "pattern-id comment per region",
     "must_set_brand_attribute": "data-brand=\"nxt\" or data-brand=\"nu\" on root",
+    "synthetic_data_floor": {
+      "named_protagonist": "every prototype MUST have a named user (e.g., 'Sam Chen, CS '24'), not a generic placeholder",
+      "minimum_named_records": 12,
+      "anonymized_id_scheme": "use a real-looking ID scheme like 'NUW-0247-K' or 'NXT-#A47' for peer / archetype records",
+      "concrete_numbers_required": "every callout stat must be a real number (e.g., '11% → 64%'), never 'N%' or 'X%'",
+      "exemplars": [
+        "trailblazer-match (NU brand, 14+ patterns)",
+        "footprint-library (NXT brand, 13+ patterns)",
+        "counterfactual-coop (NXT brand, 18+ patterns, dual-track timeline + cohort model + counterfactual reveal)"
+      ]
+    },
+    "depth_targets": {
+      "minimum_pattern_density": "8 distinct catalog patterns minimum, 12+ for hero exemplars",
+      "must_include_at_least_one_of": ["p-cohort", "p-time-machine", "p-counterfactual", "p-vignette-trio", "p-portfolio-mix"],
+      "if_user_asks_what_if": "MUST use p-counterfactual + p-time-machine + p-forecast-band together",
+      "if_user_asks_should_i": "MUST use p-portfolio-mix + p-vignette-trio + p-rec together",
+      "must_include_hitl_gate_when_action_irreversible": true
+    },
     "forbidden_when_catalog_pattern_exists": [
       "generic SaaS modal as primary surface",
       "tone slider + regenerate button as entire UX",
       "centered chat input bar with nothing else",
       "skeleton loaders without bound fetch + state",
       "clean modern aesthetic without brand commitment",
-      "mixing NXT and NU tokens in single output"
+      "mixing NXT and NU tokens in single output",
+      "thin tri-column bullet lists labeled 'three people, three paths' instead of p-vignette-trio with anonymized records",
+      "generic 'pick a path' UX instead of p-portfolio-mix with live forecast readout",
+      "single-stat callouts where a p-counterfactual reveal would teach more",
+      "abstract personas like 'the student' or 'a user' instead of named protagonists with backstory"
     ]
   },
   "next_batches": [
