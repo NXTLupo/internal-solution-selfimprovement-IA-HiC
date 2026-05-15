@@ -67,10 +67,25 @@ export interface LibrarySocialBucket {
     last_fetched?: string;
 }
 
+/** 2026-05-14 — Per-source bucket inside the articles/ tree. The wiki has
+ *  56+ subdirectories under articles/ (jina-reader, client-uploads,
+ *  reddit-deep-r-*, youtube-*, hic-theme-synthesis) and the Knowledge
+ *  Library used to count only jina-reader (41 of 1,388). This bucket lets
+ *  the UI surface the full breakdown so RAG uploads, deep-research pulls,
+ *  and synthesis articles are all visible to the researcher. */
+export interface LibraryArticleBucket {
+    source: string;             // subfolder name, e.g. "client-uploads", "jina-reader", "reddit-deep-r-neu"
+    label: string;              // human label, e.g. "Client uploads (RAG)", "Reddit deep-research: r/neu"
+    article_count: number;
+    sample_titles: string[];    // up to 3 frontmatter titles
+}
+
 export interface LibraryArticleSummary {
     total_articles: number;
-    sample_titles: string[];            // up to 6 representative titles or URLs
+    sample_titles: string[];            // up to 6 representative titles or URLs across all buckets
     total_chars_estimated: number;
+    /** 2026-05-14 — Per-source breakdown. Empty array on legacy summaries (back-compat). */
+    buckets: LibraryArticleBucket[];
 }
 
 export interface LibraryUploadGroup {
@@ -316,24 +331,65 @@ async function collectSocial(): Promise<LibrarySocialBucket[]> {
     return buckets.sort((a, b) => b.post_count - a.post_count);
 }
 
+/** 2026-05-14 — Map a subfolder name to a human-readable label. Falls back
+ *  to the raw folder name if no match. Keeps the UI scannable for the 56+
+ *  article source buckets without hard-coding every one. */
+function labelForArticleSource(folder: string): string {
+    if (folder === 'client-uploads') return 'Client uploads (RAG)';
+    if (folder === 'jina-reader') return 'Jina Reader extracts';
+    if (folder === 'hic-theme-synthesis') return 'HiC theme syntheses';
+    if (folder.startsWith('reddit-deep-r-')) return `Reddit deep-research: r/${folder.slice('reddit-deep-r-'.length)}`;
+    if (folder.startsWith('reddit-')) return `Reddit: r/${folder.slice('reddit-'.length)}`;
+    if (folder.startsWith('youtube-')) return `YouTube: ${folder.slice('youtube-'.length).replace(/-/g, ' ')}`;
+    return folder;
+}
+
 async function collectArticles(): Promise<LibraryArticleSummary> {
-    const files = await listWikiDir('articles/jina-reader');
-    const mdFiles = files.filter(f => f.endsWith('.md'));
-    // Sample up to 6 titles from frontmatter; don't read all 41+ files
-    const sampleTitles: string[] = [];
-    for (const f of mdFiles.slice(0, 6)) {
-        const text = await readWikiText(`articles/jina-reader/${f}`);
-        if (!text) continue;
-        const fm = parseFrontmatter(text);
-        const title = fm.title || fm.url || f;
-        sampleTitles.push(title.length > 120 ? title.slice(0, 117) + '...' : title);
+    // 2026-05-14 — Walk EVERY subdirectory under articles/, not just jina-reader.
+    // The wiki/articles/ tree has 56+ subdirs (client-uploads with the RAG docs,
+    // deep-research pulls, jina extracts, YouTube transcripts, theme syntheses).
+    // The previous implementation only counted jina-reader (41) and missed
+    // 1,347+ other files including all RAG uploaded documents — the Knowledge
+    // Library was effectively invisible to them.
+    const subdirs = await listWikiSubdirs('articles');
+    const buckets: LibraryArticleBucket[] = [];
+    const allSampleTitles: string[] = [];
+    let totalArticles = 0;
+
+    for (const folder of subdirs) {
+        const files = await listWikiDir(`articles/${folder}`);
+        const mdFiles = files.filter(f => f.endsWith('.md'));
+        if (mdFiles.length === 0) continue;
+        totalArticles += mdFiles.length;
+
+        // Sample up to 3 titles per bucket via frontmatter
+        const bucketSamples: string[] = [];
+        for (const f of mdFiles.slice(0, 3)) {
+            const text = await readWikiText(`articles/${folder}/${f}`);
+            if (!text) continue;
+            const fm = parseFrontmatter(text);
+            const title = fm.title || fm.url || f;
+            const clipped = title.length > 120 ? title.slice(0, 117) + '...' : title;
+            bucketSamples.push(clipped);
+            if (allSampleTitles.length < 6) allSampleTitles.push(clipped);
+        }
+
+        buckets.push({
+            source: folder,
+            label: labelForArticleSource(folder),
+            article_count: mdFiles.length,
+            sample_titles: bucketSamples,
+        });
     }
-    // Conservative estimate: 8000 chars/article average (typical jina extract)
-    const totalCharsEstimated = mdFiles.length * 8000;
+
+    // Highest-volume buckets first so the UI surfaces the biggest pools at top
+    buckets.sort((a, b) => b.article_count - a.article_count);
+
     return {
-        total_articles: mdFiles.length,
-        sample_titles: sampleTitles,
-        total_chars_estimated: totalCharsEstimated,
+        total_articles: totalArticles,
+        sample_titles: allSampleTitles,
+        total_chars_estimated: totalArticles * 8000,
+        buckets,
     };
 }
 

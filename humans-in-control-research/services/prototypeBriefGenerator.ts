@@ -394,6 +394,58 @@ interface SkeletonBrief {
 }
 
 /** Call Claude Opus with a system prompt + user content, returning parsed JSON. */
+/**
+ * 2026-05-15 — Truncated-JSON repair (local copy of the helper in
+ * prototypeBuilder.ts:1384). When Opus/GPT hit max_tokens mid-string,
+ * the response is valid JSON up to the last clean value-close at depth ≥ 1.
+ * This walks the input, trims the half-written tail, and re-balances the
+ * bracket stack. Returns null if no recovery is needed (already balanced).
+ */
+function recoverTruncatedJsonLocal(s: string): string | null {
+    let inString = false;
+    let escape = false;
+    const stack: string[] = [];
+    let lastValueClosePos = -1;
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (escape) { escape = false; continue; }
+        if (inString) {
+            if (c === '\\') { escape = true; continue; }
+            if (c === '"') { inString = false; if (stack.length > 0) lastValueClosePos = i; continue; }
+            continue;
+        }
+        if (c === '"') { inString = true; continue; }
+        if (c === '{' || c === '[') { stack.push(c); continue; }
+        if (c === '}' || c === ']') { stack.pop(); if (stack.length > 0) lastValueClosePos = i; continue; }
+    }
+    if (!inString && stack.length === 0) return null;
+    let repaired = s;
+    if (inString) {
+        if (lastValueClosePos >= 0) {
+            repaired = s.slice(0, lastValueClosePos + 1);
+            const restack: string[] = [];
+            let s2 = false, e2 = false;
+            for (let i = 0; i < repaired.length; i++) {
+                const c = repaired[i];
+                if (e2) { e2 = false; continue; }
+                if (s2) { if (c === '\\') { e2 = true; continue; } if (c === '"') s2 = false; continue; }
+                if (c === '"') s2 = true;
+                else if (c === '{' || c === '[') restack.push(c);
+                else if (c === '}' || c === ']') restack.pop();
+            }
+            stack.length = 0;
+            restack.forEach(b => stack.push(b));
+        } else {
+            repaired += '"';
+        }
+    }
+    while (stack.length > 0) {
+        const open = stack.pop();
+        repaired += (open === '{') ? '}' : ']';
+    }
+    return repaired;
+}
+
 async function callOpusJson<T>(systemPrompt: string, userContent: string, label: string, maxTokens = 16000): Promise<T> {
     const body = {
         model: BRIEF_MODEL,
@@ -433,9 +485,29 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
+        // Step 1 — sanitize control chars
         try {
             return JSON.parse(sanitizeJsonControlChars(cleaned));
         } catch (e2: any) {
+            // 2026-05-15 — Step 2: truncated-JSON recovery. Models hit max_tokens
+            // mid-string on long Pass 1 emissions and the parser blows up with
+            // "Expected double-quoted property name in JSON at position N".
+            // recoverTruncatedJsonLocal walks the input, finds the last clean
+            // value close at depth ≥ 1, trims the half-written tail, and
+            // balances open brackets/objects. The dropped partial record is the
+            // cost; prior complete records survive. Pass 1 needs ≥ 3 to proceed.
+            try {
+                const sanitized = sanitizeJsonControlChars(cleaned);
+                const repaired = recoverTruncatedJsonLocal(sanitized);
+                if (repaired) {
+                    const parsed = JSON.parse(repaired);
+                    console.warn(
+                        `[${label}] JSON truncated at position ${(e2?.message || '').match(/position (\d+)/)?.[1] || '?'} ` +
+                        `— recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
+                    );
+                    return parsed;
+                }
+            } catch { /* fall through to throw with the original error */ }
             throw new Error(`${label} returned invalid JSON: ${e?.message || e}. First 300 chars: ${cleaned.slice(0, 300)}`);
         }
     }
@@ -487,9 +559,29 @@ async function callGpt55Json<T>(systemPrompt: string, userContent: string, label
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
+        // Step 1 — sanitize control chars
         try {
             return JSON.parse(sanitizeJsonControlChars(cleaned));
         } catch (e2: any) {
+            // 2026-05-15 — Step 2: truncated-JSON recovery. Models hit max_tokens
+            // mid-string on long Pass 1 emissions and the parser blows up with
+            // "Expected double-quoted property name in JSON at position N".
+            // recoverTruncatedJsonLocal walks the input, finds the last clean
+            // value close at depth ≥ 1, trims the half-written tail, and
+            // balances open brackets/objects. The dropped partial record is the
+            // cost; prior complete records survive. Pass 1 needs ≥ 3 to proceed.
+            try {
+                const sanitized = sanitizeJsonControlChars(cleaned);
+                const repaired = recoverTruncatedJsonLocal(sanitized);
+                if (repaired) {
+                    const parsed = JSON.parse(repaired);
+                    console.warn(
+                        `[${label}] JSON truncated at position ${(e2?.message || '').match(/position (\d+)/)?.[1] || '?'} ` +
+                        `— recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
+                    );
+                    return parsed;
+                }
+            } catch { /* fall through to throw with the original error */ }
             throw new Error(`${label} returned invalid JSON: ${e?.message || e}. First 300 chars: ${cleaned.slice(0, 300)}`);
         }
     }
@@ -636,7 +728,13 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             STAGE_SKELETON_SYSTEM,
             buildBriefUserContent(opts),
             'Brief Skeleton Pass',
-            8000,    // skeleton is small — 5 short framings
+            // 2026-05-15 — Bumped 8000 → 16000. Observed real failure at
+            // position 9056 (mid-string on brief 1's one_line_thesis). Opus
+            // budgets ~10K-13K chars per skeleton set at typical verbosity
+            // and the 8K ceiling was clipping the 5th framing's body. The
+            // recoverTruncatedJsonLocal pass is the safety net for any
+            // remaining truncations; the bump prevents the routine clip.
+            16000,
         );
     } catch (e: any) {
         fire?.('failed', e?.message || 'skeleton pass failed');

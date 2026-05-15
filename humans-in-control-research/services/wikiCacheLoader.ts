@@ -200,6 +200,93 @@ export async function loadSourceArchiveBody(archivePath: string): Promise<string
     }
 }
 
+/** Light frontmatter parser — just the fields we need (research_goal + title). */
+function readFrontmatterField(text: string, field: string): string | null {
+    if (!text || !text.startsWith('---')) return null;
+    const end = text.indexOf('---', 3);
+    if (end < 0) return null;
+    const fm = text.slice(3, end);
+    const lines = fm.split('\n');
+    for (const line of lines) {
+        const idx = line.indexOf(':');
+        if (idx <= 0) continue;
+        if (line.slice(0, idx).trim() === field) {
+            let val = line.slice(idx + 1).trim();
+            if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+                val = val.slice(1, -1);
+            }
+            return val;
+        }
+    }
+    return null;
+}
+
+/** Cheap word-overlap score (Jaccard-ish) for matching legacy archives to engagement goals. */
+function scoreGoalSimilarity(a: string, b: string): number {
+    const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'into', 'this', 'that', 'these', 'those', 'their', 'identify', 'understand', 'analyze', 'explore', 'develop', 'create', 'build', 'design', 'comprehensive', 'strategy', 'based', 'current', 'new', 'research', 'analysis']);
+    const norm = (s: string) => new Set((s || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(t => t.length >= 4 && !STOP.has(t)));
+    const A = norm(a);
+    const B = norm(b);
+    if (A.size === 0 || B.size === 0) return 0;
+    let overlap = 0;
+    A.forEach(t => { if (B.has(t)) overlap++; });
+    return overlap / Math.min(A.size, B.size);
+}
+
+/**
+ * 2026-05-14 — Resolve an engagement's source archive even when the file
+ * doesn't sit at the expected `sources/<slug>.md` path.
+ *
+ * Legacy engagements were archived under date-prefixed slugs (e.g.
+ * `sources/2026-04-21-identify-named-university-case-studies-f.md`) that
+ * don't match the engagement directory slug. This helper scans the
+ * entire `wiki/sources/` directory and finds the markdown file whose
+ * `research_goal` frontmatter field has the highest keyword overlap
+ * with the engagement's goal. Returns the matched body + the path so
+ * the caller can log the resolution for debugging.
+ */
+export async function resolveEngagementSourceArchive(engagementSlug: string, engagementGoal: string): Promise<{ body: string; path: string } | null> {
+    // Try the expected path first (Phase B engagements live here).
+    const directPath = `sources/${engagementSlug}.md`;
+    const direct = await loadSourceArchiveBody(directPath);
+    if (direct && direct.length > 200) return { body: direct, path: directPath };
+
+    // Fall back: list everything in wiki/sources/ and goal-match.
+    try {
+        const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/sources`);
+        if (!listResp.ok) return null;
+        const listData = await listResp.json();
+        const files: string[] = Array.isArray(listData?.files) ? listData.files : [];
+        const mdFiles = files.filter(f => typeof f === 'string' && f.endsWith('.md'));
+        if (mdFiles.length === 0) return null;
+
+        // Read each candidate's frontmatter (cheap — just the first 1KB).
+        const candidates: Array<{ path: string; score: number; body: string }> = [];
+        for (const file of mdFiles) {
+            try {
+                const body = await loadSourceArchiveBody(`sources/${file}`);
+                if (!body || body.length < 200) continue;
+                const goal = readFrontmatterField(body, 'research_goal') || readFrontmatterField(body, 'title') || '';
+                const score = scoreGoalSimilarity(engagementGoal, goal);
+                if (score > 0) candidates.push({ path: `sources/${file}`, score, body });
+            } catch {}
+        }
+
+        if (candidates.length === 0) return null;
+        candidates.sort((a, b) => b.score - a.score);
+        const best = candidates[0];
+        if (best.score < 0.20) {
+            console.log(`[CacheLoader] best source-archive match for engagement "${engagementSlug}" was ${best.path} (score=${best.score.toFixed(2)}) — too weak, treating as cache miss`);
+            return null;
+        }
+        console.log(`[CacheLoader] resolved engagement "${engagementSlug}" -> ${best.path} via goal-match (score=${best.score.toFixed(2)})`);
+        return { body: best.body, path: best.path };
+    } catch (e) {
+        console.warn(`[CacheLoader] resolveEngagementSourceArchive failed for ${engagementSlug}:`, e);
+        return null;
+    }
+}
+
 /**
  * Load the selected theme clusters from their synthesis JSON files and
  * turn each into a corpus-ready text block: cluster name + summary +
@@ -319,12 +406,29 @@ export async function assembleCachedCorpus(selection: {
 
     // Engagement source archives — each engagement may have a source archive
     // at wiki/sources/<slug>.md that lists every source pulled during that run.
+    // Legacy engagements were archived under date-prefixed paths that don't
+    // match the slug; resolveEngagementSourceArchive falls back to a goal-
+    // overlap scan of wiki/sources/ to find the right file.
     if (selection.engagementSlugs.length > 0) {
+        // We don't have the engagement's research_goal in scope here, but the
+        // manifest does. Read each engagement's manifest first.
         const engagementSections = await Promise.all(selection.engagementSlugs.map(async (slug) => {
-            const archive = await loadSourceArchiveBody(`sources/${slug}.md`);
-            if (!archive) return null;
+            let goal = slug.replace(/-/g, ' ');
+            try {
+                const manifestResp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${slug}/manifest.json`);
+                if (manifestResp.ok) {
+                    const data = await manifestResp.json();
+                    const raw = typeof data === 'string' ? data : (data?.content || '');
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        goal = parsed?.research_goal || goal;
+                    }
+                }
+            } catch {}
+            const resolved = await resolveEngagementSourceArchive(slug, goal);
+            if (!resolved) return null;
             engagementCount++;
-            return `=== CACHED ENGAGEMENT SOURCES (${slug}) ===\n${archive.slice(0, 80000)}`;
+            return `=== CACHED ENGAGEMENT SOURCES (${slug} -> ${resolved.path}) ===\n${resolved.body.slice(0, 80000)}`;
         }));
         engagementSections.filter(Boolean).forEach(s => sections.push(s as string));
     }

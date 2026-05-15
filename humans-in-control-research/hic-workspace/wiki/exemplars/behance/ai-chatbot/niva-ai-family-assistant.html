@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="nxt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niva | AI Family Assistant — Pattern Translation</title>
+<!-- NXT fonts: Bebas Neue + Archivo + JetBrains Mono. NU fonts: Roboto + Spectral + Roboto Mono. -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────
+   BRAND TOKENS (NXT default, NU swap via data-brand="nu")
+   ───────────────────────────────────────────────────────── */
+[data-brand="nxt"] {
+  --b-name: "NXT HUMANS";
+  --b-bg: #F5F5F0;
+  --b-panel: #FFFFFF;
+  --b-black: #0D0D0D;
+  --b-near-black: #1A1A1A;
+  --b-accent: #B8B800;
+  --b-accent-2: #00B7C3;
+  --b-accent-3: #115054;
+  --b-warn: #CC6644;
+  --b-heading: #0D0D0D;
+  --b-body: #333333;
+  --b-secondary: #666666;
+  --b-muted: #999999;
+  --b-rule: #E0E0E0;
+  --b-display: 'Bebas Neue', sans-serif;
+  --b-display-weight: 400;
+  --b-display-spacing: 1.5px;
+  --b-body-font: 'Archivo', sans-serif;
+  --b-mono-font: 'JetBrains Mono', monospace;
+  --b-radius: 2px;
+}
+[data-brand="nu"] {
+  /* 2026-05-14 — aligned with the upgraded gallery's NU Advancement
+     Design System: Spectral Light institutional voice, Roboto body,
+     navy as structural color, Huskies red used sparingly on action. */
+  --b-name: "NORTHEASTERN UNIVERSITY";
+  --b-bg: rgb(248, 250, 252);          /* slate-50 canvas */
+  --b-panel: #FFFFFF;
+  --b-black: rgb(11, 19, 38);          /* ink-900 navy */
+  --b-near-black: rgb(20, 29, 48);     /* ink-800 navy */
+  --b-accent: rgb(200, 16, 46);        /* Huskies red */
+  --b-accent-2: rgb(20, 29, 48);       /* navy as secondary */
+  --b-accent-3: rgb(170, 29, 37);      /* deep red on tint */
+  --b-warn: rgb(216, 19, 45);
+  --b-heading: rgb(11, 19, 38);
+  --b-body: rgb(20, 29, 48);
+  --b-secondary: rgb(100, 116, 139);
+  --b-muted: rgb(148, 163, 184);
+  --b-rule: rgb(203, 213, 225);
+  --b-display: 'Spectral', 'Source Serif Pro', Georgia, serif;
+  --b-display-weight: 300;             /* Spectral Light is the institutional voice */
+  --b-display-spacing: -0.01em;
+  --b-body-font: 'Roboto', system-ui, sans-serif;
+  --b-mono-font: 'Roboto Mono', ui-monospace, monospace;
+  --b-radius: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--b-bg); color: var(--b-body); font-family: var(--b-body-font); -webkit-font-smoothing: antialiased; }
+body { padding-bottom: 80px; min-height: 100vh; }
+
+/* ─── Top bar ─── */
+.topbar { background: var(--b-black); color: #fff; padding: 14px 32px; border-bottom: 2px solid var(--b-accent); position: sticky; top: 0; z-index: 50; }
+.topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.crumbs { font-family: var(--b-mono-font); font-size: 10px; letter-spacing: 0.5px; color: rgba(255,255,255,0.55); }
+.crumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.crumbs a:hover { color: var(--b-accent); }
+.crumbs .sep { margin: 0 8px; color: rgba(255,255,255,0.3); }
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; margin-left: auto; }
+.brand-mark .wordmark { font-family: var(--b-display); font-size: 11px; letter-spacing: 4px; color: var(--b-accent); font-weight: 700; }
+[data-brand="nu"] .brand-mark .wordmark { letter-spacing: 2px; color: #fff; }
+.brand-mark .wordmark::before { content: var(--b-name); }
+/* Real NU N logo (wiki/brand/northeastern-n.svg) — white on Huskies red, only in NU mode */
+.nu-n-tile { display: none; }
+[data-brand="nu"] .nu-n-tile { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--b-accent); border-radius: var(--b-radius); flex-shrink: 0; }
+.nu-n-tile svg { width: 18px; height: 18px; display: block; }
+.nu-n-tile svg path { fill: #ffffff; }
+.brand-toggle { display: inline-flex; border: 1px solid rgba(255,255,255,0.25); border-radius: var(--b-radius); overflow: hidden; }
+.brand-toggle button { background: transparent; border: 0; color: rgba(255,255,255,0.6); padding: 7px 14px; font-family: var(--b-mono-font); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.15s; }
+.brand-toggle button.active { background: var(--b-accent); color: var(--b-black); }
+[data-brand="nu"] .brand-toggle button.active { color: #fff; }
+.brand-toggle button:hover:not(.active) { color: #fff; }
+
+/* ─── Hero ─── */
+.hero { max-width: 1400px; margin: 32px auto 0; padding: 0 32px; display: grid; grid-template-columns: 460px 1fr; gap: 32px; align-items: start; }
+.hero-img-wrap { border: 1px solid var(--b-rule); background: var(--b-panel); border-radius: var(--b-radius); overflow: hidden; }
+.hero-img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+.hero-img-meta { padding: 10px 14px; font-family: var(--b-mono-font); font-size: 10px; color: var(--b-secondary); border-top: 1px solid var(--b-rule); display: flex; justify-content: space-between; align-items: center; }
+.hero-img-meta a { color: var(--b-accent-2); text-decoration: none; }
+[data-brand="nu"] .hero-img-meta a { color: var(--b-accent); }
+.hero-meta-label { font-family: var(--b-display); font-size: 11px; letter-spacing: 3px; color: var(--b-muted); margin-bottom: 6px; font-weight: var(--b-display-weight); }
+.hero-title { font-family: var(--b-display); font-size: 54px; line-height: 1; color: var(--b-heading); letter-spacing: var(--b-display-spacing); font-weight: var(--b-display-weight); margin-bottom: 14px; }
+.hero-sub { font-size: 14px; line-height: 1.55; color: var(--b-body); margin-bottom: 18px; max-width: 56ch; }
+.hero-strip { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.hero-strip .chip { font-family: var(--b-mono-font); font-size: 10px; padding: 4px 8px; background: var(--b-panel); border: 1px solid var(--b-rule); color: var(--b-secondary); border-radius: var(--b-radius); }
+.hero-strip .chip.primary { background: var(--b-black); color: var(--b-accent); border-color: var(--b-black); }
+[data-brand="nu"] .hero-strip .chip.primary { color: #fff; }
+
+/* ─── Primitives row ─── */
+.section { max-width: 1400px; margin: 48px auto 0; padding: 0 32px; }
+.section-label { font-family: var(--b-display); font-size: 11px; letter-spacing: 3px; color: var(--b-muted); margin-bottom: 8px; font-weight: var(--b-display-weight); }
+.section-title { font-family: var(--b-display); font-size: 32px; color: var(--b-heading); letter-spacing: var(--b-display-spacing); margin-bottom: 16px; font-weight: var(--b-display-weight); line-height: 1; }
+.primitives { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.primitive { padding: 10px 12px; border: 1px solid var(--b-rule); background: var(--b-panel); border-radius: var(--b-radius); font-size: 12px; line-height: 1.4; }
+.primitive .pk { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; }
+
+/* ─── Framings grid ─── */
+.framings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 22px; margin-top: 22px; }
+.framing { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius); overflow: hidden; display: flex; flex-direction: column; }
+.framing-head { padding: 14px 18px 10px; border-bottom: 1px solid var(--b-rule); }
+.framing-label { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.framing-letter { font-family: var(--b-display); font-size: 30px; color: var(--b-accent); line-height: 1; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .framing-letter { color: var(--b-accent); }
+.framing-name { font-family: var(--b-body-font); font-size: 12px; font-weight: 700; color: var(--b-heading); letter-spacing: 0.5px; text-transform: uppercase; }
+.framing-p { margin-left: auto; font-family: var(--b-mono-font); font-size: 10px; color: var(--b-secondary); padding: 2px 7px; background: var(--b-bg); border-radius: var(--b-radius); }
+.framing-desc { font-size: 12px; line-height: 1.55; color: var(--b-body); }
+
+/* ─── Mockup container ─── */
+.mockup { padding: 24px; background: var(--b-bg); display: flex; align-items: center; justify-content: center; min-height: 280px; position: relative; }
+.mockup-frame { width: 270px; background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius); padding: 16px; box-shadow: 0 4px 18px rgba(0,0,0,0.06); }
+
+/* ─────────────────────────────────────────────────────────
+   FRAMING α — TYPOGRAPHY-LED
+   ───────────────────────────────────────────────────────── */
+.mock-alpha { background: var(--b-panel); }
+.mock-alpha .header-strip { font-family: var(--b-display); font-size: 11px; letter-spacing: 4px; color: var(--b-muted); margin-bottom: 14px; font-weight: var(--b-display-weight); }
+.mock-alpha .assistant-row { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--b-rule); }
+.mock-alpha .orb-mini { width: 26px; height: 26px; background: var(--b-black); border-radius: 50%; flex-shrink: 0; }
+.mock-alpha .action-label { font-family: var(--b-display); font-size: 14px; letter-spacing: 2px; color: var(--b-black); font-weight: 700; line-height: 1; }
+[data-brand="nu"] .mock-alpha .action-label { font-family: var(--b-body-font); font-weight: 800; letter-spacing: -0.5px; }
+.mock-alpha .assistant-sub { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+.mock-alpha .schedule-item { padding: 12px 0; border-bottom: 1px dashed var(--b-rule); }
+.mock-alpha .schedule-item:last-of-type { border-bottom: 0; }
+.mock-alpha .schedule-time { font-family: var(--b-mono-font); font-size: 12px; font-weight: 700; color: var(--b-accent-3); letter-spacing: 0.5px; }
+[data-brand="nu"] .mock-alpha .schedule-time { color: var(--b-accent); }
+.mock-alpha .schedule-text { font-size: 13px; color: var(--b-body); margin-top: 3px; line-height: 1.35; }
+.mock-alpha .schedule-attr { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 3px; }
+
+/* ─────────────────────────────────────────────────────────
+   FRAMING β — MOTION-LED
+   ───────────────────────────────────────────────────────── */
+.mock-beta { background: var(--b-black); width: 270px; padding: 22px; border-radius: var(--b-radius); position: relative; min-height: 250px; }
+.mock-beta .listen-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px 0; }
+.mock-beta .orb-pulse { width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle, var(--b-near-black) 0%, var(--b-black) 100%); position: relative; display: flex; align-items: center; justify-content: center; }
+.mock-beta .orb-ring { position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--b-accent); animation: ringPulse 2.4s ease-in-out infinite; }
+.mock-beta .orb-ring-2 { position: absolute; inset: -14px; border-radius: 50%; border: 1px solid var(--b-accent); opacity: 0.3; animation: ringPulse 2.4s ease-in-out infinite 0.6s; }
+@keyframes ringPulse { 0%, 100% { transform: scale(0.96); opacity: 0.4; } 50% { transform: scale(1.04); opacity: 1; } }
+.mock-beta .listen-label { font-family: var(--b-display); font-size: 12px; letter-spacing: 4px; color: var(--b-accent); margin-top: 18px; font-weight: var(--b-display-weight); }
+[data-brand="nu"] .mock-beta .listen-label { letter-spacing: 1.5px; }
+.mock-beta .cursor-line { margin-top: 16px; padding: 10px 12px; background: var(--b-near-black); border-left: 2px solid var(--b-accent); }
+.mock-beta .cursor-line .stream-text { font-family: var(--b-mono-font); font-size: 11px; color: #fff; line-height: 1.5; }
+.mock-beta .cursor-line .blink { display: inline-block; width: 7px; height: 11px; background: var(--b-accent); margin-left: 2px; animation: blink 1s steps(2) infinite; vertical-align: middle; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ─────────────────────────────────────────────────────────
+   FRAMING γ — DENSITY-LED
+   ───────────────────────────────────────────────────────── */
+.mock-gamma { background: var(--b-panel); padding: 12px 14px; width: 270px; }
+.mock-gamma .top-strip { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid var(--b-rule); }
+.mock-gamma .orb-tiny { width: 12px; height: 12px; background: var(--b-black); border-radius: 50%; position: relative; }
+.mock-gamma .orb-tiny::after { content: ''; position: absolute; inset: -3px; border: 1px solid var(--b-accent); border-radius: 50%; }
+.mock-gamma .top-strip .right { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; }
+.mock-gamma .dense-row { display: grid; grid-template-columns: 60px 1fr 14px; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--b-rule); }
+.mock-gamma .dense-row:last-of-type { border-bottom: 0; }
+.mock-gamma .dr-time { font-family: var(--b-mono-font); font-size: 10px; font-weight: 700; color: var(--b-black); letter-spacing: -0.2px; }
+.mock-gamma .dr-text { font-size: 11px; color: var(--b-body); line-height: 1.3; }
+.mock-gamma .dr-text strong { font-weight: 600; }
+.mock-gamma .dr-attr { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); }
+.mock-gamma .dr-status { width: 6px; height: 6px; border-radius: 50%; background: var(--b-accent-2); margin-left: auto; }
+.mock-gamma .dr-status.warn { background: var(--b-warn); }
+[data-brand="nu"] .mock-gamma .dr-status { background: var(--b-accent); }
+
+/* ─────────────────────────────────────────────────────────
+   FRAMING δ — COLOR-RESTRAINT
+   ───────────────────────────────────────────────────────── */
+.mock-delta { background: var(--b-bg); padding: 18px; width: 270px; }
+.mock-delta .delta-card { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 14px; border-radius: var(--b-radius); margin-bottom: 10px; position: relative; }
+.mock-delta .delta-card.active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--b-accent); }
+.mock-delta .delta-card.conflict::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--b-warn); }
+.mock-delta .dc-title { font-size: 12px; font-weight: 700; color: var(--b-heading); line-height: 1.3; }
+.mock-delta .dc-meta { font-family: var(--b-mono-font); font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; margin-top: 3px; text-transform: uppercase; }
+.mock-delta .dc-body { font-size: 11px; color: var(--b-secondary); margin-top: 6px; line-height: 1.4; }
+.mock-delta .dc-tag { display: inline-block; font-family: var(--b-mono-font); font-size: 8px; padding: 1px 5px; background: var(--b-bg); color: var(--b-secondary); margin-top: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+.mock-delta .dc-tag.conflict { background: var(--b-warn); color: #fff; }
+
+/* ─────────────────────────────────────────────────────────
+   FRAMING ε — RADICAL TERMINAL
+   ───────────────────────────────────────────────────────── */
+.mock-epsilon { background: var(--b-black); padding: 18px; width: 270px; min-height: 260px; font-family: var(--b-mono-font); }
+.mock-epsilon .term-line { color: #fff; font-size: 11px; line-height: 1.6; }
+.mock-epsilon .term-line .prompt { color: var(--b-accent); }
+.mock-epsilon .term-line .dim { color: var(--b-muted); }
+.mock-epsilon .term-line .footnote { display: block; padding-left: 16px; border-left: 2px solid var(--b-accent); margin: 6px 0 6px 4px; color: rgba(255,255,255,0.7); font-size: 10px; }
+[data-brand="nu"] .mock-epsilon .term-line .footnote { border-left-color: var(--b-accent); }
+.mock-epsilon .term-cursor { display: inline-block; width: 7px; height: 11px; background: var(--b-accent); margin-left: 2px; animation: blink 1s steps(2) infinite; vertical-align: middle; }
+
+/* ─── Application note ─── */
+.application-note { margin-top: 48px; padding: 28px; background: var(--b-black); color: #fff; border-radius: var(--b-radius); }
+.application-note h3 { font-family: var(--b-display); font-size: 22px; letter-spacing: var(--b-display-spacing); color: var(--b-accent); margin-bottom: 10px; font-weight: var(--b-display-weight); }
+.application-note p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.82); max-width: 80ch; margin-bottom: 8px; }
+.application-note code { font-family: var(--b-mono-font); font-size: 11px; background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: var(--b-radius); color: var(--b-accent); }
+.application-note .hashtag { font-family: var(--b-mono-font); font-weight: 700; color: var(--b-accent); }
+
+.footer { max-width: 1400px; margin: 60px auto 0; padding: 24px 32px; border-top: 1px solid var(--b-rule); font-family: var(--b-mono-font); font-size: 10px; color: var(--b-muted); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.footer a { color: var(--b-accent-2); text-decoration: none; }
+[data-brand="nu"] .footer a { color: var(--b-accent); }
+
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-title { font-size: 38px; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   NU INSTITUTIONAL UPSCALE LAYER
+   Northeastern Advancement Design System refinements. Loaded only when
+   data-brand="nu" is active on <html>. Overrides NXT's editorial-brutalism
+   defaults with the institution's actual voice — Spectral Light display,
+   Roboto body, navy ink, sparing Huskies red on key actions only.
+   No all-caps treatments on serif; refined letter-spacing; the
+   "research librarian" register rather than the "art school" one.
+   ═════════════════════════════════════════════════════════════════════ */
+
+[data-brand="nu"] body { font-family: 'Roboto', system-ui, sans-serif; letter-spacing: 0; }
+
+[data-brand="nu"] .topbar {
+  background: rgb(11, 19, 38);  /* ink-900 navy, not pure black */
+  border-bottom: 1px solid rgb(200, 16, 46);  /* tighter red rule, more institutional */
+}
+[data-brand="nu"] .crumbs { font-family: 'Roboto Mono', ui-monospace, monospace; letter-spacing: 0.04em; }
+[data-brand="nu"] .crumbs a { color: rgba(255,255,255,0.78); }
+[data-brand="nu"] .crumbs a:hover { color: rgb(200, 16, 46); text-decoration: underline; text-underline-offset: 3px; }
+[data-brand="nu"] .brand-mark {
+  font-family: 'Spectral', 'Source Serif Pro', Georgia, serif;
+  font-weight: 600; font-size: 14px; letter-spacing: 0.06em;
+  text-transform: none; color: #FFFFFF;
+}
+[data-brand="nu"] .brand-mark .wordmark::before { content: "NORTHEASTERN"; }
+[data-brand="nu"] .brand-toggle { border-radius: 4px; border-color: rgba(255,255,255,0.2); }
+[data-brand="nu"] .brand-toggle button { font-family: 'Roboto Mono', monospace; font-weight: 500; letter-spacing: 0.1em; }
+[data-brand="nu"] .brand-toggle button.active { background: rgb(200, 16, 46); color: #FFFFFF; }
+
+/* Hero — Spectral Light institutional headline. No uppercase on serif. */
+[data-brand="nu"] .hero { padding-top: 8px; }
+[data-brand="nu"] .hero-img-wrap { border-radius: 8px; box-shadow: 0 12px 32px rgba(11,19,38,0.08), 0 2px 6px rgba(11,19,38,0.04); }
+[data-brand="nu"] .hero-meta-label {
+  font-family: 'Spectral', serif; font-style: italic; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.02em; text-transform: none; color: rgb(100, 116, 139); margin-bottom: 10px;
+}
+[data-brand="nu"] .hero-title {
+  font-family: 'Spectral', 'Source Serif Pro', Georgia, serif;
+  font-weight: 300; font-size: 68px; line-height: 0.98;
+  letter-spacing: -0.022em; text-transform: none;
+  color: rgb(11, 19, 38);
+}
+[data-brand="nu"] .hero-title::first-letter { color: rgb(200, 16, 46); }
+[data-brand="nu"] .hero-sub { font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.65; color: rgb(38, 49, 64); max-width: 62ch; }
+[data-brand="nu"] .hero-strip .chip {
+  font-family: 'Roboto Mono', monospace; font-weight: 500; font-size: 10px;
+  letter-spacing: 0.04em; text-transform: lowercase; border-radius: 999px;
+  padding: 4px 11px; border-color: rgb(203, 213, 225);
+}
+[data-brand="nu"] .hero-strip .chip.primary { background: rgb(200, 16, 46); color: #FFFFFF; border-color: rgb(200, 16, 46); }
+
+/* Section labels — Spectral italic, never tracked-caps */
+[data-brand="nu"] .section-label {
+  font-family: 'Spectral', serif; font-style: italic; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.02em; text-transform: none; color: rgb(100, 116, 139); margin-bottom: 6px;
+}
+[data-brand="nu"] .section-title {
+  font-family: 'Spectral', serif; font-weight: 400; font-size: 36px; line-height: 1.05;
+  letter-spacing: -0.018em; text-transform: none; color: rgb(11, 19, 38); margin-bottom: 24px;
+}
+[data-brand="nu"] .section-title::after {
+  content: ''; display: block; width: 42px; height: 2px; background: rgb(200, 16, 46);
+  margin-top: 14px;
+}
+
+/* Primitives — refined institutional cards */
+[data-brand="nu"] .primitive {
+  border-radius: 8px; box-shadow: 0 1px 2px rgba(11,19,38,0.04);
+  font-family: 'Roboto', sans-serif; font-size: 13px; color: rgb(38, 49, 64);
+  padding: 14px 16px;
+}
+[data-brand="nu"] .primitive .pk {
+  font-family: 'Roboto Mono', monospace; font-weight: 600;
+  color: rgb(200, 16, 46); letter-spacing: 0.06em;
+}
+
+/* Framing cards */
+[data-brand="nu"] .framing { border-radius: 8px; box-shadow: 0 1px 3px rgba(11,19,38,0.06), 0 1px 2px rgba(11,19,38,0.04); }
+[data-brand="nu"] .framing-head { padding: 18px 22px 14px; border-bottom-color: rgb(226, 232, 240); }
+[data-brand="nu"] .framing-letter {
+  font-family: 'Spectral', serif; font-style: italic; font-weight: 400;
+  font-size: 36px; color: rgb(200, 16, 46); line-height: 1;
+}
+[data-brand="nu"] .framing-name {
+  font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 13px;
+  letter-spacing: 0.02em; text-transform: none; color: rgb(11, 19, 38);
+}
+[data-brand="nu"] .framing-p {
+  font-family: 'Roboto Mono', monospace; font-weight: 500;
+  background: rgb(241, 245, 249); color: rgb(100, 116, 139);
+  border-radius: 999px; padding: 3px 10px; font-size: 11px;
+}
+[data-brand="nu"] .framing-desc { font-family: 'Roboto', sans-serif; font-size: 14px; line-height: 1.65; color: rgb(38, 49, 64); }
+
+/* Mockup α — typography-led, serif refinement */
+[data-brand="nu"] .mockup { background: rgb(248, 250, 252); padding: 32px 24px; }
+[data-brand="nu"] .mockup-frame { border-radius: 8px; box-shadow: 0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04); }
+[data-brand="nu"] .mock-alpha .header-strip {
+  font-family: 'Spectral', serif; font-style: italic; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.02em; text-transform: none; color: rgb(100, 116, 139); margin-bottom: 16px;
+  padding-bottom: 10px; border-bottom: 1px solid rgb(226, 232, 240);
+}
+[data-brand="nu"] .mock-alpha .orb-mini { background: rgb(200, 16, 46); border-radius: 999px; }
+[data-brand="nu"] .mock-alpha .action-label {
+  font-family: 'Spectral', serif; font-weight: 500; font-size: 17px;
+  letter-spacing: -0.01em; text-transform: none; color: rgb(11, 19, 38);
+}
+[data-brand="nu"] .mock-alpha .assistant-sub {
+  font-family: 'Roboto Mono', monospace; font-weight: 500; font-size: 10px;
+  letter-spacing: 0.06em; text-transform: lowercase; color: rgb(100, 116, 139);
+}
+[data-brand="nu"] .mock-alpha .schedule-item { border-bottom: 1px solid rgb(241, 245, 249); padding: 14px 0; }
+[data-brand="nu"] .mock-alpha .schedule-time {
+  font-family: 'Roboto Mono', monospace; font-feature-settings: "tnum" 1, "lnum" 1;
+  font-weight: 600; font-size: 13px; color: rgb(200, 16, 46); letter-spacing: 0;
+}
+[data-brand="nu"] .mock-alpha .schedule-text { font-family: 'Roboto', sans-serif; font-size: 14px; color: rgb(20, 29, 48); }
+[data-brand="nu"] .mock-alpha .schedule-attr {
+  font-family: 'Roboto Mono', monospace; font-weight: 500; font-size: 10px;
+  letter-spacing: 0.06em; text-transform: lowercase; color: rgb(148, 163, 184);
+}
+
+/* Mockup β — motion: navy panel with red ring, italic listen label */
+[data-brand="nu"] .mock-beta { background: rgb(11, 19, 38); border-radius: 8px; }
+[data-brand="nu"] .mock-beta .orb-pulse { background: radial-gradient(circle, rgb(20, 29, 48) 0%, rgb(11, 19, 38) 100%); }
+[data-brand="nu"] .mock-beta .orb-ring { border-color: rgb(200, 16, 46); border-width: 1.5px; }
+[data-brand="nu"] .mock-beta .orb-ring-2 { border-color: rgb(200, 16, 46); opacity: 0.25; }
+[data-brand="nu"] .mock-beta .listen-label {
+  font-family: 'Spectral', serif; font-style: italic; font-weight: 400; font-size: 15px;
+  letter-spacing: 0.01em; text-transform: lowercase; color: rgb(200, 16, 46); margin-top: 22px;
+}
+[data-brand="nu"] .mock-beta .listen-label::before { content: '"'; opacity: 0.7; }
+[data-brand="nu"] .mock-beta .listen-label::after { content: '"'; opacity: 0.7; }
+[data-brand="nu"] .mock-beta .cursor-line { border-left: 2px solid rgb(200, 16, 46); background: rgb(20, 29, 48); border-radius: 0 4px 4px 0; }
+[data-brand="nu"] .mock-beta .cursor-line .stream-text { font-family: 'Roboto Mono', monospace; font-weight: 400; }
+[data-brand="nu"] .mock-beta .cursor-line .blink { background: rgb(200, 16, 46); }
+
+/* Mockup γ — density grid, Roboto tabular */
+[data-brand="nu"] .mock-gamma .orb-tiny { background: rgb(200, 16, 46); border-radius: 999px; }
+[data-brand="nu"] .mock-gamma .orb-tiny::after { border-color: rgb(200, 16, 46); }
+[data-brand="nu"] .mock-gamma .top-strip .right {
+  font-family: 'Roboto Mono', monospace; font-weight: 500; font-size: 10px;
+  letter-spacing: 0.06em; text-transform: lowercase; color: rgb(100, 116, 139);
+}
+[data-brand="nu"] .mock-gamma .dr-time {
+  font-family: 'Roboto Mono', monospace; font-feature-settings: "tnum" 1, "lnum" 1;
+  font-weight: 600; font-size: 11px; color: rgb(11, 19, 38);
+}
+[data-brand="nu"] .mock-gamma .dr-text { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgb(20, 29, 48); }
+[data-brand="nu"] .mock-gamma .dr-text strong { font-family: 'Spectral', serif; font-weight: 500; font-style: italic; color: rgb(11, 19, 38); }
+[data-brand="nu"] .mock-gamma .dr-attr { font-family: 'Roboto Mono', monospace; letter-spacing: 0.06em; text-transform: lowercase; color: rgb(148, 163, 184); }
+[data-brand="nu"] .mock-gamma .dr-status { background: rgb(56, 161, 105); }  /* success-solid for confirmed */
+[data-brand="nu"] .mock-gamma .dr-status.warn { background: rgb(200, 16, 46); }
+[data-brand="nu"] .mock-gamma .dense-row { border-bottom: 1px solid rgb(241, 245, 249); padding: 10px 0; }
+
+/* Mockup δ — color-restraint, serif card titles */
+[data-brand="nu"] .mock-delta { background: rgb(241, 245, 249); padding: 20px; }
+[data-brand="nu"] .mock-delta .delta-card { border-radius: 8px; padding: 16px; border-color: rgb(226, 232, 240); box-shadow: 0 1px 2px rgba(11,19,38,0.04); }
+[data-brand="nu"] .mock-delta .delta-card.active::before { background: rgb(200, 16, 46); width: 3px; }
+[data-brand="nu"] .mock-delta .delta-card.conflict::before { background: rgb(216, 19, 45); }
+[data-brand="nu"] .mock-delta .dc-title {
+  font-family: 'Spectral', serif; font-weight: 500; font-size: 14px;
+  letter-spacing: -0.005em; text-transform: none; color: rgb(11, 19, 38);
+}
+[data-brand="nu"] .mock-delta .dc-meta { font-family: 'Roboto Mono', monospace; letter-spacing: 0.06em; text-transform: lowercase; color: rgb(148, 163, 184); }
+[data-brand="nu"] .mock-delta .dc-body { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgb(38, 49, 64); }
+[data-brand="nu"] .mock-delta .dc-tag {
+  font-family: 'Roboto Mono', monospace; letter-spacing: 0.04em;
+  text-transform: lowercase; border-radius: 999px; padding: 2px 8px; font-size: 9px;
+}
+[data-brand="nu"] .mock-delta .dc-tag.conflict { background: rgb(200, 16, 46); }
+
+/* Mockup ε — Roboto Mono terminal on navy, red cursor */
+[data-brand="nu"] .mock-epsilon {
+  background: rgb(11, 19, 38); border-radius: 8px;
+  font-family: 'Roboto Mono', monospace;
+}
+[data-brand="nu"] .mock-epsilon .term-line { font-family: 'Roboto Mono', monospace; }
+[data-brand="nu"] .mock-epsilon .term-line .prompt { color: rgb(200, 16, 46); }
+[data-brand="nu"] .mock-epsilon .term-line .footnote {
+  border-left: 2px solid rgb(200, 16, 46);
+  color: rgba(255,255,255,0.72);
+  font-style: italic;
+  font-family: 'Spectral', serif; font-size: 11px;
+}
+[data-brand="nu"] .mock-epsilon .term-cursor { background: rgb(200, 16, 46); }
+
+/* Application note — navy ink, Spectral title, red anchor */
+[data-brand="nu"] .application-note {
+  background: rgb(11, 19, 38);
+  border-radius: 8px;
+  border-left: 4px solid rgb(200, 16, 46);
+  padding: 32px 36px;
+  box-shadow: 0 12px 32px rgba(11,19,38,0.12);
+}
+[data-brand="nu"] .application-note h3 {
+  font-family: 'Spectral', serif; font-weight: 300; font-size: 30px;
+  letter-spacing: -0.018em; text-transform: none; color: #FFFFFF;
+  margin-bottom: 14px;
+}
+[data-brand="nu"] .application-note h3::after {
+  content: ''; display: block; width: 32px; height: 2px;
+  background: rgb(200, 16, 46); margin-top: 10px;
+}
+[data-brand="nu"] .application-note p { font-family: 'Roboto', sans-serif; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+[data-brand="nu"] .application-note code {
+  font-family: 'Roboto Mono', monospace; background: rgba(200,16,46,0.16);
+  color: rgb(252, 202, 210); padding: 2px 8px; border-radius: 4px;
+}
+[data-brand="nu"] .application-note .hashtag { color: rgb(200, 16, 46); font-family: 'Roboto Mono', monospace; }
+
+/* Footer */
+[data-brand="nu"] .footer { font-family: 'Roboto Mono', monospace; color: rgb(148, 163, 184); }
+[data-brand="nu"] .footer a { color: rgb(200, 16, 46); }
+[data-brand="nu"] .footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="crumbs">
+      <a href="/hic-workspace/wiki/inspiration-hub/">Inspiration Hub</a>
+      <span class="sep">/</span>
+      <span>ai-chatbot</span>
+      <span class="sep">/</span>
+      <span>Niva</span>
+    </div>
+    <div class="brand-toggle" role="tablist" aria-label="Brand">
+      <button data-brand-pick="nxt" class="active">NXT</button>
+      <button data-brand-pick="nu">NU</button>
+    </div>
+    <div class="brand-mark">
+      <span class="nu-n-tile" aria-label="Northeastern N">
+        <svg viewBox="28 22 155 135" xmlns="http://www.w3.org/2000/svg"><path d="M172.5 63.3c0-19.6 6.6-26 19.8-31V29h-43.2v3.2c13.2 5 19.8 11.4 19.8 31v57.5L77.4 33.4c-4.2-3.9-5.3-4.3-8-4.3H35v3.2c7.6.8 12.1 2.9 23 13.5l4.2 4v65.6c0 19.6-6.6 26-19.8 31v3.2h43.2v-3.2c-13.2-5-19.8-11.4-19.8-31V52.8l103.5 97.5h3.2v-87z"/></svg>
+      </span>
+      <span class="wordmark"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img class="hero-img" src="https://mir-s3-cdn-cf.behance.net/projects/404/a8096c241915081.Y3JvcCw1Mzc5LDQyMDgsMCww.png" alt="Niva — AI Family Assistant source">
+    <div class="hero-img-meta">
+      <span>Multiple Owners · 2,750 likes · 45,168 views</span>
+      <a href="https://www.behance.net/gallery/241915081/Niva-AI-family-assistant" target="_blank" rel="noopener noreferrer">View source →</a>
+    </div>
+  </div>
+  <div>
+    <div class="hero-meta-label">PATTERN TRANSLATION · BEHANCE EXEMPLAR</div>
+    <h1 class="hero-title">NIVA — AI FAMILY ASSISTANT</h1>
+    <p class="hero-sub">Conversational assistant for households. Solves four problems that recur in every HiC prototype brief: multi-identity context, gentle reasoning surfaces, schedule-as-object, and assistant-as-presence. The interaction primitives are the lesson — any prototype that negotiates across multiple users with confident reasoning should study Niva's information architecture.</p>
+    <div class="hero-strip">
+      <span class="chip primary">ai-chatbot</span>
+      <span class="chip">ai</span>
+      <span class="chip">mobile-ui</span>
+      <span class="chip">profile</span>
+      <span class="chip">persona</span>
+      <span class="chip">voice-chat</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRIMITIVES ─── -->
+<section class="section">
+  <div class="section-label">INTERACTION PRIMITIVES — WHAT TO STEAL</div>
+  <h2 class="section-title">Six reusable patterns</h2>
+  <div class="primitives">
+    <div class="primitive"><div class="pk">PRIMITIVE 01</div>Assistant orb / pulse-state avatar</div>
+    <div class="primitive"><div class="pk">PRIMITIVE 02</div>Multi-member identity strip</div>
+    <div class="primitive"><div class="pk">PRIMITIVE 03</div>Card-based reasoning reveal</div>
+    <div class="primitive"><div class="pk">PRIMITIVE 04</div>Inline schedule object</div>
+    <div class="primitive"><div class="pk">PRIMITIVE 05</div>Quick-reply prompt pills</div>
+    <div class="primitive"><div class="pk">PRIMITIVE 06</div>Confidence-tinted CTA</div>
+  </div>
+</section>
+
+<!-- ─── FRAMINGS ─── -->
+<section class="section">
+  <div class="section-label">VERBALIZED SAMPLING · CLAUDE OPUS 4.7 · K=5 CANDIDATES</div>
+  <h2 class="section-title" id="framingsHeader">How #NXT extends this pattern</h2>
+
+  <div class="framings-grid">
+
+    <!-- α TYPOGRAPHY -->
+    <div class="framing">
+      <div class="framing-head">
+        <div class="framing-label">
+          <span class="framing-letter">α</span>
+          <span class="framing-name">TYPOGRAPHY-LED</span>
+          <span class="framing-p">p = 0.32</span>
+        </div>
+        <p class="framing-desc">Replace soft humanist sans with Bebas Neue ALL-CAPS action labels, Archivo body, JetBrains Mono for assistant data. The orb stays; the label below it goes from sentence case to a tight 12px tracking-4px subhead. Visual density doubles via type hierarchy alone.</p>
+      </div>
+      <div class="mockup">
+        <div class="mockup-frame mock-alpha">
+          <div class="header-strip">CHECK SCHEDULE</div>
+          <div class="assistant-row">
+            <div class="orb-mini"></div>
+            <div>
+              <div class="action-label">FAMILY ROUTINE</div>
+              <div class="assistant-sub">3 EVENTS · 2 ATTENDEES</div>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">08:15</div>
+            <div class="schedule-text">School drop-off · Kira</div>
+            <div class="schedule-attr">DAD · CONFIRMED</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">14:30</div>
+            <div class="schedule-text">Vet appointment · Pepper</div>
+            <div class="schedule-attr">MOM · UNCONFIRMED</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">19:00</div>
+            <div class="schedule-text">Soccer practice pickup</div>
+            <div class="schedule-attr">CONFLICT · 2 OPTIONS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- β MOTION -->
+    <div class="framing">
+      <div class="framing-head">
+        <div class="framing-label">
+          <span class="framing-letter">β</span>
+          <span class="framing-name">MOTION-LED</span>
+          <span class="framing-p">p = 0.24</span>
+        </div>
+        <p class="framing-desc">Keep the breathing orb but halve its amplitude. No chromatic gradient — pulses between black and near-black with a 1px chartreuse ring on listen. Responses cascade in via 80ms stagger. Spinners are banned, replaced by a thin progress line on the active card.</p>
+      </div>
+      <div class="mockup" style="background: var(--b-bg);">
+        <div class="mock-beta">
+          <div class="listen-state">
+            <div class="orb-pulse">
+              <div class="orb-ring"></div>
+              <div class="orb-ring-2"></div>
+            </div>
+            <div class="listen-label">LISTENING</div>
+          </div>
+          <div class="cursor-line">
+            <div class="stream-text">checking Mom's calendar<span class="blink"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- γ DENSITY -->
+    <div class="framing">
+      <div class="framing-head">
+        <div class="framing-label">
+          <span class="framing-letter">γ</span>
+          <span class="framing-name">DENSITY-LED</span>
+          <span class="framing-p">p = 0.18</span>
+        </div>
+        <p class="framing-desc">Drop card radius to 2px. Cut padding by 40%. Pack three context cards into the screen Niva uses for one. Family member names become JetBrains Mono 11px labels, never heroes. The orb shrinks to 12×12px and behaves like a status indicator — front-page-of-the-FT rhythm.</p>
+      </div>
+      <div class="mockup">
+        <div class="mockup-frame mock-gamma">
+          <div class="top-strip">
+            <div class="orb-tiny"></div>
+            <div class="right">3 EVENTS · MON</div>
+          </div>
+          <div class="dense-row">
+            <div class="dr-time">08:15</div>
+            <div>
+              <div class="dr-text"><strong>Kira</strong> school drop · Lincoln Elem</div>
+              <div class="dr-attr">DAD</div>
+            </div>
+            <div class="dr-status"></div>
+          </div>
+          <div class="dense-row">
+            <div class="dr-time">10:00</div>
+            <div>
+              <div class="dr-text"><strong>Mom</strong> client review · Zoom</div>
+              <div class="dr-attr">SOLO</div>
+            </div>
+            <div class="dr-status"></div>
+          </div>
+          <div class="dense-row">
+            <div class="dr-time">14:30</div>
+            <div>
+              <div class="dr-text"><strong>Pepper</strong> vet visit · Sumner Animal</div>
+              <div class="dr-attr">MOM · UNCONF</div>
+            </div>
+            <div class="dr-status warn"></div>
+          </div>
+          <div class="dense-row">
+            <div class="dr-time">19:00</div>
+            <div>
+              <div class="dr-text"><strong>Kira</strong> soccer pickup · Field 4</div>
+              <div class="dr-attr">CONFLICT</div>
+            </div>
+            <div class="dr-status warn"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- δ COLOR-RESTRAINT -->
+    <div class="framing">
+      <div class="framing-head">
+        <div class="framing-label">
+          <span class="framing-letter">δ</span>
+          <span class="framing-name">COLOR-RESTRAINT</span>
+          <span class="framing-p">p = 0.16</span>
+        </div>
+        <p class="framing-desc">95% achromatic plus one accent. Accent appears ONLY on the active assistant state, rust ONLY on conflicts, teal as family identity color. No warm pastels. The intelligence becomes the visual centerpiece — chrome cannot carry weight it shouldn't be carrying.</p>
+      </div>
+      <div class="mockup">
+        <div class="mockup-frame mock-delta">
+          <div class="delta-card active">
+            <div class="dc-title">Soccer pickup at 19:00</div>
+            <div class="dc-meta">ACTIVE · 14 MIN</div>
+            <div class="dc-body">Kira's coach asked to push start to 19:15 due to field maintenance.</div>
+            <div class="dc-tag">DAD ROUTE</div>
+          </div>
+          <div class="delta-card conflict">
+            <div class="dc-title">Two events overlap at 14:30</div>
+            <div class="dc-meta">REQUIRES DECISION</div>
+            <div class="dc-body">Vet visit (Mom) ↔ HOA call (Dad). Suggest delegating HOA to async.</div>
+            <span class="dc-tag conflict">CONFLICT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ε RADICAL -->
+    <div class="framing">
+      <div class="framing-head">
+        <div class="framing-label">
+          <span class="framing-letter">ε</span>
+          <span class="framing-name">RADICAL · TERMINAL</span>
+          <span class="framing-p">p = 0.10</span>
+        </div>
+        <p class="framing-desc">Subvert the orb metaphor entirely. No avatar, no chrome, no name. The assistant is JetBrains Mono on black with a single chartreuse cursor. Family members appear as inline footnotes beneath relevant lines, not as side panels. Warmth comes from clever copy and verbal restraint — not from soft shapes.</p>
+      </div>
+      <div class="mockup">
+        <div class="mock-epsilon">
+          <div class="term-line"><span class="prompt">›</span> family calendar — monday</div>
+          <div class="term-line">  08:15 kira school drop</div>
+          <div class="term-line footnote">dad confirmed last night</div>
+          <div class="term-line">  10:00 mom client review</div>
+          <div class="term-line">  14:30 vet appt (pepper)</div>
+          <div class="term-line footnote">mom unconfirmed — i pinged her</div>
+          <div class="term-line">  19:00 soccer pickup</div>
+          <div class="term-line footnote">conflicts with hoa call — resolve?</div>
+          <div class="term-line"><span class="prompt">›</span> <span class="dim">waiting</span><span class="term-cursor"></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── APPLICATION NOTE ─── -->
+<section class="section">
+  <div class="application-note">
+    <h3>How to call this exemplar from a brief</h3>
+    <p>When a prototype brief includes <code>interaction_pattern: "multi-identity-reasoning"</code> or <code>"household-coordination"</code> or <code>"schedule-negotiation"</code>, the AI Designer auto-pulls this page and selects one framing based on the user's hashtag.</p>
+    <p><span class="hashtag">#NXT-radical</span> → load framing ε (terminal). <span class="hashtag">#NXT-convention</span> → load α or δ. <span class="hashtag">#NU-institutional</span> → swap to NU brand (toggle above) and load NU α. The chosen framing is injected into the Stage 4 Prototype Coder system prompt as a STUDY-THIS reference.</p>
+    <p>Retrieval contract: <code>brief.visual_direction.exemplar_refs</code> cites this page by <code>exemplar_id: behance-241915081 / framing: ε</code> with a one-sentence rationale.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>Source · Behance public listing · fetched 2026-05-14 · Pattern translation authored 2026-05-14</div>
+  <div><a href="/hic-workspace/wiki/inspiration-hub/">← Back to Inspiration Hub</a></div>
+</footer>
+
+<script>
+(() => {
+  function setBrand(b) {
+    document.documentElement.setAttribute('data-brand', b);
+    document.querySelectorAll('[data-brand-pick]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-brand-pick') === b);
+    });
+    const header = document.getElementById('framingsHeader');
+    if (header) header.textContent = b === 'nu' ? 'How #NU extends this pattern' : 'How #NXT extends this pattern';
+    try { localStorage.setItem('inspiration-hub-brand', b); } catch {}
+  }
+  document.querySelectorAll('[data-brand-pick]').forEach(el => {
+    el.addEventListener('click', () => setBrand(el.getAttribute('data-brand-pick')));
+  });
+  try {
+    const saved = localStorage.getItem('inspiration-hub-brand');
+    if (saved === 'nu' || saved === 'nxt') setBrand(saved);
+  } catch {}
+})();
+</script>
+
+</body>
+</html>

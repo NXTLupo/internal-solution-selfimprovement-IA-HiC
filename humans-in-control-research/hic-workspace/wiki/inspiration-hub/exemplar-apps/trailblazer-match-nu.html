@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!-- PATTERN MANIFEST: p-pers, p-rec, p-dial, p-trail, p-hitl, p-chat, p-trans
+     Exemplar prototype composed strictly from the AI Experience Patterns
+     catalog (/hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json).
+     Brand: NU (Northeastern University). Hashtag: #proto trailblazer-match #NU.
+     Concept: surfaced via verbalized sampling at p=0.04 from the alumni-
+     matching candidate distribution — peer-to-peer mentorship networking,
+     inverted from the consensus "employer document drafter" set. -->
+<html lang="en" data-brand="nu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trailblazer Match — exemplar (NU)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+[data-brand="nu"] {
+  --b-name: "NORTHEASTERN UNIVERSITY";
+  --b-canvas: rgb(248, 250, 252);
+  --b-paper:  rgb(241, 245, 249);
+  --b-panel:  #FFFFFF;
+  --b-ink-strong: rgb(11, 19, 38);
+  --b-ink: rgb(20, 29, 48);
+  --b-near-black: rgb(26, 35, 51);
+  --b-accent: rgb(200, 16, 46);
+  --b-accent-2: rgb(20, 29, 48);
+  --b-accent-3: rgb(170, 29, 37);
+  --b-warn: rgb(216, 19, 45);
+  --b-success: rgb(56, 161, 105);
+  --b-heading: rgb(11, 19, 38);
+  --b-body: rgb(20, 29, 48);
+  --b-secondary: rgb(100, 116, 139);
+  --b-muted: rgb(148, 163, 184);
+  --b-rule: rgb(203, 213, 225);
+  --b-rule-soft: rgb(226, 232, 240);
+  --b-display: 'Spectral', 'Source Serif Pro', Georgia, serif;
+  --b-body-font: 'Roboto', system-ui, sans-serif;
+  --b-mono-font: 'Roboto Mono', ui-monospace, monospace;
+  --b-radius: 4px;
+  --b-radius-card: 8px;
+  --b-radius-pill: 999px;
+  --b-shadow: 0 1px 2px rgba(11,19,38,0.04);
+  --b-shadow-md: 0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04);
+  --b-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--b-canvas); color: var(--b-body); font-family: var(--b-body-font); -webkit-font-smoothing: antialiased; }
+body { padding-bottom: 80px; min-height: 100vh; }
+
+/* ─── App chrome (institutional NU header) ─── */
+.appbar { background: var(--b-ink-strong); color: #fff; padding: 14px 28px; display: flex; align-items: center; gap: 16px; border-bottom: 2px solid var(--b-accent); position: sticky; top: 0; z-index: 50; }
+.appbar-inner { max-width: 1500px; margin: 0 auto; display: flex; align-items: center; gap: 24px; width: 100%; }
+.nu-n-tile { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--b-accent); border-radius: 4px; flex-shrink: 0; }
+.nu-n-tile svg { width: 22px; height: 22px; display: block; }
+.nu-n-tile svg path { fill: #ffffff; }
+.appbar h1 { font-family: 'Spectral', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.005em; }
+.appbar h1 .sub { color: rgba(255,255,255,0.55); font-style: italic; font-weight: 400; font-size: 16px; margin-left: 8px; }
+.appbar nav { margin-left: auto; display: flex; gap: 4px; align-items: center; }
+.appbar nav a { padding: 7px 14px; color: rgba(255,255,255,0.7); text-decoration: none; font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: lowercase; border-radius: 999px; }
+.appbar nav a.active { background: var(--b-accent); color: #fff; }
+.appbar nav a:hover:not(.active) { color: #fff; }
+.appbar .me { width: 32px; height: 32px; border-radius: 50%; margin-left: 12px; border: 2px solid var(--b-accent); overflow: hidden; }
+.appbar .me img { width: 100%; height: 100%; display: block; }
+/* Dicebear headshots replace initial-only avatars for realism */
+.p-pers .pav, .p-trans .ts { overflow: hidden; padding: 0; }
+.p-pers .pav img, .p-trans .ts img { width: 100%; height: 100%; display: block; border-radius: 50%; }
+
+/* ─── Page layout ─── */
+.page { max-width: 1500px; margin: 0 auto; padding: 28px; display: grid; grid-template-columns: 340px 1fr; gap: 28px; }
+.page-hero { grid-column: 1 / -1; padding-bottom: 18px; border-bottom: 1px solid var(--b-rule); }
+.page-eyebrow { font-family: 'Spectral', serif; font-style: italic; font-size: 13px; color: var(--b-secondary); margin-bottom: 6px; }
+.page-title { font-family: 'Spectral', serif; font-weight: 300; font-size: 56px; line-height: 0.98; letter-spacing: -0.022em; color: var(--b-heading); }
+.page-title .accent { color: var(--b-accent); font-style: italic; }
+.page-sub { font-size: 14px; line-height: 1.65; color: var(--b-body); max-width: 60ch; margin-top: 14px; }
+
+/* ─── Inline pattern stubs (mini versions of catalog patterns) ─── */
+/* p-pers — persona switcher */
+.p-pers { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); overflow: hidden; }
+.p-pers .ph { padding: 12px 18px 8px; font-family: 'Spectral', serif; font-style: italic; font-size: 12px; color: var(--b-secondary); }
+.p-pers .pr { display: grid; grid-template-columns: 32px 1fr auto; gap: 12px; align-items: center; padding: 10px 18px; border-top: 1px solid var(--b-rule-soft); cursor: pointer; }
+.p-pers .pr.active { background: rgb(241, 245, 249); border-left: 3px solid var(--b-accent); padding-left: 15px; }
+.p-pers .pav { width: 28px; height: 28px; border-radius: 50%; background: var(--b-accent-2); display: flex; align-items: center; justify-content: center; font-family: 'Roboto Mono', monospace; font-size: 11px; font-weight: 700; color: #fff; }
+.p-pers .pr.active .pav { background: var(--b-accent); }
+.p-pers .pname { font-family: 'Spectral', serif; font-weight: 500; font-size: 14px; color: var(--b-ink); }
+.p-pers .prl { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--b-secondary); letter-spacing: 0.5px; text-transform: uppercase; }
+.p-pers .pck { font-family: 'Roboto Mono', monospace; font-size: 12px; color: var(--b-accent); font-weight: 700; }
+
+/* p-trail — agent reasoning */
+.p-trail { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); padding: 18px 20px; }
+.p-trail .trail-head { font-family: 'Spectral', serif; font-style: italic; font-size: 12px; color: var(--b-secondary); margin-bottom: 14px; display: flex; justify-content: space-between; }
+.p-trail .step { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--b-rule-soft); }
+.p-trail .step:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.p-trail .step-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--b-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 700; }
+.p-trail .step-dot.queued { background: var(--b-panel); border: 2px solid var(--b-rule); color: var(--b-muted); }
+.p-trail .step-label { font-family: 'Spectral', serif; font-weight: 500; font-size: 14px; color: var(--b-ink); }
+.p-trail .step-meta { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--b-muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+.p-trail .step-tool { display: inline-block; padding: 1px 5px; background: rgb(241, 245, 249); color: var(--b-accent); font-family: 'Roboto Mono', monospace; font-size: 9px; border-radius: 999px; margin-right: 5px; font-weight: 600; }
+
+/* p-rec — confidence-scored recommendation */
+.p-rec { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); padding: 20px; position: relative; }
+.p-rec::before { content:''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--b-accent); }
+.p-rec .rec-head { display: flex; justify-content: space-between; align-items: start; gap: 10px; margin-bottom: 12px; }
+.p-rec .rec-title { font-family: 'Spectral', serif; font-weight: 500; font-size: 18px; color: var(--b-heading); line-height: 1.3; letter-spacing: -0.005em; }
+.p-rec .conf { font-family: 'Roboto Mono', monospace; font-size: 11px; padding: 3px 9px; background: var(--b-accent); color: #fff; border-radius: 999px; letter-spacing: 0.5px; flex-shrink: 0; font-weight: 700; }
+.p-rec .rec-body { font-size: 13px; color: var(--b-body); line-height: 1.6; margin-bottom: 14px; }
+.p-rec .why { padding: 12px 14px; background: rgb(241, 245, 249); border-left: 2px solid var(--b-accent); margin-bottom: 14px; border-radius: 0 4px 4px 0; }
+.p-rec .why-label { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.p-rec .why-text { font-size: 12px; color: var(--b-secondary); line-height: 1.55; }
+.p-rec .rec-actions { display: flex; gap: 8px; }
+.p-rec .accept { flex: 1; padding: 10px; background: var(--b-accent); color: #fff; border: 0; cursor: pointer; font-family: 'Roboto', sans-serif; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; border-radius: 999px; }
+.p-rec .reject { padding: 10px 16px; background: transparent; color: var(--b-secondary); border: 1px solid var(--b-rule); cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.5px; border-radius: 999px; }
+
+/* p-dial — confidence */
+.p-dial { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); padding: 20px; display: flex; align-items: center; gap: 20px; }
+.p-dial .dial-wrap { position: relative; width: 88px; height: 88px; flex-shrink: 0; }
+.p-dial .dial-bg { fill: none; stroke: var(--b-rule); stroke-width: 8; }
+.p-dial .dial-fg { fill: none; stroke: var(--b-accent); stroke-width: 8; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; }
+.p-dial .dial-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-weight: 300; font-size: 24px; color: var(--b-ink); }
+.p-dial .dial-label { font-family: 'Spectral', serif; font-style: italic; font-size: 12px; color: var(--b-secondary); margin-bottom: 4px; }
+.p-dial .dial-headline { font-family: 'Spectral', serif; font-weight: 500; font-size: 15px; color: var(--b-ink); line-height: 1.3; margin-bottom: 6px; }
+.p-dial .dial-detail { font-size: 11px; color: var(--b-secondary); line-height: 1.5; }
+
+/* p-hitl — human-in-loop gate */
+.p-hitl { background: var(--b-panel); border: 1px solid var(--b-rule); border-top: 4px solid var(--b-accent); border-radius: 0 0 var(--b-radius-card) var(--b-radius-card); overflow: hidden; }
+.p-hitl .hh { padding: 14px 18px 8px; }
+.p-hitl .he { color: var(--b-accent); font-family: 'Spectral', serif; font-style: italic; font-size: 12px; letter-spacing: 0.02em; text-transform: lowercase; margin-bottom: 4px; }
+.p-hitl .ht { font-family: 'Spectral', serif; font-weight: 500; font-size: 16px; color: var(--b-ink); line-height: 1.3; }
+.p-hitl .hb { padding: 4px 18px 14px; font-size: 12px; line-height: 1.6; color: var(--b-secondary); }
+.p-hitl .hrv { padding: 12px 14px; background: rgb(241, 245, 249); margin: 0 18px 14px; border-left: 2px solid var(--b-accent); font-size: 12px; color: var(--b-ink); line-height: 1.55; border-radius: 0 4px 4px 0; }
+.p-hitl .ha { display: flex; border-top: 1px solid var(--b-rule); }
+.p-hitl .hac { flex: 1; padding: 10px; border: 0; cursor: pointer; font-family: 'Roboto', sans-serif; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+.p-hitl .happ { background: var(--b-accent); color: #fff; border-right: 1px solid var(--b-rule); }
+.p-hitl .hed { background: var(--b-panel); color: var(--b-ink); border-right: 1px solid var(--b-rule); }
+.p-hitl .hes { background: var(--b-panel); color: var(--b-warn); }
+
+/* p-chat — chat thread */
+.p-chat { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); overflow: hidden; }
+.p-chat .turn { padding: 14px 18px; border-bottom: 1px solid var(--b-rule-soft); }
+.p-chat .turn:last-child { border-bottom: 0; }
+.p-chat .turn.user { background: rgb(241, 245, 249); }
+.p-chat .role { font-family: 'Spectral', serif; font-style: italic; font-size: 11px; color: var(--b-secondary); margin-bottom: 6px; }
+.p-chat .msg { font-size: 13px; color: var(--b-ink); line-height: 1.6; }
+.p-chat .cite { display: inline-block; font-family: 'Roboto Mono', monospace; font-size: 9px; padding: 1px 5px; background: var(--b-accent); color: #fff; border-radius: 999px; margin: 0 1px; font-weight: 500; }
+
+/* p-trans — transcript */
+.p-trans { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); overflow: hidden; }
+.p-trans .th { padding: 12px 18px; border-bottom: 1px solid var(--b-rule); display: flex; justify-content: space-between; align-items: center; }
+.p-trans .tt { font-family: 'Spectral', serif; font-style: italic; font-size: 14px; color: var(--b-ink); }
+.p-trans .tm { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--b-secondary); }
+.p-trans .tu { padding: 11px 18px; border-bottom: 1px solid var(--b-rule-soft); display: grid; grid-template-columns: 28px 1fr; gap: 10px; }
+.p-trans .tu:last-of-type { border-bottom: 0; }
+.p-trans .ts { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; color: #fff; }
+.p-trans .ts.s1 { background: var(--b-accent); }
+.p-trans .ts.s2 { background: var(--b-accent-2); }
+.p-trans .tco { display: flex; flex-direction: column; gap: 3px; }
+.p-trans .tn { font-family: 'Spectral', serif; font-style: italic; font-size: 11px; color: var(--b-secondary); display: flex; gap: 8px; }
+.p-trans .tstamp { color: var(--b-muted); font-family: 'Roboto Mono', monospace; }
+.p-trans .tq { font-size: 12px; line-height: 1.55; color: var(--b-ink); }
+
+/* ─── Section anchors ─── */
+.section-anchor { grid-column: 1 / -1; margin-top: 32px; padding-bottom: 10px; border-bottom: 1px solid var(--b-rule); }
+.section-anchor h2 { font-family: 'Spectral', serif; font-weight: 400; font-size: 26px; letter-spacing: -0.018em; color: var(--b-heading); }
+.section-anchor h2::after { content: ''; display: block; width: 32px; height: 2px; background: var(--b-accent); margin-top: 10px; }
+.section-anchor p { font-size: 13px; color: var(--b-secondary); margin-top: 8px; max-width: 70ch; }
+
+.col { grid-column: span 1; display: flex; flex-direction: column; gap: 18px; }
+.col-wide { grid-column: span 1; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 980px) { .page { grid-template-columns: 1fr; } }
+
+.exemplar-footer { max-width: 1500px; margin: 60px auto 0; padding: 24px 28px; border-top: 1px solid var(--b-rule); font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--b-muted); display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+.exemplar-footer a { color: var(--b-accent); text-decoration: none; }
+.exemplar-footer a:hover { text-decoration: underline; }
+.manifest-pill { font-family: 'Roboto Mono', monospace; font-size: 10px; padding: 4px 10px; background: var(--b-paper); color: var(--b-secondary); border-radius: 999px; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="appbar-inner">
+    <div class="nu-n-tile" aria-label="Northeastern N">
+      <svg viewBox="28 22 155 135" xmlns="http://www.w3.org/2000/svg"><path d="M172.5 63.3c0-19.6 6.6-26 19.8-31V29h-43.2v3.2c13.2 5 19.8 11.4 19.8 31v57.5L77.4 33.4c-4.2-3.9-5.3-4.3-8-4.3H35v3.2c7.6.8 12.1 2.9 23 13.5l4.2 4v65.6c0 19.6-6.6 26-19.8 31v3.2h43.2v-3.2c-13.2-5-19.8-11.4-19.8-31V52.8l103.5 97.5h3.2v-87z"/></svg>
+    </div>
+    <h1>Trailblazer Match<span class="sub">Khoury Cohort 2028 · alumni mentorship</span></h1>
+    <nav>
+      <a href="#" class="active">Matches</a>
+      <a href="#">Profile</a>
+      <a href="#">Saved</a>
+      <a href="#">Settings</a>
+    </nav>
+    <div class="me" title="You — Priya Ramanathan"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Priya%20Ramanathan&backgroundColor=ffd5dc" alt="Priya Ramanathan"></div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="page-hero">
+    <div class="page-eyebrow">Cohort 2028 · Khoury · first-year strategy</div>
+    <h1 class="page-title">Find an alum who's <span class="accent">walked your path</span>.</h1>
+    <p class="page-sub">Three Northeastern alumni were matched to your trajectory by an AI advisor that compared your declared-major confidence, co-op preferences, and first-gen context against 3,148 alumni careers. The matches are ranked, the reasoning is shown, and the advisor staffs the introduction.</p>
+  </section>
+
+  <!-- pattern: p-pers (left rail — context switching) -->
+  <div class="col">
+    <article class="p-pers">
+      <div class="ph">Working as · pick one</div>
+      <div class="pr active"><div class="pav"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Priya%20Ramanathan&backgroundColor=ffd5dc" alt="Priya Ramanathan"></div><div><div class="pname">Priya Ramanathan</div><div class="prl">Student · cohort 2028</div></div><span class="pck">✓</span></div>
+      <div class="pr"><div class="pav"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Sandra%20Park&backgroundColor=c0e5f7" alt="Dr. Sandra Park"></div><div><div class="pname">Dr. Sandra Park</div><div class="prl">Advisor · Khoury</div></div></div>
+      <div class="pr"><div class="pav"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Marcus%20Chen&backgroundColor=d8e2dc" alt="Marcus Chen"></div><div><div class="pname">Marcus Chen</div><div class="prl">Alum · '21 · Hubspot</div></div></div>
+    </article>
+
+    <!-- pattern: p-trail (reasoning trail — how the match was decided) -->
+    <article class="p-trail">
+      <div class="trail-head"><span>How this match was made</span><span>4 steps · 1.8s</span></div>
+      <div class="step">
+        <div class="step-dot">1</div>
+        <div>
+          <div class="step-label">Resolved cohort context</div>
+          <div class="step-meta"><span class="step-tool">retrieve</span>Khoury Class of 2028 · 412 students</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <div>
+          <div class="step-label">Embedded persona vector</div>
+          <div class="step-meta"><span class="step-tool">embed</span>switched-major likelihood + co-op pref + first-gen</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <div>
+          <div class="step-label">Searched alumni archive</div>
+          <div class="step-meta"><span class="step-tool">rank</span>3,148 alumni indexed · top 12 surfaced</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot queued">4</div>
+        <div>
+          <div class="step-label">Composing rationale</div>
+          <div class="step-meta">running...</div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- right column — primary surface -->
+  <div class="col-wide">
+
+    <!-- pattern: p-rec (top match) -->
+    <article class="p-rec">
+      <div class="rec-head">
+        <div class="rec-title">Pair with Marcus Chen as your primary co-op mentor</div>
+        <div class="conf">87% match</div>
+      </div>
+      <div class="rec-body">Marcus switched from undeclared to Khoury in fall 2018 with a similar academic trajectory and now leads developer relations at Hubspot. He's confirmed availability through the alumni network and has mentored four prior Khoury students.</div>
+      <div class="why">
+        <div class="why-label">Why this match</div>
+        <div class="why-text">14 alumni trajectories share Priya's switched-major path. Marcus has the strongest "near-peer" affinity score (recent grad, similar first-gen context) and his fall-semester GPA trajectory tracks within 0.2 of Priya's projection.</div>
+      </div>
+      <div class="rec-actions"><button class="accept">Accept &amp; introduce</button><button class="reject">Show 2 alternatives</button></div>
+    </article>
+
+    <!-- pattern: p-dial (confidence summary) -->
+    <article class="p-dial">
+      <div class="dial-wrap">
+        <svg width="88" height="88" viewBox="0 0 88 88"><circle class="dial-bg" cx="44" cy="44" r="36"/><circle class="dial-fg" cx="44" cy="44" r="36" stroke-dasharray="226" stroke-dashoffset="29"/></svg>
+        <div class="dial-pct">87%</div>
+      </div>
+      <div>
+        <div class="dial-label">Match confidence</div>
+        <div class="dial-headline">Strong alignment on switched-major path</div>
+        <div class="dial-detail">Anchored by 14 alumni who switched from Business to Khoury between 2018–2022 with measurably similar fall-semester GPA trajectories. Confidence floor for an introduction is 0.75.</div>
+      </div>
+    </article>
+
+    <!-- pattern: p-hitl (advisor approval before reaching out) -->
+    <article class="p-hitl">
+      <div class="hh">
+        <div class="he">Advisor approval needed · before send</div>
+        <div class="ht">Outbound introduction to Marcus Chen</div>
+      </div>
+      <div class="hb">The AI advisor drafted the introduction email and is waiting for Dr. Park's approval before delivering it to Marcus. You can review the draft below, edit inline, or escalate.</div>
+      <div class="hrv">Hi Marcus — Priya Ramanathan (CS '28) was matched to you based on a shared switched-major trajectory and first-gen context. She's open to a 30-min coffee within two weeks. Can I introduce you Thursday after class?</div>
+      <div class="ha"><button class="hac happ">Approve &amp; send</button><button class="hac hed">Edit draft</button><button class="hac hes">Escalate</button></div>
+    </article>
+
+  </div>
+
+  <!-- Below the fold — conversation with the advisor -->
+  <div class="section-anchor">
+    <h2>Talk to your advisor about this match</h2>
+    <p>Ask the AI advisor follow-up questions about why Marcus ranked higher than the alternates, what to prepare for the first meeting, or what to do if you'd rather meet someone in a different industry.</p>
+  </div>
+
+  <!-- pattern: p-chat (advisor conversation) -->
+  <div class="col-wide" style="grid-column: 1 / -1;">
+    <article class="p-chat">
+      <div class="turn user">
+        <div class="role">Priya · 14:22</div>
+        <div class="msg">Why was Marcus ranked higher than Theo? Theo's at Stripe and I really want fintech experience.</div>
+      </div>
+      <div class="turn">
+        <div class="role">Husky Compass · advisor</div>
+        <div class="msg">Theo (0.74) scored well on industry-target fit but lower on the near-peer dimension — he graduated in 2014 and led a much earlier trajectory through Wharton before pivoting. Marcus (0.87) is closer to your switched-major pattern <span class="cite">23 alumni</span> and is within five years of graduation, which our cohort data shows predicts higher mentoring engagement <span class="cite">EAB·24</span>. You can pair with both — many first-year matches do.</div>
+      </div>
+      <div class="turn user">
+        <div class="role">Priya · 14:24</div>
+        <div class="msg">What should I prepare for the first conversation?</div>
+      </div>
+      <div class="turn">
+        <div class="role">Husky Compass · advisor</div>
+        <div class="msg">Three things: (1) name the one decision you're stuck on, (2) bring your fall schedule so he can map his to yours, (3) prepare ONE question about co-op timing. Marcus has said in prior sessions that he prefers concrete decisions over open-ended chat <span class="cite">M.Chen feedback log</span>.</div>
+      </div>
+    </article>
+
+    <!-- pattern: p-trans (recorded prior mentor session for context) -->
+    <article class="p-trans">
+      <div class="th"><div class="tt">Marcus's prior session with another mentee</div><div class="tm">replay · 12 min · annotated</div></div>
+      <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Mentee%20A&backgroundColor=fbe5d6" alt="Mentee"></div><div class="tco"><div class="tn"><span>Mentee</span><span class="tstamp">00:21</span></div><div class="tq">I'm thinking about switching from CS to Data Science. Did the timing matter for you?</div></div></div>
+      <div class="tu"><div class="ts s2"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Marcus%20Chen&backgroundColor=d8e2dc" alt="Marcus Chen"></div><div class="tco"><div class="tn"><span>Marcus</span><span class="tstamp">00:38</span></div><div class="tq">Honestly it cost me one semester, but it saved my GPA. I'd do it again in week three.</div></div></div>
+      <div class="tu"><div class="ts s2"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Marcus%20Chen&backgroundColor=d8e2dc" alt="Marcus Chen"></div><div class="tco"><div class="tn"><span>Marcus</span><span class="tstamp">02:14</span></div><div class="tq">The thing nobody told me — Khoury advisors will fight for you if you ask directly. The cost of not asking is way bigger than the cost of asking.</div></div></div>
+    </article>
+  </div>
+
+</main>
+
+<footer class="exemplar-footer">
+  <div>
+    <strong style="color:var(--b-accent);">EXEMPLAR APP · #proto trailblazer-match #NU</strong><br>
+    Composed from 7 patterns in the catalog · zero invented UI · uniform NU brand tokens
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;">
+    <span class="manifest-pill">p-pers</span>
+    <span class="manifest-pill">p-trail</span>
+    <span class="manifest-pill">p-rec</span>
+    <span class="manifest-pill">p-dial</span>
+    <span class="manifest-pill">p-hitl</span>
+    <span class="manifest-pill">p-chat</span>
+    <span class="manifest-pill">p-trans</span>
+  </div>
+  <div>
+    <a href="/hic-workspace/wiki/inspiration-hub/ai-patterns/">↗ See full pattern catalog (56)</a>
+  </div>
+</footer>
+
+</body>
+</html>

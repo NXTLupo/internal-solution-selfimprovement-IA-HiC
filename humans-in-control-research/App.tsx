@@ -2684,6 +2684,21 @@ const App = () => {
                         catch (e) { console.warn(`[Cache resynth] persist ${kind} failed (non-fatal):`, e); }
                     };
 
+                    // 2026-05-14 — Honest failure when there's NOTHING to work
+                    // with. The previous behavior was to silently mark the
+                    // overlay as 'complete' even when corpus was 0 chars and no
+                    // deliverables hydrated. That looked like success but was
+                    // actually a no-op. Now we surface the actual state.
+                    if (collectedDataFiles.length === 0 && hydratedKinds.size === 0) {
+                        const reason = `No cached content found for the selected engagement.\n\nThe engagement's briefs are saved, but its source corpus + deliverables were archived under naming conventions this version can't auto-resolve, and no theme clusters / source archives / subreddits were selected separately.\n\nWhat to do:\n  • Start a fresh research run on this goal (cached briefs will still persist)\n  • OR open the chat panel and use #proto to iterate on the cached briefs directly\n  • OR pick theme clusters / source archives / subreddits explicitly in the Knowledge Library`;
+                        console.warn('[startAnalysis] Cached synthesis no-op:', reason);
+                        advanceCachedSynthStage('failed', reason);
+                        setCachedSynthError(reason);
+                        setIsCollectingData(false);
+                        setCollectionPhase('done' as any);
+                        setStatusMessage('Cached synthesis failed — no usable cached content for this selection.');
+                        return;
+                    }
                     if (collectedDataFiles.length > 0) {
                         // Ingest the cached corpus into the GenAISession BEFORE
                         // running the synthesis chain. Without this, the session's

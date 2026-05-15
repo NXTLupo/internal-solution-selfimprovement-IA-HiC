@@ -28,7 +28,7 @@ import { formatUSD } from '../services/costMeter';
  * applying a selection returns the user to the normal IDLE flow.
  */
 
-export type LibraryTabId = 'engagements' | 'themes' | 'sources' | 'social';
+export type LibraryTabId = 'engagements' | 'themes' | 'articles' | 'sources' | 'social';
 
 export interface LibrarySelection {
     /** Engagement slugs whose briefs/themes/deliverables to reuse. */
@@ -39,6 +39,11 @@ export interface LibrarySelection {
     sourceArchivePaths: string[];
     /** Subreddit slugs (no r/ prefix) to pull from cached reddit-deep instead of refetching. */
     socialSubreddits: string[];
+    /** 2026-05-14 — Article source folders (e.g. 'client-uploads', 'jina-reader',
+     *  'reddit-deep-r-neu') whose markdown bodies to fold into the corpus.
+     *  Covers the previously-invisible 1,388 cached articles, including all
+     *  RAG client-uploaded documents. */
+    articleSources: string[];
 }
 
 interface Props {
@@ -95,6 +100,7 @@ const emptySelection: LibrarySelection = {
     themeClusterIds: [],
     sourceArchivePaths: [],
     socialSubreddits: [],
+    articleSources: [],
 };
 
 export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, accentColor = NXT_CYAN, researchGoal = '' }) => {
@@ -123,7 +129,8 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
         selection.engagementSlugs.length +
         selection.themeClusterIds.length +
         selection.sourceArchivePaths.length +
-        selection.socialSubreddits.length;
+        selection.socialSubreddits.length +
+        selection.articleSources.length;
 
     // Rough cost-savings estimate based on selection.
     // Mirrors the pricing in wikiLibraryAggregator.estimateRegenerationCost.
@@ -173,6 +180,14 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
             socialSubreddits: prev.socialSubreddits.includes(sub)
                 ? prev.socialSubreddits.filter(s => s !== sub)
                 : [...prev.socialSubreddits, sub],
+        }));
+    }, []);
+    const toggleArticleSource = useCallback((source: string) => {
+        setSelection(prev => ({
+            ...prev,
+            articleSources: prev.articleSources.includes(source)
+                ? prev.articleSources.filter(s => s !== source)
+                : [...prev.articleSources, source],
         }));
     }, []);
 
@@ -240,6 +255,7 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
                         <>
                             {tab === 'engagements' && <EngagementsTab summary={summary} selection={selection} toggle={toggleEngagement} accentColor={accentColor} researchGoal={researchGoal} />}
                             {tab === 'themes' && <ThemesTab summary={summary} selection={selection} toggle={toggleTheme} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'articles' && <ArticlesTab summary={summary} selection={selection} toggle={toggleArticleSource} accentColor={accentColor} researchGoal={researchGoal} />}
                             {tab === 'sources' && <SourcesTab summary={summary} selection={selection} toggle={toggleSource} accentColor={accentColor} researchGoal={researchGoal} />}
                             {tab === 'social' && <SocialTab summary={summary} selection={selection} toggle={toggleSocial} accentColor={accentColor} researchGoal={researchGoal} />}
                         </>
@@ -300,6 +316,7 @@ const Header: React.FC<{ summary: WikiLibrarySummary | null; accentColor: string
 const TAB_DEFS: Array<{ id: LibraryTabId; label: string; countFn: (s: WikiLibrarySummary) => number }> = [
     { id: 'engagements', label: 'Engagements', countFn: s => s.engagements.length },
     { id: 'themes',      label: 'Themes',      countFn: s => s.themes.length },
+    { id: 'articles',    label: 'Articles',    countFn: s => s.articles.total_articles },
     { id: 'sources',     label: 'Sources',     countFn: s => s.sources.length },
     { id: 'social',      label: 'Social',      countFn: s => s.social.reduce((n, b) => n + b.post_count, 0) },
 ];
@@ -870,6 +887,77 @@ const SocialTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
                                 </div>
                                 <div style={{ fontSize: 9, color: '#888', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>
                                     posts deeply fetched with comment trees
+                                </div>
+                                {b.sample_titles.length > 0 && (
+                                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 11, color: '#525252', lineHeight: 1.4 }}>
+                                        {b.sample_titles.map((t, i) => (
+                                            <li key={i} style={{ marginBottom: 2 }}>{t}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </SelectableCard>
+                        );
+                    })}
+                </div>
+            )}
+        </div>
+    );
+};
+
+// 2026-05-14 — ArticlesTab. The 1,388 cached articles (jina-reader, RAG
+// client-uploads, deep-research pulls, YouTube transcripts, theme syntheses)
+// are now first-class browsable + selectable. Each source folder becomes a
+// bucket card the researcher can pick to fold its markdown bodies into the
+// next run's corpus.
+const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (source: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+    const [query, setQuery] = useState('');
+    const buckets = summary.articles.buckets || [];
+    const filtered = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        if (!q) return buckets;
+        return buckets.filter(b =>
+            b.source.toLowerCase().includes(q) ||
+            b.label.toLowerCase().includes(q) ||
+            b.sample_titles.some(t => t.toLowerCase().includes(q))
+        );
+    }, [buckets, query]);
+    if (buckets.length === 0) {
+        return <EmptyState message="No cached articles yet — they accumulate as you run research, ingest sources, or upload RAG documents." />;
+    }
+    const grandTotal = summary.articles.total_articles;
+    return (
+        <div>
+            <FilterBar
+                query={query}
+                onQueryChange={setQuery}
+                placeholder={`Search ${buckets.length} article buckets (${grandTotal} files) by source or sample title…`}
+                accentColor={accentColor}
+            />
+            <div style={{ padding: '8px 20px', borderBottom: `1px solid ${accentColor}40`, background: '#FFFCEC', fontSize: 12, color: NXT_BLACK, fontFamily: "'Archivo', sans-serif" }}>
+                <strong style={{ color: accentColor }}>{grandTotal.toLocaleString()} cached articles</strong> across {buckets.length} source buckets — includes Jina extracts, RAG client uploads, deep-research pulls, YouTube transcripts, and prior theme syntheses.
+            </div>
+            <div style={{ padding: '8px 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
+                {filtered.length} of {buckets.length} buckets shown
+            </div>
+            {filtered.length === 0 ? (
+                <EmptyState message="No buckets match that search." />
+            ) : (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 14, padding: '0 20px 20px' }}>
+                    {filtered.map(b => {
+                        const selected = selection.articleSources.includes(b.source);
+                        const isRag = b.source === 'client-uploads';
+                        return (
+                            <SelectableCard key={b.source} selected={selected} onToggle={() => toggle(b.source)} accentColor={accentColor} leftBorderColor={isRag ? accentColor : '#888'}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6, gap: 8 }}>
+                                    <span style={{ fontFamily: "'Archivo', sans-serif", fontSize: 13, color: NXT_BLACK, fontWeight: 700, lineHeight: 1.3 }}>
+                                        {b.label}
+                                    </span>
+                                    <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: accentColor, flexShrink: 0 }}>
+                                        {b.article_count.toLocaleString()}
+                                    </span>
+                                </div>
+                                <div style={{ fontSize: 9, color: '#888', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 }}>
+                                    {isRag ? 'RAG uploaded documents' : 'articles · markdown bodies'} · {b.source}
                                 </div>
                                 {b.sample_titles.length > 0 && (
                                     <ul style={{ margin: 0, paddingLeft: 16, fontSize: 11, color: '#525252', lineHeight: 1.4 }}>

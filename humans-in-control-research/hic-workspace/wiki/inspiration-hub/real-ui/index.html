@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="nxt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real UI Gallery — Agent Dataset References</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+[data-brand="nxt"] {
+  --b-name: "NXT HUMANS";
+  --b-canvas: #FAFAFA;
+  --b-paper:  #F5F5F0;
+  --b-panel:  #FFFFFF;
+  --b-ink-strong: #0D0D0D;
+  --b-ink: #0D0D0D;
+  --b-near-black: #1A1A1A;
+  --b-accent: #B8B800;
+  --b-accent-2: #00B7C3;
+  --b-warn: #CC6644;
+  --b-heading: #0D0D0D;
+  --b-body: #333333;
+  --b-secondary: #666666;
+  --b-muted: #999999;
+  --b-rule: #E0E0E0;
+  --b-display: 'Bebas Neue', sans-serif;
+  --b-display-weight: 400;
+  --b-display-spacing: 1.5px;
+  --b-display-transform: uppercase;
+  --b-body-font: 'Archivo', sans-serif;
+  --b-mono-font: 'JetBrains Mono', monospace;
+  --b-radius: 2px;
+  --b-radius-card: 2px;
+  --b-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --b-shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+}
+[data-brand="nu"] {
+  --b-name: "NORTHEASTERN UNIVERSITY";
+  --b-canvas: rgb(248, 250, 252);
+  --b-paper:  rgb(241, 245, 249);
+  --b-panel:  #FFFFFF;
+  --b-ink-strong: rgb(11, 19, 38);
+  --b-ink: rgb(20, 29, 48);
+  --b-near-black: rgb(26, 35, 51);
+  --b-accent: rgb(200, 16, 46);
+  --b-accent-2: rgb(20, 29, 48);
+  --b-warn: rgb(216, 19, 45);
+  --b-heading: rgb(11, 19, 38);
+  --b-body: rgb(20, 29, 48);
+  --b-secondary: rgb(100, 116, 139);
+  --b-muted: rgb(148, 163, 184);
+  --b-rule: rgb(203, 213, 225);
+  --b-display: 'Spectral', 'Source Serif Pro', Georgia, serif;
+  --b-display-weight: 300;
+  --b-display-spacing: -0.01em;
+  --b-display-transform: none;
+  --b-body-font: 'Roboto', system-ui, sans-serif;
+  --b-mono-font: 'Roboto Mono', ui-monospace, monospace;
+  --b-radius: 4px;
+  --b-radius-card: 8px;
+  --b-shadow: 0 1px 2px rgba(11,19,38,0.04);
+  --b-shadow-md: 0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--b-canvas); color: var(--b-body); font-family: var(--b-body-font); -webkit-font-smoothing: antialiased; }
+body { padding-bottom: 80px; min-height: 100vh; }
+
+.topbar { background: var(--b-ink-strong); color: #fff; padding: 16px 32px; border-bottom: 2px solid var(--b-accent); position: sticky; top: 0; z-index: 50; }
+.topbar-inner { max-width: 1600px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; }
+.brand-mark .wordmark { font-family: var(--b-display); font-size: 11px; letter-spacing: 4px; color: var(--b-accent); font-weight: 700; text-transform: uppercase; }
+[data-brand="nu"] .brand-mark .wordmark { font-family: 'Spectral', serif; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: none; color: #fff; }
+.brand-mark .wordmark::before { content: var(--b-name); }
+.nu-n-tile { display: none; }
+[data-brand="nu"] .nu-n-tile { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--b-accent); border-radius: var(--b-radius); flex-shrink: 0; }
+.nu-n-tile svg { width: 20px; height: 20px; display: block; }
+.nu-n-tile svg path { fill: #ffffff; }
+.titles { display: flex; flex-direction: column; gap: 4px; }
+.section-title { font-family: var(--b-display); font-size: 32px; letter-spacing: var(--b-display-spacing); color: #fff; line-height: 1; font-weight: var(--b-display-weight); text-transform: var(--b-display-transform); }
+.section-sub { font-family: var(--b-mono-font); font-size: 11px; color: rgba(255,255,255,0.55); margin-left: auto; }
+.brand-toggle { display: inline-flex; border: 1px solid rgba(255,255,255,0.25); border-radius: var(--b-radius); overflow: hidden; }
+.brand-toggle button { background: transparent; border: 0; color: rgba(255,255,255,0.6); padding: 8px 16px; font-family: var(--b-mono-font); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.18s; }
+.brand-toggle button.active { background: var(--b-accent); color: #fff; }
+[data-brand="nxt"] .brand-toggle button.active { color: var(--b-ink); }
+.brand-toggle button:hover:not(.active) { color: #fff; }
+
+.toolbar { background: var(--b-panel); padding: 14px 32px; border-bottom: 1px solid var(--b-rule); position: sticky; top: 64px; z-index: 49; }
+.toolbar-inner { max-width: 1600px; margin: 0 auto; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.search-input { flex: 1 1 280px; min-width: 220px; max-width: 480px; padding: 10px 14px; border: 1px solid var(--b-rule); border-radius: var(--b-radius); background: var(--b-panel); font-family: var(--b-body-font); font-size: 14px; color: var(--b-body); outline: none; transition: border-color 0.18s; }
+.search-input:focus { border-color: var(--b-accent); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { padding: 6px 11px; border: 1px solid var(--b-rule); background: var(--b-panel); cursor: pointer; font-family: var(--b-mono-font); font-size: 10px; font-weight: 500; letter-spacing: 0.5px; text-transform: lowercase; color: var(--b-secondary); border-radius: var(--b-radius); transition: all 0.18s; user-select: none; }
+.chip:hover { border-color: var(--b-ink); color: var(--b-ink); }
+.chip.active { background: var(--b-ink); border-color: var(--b-ink); color: var(--b-accent); }
+[data-brand="nu"] .chip.active { color: #fff; }
+.count-pill { margin-left: auto; font-family: var(--b-mono-font); font-size: 10px; color: var(--b-secondary); letter-spacing: 0.5px; }
+
+.intro { max-width: 1600px; margin: 32px auto 24px; padding: 0 32px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; align-items: end; }
+.intro h1 { font-family: var(--b-display); font-size: 56px; line-height: 0.98; letter-spacing: var(--b-display-spacing); text-transform: var(--b-display-transform); color: var(--b-heading); font-weight: var(--b-display-weight); }
+[data-brand="nu"] .intro h1 { font-size: 64px; font-weight: 300; }
+.intro p { font-size: 14px; line-height: 1.65; color: var(--b-body); max-width: 70ch; margin-top: 12px; }
+[data-brand="nu"] .intro p { font-family: 'Roboto', sans-serif; }
+.intro .stats { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; font-family: var(--b-mono-font); font-size: 11px; color: var(--b-secondary); }
+.intro .stats .stat-big { font-family: var(--b-display); font-size: 48px; line-height: 1; color: var(--b-accent); font-weight: var(--b-display-weight); }
+[data-brand="nu"] .intro .stats .stat-big { font-family: 'Spectral', serif; font-weight: 300; }
+
+.grid { max-width: 1600px; margin: 24px auto; padding: 0 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+
+.card { background: var(--b-panel); border: 1px solid var(--b-rule); border-radius: var(--b-radius-card); overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.18s, box-shadow 0.18s; box-shadow: var(--b-shadow); }
+.card:hover { border-color: var(--b-ink); box-shadow: var(--b-shadow-md); }
+.card-chrome { padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--b-rule); gap: 8px; }
+.card-dataset { font-family: var(--b-mono-font); font-size: 10px; letter-spacing: 0.5px; color: var(--b-secondary); text-transform: uppercase; font-weight: 600; }
+.card-platform { font-family: var(--b-mono-font); font-size: 9px; padding: 2px 7px; background: var(--b-paper); color: var(--b-secondary); border-radius: var(--b-radius); text-transform: uppercase; letter-spacing: 0.5px; }
+.card-platform.web { background: var(--b-accent); color: var(--b-ink); }
+.card-platform.mobile { background: var(--b-accent-2); color: #fff; }
+.card-platform.desktop { background: var(--b-ink); color: var(--b-accent); }
+[data-brand="nu"] .card-platform.web { background: var(--b-accent); color: #fff; }
+[data-brand="nu"] .card-platform.mobile { background: var(--b-accent-2); color: #fff; }
+[data-brand="nu"] .card-platform.desktop { background: rgb(241, 245, 249); color: var(--b-ink); }
+.card-img-wrap { position: relative; background: var(--b-paper); aspect-ratio: 16/10; overflow: hidden; }
+.card-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s cubic-bezier(0.2,0,0,1); }
+.card:hover .card-img { transform: scale(1.02); }
+.card-actions { display: flex; border-top: 1px solid var(--b-rule); }
+.card-action { flex: 1; padding: 10px 12px; font-family: var(--b-display); font-size: 11px; letter-spacing: 2px; text-decoration: none; text-align: center; cursor: pointer; transition: background 0.15s, color 0.15s; text-transform: var(--b-display-transform); color: var(--b-ink); font-weight: var(--b-display-weight); }
+[data-brand="nu"] .card-action { font-family: 'Roboto', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+.card-action:hover { background: var(--b-paper); }
+.card-action.primary { color: var(--b-accent-2); border-right: 1px solid var(--b-rule); }
+[data-brand="nu"] .card-action.primary { color: var(--b-accent); }
+
+.empty-state, .loading-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--b-muted); font-size: 13px; font-family: var(--b-mono-font); }
+
+.footer { max-width: 1600px; margin: 60px auto 0; padding: 24px 32px; border-top: 1px solid var(--b-rule); font-family: var(--b-mono-font); font-size: 10px; color: var(--b-muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer a { color: var(--b-accent-2); text-decoration: none; }
+[data-brand="nu"] .footer a { color: var(--b-accent); }
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="titles">
+      <div class="brand-mark">
+        <span class="nu-n-tile" aria-label="Northeastern N">
+          <svg viewBox="28 22 155 135" xmlns="http://www.w3.org/2000/svg"><path d="M172.5 63.3c0-19.6 6.6-26 19.8-31V29h-43.2v3.2c13.2 5 19.8 11.4 19.8 31v57.5L77.4 33.4c-4.2-3.9-5.3-4.3-8-4.3H35v3.2c7.6.8 12.1 2.9 23 13.5l4.2 4v65.6c0 19.6-6.6 26-19.8 31v3.2h43.2v-3.2c-13.2-5-19.8-11.4-19.8-31V52.8l103.5 97.5h3.2v-87z"/></svg>
+        </span>
+        <span class="wordmark"></span>
+      </div>
+      <div class="section-title">Real UI Gallery</div>
+    </div>
+    <div class="brand-toggle">
+      <button data-brand-pick="nxt" class="active">NXT</button>
+      <button data-brand-pick="nu">NU</button>
+    </div>
+    <div class="section-sub">Agent Dataset References · HuggingFace-sourced · Live samples</div>
+  </div>
+</header>
+
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <input id="searchInput" class="search-input" type="search" placeholder="Search dataset or platform..." autocomplete="off">
+    <div class="chip-row" id="filterChips"></div>
+    <div class="count-pill" id="countPill">— shown</div>
+  </div>
+</nav>
+
+<section class="intro">
+  <div>
+    <h1>Real UI gallery — paused</h1>
+    <p>HuggingFace's <code style="font-family:var(--b-mono-font);background:var(--b-paper);padding:2px 6px;border-radius:var(--b-radius);">datasets-server.huggingface.co</code> serves signed CloudFront URLs that require a Key-Pair-Id — they cannot be hotlinked into a public gallery. Pulling 162 of those URLs surfaced 162 MissingKey errors instead of UI screenshots. The fix is to download dataset samples server-side via the proxy and serve them from local disk; that work is not done yet.</p>
+    <p style="margin-top:14px;"><strong>For the design-system answer</strong> ("how do NXT and NU style AI experiences"), see the canonical showcase instead, which uses zero external images and renders 12 handcrafted AI patterns in both brands:</p>
+    <p style="margin-top:14px;"><a href="/hic-workspace/wiki/inspiration-hub/ai-patterns/" style="display:inline-block;padding:14px 24px;background:var(--b-accent);color:var(--b-ink);font-family:var(--b-display);font-size:14px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:var(--b-display-weight);border-radius:var(--b-radius);">Open AI Experience Patterns showcase →</a></p>
+  </div>
+  <div class="stats">
+    <div class="stat-big">12</div>
+    <div>handcrafted patterns in the</div>
+    <div>AI Patterns showcase →</div>
+  </div>
+</section>
+
+<main class="grid" id="grid" style="display:none;"></main>
+
+<footer class="footer">
+  <div>Sourced from <a href="https://github.com/Khang-9966/Computer-Browser-Phone-Use-Agent-Datasets" target="_blank" rel="noopener noreferrer">Khang-9966/Computer-Browser-Phone-Use-Agent-Datasets</a> · Previews via HuggingFace datasets-server</div>
+  <div><a href="/hic-workspace/wiki/inspiration-hub/">← Inspiration Hub</a></div>
+</footer>
+
+<script>
+(() => {
+  // ─── Dataset registry — real UI sample sources from agent training data ───
+  const DATASETS = [
+    { id: 'screenspot-pro', name: 'ScreenSpot-Pro', platform: 'desktop',
+      home: 'https://huggingface.co/datasets/Voxel51/ScreenSpot-Pro',
+      desc: 'High-res professional GUI grounding across 23 industries',
+      sampleUrl: i => `https://datasets-server.huggingface.co/assets/Voxel51/ScreenSpot-Pro/--/e814f93938fa3b5e5895e848533d9b966ba0210b/--/default/train/${i}/image/image.png`,
+      count: 60 },
+    { id: 'showui-desktop', name: 'ShowUI Desktop', platform: 'desktop',
+      home: 'https://huggingface.co/datasets/Voxel51/ShowUI_desktop',
+      desc: '7,500 desktop screenshots across iOS, Windows, Linux apps',
+      sampleUrl: i => `https://datasets-server.huggingface.co/assets/Voxel51/ShowUI_desktop/--/2449e0199a2858138aff715496b115a40b4bee08/--/default/train/${i}/image/image.png`,
+      count: 60 },
+    { id: 'mind2web', name: 'Multimodal-Mind2Web', platform: 'web',
+      home: 'https://huggingface.co/datasets/osunlp/Multimodal-Mind2Web',
+      desc: 'Web screenshots paired with HTML for web agent development',
+      sampleUrl: i => `https://datasets-server.huggingface.co/assets/osunlp/Multimodal-Mind2Web/--/1b4c6a8cf9f77b7a5e0d641959935c80c4a05889/--/default/train/${i}/screenshot/image.jpg`,
+      count: 40 },
+    { id: 'amex', name: 'AMEX', platform: 'mobile',
+      home: 'https://huggingface.co/datasets/Yuxiang007/AMEX',
+      desc: '104k high-res mobile app screens with 711k element annotations',
+      assets: [
+        'https://huggingface.co/datasets/Yuxiang007/AMEX/resolve/main/assets/screenspot_exp.png',
+        'https://huggingface.co/datasets/Yuxiang007/AMEX/resolve/main/assets/androidcontrol_exp.png',
+      ] },
+    { id: 'multiui', name: 'MultiUI', platform: 'web',
+      home: 'https://huggingface.co/datasets/neulab/MultiUI',
+      desc: '7.3M multimodal instructions from 1M websites',
+      assets: [
+        'https://cdn-uploads.huggingface.co/production/uploads/65403d8781a8731a1c09a584/DiJEm6mEr8smN2QkGEKLm.png',
+        'https://cdn-uploads.huggingface.co/production/uploads/65403d8781a8731a1c09a584/BkxEuNOcyR19IPhu7yZKK.png',
+      ] },
+  ];
+
+  // ─── Flatten to sample list ───
+  const samples = [];
+  for (const ds of DATASETS) {
+    if (ds.sampleUrl) {
+      for (let i = 0; i < ds.count; i++) {
+        samples.push({
+          dataset_id: ds.id,
+          dataset_name: ds.name,
+          platform: ds.platform,
+          desc: ds.desc,
+          home: ds.home,
+          image_url: ds.sampleUrl(i),
+          idx: i,
+        });
+      }
+    }
+    if (ds.assets) {
+      ds.assets.forEach((url, i) => {
+        samples.push({
+          dataset_id: ds.id,
+          dataset_name: ds.name,
+          platform: ds.platform,
+          desc: ds.desc,
+          home: ds.home,
+          image_url: url,
+          idx: i,
+        });
+      });
+    }
+  }
+
+  document.getElementById('totalStat').textContent = samples.length;
+  document.getElementById('datasetCount').textContent = DATASETS.length;
+
+  // ─── Brand toggle ───
+  function setBrand(b) {
+    document.documentElement.setAttribute('data-brand', b);
+    document.querySelectorAll('[data-brand-pick]').forEach(el => el.classList.toggle('active', el.getAttribute('data-brand-pick') === b));
+    try { localStorage.setItem('inspiration-hub-brand', b); } catch {}
+  }
+  document.querySelectorAll('[data-brand-pick]').forEach(el => el.addEventListener('click', () => setBrand(el.getAttribute('data-brand-pick'))));
+  try {
+    const saved = localStorage.getItem('inspiration-hub-brand');
+    if (saved === 'nu' || saved === 'nxt') setBrand(saved);
+  } catch {}
+
+  // ─── Filters + search ───
+  let activeFilter = null;
+  let searchTerm = '';
+  const filterChipsEl = document.getElementById('filterChips');
+  const grid = document.getElementById('grid');
+  const countPill = document.getElementById('countPill');
+
+  function renderChips() {
+    filterChipsEl.innerHTML = '';
+    const filters = [
+      { key: null, label: 'all' },
+      { key: 'web', label: 'web' },
+      { key: 'mobile', label: 'mobile' },
+      { key: 'desktop', label: 'desktop' },
+      ...DATASETS.map(d => ({ key: 'ds:' + d.id, label: d.name.toLowerCase() })),
+    ];
+    filters.forEach(f => {
+      const c = document.createElement('div');
+      c.className = 'chip' + (f.key === activeFilter ? ' active' : '');
+      c.textContent = f.label;
+      c.onclick = () => { activeFilter = (activeFilter === f.key) ? null : f.key; renderChips(); renderGrid(); };
+      filterChipsEl.appendChild(c);
+    });
+  }
+
+  function renderGrid() {
+    const term = searchTerm.trim().toLowerCase();
+    const filtered = samples.filter(s => {
+      if (activeFilter) {
+        if (activeFilter.startsWith('ds:')) {
+          if (s.dataset_id !== activeFilter.slice(3)) return false;
+        } else if (s.platform !== activeFilter) return false;
+      }
+      if (!term) return true;
+      const hay = (s.dataset_name + ' ' + s.platform + ' ' + s.desc).toLowerCase();
+      return hay.includes(term);
+    });
+
+    grid.innerHTML = '';
+    if (filtered.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'No samples match.';
+      grid.appendChild(empty);
+    } else {
+      filtered.forEach(s => grid.appendChild(renderCard(s)));
+    }
+    countPill.textContent = filtered.length + ' of ' + samples.length + ' shown';
+  }
+
+  function renderCard(s) {
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const chrome = document.createElement('div');
+    chrome.className = 'card-chrome';
+    const ds = document.createElement('div');
+    ds.className = 'card-dataset';
+    ds.textContent = s.dataset_name + (typeof s.idx === 'number' ? ' · #' + s.idx : '');
+    chrome.appendChild(ds);
+    const pf = document.createElement('div');
+    pf.className = 'card-platform ' + s.platform;
+    pf.textContent = s.platform;
+    chrome.appendChild(pf);
+    card.appendChild(chrome);
+
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'card-img-wrap';
+    const img = document.createElement('img');
+    img.className = 'card-img';
+    img.loading = 'lazy';
+    img.src = s.image_url;
+    img.alt = s.dataset_name + ' UI sample';
+    img.onerror = () => { img.style.background = 'var(--b-paper)'; img.removeAttribute('src'); imgWrap.style.background = 'var(--b-paper)'; };
+    imgWrap.appendChild(img);
+    card.appendChild(imgWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+    const view = document.createElement('a');
+    view.className = 'card-action primary';
+    view.href = s.image_url;
+    view.target = '_blank';
+    view.rel = 'noopener noreferrer';
+    view.textContent = 'View full size';
+    actions.appendChild(view);
+    const dataset = document.createElement('a');
+    dataset.className = 'card-action';
+    dataset.href = s.home;
+    dataset.target = '_blank';
+    dataset.rel = 'noopener noreferrer';
+    dataset.textContent = 'Dataset →';
+    actions.appendChild(dataset);
+    card.appendChild(actions);
+
+    return card;
+  }
+
+  document.getElementById('searchInput').addEventListener('input', e => { searchTerm = e.target.value; renderGrid(); });
+
+  renderChips();
+  renderGrid();
+})();
+</script>
+
+</body>
+</html>

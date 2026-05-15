@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!-- PATTERN MANIFEST: p-search, p-facet, p-tldr, p-sim, p-kg, p-trans, p-heat, p-cot, p-cohort, p-budget
+     Exemplar prototype composed strictly from the AI Experience Patterns
+     catalog (/hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json).
+     Brand: NXT (editorial brutalism). Hashtag: #proto footprint-library #NXT.
+     Concept: surfaced via verbalized sampling at p=0.05 from the alumni-
+     mentorship distribution — radical reinterpretation, archival not advisory.
+     Synthetic data throughout: 18 anonymized alumni journeys, 3 full
+     interview transcripts, named entities, cohort retention by archetype. -->
+<html lang="en" data-brand="nxt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footprint Library — exemplar (NXT)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[data-brand="nxt"] {
+  --b-canvas: #FAFAFA;
+  --b-paper:  #F5F5F0;
+  --b-panel:  #FFFFFF;
+  --b-ink-strong: #0D0D0D;
+  --b-ink: #0D0D0D;
+  --b-near-black: #1A1A1A;
+  --b-accent: #B8B800;
+  --b-accent-2: #00B7C3;
+  --b-accent-3: #1A5C5E;
+  --b-warn: #CC6644;
+  --b-success: #4CAF50;
+  --b-heading: #0D0D0D;
+  --b-body: #333333;
+  --b-secondary: #666666;
+  --b-muted: #999999;
+  --b-rule: #E0E0E0;
+  --b-rule-soft: #EEEEEE;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--b-canvas); color: var(--b-body); font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+body { padding-bottom: 80px; min-height: 100vh; }
+
+/* ─── Editorial header ─── */
+.archive-bar { background: var(--b-ink-strong); color: #fff; padding: 18px 28px; border-bottom: 2px solid var(--b-accent); }
+.archive-bar-inner { max-width: 1500px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.archive-mark { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 4px; color: var(--b-accent); }
+.archive-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1.5px; color: #fff; line-height: 1; }
+.archive-meta { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; line-height: 1.7; }
+.archive-meta strong { color: var(--b-accent); }
+
+/* ─── Hero ─── */
+.hero { max-width: 1500px; margin: 36px auto 24px; padding: 0 28px; display: grid; grid-template-columns: 1fr 320px; gap: 36px; align-items: end; border-bottom: 2px solid var(--b-ink); padding-bottom: 24px; }
+.eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 3.5px; color: var(--b-muted); text-transform: uppercase; margin-bottom: 8px; }
+.h1 { font-family: 'Bebas Neue', sans-serif; font-size: 88px; line-height: 0.9; letter-spacing: 1px; color: var(--b-ink-strong); text-transform: uppercase; }
+.h1 .accent { color: var(--b-accent); }
+.sub { font-size: 14px; line-height: 1.65; color: var(--b-body); max-width: 56ch; margin-top: 18px; }
+.hero-aside { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--b-secondary); line-height: 1.7; padding: 18px; background: var(--b-paper); border-left: 2px solid var(--b-accent); }
+.hero-aside .label { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; color: var(--b-ink); margin-bottom: 8px; }
+.hero-aside dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; }
+.hero-aside dt { color: var(--b-muted); text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+.hero-aside dd { color: var(--b-ink); font-weight: 600; }
+
+/* ─── Layout ─── */
+.page { max-width: 1500px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 280px 1fr 340px; gap: 24px; }
+
+/* ─── p-search ─── */
+.p-search { background: var(--b-panel); border: 1px solid var(--b-rule); }
+.p-search .query-bar { padding: 12px 16px; background: var(--b-ink); color: var(--b-accent); font-family: 'JetBrains Mono', monospace; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+.p-search .query-bar input { flex: 1; background: transparent; border: 0; color: var(--b-accent); font-family: 'JetBrains Mono', monospace; font-size: 12px; outline: none; letter-spacing: 0.5px; }
+.p-search .query-bar .icon { width: 12px; height: 12px; border: 1.5px solid var(--b-accent); border-radius: 50%; position: relative; flex-shrink: 0; }
+.p-search .query-bar .icon::after { content:''; position: absolute; right: -3px; bottom: -3px; width: 6px; height: 1.5px; background: var(--b-accent); transform: rotate(45deg); }
+
+/* ─── p-facet ─── */
+.p-facet { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 14px 16px; }
+.p-facet .group { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--b-rule-soft); }
+.p-facet .group:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.p-facet .glabel { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2px; color: var(--b-muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.p-facet .ai-suggested { font-family: 'JetBrains Mono', monospace; font-size: 8px; padding: 1px 5px; background: var(--b-accent); color: var(--b-ink); letter-spacing: 0.5px; font-weight: 700; }
+.p-facet .chip { display: inline-block; padding: 4px 9px; margin: 0 4px 4px 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-secondary); background: var(--b-panel); border: 1px solid var(--b-rule); cursor: pointer; letter-spacing: 0.3px; }
+.p-facet .chip:hover { border-color: var(--b-ink); color: var(--b-ink); }
+.p-facet .chip.active { background: var(--b-ink); color: var(--b-accent); border-color: var(--b-ink); font-weight: 700; }
+.p-facet .chip .ct { color: var(--b-muted); margin-left: 4px; font-weight: 400; }
+.p-facet .chip.active .ct { color: var(--b-accent); opacity: 0.7; }
+
+/* ─── Journey card (entity card composed from p-kg + p-tldr + p-heat fragments) ─── */
+.j-card { background: var(--b-panel); border: 1px solid var(--b-rule); border-left: 4px solid var(--b-accent); margin-bottom: 16px; }
+.j-card-head { padding: 16px 20px 10px; display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: baseline; border-bottom: 1px solid var(--b-rule-soft); }
+.j-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; }
+.j-title { grid-column: 1 / -1; font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1; letter-spacing: 0.5px; color: var(--b-ink); text-transform: uppercase; margin-top: 4px; }
+.j-meta { grid-column: 1 / -1; display: flex; gap: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-secondary); margin-top: 6px; flex-wrap: wrap; }
+.j-meta dt { color: var(--b-muted); margin-right: 4px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; }
+.j-meta dd { color: var(--b-ink); font-weight: 600; }
+.j-meta span { display: flex; gap: 4px; }
+
+.j-tldr { padding: 14px 20px; background: var(--b-paper); }
+.j-tldr-tag { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: 2px; color: var(--b-ink); padding: 2px 7px; background: var(--b-accent); margin-right: 8px; vertical-align: middle; }
+.j-tldr-text { display: inline; font-size: 13px; color: var(--b-ink); line-height: 1.6; }
+
+.j-heat { padding: 14px 20px; font-size: 12px; line-height: 1.75; color: var(--b-ink); border-top: 1px solid var(--b-rule-soft); }
+.j-heat .h-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--b-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.j-heat .hp { font-size: 13px; line-height: 1.75; }
+.j-heat .hw { padding: 1px 5px; }
+.j-heat .hw.pos { background: rgba(184,184,0,0.28); }
+.j-heat .hw.neg { background: rgba(204,102,68,0.22); color: var(--b-warn); }
+
+.j-foot { padding: 10px 20px; border-top: 1px solid var(--b-rule); display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+.j-rel { color: var(--b-accent-3); font-weight: 700; }
+.j-foot a { color: var(--b-accent-2); text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700; font-size: 9px; }
+.j-foot a:hover { text-decoration: underline; }
+
+/* ─── Right rail ─── */
+.rail-section { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 16px 18px; margin-bottom: 16px; }
+.rail-section .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 2.5px; color: var(--b-muted); margin-bottom: 12px; }
+
+/* p-sim — find similar */
+.p-sim .seed { padding: 10px 12px; background: var(--b-paper); border-left: 2px solid var(--b-accent); margin-bottom: 12px; font-size: 12px; }
+.p-sim .seed strong { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; color: var(--b-ink); display: block; margin-bottom: 2px; }
+.p-sim .seed em { font-family: 'JetBrains Mono', monospace; font-style: normal; font-size: 10px; color: var(--b-muted); }
+.p-sim .sim-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid var(--b-rule-soft); cursor: pointer; }
+.p-sim .sim-row:first-of-type { border-top: 0; }
+.p-sim .sim-row:hover { background: var(--b-paper); margin: 0 -10px; padding: 8px 10px; }
+.p-sim .sim-info { display: flex; flex-direction: column; gap: 2px; }
+.p-sim .sim-name { font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 600; color: var(--b-ink); }
+.p-sim .sim-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--b-muted); letter-spacing: 0.4px; }
+.p-sim .sim-bar { width: 60px; }
+.p-sim .sim-bar-bg { height: 4px; background: var(--b-rule); position: relative; }
+.p-sim .sim-bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--b-accent); }
+.p-sim .sim-score { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-accent-3); font-weight: 700; margin-top: 2px; text-align: right; }
+
+/* p-kg — relationships card */
+.p-kg .kg-rel { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px dashed var(--b-rule-soft); font-size: 12px; }
+.p-kg .kg-rel:last-child { border-bottom: 0; }
+.p-kg .kg-rel-label { color: var(--b-ink); }
+.p-kg .kg-rel-target { color: var(--b-accent-2); font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+/* p-cohort small */
+.p-cohort-mini { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+.p-cohort-mini table { width: 100%; border-collapse: collapse; }
+.p-cohort-mini th { color: var(--b-muted); padding: 3px; font-weight: 500; font-size: 9px; text-align: center; }
+.p-cohort-mini th.row-label { text-align: left; color: var(--b-ink); }
+.p-cohort-mini td { padding: 2px; }
+.p-cohort-mini .cell { display: inline-block; width: 100%; height: 22px; line-height: 22px; text-align: center; color: var(--b-ink); font-weight: 600; font-size: 9px; }
+.p-cohort-mini .c100 { background: var(--b-ink); color: var(--b-accent); }
+.p-cohort-mini .c90 { background: var(--b-accent); }
+.p-cohort-mini .c70 { background: rgba(184,184,0,0.55); }
+.p-cohort-mini .c50 { background: rgba(184,184,0,0.3); color: var(--b-secondary); }
+.p-cohort-mini .c30 { background: rgba(204,102,68,0.25); color: var(--b-warn); }
+
+/* p-budget small (archive scope) */
+.p-budget-mini .budget-num { font-family: 'Bebas Neue', sans-serif; font-size: 34px; line-height: 1; color: var(--b-ink); }
+.p-budget-mini .budget-num .small { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--b-muted); }
+.p-budget-mini .btr { height: 6px; background: var(--b-rule); margin: 10px 0 6px; position: relative; }
+.p-budget-mini .bfill { height: 100%; background: var(--b-accent); width: 47%; }
+.p-budget-mini .bzone-warn { position: absolute; top: -2px; bottom: -2px; left: 80%; width: 1px; background: var(--b-warn); }
+.p-budget-mini .bd { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; font-size: 10px; }
+.p-budget-mini .bd dt { color: var(--b-muted); }
+.p-budget-mini .bd dd { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--b-ink); }
+
+/* ─── Below-fold sections ─── */
+.section { max-width: 1500px; margin: 48px auto 0; padding: 0 28px; }
+.section-head { padding-bottom: 14px; border-bottom: 2px solid var(--b-ink); margin-bottom: 22px; display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 12px; }
+.section-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 1px; color: var(--b-ink); text-transform: uppercase; line-height: 1; }
+.section-head .desc { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--b-muted); letter-spacing: 0.5px; }
+
+/* p-trans full */
+.p-trans { background: var(--b-panel); border: 1px solid var(--b-rule); margin-bottom: 20px; }
+.p-trans .th { padding: 14px 20px; border-bottom: 1px solid var(--b-rule); display: flex; justify-content: space-between; align-items: center; background: var(--b-ink); color: #fff; }
+.p-trans .tt { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; color: var(--b-accent); text-transform: uppercase; }
+.p-trans .tm { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+.p-trans .tu { padding: 14px 20px; display: grid; grid-template-columns: 28px 1fr; gap: 12px; border-top: 1px solid var(--b-rule-soft); }
+.p-trans .tu:first-of-type { border-top: 0; }
+.p-trans .ts { width: 26px; height: 26px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.p-trans .ts img { width: 100%; height: 100%; display: block; }
+.p-trans .ts.s1 { border: 2px solid var(--b-accent); }
+.p-trans .ts.s2 { border: 2px solid var(--b-accent-2); }
+.p-trans .ts.s3 { border: 2px solid var(--b-warn); }
+.p-trans .tco { display: flex; flex-direction: column; gap: 3px; }
+.p-trans .tn { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--b-secondary); letter-spacing: 0.5px; text-transform: uppercase; display: flex; gap: 8px; }
+.p-trans .tstamp { color: var(--b-muted); }
+.p-trans .tq { font-size: 13px; line-height: 1.6; color: var(--b-ink); }
+
+/* p-cot — analytical insight */
+.p-cot { background: var(--b-paper); border: 1px solid var(--b-rule); padding: 18px 20px; margin-bottom: 20px; }
+.p-cot .cot-head { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2.5px; color: var(--b-accent-3); margin-bottom: 14px; }
+.p-cot .cs { padding-left: 18px; position: relative; margin-bottom: 11px; padding-bottom: 11px; border-bottom: 1px dashed var(--b-rule-soft); }
+.p-cot .cs:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.p-cot .cs::before { content:''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; background: var(--b-accent); }
+.p-cot .csl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--b-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+.p-cot .cq { font-size: 13px; line-height: 1.6; color: var(--b-body); font-style: italic; }
+
+/* p-cohort full */
+.p-cohort { background: var(--b-panel); border: 1px solid var(--b-rule); padding: 20px 22px; margin-bottom: 20px; }
+.p-cohort h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--b-ink); margin-bottom: 14px; text-transform: uppercase; }
+.p-cohort table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+.p-cohort th { color: var(--b-muted); font-weight: 500; padding: 4px 6px; text-align: center; font-size: 9px; }
+.p-cohort th.row-label { color: var(--b-ink); text-align: right; padding-right: 12px; font-weight: 700; font-size: 11px; }
+.p-cohort td { padding: 3px; text-align: center; }
+.p-cohort .cell { display: inline-block; width: 100%; height: 30px; line-height: 30px; font-weight: 700; }
+.p-cohort .c100 { background: var(--b-ink); color: var(--b-accent); }
+.p-cohort .c90 { background: var(--b-accent); color: var(--b-ink); }
+.p-cohort .c70 { background: rgba(184,184,0,0.55); color: var(--b-ink); }
+.p-cohort .c50 { background: rgba(184,184,0,0.3); color: var(--b-secondary); }
+.p-cohort .c30 { background: rgba(204,102,68,0.25); color: var(--b-warn); }
+.p-cohort .cfoot { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-secondary); margin-top: 12px; }
+
+.exemplar-footer { max-width: 1500px; margin: 60px auto 0; padding: 24px 28px; border-top: 1px solid var(--b-rule); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-muted); display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+.exemplar-footer a { color: var(--b-accent-2); text-decoration: none; }
+.exemplar-footer a:hover { text-decoration: underline; }
+.manifest-pill { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 4px 10px; background: var(--b-paper); color: var(--b-secondary); border: 1px solid var(--b-rule); letter-spacing: 0.04em; }
+
+@media (max-width: 1180px) { .page { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="archive-bar">
+  <div class="archive-bar-inner">
+    <span class="archive-mark">NXT HUMANS</span>
+    <h1 class="archive-title">FOOTPRINT LIBRARY</h1>
+    <div class="archive-meta">
+      <div><strong>18</strong> anonymized alumni journeys · <strong>54</strong> transcripts · <strong>3,148</strong> career events indexed</div>
+      <div>collection no. 04 · last expanded 2026-05-12 · curated by NXT Humans</div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">Cohort 2028 · pre-arrival research collection</div>
+    <h1 class="h1">Walk the steps<br>of someone <span class="accent">already there.</span></h1>
+    <p class="sub">An archival reading room of de-identified Northeastern alumni careers. Browse like a museum catalog. Filter by the decision you're stuck on. Read the transcripts. Compare cohorts. The archive does not advise — it shows you what other students did and what came of it.</p>
+  </div>
+  <aside class="hero-aside">
+    <div class="label">COLLECTION SCOPE</div>
+    <dl>
+      <dt>Time range</dt><dd>2014 → 2024</dd>
+      <dt>Cohorts</dt><dd>11 graduating classes</dd>
+      <dt>Industries</dt><dd>23 named</dd>
+      <dt>Switched-major</dt><dd>7 / 18 entries</dd>
+      <dt>First-gen</dt><dd>9 / 18 entries</dd>
+      <dt>Co-op employers</dt><dd>41 unique</dd>
+      <dt>De-identification</dt><dd>k-anonymous (k=5)</dd>
+    </dl>
+  </aside>
+</section>
+
+<!-- Main 3-column layout -->
+<main class="page">
+
+  <!-- LEFT — facets + search context -->
+  <aside>
+    <!-- pattern: p-search (sticky search bar) -->
+    <div class="p-search" style="margin-bottom: 12px;">
+      <div class="query-bar">
+        <span class="icon"></span>
+        <input value="switched-major + first-gen + Khoury" />
+      </div>
+    </div>
+
+    <!-- pattern: p-facet (AI-suggested filters) -->
+    <div class="p-facet">
+      <div class="group">
+        <div class="glabel"><span>Cohort year</span></div>
+        <span class="chip">2014<span class="ct">1</span></span>
+        <span class="chip">2016<span class="ct">2</span></span>
+        <span class="chip">2018<span class="ct">3</span></span>
+        <span class="chip active">2019<span class="ct">4</span></span>
+        <span class="chip">2020<span class="ct">3</span></span>
+        <span class="chip">2022<span class="ct">5</span></span>
+      </div>
+      <div class="group">
+        <div class="glabel"><span>Industry now</span><span class="ai-suggested">AI</span></div>
+        <span class="chip">software<span class="ct">7</span></span>
+        <span class="chip active">data &amp; ml<span class="ct">5</span></span>
+        <span class="chip">fintech<span class="ct">3</span></span>
+        <span class="chip">healthtech<span class="ct">2</span></span>
+        <span class="chip">policy<span class="ct">1</span></span>
+      </div>
+      <div class="group">
+        <div class="glabel"><span>Trajectory</span><span class="ai-suggested">AI</span></div>
+        <span class="chip active">switched-major<span class="ct">7</span></span>
+        <span class="chip">added-minor<span class="ct">4</span></span>
+        <span class="chip">stayed-original<span class="ct">7</span></span>
+      </div>
+      <div class="group">
+        <div class="glabel"><span>First co-op</span></div>
+        <span class="chip">spring soph<span class="ct">3</span></span>
+        <span class="chip active">fall junior<span class="ct">9</span></span>
+        <span class="chip">spring junior<span class="ct">6</span></span>
+      </div>
+      <div class="group">
+        <div class="glabel"><span>Background</span></div>
+        <span class="chip active">first-gen<span class="ct">9</span></span>
+        <span class="chip">international<span class="ct">3</span></span>
+        <span class="chip">transfer<span class="ct">2</span></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER — journey cards -->
+  <div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--b-secondary); margin-bottom: 16px; letter-spacing: 0.5px;">
+      <strong style="color: var(--b-ink); font-weight: 700;">4 of 18 journeys shown</strong> · sorted by your-trajectory similarity (desc)
+    </div>
+
+    <!-- pattern: p-kg + p-tldr + p-heat composed into a journey card -->
+    <article class="j-card">
+      <header class="j-card-head">
+        <div class="j-id">JOURNEY 0247-K · MARCUS-PATTERN</div>
+        <h3 class="j-title">From undeclared to senior DevRel at a Boston SaaS</h3>
+        <dl class="j-meta">
+          <span><dt>Cohort</dt><dd>2019</dd></span>
+          <span><dt>Switched</dt><dd>Business → Khoury, week 3 of fall</dd></span>
+          <span><dt>First co-op</dt><dd>Hubspot · fall junior</dd></span>
+          <span><dt>Time-to-grad</dt><dd>4.5y</dd></span>
+          <span><dt>First-gen</dt><dd>yes</dd></span>
+        </dl>
+      </header>
+      <div class="j-tldr">
+        <span class="j-tldr-tag">TL;DR</span>
+        <span class="j-tldr-text">Switched from Business to Khoury at week three of fall semester after a single advisor meeting; the GPA cost was one semester, the career cost was zero. Co-op placement at Hubspot in junior fall converted into a return offer and senior-thesis collaboration. Now leads developer relations.</span>
+      </div>
+      <div class="j-heat">
+        <div class="h-label">Sentiment across the journey · annotated</div>
+        <p class="hp">
+          <span class="hw pos">Khoury advisors fought for me</span> when I came in confused. The hardest week was <span class="hw neg">the deadline for declaring the switch</span> — I almost missed it because I didn't know who to ask. <span class="hw pos">First co-op was at Hubspot and they treated me like a real engineer</span> from day one. <span class="hw neg">The second co-op was a misfire</span> — wrong company size, wrong stack — but I learned to read company culture before signing. <span class="hw pos">By senior year I had three return offers</span> and a thesis collaboration with my Hubspot manager.
+        </p>
+      </div>
+      <footer class="j-foot">
+        <span class="j-rel">0.91 similarity to your trajectory</span>
+        <span style="color: var(--b-muted);">23 alumni follow this pattern · 14 with same first-gen context</span>
+        <a href="#">READ FULL TRANSCRIPT →</a>
+      </footer>
+    </article>
+
+    <article class="j-card">
+      <header class="j-card-head">
+        <div class="j-id">JOURNEY 0309-K · DATA-PIVOT</div>
+        <h3 class="j-title">Stayed in Khoury, added a minor, ended up in clinical ML</h3>
+        <dl class="j-meta">
+          <span><dt>Cohort</dt><dd>2020</dd></span>
+          <span><dt>Trajectory</dt><dd>CS + Bio minor, no switch</dd></span>
+          <span><dt>First co-op</dt><dd>Mass General · spring soph</dd></span>
+          <span><dt>Time-to-grad</dt><dd>4y</dd></span>
+          <span><dt>First-gen</dt><dd>no</dd></span>
+        </dl>
+      </header>
+      <div class="j-tldr">
+        <span class="j-tldr-tag">TL;DR</span>
+        <span class="j-tldr-text">Resisted the urge to switch majors after sophomore wobble; added a Bio minor instead. Three co-ops in clinical ML (Mass General → Dana-Farber → Mass General Brigham) compounded into a unified narrative for grad school applications. Currently in a Harvard Med PhD program.</span>
+      </div>
+      <div class="j-heat">
+        <div class="h-label">Sentiment across the journey · annotated</div>
+        <p class="hp">
+          <span class="hw neg">Sophomore year I almost left for Bio</span> because nothing in my CS classes felt connected to medicine. <span class="hw pos">Adding the Bio minor was the move that saved my degree</span> and my interest. <span class="hw pos">Mass General co-op set up the next two co-ops automatically</span> — they knew who to send me to. The senior thesis on EHR ML <span class="hw pos">became my grad school application essay</span>.
+        </p>
+      </div>
+      <footer class="j-foot">
+        <span class="j-rel">0.74 similarity to your trajectory</span>
+        <span style="color: var(--b-muted);">12 alumni follow this pattern · 4 with clinical co-op stacking</span>
+        <a href="#">READ FULL TRANSCRIPT →</a>
+      </footer>
+    </article>
+
+    <article class="j-card">
+      <header class="j-card-head">
+        <div class="j-id">JOURNEY 0418-K · OUTBOUND</div>
+        <h3 class="j-title">CS to Music Industry, found her path through co-op stacking</h3>
+        <dl class="j-meta">
+          <span><dt>Cohort</dt><dd>2018</dd></span>
+          <span><dt>Switched</dt><dd>Khoury → CAMD, end of fall sophomore</dd></span>
+          <span><dt>First co-op</dt><dd>Sonos · spring soph</dd></span>
+          <span><dt>Time-to-grad</dt><dd>5y</dd></span>
+          <span><dt>First-gen</dt><dd>yes</dd></span>
+        </dl>
+      </header>
+      <div class="j-tldr">
+        <span class="j-tldr-tag">TL;DR</span>
+        <span class="j-tldr-text">Came into Khoury planning game-dev but realized through her first co-op at Sonos that audio engineering was where the technical and the creative met. Switched to CAMD's Music Industry track, kept Khoury programming skills as a moat. Now mixes records and ships Max patches in equal measure.</span>
+      </div>
+      <div class="j-heat">
+        <div class="h-label">Sentiment across the journey · annotated</div>
+        <p class="hp">
+          The hardest part was <span class="hw neg">explaining the switch to my parents</span> when I was the first in my family at a four-year. <span class="hw pos">My Sonos manager wrote me a letter of recommendation</span> for the CAMD application. <span class="hw neg">Lost some momentum on the credit clock</span> but came out the other end with a portfolio that nobody else in either department had.
+        </p>
+      </div>
+      <footer class="j-foot">
+        <span class="j-rel">0.61 similarity to your trajectory</span>
+        <span style="color: var(--b-muted);">3 alumni follow this pattern · all switched out of Khoury</span>
+        <a href="#">READ FULL TRANSCRIPT →</a>
+      </footer>
+    </article>
+
+    <article class="j-card">
+      <header class="j-card-head">
+        <div class="j-id">JOURNEY 0512-K · GHOST</div>
+        <h3 class="j-title">Withdrew sophomore spring, returned the next fall, finished strong</h3>
+        <dl class="j-meta">
+          <span><dt>Cohort</dt><dd>2022</dd></span>
+          <span><dt>Trajectory</dt><dd>CS, withdrew + returned</dd></span>
+          <span><dt>First co-op</dt><dd>Klaviyo · fall junior (delayed)</dd></span>
+          <span><dt>Time-to-grad</dt><dd>5y</dd></span>
+          <span><dt>First-gen</dt><dd>yes</dd></span>
+        </dl>
+      </header>
+      <div class="j-tldr">
+        <span class="j-tldr-tag">TL;DR</span>
+        <span class="j-tldr-text">Took a leave of absence sophomore spring for mental health and to work full-time as a barista. Returned the next fall with a clear plan, hit co-op cycle on a delayed track, graduated with the cohort behind hers. Now a backend engineer at Klaviyo (the company she co-op'd at after returning).</span>
+      </div>
+      <div class="j-heat">
+        <div class="h-label">Sentiment across the journey · annotated</div>
+        <p class="hp">
+          <span class="hw neg">I didn't know I was allowed to take a leave</span> until my RA mentioned it. Nobody at Northeastern made me feel like a failure for going. <span class="hw pos">Coming back after a year of working felt different</span> — I'd been on a real team, I'd been responsible for revenue, school felt manageable. <span class="hw pos">The co-op delay didn't matter</span> when I had Klaviyo on the resume.
+        </p>
+      </div>
+      <footer class="j-foot">
+        <span class="j-rel">0.58 similarity to your trajectory</span>
+        <span style="color: var(--b-muted);">2 alumni follow this pattern · both first-gen</span>
+        <a href="#">READ FULL TRANSCRIPT →</a>
+      </footer>
+    </article>
+  </div>
+
+  <!-- RIGHT — similar journeys, knowledge graph, cohort retention, archive scope -->
+  <aside>
+    <!-- pattern: p-sim — find similar journeys to a seed -->
+    <section class="rail-section p-sim">
+      <div class="section-label">FIND SIMILAR · SEED</div>
+      <div class="seed">
+        <strong>Your inferred trajectory</strong>
+        <em>switched-major likely · first-gen · Khoury · fall co-op pref</em>
+      </div>
+      <div class="sim-row">
+        <div class="sim-info"><div class="sim-name">Marcus-pattern (0247-K)</div><div class="sim-meta">'19 cohort · DevRel · 23 followers</div></div>
+        <div class="sim-bar"><div class="sim-bar-bg"><div class="sim-bar-fill" style="width:91%;"></div></div><div class="sim-score">0.91</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="sim-info"><div class="sim-name">Data-pivot (0309-K)</div><div class="sim-meta">'20 cohort · clinical ML · 12 followers</div></div>
+        <div class="sim-bar"><div class="sim-bar-bg"><div class="sim-bar-fill" style="width:74%;"></div></div><div class="sim-score">0.74</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="sim-info"><div class="sim-name">Sara-tail (0588-K)</div><div class="sim-meta">'21 cohort · fintech · 4 followers</div></div>
+        <div class="sim-bar"><div class="sim-bar-bg"><div class="sim-bar-fill" style="width:68%;"></div></div><div class="sim-score">0.68</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="sim-info"><div class="sim-name">Outbound (0418-K)</div><div class="sim-meta">'18 cohort · music industry · 3 followers</div></div>
+        <div class="sim-bar"><div class="sim-bar-bg"><div class="sim-bar-fill" style="width:61%;"></div></div><div class="sim-score">0.61</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="sim-info"><div class="sim-name">Ghost (0512-K)</div><div class="sim-meta">'22 cohort · backend · 2 followers</div></div>
+        <div class="sim-bar"><div class="sim-bar-bg"><div class="sim-bar-fill" style="width:58%;"></div></div><div class="sim-score">0.58</div></div>
+      </div>
+    </section>
+
+    <!-- pattern: p-kg — relationships -->
+    <section class="rail-section p-kg">
+      <div class="section-label">JOURNEY 0247-K · GRAPH</div>
+      <div class="kg-rel"><span class="kg-rel-label">Co-op employer</span><span class="kg-rel-target">Hubspot →</span></div>
+      <div class="kg-rel"><span class="kg-rel-label">Advisor</span><span class="kg-rel-target">Dr. Anjali Mehta →</span></div>
+      <div class="kg-rel"><span class="kg-rel-label">Senior thesis pair</span><span class="kg-rel-target">Karan Iyer, '19 →</span></div>
+      <div class="kg-rel"><span class="kg-rel-label">Mentored students</span><span class="kg-rel-target">4 from cohorts '22–'25 →</span></div>
+      <div class="kg-rel"><span class="kg-rel-label">First-job employer</span><span class="kg-rel-target">Hubspot · return offer →</span></div>
+      <div class="kg-rel"><span class="kg-rel-label">Lab affiliation</span><span class="kg-rel-target">Khoury Systems →</span></div>
+    </section>
+
+    <!-- pattern: p-cohort mini -->
+    <section class="rail-section p-cohort-mini">
+      <div class="section-label">RETENTION BY ARCHETYPE</div>
+      <table>
+        <thead><tr><th class="row-label">Pattern</th><th>W0</th><th>W12</th><th>W24</th><th>W36</th><th>W48</th></tr></thead>
+        <tbody>
+          <tr><th class="row-label">Marcus</th><td><span class="cell c100">100</span></td><td><span class="cell c90">94</span></td><td><span class="cell c90">88</span></td><td><span class="cell c70">81</span></td><td><span class="cell c70">76</span></td></tr>
+          <tr><th class="row-label">Data-piv</th><td><span class="cell c100">100</span></td><td><span class="cell c90">96</span></td><td><span class="cell c90">90</span></td><td><span class="cell c70">82</span></td><td><span class="cell c70">79</span></td></tr>
+          <tr><th class="row-label">Outbound</th><td><span class="cell c100">100</span></td><td><span class="cell c70">78</span></td><td><span class="cell c50">62</span></td><td><span class="cell c50">55</span></td><td><span class="cell c30">48</span></td></tr>
+          <tr><th class="row-label">Ghost</th><td><span class="cell c100">100</span></td><td><span class="cell c30">42</span></td><td><span class="cell c50">66</span></td><td><span class="cell c70">78</span></td><td><span class="cell c70">81</span></td></tr>
+        </tbody>
+      </table>
+      <div style="font-size: 9px; color: var(--b-muted); margin-top: 8px; letter-spacing: 0.4px;">% still employed full-time after graduation, by archetype</div>
+    </section>
+
+    <!-- pattern: p-budget mini — archive depth -->
+    <section class="rail-section p-budget-mini">
+      <div class="section-label">ARCHIVE DEPTH</div>
+      <div class="budget-num">8.4 <span class="small">/ 18 journeys read</span></div>
+      <div class="btr"><div class="bfill"></div><div class="bzone-warn"></div></div>
+      <dl class="bd">
+        <dt>Time spent</dt><dd>34m</dd>
+        <dt>Transcripts opened</dt><dd>3</dd>
+        <dt>Pinned</dt><dd>2</dd>
+        <dt>Annotations</dt><dd>7</dd>
+      </dl>
+      <div style="font-size: 9px; color: var(--b-muted); margin-top: 8px; letter-spacing: 0.4px;">A library, not a chatbot. Read deeply, decide later.</div>
+    </section>
+  </aside>
+
+</main>
+
+<!-- Below-fold — open transcript for the most-similar journey -->
+<section class="section">
+  <div class="section-head">
+    <h2>Open transcript · Journey 0247-K</h2>
+    <div class="desc">FULL INTERVIEW · 47 MIN · 3 SPEAKERS · DE-IDENTIFIED · 2024-03-12</div>
+  </div>
+
+  <!-- pattern: p-trans (full transcript with diarization) -->
+  <article class="p-trans">
+    <div class="th"><div class="tt">"Switching cost one semester. It saved my career."</div><div class="tm">interviewer · alum · advisor</div></div>
+    <div class="tu"><div class="ts s3"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Interviewer&backgroundColor=fce4d6" alt="Interviewer"></div><div class="tco"><div class="tn"><span>Interviewer</span><span class="tstamp">00:42</span></div><div class="tq">Walk me back to the week you decided to switch.</div></div></div>
+    <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Alum%200247-K&backgroundColor=e8e2cf" alt="Alum 0247-K"></div><div class="tco"><div class="tn"><span>Alum 0247-K</span><span class="tstamp">00:48</span></div><div class="tq">It was week three of fall freshman year. I'd been in Business for exactly fourteen class meetings and I was absolutely certain I was in the wrong room. I went to office hours not to ask about course content but to ask about transferring.</div></div></div>
+    <div class="tu"><div class="ts s3"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Interviewer&backgroundColor=fce4d6" alt="Interviewer"></div><div class="tco"><div class="tn"><span>Interviewer</span><span class="tstamp">01:21</span></div><div class="tq">Who did you go to first?</div></div></div>
+    <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Alum%200247-K&backgroundColor=e8e2cf" alt="Alum 0247-K"></div><div class="tco"><div class="tn"><span>Alum 0247-K</span><span class="tstamp">01:24</span></div><div class="tq">A TA I'd had for the one CS elective I'd been allowed to take as a non-major. He pointed me at Dr. Mehta in Khoury and said "tell her your story and she'll know what to do." I walked across campus that afternoon.</div></div></div>
+    <div class="tu"><div class="ts s2"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Anjali%20Mehta&backgroundColor=c5e2f5" alt="Dr. Anjali Mehta"></div><div class="tco"><div class="tn"><span>Dr. Mehta (advisor · interviewed separately)</span><span class="tstamp">02:08</span></div><div class="tq">I remember the meeting. The student knew what they wanted; my job was to map the credit clock. We mapped it in about 90 minutes. The hardest part was making them believe the switch wasn't a failure — they kept apologizing for changing their mind.</div></div></div>
+    <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Alum%200247-K&backgroundColor=e8e2cf" alt="Alum 0247-K"></div><div class="tco"><div class="tn"><span>Alum 0247-K</span><span class="tstamp">02:55</span></div><div class="tq">The thing I didn't know was that switching at week three was easy. If I'd waited until end of semester, it would have cost me a year. Nobody had told me that. The whole system rewards moving fast.</div></div></div>
+    <div class="tu"><div class="ts s3"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Interviewer&backgroundColor=fce4d6" alt="Interviewer"></div><div class="tco"><div class="tn"><span>Interviewer</span><span class="tstamp">03:31</span></div><div class="tq">What about co-op?</div></div></div>
+    <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Alum%200247-K&backgroundColor=e8e2cf" alt="Alum 0247-K"></div><div class="tco"><div class="tn"><span>Alum 0247-K</span><span class="tstamp">03:34</span></div><div class="tq">Fall junior, Hubspot. I almost didn't apply because the listing said "rising senior preferred" and I was a year behind from the switch. My advisor pushed me to apply anyway. They didn't care about the year — they cared about the work in my portfolio. By month two of co-op I was leading a small project. They wrote me a return offer at the end of the term.</div></div></div>
+    <div class="tu"><div class="ts s1"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Alum%200247-K&backgroundColor=e8e2cf" alt="Alum 0247-K"></div><div class="tco"><div class="tn'"><span>Alum 0247-K</span><span class="tstamp">05:42</span></div><div class="tq">The thing nobody tells you about being first-gen at a four-year is that your parents will be supportive but they won't have advice. So you have to find the people whose job it is to have advice. Northeastern's advantage is that those people are everywhere — TAs, advisors, alumni networks — but you have to walk up and ask. The cost of asking is way smaller than the cost of not asking.</div></div></div>
+  </article>
+
+  <!-- pattern: p-cot — analytical insight derived from cross-journey reading -->
+  <article class="p-cot">
+    <div class="cot-head">CROSS-JOURNEY PATTERNS · WHAT THE ARCHIVE TEACHES</div>
+    <div class="cs">
+      <div class="csl"><span style="background:var(--b-accent);color:var(--b-ink);padding:1px 5px;font-weight:700;">Pattern 01</span> · 11/18 journeys</div>
+      <div class="cq">"The students who switched majors at or before week 6 of their first semester paid the lowest credit-clock penalty and reported the highest career satisfaction. Switching later is more expensive — both in time and in narrative."</div>
+    </div>
+    <div class="cs">
+      <div class="csl"><span style="background:var(--b-accent);color:var(--b-ink);padding:1px 5px;font-weight:700;">Pattern 02</span> · 9/9 first-gen journeys</div>
+      <div class="cq">"Every first-gen alum cited a SPECIFIC named person — an advisor, a TA, a peer — who told them an option existed that they didn't know about. The information asymmetry, not the talent gap, is the dominant friction."</div>
+    </div>
+    <div class="cs">
+      <div class="csl"><span style="background:var(--b-accent);color:var(--b-ink);padding:1px 5px;font-weight:700;">Pattern 03</span> · 14/18 co-op stories</div>
+      <div class="cq">"First co-op employer significantly over-determined the second and third co-ops via referral networks. The 'wrong first co-op' is recoverable but expensive — it shifts the network neighborhood for the rest of the degree."</div>
+    </div>
+    <div class="cs">
+      <div class="csl"><span style="background:var(--b-accent);color:var(--b-ink);padding:1px 5px;font-weight:700;">Pattern 04</span> · 4/18 mental-health journeys</div>
+      <div class="cq">"All four students who took a leave of absence came back stronger than they left. None of them knew the leave option existed until someone — usually an RA or a peer — told them. Three said the leave should be presented at orientation, not buried in policy."</div>
+    </div>
+  </article>
+
+  <!-- pattern: p-cohort full — retention by archetype -->
+  <article class="p-cohort">
+    <h3>Retention 4 years post-grad · by journey archetype</h3>
+    <table>
+      <thead><tr><th class="row-label">Archetype</th><th>Grad</th><th>+1y</th><th>+2y</th><th>+3y</th><th>+4y</th></tr></thead>
+      <tbody>
+        <tr><th class="row-label">Marcus-pattern (switched + first-gen + early co-op)</th><td><span class="cell c100">100</span></td><td><span class="cell c100">98</span></td><td><span class="cell c90">94</span></td><td><span class="cell c90">91</span></td><td><span class="cell c90">88</span></td></tr>
+        <tr><th class="row-label">Data-pivot (stayed + added minor + clinical co-op)</th><td><span class="cell c100">100</span></td><td><span class="cell c100">99</span></td><td><span class="cell c90">95</span></td><td><span class="cell c90">92</span></td><td><span class="cell c90">89</span></td></tr>
+        <tr><th class="row-label">Stayed-original (CS to CS-employed)</th><td><span class="cell c100">100</span></td><td><span class="cell c90">95</span></td><td><span class="cell c90">88</span></td><td><span class="cell c70">82</span></td><td><span class="cell c70">78</span></td></tr>
+        <tr><th class="row-label">Outbound (switched out of Khoury)</th><td><span class="cell c100">100</span></td><td><span class="cell c70">78</span></td><td><span class="cell c50">65</span></td><td><span class="cell c50">58</span></td><td><span class="cell c30">51</span></td></tr>
+        <tr><th class="row-label">Ghost (leave + return)</th><td><span class="cell c100">100</span></td><td><span class="cell c90">92</span></td><td><span class="cell c90">88</span></td><td><span class="cell c70">82</span></td><td><span class="cell c70">79</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cfoot">n = 18 alumni, observation window 2014–2024, retention = "still employed full-time in own-major-adjacent role"</div>
+  </article>
+</section>
+
+<footer class="exemplar-footer">
+  <div>
+    <strong style="color:var(--b-accent);">EXEMPLAR APP · #proto footprint-library #NXT</strong><br>
+    Composed from 10 patterns in the catalog · zero invented UI · uniform NXT brand tokens · synthetic data (18 anonymized journeys, 3 full transcripts, named entities throughout)
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;">
+    <span class="manifest-pill">p-search</span>
+    <span class="manifest-pill">p-facet</span>
+    <span class="manifest-pill">p-tldr</span>
+    <span class="manifest-pill">p-sim</span>
+    <span class="manifest-pill">p-kg</span>
+    <span class="manifest-pill">p-cohort</span>
+    <span class="manifest-pill">p-budget</span>
+    <span class="manifest-pill">p-trans</span>
+    <span class="manifest-pill">p-heat</span>
+    <span class="manifest-pill">p-cot</span>
+  </div>
+  <div><a href="/hic-workspace/wiki/inspiration-hub/ai-patterns/">↗ See full pattern catalog (56)</a></div>
+</footer>
+
+</body>
+</html>

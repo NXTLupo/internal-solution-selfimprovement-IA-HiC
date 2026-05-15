@@ -67,8 +67,19 @@
 ## Industries (0 pages -- pending creation)
 > Industry adaptation pages will be created as engagement-specific sources are ingested.
 
-## Exemplars (0 pages -- pending creation)
-> Gold-standard examples will be compiled from approved generated output.
+## Inspiration Hub (canonical design-system showcase -- 2026-05-14)
+- **CANONICAL** [AI Experience Patterns showcase](inspiration-hub/ai-patterns/index.html) -- **72 hand-authored AI interaction patterns** across 11 sections (conversation, reasoning, decision, generation, oversight, configuration, workflow, search, data, trust, **A-Spot promo banners**) rendered live in BOTH NXT and NU design systems with brand toggle. Zero external image dependencies. Real Northeastern N logo embedded on NU brand surfaces. Dicebear headshots on persona surfaces (no more initials). Machine-readable index at [`_catalog.json`](inspiration-hub/ai-patterns/_catalog.json).
+- **EXEMPLAR APPS** (compose strictly from the catalog — zero invented UI):
+  - [Trailblazer Match — NU brand](inspiration-hub/exemplar-apps/trailblazer-match-nu.html) -- alumni mentor matching for first-gen Khoury students. Composes 7 catalog patterns: p-pers, p-trail, p-rec, p-dial, p-hitl, p-chat, p-trans. Synthetic data throughout: Priya/Marcus/Dr. Park, 87% match confidence, 14-alumni reasoning trail, advisor-approved outbound email.
+  - [Footprint Library — NXT brand](inspiration-hub/exemplar-apps/footprint-library-nxt.html) -- anonymized alumni journey archive (radical-reinterpretation frame, p=0.05 from the VS distribution). Composes 10 catalog patterns: p-search, p-facet, p-tldr, p-sim, p-kg, p-cohort, p-budget, p-trans, p-heat, p-cot. Deep synthetic data: 18 anonymized journeys, full 8-turn interview transcript, retention-by-archetype matrix, cross-journey pattern extraction.
+- [Behance reference library](inspiration-hub/index.html) -- 127 exemplars across 21 interaction archetypes with brand-toggleable mini-patterns. Pending: deeper Pattern Translation pages per exemplar.
+- [Real UI Gallery](inspiration-hub/real-ui/index.html) -- **paused** -- HF datasets-server requires Key-Pair-Id auth and cannot be hotlinked; rebuild requires server-side image download via the proxy. Until then, the AI Patterns showcase is the canonical reference.
+- [[exemplars/behance/ai-chatbot/niva-ai-family-assistant]] -- sample Pattern Translation page with Claude Opus 4.7 + Verbalized Sampling framings (5 #NXT + 5 #NU candidates at distinct probabilities)
+- Raw index: [`exemplars/behance/_raw_index.json`](exemplars/behance/_raw_index.json) -- consolidated Behance metadata
+
+## Exemplars (legacy directory, 1 spec page)
+- [exemplars/persona-card-spec.html](exemplars/persona-card-spec.html) -- persona card visualization spec
+> Other gold-standard examples will be compiled from approved generated output.
 
 ## Engagements (0 pages -- pending creation)
 > Per-client context pages will be created as engagements begin.

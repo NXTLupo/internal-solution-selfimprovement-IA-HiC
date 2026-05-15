@@ -3423,6 +3423,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // the wiki write-back. Multi-file capable.
     const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    // 2026-05-14 — sticky-bottom autoscroll. Track whether the user is currently
+    // pinned to the bottom of the messages list; only auto-scroll when they are.
+    // Fixes the "chat keeps yanking me back down while I'm trying to read above"
+    // complaint. 120px tolerance accommodates the typical chunked-streaming delta.
+    const messagesScrollRef = useRef<HTMLDivElement>(null);
+    const stickToBottomRef = useRef(true);
     const inputRef = useRef<HTMLTextAreaElement>(null);
     // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
     const panelRef = useRef<HTMLDivElement>(null);
@@ -3471,8 +3477,27 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         })();
     }, [context.articleCount]); // Reload when article count changes (new collection)
 
+    // Track scroll position to know whether the user is reading older
+    // messages above. As soon as they scroll up >120px from the bottom we stop
+    // auto-scrolling them; the moment they return within 120px of the bottom
+    // we resume sticky behavior.
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        const el = messagesScrollRef.current;
+        if (!el) return;
+        const onScroll = () => {
+            const distanceFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
+            stickToBottomRef.current = distanceFromBottom < 120;
+        };
+        el.addEventListener('scroll', onScroll, { passive: true });
+        return () => el.removeEventListener('scroll', onScroll);
+    }, []);
+
+    useEffect(() => {
+        // Only auto-scroll if the user is already pinned to the bottom.
+        // Honors the user's reading position when they have scrolled up.
+        if (stickToBottomRef.current) {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
     }, [messages]);
 
     useEffect(() => {
@@ -6032,7 +6057,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             </div>
 
             {/* Messages */}
-            <div style={{ flex: 1, overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div ref={messagesScrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {messages.length === 0 && (
                     <div style={{ textAlign: 'center', padding: '16px 0' }}>
                         <div style={{ fontSize: 12, fontWeight: 600, color: '#333', marginBottom: 6 }}>Ask anything about your research data</div>

@@ -19,6 +19,22 @@
 const PROXY_BASE = 'http://localhost:5012';
 const STAGE_MODEL = 'gemini-3.1-pro-preview';
 
+// 2026-05-14 — Design exemplar curator (Behance reference library). Pulls
+// matching exemplars by concept/interaction-pattern/brand-hashtag and
+// injects a STUDY-THESE block at the head of the Stage 4 Prototype Coder
+// system prompt. Replaces vague "clean modern" aesthetic placeholders with
+// named, evidence-backed visual references the coder must visually pass
+// against. See: .claude/skills/design-exemplar-curator/SKILL.md
+import { curateExemplarsForBrief, buildStage4InjectionBlock } from './designExemplarCurator';
+// 2026-05-14 — Experience Prototype Composer (STRICT-RULE). Mandates that
+// Stage 4 compose every region from the AI Experience Patterns catalog at
+// /hic-workspace/wiki/inspiration-hub/ai-patterns/. Parses the user's
+// `#proto <name> #NU|#NXT` hashtag and produces a system-prompt injection
+// block that forbids invented UI. Activates ONLY when #proto is present;
+// non-prototyping flows are unaffected. See:
+// .claude/skills/experience-prototype-composer/SKILL.md
+import { buildComposerInjection } from './experiencePrototypeComposer';
+
 export type Brand = 'NXT' | 'NU';
 
 export interface ExperienceBrief {
@@ -1295,6 +1311,76 @@ async function callGeminiStage(
 // JSON-stage caller with strict schema validation + one auto-repair attempt.
 // If the first response is missing required keys, we re-prompt the model
 // with the failure explicitly named so it knows what to fix on retry.
+// 2026-05-15 — GPT-5.5 stage caller. Routes structured-output stages (Stage 2
+// Interaction Architect, Stage 5 Critic) through GPT-5.5 instead of Gemini to
+// reduce cost on deterministic JSON tasks while keeping Opus/Gemini for the
+// creativity-bound stages (Pass 1 framings, Stage 4 visual coder). GPT-5.5's
+// response_format=json_object yields cleaner JSON than Gemini's json mode and
+// is significantly cheaper per token. The interface mirrors callGeminiStage
+// exactly so it's a drop-in swap at the call site.
+async function callGpt55Stage(
+    systemPrompt: string,
+    userContent: string,
+    jsonMode: boolean = true,
+    _thinkingBudget?: any,           // unused on GPT-5.5; kept for interface compat
+    maxOutputTokens: number = 16000,
+): Promise<string> {
+    const body: any = {
+        model: 'gpt-5.5',
+        messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userContent },
+        ],
+        max_completion_tokens: maxOutputTokens,
+        temperature: 0.7,
+    };
+    if (jsonMode) body.response_format = { type: 'json_object' };
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const data = await callAIWithRetry('openai', body, {
+        label: 'GPT-5.5 stage',
+        headers: { 'x-openai-endpoint': 'chat' },
+        requestTimeoutMs: 300_000,
+    });
+    const text = (data?.choices?.[0]?.message?.content || '').trim();
+    if (!text) {
+        const finish = data?.choices?.[0]?.finish_reason || 'no output';
+        throw new Error(`GPT-5.5 stage returned empty payload (finish_reason=${finish}).`);
+    }
+    return text;
+}
+
+// 2026-05-15 — Mirrors callGeminiJsonStage interface exactly. Drop-in swap for
+// stages that produce structured JSON (Stage 2, Stage 5). Same retry-on-
+// missing-keys logic; same tryParseJson recovery chain (which includes the
+// truncation repair added 2026-05-15).
+async function callGpt55JsonStage<T>(
+    systemPrompt: string,
+    userContent: string,
+    requiredKeys: string[],
+    stageName: string,
+    thinkingBudget: ThinkingBudget = 'high',
+    maxOutputTokens?: number,
+): Promise<T> {
+    const tryOnce = async (extraNote?: string) => {
+        const finalUser = extraNote ? `${userContent}\n\n${extraNote}` : userContent;
+        const text = await callGpt55Stage(systemPrompt, finalUser, true, thinkingBudget, maxOutputTokens || 16000);
+        return tryParseJson<T>(text, stageName);
+    };
+    let parsed = await tryOnce();
+    const missing = requiredKeys.filter(k => (parsed as any)?.[k] === undefined || (parsed as any)?.[k] === null);
+    if (missing.length === 0) return parsed;
+    console.warn(`[${stageName}] missing required keys: ${missing.join(', ')} — retrying with explicit instruction`);
+    parsed = await tryOnce(
+        `IMPORTANT — your previous response was missing these required keys: ${missing.join(', ')}. ` +
+        `Re-emit the JSON with EVERY required field present and matching the schema exactly. Output valid JSON only.`,
+    );
+    const stillMissing = requiredKeys.filter(k => (parsed as any)?.[k] === undefined || (parsed as any)?.[k] === null);
+    if (stillMissing.length > 0) {
+        throw new Error(`${stageName} still missing required keys after retry: ${stillMissing.join(', ')}`);
+    }
+    return parsed;
+}
+
 async function callGeminiJsonStage<T>(
     systemPrompt: string,
     userContent: string,
@@ -1569,21 +1655,35 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     // through. This preserves the IDEO/Apple bar through the pipeline.
     const richBrief = approvedBrief ? `\n\nAPPROVED BRIEF — RICH CONTEXT (the user picked this from a 5-brief set; honor every use case, screen, AI capability, seed entity, and visual direction):\n${concept}\n` : '';
 
-    // Stage 2
+    // Stage 2 — Interaction Architect (GPT-5.5 since 2026-05-15)
+    // Structured JSON output, deterministic, no creative divergence needed.
+    // Swapped from Gemini 3.1 Pro to GPT-5.5 for cost + speed on this stage.
+    // Falls back to Gemini if GPT-5.5 fails or quota-rate-limits.
     fire(2, 'Interaction Architect', 'running');
     let spec: InteractionSpec;
     try {
-        spec = await callGeminiJsonStage<InteractionSpec>(
+        spec = await callGpt55JsonStage<InteractionSpec>(
             STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
             ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
             'Stage 2 Interaction Architect',
             'max',
+            16000,
         );
-    } catch (e: any) {
-        fire(2, 'Interaction Architect', 'failed', e.message);
-        throw e;
+    } catch (gptErr: any) {
+        console.warn(`[Stage 2] GPT-5.5 failed (${gptErr?.message || gptErr}) — falling back to Gemini 3.1 Pro.`);
+        try {
+            spec = await callGeminiJsonStage<InteractionSpec>(
+                STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
+                ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
+                'Stage 2 Interaction Architect (fallback)',
+                'max',
+            );
+        } catch (e: any) {
+            fire(2, 'Interaction Architect', 'failed', e.message);
+            throw e;
+        }
     }
-    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · thinking=high`);
+    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · gpt-5.5`);
 
     // Stage 2.5 — Simulated User Sessions (2026-05-13). Generates the 30
     // synthetic sessions (12 modal + 10 edge + 8 tail) the prototype must
@@ -1669,10 +1769,89 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     // Stage 4 — the expensive one. High thinking, generous token budget.
     // Now executes the recipe verbatim rather than re-deciding the design.
     fire(4, 'Prototype Coder', 'running');
+
+    // 2026-05-14 — Inject the Design Exemplar Library before the Stage 4
+    // system prompt so the coder has 5 named visual references to study
+    // instead of falling back to "generic Copilot clone with modal + tone
+    // slider". Selection is hashtag-aware: #NXT-radical loads framing ε,
+    // #NU-institutional swaps brand to NU + framing α, etc. If curation
+    // fails (e.g. wiki index unreachable), Stage 4 proceeds without
+    // injection — no regression on existing behavior.
+    let stage4System = buildStage4System(brand);
+    try {
+        const briefAny = brief as any;
+        const specAny = spec as any;
+        const designAny = designSystem as any;
+        const committedFrameRaw = briefAny.committed_frame;
+        const committedFrame =
+            String(committedFrameRaw) === '3' ? 'radical' :
+            String(committedFrameRaw) === '1' ? 'convention-honoring' : 'unspecified';
+
+        const exemplarRefs = await curateExemplarsForBrief({
+            concept: briefAny.concept_title || briefAny.one_line_thesis || briefAny.demonstrated_moment || '',
+            interactionPattern: specAny?.primary_interaction_pattern || briefAny.interaction_pattern,
+            aestheticKeywords: designAny?.aesthetic_keywords || briefAny.visual_direction?.aesthetic_keywords || [],
+            committedFrame,
+            brandHashtag: brand === 'NU' ? '#NU' : '#NXT',
+        });
+
+        if (exemplarRefs.length > 0) {
+            const injectionBlock = buildStage4InjectionBlock(exemplarRefs, brand === 'NU' ? '#NU' : '#NXT');
+            stage4System = injectionBlock + '\n\n' + stage4System;
+            console.log(
+                `[Stage 4] Injected ${exemplarRefs.length} design exemplar references ` +
+                `(brand=${brand}, framing=${exemplarRefs[0].framing_letter}/${exemplarRefs[0].framing_name})`,
+            );
+        }
+
+        // 2026-05-14 — STRICT-RULE composer injection. Parses #proto hashtag
+        // from the original user prompt (carried through on the brief) and,
+        // if present, prepends a hard composition rule: every UI region MUST
+        // be a NAMED pattern from the catalog. The composer is non-fatal —
+        // if catalog load fails or the hashtag is absent, Stage 4 proceeds
+        // with just the exemplar block + system prompt.
+        try {
+            // 2026-05-15 — `concept` is the load-bearing field: it carries the
+            // user's verbatim `#proto <name> #NU|#NXT` hashtag from the chat
+            // input. Without it the composer's parseProtoHashtag never sees the
+            // hashtag and the strict-rule injection silently no-ops. Order
+            // matters: concept first, then fall back to anything else that
+            // might carry the hashtag.
+            const userPrompt = String(
+                opts.concept ||
+                briefAny.user_prompt ||
+                briefAny.original_prompt ||
+                opts.researchGoal ||
+                opts.title ||
+                briefAny.concept_title ||
+                ''
+            );
+            const composerResult = await buildComposerInjection({
+                prompt: userPrompt,
+                concept: briefAny.concept_title || briefAny.one_line_thesis || briefAny.demonstrated_moment || opts.concept || '',
+                brand_override: brand === 'NU' ? 'nu' : 'nxt',
+            });
+            if (composerResult.active && composerResult.injection) {
+                stage4System = composerResult.injection + '\n\n' + stage4System;
+                console.log(
+                    `[Stage 4] STRICT COMPOSER active — experience="${composerResult.hashtag.experience_name}", ` +
+                    `brand=${composerResult.hashtag.brand}, ` +
+                    `recommended patterns=${composerResult.recommended_patterns.length}`,
+                );
+            } else {
+                console.log('[Stage 4] STRICT COMPOSER inactive — no #proto hashtag found; free-form prototype allowed.');
+            }
+        } catch (composerErr: any) {
+            console.warn('[Stage 4] composer injection failed, proceeding without:', composerErr?.message || composerErr);
+        }
+    } catch (exErr: any) {
+        console.warn('[Stage 4] exemplar curation failed, proceeding without injection:', exErr?.message || exErr);
+    }
+
     let codeText: string;
     try {
         codeText = await callGeminiStage(
-            buildStage4System(brand),
+            stage4System,
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (EXECUTE VERBATIM — every micro-copy string, every screen's component tree, every verbatim AI prompt, every seed-record anchor):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsBlock}`,
             false,
             'max',
@@ -1693,13 +1872,21 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         const sessionsAuditBlock = simulatedSessions.length > 0
             ? `\n\nSIMULATED USER SESSIONS — AUDIT THE CODE AGAINST EACH OF THESE (${simulatedSessions.length} total). For EACH session, determine: "Can this user complete their motivation in this prototype as built? If not, what's the SPECIFIC missing piece?" Compute coverage % and populate \`session_coverage\` in the critique JSON:\n${JSON.stringify(simulatedSessions, null, 2)}`
             : '';
-        critiqueText = await callGeminiStage(
-            STAGE_5_SYSTEM,
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`,
-            true,
-            'max',
-            64000, // 2026-05-14 — bumped from 32K. Stage 5 must traverse the entire recipe + code + up to 30 sessions and still fit failed_sessions[] descriptions. 32K truncated mid-string at ~58KB on a coverage=40% (rebuild) audit.
-        );
+        // Stage 5 — Critic (GPT-5.5 since 2026-05-15). Deterministic JSON
+        // audit task, no creative divergence. Falls back to Gemini if 5.5 fails.
+        const stage5User = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`;
+        try {
+            critiqueText = await callGpt55Stage(STAGE_5_SYSTEM, stage5User, true, 'max', 64000);
+        } catch (gptErr: any) {
+            console.warn(`[Stage 5] GPT-5.5 failed (${gptErr?.message || gptErr}) — falling back to Gemini 3.1 Pro.`);
+            critiqueText = await callGeminiStage(
+                STAGE_5_SYSTEM,
+                stage5User,
+                true,
+                'max',
+                64000, // Stage 5 must traverse the entire recipe + code + up to 30 sessions and still fit failed_sessions[] descriptions
+            );
+        }
     } catch (e: any) {
         // Critic transport failure (HTTP/network) — return what we have
         fire(5, 'Critic + Refiner', 'failed', e.message);

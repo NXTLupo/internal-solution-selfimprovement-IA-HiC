@@ -7026,6 +7026,20 @@ WIKI_BASE = os.environ.get("WIKI_PATH", "/hic-workspace/wiki")
 if not os.path.isdir(WIKI_BASE):
     WIKI_BASE = os.path.join(os.path.dirname(__file__), "..", "hic-workspace", "wiki")
 
+# 2026-05-14 -- mount the wiki as static files on the proxy so live wiki
+# changes are browsable at http://localhost:5012/hic-workspace/wiki/...
+# without requiring a research-generator Docker rebuild. The proxy already
+# has a volume mount to /hic-workspace/wiki so this serves the LIVE working
+# copy. The Inspiration Hub gallery lives at .../inspiration-hub/index.html;
+# html=True makes directory URLs auto-serve their index.html.
+try:
+    from fastapi.staticfiles import StaticFiles
+    if os.path.isdir(WIKI_BASE):
+        app.mount("/hic-workspace/wiki", StaticFiles(directory=WIKI_BASE, html=True), name="wiki-static")
+        logging.info(f"[wiki-static] mounted {WIKI_BASE} at /hic-workspace/wiki")
+except Exception as _wiki_mount_err:
+    logging.warning(f"[wiki-static] mount failed: {_wiki_mount_err}")
+
 from pydantic import BaseModel
 
 class WikiWriteRequest(BaseModel):

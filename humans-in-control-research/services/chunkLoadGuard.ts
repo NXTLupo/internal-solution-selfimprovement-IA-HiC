@@ -193,7 +193,18 @@ export function installChunkLoadGuard(): void {
     window.addEventListener('vite:preloadError', (event: Event) => {
         const detail = (event as any).payload || (event as any).detail || event;
         showStaleBundleBanner('vite:preloadError', detail);
-        // Don't prevent default — let Vite's normal flow continue too.
+        // 2026-05-15 — MUST preventDefault. Vite's DEFAULT behavior on
+        // `vite:preloadError` is to HARD-RELOAD THE PAGE, which dumps the
+        // user back to the landing screen and destroys their in-memory
+        // session (chat history, brief drafts, design-desk state).
+        // The previous comment said "let Vite's normal flow continue too"
+        // — that was exactly wrong: Vite's normal flow IS the destructive
+        // reload. Symptom: typing #proto on a tab held open across a
+        // Docker rebuild silently redirected to the landing page with NO
+        // error message because Vite reloaded out from under the React
+        // tree. preventDefault() suppresses the auto-reload; the user
+        // sees the banner instead and can Save Session → Reload by hand.
+        event.preventDefault();
     });
 
     // 2. Catches dynamic-import rejections that escape any try/catch and
