@@ -1721,12 +1721,42 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         ? `\n\nSIMULATED USER SESSIONS (${simulatedSessions.length}) — the design + recipe + code must satisfy ALL THREE buckets; Stage 5 will compute coverage per-session:\n${simulatedSessions.map(s => `  • [${s.bucket}] ${s.id} — ${s.persona.name} (${s.persona.role}): wants "${s.motivation}"; frustrated by "${s.one_thing_frustrated_by}"`).join('\n')}`
         : '';
 
+    // 2026-05-15 — Compute the catalog/composer preface ONCE here so Stage 3
+    // (Visual Designer) and Stage 3.5 (Build Recipe Author) both see the
+    // 77-pattern catalog and the strict composition rule. Previously only
+    // Stage 4 received this injection — meaning Stage 3 picked design tokens
+    // without committing to specific pattern IDs, and the Recipe planned
+    // screens without knowing which pattern wrappers were available. Result:
+    // Stage 4 had to bend the recipe to fit the catalog. Injecting earlier
+    // pre-commits the design to specific catalog patterns so the recipe
+    // plans WITH those patterns and Stage 4 just renders.
+    // The catalog has a 5-min TTL cache, so the three callers share the load.
+    let composerPreface = '';
+    try {
+        const briefAnyEarly = brief as any;
+        const composerEarly = await buildComposerInjection({
+            prompt: String(opts.concept || briefAnyEarly.user_prompt || briefAnyEarly.concept_title || ''),
+            concept: briefAnyEarly.concept_title || briefAnyEarly.one_line_thesis || briefAnyEarly.demonstrated_moment || opts.concept || '',
+            brand_override: brand === 'NU' ? 'nu' : 'nxt',
+        });
+        if (composerEarly.active && composerEarly.injection) {
+            composerPreface = composerEarly.injection + '\n\n';
+            console.log(
+                `[Stages 3/3.5/4] STRICT COMPOSER preface built — experience="${composerEarly.hashtag.experience_name}", ` +
+                `brand=${composerEarly.hashtag.brand}, recommended patterns=${composerEarly.recommended_patterns.length}`,
+            );
+        }
+    } catch (composerErr: any) {
+        console.warn('[Stages 3/3.5/4] composer preface failed, proceeding without:', composerErr?.message || composerErr);
+    }
+
     // Stage 3 (medium thinking — visual design is structurally simpler than logic)
+    // Now sees the catalog preface so it pre-commits to specific pattern IDs.
     fire(3, 'Visual Designer', 'running');
     let designSystem: DesignSystem;
     try {
         designSystem = await callGeminiJsonStage<DesignSystem>(
-            buildStage3System(brand),
+            composerPreface + buildStage3System(brand),
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}${sessionsBlock}`,
             ['brand_application', 'type_system', 'color_system', 'spacing_scale', 'motion_tokens', 'components'],
             'Stage 3 Visual Designer',
@@ -1736,16 +1766,20 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         fire(3, 'Visual Designer', 'failed', e.message);
         throw e;
     }
-    fire(3, 'Visual Designer', 'done', `${brand} brand applied · thinking=medium`);
+    fire(3, 'Visual Designer', 'done', `${brand} brand applied · thinking=medium${composerPreface ? ' · catalog-aware' : ''}`);
 
     // Stage 3.5 — Build Recipe Author. Produces the exhaustive implementation
     // plan Stage 4 will execute verbatim. Max thinking budget, large output
     // budget — this is the brain of the build.
+    // 2026-05-15 — Build Recipe now sees the catalog preface too. The recipe
+    // planner can therefore name specific pattern IDs (p-chat, p-rec, p-dial,
+    // etc.) into screens[].components[] instead of inventing component names
+    // Stage 4 has to map after the fact.
     fire(35, 'Build Recipe Author', 'running');
     let buildRecipe: BuildRecipe;
     try {
         buildRecipe = await callGeminiJsonStage<BuildRecipe>(
-            STAGE_3_5_SYSTEM,
+            composerPreface + STAGE_3_5_SYSTEM,
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}`,
             ['persona_runtime', 'seed_data', 'screens', 'cross_cutting', 'micro_copy', 'verbatim_prompts', 'success_assertions'],
             'Stage 3.5 Build Recipe Author',
@@ -1839,7 +1873,8 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
                     `recommended patterns=${composerResult.recommended_patterns.length}`,
                 );
             } else {
-                console.log('[Stage 4] STRICT COMPOSER inactive — no #proto hashtag found; free-form prototype allowed.');
+                // Composer is always-on; if active is false, the catalog load failed.
+                console.warn('[Stage 4] STRICT COMPOSER inactive — catalog load failed; Stage 4 falling back to free-form generation. Check /hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json is reachable.');
             }
         } catch (composerErr: any) {
             console.warn('[Stage 4] composer injection failed, proceeding without:', composerErr?.message || composerErr);

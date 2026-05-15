@@ -2985,10 +2985,75 @@ async def prototype_view(slug: str = Path(...)):
     <title>{title} — HiC Prototype</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- 2026-05-15 — Tailwind CDN added. The Stage 4 prompt + the AI Experience
+         Patterns catalog instruct the coder to emit Tailwind classes (bg-nu-red,
+         font-display, text-text-primary, etc.). Without Tailwind loaded here,
+         every className resolved to a dead string and the page rendered as a
+         tiny unstyled fragment ("Trailblazer Time Machine — DEMO / JUMP" with
+         no styling). Adding the CDN + a brand-token config makes the catalog
+         classes resolve. NU and NXT palettes both registered so the wrapper
+         serves prototypes from either brand without rebuilds. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {{
+        theme: {{
+          extend: {{
+            colors: {{
+              // Northeastern brand
+              'nu-red':       {{ DEFAULT: 'rgb(200, 16, 46)', deep: 'rgb(170, 29, 37)', tint: 'rgba(200, 16, 46, 0.08)', dark: 'rgb(140, 20, 35)' }},
+              'nu-navy':      {{ DEFAULT: 'rgb(11, 19, 38)', 800: 'rgb(20, 29, 48)', 700: 'rgb(26, 35, 51)' }},
+              'nu-slate':     {{ 50: 'rgb(248, 250, 252)', 100: 'rgb(241, 245, 249)', 200: 'rgb(226, 232, 240)', 300: 'rgb(203, 213, 225)' }},
+              // NXT Humans brand
+              'nxt-chartreuse': '#B8B800',
+              'nxt-cyan':       '#00B7C3',
+              'nxt-rust':       '#CC6644',
+              'nxt-teal':       '#115054',
+              'nxt-black':      '#0D0D0D',
+              'nxt-paper':      '#F5F5F0',
+              // Shared neutrals (used by both brands as semantic tokens)
+              'text-primary':   '#0D0D0D',
+              'text-secondary': '#333333',
+              'text-tertiary':  '#666666',
+              'text-muted':     '#999999',
+              'surface':        '#FAFAFA',
+              'panel':          '#F5F5F0',
+              'border':         '#E0E0E0',
+              'border-soft':    '#EEEEEE',
+            }},
+            fontFamily: {{
+              // NU prefers Spectral display + Roboto body; NXT prefers Bebas + Archivo.
+              // 'display' covers both via fallback chain — model picks the active brand.
+              'display':  ['Spectral', 'Bebas Neue', 'serif'],
+              'body':     ['Roboto', 'Archivo', 'Inter', '-apple-system', 'sans-serif'],
+              'data':     ['JetBrains Mono', 'Roboto Mono', 'ui-monospace', 'monospace'],
+              'label':    ['Roboto', 'Archivo', 'sans-serif'],
+              'bebas':    ['Bebas Neue', 'sans-serif'],
+              'spectral': ['Spectral', 'serif'],
+              'archivo':  ['Archivo', 'sans-serif'],
+              'roboto':   ['Roboto', 'sans-serif'],
+            }},
+            keyframes: {{
+              shimmer:  {{ '0%': {{ transform: 'translateX(-100%)' }}, '100%': {{ transform: 'translateX(200%)' }} }},
+              'pulse-ring': {{ '0%,100%': {{ transform: 'scale(0.96)', opacity: '0.4' }}, '50%': {{ transform: 'scale(1.04)', opacity: '1' }} }},
+            }},
+            boxShadow: {{
+              'nu':    '0 1px 2px rgba(11,19,38,0.04)',
+              'nu-md': '0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04)',
+              'nu-lg': '0 12px 32px rgba(11,19,38,0.12), 0 2px 6px rgba(11,19,38,0.06)',
+            }},
+            borderRadius: {{
+              'nu-sm': '4px',
+              'nu':    '8px',
+              'nxt':   '2px',
+            }},
+          }},
+        }},
+      }};
+    </script>
     <style>
       html, body, #root {{ margin: 0; padding: 0; min-height: 100vh; }}
-      body {{ font-family: 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
+      body {{ font-family: 'Roboto', 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
       * {{ box-sizing: border-box; }}
       .__hic_proto_error {{
         padding: 24px; margin: 16px; max-width: 720px;
