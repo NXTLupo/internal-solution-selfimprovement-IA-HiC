@@ -5,7 +5,7 @@
 // know how to turn App-level state into the JSON the proxy expects (and
 // back). Use this from App.tsx for auto-save and Continue-Session flows.
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface SessionSummary {
     slug: string;

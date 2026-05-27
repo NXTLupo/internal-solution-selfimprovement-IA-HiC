@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>PRD — Co-Op Triage v1</title>
+<meta name="viewport" content="width=1200" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+  .prd {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    border-left: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+    min-height: 100vh;
+  }
+  .prd-cover {
+    padding: 48px 56px 32px;
+    border-bottom: 1px solid var(--border-default);
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: end;
+  }
+  .prd-cover__kicker {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px;
+    letter-spacing: .18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--special-fg);
+    margin-bottom: 14px;
+  }
+  .prd-cover__kicker::before {
+    content: ""; display: inline-block;
+    width: 22px; height: 1.5px;
+    background: var(--special-solid);
+  }
+  .prd-cover__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+  }
+  .prd-cover__deck {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--fg-muted);
+    max-width: 64ch;
+  }
+  .prd-cover__meta dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 14px;
+    margin: 0;
+    border-left: 1px solid var(--border-default);
+    padding-left: 28px;
+    font-size: 11px;
+  }
+  .prd-cover__meta dt {
+    color: var(--fg-subtle);
+    font-size: 9.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .prd-cover__meta dd { margin: 0; color: var(--fg-default); font-family: var(--font-mono); font-size: 10.5px; }
+
+  /* Section nav rail */
+  .prd-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+  }
+  .prd-toc {
+    border-right: 1px solid var(--border-subtle);
+    background: var(--slate-50);
+    padding: 32px 24px;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    font-size: 11.5px;
+  }
+  .prd-toc h4 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .prd-toc ol { list-style: none; padding: 0; margin: 0; }
+  .prd-toc li {
+    padding: 5px 0;
+    display: flex;
+    gap: 10px;
+    color: var(--fg-default);
+    cursor: pointer;
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+  .prd-toc li:last-child { border-bottom: 0; }
+  .prd-toc li:hover { color: var(--special-fg); }
+  .prd-toc li b { font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-subtle); font-weight: 500; min-width: 22px; }
+  .prd-toc li.critical b { color: var(--nu-red-600); font-weight: 600; }
+
+  .prd-main { padding: 32px 48px 48px; max-width: 880px; }
+  .prd-section { padding: 22px 0; border-bottom: 1px solid var(--border-subtle); }
+  .prd-section:first-child { padding-top: 0; }
+  .prd-section:last-child { border-bottom: 0; }
+  .prd-section__head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .prd-section__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    min-width: 22px;
+  }
+  .prd-section__title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    flex: 1;
+  }
+  .prd-section__crit {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--nu-red-700);
+  }
+  .prd-section p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-default);
+    margin: 0 0 10px;
+  }
+  .prd-section p strong { color: var(--fg-strong); font-weight: 500; }
+
+  /* User stories */
+  .stories {
+    background: var(--slate-50);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin: 12px 0;
+  }
+  .stories h5 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .stories ol {
+    list-style: none; counter-reset: us; padding: 0; margin: 0;
+  }
+  .stories li {
+    counter-increment: us;
+    padding: 6px 0 6px 28px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    position: relative;
+    color: var(--fg-default);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .stories li:last-child { border-bottom: 0; }
+  .stories li::before {
+    content: "US-" counter(us, decimal-leading-zero);
+    position: absolute; left: 0; top: 8px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .stories li b { color: var(--fg-strong); font-weight: 500; }
+  
+  /* Features table */
+  .feature-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 12.5px;
+    margin: 12px 0;
+  }
+  .feature-table thead th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  .feature-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .feature-table tbody tr:last-child td { border-bottom: 0; }
+  .feature-table .f-id { font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-subtle); }
+  .feature-table .f-name b { color: var(--fg-strong); font-weight: 500; display: block; margin-bottom: 4px; font-size: 13px; }
+  .feature-table .f-name span { font-size: 11.5px; color: var(--fg-muted); line-height: 1.45; }
+  .feature-table .ac { font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-muted); }
+  .feature-table .pri { text-align: center; }
+
+  .priority-pill {
+    display: inline-flex; align-items: center; height: 18px;
+    padding: 0 8px; border-radius: 999px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .priority-pill.must { background: var(--nu-red-100); color: var(--nu-red-700); }
+  .priority-pill.should { background: var(--warning-bg); color: var(--warning-fg); }
+  .priority-pill.could { background: var(--progress-bg); color: var(--progress-fg); }
+  .priority-pill.wont { background: var(--slate-100); color: var(--fg-muted); }
+
+  .ac-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-muted);
+  }
+  .ac-list li { padding: 2px 0 2px 18px; line-height: 1.5; position: relative; }
+  .ac-list li::before {
+    content: "✓"; position: absolute; left: 0;
+    color: var(--success-fg);
+  }
+
+  /* Compact 2-col layout for assumptions / constraints etc */
+  .prd-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0; }
+  .prd-2col h6 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .prd-2col ul { list-style: none; padding: 0; margin: 0; }
+  .prd-2col li {
+    padding: 6px 0 6px 18px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fg-default);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  .prd-2col li::before {
+    content: "·";
+    position: absolute; left: 4px; top: 5px;
+    color: var(--fg-subtle);
+  }
+  .prd-2col li:last-child { border-bottom: 0; }
+
+  /* Success metrics */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .metric {
+    padding: 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+  }
+  .metric .lab {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .metric .vals {
+    display: flex; align-items: baseline; gap: 6px;
+    font-family: var(--font-display);
+    line-height: 1;
+  }
+  .metric .now {
+    font-size: 22px; font-weight: 300; color: var(--fg-muted);
+  }
+  .metric .arr { font-family: var(--font-mono); color: var(--fg-subtle); font-size: 14px; }
+  .metric .target {
+    font-size: 26px; font-weight: 400; color: var(--nu-red-700);
+  }
+  .metric .target span { font-size: 12px; font-family: var(--font-sans); color: var(--fg-muted); margin-left: 3px; }
+  .metric .when {
+    margin-top: 8px;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 6px;
+  }
+  .metric .when b { color: var(--fg-default); font-family: var(--font-mono); font-weight: 500; }
+  
+  /* Signoff matrix */
+  .signoff {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 8px 0;
+    font-size: 12px;
+  }
+  .signoff th, .signoff td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .signoff th {
+    background: var(--slate-50);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .signoff td.role { color: var(--fg-strong); font-weight: 500; }
+  .signoff td.name { font-family: var(--font-mono); font-size: 11px; color: var(--fg-default); }
+</style>
+</head>
+<body>
+
+<article class="prd">
+
+  <header class="prd-cover">
+    <div>
+      <div class="prd-cover__kicker">Product requirements · Cagan / SVPG · 16 sections</div>
+      <h1 class="prd-cover__title">Co-Op Triage v1 · Day-Five Silence Detection</h1>
+      <p class="prd-cover__deck">A coordinator-facing triage queue that catches first-year students who go silent in the Handshake application funnel after five days of inactivity — replacing the day-seven untargeted template email with a ranked, explainable queue.</p>
+    </div>
+    <aside class="prd-cover__meta">
+      <dl>
+        <dt>Owner</dt><dd>J. Liu, Co-op Ops</dd>
+        <dt>Engineering</dt><dd>Co-op Eng (4 fte)</dd>
+        <dt>Target ship</dt><dd>2026-08-15</dd>
+        <dt>Freeze</dt><dd>2026-08-01 (cycle)</dd>
+        <dt>Tier</dt><dd>Must-have / Now</dd>
+        <dt>Sources</dt><dd>9 cited · 6 external</dd>
+        <dt>Artifact</dt><dd>PRD v1.0</dd>
+      </dl>
+    </aside>
+  </header>
+
+  <div class="prd-body">
+
+    <!-- TOC rail -->
+    <nav class="prd-toc">
+      <h4>Sections · 16</h4>
+      <ol>
+        <li class="critical"><b>01</b> Problem statement</li>
+        <li><b>02</b> User stories</li>
+        <li><b>03</b> Acceptance criteria</li>
+        <li><b>04</b> Success metrics</li>
+        <li><b>05</b> Personas</li>
+        <li><b>06</b> Functional requirements</li>
+        <li><b>07</b> Non-functional</li>
+        <li><b>08</b> Constraints &amp; dependencies</li>
+        <li><b>09</b> Wireframes</li>
+        <li><b>10</b> Data &amp; privacy</li>
+        <li><b>11</b> Release criteria</li>
+        <li><b>12</b> Risk assessment</li>
+        <li><b>13</b> Assumptions</li>
+        <li><b>14</b> Out of scope</li>
+        <li><b>15</b> Timeline</li>
+        <li><b>16</b> Sign-off matrix</li>
+      </ol>
+    </nav>
+
+    <main class="prd-main">
+
+      <!-- 01 Problem -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§01</span>
+          <h2 class="prd-section__title">Problem statement</h2>
+          <span class="prd-section__crit">most important section</span>
+        </div>
+        <p><strong>38% of first-year applicants attrite from the co-op cycle</strong> when they go fourteen days without a reply from any employer; coordinators discover the dropout retrospectively, after the cycle has closed. <sup class="cite">5</sup> The current system fires a single template email at day seven — untargeted, unranked, and identical for a student with one open application and a student with seven. <sup class="cite">2</sup></p>
+        <p>The patternfor recovery already exists in peer institutions: Cincinnati flags inactivity at day five and routes the student to a coordinator triage queue ranked by stalled-signal strength. <sup class="cite">3</sup> Coordinators at Northeastern manage 180:1 advising loads; only a triage surface — not more office hours — recovers them from batch email and lets them spend time where it matters. <sup class="cite">8</sup></p>
+        <p><strong>The problem is not detection capability. The problem is that the existing detection feeds nothing actionable, and coordinators have no signal-ranked surface to triage from.</strong></p>
+      </section>
+
+      <!-- 02 User stories -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§02</span>
+          <h2 class="prd-section__title">User stories</h2>
+        </div>
+        <div class="stories">
+          <h5>Primary stories · referenced by persona</h5>
+          <ol>
+            <li>As <b>J. Liu (Co-op Coordinator)</b>, I want to see which of my 180 advisees have stalled at day 5 of inactivity, so I can reach out before they exit the cycle.</li>
+            <li>As <b>J. Liu</b>, I want each entry to tell me why it was flagged (no activity + open apps &lt; 4), so I trust the queue and don't second-guess it.</li>
+            <li>As <b>A. Patel (first-year)</b>, I want one personal nudge that mentions my actual application count, so it doesn't feel like a mass email.</li>
+            <li>As <b>D. Chen (VP Adv Ops)</b>, I want a weekly cycle metric showing silence-attrition trend, so I know the intervention is working.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 03 Acceptance -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§03</span>
+          <h2 class="prd-section__title">Acceptance criteria</h2>
+        </div>
+        <p>Given/when/then format. Three load-bearing criteria gate the v1 release:</p>
+        <table class="feature-table">
+          <thead><tr><th>AC</th><th>Given / When / Then</th></tr></thead>
+          <tbody>
+            <tr><td class="f-id">AC-01</td><td><b>Given</b> a student with 0 Handshake activity events in the past 5 days, <b>when</b> their open-application count is &lt; 4, <b>then</b> they appear in the coordinator's triage queue ranked by stalled-signal score.</td></tr>
+            <tr><td class="f-id">AC-02</td><td><b>Given</b> a queue entry, <b>when</b> the coordinator hovers the "why?" affordance, <b>then</b> the top 3 contributing signals display in plain English within 200 ms.</td></tr>
+            <tr><td class="f-id">AC-03</td><td><b>Given</b> a coordinator has acted on a queue entry, <b>when</b> they mark it triaged with a route action, <b>then</b> the entry exits the queue and the student receives a personalized nudge referencing their actual application count.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 04 Success metrics -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§04</span>
+          <h2 class="prd-section__title">Success metrics · SMART with baselines</h2>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="lab">Silence-attrition rate</div>
+            <div class="vals"><span class="now">38%</span><span class="arr">→</span><span class="target">22<span>%</span></span></div>
+            <div class="when"><b>Lagging</b> · by end of FY27 Q1 cycle</div>
+          </div>
+          <div class="metric">
+            <div class="lab">Queue adoption</div>
+            <div class="vals"><span class="now">—</span><span class="arr">→</span><span class="target">85<span>%</span></span></div>
+            <div class="when"><b>Leading</b> · coordinators using queue ≥3×/week</div>
+          </div>
+          <div class="metric">
+            <div class="lab">Days to first contact</div>
+            <div class="vals"><span class="now">14d</span><span class="arr">→</span><span class="target">&lt;6<span>d</span></span></div>
+            <div class="when"><b>Leading</b> · median across stalled cohort</div>
+          </div>
+          <div class="metric">
+            <div class="lab">Application volume / stalled student</div>
+            <div class="vals"><span class="now">3.2</span><span class="arr">→</span><span class="target">8<span>+</span></span></div>
+            <div class="when"><b>Lagging</b> · post-triage uplift</div>
+          </div>
+          <div class="metric">
+            <div class="lab">Guardrail: false-positive rate</div>
+            <div class="vals"><span class="now">—</span><span class="arr">≤</span><span class="target">12<span>%</span></span></div>
+            <div class="when"><b>Guardrail</b> · students flagged who self-triage successfully</div>
+          </div>
+          <div class="metric">
+            <div class="lab">Guardrail: complaint rate</div>
+            <div class="vals"><span class="now">—</span><span class="arr">≤</span><span class="target">2<span>%</span></span></div>
+            <div class="when"><b>Guardrail</b> · "I didn't want a check-in" / total nudges</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 Personas -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§05</span>
+          <h2 class="prd-section__title">Personas served</h2>
+        </div>
+        <p>Three primary personas. Full archetype detail in the <span class="cite-chip">personas.html</span> artifact.</p>
+        <table class="feature-table">
+          <thead><tr><th style="width: 150px;">Persona</th><th>Role in v1</th><th>Pain point addressed</th></tr></thead>
+          <tbody>
+            <tr><td class="f-name"><b>J. Liu</b><span>Co-op Coordinator</span></td><td>Primary user of the triage surface.</td><td>180:1 caseload forces template responses; no early-warning view.</td></tr>
+            <tr><td class="f-name"><b>A. Patel</b><span>First-year, Behavioral Neuro.</span></td><td>Receives personalized nudge.</td><td>"On pace" is undefined; generic system messages can't tell her where she stands.</td></tr>
+            <tr><td class="f-name"><b>D. Chen</b><span>VP Adv Ops</span></td><td>Reviews weekly cycle metric.</td><td>Aggregate funnel numbers hide the silence-attrition cohort.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 06 Functional requirements (features) -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§06</span>
+          <h2 class="prd-section__title">Functional requirements · MoSCoW</h2>
+        </div>
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th style="width: 50px;">ID</th>
+              <th>Feature</th>
+              <th style="width: 90px;">Priority</th>
+              <th style="width: 200px;">Acceptance criteria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="f-id">F-01</td>
+              <td class="f-name">
+                <b>Day-5 silence-detection rule</b>
+                <span>Handshake webhook fires for 0 activity events in 5 d + open-apps &lt; 4. Replaces the existing day-7 template email path. <sup class="cite">5</sup> <sup class="cite">3</sup></span>
+              </td>
+              <td class="pri"><span class="priority-pill must">must</span></td>
+              <td class="ac">
+                <ul class="ac-list">
+                  <li>fires within 1 h of detection</li>
+                  <li>respects Handshake API rate limits</li>
+                  <li>day-7 email path disabled</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="f-id">F-02</td>
+              <td class="f-name">
+                <b>Coordinator triage queue UI</b>
+                <span>Ranked list of flagged students, sortable by stalled-signal score, with one-click route actions. <sup class="cite">8</sup></span>
+              </td>
+              <td class="pri"><span class="priority-pill must">must</span></td>
+              <td class="ac">
+                <ul class="ac-list">
+                  <li>renders 180 entries &lt; 1 s</li>
+                  <li>sortable, filterable by major</li>
+                  <li>WCAG 2.2 AA</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="f-id">F-03</td>
+              <td class="f-name">
+                <b>Explain view per queue entry</b>
+                <span>Hover or focus surfaces top 3 contributing signals in plain English. No new model — explainability layer over existing signals. <sup class="cite">6</sup></span>
+              </td>
+              <td class="pri"><span class="priority-pill must">must</span></td>
+              <td class="ac">
+                <ul class="ac-list">
+                  <li>200 ms response</li>
+                  <li>plain-English templates pre-approved</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="f-id">F-04</td>
+              <td class="f-name">
+                <b>Personalized student nudge</b>
+                <span>When a coordinator triages, student receives a nudge referencing their actual application count, not a template.</span>
+              </td>
+              <td class="pri"><span class="priority-pill should">should</span></td>
+              <td class="ac">
+                <ul class="ac-list">
+                  <li>mobile-readable</li>
+                  <li>opt-out by student</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="f-id">F-05</td>
+              <td class="f-name">
+                <b>Weekly cycle metric for VP Ops</b>
+                <span>Silence-attrition rate, queue adoption, days-to-first-contact — auto-emailed Monday morning.</span>
+              </td>
+              <td class="pri"><span class="priority-pill should">should</span></td>
+              <td class="ac">
+                <ul class="ac-list">
+                  <li>5 KPIs visible</li>
+                  <li>cohort breakdown by major</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="f-id">F-06</td>
+              <td class="f-name">
+                <b>Peer-mentor escalation path</b>
+                <span>Coordinator can route a queue entry to a peer mentor instead of self-triaging. Pilot scope.</span>
+              </td>
+              <td class="pri"><span class="priority-pill could">could</span></td>
+              <td class="ac"><ul class="ac-list"><li>4-dorm pilot</li><li>opt-in mentors only</li></ul></td>
+            </tr>
+            <tr>
+              <td class="f-id">F-07</td>
+              <td class="f-name">
+                <b>Native mobile app for coordinators</b>
+                <span>Mobile-web parity (F-02) is sufficient for v1. Native app deferred to FY28 evidence-gated build.</span>
+              </td>
+              <td class="pri"><span class="priority-pill wont">won't (v1)</span></td>
+              <td class="ac"><ul class="ac-list"><li>deferred</li></ul></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 07 NFRs -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§07</span>
+          <h2 class="prd-section__title">Non-functional requirements</h2>
+        </div>
+        <div class="prd-2col">
+          <div>
+            <h6>Performance</h6>
+            <ul>
+              <li>Queue first paint &lt; 1 s on coordinator hardware</li>
+              <li>Explain-view hover &lt; 200 ms</li>
+              <li>Webhook processing &lt; 1 h end-to-end</li>
+              <li>Concurrent coordinators: 60 (full Co-op Ops team)</li>
+            </ul>
+          </div>
+          <div>
+            <h6>Accessibility &amp; privacy</h6>
+            <ul>
+              <li>WCAG 2.2 AA across all surfaces</li>
+              <li>Aggregated signals only — no protected academic records</li>
+              <li>Student-side data isolation; FERPA-bridged</li>
+              <li>Audit log retained 5 years</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 Constraints -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§08</span>
+          <h2 class="prd-section__title">Constraints &amp; dependencies</h2>
+        </div>
+        <div class="prd-2col">
+          <div>
+            <h6>Constraints</h6>
+            <ul>
+              <li>Cycle-aligned: must freeze 4 weeks pre-cycle (2026-08-01)</li>
+              <li>No net-new SaaS spend per VP Ops posture</li>
+              <li>Handshake API rate limit: 60 req/min/tenant</li>
+              <li>Co-op Eng team capacity: 4 FTE shared with I-09 mobile parity</li>
+            </ul>
+          </div>
+          <div>
+            <h6>Dependencies</h6>
+            <ul>
+              <li>I-01 Explain view layer (parallel ship, see roadmap)</li>
+              <li>Handshake webhook subscription provisioned</li>
+              <li>General Counsel sign-off on nudge content templates</li>
+              <li>Coordinator training pack ready 2 weeks pre-launch</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 Wireframes -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§09</span>
+          <h2 class="prd-section__title">Wireframes &amp; design notes</h2>
+        </div>
+        <p>Two primary surfaces. Conceptual descriptions; high-fidelity comps maintained by Co-op Ops design — see <span class="cite-chip">Figma: triage-v1</span>.</p>
+        <div class="prd-2col">
+          <div>
+            <h6>Surface 1 · Coordinator triage queue</h6>
+            <ul>
+              <li>Left rail: queue ranked by stalled-signal score</li>
+              <li>Right pane: detail with "why flagged?" explain</li>
+              <li>Top: filter by major, signal strength threshold</li>
+              <li>One-click "Route to peer mentor" / "Triage personally" / "Snooze 48 h"</li>
+            </ul>
+          </div>
+          <div>
+            <h6>Surface 2 · Student nudge (email + mobile push)</h6>
+            <ul>
+              <li>Subject names the student's current app count</li>
+              <li>One CTA: "Open my pace dashboard"</li>
+              <li>Opt-out footer ("Pause check-ins")</li>
+              <li>Sent inside the 9 p.m.–1 a.m. engagement window</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 Data & privacy -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§10</span>
+          <h2 class="prd-section__title">Data &amp; privacy</h2>
+        </div>
+        <p>The triage signal is derived from <strong>activity events only</strong> (Handshake login, save, application submit) and <strong>application counts</strong> — never academic record, GPA, course list, or any FERPA-protected attribute. The system writes a single boolean signal ("flagged on/off") plus a derived stalled-signal score (0–100). All inputs and outputs live inside the existing co-op data domain.</p>
+      </section>
+
+      <!-- 11 Release -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§11</span>
+          <h2 class="prd-section__title">Release criteria · phased</h2>
+        </div>
+        <div class="prd-2col">
+          <div>
+            <h6>Phase A · 2026-07-15</h6>
+            <ul>
+              <li>One-major pilot (Behavioral Neuro, n≈340)</li>
+              <li>1 coordinator opt-in</li>
+              <li>No student-facing nudge yet</li>
+            </ul>
+          </div>
+          <div>
+            <h6>Phase B · 2026-08-15 (full)</h6>
+            <ul>
+              <li>All majors</li>
+              <li>F-04 nudge enabled</li>
+              <li>Day-7 template email decommissioned</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 Risk -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§12</span>
+          <h2 class="prd-section__title">Risk assessment</h2>
+        </div>
+        <table class="feature-table">
+          <thead><tr><th>Risk</th><th>L</th><th>I</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td class="f-name"><b>Coordinator rejects the queue as another to-do.</b></td><td>M</td><td>H</td><td>Default off; opt-in pilot before mandate; weekly review with J. Liu.</td></tr>
+            <tr><td class="f-name"><b>Student opt-out rate spikes after nudge launch.</b></td><td>L</td><td>M</td><td>Pre-launch nudge content review with student affairs; opt-out footer prominent.</td></tr>
+            <tr><td class="f-name"><b>Webhook latency exceeds 1 h, missing triage window.</b></td><td>L</td><td>M</td><td>Hourly backfill job; alerting on &gt;30-min lag.</td></tr>
+            <tr><td class="f-name"><b>Day-7 email decommission breaks an unknown downstream process.</b></td><td>M</td><td>L</td><td>Decommission via feature flag, 2 week parallel-run; weekly review.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 13 Assumptions -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§13</span>
+          <h2 class="prd-section__title">Assumptions &amp; open questions</h2>
+        </div>
+        <ul class="b-list">
+          <li><b>Assumption:</b> Cincinnati's day-5 benchmark transfers — Northeastern's cycle pace is comparable.</li>
+          <li><b>Assumption:</b> 5-day inactivity threshold is correct; will validate vs. 4-day and 6-day in pilot.</li>
+          <li><b>Open question:</b> Should peer-mentor routing be available v1 or held to F-06 phase?</li>
+          <li><b>Open question:</b> Does the nudge need a Spanish-language variant for v1?</li>
+        </ul>
+      </section>
+
+      <!-- 14 Out of scope -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§14</span>
+          <h2 class="prd-section__title">Out of scope · explicit non-goals</h2>
+        </div>
+        <ul class="b-list">
+          <li>Native mobile app build (F-07) — deferred to FY28, evidence-gated</li>
+          <li>Recommender model for co-op fit (I-10) — separate initiative</li>
+          <li>Cross-record identity layer (I-05) — separate initiative, parallel track</li>
+          <li>Donor-side stewardship trigger (I-07) — separate initiative</li>
+        </ul>
+      </section>
+
+      <!-- 15 Timeline -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§15</span>
+          <h2 class="prd-section__title">Timeline &amp; milestones</h2>
+        </div>
+        <table class="feature-table">
+          <thead><tr><th>Milestone</th><th>Date</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td class="f-id">M1</td><td>F-01 rule live in staging</td><td class="ac">2026-06-15</td></tr>
+            <tr><td class="f-id">M2</td><td>F-02 queue UI internal beta</td><td class="ac">2026-07-01</td></tr>
+            <tr><td class="f-id">M3</td><td>Phase A pilot (1 major, 1 coord)</td><td class="ac">2026-07-15</td></tr>
+            <tr><td class="f-id">M4</td><td>Cycle freeze (no merges to main)</td><td class="ac">2026-08-01</td></tr>
+            <tr><td class="f-id">M5</td><td>Phase B full launch</td><td class="ac">2026-08-15</td></tr>
+            <tr><td class="f-id">M6</td><td>Cycle 1 outcome review</td><td class="ac">2026-12-15</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 16 Signoff -->
+      <section class="prd-section">
+        <div class="prd-section__head">
+          <span class="prd-section__num">§16</span>
+          <h2 class="prd-section__title">Sign-off matrix</h2>
+        </div>
+        <table class="signoff">
+          <thead><tr><th>Role</th><th>Name</th><th>Decision</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td class="role">Product owner</td><td class="name">J. Liu</td><td>RACI: A</td><td>2026-05-12</td></tr>
+            <tr><td class="role">Sponsor</td><td class="name">D. Chen, VP Ops</td><td>RACI: R</td><td>2026-05-14</td></tr>
+            <tr><td class="role">Engineering lead</td><td class="name">M. Park, Co-op Eng</td><td>RACI: R</td><td>2026-05-18</td></tr>
+            <tr><td class="role">General Counsel</td><td class="name">S. Okafor</td><td>RACI: C</td><td>pending</td></tr>
+            <tr><td class="role">Student Affairs liaison</td><td class="name">R. Tanaka</td><td>RACI: C</td><td>pending</td></tr>
+            <tr><td class="role">Data Sci review</td><td class="name">E. Volkova</td><td>RACI: I</td><td>2026-05-20</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+</article>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>UC Co-op annual report</b> · 2025 (day-5 triage benchmark)</li>
+      <li><b>NU Handshake funnel analytics</b> · 2025–26 cycle</li>
+      <li><b>HiEd Dive</b> · prospect scoring trust, 2025-09</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>COORD-12 field-note</b> · J. Liu, 2025-12 (verbatim)</li>
+      <li><b>STU diary</b> · n=24 first-years, 8-week study</li>
+      <li><b>NACUBO guidance</b> · FERPA &amp; advancement, 2024</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+      <li><b>CASE Benchmark</b> · 2025</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">PRD · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>prd-compiler</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

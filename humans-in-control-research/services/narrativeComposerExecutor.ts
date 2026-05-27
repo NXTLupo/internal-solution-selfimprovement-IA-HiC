@@ -178,7 +178,7 @@ function goalRelevanceFilter(
 // Failure mode: any error → return the input array unchanged. Retrieval
 // must never break because rerank is unavailable.
 
-const RERANK_PROXY = 'http://localhost:5012';
+const RERANK_PROXY = 'http://127.0.0.1:5012';
 
 interface RerankOutcome {
   articles: WikiArticleBody[];

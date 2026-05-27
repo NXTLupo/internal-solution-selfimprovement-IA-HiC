@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Prospective Student: Oakland to Boston (Business + Public Health) — Is the transition/ROI worth it?"
 author: "SeaShopping3451"
 date: "2026-03-19T04:29:51.000Z"
-score: 6
-upvote_ratio: 0.88
+score: 5
+upvote_ratio: 0.86
 num_comments: 0
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T17:09:38.650Z"
+extracted_at: "2026-05-19T15:08:27.154Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
 ---
 
 # Prospective Student: Oakland to Boston (Business + Public Health) — Is the transition/ROI worth it?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rxqt4p/prospective_student_oakland_to_boston_business/)
-Posted by **SeaShopping3451** · **6↑** · **0 comments**
+Posted by **SeaShopping3451** · **5↑** · **0 comments**
 
 Hey everyone, I’m a high school senior currently deciding on Northeastern. I was admitted for the combined major in **Business Administration and Public Health** starting at the **Oakland campus**. I been blessed with the opportunity to afford the school so I am seriously considering it.
 

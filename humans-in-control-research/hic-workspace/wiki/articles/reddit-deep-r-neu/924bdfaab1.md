@@ -8,8 +8,8 @@ author: ""
 date: "2026-05-07T14:48:50.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-11T18:58:23.450668+00:00"
-chars: 3131
+extracted_at: "2026-05-19T18:05:30.025090+00:00"
+chars: 3098
 ---
 
 # Running out of Claude credits? Mahoraga is here.
@@ -37,13 +37,9 @@ Results, tables, and analysis is on the github. If you study CS/DS/AI, you proba
 [5↑ Own-Professional3092] A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
   
 I know a bunch of people that request credits every month tho. People use it to create their own trading tools, all kinds of cool stuff.
-[4↑ GreedyWorking1499] That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.
+[3↑ GreedyWorking1499] That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.
+[1↑ LeopardAway2812] Its pretty easy when running claude on large projects. I ran out of credits in about a week for the past 2 months and luckily this month I got a premium seat.
+[1↑ GreedyWorking1499] A premium seat? What is that and how do you get it?
 [2↑ Well_-Oiled_Machine] GOod Stuff!
 [1↑ Own-Professional3092] I appreciate it, well-oiled machine.
 [2↑ Kadabrium] Linkedin?
-[1↑ Own-Professional3092] My LinkedIn is connected to my GitHub. 
-
-Btw did u comment cause of the code, or cause of the name mahoraga. I really hope it is the latter. 
-
-I really have to catch up to modulo.
-[2↑ puppyytpugs] I have the Claude premium seat, 😭 how much does it actually give

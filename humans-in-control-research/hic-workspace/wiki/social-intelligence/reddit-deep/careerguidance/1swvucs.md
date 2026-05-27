@@ -1,0 +1,34 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1swvucs/need_advice_on_choosing_a_career_path_cima_or/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Need advice on choosing a career path (CIMA or something else?)"
+author: "starlituth1328"
+date: "2026-04-27T06:42:38.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 3
+flair: "Advice"
+extracted_at: "2026-05-23T20:15:29.972Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Need advice on choosing a career path (CIMA or something else?)
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1swvucs/need_advice_on_choosing_a_career_path_cima_or/)
+Posted by **starlituth1328** · **1↑** · **3 comments**
+
+Hi, I’m a 23-year-old from Sri Lanka currently studying CIMA. I started it about 3 years ago, but I’ve only completed one subject so far. I’ve attempted the Management Accounting exam twice and failed both times.
+
+Before this, I did my A/Ls in the Maths stream but didn’t pass, which is why I moved to CIMA. The issue is that accounting is completely new to me, and I’m starting to feel unsure whether this is the right path for me.
+
+I’m now at a point where I don’t know if I should continue with CIMA and push through, or switch to a different career path. The problem is, I’m also unsure what other path would suit me.
+
+I’d really appreciate any advice, especially from people who have been in a similar situation. Should I keep going with CIMA, or consider changing direction? And if so, what alternatives could I explore?
+
+## Comments
+
+- **LawfulnessKey297** (1↑): You're not alone in this - took me way longer than expected to figure out my path too. Maybe try some online career assessments or talk to people working in different fields to see what actually interests you? CIMA is tough and if your heart isn't really in it, might be worth exploring other options before investing more time and money.
+- **Battz** (1↑): I would like to collaborate with you. Career or experience is not a requirement for our partnership. You simply need to assist with my business. It will likely serve as a supplementary income for you. This is a fully remote, work-from-home position on a part-time (or full-time) basis. All you need is a laptop. Please contact me if you are interested.

@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Style guide — Anatomy of an artifact</title>
+<meta name="viewport" content="width=1280" />
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<link rel="stylesheet" href="shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+
+  .sg {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 48px 96px;
+  }
+  .sg__head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: end;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 40px;
+  }
+  .sg__kicker {
+    font-size: 10px;
+    letter-spacing: .18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--nu-red-600);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sg__kicker::before { content: ""; width: 22px; height: 1.5px; background: var(--nu-red-600); }
+  .sg__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+    max-width: 18ch;
+  }
+  .sg__title em { font-style: italic; color: var(--nu-red-700); font-weight: 400; }
+  .sg__lede {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--fg-muted);
+    max-width: 52ch;
+  }
+
+  /* Section nav rail layout */
+  .sg__body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+  }
+  .sg__nav {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+  .sg__nav h5 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .sg__nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid var(--border-subtle);
+  }
+  .sg__nav a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  .sg__nav a:hover {
+    color: var(--fg-strong);
+    border-left-color: var(--nu-red-600);
+    background: var(--slate-50);
+  }
+  .sg__nav a b {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-subtle);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  /* Section */
+  .sg-section {
+    margin-bottom: 56px;
+    scroll-margin-top: 24px;
+  }
+  .sg-section__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 24px;
+  }
+  .sg-section__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .sg-section__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .sg-section__intro {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--fg-default);
+    max-width: 72ch;
+    margin-bottom: 24px;
+  }
+  .sg-section__intro strong { color: var(--fg-strong); font-weight: 500; }
+
+  /* Demo + code */
+  .demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .demo--vert { grid-template-columns: 1fr; }
+  .demo__preview {
+    padding: 24px;
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .demo__preview.bg-canvas { background: var(--bg-canvas); }
+  .demo__preview.bg-ink { background: var(--ink-900); }
+  .demo__code {
+    background: var(--ink-900);
+    color: var(--white);
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-x: auto;
+    border-left: 1px solid rgba(255,255,255,.08);
+    white-space: pre;
+  }
+  .demo__code .tag { color: #B8B800; }
+  .demo__code .attr { color: var(--nu-red-100); }
+  .demo__code .str { color: #00B7C3; }
+  .demo__code .comment { color: rgba(255,255,255,.4); font-style: italic; }
+
+  /* Color swatches */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    padding: 14px 12px 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .swatch__chip {
+    height: 56px;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+  }
+  .swatch__name {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    font-family: var(--font-mono);
+    letter-spacing: .02em;
+  }
+  .swatch__val {
+    font-size: 9.5px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    letter-spacing: .02em;
+  }
+  .swatch__use {
+    font-size: 10px;
+    color: var(--fg-muted);
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+
+  /* Type scale */
+  .type-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 200px;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    align-items: baseline;
+  }
+  .type-row:last-child { border-bottom: 0; }
+  .type-row__meta {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    letter-spacing: .02em;
+  }
+  .type-row__meta b { color: var(--fg-default); display: block; font-size: 11px; font-weight: 500; margin-bottom: 2px; }
+  .type-row__sample { overflow: hidden; }
+  .type-row__use { font-size: 11px; color: var(--fg-muted); }
+
+  /* Density table demonstrating the density principles */
+  .density-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .density-card {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .density-card__h {
+    padding: 10px 14px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .density-card__h b { font-size: 11.5px; color: var(--fg-strong); font-weight: 500; }
+  .density-card__h .pill { font-size: 9.5px; }
+  .density-card__body { padding: 16px; }
+
+  /* "Don't" example */
+  .dont {
+    position: relative;
+    opacity: .88;
+  }
+  .dont::after {
+    content: "Don't"; position: absolute; top: 8px; right: 8px;
+    background: var(--nu-red-600);
+    color: var(--white);
+    font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .do {
+    position: relative;
+  }
+  .do::after {
+    content: "Do"; position: absolute; top: 8px; right: 8px;
+    background: var(--success-solid);
+    color: var(--white);
+    font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* Sample mini-card to show patterns */
+  .sample-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: grid;
+    gap: 6px;
+    max-width: 320px;
+  }
+  .sample-card .lbl {
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    font-family: var(--font-mono);
+  }
+  .sample-card .h {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    line-height: 1.3;
+  }
+  .sample-card .p {
+    font-size: 12px;
+    color: var(--fg-default);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<main class="sg">
+
+  <header class="sg__head">
+    <div>
+      <div class="sg__kicker">Living style guide · Reference A</div>
+      <h1 class="sg__title">Anatomy of an <em>artifact</em>.</h1>
+    </div>
+    <div class="sg__lede">
+      Every research artifact in the library is built from a small vocabulary of shared elements — a masthead, an eyebrow, a finding, a citation chip, a maturity bar, a signal dot, a dense table. This page is the canonical reference: every element, with the rule it follows and the HTML that produces it.
+    </div>
+  </header>
+
+  <div class="sg__body">
+
+    <!-- Nav rail -->
+    <nav class="sg__nav">
+      <h5>On this page</h5>
+      <ol>
+        <li><a href="#tokens"><b>01</b>Tokens</a></li>
+        <li><a href="#colors"><b>02</b>Colors</a></li>
+        <li><a href="#type"><b>03</b>Type scale</a></li>
+        <li><a href="#masthead"><b>04</b>Masthead</a></li>
+        <li><a href="#eyebrow"><b>05</b>Eyebrow + finding</a></li>
+        <li><a href="#citation"><b>06</b>Citation chips</a></li>
+        <li><a href="#pills"><b>07</b>Pills + tags</a></li>
+        <li><a href="#signals"><b>08</b>Signal dots</a></li>
+        <li><a href="#stats"><b>09</b>Stats &amp; stat strip</a></li>
+        <li><a href="#matbar"><b>10</b>Maturity bar</a></li>
+        <li><a href="#tables"><b>11</b>Dense tables</a></li>
+        <li><a href="#card"><b>12</b>Cards</a></li>
+        <li><a href="#dont"><b>13</b>Don'ts</a></li>
+      </ol>
+    </nav>
+
+    <div>
+
+      <!-- 01 TOKENS -->
+      <section class="sg-section" id="tokens">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Design tokens</h2>
+          <span class="sg-section__num">§01</span>
+        </div>
+        <p class="sg-section__intro">
+          All artifact CSS inherits from <code style="font-family:var(--font-mono); font-size:12px;">shared/colors_and_type.css</code>. The 125 custom properties defined there are <strong>the only tokens you should reference</strong>. Never hard-code a hex value, never invent a font size.
+        </p>
+        <div class="demo">
+          <div class="demo__preview" style="display: block; align-items: flex-start; justify-content: flex-start; padding: 0;">
+            <table class="dtable dtable--compact" style="border: 0; border-radius: 0;">
+              <thead><tr><th>Category</th><th>Tokens</th></tr></thead>
+              <tbody>
+                <tr><td class="lead">Color · brand</td><td class="mono">--nu-red-{100,500,600,700}</td></tr>
+                <tr><td class="lead">Color · ink</td><td class="mono">--ink-{600,700,800,900}</td></tr>
+                <tr><td class="lead">Color · slate</td><td class="mono">--slate-{50,100,200,300,400,500,600}</td></tr>
+                <tr><td class="lead">Color · semantic</td><td class="mono">--{success,warning,error,progress,special}-{bg,fg,solid}</td></tr>
+                <tr><td class="lead">Type · family</td><td class="mono">--font-{sans,display,mono,numeric}</td></tr>
+                <tr><td class="lead">Type · size</td><td class="mono">--fs-{overline,caption,body-sm,body,body-lg,h4,h3,h2,h1,display}</td></tr>
+                <tr><td class="lead">Spacing</td><td class="mono">--space-{1..20} (4-px grid)</td></tr>
+                <tr><td class="lead">Radii</td><td class="mono">--radius-{xs,sm,md,lg,xl,pill}</td></tr>
+                <tr><td class="lead">Shadow</td><td class="mono">--shadow-{xs,sm,md,lg,focus}</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo__code"><span class="comment">/* Always reference tokens — never hard-code */</span>
+.card {
+  background: <span class="str">var(--bg-surface)</span>;
+  border: 1px solid <span class="str">var(--border-subtle)</span>;
+  border-radius: <span class="str">var(--radius-md)</span>;
+  padding: <span class="str">var(--space-4)</span>;
+  color: <span class="str">var(--fg-default)</span>;
+}</div>
+        </div>
+      </section>
+
+      <!-- 02 COLORS -->
+      <section class="sg-section" id="colors">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Color palette</h2>
+          <span class="sg-section__num">§02</span>
+        </div>
+        <p class="sg-section__intro">
+          The everyday "primary" UI color is <strong>ink-900</strong>, not red. Northeastern red is a scalpel — it marks the critical state, the target maturity, the one verbatim quote per page. It is never a divider, never a fill, never decoration.
+        </p>
+        <h4 style="font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-muted); margin: 16px 0 8px; font-weight: 600;">Ink scale · the everyday primary</h4>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch__chip" style="background: var(--ink-900);"></div><span class="swatch__name">--ink-900</span><span class="swatch__val">rgb(11,19,38)</span><p class="swatch__use">Dark surfaces, headings.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--ink-800);"></div><span class="swatch__name">--ink-800</span><span class="swatch__val">rgb(20,29,48)</span><p class="swatch__use">Primary text, primary button bg.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--ink-700);"></div><span class="swatch__name">--ink-700</span><span class="swatch__val">rgb(26,35,51)</span><p class="swatch__use">Primary button hover.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--slate-500);"></div><span class="swatch__name">--slate-500</span><span class="swatch__val">rgb(100,116,139)</span><p class="swatch__use">Muted body, captions.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--slate-300);"></div><span class="swatch__name">--slate-300</span><span class="swatch__val">rgb(203,213,225)</span><p class="swatch__use">Default border stroke.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--slate-100);"></div><span class="swatch__name">--slate-100</span><span class="swatch__val">rgb(241,245,249)</span><p class="swatch__use">Subtle surface, stripe.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--slate-50);"></div><span class="swatch__name">--slate-50</span><span class="swatch__val">rgb(248,250,252)</span><p class="swatch__use">Page bg (never pure white).</p></div>
+        </div>
+
+        <h4 style="font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-muted); margin: 16px 0 8px; font-weight: 600;">Brand &amp; status · used sparingly</h4>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch__chip" style="background: var(--nu-red-600);"></div><span class="swatch__name">--nu-red-600</span><span class="swatch__val">rgb(200,16,46)</span><p class="swatch__use">NU primary red · brand mark only.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--nu-red-700);"></div><span class="swatch__name">--nu-red-700</span><span class="swatch__val">rgb(170,29,37)</span><p class="swatch__use">Red text on light tint.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--success-solid);"></div><span class="swatch__name">--success-solid</span><span class="swatch__val">rgb(56,161,105)</span><p class="swatch__use">Healthy state · "on pace".</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--warning-solid);"></div><span class="swatch__name">--warning-solid</span><span class="swatch__val">rgb(250,136,52)</span><p class="swatch__use">"Needs attention" — never "at risk."</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--error-solid);"></div><span class="swatch__name">--error-solid</span><span class="swatch__val">rgb(216,19,45)</span><p class="swatch__use">Critical, destructive.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--progress-solid);"></div><span class="swatch__name">--progress-solid</span><span class="swatch__val">rgb(59,130,246)</span><p class="swatch__use">In-progress, planned.</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background: var(--special-solid);"></div><span class="swatch__name">--special-solid</span><span class="swatch__val">rgb(70,61,225)</span><p class="swatch__use">Special category, exploratory.</p></div>
+        </div>
+      </section>
+
+      <!-- 03 TYPE -->
+      <section class="sg-section" id="type">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Type scale</h2>
+          <span class="sg-section__num">§03</span>
+        </div>
+        <p class="sg-section__intro">
+          Roboto for body and UI. <strong>Spectral</strong> for display, editorial moments, and findings — always the design move when the line carries weight. Roboto Mono for IDs, codes, and any numeric data callout. Body sits at 14 px for density; tabular figures are on globally via <code style="font-family:var(--font-mono); font-size:12px;">font-feature-settings: 'tnum' 1</code>.
+        </p>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 8px 24px;">
+          <div class="type-row">
+            <div class="type-row__meta"><b>Display · 80</b>--fs-display<br/>Spectral · 300</div>
+            <div class="type-row__sample" style="font-family: var(--font-display); font-weight: 300; font-size: 56px; line-height: 1; letter-spacing: -.02em; color: var(--fg-strong);">Findings.</div>
+            <div class="type-row__use">Cover hero. Rare. Never inside a card.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>H1 · 44</b>--fs-h1<br/>Spectral · 300</div>
+            <div class="type-row__sample" style="font-family: var(--font-display); font-weight: 300; font-size: 36px; line-height: 1.1; letter-spacing: -.02em; color: var(--fg-strong);">Codifying the work that already works.</div>
+            <div class="type-row__use">Artifact title; cover page only.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>H2 · 22</b>masthead title<br/>Spectral · 400</div>
+            <div class="type-row__sample" style="font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -.015em; color: var(--fg-strong);">Six gaps separate Northeastern from its peer leaders.</div>
+            <div class="type-row__use">Artifact masthead headline. Sentence case. Complete-sentence finding.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>H3 · 18</b>section title<br/>Spectral · 500</div>
+            <div class="type-row__sample" style="font-family: var(--font-display); font-weight: 500; font-size: 18px; letter-spacing: -.005em; color: var(--fg-strong);">Capability gaps</div>
+            <div class="type-row__use">Section heading inside an artifact.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>Finding · 15</b>card title<br/>Roboto · 500</div>
+            <div class="type-row__sample" style="font-size: 15px; font-weight: 500; color: var(--fg-strong); letter-spacing: -.005em;">First-year attrition costs Northeastern $9.2M annually and concentrates in three majors.</div>
+            <div class="type-row__use">Inside cards. Always a complete sentence stating a finding.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>Body · 14</b>--fs-body-sm<br/>Roboto · 400</div>
+            <div class="type-row__sample" style="font-size: 14px; line-height: 1.6; color: var(--fg-default);">Body text default for artifacts. Tabular figures on globally. Line height 1.5–1.65 depending on context.</div>
+            <div class="type-row__use">Artifact body. 13–14 px is the floor.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>Caption · 11</b>helper<br/>Roboto · 400</div>
+            <div class="type-row__sample" style="font-size: 11px; color: var(--fg-muted);">Footnote text, attribution lines, source meta.</div>
+            <div class="type-row__use">Footer captions, attribution.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>Overline · 10</b>kicker<br/>Roboto · 600</div>
+            <div class="type-row__sample" style="font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-muted);">EYEBROW · SECTION LABEL</div>
+            <div class="type-row__use">Eyebrow above titles. Section labels. Pre-heading kicker.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row__meta"><b>Mono · 10</b>ID<br/>Roboto Mono</div>
+            <div class="type-row__sample" style="font-family: var(--font-mono); font-size: 10px; color: var(--fg-subtle);">G-01 · §02 · CHUNK_044</div>
+            <div class="type-row__use">IDs, codes, technical labels.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 MASTHEAD -->
+      <section class="sg-section" id="masthead">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Masthead</h2>
+          <span class="sg-section__num">§04</span>
+        </div>
+        <p class="sg-section__intro">
+          Every artifact opens with the same masthead. <strong>Single row</strong>: brand seal, kicker + finding-title, three meta blocks on the right. No methodology blurb. No subtitle. No date line below the title.
+        </p>
+        <header class="art-masthead" style="border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div class="art-masthead__brand">
+            <div class="art-masthead__brand-seal">N</div>
+            <div class="art-masthead__brand-text">
+              <div class="art-masthead__brand-name">Northeastern Advancement</div>
+              <div class="art-masthead__brand-sub">Co-Op Prep · Discovery · 2026 Q2</div>
+            </div>
+          </div>
+          <div class="art-masthead__center">
+            <div class="art-masthead__kicker">Personas · Discovery synthesis</div>
+            <h1 class="art-masthead__title">Four archetypes shape how a Co-Op Prep tool earns adoption.</h1>
+          </div>
+          <dl class="art-masthead__meta">
+            <div class="art-masthead__meta-block"><dt>Corpus</dt><dd>248 chunks</dd></div>
+            <div class="art-masthead__meta-block"><dt>External cite</dt><dd>71%</dd></div>
+            <div class="art-masthead__meta-block"><dt>Confidence</dt><dd>3 of 4 evidenced</dd></div>
+          </dl>
+        </header>
+        <div class="demo__code" style="margin-top: 16px;"><span class="tag">&lt;header</span> <span class="attr">class</span>=<span class="str">"art-masthead"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"art-masthead__brand"</span><span class="tag">&gt;...&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"art-masthead__center"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"art-masthead__kicker"</span><span class="tag">&gt;</span>Personas · Discovery synthesis<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;h1</span> <span class="attr">class</span>=<span class="str">"art-masthead__title"</span><span class="tag">&gt;</span>Four archetypes...<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;dl</span> <span class="attr">class</span>=<span class="str">"art-masthead__meta"</span><span class="tag">&gt;</span> <span class="comment">/* 3 meta blocks */</span> <span class="tag">&lt;/dl&gt;</span>
+<span class="tag">&lt;/header&gt;</span></div>
+      </section>
+
+      <!-- 05 EYEBROW -->
+      <section class="sg-section" id="eyebrow">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Eyebrow + finding</h2>
+          <span class="sg-section__num">§05</span>
+        </div>
+        <p class="sg-section__intro">
+          Inside any card, the pattern is <code style="font-family:var(--font-mono); font-size:12px;">.art-eyebrow</code> over <code style="font-family:var(--font-mono); font-size:12px;">.art-finding</code>. The finding is <strong>always a complete sentence stating a conclusion</strong> — never a topic label like "Market overview."
+        </p>
+        <div class="demo">
+          <div class="demo__preview" style="flex-direction: column; gap: 18px; align-items: flex-start;">
+            <div class="sample-card do">
+              <div class="lbl">Critical gap · G-02</div>
+              <div class="h">No silence-detection in the application funnel costs the cycle 38% of stalled students.</div>
+              <div class="p">Cincinnati flags at day 5; Northeastern fires a template email at day 7 and waits.</div>
+            </div>
+            <div class="sample-card dont">
+              <div class="lbl">Funnel</div>
+              <div class="h">Application funnel issues</div>
+              <div class="p">The application funnel has issues. We will dive in.</div>
+            </div>
+          </div>
+          <div class="demo__code"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"art-card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"art-eyebrow"</span><span class="tag">&gt;</span>
+    Critical gap · G-02
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;h3</span> <span class="attr">class</span>=<span class="str">"art-finding"</span><span class="tag">&gt;</span>
+    No silence-detection in the
+    application funnel costs the cycle
+    38% of stalled students.
+  <span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;p&gt;</span>...evidence sentence...<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></div>
+        </div>
+      </section>
+
+      <!-- 06 CITATION -->
+      <section class="sg-section" id="citation">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Citation chips</h2>
+          <span class="sg-section__num">§06</span>
+        </div>
+        <p class="sg-section__intro">
+          Citations live inline as small monospace chips, not as a separate footnote strip below the slide. A consolidated source index sits once, at the foot of the document.
+        </p>
+        <div class="demo">
+          <div class="demo__preview" style="font-size: 14px; line-height: 1.7; padding: 28px;">
+            <p style="margin: 0;">
+              The placement-to-donor handoff lags 11 days
+              <sup class="cite" data-src="Drexel CASE study 2024">3</sup>
+              against a 5-day peer benchmark
+              <sup class="cite" data-src="CASE 2025">7</sup>, while
+              <span class="cite-chip">VP-OPS-09</span>
+              names sunset as the funding posture.
+              One verbatim quote per page can carry a brand-red marker:
+              <sup class="cite" data-verbatim="true">v</sup>.
+            </p>
+          </div>
+          <div class="demo__code"><span class="comment">/* Inline numeric chip */</span>
+…lags 11 days
+<span class="tag">&lt;sup</span> <span class="attr">class</span>=<span class="str">"cite"</span> <span class="attr">data-src</span>=<span class="str">"Drexel '24"</span><span class="tag">&gt;</span>3<span class="tag">&lt;/sup&gt;</span>
+
+<span class="comment">/* Named chip (longer label) */</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"cite-chip"</span><span class="tag">&gt;</span>VP-OPS-09<span class="tag">&lt;/span&gt;</span>
+
+<span class="comment">/* Verbatim quote marker — brand red */</span>
+<span class="tag">&lt;sup</span> <span class="attr">class</span>=<span class="str">"cite"</span> <span class="attr">data-verbatim</span>=<span class="str">"true"</span><span class="tag">&gt;</span>v<span class="tag">&lt;/sup&gt;</span></div>
+        </div>
+      </section>
+
+      <!-- 07 PILLS -->
+      <section class="sg-section" id="pills">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Pills + tags</h2>
+          <span class="sg-section__num">§07</span>
+        </div>
+        <p class="sg-section__intro">
+          Pills are pure status (success / warning / error / progress / special). Tags are categorical, neutral. Both sit at 18px height for density; the <code style="font-family:var(--font-mono); font-size:12px;">--lg</code> variant is 22px.
+        </p>
+        <div class="demo">
+          <div class="demo__preview" style="flex-wrap: wrap; gap: 8px; padding: 20px;">
+            <span class="pill pill--success">on track</span>
+            <span class="pill pill--warning">needs attention</span>
+            <span class="pill pill--error">critical</span>
+            <span class="pill pill--progress">in progress</span>
+            <span class="pill pill--special">exploratory</span>
+            <span class="pill pill--brand">verbatim</span>
+            <span class="pill pill--ink">primary</span>
+            <span class="pill pill--outline">muted</span>
+            <span class="pill pill--lg pill--success">quick win</span>
+            <span class="tag">category</span>
+          </div>
+          <div class="demo__code"><span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"pill pill--success"</span><span class="tag">&gt;</span>on track<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"pill pill--warning"</span><span class="tag">&gt;</span>needs attention<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"pill pill--error"</span><span class="tag">&gt;</span>critical<span class="tag">&lt;/span&gt;</span>
+
+<span class="comment">/* Size variant */</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"pill pill--lg pill--success"</span><span class="tag">&gt;</span>quick win<span class="tag">&lt;/span&gt;</span></div>
+        </div>
+      </section>
+
+      <!-- 08 SIGNALS -->
+      <section class="sg-section" id="signals">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Signal dots</h2>
+          <span class="sg-section__num">§08</span>
+        </div>
+        <p class="sg-section__intro">
+          For relationship-health and integration-health surfaces, an 8px colored dot communicates state without a label. Never use the words "at risk" or "failing" — the dot does the work, the surrounding row tells the story.
+        </p>
+        <div class="demo">
+          <div class="demo__preview" style="flex-direction: column; gap: 8px; align-items: flex-start; padding: 24px;">
+            <div style="display: flex; align-items: center; font-size: 13px;"><span class="signal signal--green"></span>Healthy · meets SLA</div>
+            <div style="display: flex; align-items: center; font-size: 13px;"><span class="signal signal--yellow"></span>Needs attention · degraded</div>
+            <div style="display: flex; align-items: center; font-size: 13px;"><span class="signal signal--red"></span>Critical · broken integration</div>
+            <div style="display: flex; align-items: center; font-size: 13px;"><span class="signal signal--blue"></span>Planned · in flight</div>
+            <div style="display: flex; align-items: center; font-size: 13px;"><span class="signal signal--neutral"></span>Inactive · no signal</div>
+          </div>
+          <div class="demo__code"><span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"signal signal--green"</span><span class="tag">&gt;&lt;/span&gt;</span>Healthy
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"signal signal--yellow"</span><span class="tag">&gt;&lt;/span&gt;</span>Needs attention
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"signal signal--red"</span><span class="tag">&gt;&lt;/span&gt;</span>Critical
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"signal signal--blue"</span><span class="tag">&gt;&lt;/span&gt;</span>Planned</div>
+        </div>
+      </section>
+
+      <!-- 09 STATS -->
+      <section class="sg-section" id="stats">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Stats &amp; stat strip</h2>
+          <span class="sg-section__num">§09</span>
+        </div>
+        <p class="sg-section__intro">
+          Stats use <strong>Spectral Light 300</strong> at 32 px — the typographic contrast (display-weight number against sans-serif label) is the signature of every artifact summary band. Use <code style="font-family:var(--font-mono); font-size:12px;">.stat-strip</code> to pack 3–6 stats edge-to-edge.
+        </p>
+        <div class="stat-strip">
+          <div class="stat">
+            <div class="stat__label">Placement lag</div>
+            <div class="stat__value">11<span class="u"> days</span></div>
+            <div class="stat__delta stat__delta--down">vs. 5-day Drexel benchmark</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Silence attrition</div>
+            <div class="stat__value">38<span class="u">%</span></div>
+            <div class="stat__delta">first-years stalled at day 14</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Young alumni giving</div>
+            <div class="stat__value">−12<span class="u">%</span></div>
+            <div class="stat__delta stat__delta--down">vs. +3% on the aggregate</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Sunset funds available</div>
+            <div class="stat__value">$1.8<span class="u">M / yr</span></div>
+            <div class="stat__delta stat__delta--up">three legacy platforms</div>
+          </div>
+        </div>
+        <div class="demo__code" style="margin-top: 16px;"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"stat-strip"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"stat"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"stat__label"</span><span class="tag">&gt;</span>Placement lag<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"stat__value"</span><span class="tag">&gt;</span>11<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"u"</span><span class="tag">&gt;</span> days<span class="tag">&lt;/span&gt;&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"stat__delta stat__delta--down"</span><span class="tag">&gt;</span>
+      vs. 5-day benchmark
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></div>
+      </section>
+
+      <!-- 10 MATURITY BAR -->
+      <section class="sg-section" id="matbar">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Maturity bar</h2>
+          <span class="sg-section__num">§10</span>
+        </div>
+        <p class="sg-section__intro">
+          The Gartner 1–5 maturity bar shows current (ink fill) and target (red marker). Used in gap analysis, tech audit, and any capability assessment. Always paired with a numeric label.
+        </p>
+        <div class="demo demo--vert">
+          <div class="demo__preview" style="flex-direction: column; gap: 16px; align-items: stretch; padding: 28px 40px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--fg-muted); letter-spacing: .04em; margin-bottom: 6px;"><span>current</span><b style="color: var(--fg-default); font-family: var(--font-mono);">2 → 4</b><span>target</span></div>
+              <div class="matbar">
+                <div class="matbar__track">
+                  <div class="matbar__current" style="width: 40%;"></div>
+                  <div class="matbar__target" style="left: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--fg-muted); letter-spacing: .04em; margin-bottom: 6px;"><span>current</span><b style="color: var(--fg-default); font-family: var(--font-mono);">1 → 4</b><span>target</span></div>
+              <div class="matbar">
+                <div class="matbar__track">
+                  <div class="matbar__current" style="width: 20%;"></div>
+                  <div class="matbar__target" style="left: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo__code" style="margin-top: 16px;"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"matbar"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"matbar__track"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"matbar__current"</span> <span class="attr">style</span>=<span class="str">"width: 40%"</span><span class="tag">&gt;&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"matbar__target"</span>  <span class="attr">style</span>=<span class="str">"left: 80%"</span><span class="tag">&gt;&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></div>
+      </section>
+
+      <!-- 11 TABLES -->
+      <section class="sg-section" id="tables">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">Dense tables</h2>
+          <span class="sg-section__num">§11</span>
+        </div>
+        <p class="sg-section__intro">
+          <code style="font-family:var(--font-mono); font-size:12px;">.dtable</code> packs data tighter than a default table: 10 px uppercase headers, 8 px row padding, single-pixel dividers, alternating-row free (the table doesn't need stripes when borders are this clean). For wide tables, add <code style="font-family:var(--font-mono); font-size:12px;">.dtable--sticky</code> to lock the first column.
+        </p>
+        <table class="dtable dtable--compact" style="margin-bottom: 18px;">
+          <thead><tr><th>System</th><th>Vendor</th><th class="num">Users</th><th>Maturity</th><th>Health</th></tr></thead>
+          <tbody>
+            <tr><td class="lead">Raiser's Edge NXT</td><td>Blackbaud</td><td class="num">312</td><td>4 / 5</td><td><span class="signal signal--green"></span>healthy</td></tr>
+            <tr><td class="lead">Salesforce EDU</td><td>Salesforce</td><td class="num">428</td><td>3 / 5</td><td><span class="signal signal--green"></span>healthy</td></tr>
+            <tr><td class="lead">Engagement Cloud (legacy)</td><td>Vendor X</td><td class="num">11</td><td>2 / 5</td><td><span class="signal signal--yellow"></span>sunset</td></tr>
+          </tbody>
+        </table>
+        <div class="demo__code"><span class="tag">&lt;table</span> <span class="attr">class</span>=<span class="str">"dtable dtable--compact"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;thead&gt;&lt;tr&gt;</span>
+    <span class="tag">&lt;th&gt;</span>System<span class="tag">&lt;/th&gt;</span> <span class="tag">&lt;th</span> <span class="attr">class</span>=<span class="str">"num"</span><span class="tag">&gt;</span>Users<span class="tag">&lt;/th&gt;</span>
+  <span class="tag">&lt;/tr&gt;&lt;/thead&gt;</span>
+  <span class="tag">&lt;tbody&gt;&lt;tr&gt;</span>
+    <span class="tag">&lt;td</span> <span class="attr">class</span>=<span class="str">"lead"</span><span class="tag">&gt;</span>Raiser's Edge NXT<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td</span> <span class="attr">class</span>=<span class="str">"num"</span><span class="tag">&gt;</span>312<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+      </section>
+
+      <!-- 13 DONTS -->
+      <section class="sg-section" id="dont">
+        <div class="sg-section__head">
+          <h2 class="sg-section__title">The thirteen don'ts</h2>
+          <span class="sg-section__num">§13</span>
+        </div>
+        <p class="sg-section__intro">
+          The patterns that creep back in if you don't watch them. Each is something a research artifact has, by default, that earns no information per pixel.
+        </p>
+        <div class="density-comparison">
+          <div class="density-card">
+            <div class="density-card__h"><b>Micro-labels above headings</b><span class="pill pill--error">remove</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="lbl" style="color: var(--fg-subtle); font-family: var(--font-mono);">C-03 · sunset 2027-Q1</div>
+                <div class="h">Retire the volunteer-management platform.</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">Tiny <code style="font-family: var(--font-mono);">ID · status</code> stamps above titles add nothing. The status is already in a pill in the corner; the ID is in the first column. Remove.</p>
+            </div>
+          </div>
+          <div class="density-card">
+            <div class="density-card__h"><b>"Primary archetype" suffixes</b><span class="pill pill--error">remove</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="lbl">Persona</div>
+                <div class="h">Maya Rodríguez</div>
+                <div class="p" style="font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted);">MGO · 7 yrs · Boston · primary archetype</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">"Primary archetype," "primary persona," "high confidence" — quality flags that don't tell the reader anything they can't see. Remove.</p>
+            </div>
+          </div>
+          <div class="density-card">
+            <div class="density-card__h"><b>Methodology blurbs at the top</b><span class="pill pill--error">remove</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="h" style="font-style: italic; font-weight: 400; font-family: var(--font-display);">Methodology: We synthesized findings across 248 chunks, applying verbalized sampling across k=8 candidates filtered by 0.10 probability + ≥2 evidence anchors…</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">Methodology lives in the masthead meta blocks (corpus size, external citation share). A separate "Methodology" preamble is process-aware language that erodes credibility.</p>
+            </div>
+          </div>
+          <div class="density-card">
+            <div class="density-card__h"><b>"EVIDENCE GAP" annotations</b><span class="pill pill--error">remove</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="h">Donor-stewardship workflow.</div>
+                <div class="p" style="background: var(--warning-bg); color: var(--warning-fg); padding: 6px 8px; border-radius: 4px; font-size: 11.5px;">EVIDENCE GAP — [needs baseline measurement]</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">QA-style annotations are for the team, not the reader. If evidence is thin, narrow the claim to what is evidenced. Never write the model's awareness of its gaps into the artifact.</p>
+            </div>
+          </div>
+          <div class="density-card">
+            <div class="density-card__h"><b>Slide numbers on documents</b><span class="pill pill--error">remove</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="h">Section 03 · Diagnosis</div>
+                <div class="p" style="font-family: var(--font-mono); color: var(--fg-subtle); font-size: 10.5px;">03 / 18 — page footer chrome</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">Slide numbers belong on slides. On a scrolling document, the section index does the navigation work — page numbers are decorative.</p>
+            </div>
+          </div>
+          <div class="density-card">
+            <div class="density-card__h"><b>"Industry average" peer comparisons</b><span class="pill pill--error">never</span></div>
+            <div class="density-card__body">
+              <div class="sample-card dont">
+                <div class="h">NU vs. Industry Average</div>
+                <div class="p">Industry average for placement-to-donor lag: 8 days.</div>
+              </div>
+              <p style="font-size: 12px; color: var(--fg-muted); margin-top: 12px;">"Industry average" and "peers collective" are invented entities. Always name four or more specific peer institutions with traceable data.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer style="margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border-default); display: flex; justify-content: space-between; font-size: 11px; color: var(--fg-muted);">
+    <div>
+      <b style="color: var(--fg-default); font-weight: 500;">Northeastern Advancement</b> · Research artifact library · v1.0 · 2026-Q2<br/>
+      Style guide is the binding spec — every artifact inherits from <code style="font-family: var(--font-mono);">shared/colors_and_type.css</code> + <code style="font-family: var(--font-mono);">shared/artifacts.css</code>.
+    </div>
+    <div style="text-align: right;">
+      <a href="index.html" style="color: var(--fg-muted); border-bottom: 1px solid var(--border-default); padding-bottom: 1px;">← back to library index</a><br/>
+      <a href="GUIDE.md" style="color: var(--fg-muted); margin-top: 4px; display: inline-block; border-bottom: 1px solid var(--border-default); padding-bottom: 1px;">read the full markdown spec →</a>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+---
+url: "https://www.reddit.com/r/personalfinance/comments/1q9f7ms/budget_assist_points_of_concern_debt_savings_long/"
+kind: "social-post"
+source: "reddit-deep: r/personalfinance"
+subreddit: "personalfinance"
+title: "Budget Assist: Points of Concern - Debt + Savings [Long Post]"
+author: "adollopofsanity"
+date: "2026-01-10T20:49:07.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 7
+flair: "Budgeting"
+extracted_at: "2026-05-16T20:55:02.109Z"
+extraction_method: "praw-deep"
+research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+---
+
+# Budget Assist: Points of Concern - Debt + Savings [Long Post]
+
+Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1q9f7ms/budget_assist_points_of_concern_debt_savings_long/)
+Posted by **adollopofsanity** · **1↑** · **7 comments**
+
+Questions are at the end of the post with all budget and hopefully all relevant information listed first.  
+  
+**Goals (immediate order):**  
+* Pay off Debt.  
+* Big tattoo this year.  
+* Buy a house by 45 (2036).  
+* Retire by 62 (2056).  
+  
+**Steps taken:**  
+* I paid-to-delete a 2 year old $100 open collections account to clear my open collections entirely. (Credit Score is 552 still)  
+* I set up 401k to full 4% contribution. (Employer matches 25% up to 4%)  
+* I set up a Roth IRA(Fidelity) for auto transfer.  
+* I built a budget for 2026.  
+* Set up auto pay to pay IRS back taxes (total owed: ~~$931~~ $631 paying: ~~$46/mo~~ $96/mo).  
+* ~~$800~~ $500 in savings account. (non-HYSA)  
+
+  
+**Net Paycheck:** $1,024 paid on the 7th & 21st   
+**Monthly Net:** $2,048  
+
+>These numbers are estimated based on my previous year's net income and account for the 4% 401k contribution. My estimate will most certainly be somewhat lower than my actual net income by anywhere from $10-$150 per paycheck depending on how my hours fall in pay periods. 
+
+>I have two checking accounts and a savings account with a local credit union, and a cash app with a debit card.  
+My funds are divided among these for a distinct way to separate my free funds (can spend willy nilly), my "spent" funds (things I have to pay for monthly such as rent, food, etc...), and my savings funds (Emergency, Home, Buffer, and annual "pop-up" expenses, + want savings).  
+  
+I'm looking for some earnest feedback or even some observations of anything I may have missed in my budget or glaring mistakes.  
+I used my bank account app to average my annual spending last year in various areas to determine my monthly expenses such as:  
+* Grocery store visits - (where I buy my household items, food, and pet food)  
+* Online shopping  
+* Dog Groomer  
+* Vet related bills 
+* Reoccurring bills  
+(Important note: I live with my partner and our finances are separate but we split rent, bills, Dog grooming + Vet, and grocery store visits 50/50. Exception: Cellphone bills are separate. If some numbers seem low it maybe b/c I am accounting solely for my 50% responsibility)  
+  
+  
+  
+**REBT + BILLS**    
+  
+Category | Per Paycheck | Monthly
+:--|:--|:--
+Rent | $275.00 | $550
+Utilities | $100.00 | $200
+TOTAL | $375.00 | $750
+  
+  
+**GROCERY + MEDS + AUTO WITHDRAWAL**  
+  
+Category | Per Paycheck | Monthly
+:---------|:----------|:----------
+Food/Household | $150.00 | $300
+Subscriptions| $26.50 | $53
+Medication | $20.00 | $40
+IRS Payment* | $48.00 | $96
+**TOTAL** | **$219.50** | **$439**
+  
+*Updated IRS payment, increased by $50/mo  per recommendation.
+  
+**CASH APP + PERSONAL SPENDING**  
+  
+Category | Per Paycheck | Monthly
+:--|:--|:--
+Dine-Out* | $50.00 | $100
+Nicotine | $50.00 | $100
+Trivia/Fun** | $8.36 | $16.72
+Gas*** | $12.50 | $25
+**TOTAL** | **$120.86** | **$241.72**
+  
+>*This allows me to maintain my eating-out habits if I want but this money doesn't have to go toward eating out.  
+**I spend $1/week to play trivia at a local bar. Sometimes might cover a friend or two's buy-in.  
+***I work from home.  
+**The entire spending account is subject to "If you're out of $. You're out of $. That sucks."**  
+  
+**SAVINGS + BUFFERS **  
+  
+Fund | Per Paycheck | Monthly
+:--|:--|:--
+Emergency Fund | $15.00 | $30
+House Fund | $35.00 | $70
+Sinking Fund | $82.71 | $165.42
+Tattoo (9/26) | $50.00 | $100
+Buffer Float | $37.50 | $75
+**TOTAL** | **$245.21** | **$490.42**
+  
+*Tattoo $50/month redirected to IRS
+  
+**ROTH IRA(Fidelity)**  
+  
+Roth Line | Per Paycheck | Monthly
+:--|:--|:--
+Roth (End: 8/31/26) | $63.16 | $126.32
+Roth (Begin: 9/1/26) | $138.16 |$276.32
+  
+  
+**SAVINGS "SINKING FUND" BREAKDOWN**  
+  
+Annual Obligation | Annual | Per Paycheck  
+:---------|:----------|:----------  
+Pet Grooming|$525|$21.88  
+Vet Bills | $300 | $12.50  
+Car Tags | $110 | $4.58  
+Holiday+Gifts | $300 | $12.50  
+Chaos Buffer | $250 | $10.42  
+Car maint. | $500 | $20.83  
+TOTAL | $1,985 | $82.71  
+  
+  
+Total committed per paycheck: $1,023.73  
+Net paycheck: $1,024  
+Uncommitted per paycheck: $0.27 + $xx.xx paycheck buffer.  
+  
+**Questions:**
+* *Any discrepancies or clear issues?*  
+  
+* *Any recommendations or financial obligations I may have neglected to take into consideration?*  
+  
+* *Any recommendations (or recommended to avoid) with online HYSA providers?*  
+I am looking at Newtek or Discover for a HYSA but open to hear opinions on either.  
+  
+* *Would it be unwise to have separate savings?*  
+I am considering using my credit union low-yield savings as solely my temporary $150/mo tattoo savings + $75/mo Buffer Float for minor pop-ups should they occur instead of keeping it with my other savings in a HYSA. Dumb idea?
+  
+* *Should I open a care credit?*  
+Vet bills are bulky and so are medications. The current status of my accounts do not protect me from this big expenses. I'm thinking care credit would be a great way with the 0% APR to protect me from a sizeable upfront bill while I build my savings and also potentially helping me get my credit back on track.
+
+* *Should I get an additional line of credit separate from Care Credit?*  
+~~I can maybe use it to load a $300 gift card (the Kroger gift cards don't have a fee to load I think) to the grocery store I shop at each month. I then pay it off with my $300 in my checking account at the end of the month and have the added benefit of not going over the grocery budget directly allocated in my checking. Still looking into this. Thoughts?~~
+
+>**Edit for Care Credit.** I did some more reading and as I am currently trying to get my credit score up it appears Care Credit operates a little differently than a normal credit card and the processing fees are significantly higher than normal credit cards and the last thing I want to do is take money I have out of my vet's pocket. So decided to do a secured credit card through discover instead.
+  
+(Below has been addressed. I am prioritizing paying IRS debt down and redirecting part of tattoo fund to help.)
+~~*Glaring issue:*~~  
+~~**My IRS payments are too low. The $46 I set up before ever making this budget.**~~   
+~~I am considering two options or maybe both:~~   
+>~~Diverting part of my current savings to knock that down so I can reallocate the monthly IRS payments to my Roth IRA sooner. I was already going to allocate all income over my projected $1,024/paycheck as an extra IRS payment.~~    
+  
+~~**But how much do I dip into savings to do this?**~~  
+  
+>~~Decreasing my tattoo fund. The artist normally opens her books in spring/fall (September is when she opened last year). I don't technically need to save the full amount by then as the deposit is only $100 and we could schedule for December or even in 2027. Additionally, I may have over-budgeted $1,125 total. It's gonna be my first color piece around 6"x3.5". I haven't gotten a new tattoo in over 15 years so I did a lot of googling only to come to the conclusion that tattoo prices have too many variables so I ballparked on the high end for total cost+tip. Whatever was leftover would go toward paying down my IRS debt.~~  
+  
+~~**But how much do I decrease by if so? Do I let my buffer float for my savings compensate if I don't hit my goal maybe?**~~
+
+## Comments
+
+- **Commercial-Ad90** (2↑): You need to be aiming at saving at least 15% of your pay towards retirement if you want to retire at 62.
+
+Good job tracking your spending and saving though.
+  - **adollopofsanity** (1↑): That's an end goal/gradual increase I am anticipating making actually! I appreciate you pointing it out though and thanks for checking that math.
+
+Since this budget is accounting for every single dollar of my projected minimum net paychecks I wanted to apply it for a while to see how it looks in practice. That way I can determine:
+
+* Did I under budget any expenses?  
+* Did my float or sinking fund not anticipate certain annual/non frequent expenses I forgot to include?  
+* What areas are over budgeted?  
+* Am I ending every month not touching my Buffer Float? Should I maybe redirect that when my savings hits a minimum of 3 months expenses and my annual sinking fund is 50% funded?  
+* I'm not anticipating having car problems that require $500 in maintenance in a single year. But maybe I can add that to my emergency savings as a separate "surprise your car broke down" savings and begin diverting that part of my sink fund to my Roth at the end of this year when it's fully funded.  
+
+
+There are a lot of things to consider about the budget I won't know until it's been in practice for a few months at minimum. Once I have those figured out a bit more clearly my plan was to start increasing my Roth. Once the emergency savings is full? Roth. Did I get a raise? Roth (at least a percentage).
+
+
+It's on my mind for sure but the last thing I want to do is put myself in a position where I over contribute to a fund that is strictly NOT to be pulled from outside of precise circumstances. If I suddenly find myself short in other parts of my budget for living right in the here and now I want to ensure the thought of "Well....there is my Roth." never crosses my mind.
+
+
+But next year when I do a full rebalance for my budget the first thing I will be prioritizing is hitting that 15% goal. :]
+
+
+*Edit: I fucking hate reddit formatting and don't understand it and it's the bane of my existence.
+- **AutoModerator** (1↑): You may find these links helpful:
+
+- [Budgeting](/r/personalfinance/wiki/budgeting)
+- [Tools and spreadsheets](/r/personalfinance/wiki/tools)
+- r/ynab
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/personalfinance) if you have any questions or concerns.*
+- **budgetoid** (1↑): You are putting an awful lot of effort into this, but what you should be doing is looking for a better job. $25k is just not liveable in hardly any part of the country and if you don't get a bigger shovel you are not ever getting into a house.
+  - **adollopofsanity** (1↑): Thanks for the advice! I am a high school dropout with the majority of my experience being customer service and waitressing.
+
+
+I started my job at entry level in the summer of '24 at $14/hr. By fall of '25 I got a small promotion ~~with~~ *to a $16.50 base pay. During that conversation I inquired about pay caps on various roles in the company. She was able to tell me a couple but the one I was currently in she said she'd have to check with HR because the people who get promoted to the role I am currently in typically find themselves in a higher position well before the pay cap is reached. I have the potential for a salaried role in the next year or two if all goes well.
+
+
+We just opened another branch (we have been a single location business for 20 years). I have a great deal of job security as well for the type of business we are in.
+
+
+I don't really have a lot of options outside of service industry and other lower earning potential positions that are honestly hard on the body and hard on the mind. I love my job and enjoy working here.
+
+
+That's not to say I'll be here forever. In 5 years I could take my experience to look for something else in a similar industry. Right now my focus is building for the future and a job switch is just not something I am willing to consider at this time.
+
+
+I agree with you that the wages are rough but I do not agree with your assessment that I am never getting into a house.
+
+
+Edit:
+I already did the math, but I realize the math could be wrong. For historical increases percentage wise in housing costs in my area along with the average CoL raises my company offers if I tighten my budget, sink excess into my Roth IRA for a downpayment & a HYSA for the closing/other upfront costs outside of a down payment I am confident I could snag a 30 year fixed with 20% down by 2046 in my area. I live in one of the *lowest* cost of living areas of the US.
+
+
+Will the house be the prettiest or the biggest? No.
+
+
+Will it begin my journey for housing stability and equity so that I have a major asset during my retirement that could potentially be the difference between me being absolutely fucked and alright if I have to go into any type of LTC facility when I'm old? Yeah. Yeah it could.

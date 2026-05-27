@@ -12,7 +12,7 @@
 
 import type { PresentationPayload, BrandVariant } from './presentationTypes';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface PresentationSummary {
     slug: string;

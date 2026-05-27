@@ -1,0 +1,57 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1tjh1sf/which_career_path_should_i_actively_working/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Which career path should I actively working towards?"
+author: "Religion_finder"
+date: "2026-05-21T11:02:35.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 1
+flair: "Advice"
+extracted_at: "2026-05-23T19:45:11.368Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Which career path should I actively working towards?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjh1sf/which_career_path_should_i_actively_working/)
+Posted by **Religion_finder** · **1↑** · **1 comments**
+
+I have to make an important decision soon.
+
+I like science, as I sometimes like to say, Science is the love of my life, though i sometimes cheat with Social Science, \\\[I know, bad. Forgive me\\\]
+
+I'm very curious, and I'm apparently 'analytical' 
+
+I'm in grade ten, I'm studying under the Indian system, which means I pick a subject "stream" after grade 10. I want a goal to work towards.
+
+My entire family, has done a degree in computer science (b.tech) and then got a job in the tech field. 
+
+It was the safe path, the well-trodden path. Ever since the AI boom + over saturation of CSE jobs, it's harder. I still feel like it's safer, and offers higher salaries and safety and the global mobility I would like to feel safe. \\\[OCI card can be revoked, US (my country) is not the place rn, and prob won't be for a while\\\]. I want to enter into btech in bioinformatics, that way, I can compete in both bioinfo pools and data/tech pools. It's harder where I am to find, but not impossible. I'll need to add another subject via. NIOS (open schooling, it's easier to pass, but most of these uni's have entrance exams), my backup here is a pure B.tech Computer science engineering or biotechnology + USPTO (but I hear it's hard, if not impossible to become a patent agent without a Phd and MS in biotech, since it's oversaturated). I'd like to mention, I'm going to, and willing to learn coding language, advanced calc...you may need to convince me. 
+
+I'm not opposed to research, I like it plenty. It was my childhood dream to become a scientist. I favour genetics, and anthropology, logically, if there's a hault in my academia career -- Genetics + GC MS,  and I think I like it better, anyway. There's a major overlap between 'em. The worry is, salaries and being able to secure a job, and keep it. 
+
+I've been told I have an eye for business, and I can see myself in it. Life sciences consulting (or any other kind of consulting really), doing a Bioinfo + MBA, pivoting to commerce after I graduate i.e CA, CPA, ACCE, CFA. I like it, I'd like to be an investment banker (but that's also about who-knows-whom) and the CPA or UK Accounting exam. Some relatives recommend this. I like it fine.
+
+It feels safer than tech, but lower salaries and, those exams are toughie's 
+
+Here, we have an MBBS program, a 5.5 year medical degree, it's a toughie exam, it's called NEET. No, IMAT - italian MD is not okay, even with DSU, the cost of living is too high. I have no real passion for medicine proper, it's safe, it's smart, some aunts and uncles want me to do it. Will pressure me to do it. I'll write the exam, it's out of 720
+
+1-144- fail. 
+
+144-288- Bachelor's is Ayurvedic medicine. Id rather not, frankly, no shade, but, the answer for why not is obvious 
+
+288-438- I think I'll count for a PharmaD degree, it's all but worthless here in India, if I move back to the United States, it's fine. Canada too, I imagine, only two exams, as opposed to the USMLE. There's only two here in India that is accredited in the US. Which saves me an exam. So I write one, instead of two different ones
+
+438-550- I'll count for a BDS (dental science ). Risky more risky. The UN says we have more dentists than we need, so does the job market, I'll need an US licence anyway.
+
+550-720- MBBS. An MD. I'll write the USMLE, try to match a residency (IMG will make it harder to match,) but pediatrics and family medicine is the whole, if not dermatology. I want to either be a,
+
+MSL (medical science liaison) or a Physician-researcher. I want the option for a residency + clinical practice as a backup, safe, AI can't mess this up for me, then maybe a JD (I'd be an asian parent combo back Doctor AND lawyer. Those kids would fear me) good for law-school admissions and for healthcare / malpractice law. I do prefer copy-write, corporate, etc) . I guess I can pursue a MBBS + PhD since life is only lived once. I can be a DDRR, or DRDR or (Dr)\^2. And it does increase my chances of me funding for my PHD, they would trust me more, since I'd have an MD.. My uncle (I have yet to figure a fact-check for this) If I complete an MBBS I can go into the fields I want without a struggle,. 
+
+I've been told I'd make a good lawyer. By alot of people. But law is risky if not from a good uni, and it's all about who-knows-whom and it restricts me to my Jurisdiction. I like global mobility. 
+
+I'm okay with more networking, I just don't have bloodline connections for these things. It's not listed in order of preference, right now.

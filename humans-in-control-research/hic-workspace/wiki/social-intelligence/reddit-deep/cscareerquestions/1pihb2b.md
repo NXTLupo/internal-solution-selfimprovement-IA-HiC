@@ -1,0 +1,116 @@
+---
+url: "https://www.reddit.com/r/cscareerquestions/comments/1pihb2b/about_to_graduate_with_a_cs_degree_and_still_no/"
+kind: "social-post"
+source: "reddit-deep: r/cscareerquestions"
+subreddit: "cscareerquestions"
+title: "About to graduate with a CS degree and still no internships/jobs. Is it over?"
+author: "Zealousideal_Code760"
+date: "2025-12-09T19:51:23.000Z"
+score: 55
+upvote_ratio: 0.9
+num_comments: 56
+flair: "New Grad"
+extracted_at: "2026-05-23T14:54:48.627Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# About to graduate with a CS degree and still no internships/jobs. Is it over?
+
+Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pihb2b/about_to_graduate_with_a_cs_degree_and_still_no/)
+Posted by **Zealousideal_Code760** · **55↑** · **56 comments**
+
+Title is TLDR
+
+Hey everyone, I just completed the final exam for my degree 50 minutes ago, but I’m honestly at a loss. For the past 3 years, I’ve been doing everything people say you’re “supposed” to do to break into tech (not just SWE positions, i'd be happy with anything) and nothing has worked.
+
+stuff I’ve tried: 
+• Attended tons of networking events •	Joined CS-related extracurriculars in my school
+ • Reached out directly to recruiters and hiring managers on LinkedIn 
+• Asked my network for referrals 
+• Had my resume reviewed by recruiters + people working in the industry 
+• Rebuilt my resume multiple times for different niches (IT, Cloud, SWE, Data, etc.) 
+• Built different personal projects tailored to those fields 
+• Applied to hundreds of roles consistently (from 2022-2025)
+
+Despite all that, I’m graduating with no internship experience, and I keep hearing that this will make my job search even harder than it already is.
+
+So I’m wondering: 
+• Has anyone else been in this situation and managed to turn things around? What worked for you?
+ • Are there fields adjacent to CS where companies are willing to hire fresh grads without experience? 
+• are certain tech markets better that i could pivot to? like tech sales, QA, IT support, cybersecurity, bizops, etc.? 
+• Is it worth doing certifications (AWS, Security+, CCNA, etc.) at this stage? 
+• Would contract work, freelancing, or even a non-tech job but in a tech company help me get a foot in the door? (this is probably my most likely path, i work for a city but my current role is part time and unrelated to tech. They have a job portal for internal hiring, hoping I can move into a tech role from there)
+
+Any advice, personal experiences, or suggestions would mean a lot. Thanks for reading.
+
+EDIT: wonky formatting
+
+## Comments
+
+- **nsxwolf** (74↑): It’s not a good time for entry level jobs right now. It can be difficult to get even a minimum wage job in some places.
+
+Don’t spend more money on certifications. You’ve likely got enough debt from your undergrad already.
+
+Contract work and freelancing is a difficult business to get into. I have over 25 years experience with full time employment but I have found it nearly impossible to find any freelance work, even on Fiverr.
+
+Just find literally any kind of job you can. Keep randomly applying to tech roles on the side so that you’ll catch the updraft when it finally happens.
+  - **Zealousideal_Code760** (6↑): Fair, a part of me thinks a few certs will set me up for a job but there's a large group of people saying they can't get their foot in the door with that so I'll have to refrain for some time. How would you recommend preparing for the interviews on the side?
+    - **[deleted]** (5↑): For what it's worth, I'm in the Phoenix area and I'm getting a lot of interview offers for IT Help Desk, Desktop Support Technician, and Data Center Technician roles with just a shiddy WGU CS degree, CompTIA A+, and Net+ certifications
+
+
+That's literally all I have to my name, along with a very small "home lab" setup I did on VirtualBox that only took a few days
+
+
+Must've submitted like 30 applications, and got 8 interviews
+  - **NICEMENTALHEALTHPAL** (2↑): I'd say certs are useless with the exception of AWS Dev Associate, SAA, or pro.
+  - **Honest_Victory_3893** (4↑): What would you consider a job? My friend makes 50$/hr doing data annotation type shit, does that count?
+    - **nsxwolf** (5↑): That is definitely a job
+  - **throwaway10015982** (1↑): >Don’t spend more money on certifications. You’ve likely got enough debt from your undergrad already.
+
+Would you recommend a CCNA or anything like that if you don't have (I got my degree for free bc of financial aid) any debt ? I've been thinking about getting some of the AWS certs and CCNA so I can try to get a help desk job or something
+- **Regular-Algae-8145** (21↑): Sorry to hear it, this is a rough spot to be in. The biggest thing that’s going to hold you back is making it through resume screening, and without any internship or real production experience it’s going to be very hard. 
+
+My biggest suggestion is to network at companies where a referral actually helps you get your foot in the door and pushes you through the automated resume system. This means FAANG+ and big tech are out the door, as a referral will hold very little weight, and even if a real person reviews it, lack of experience will likely be your down fall. Connect with as many people as you can at smaller companies - even if that’s <200 employees. It might not even be a software company. Many CS majors have a “FAANG/Big tech or bust” philosophy and see everything else as a failure. If that’s you, you must put your pride away and take any chance you can get. This is a stepping stone, not the final form of your career.
+
+The next thing is to get very good at interviewing, leetcode, and preparing for a specific companies interview. This much is obvious, but your hit rate for interviews will be low, so when you do get one, you need to maximize the opportunity.
+
+I’d also really inspect how meaningful your personal projects are. I was surprised at how much weight they pulled during my interviews/screening, and I was told by multiple interviewers it made a large impression - which also means I got grilled on them so they could verify it was real/I did it lol. If your projects are very generic, even if done well, they likely aren’t helping as much as you think. Pick something you’d really love to learn about or make - maybe hobby related  - and flesh it out a ton. The more niche/specific, the more memorable. Document well, consistent pushes, make graphs of your data and put them in the repo, reference research papers that informed decisions, etc.
+
+Lastly, I’d genuinely consider if a masters is right for you. New grad applications are already hell on earth, but doing them with no internship will be a challenge and a half. A masters degree puts you back in “intern” status before you finish it, so if you put your all into the things above during intern apps, you would likely snag some. Once you’re back to new grad apps, you could have an internship(s), maybe some light research experience (even if no paper), TA positions, and a higher degree. 
+
+Good luck, and give yourself some grace while understanding what you’re willing to do for the job.
+  - **Zealousideal_Code760** (9↑): Definitely don't have the big tech or bust mindset, atp I just want a full time job that's above my current part time in hours and pay, even if it's by a little to gain experience, figure out what I like, then grow from there. Though I will say I think I've concluded the LC grind is not for me. I've tried multiple times throughout my university career and the algorithms and practice just don't stick with me. Is it wise to to focus on other fields that wouldn't be as heavy on leetcode ability?
+    - **Regular-Algae-8145** (8↑): That depends entirely on what you want out of your career. Unfortunately, anything that is SWE related (hardware, ML, backend, frontend, cloud, distributed systems, etc) are almost certainly going to test your leetcode skills in the interview. And the ability to do something else - e.g. data scientist - and transition won’t be feasible unless it’s a team switch at your current company, which would still be hard, or re-applying and face the same thing.
+
+I know Leetcode sucks, but I truly think you can learn to do it. The biggest pitfall people have is treating it entirely as an assessment rather than something you learn first, then apply. You must do it in a structured way that combines learning the concepts separately, intentional practice, and reflection/reviewing. Otherwise you do 500 problems, get stuck on each, look at the solution, and then say “I’ll get this next time”. No, you won’t. Learn concept by concept, and master each one before moving onto the next. If you’d like, I can send you my full explanation of how to get better.
+
+For reference, I landed Palantir SWE, Amazon, and Uber internships. I am interviewing with Google currently and made it to final rounds with Jane Street, DoorDash, and more, but I don’t have 500+ LC problems completed. Literally 193 that was paired with lots of notes, reviewing, and intentional practice.
+- **Illustrious-Pound266** (15↑): No, this is the norm now. You should go into the job market not expecting to get any offer for at least 6-12 months after finishing your degree.
+- **SquidSquishing** (12↑): Jesus this is a depressing consensus of opinions. 
+
+If you pivot into IT you’ll just end up sinking your drive into becoming really good at IT. If you want to be a SWE just stick with what you’re doing and rough it out. If you make the pivot it might end up costing you more time to pivot back then if you just kept moving forward from graduation.
+- **Personal-Molasses537** (11↑): It's hard even with experience. I can't imagine without any experience. Try getting software development experience in any way you can even if it's some volunteer gig.
+- **FailedGradAdmissions** (6↑): Delay your graduation if you can and apply to internships like if your life depended on it. Internships are much easier to land than new grad roles.
+
+If that's not an option apply both to SWE roles as well as tech adjacent roles.
+  - **Zealousideal_Code760** (2↑): Can the average individual become LC ready before Summer 2026?
+
+Pray for me
+    - **FailedGradAdmissions** (5↑): Yeah, contrary to popular opinion all you need (for internships) it’s NeetCode roadmap. Just be sure to understand each problem well. And the easiest way to do it is after you see the solution, solve a related problem on your own, you should be able to solve it without any extra help.
+    - **Drauren** (1↑): It's just time/effort to learn. The roadmap is pretty well understood at this point.
+- **Winterlord7** (19↑): Oh no, is not over, this is just the beginning 😈
+  - **Zealousideal_Code760** (16↑): Of the end? 😭
+- **Competitive_Tea_4875** (4↑): For background, I’ve been a developer for almost 30 years. FAANG+ is not the answer. Of course it is popular to target those jobs and to bring the  idea up, but also could end up just leading to being laid off. Not to mention…having a work life balance is important!! Networking is the  best chance you have of landing a position in the current market. Who do you know (even friends, etc of your parents, relatives, etc) willing to submit a resume at the company that they work at? This makes all of the  difference.
+
+My own son searched for a position for a year after graduating with a CS degree. He completed a 5 year program with excellent co-op opportunities. My question would be why didn’t you pursue an internship/co-op? You definitely should be ready for this question.
+  - **Zealousideal_Code760** (3↑): I definitely pursued both, I didn't have the grades for co-op, and I feel the job market and my lack of interested for CS during my undergrad years made it difficult to be truthful.
+    - **Competitive_Tea_4875** (3↑): This is your honest answer, but what would you say in an interview? I’m wondering about your comment: “lack of interest for CS”…. Are you *sure* that you want to pursue this field? If so, it needs to come across in your resume, LinkedIn, and interview 100%. How are your soft skills? People hire the kind of person that they would want to work with. 
+
+I would also pursue roles with the DoD. Usajobs.com. Are you willing to relocate? Do you live near a larger city with many corporate headquarters?
+
+Do you have any family friends at good companies? Ask them to submit your application/resume for you. This will help you bypass the 100s of other applicants and get an interview! Be ready for Leetcode, unfortunately. It’s one way companies screen developers. You have nothing to lose by being ready for it.
+
+Sorry for all of the questions! This job market is crazy, but not impossible. Remember, you only need 1 Yes!!
+- **Soft-Wear-3714** (3↑): No it's not overrrrrrrrrrrrr
+- **forever-18** (2↑): Join IT in the military, or go into another field like plumber or electrician

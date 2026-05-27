@@ -1,0 +1,49 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1szmj55/im_thinking_about_switching_career_paths_into/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "I’m thinking about switching career paths into nursing. Any advice? PLEASE!"
+author: "heyjustneedadvice"
+date: "2026-04-30T05:07:56.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 3
+flair: "Advice"
+extracted_at: "2026-05-23T20:15:29.971Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# I’m thinking about switching career paths into nursing. Any advice? PLEASE!
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1szmj55/im_thinking_about_switching_career_paths_into/)
+Posted by **heyjustneedadvice** · **1↑** · **3 comments**
+
+I’m currently in the veterinary field and have been thinking about switching into human healthcare, possibly nursing. A friend suggested nursing for stability, but I’m a bit hesitant since I know working with human patients is very different from animals. I’ve also considered paths like surgical tech or ultrasound tech as a way to transition into healthcare.
+
+I have a pre-vet background (Bachelor degree) and have taken courses like microbio, genetics, ochem, biochem, and A&P. I’m considering retaking a couple classes to refresh and improve my GPA if I go back to school. Lately I’ve been doing a lot of research and trying to really understand what I’d be getting into. I’ve looked into different nursing specialties and even MSN programs, and I’ve been watching content creators to get a sense of what their day-to-day looks like. At the same time, I’m trying not to compare my potential path to theirs and remind myself that everyone’s experience is different. Im also trying to look past just the positives like job security and pay, and really think about the harder parts like burnout, dealing with difficult patients/families, emotional stress, and being around illness, blood, and bodily fluids on a regular basis.
+
+I’ve tried to look into getting a hospital job to get some exposure, but I think part of me is just nervous about making a big change. 
+
+This is really long but for those in nursing or who switched into it, where would you recommend starting? And is there anything you wish you knew before committing?
+
+## Comments
+
+- **Fine_Imagination_824** (1↑): The vet background actually gives you a solid foundation since you've already got the science courses down and experience with medical procedures, even if it's different species. That nervous feeling about making a big change is totally normal - you're basically starting over in a new field.
+
+  
+I'd definitely try to shadow some nurses or volunteer at a hospital if possible before fully committing. The day-to-day reality can be pretty different from what you see online. Also consider that nursing has changed a lot post-2020 with staffing shortages and increased patient loads, so make sure you're getting current perspectives from people actually working in it now.
+
+  
+Your idea about surgical or ultrasound tech could be a good middle ground too - shorter programs and still lets you work in healthcare without some of the more intense patient care responsibilities that come with nursing.
+- **Bordergrens** (1↑): The research you're doing is good, but at some point more information stops reducing uncertainty and starts creating it.
+
+The honest answer on vet-to-nursing: your science background is genuinely useful, especially in ICU, oncology, or ER settings where pathophysiology matters. The adjustment isn't the knowledge — it's the emotional register. Animals don't argue with you or have families who do.
+
+Best first step before committing to school: get a CNA job or volunteer in a hospital unit for a few weeks. Not to "see if you like it" in theory — but to see if the specific texture of that environment fits you. Most people who struggle with nursing didn't lack the skills, they underestimated the emotional weight of dealing with humans in crisis.
+
+The fact that you're already thinking about burnout and bodily fluids is a good sign. You're being realistic, not squeamish.
+- **thepandapear** (1↑): Imo you should look into volunteering or getting a part-time job as a nursing assistant in a local hospital. This gives you a real look at the daily grind before committing to a whole new degree. It might help to talk with nurses in different departments because their experiences with patient care vary a lot. 
+
+Since you're looking to pivot, the GradSimple newsletter could be worth a look. It's for people rethinking their path and wanting to find a better direction. The interviews are pretty relatable and it's a good way to get ideas you might not have thought of yet.

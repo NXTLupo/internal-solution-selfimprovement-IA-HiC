@@ -563,19 +563,79 @@ CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
 - For economic sources: use indicator-relevant terms tied to the goal
 - For social sources: use community language, not formal terms`;
 
+    // 2026-05-23 — Same defense as filterAndScoreItems: call Gemini directly
+    // so we have the raw text on parse failure, then run JSON.parse →
+    // tryRepairJson → salvageJsonObject ladder. Prior behavior: a single
+    // truncated trailing entry ('"AI News":}') caused geminiJSON to throw,
+    // which sent the catch handler to use the verbose research goal verbatim
+    // across ALL ${enabledSources.length} sources — defeating refinement
+    // entirely. New behavior: the salvage path recovers every well-formed
+    // "Source": "query" pair and only the broken trailing entry falls back.
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const { tryRepairJson, salvageJsonObject } = await import('./aiRouter');
+
+    let refined: Record<string, string> | null = null;
     try {
-        const result = await geminiJSON<Record<string, string>>(prompt);
-        // Phase 2.5 hallucination guard — validate every refined query against
-        // the original goal. Low-fidelity rewrites get replaced with the goal
-        // verbatim so we don't query sources with concepts the user didn't ask.
-        const { validated } = validateRefinedQueries(goal, result || {});
-        return validated;
+        const data = await callAIWithRetry('gemini', {
+            // 2026-05-23 — Use 3.5-flash to match the canonical Flash
+            // everywhere else in the user-visible artifact path. The 2.5
+            // entry was a hold-over from before the swap.
+            model: 'gemini-3.5-flash',
+            contents: prompt,
+            config: {
+                temperature: 0.2,
+                responseMimeType: 'application/json',
+                // Each entry is ~30 tokens of JSON; with ~200 sources max
+                // (most runs <150) we need headroom for ~6K tokens of output.
+                maxOutputTokens: 8192,
+            },
+        }, { label: 'query-refiner' });
+        const rawText = (data?.candidates?.[0]?.content?.parts || [])
+            .map((p: any) => p?.text || '')
+            .join('') || '';
+        let cleaned = rawText.trim();
+        if (cleaned.includes('```json')) cleaned = cleaned.split('```json')[1].split('```')[0].trim();
+        else if (cleaned.includes('```')) cleaned = cleaned.split('```')[1].split('```')[0].trim();
+        try {
+            refined = JSON.parse(cleaned);
+        } catch {
+            try {
+                refined = JSON.parse(tryRepairJson(cleaned));
+            } catch {
+                const salvaged = salvageJsonObject<string>(cleaned);
+                const salvageKeys = Object.keys(salvaged);
+                if (salvageKeys.length > 0) {
+                    refined = salvaged;
+                    console.warn(
+                        `[refineSearchQueries] salvaged ${salvageKeys.length}/${enabledSources.length} ` +
+                        `refined queries after JSON parse failure (partial truncation)`
+                    );
+                }
+            }
+        }
     } catch (e) {
-        console.warn('Query refinement failed, using research goal as fallback:', e);
-        const fallback: Record<string, string> = {};
-        for (const src of enabledSources) fallback[src] = goal;
-        return fallback;
+        console.warn('Query refinement network/HTTP failure, using research goal as fallback:', e);
     }
+
+    if (refined && typeof refined === 'object' && !Array.isArray(refined)) {
+        // Backfill any sources the model omitted (whether due to truncation
+        // or just because the model skipped them) with the raw goal — same
+        // safety net as the old full-fallback behavior, but scoped per source.
+        for (const src of enabledSources) {
+            if (typeof refined[src] !== 'string' || !refined[src].trim()) {
+                refined[src] = goal;
+            }
+        }
+        const { validated } = validateRefinedQueries(goal, refined);
+        return validated;
+    }
+
+    // Complete failure — every parse path threw or returned empty. Fall back
+    // to the verbose research goal verbatim across all sources (unchanged
+    // historical behavior, only triggered when literally nothing parsed).
+    const fallback: Record<string, string> = {};
+    for (const src of enabledSources) fallback[src] = goal;
+    return fallback;
 }
 
 // --- PLAN GENERATION ---
@@ -1045,7 +1105,7 @@ export async function executePlan(
                     });
                     let resp: Response;
                     try {
-                        resp = await fetch('http://localhost:5012/api/reddit-deep/fetch', {
+                        resp = await fetch('http://127.0.0.1:5012/api/reddit-deep/fetch', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -1163,7 +1223,7 @@ export async function executePlan(
                                     : '';
                                 const md = `---\n${fmYaml}\n---\n\n# ${item.title}\n\nSource: [${fm.source}](${fm.url})\n${meta.author ? `Posted by **${meta.author}**` : ''}${meta.score !== undefined ? ` · **${meta.score}↑** · **${meta.numComments} comments**` : ''}\n\n${bodyText || '_(no body — link/image post)_'}${commentSection}\n`;
 
-                                await fetch('http://localhost:5012/api/wiki/write', {
+                                await fetch('http://127.0.0.1:5012/api/wiki/write', {
                                     method: 'POST',
                                     headers: { 'Content-Type': 'application/json' },
                                     body: JSON.stringify({ path: wikiPath, content: md }),
@@ -1273,6 +1333,18 @@ async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promi
                 // we map them back to global indices via batch.startIdx.
                 const block = batch.items.map((it, j) => `--- ${j} ---\n${itemLine(it)}`).join('\n\n');
 
+                // 2026-05-23 — Two failure modes seen in the wild:
+                //   (a) Gemini Flash truncates mid-object on the last item
+                //       (e.g. `"s":}`) so the whole batch fails parse
+                //   (b) An overly aggressive "be terse / single line" prompt
+                //       made Gemini self-censor and emit a clean-but-truncated
+                //       array of only 5/25 items (5x worse coverage than (a)).
+                //
+                // This prompt keeps the request explicit about ALL items
+                // and lets the model write whitespace freely. The 4096-token
+                // cap below is sized so 25 items × ~120 tokens each + headroom
+                // does not get cut by the API. Salvage path catches the rare
+                // (a) case via salvageJsonArray.
                 const prompt = `RESEARCH GOAL: "${goal}"
 
 You are scoring search results for relevance to the research goal. READ THE BODY EXCERPT, not just the title — a generic title can hide highly relevant content, and a flashy title can disguise off-topic content.
@@ -1286,25 +1358,76 @@ Score on 0-100:
 ITEMS (each labeled --- N --- where N is the local index 0..${batch.items.length - 1}):
 ${block}
 
-Return ONLY a JSON array, one object per item:
+Return ONLY a JSON array — one object per item, EVERY item scored:
 [{"i": 0, "s": 85, "r": "Body discusses Northeastern alumni engagement metrics"}]
 Where i=local index 0..${batch.items.length - 1}, s=score 0-100, r=one-sentence reason grounded in the body content.
-Score EVERY item in this batch. Be STRICT — if the body doesn't substantively engage with the research goal, score under 60.`;
+You MUST emit all ${batch.items.length} objects. Do not stop early.
+Be STRICT — if the body doesn't substantively engage with the research goal, score under 60.`;
 
+                // 2026-05-23 — Call gemini directly so we have access to the raw
+                // text on parse failure. geminiJSON wraps JSON.parse and throws
+                // away the raw response, which means a single truncated object
+                // at index 24 used to lose all 25 items in the batch. Now we
+                // salvage per-object via salvageJsonArray so the well-formed
+                // objects still get scored.
+                const { callAIWithRetry } = await import('./aiRetryClient');
+                const { tryRepairJson, salvageJsonArray } = await import('./aiRouter');
+                let parsed: { i: number; s: number; r: string }[] | null = null;
+                let rawText = '';
                 try {
-                    const result = await geminiJSON<{ i: number; s: number; r: string }[]>(prompt);
-                    if (!Array.isArray(result)) continue;
-                    for (const r of result) {
+                    const data = await callAIWithRetry('gemini', {
+                        // 2026-05-23 — Use 3.5-flash to match the canonical
+                        // Flash everywhere else in the user-visible artifact
+                        // path (corpusChatService:409, generateNarrative).
+                        // The 2.5 entry was a hold-over from before the swap.
+                        model: 'gemini-3.5-flash',
+                        contents: prompt,
+                        config: {
+                            temperature: 0.2,
+                            responseMimeType: 'application/json',
+                            // Sized for 25 items × ~140 tokens each (item +
+                            // reason) + JSON delimiters + headroom. Lower
+                            // cap caused mid-array stream cuts; higher cap
+                            // let the model ramble before scoring all items.
+                            maxOutputTokens: 6144,
+                        },
+                    }, { label: 'body-aware-scorer' });
+                    rawText = (data?.candidates?.[0]?.content?.parts || [])
+                        .map((p: any) => p?.text || '')
+                        .join('') || '';
+                    let cleaned = rawText.trim();
+                    if (cleaned.includes('```json')) cleaned = cleaned.split('```json')[1].split('```')[0].trim();
+                    else if (cleaned.includes('```')) cleaned = cleaned.split('```')[1].split('```')[0].trim();
+                    try {
+                        parsed = JSON.parse(cleaned);
+                    } catch {
+                        try {
+                            parsed = JSON.parse(tryRepairJson(cleaned));
+                        } catch {
+                            // Per-object salvage — recovers everything well-formed
+                            // even when the trailing object is truncated.
+                            const salvaged = salvageJsonArray<{ i: number; s: number; r: string }>(cleaned);
+                            if (salvaged.length > 0) {
+                                parsed = salvaged;
+                                console.warn(
+                                    `Body-aware scoring batch ${batch.startIdx}-${batch.startIdx + batch.items.length - 1}: ` +
+                                    `salvaged ${salvaged.length}/${batch.items.length} items after JSON parse failure`
+                                );
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn(`Body-aware scoring batch ${batch.startIdx}-${batch.startIdx + batch.items.length - 1} failed (network/HTTP):`, e);
+                }
+
+                if (Array.isArray(parsed)) {
+                    for (const r of parsed) {
                         if (typeof r?.i !== 'number') continue;
                         const globalIdx = batch.startIdx + r.i;
                         if (globalIdx >= items.length) continue;
                         const score = Math.max(0, Math.min(100, Number(r.s) || 0));
                         scoreByIdx.set(globalIdx, { score, reason: String(r?.r || '').slice(0, 200) });
                     }
-                } catch (e) {
-                    // Per-batch failure → leave that batch's items at default (50).
-                    // Other batches still proceed; we never hard-fail the whole pipeline.
-                    console.warn(`Body-aware scoring batch ${batch.startIdx}-${batch.startIdx + batch.items.length - 1} failed:`, e);
                 }
             }
         })());
@@ -1472,7 +1595,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         console.log(`Content enrichment: skipped (all ${items.length} items already have full body via RSS expansion). Residual wiki archival will handle persistence.`);
     }
 
-    const PROXY = 'http://localhost:5012';
+    const PROXY = 'http://127.0.0.1:5012';
     // 2026-04-21 — Map keyed by ITEM REFERENCE (not string id) to defeat the
     // prior collision bug: different items occasionally shared item.id strings
     // across connector code paths (e.g. Tier 0 URLs plus CX-mesh items plus
@@ -1605,8 +1728,15 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         const results = await Promise.allSettled(
             batch.map(async (item) => {
                 try {
-                    // Smart extraction: tries PDF download first, then Jina web extraction
-                    const resp = await fetch(`${PROXY}/api/extract-content?url=${encodeURIComponent(item.url!)}`, {
+                    // 2026-05-23 — Prefer the explicit pdfUrl when academic
+                    // sources provided one (OpenAlex open_access.oa_url,
+                    // Crossref link[content-type=application/pdf], Semantic
+                    // Scholar openAccessPdf.url). Falls back to landing-page
+                    // url for non-academic items. Avoids the case where the
+                    // landing page is a paywall and the actual full text is
+                    // at a separate PDF URL the academic source returned.
+                    const extractUrl = (item as any).pdfUrl || item.url!;
+                    const resp = await fetch(`${PROXY}/api/extract-content?url=${encodeURIComponent(extractUrl)}`, {
                         signal: AbortSignal.timeout(45000)
                     });
                     if (!resp.ok) {
@@ -1738,7 +1868,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
  * The three summaries are merged into a unified "multi-model synthesis" that gets
  * prepended to the corpus, giving the main session diverse analytical perspectives.
  */
-const PROXY = 'http://localhost:5012';
+const PROXY = 'http://127.0.0.1:5012';
 
 async function triModelAnalysis(enrichedItems: DataSourceItem[], researchGoal: string): Promise<string> {
     if (enrichedItems.length < 6 || !researchGoal) return '';

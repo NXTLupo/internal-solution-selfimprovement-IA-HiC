@@ -1,0 +1,46 @@
+---
+url: "https://www.reddit.com/r/gradadmissions/comments/1rj8xbf/how_to_cope_with_rejection/"
+kind: "social-post"
+source: "reddit-deep: r/gradadmissions"
+subreddit: "gradadmissions"
+title: "How to cope with rejection?"
+author: "wannabegradstu"
+date: "2026-03-02T23:27:26.000Z"
+score: 5
+upvote_ratio: 1
+num_comments: 5
+flair: "Applied Sciences"
+extracted_at: "2026-05-20T03:56:10.754Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# How to cope with rejection?
+
+Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rj8xbf/how_to_cope_with_rejection/)
+Posted by **wannabegradstu** · **5↑** · **5 comments**
+
+In fall of 2025, I applied to six graduate schools for physics and astronomy PhD programs after completing undergrad studies in chemistry. The field change may seem odd to some but the research I want to pursue (exoplanet studies) is interdisciplinary and I’ve been told by researchers in the field that chemistry experience is valued. 
+
+Fast forward to earlier this week and I’ve received my third rejection. I’m not upset that these schools individually rejected me. I know that not every lab is a good fit and I trust the admissions committees to determine whether or not I would be a valued addition to their facilities. I am by no means saying that I am a perfect candidate, but my performance in undergrad has at least prompted conversations with multiple professors at prospective grad schools. I should hope I’m at least being considered by the admissions committees. 
+
+That all being said, how am I supposed to cope if NONE of these universities accept me? A lot of people say not to take it personally but how can I possibly do that when I am consistently told I am not good enough/ready to pursue a career in my dream field? It feels like people are so casual when they talk about it, as if getting straight rejections doesn’t completely derail my career path. If I’m rejected by the remaining universities, am I supposed to just keep tacking things onto my resume until it’s eventually enough to be accepted? Is there any way for me to know if it will ever be enough? This is only my first application cycle but it already has me rethinking my entire life and wishing I’d done things differently in undergrad
+
+## Comments
+
+- **Antique-Object-1253** (6↑): Hello, I want to say that I completely understand. I applied 3 cycles 22-23, 23-24, and 25-26. I graduated in 2023 and got rejected from EVERY SINGLE SCHOOL I applied to. Even the ones I did internships with and kept in contact with the professors (*Those diff stung hardest*).
+
+**Yes and No:** The short answer is yes, you're supposed to explore, refine skills, and network until you finally get into a grad program (*if that is what you will still want*).
+
+The longer answer is it may be a derail or be a slight redirection. The more times I apply the more experience I have and from different sources, and it made me diversify my applications. I have my BS in psych and those are the only programs I applied to the first cycle. This cycle, I applied psych and business schools (*still got rejected from all of them so far, but I made it further this cycle*). 
+
+**Other options:** Some people decide to get a masters and that helps, or they realize the don't really want/need a phd after that. Some people decide academia isn't for them. Some decide that they didn't know what they wanted and were following the motions. It really depends on what you do with the time between rejection and applying again if it's "**derailing**" your career. I had to teach after undergrad and hated it, but now I have experience with kids which I can leverage in research. 
+
+**How do you Know:** Most people who feel confident in most aspects will feel like they're ready others may have less experience, but they keep in contact with professors who tell them they are. It's all very individual. Networking and having working relations with people sometimes does more than random things added to a resume. "Fit" is a really big thing and it comes down to how well EVERYTHING aligns not just research.
+
+  
+**Edited for typos and structure.**
+  - **gurlxd** (1↑): Wishing you the best!
+- **Ok_Translator_3920** (1↑): I completely understand that feeling genuinely. I didn’t get into grad school last year (rejected from 15 schools) and reapplied this year and got in (also in physics). I say that to just say that one application cycle, though feels terrible, is not the end of your career trajectory. Also, your work and value means much more than a rough application cycle. Now regarding your specific application, astronomy is notoriously one of the most difficult PhD programs to get into especially with current funding cuts (around 4-8 offers for over 400+ applicants for most programs). Have you talked with any potential advisors or mentors about applying to chem programs and being advised by astro faculty (specifically for astrochemistry/planetary science), or are you wanting to pivot to take grad courses in physics and astro? I know a person that did planetary science for phd but was advised by a physics prof.
+  - **wannabegradstu** (1↑): I have not considered this! Honestly, I am much more eager to apply my knowledge of chemistry to another field rather than pivot my entire focus to physics or astronomy. Let me see if I understand this correctly. I would apply (and ideally be accepted to) a PhD program in chemistry/a subfield of chemistry, so the coursework would be chemistry, but my advisor/research would be in a different field?
+    - **Ok_Translator_3920** (1↑): Yes that’s the right line of thinking. It happens but definitely is rarer and is department/program specific. But because your research interests are interdisciplinary, you could probably apply to chem programs on top of astro/physics programs but this is dependent on whether the advisors are permitted by the program to do so. I would honestly reach out to your research mentors and any potential advisors and see what they think since they will have better and more informed answers. Good luck!!

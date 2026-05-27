@@ -1,0 +1,53 @@
+---
+url: "https://www.reddit.com/r/internships/comments/1sa2elo/i_cant_find_a_job_i_keep_failing_interviews_i_see/"
+kind: "social-post"
+source: "reddit-deep: r/internships"
+subreddit: "internships"
+title: "“I can’t find a job / I keep failing interviews”, I see this every f****** day"
+author: "Single-Gear-2725"
+date: "2026-04-02T00:29:48.000Z"
+score: 80
+upvote_ratio: 0.92
+num_comments: 11
+flair: "General"
+extracted_at: "2026-05-26T14:30:47.907Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# “I can’t find a job / I keep failing interviews”, I see this every f****** day
+
+Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sa2elo/i_cant_find_a_job_i_keep_failing_interviews_i_see/)
+Posted by **Single-Gear-2725** · **80↑** · **11 comments**
+
+I see so many of you struggling with internships and interviews on here, and I genuinely want to help because I have been in the exact same spot many times, and have learnt so much that I can give top advice.
+
+I’ve been through the recruiting cycle 3 times (internships at Johns Hopkins APL & Aveva, offers from TikTok, Fannie Mae, CVS, etc.). I started applying the summer before freshman year of college, and I struggled like crazy, but over time, I figured out what works and getting offers was easier.
+
+A lot of what I see here:
+
+* applying to tons of roles with no real strategy
+* resumes that don’t show any impact
+* projects that are complete shit, they don’t signal much to recruiters
+* no outreach or referrals at all
+* random interview prep that doesn’t translate
+
+What started working for me was treating this like a system instead of a checklist:
+
+* being intentional about how I positioned my experience and CV: telling story and making it digestible for non technical recruiter
+* focusing on the right roles instead of everything: changing cv based on role, having domain specific projects for that role
+* consistently reaching out to people instead of relying only on applications: proper linkedin dm strategy that basically guarantees one referral from a company, even though referral may not be strong
+* interview preparing in an effective & structured way, not just randomly grinding leetcode(though it works sometimes)
+
+Once I approached it like that, things finally started to click.
+
+If you’re stuck, feel free to DM me, I don’t mind taking a look at what you’re doing and pointing out what might be off. PS: not trynna act like im some guru and everything is amazing for me, I have struggled like crazy and still do, but I would have loved advice like this if someone offered it, so yea.
+
+## Comments
+
+- **Ok-Purchase-9141** (5↑): This is actually very helpful and I appreciate your insights. One question, how would you describe the LinkedIn DM  strategy? I feel like I always feel a bit fake when reaching out even though I'm trying to get comfortable with cold messaging people.
+  - **Single-Gear-2725** (5↑): you cant say bs like hi im \_\_ and I study \_\_\_. Just get to the chase, i like to use something like: Hi, I'll keep this short and sweet, then ill give 3 high level and high conviction bullet points abt me, then a CTA at bottom
+- **harsx132** (1↑): DM’d you
+- **vannnneil** (1↑): any CV writing tips ? do you use ai in writing your cv/resume
+- **Necessary-Pipe-5971** (1↑): Can you take a look at my resume
+- **adii100** (1↑): trades, teaching, nursing, allied health, police, military, heavy vehicle operator

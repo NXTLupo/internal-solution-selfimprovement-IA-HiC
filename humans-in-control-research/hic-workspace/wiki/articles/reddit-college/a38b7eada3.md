@@ -2,19 +2,19 @@
 url: "https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"
 url_hash: "a38b7eada3"
 kind: "article"
-source: "reddit: College"
+source: "reddit: college"
 title: "Building an \"Do dumb shit, safely\" bag for my niece to keep in her dorm, what goes in it"
 author: ""
 date: "2025-08-04T17:02:58.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-12T17:13:54.419741+00:00"
+extracted_at: "2026-05-14T12:24:54.616760+00:00"
 chars: 708
 ---
 
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 
-Source: [reddit: College](https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/)
+Source: [reddit: college](https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/)
 
 Title. I'm putting together a bag of items for her and her friends/dorm neighbors to utilize before, during, or after doing dumb shit. Contents so far I have are dental dams, condoms, pregnancy tests, fent test strips, some plan B and narcan.
 

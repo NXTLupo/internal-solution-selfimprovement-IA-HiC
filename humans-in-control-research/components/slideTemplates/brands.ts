@@ -124,6 +124,39 @@ export function detectBrandFromText(text: string): BrandId | null {
     return 'nxt';
 }
 
+// 2026-05-26 — SHARED FONT-ROLE CONTRACT (anti-drift).
+//
+// Root cause of preview-vs-PPTX font drift: pptx.ts used a single `FONT`
+// constant (= the body face, Roboto) for EVERY text element, including
+// titles and display numbers, while web.tsx used `var(--font-display)`
+// (Spectral) for those. The two renderers diverged because they each
+// decided fonts independently.
+//
+// This resolver is the single source of truth both renderers MUST consume.
+// A text element declares its SEMANTIC ROLE; the role maps to a brand
+// font face. Adding a new template can no longer pick the wrong font —
+// it picks a role, and the role resolves identically in web + PPTX.
+//
+// Role → face mapping (matches the web renderer's CSS var usage):
+//   display  → FONT_DISPLAY (Spectral)  — titles, action-titles, hero
+//                                          numbers, big stat numerals
+//   body     → FONT_BODY    (Roboto)    — narratives, descriptions, prose
+//   label    → FONT_MONO    (Roboto Mono) — eyebrow labels, tracked caps
+//   mono     → FONT_MONO    (Roboto Mono) — source lines, codes, citations
+//   quote    → FONT_DISPLAY (Spectral italic) — verbatim block quotes
+export type TextRole = 'display' | 'body' | 'label' | 'mono' | 'quote';
+
+export function fontForRole(role: TextRole, brand: Brand): string {
+    switch (role) {
+        case 'display': return brand.FONT_DISPLAY;
+        case 'quote': return brand.FONT_DISPLAY;
+        case 'label': return brand.FONT_MONO;
+        case 'mono': return brand.FONT_MONO;
+        case 'body':
+        default: return brand.FONT_BODY;
+    }
+}
+
 export const BRAND_METADATA: Record<BrandId, { name: string; hashtag: string; description: string }> = {
     nxt: {
         name: 'NXT Humans',

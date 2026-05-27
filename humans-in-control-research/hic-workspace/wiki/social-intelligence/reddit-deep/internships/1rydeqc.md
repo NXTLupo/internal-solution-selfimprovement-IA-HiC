@@ -1,0 +1,75 @@
+---
+url: "https://www.reddit.com/r/internships/comments/1rydeqc/accounting_intern_doesnt_think_theyre_getting_an/"
+kind: "social-post"
+source: "reddit-deep: r/internships"
+subreddit: "internships"
+title: "accounting intern doesn't think they're getting an offer at the end of this"
+author: "Only-Tumbleweed-6562"
+date: "2026-03-19T21:43:51.000Z"
+score: 26
+upvote_ratio: 1
+num_comments: 14
+flair: "General"
+extracted_at: "2026-05-26T14:30:47.909Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# accounting intern doesn't think they're getting an offer at the end of this
+
+Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rydeqc/accounting_intern_doesnt_think_theyre_getting_an/)
+Posted by **Only-Tumbleweed-6562** · **26↑** · **14 comments**
+
+Hi everyone, I don't use Reddit, but I just felt the need to express my experience at this internship that I am currently finishing up. So it'll just be my thoughts and lessons I learned that will hopefully help any up-and-coming interns get that offer at the end. A lot of this relates to accounting internships, but I think any intern for any industry can learn from this.
+
+I am currently finishing up a winter audit accounting internship at a mid-size firm. We never had progress check-ins, instead, we had casual weekly meetings where I got to ask any questions relating to the office/procedures. One of the biggest pieces of advice that you hear as an intern is to ask lots of questions and over-communicate. I went in with this advice in mind, but it was a lot harder to put into practice because I believed I was doing well. Until the reviews of my work came.
+
+I really think that I have now found my stride in the internship where I somewhat know what I am doing. But the issue is the fact that I didn't ask enough questions in the beginning, and that really affected the feedback I got this week (which HR will be reviewing to see if they give me an offer). I ask so many more questions now than I did in the beginning. Practically every step, if something doesn't seem right, I'll ask about it.
+
+In the beginning, I was **assuming** things about the work being given to me. Which I think is normal, but if something is meant to be super clear/straightforward, you should ask about it when things don't line up. But I pushed through any discrepancies and finished work papers. My thought process was along the lines of - 2+2=4, but there is only a 2 and 3? They must want me to do 2+3=5. And leave it thinking it is correct. (Hopefully that makes sense lol). It feels obvious typing it out now, but it's lot easier to fall into that rhythm, especially when you aren't used to seeing real pieces of work material.
+
+Because of this, I tricked myself into thinking that I was doing fairly well in the internship. I felt like I was getting good work done and at a steady pace. They started reviewing my work about a month into the internship, and everything really crumbled down. I had a lot of review comments, and it was obvious I had a clear lack of understanding for the testing I was doing. Of course those review comments really ended up helping my understanding and the much better quality of work I produce now. I worked really hard to ask more questions and get to the point of basic understanding/good quality work. However, it ended up messing with my feedback and a client in the end, and I really don't think they'll extend me an offer for afterwards.
+
+After the fiasco with the initial review comments, it ended up affecting the client we were working with. In the testing I did, errors were found, but I hadn't asked about them (didn't really know what errors were, thinking that reviewed my work would know what to do with them). Because of that, my higher ups had to request more things with the client and have a difficult conversation with them about out-of-scope (charging them more money) a lot later than they should have.
+
+Of course I still get review comments, but either a lot less or about small things like updating the date, telling my reviewer how I got a certain number, or updating wording. Besides the type of feedback I got (which I'll tell you about below), I can't help but feel like it's an immediate no because the client was involved in my mistake.
+
+I have about 3 weeks left of the internship, and I just got feedback this week. It was a survey that I sent to people that I have been working with throughout the internship. 4 out of the 6 have responded, and so far, 2 put that I was approaching expectations and 3 put that I needed to ask more questions so that I learn, with one mentioning the situation about the client. It doesn't seem like a lot, but the two with "approached expectations" were more important people to receive positive feedback from. I also have a feeling that I'll probably get 1 more that is labeled the same as "approached expectations."
+
+One of the biggest positives in all my feedback so far is that **everyone** mentioned I have an exceptional attitude, am flexible, and was a great "cultural fit." I know that fitting into the environment is really important to HR, but I think they would be looking for someone who at least met expectations. So to any new interns, I really stress that you should try to make being a great cultural fit a **bonus**, rather than a safety crutch like it feels to me right now. I definitely worked hard to fit-in and it is very important for you to put yourself out there. I really wouldn't know how to feel if it was just the fact I got mixed feedback on expectations, but I think the client issue tips it into a no.
+
+I saw the feedback in the middle of my work day, and I'll admit it took the wind out of my sails. I'm not gonna just give up and not care anymore about my work/learning, but it was massively disappointing, especially since I enjoy the people I work with so much; also, the fact that I tried to work even harder to make up for the beginning and it didn't work was just another blow. I'm going to continue trying really hard to produce good work and , hopefully, leave a better mark for when HR comes and talks with my team. I know it isn't the end obviously, but I just wanted to share this. Maybe others are feeling the same way, have advice, or have any thoughts on the whole situation. Anyways, thanks for reading. Never give up! I hope you can go out there and get that offer.
+
+## Comments
+
+- **Impossible-Fix-2552** (4↑): Hey, thank you sharing this. My first corporate internship is coming up in a few months, and I need all the advice I can get, really. So thank you for posting this. 
+
+I lowkey have that same tendency to assume instead of ask. Esp with internships, where you’re trying to impress your superiors, it can feel that asking questions would make it appear that you don’t know what you’re doing.
+
+I hope you’re still able to get that return offer. Maybe you could be upfront and say that you weren’t asking questions before and it led to confusion. But that now, you’ve course corrected and gotten the hang of it?
+  - **Only-Tumbleweed-6562** (1↑): I’m honestly so glad to have helped! 
+
+After the rest of my feedback comes in, interns have a self-reflection. I was thinking about possibly going up to everyone who’s left the less than desired feedback, but I’ve just been putting their feedback to practice. Questions, questions, questions. I feel like a fly lol. But trying not to be too helpless as an intern. Anyways, in my self-reflection, I plan to discuss my entire thought process in the beginning and why I didn’t start out well. I hope that they see a positive out of it like accountability or self-awareness.
+
+Is this your first internship in general or just corporate?
+    - **Impossible-Fix-2552** (2↑): Makes sense makes sense
+
+This is my first corporate internship. I’m a junior and I was lucky to get a research internship last summer. It was for a Data Science/ Computer Science research program in Vermont.
+
+It was really chill. I had one mentor/supervisor and someone who checked in with me every month. It was very much independent work, to the point that I designed my research project by myself with a bit of guidance from my supervisor. He did teach me a few things, like how to code a map, but for the most part I was on my own doing my thing.
+
+I could come in late at 10am and no one would care/notice. Later in the internship , I’d work till 7:30pm. 
+
+So I was pretty unmonitored. There wasn’t any return offer prospects, so I guess there was less pressure as well. 
+
+Another thing I really appreciated was the lessons they’d give us interns earlier in the internship. We’d learn some CS stuff/some career development stuff. 
+
+So it wasn’t straight to work like I assume corporate internships might be
+- **kay_h92** (2↑): I’m doing my audit internship now, so I feel you. This reminds me of when I first started, I also assumed, but luckily I asked before doing what I assumed should be the way (just a quick “sorry this may be a dumb question, but this happens and I think this is the way I should do it, is my thinking correct?”, and it has saved me every time.
+
+Don’t give up hope. Everyone says the firms want someone can who they can train and work with, and you definitely show that. I’ll be finishing with my internship in 4 weeks, so good luck to both of us. I have faith in you!
+  - **Only-Tumbleweed-6562** (1↑): Thanks! Good luck too, I hope you get an offer at the end. Do you get reviews or anything like that?
+    - **kay_h92** (1↑): We only do performance reviews on engagements that we had 40+ billable hours, which I only have 1 (I did little things here and there for many clients but only 1 big client) + a mid-internship check-in with HR. There are some…questionable interns in my intern class, I’m not gonna lie. One intern gets along well with people but I don’t think she understands what she’s doing (she asked what Ctrl A was for and didn’t know COGS was a Income Statement account…). One talked back to senior managers when she got called out for overcharging clients but no work was done. So I really want to see who gets the return offers and who doesn’t…
+  - **No-Communication2515** (1↑): When asking questions, it doesn’t have to be immediately as they are explaining in the meeting , right ?  Is Asking after fine too when actually working through it ?
+    - **Only-Tumbleweed-6562** (2↑): I would recommend after! I think it shows good character that you are trying to do some things on your own. Basically to not fall into a super helpless intern, because that’s generally not who they are hoping to hire, but do not become overly independent and do what I did. Also, something I struggle with is remembering everything, even if I write notes. So you can have some initial questions, but if you ask everything at once, there is a high likelihood that you will forget things and have to repeatedly ask the same questions once working on the task. Which I’m sure the person will happily help you, but no one likes repeating things.
+    - **kay_h92** (1↑): It depends. But you can write all the questions down and ask whenever they ask “do you have any questions?”

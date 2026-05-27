@@ -1,0 +1,66 @@
+---
+url: "https://www.reddit.com/r/humanresources/comments/1sadb0l/what_onboarding_platform_do_you_recommend_thailand/"
+kind: "social-post"
+source: "reddit-deep: r/humanresources"
+subreddit: "humanresources"
+title: "What onboarding platform do you recommend? [Thailand]"
+author: "Ordinary-Drummer-780"
+date: "2026-04-02T10:10:09.000Z"
+score: 9
+upvote_ratio: 0.84
+num_comments: 18
+flair: "Learning & Development"
+extracted_at: "2026-05-23T12:15:41.534Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+---
+
+# What onboarding platform do you recommend? [Thailand]
+
+Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1sadb0l/what_onboarding_platform_do_you_recommend_thailand/)
+Posted by **Ordinary-Drummer-780** · **9↑** · **18 comments**
+
+Hi, I'm building an onboarding process for my company (\~50 employees, Google Workspace, we use Confluence for our knowledge hub) and am overwhelmed reading suggestions on what does/does not work. I'm quite technically proficient but not trained in IT so I want to keep things simple. The biggest chunk of work will be creating/formatting the actual content - writing/consolidating/streamlining it all, the odd video, quizzes, etc - but I'd like to hear what platforms work best for structuring it all into cohesive modules.
+
+We'd like a new employee to join and do self-guided learning at predetermined timeframes - first month, after 3 months, after 6 months, etc, and maybe a company-wide module for new skills or compliance when needed. I've read a ton of posts that quickly get into PowerShell and git libraries, which is a bit above my skill level, but what would you recommend? TalentLMS? BambooHR? Jira? Thanks.
+
+## Comments
+
+- **Ivan_Palii** (3↑): It depends a lot on how you want to structure your onboarding flow at all: how many text guides, interactive and video guides, how many checklists, etc. 
+
+In our company, we have:
+
+\- Jira for checklists where the employee mark when he/she completes necessary steps.  
+\- Confluence as knowledge hub too. 
+
+BambooHR is just a place where an employee should add information about himself/herself and learn how to work with it (requesting time off, updating the info, performance review etc.)
+
+Recently, I also learned about Tango for interactive employee onboarding, and it looks like it beats Confluence for adoption of some apps in many use cases. I mean that it's much easier to learn how to use a new app for employees, where there is an interactive guide, built into the app, where each step is highlighted in comparison to text + screenshot guide in Confluence where you have to switch between 2 (or even more) tabs constantly.
+- **meowmix778** (2↑): Jira can work for what you're describing but it would require a fairly lengthy process to build all of that out. 
+
+I'd talk to your HCM platform holder if they can do it. Bamboo can probably do it, I don't have a ton of experience with it so I can't say for certain. But that's likely your best direction. 
+
+You can also chalk something yourself fairly easily with Google Sites, at least easier than Jira. I use Jira for an HR ticketing platform and to keep myself organized, but I don't think it'd be appropriate for most everyday users. You can embed documents pretty easily into sites. I've been playing with a SOP tool called Scribe to host some SOPs into sites the last week or two and that might work for you. 
+
+The best thing you can do is keep people in an ecosystem you're already using (or closest to).
+  - **Ordinary-Drummer-780** (1↑): Thanks, that's good advice, sticking to Google. I will look more at a simple Google Sites environment, it might be all we need.
+- **PhilJ2020** (2↑): We currently use dayforce as our HCM and dayforce learning as our LMS. It works pretty well, and operationally we don’t have many issues.
+- **AutoModerator** (1↑): Your post has been automatically removed because you did not include the required location title tag.
+
+The location tag must be the 2-letter USPS code for US states, the full country name, or [N/A] if a location is not relevant to the post. 
+
+For example: "Time & Attendance Question [CA]" or "Help with employees on contract [United Kingdom]" or "How to progress in my HR career? [N/A]"
+
+Please read the subreddit guidelines for more information.
+
+I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/humanresources) if you have any questions or concerns.*
+- **Forsaken_Gain3178** (1↑): >
+- **magdalenrichard** (1↑): We just used Notion for a while and it worked fine. Made different pages for each month with checkboxes and embedded videos.
+  - **Ordinary-Drummer-780** (1↑): Thank you.
+- **friendlyggg** (1↑): Great question. I have personally used BambooHR, and I highly recommend them.
+- **undermustang** (1↑): Do you use any platform or software?
+- **SeniorHeat221** (1↑): If your biggest effort is content creation, I’d keep the system side as simple as possible. Confluence is already a strong base, and tools like jira might be overkill unless you want to manage onboarding like a project.
+
+What helped me was adding structure on top instead of replacing tools. Hibob worked well for that, mainly because it lets you create onboarding workflows tied to timelines, so new hires know what to do and when, without needing a full LMS setup

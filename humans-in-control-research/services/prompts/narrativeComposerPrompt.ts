@@ -208,7 +208,7 @@ A short, thin section in this format reads as evasive or under-researched.
 | \`quotes\` | Verbatim block-quotes that crystallize human stakes or expert validation. | **4–7 quotes** (mix internal + external voices) |
 | \`personas\` | When the audience needs to feel the human stakes. | 2–4 personas |
 | \`journey\` | When the narrative requires showing process flow (service blueprint). | 5–7 stages |
-| \`recommendations\` | The coherent-actions section. Action-titled recommendations. | **5–7 actions** with 3–4 sub-bullets each |
+| \`recommendations\` | The coherent-actions section. Action-titled recommendations. | **5–7 actions by default; honor a user-specified count up to 20**. When the user requests a split (e.g., "10 student + 10 faculty/advisor"), emit **TWO \`recommendations\` sections back-to-back**, each with a \`title\` that names its half (e.g., "Student-Facing Actions" / "Faculty & Advisor-Facing Actions") and the requested count per half. Each action keeps 3–4 sub-bullets. |
 | \`roadmap\` | When sequencing matters. NOW/NEXT/LATER horizons. | 2–3 items per horizon |
 | \`gap_analysis\` | When the audience needs to see capability gaps quantified. | 4–6 gap rows |
 | \`tech_arch\` | When the strategic argument depends on system architecture. | Layered, named systems |

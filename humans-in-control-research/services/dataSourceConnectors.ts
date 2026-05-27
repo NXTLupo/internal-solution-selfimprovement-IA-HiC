@@ -9,7 +9,7 @@
  *   GET /api/multi-search?q=...&sources=id1,id2&limit=... — parallel multi-source
  */
 
-const PROXY = 'http://localhost:5012';
+const PROXY = 'http://127.0.0.1:5012';
 
 // --- TYPES ---
 

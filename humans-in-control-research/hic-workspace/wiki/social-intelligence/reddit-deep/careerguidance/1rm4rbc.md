@@ -1,0 +1,86 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1rm4rbc/im_a_political_science_prelaw_major_and_econ/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "I’m a political science pre-law major and Econ minor, but have a mid GPA and no internship experience, what are some options for potential careers?"
+author: "coochiecuisine"
+date: "2026-03-06T04:57:48.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 9
+flair: "Advice"
+extracted_at: "2026-05-23T20:15:29.972Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# I’m a political science pre-law major and Econ minor, but have a mid GPA and no internship experience, what are some options for potential careers?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rm4rbc/im_a_political_science_prelaw_major_and_econ/)
+Posted by **coochiecuisine** · **1↑** · **9 comments**
+
+I’m 25F, started college pre-COVID but when COVID hit I stopped attending the online classes and failed all of them, and when I went back to school I tried to switch to CS but it wasn’t a good fit. Now I’m getting all A’s and enjoy my coursework, but I’m scared for what comes after I graduate, I’m a junior with no relevant experience besides cashier jobs and don’t know if I have the academic capability and grit required for law school. I’m also not sure if law school would even be worth it. Are there any decently paying options that are in the legal field that don’t require more school after I get my bachelors? GPA is currently at like a 3.02ish, it used to be a 1.6.
+
+## Comments
+
+- **SwitchJumpy** (2↑): So... I know little about Law and how they measure GPA, but I'd like to think there's a universal consensus that aptitude far exceeds GPA.
+
+But before we get to that you mentioned some important points we should address first
+
+1) fear/ anxiety - this comes from lack of confidence, which is completely understandable given the crossroads you are at. You have no way of knowing how good you will be because you have no experience to dispute the negative narrative you repeat in your head. 
+
+Don't let your grades reflect your ability to do well. Our education system grades in a very rigid manner and we are learning that younger generations dont all learn the same way. This is a reflection of genetics and environmental, but also diversity plays a huge factor. No two kids are being raised the same, which means no two kids are learning the same way. But teachers dont adopt an education style that teaches each kid individually.
+
+You need experience and that doesn't need to be an internship. Look into non-profitd in your area, specifically ones that deal with racial, gender, legal issues. There could be opportunities to shadow, volunteer, or even come in as an understudy. 
+
+Update yourself on Job Search. We're in a new job market where AI is invading the hiring process. Learn how they influence the hiring process or onboarding of your field  
+
+Start a LinkedIn but research how to do it right. Doesn't matter if you're only a casier, you're fucking going to school for Law. That's awesome! Learn what it means to network, connect with lawyers or professionals that work in your area of interest, make sure their ethics align with yours. Let them mentor you, but dont ask for a job. Networking is going to be the best way to get into a job until we learn how to rein in AI. 
+
+Your grades don't mean shit if you can learn to demonstrate your experience. Youre getting A's now, so obviously somethings clicking. You're probably more of a hands on learner.
+
+One other thing id have you consider is reflecting on whether you may have a disability like ADHD, which often goes hand in hand with academic struggles. Getting that diagnosed and managed will be amazing. 
+
+You mentioned lack of motivation and whether it's worth it and I think that also stems to lack of confidence. Why would you feel motivated if you havent seen the pay off for it and have only seen struggle? 
+
+If none of that seems to click, then I would ask you two questions
+
+1) why did you pursue this degree
+2) what are you passionate about?
+  - **SwitchJumpy** (2↑): If you'd like, you can DM me as well
+  - **coochiecuisine** (1↑): Hey, I just want to say thank you for the reply. I think what you mentioned about motivation when all I can’t see the pay-off resonated a lot. I do have ADHD, and I have meds prescribed but I often will just not take them because I want to reach a point in the future where I can handle my work without them, and honestly it doesn’t change my work flow very much either way. I do everything on the day of, and every time I finish something it feels like a miracle that the work is finished and good. Sorry for the tangent haha. 
+
+As far as networking, I struggle to put myself out there and attend/do new things, but I’m a really good people person usually, like all my professors like me and think I do good work. I’ve also made a few contacts with people in the legal field just working at my current job making small talk. 
+ 
+On why I chose this degree, I chose poli sci when I first started school because I did have an interest in politics, namely in the political campaign side of things. I’m a trans woman, and thought engaging in politics might help me learn how to make my state less abysmal. But I switched to the pre-law version of the major after taking a law class and seeing if I liked it, and it really clicked! I have no clue what sort of area of law I’d like to get into though. 
+
+As far as what I’m passionate about, I just got dumped and it’s midterm season so I’m a little down and demoralized right now, and I’m having a hard time thinking about what I’m passionate about. I care about politics, but want to keep a slight degree of distance from the mainstream political sphere right now. For passions that could inform a career decision, I am passionate about like gay and trans rights, and also employment rights. I really liked my classes I’ve taken on criminal law and civil liberties. 
+
+Sorry for the wordy reply, thanks for taking the time to respond to me!
+    - **SwitchJumpy** (1↑): I gave you a novel so I expected one back. If I may ask. Would you also say some of your melancholy is influenced by the current political climate as it relates to your demographic? Do you think you may not be given the same opportunities on the field? 
+
+I can say that lawyers in LGBTQ+ is definitely an understaffed area of focus so you have a worthy cause. It will be challenging and an uphill battle so you'll need to consider building up your tools.
+
+As someone who is 37M with ADHD and not having been diagnosed with it until I was 34, working on getting it managed has been the most impact thing in my life. A combination of the right meds with a therapist that specializes in the area, really helps. The missing piece for me was a mood stabilizer because I often let my shame from executive dysfunction cause me to spiral. The mood stabilizer has let me rein in my emotions in which enables better decision making.
+
+What i will also tell you is two things. 
+
+1) You dont need to be fixed. Many people with ADHD think they have to fix it. It's not something that can be fixed, but it also doesn't mean you're broken. There narrative should be learning to live with, manage, and accept it.
+
+2) Give yourself grace. No one's harder on you than you and yet you're the only one living your life. How can you expect a flower to grow if you keep stomping it into the dirt rather than water it?
+  - **No_Jaguar_3241** (1↑): lol i relate hard to teh whole covid derailing everything thing. my grades were trash when everything went online too and it took me forever to get back on track. but look, you're pulling A's now which means you've figured something out about how you learn best.
+
+  
+also just wanted to chime in on the non-profit volunteering suggestion - that's actually brilliant advice. i know someone who started volunteering at a legal aid clinic just doing basic stuff like filing and organizing documents, but she ended up learning so much about how cases work and got amazing references. plus some of those places are always understaffed so they might give you more responsibility than you'd expect. even if it's just a few hours a week, it's way better than having zero legal experience on your resume.
+
+  
+the disability screening suggestion is spot on too. so many people struggle through school thinking they're just not smart enough when really they just need different strategies or accommodations. getting tested can't hurt and might explain why things clicked better when you went back to in-person classes.
+
+  
+your gpa isn't great but it's not dead-end territory either, especially since you're trending upward now. plenty of paralegals and court clerks don't need perfect grades - they need people who can stay organized and communicate well.
+- **Successful-Escape-74** (2↑): Go to law school become a politician.
+- **Successful-Escape-74** (1↑): You could become a licensed real estate agent or join the Army.
+- **thepandapear** (1↑): I’d probs look into paralegal or legal assistant roles at smaller boutique firms since they usually value personality and a solid work ethic over a perfect transcript. You could also check out local non-profit groups that focus on civil liberties or housing rights because they always need help with casework. Getting a bit of hands-on experience now will make you feel way more confident about your future options. Networking with people at your current job is a great start so keep those conversations going as much as you can. It might also be worth asking your favorite professors if they know any alumni who are working in the legal field right now.
+
+Since you’re looking for job and career ideas, I think the GradSimple newsletter could be a good place to start. You can see interviews where grads share their experiences after college, which could give you some helpful insights into different roles.

@@ -15,6 +15,10 @@ spacy>=3.5.0
 transformers>=4.30.0
 pdfkit>=1.0.0
 anthropic>=0.7.0
+# 2026-05-26 — Gemini support added for chat-driven journey gen.
+# Gemini Flash is ~5x faster than Claude Haiku and ~30x faster than Sonnet,
+# keeping browser-fetch latency under the user's patience threshold.
+google-genai>=0.3.0
 nest_asyncio>=1.5.6
 # Optional vector search dependencies (install at least one for better performance)
 faiss-cpu>=1.7.4; platform_system != "Darwin" or platform_machine != "arm64"

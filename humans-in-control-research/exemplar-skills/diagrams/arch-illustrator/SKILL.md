@@ -66,3 +66,17 @@ Scale system count to match the corpus. Replicate the structural elements (syste
 - ANY text overlapping ANY connector, tier band edge, or system box.
 - ANY connector crossing through a system box body.
 - Inheriting the exemplar's exact coordinate values when YOUR system count differs. RECOMPUTE positions.
+
+---
+
+## Self-check BEFORE emitting (2026-05-20)
+
+1. Any connector crossing THROUGH a system box body? Reject — route around via a midpoint.
+2. Any two system boxes overlapping or within 20px of each other in the same tier? Reject.
+3. Any annotation label overlapping the next downstream node? Reject — shorten label OR move connector midpoint.
+4. Any datastore icon using the service-shape (rounded rect)? Reject — datastores must be cylinders.
+5. Any system name in the diagram that's NOT in the corpus? Reject — never invent system names.
+6. Any bidirectional connector with only one arrowhead? Reject — both directions need arrowheads in different colors.
+7. Any element outside the 1920×1080 frame OR crossing into the bottom-band (last 100px)? Reject.
+
+If any check fails, regenerate with corrected geometry — do not ship.

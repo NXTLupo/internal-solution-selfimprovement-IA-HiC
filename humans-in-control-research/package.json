@@ -9,7 +9,13 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "skillopt:extract": "python scripts/extract-rollouts.py --workspace hic-workspace --out-dir ../tmp/skillopt-rollouts",
+    "skillopt:build-training": "python scripts/build-training-set.py --real-rollouts-dir ../tmp/skillopt-rollouts --out-dir ../tmp/skillopt-training",
+    "skillopt:train": "bash scripts/skillopt-batch.sh",
+    "skillopt:train-promote": "bash scripts/skillopt-batch.sh --auto-promote",
+    "skillopt:dry-run": "bash scripts/skillopt-batch.sh --dry-run",
+    "skillopt:all": "npm run skillopt:extract && npm run skillopt:build-training && npm run skillopt:train"
   },
   "dependencies": {
     "@dagrejs/dagre": "^3.0.0",

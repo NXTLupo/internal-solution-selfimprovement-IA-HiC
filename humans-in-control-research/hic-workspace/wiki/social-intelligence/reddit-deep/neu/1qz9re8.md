@@ -7,12 +7,12 @@ title: "i got in!"
 author: "Lazy_Historian_1887"
 date: "2026-02-08T14:05:19.000Z"
 score: 83
-upvote_ratio: 0.97
+upvote_ratio: 0.98
 num_comments: 35
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T23:02:38.851Z"
+extracted_at: "2026-05-20T06:39:39.932Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
 ---
 
 # i got in!
@@ -31,9 +31,9 @@ also just curious about your overall experience and what helped you make your de
 - **CaptainWalnuts69** (11↑): Congratulations!  Our daughter is just finishing up her year as a London Scholar and she loves it.
   - **Lazy_Historian_1887** (3↑): thank you! that's really good to hear, she must be having such a cool experience. what has she liked most about the program?
     - **CaptainWalnuts69** (3↑): She loves being in London- the food, the history, the shows, the clubs, the markets. All of it.  The campus and housing are in great locations of central London.  She’s also liked meeting kids from other schools in the apartment / dorm.   There are kids from 3 London schools staying there.  Not just kids from Northeastern.
-- **BoysenberryTime3143** (8↑): I was in the London scholars program it was the best decision I ever made!
+- **BoysenberryTime3143** (10↑): I was in the London scholars program it was the best decision I ever made!
   - **Lazy_Historian_1887** (2↑): thank you! this is really encouraging to hear. what made it such a great experience for you?
-    - **BoysenberryTime3143** (5↑): The location is perfect! St Katherine’s dock is one of the safest and most beautiful parts of London. All of the housing is apartment style which is very unique for freshman housing. It’s also a really interesting environment where almost everyone is in the same boat, all freshman and new to London. Northeastern Boston is really so big so it was very valuable to make really good friends that year! All the professors are so nice. There are a lot of opportunities to travel, attend west end shows, go to soccer games offered through the school for free. I had an amazing experience and I mostly everyone I know through the program did as well. There are a couple of people that struggled with the grading style or having trouble making friends, but truly I really loved it!
+    - **BoysenberryTime3143** (4↑): The location is perfect! St Katherine’s dock is one of the safest and most beautiful parts of London. All of the housing is apartment style which is very unique for freshman housing. It’s also a really interesting environment where almost everyone is in the same boat, all freshman and new to London. Northeastern Boston is really so big so it was very valuable to make really good friends that year! All the professors are so nice. There are a lot of opportunities to travel, attend west end shows, go to soccer games offered through the school for free. I had an amazing experience and I mostly everyone I know through the program did as well. There are a couple of people that struggled with the grading style or having trouble making friends, but truly I really loved it!
 - **zahskis** (3↑): Got in two weeks ago, but I'm super nervous about the price... is this worth it chat..
   - **Lazy_Historian_1887** (2↑): literally same lol, i'm trying to figure out if it's worth it too. the price is definitely making me think twice but the london scholars program and co-op opportunities seem really solid. are you considering other schools or is neu your top choice rn?
     - **zahskis** (2↑): I'm waiting for some schools with decision dates in march, but NEU was my top for a long time. is it yours? it's definitely a great option but damn it's literally more expensive than harvard.

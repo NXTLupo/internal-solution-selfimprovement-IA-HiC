@@ -1,5 +1,6 @@
 ---
 name: design-exemplar-curator
+version: 1.0
 description: Curated reference library skill that matches a prototype brief's concept and brand hashtag to the highest-signal Behance exemplars and selects ONE Verbalized-Sampling framing (α-ε) per match. Loaded by Stage 3 (Visual Direction) and Stage 4 (Prototype Coder) of the prototype pipeline. Replaces the "clean modern" aesthetic placeholder with named, evidence-backed visual references that ship into the coder's system prompt as STUDY-THESE images + framing rules. The retrieval is hashtag-aware — #NXT-radical loads framing ε, #NXT-convention loads α/δ, #NU-institutional swaps to NU brand and loads NU α/γ. Used wherever a brief's `visual_direction` or `interaction_choreography` needs grounding in real-world design quality rather than the LLM's typicality bias.
 trigger: load at Stage 3 (Visual Direction) and Stage 4 (Prototype Coder); also at Brief Generator Pass 2 when `visual_direction.exemplar_refs` is empty
 inputs: brief.concept, brief.interaction_pattern, brief.aesthetic_keywords, brief.committed_frame, brief.brand_hashtag

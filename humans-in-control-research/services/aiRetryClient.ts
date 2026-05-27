@@ -20,8 +20,27 @@
 // user-facing error message on persistent failure.
 
 import { recordAICall } from './costMeter';
+// 2026-05-24 NotebookLM uplift Wire 2: multi-model resilience layer
+import {
+    isProviderHealthy,
+    recordProvider429,
+    recordProviderSuccess,
+    type Provider,
+} from './multiModelResilience';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
+
+// Map endpoint-id → provider for health tracking
+function endpointToProvider(endpointId: AIEndpointId): Provider | null {
+    switch (endpointId) {
+        case 'gemini':        return 'gemini';
+        case 'gemini-compat': return 'gemini';
+        case 'gemini-image':  return 'gemini';
+        case 'openai':        return 'openai';
+        case 'anthropic':     return 'anthropic';
+        default:              return null;
+    }
+}
 
 export type RetryProgress = (attempt: number, total: number, status: string) => void;
 
@@ -110,6 +129,9 @@ export async function callAIWithRetry(
                     // Cost meter must never break a real call.
                     console.warn('[CostMeter] record failed (non-fatal):', meterErr);
                 }
+                // 2026-05-24 Wire 2: reset provider 429 streak on success
+                const prov = endpointToProvider(endpointId);
+                if (prov) recordProviderSuccess(prov);
                 return parsed;
             }
             lastStatus = resp.status;
@@ -118,6 +140,13 @@ export async function callAIWithRetry(
             // 4xx (excluding 429) — config error, fail loudly
             if (resp.status >= 400 && resp.status < 500 && resp.status !== 429) {
                 throw new Error(`${label} (${family}) returned HTTP ${resp.status}: ${lastErrText.slice(0, 300)}`);
+            }
+
+            // 2026-05-24 Wire 2: record 429 in provider health tracker so
+            // future health-aware routing skips this provider for 10min.
+            if (resp.status === 429) {
+                const prov = endpointToProvider(endpointId);
+                if (prov) recordProvider429(prov, 429);
             }
 
             // 429 — rate-limited. Use the longer backoff schedule.

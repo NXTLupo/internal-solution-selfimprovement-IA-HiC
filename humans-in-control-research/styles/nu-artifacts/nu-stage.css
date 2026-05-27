@@ -1,0 +1,107 @@
+/* =========================================================================
+   NU Stage Scoping
+   -------------------------------------------------------------------------
+   The shared NU `colors_and_type.css` + `artifacts.css` ship with global
+   resets (html, body, *, p, h1-6, a) that would conflict with the rest of
+   the HiC SPA (Tailwind base, nxt-design-system.css). To avoid breaking
+   existing pages, we re-apply those base styles ONLY inside a
+   `.nu-artifact-stage` wrapper. Component classes (.art-masthead, .stat,
+   .dtable, .pill, .signal, .matbar, .art-card, .art-footer, etc.) are
+   already explicit selectors and remain global — they only style elements
+   that opt in via class name.
+
+   Import order is significant:
+     1) colors_and_type.css — token definitions + @font-face declarations
+     2) artifacts.css       — component layer (uses var(--*))
+     3) THIS file           — scopes the body-level rules
+
+   Apply `.nu-artifact-stage` to a wrapper around any NU-styled artifact:
+     <div class="nu-artifact-stage">
+       <header class="art-masthead">...</header>
+       <main>...</main>
+       <footer class="art-footer">...</footer>
+     </div>
+   ========================================================================= */
+
+/* Body-style overrides that ARE safe globally (these duplicate Tailwind's
+   own resets but make explicit our intent — sans default, tabular figures).
+   Token references resolve via colors_and_type.css imported earlier. */
+
+/* Stage container — re-applies the body-level NU defaults inside this scope. */
+.nu-artifact-stage {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-default);
+  background: var(--bg-canvas);
+  /* 2026-05-23 — tabular + lining figures only. Earlier draft also enabled
+     "ss01" 1, which in Roboto remaps digits to circled glyphs and made
+     principle numbers (01, 02, 03) look like keycaps. Drop it. */
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.nu-artifact-stage *,
+.nu-artifact-stage *::before,
+.nu-artifact-stage *::after { box-sizing: border-box; }
+.nu-artifact-stage p { margin: 0 0 var(--space-3); }
+.nu-artifact-stage h1,
+.nu-artifact-stage h2,
+.nu-artifact-stage h3,
+.nu-artifact-stage h4,
+.nu-artifact-stage h5,
+.nu-artifact-stage h6 { margin: 0; font-weight: var(--fw-medium); }
+.nu-artifact-stage a { color: inherit; text-decoration: none; }
+.nu-artifact-stage a:hover { color: var(--fg-strong); }
+.nu-artifact-stage hr { border: 0; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+/* =========================================================================
+   Slide-stage scaling: HiC slide canvas is 960×540, but NU artifacts are
+   designed for ~1320px-wide documents. Inside a slide stage we apply a
+   `.nu-artifact-stage--slide` modifier that tightens type + spacing so the
+   primitives fit. The PPTX exporter is unaffected (it draws shapes/text
+   from data, not CSS).
+   ========================================================================= */
+.nu-artifact-stage--slide {
+  font-size: 13px;
+}
+.nu-artifact-stage--slide .art-masthead {
+  padding: 14px 24px 12px;
+  gap: 20px;
+}
+.nu-artifact-stage--slide .art-masthead__title {
+  font-size: 22px;
+  line-height: 1.18;
+  max-width: 38ch;
+}
+.nu-artifact-stage--slide .art-masthead__kicker {
+  font-size: 9px;
+}
+.nu-artifact-stage--slide .art-masthead__meta {
+  gap: 16px;
+}
+.nu-artifact-stage--slide .art-masthead__meta-block dd {
+  font-size: 14px;
+}
+.nu-artifact-stage--slide .stat__value {
+  font-size: 32px;
+}
+.nu-artifact-stage--slide .stat__label {
+  font-size: 9px;
+}
+.nu-artifact-stage--slide .art-finding {
+  font-size: 18px;
+  line-height: 1.28;
+}
+.nu-artifact-stage--slide .art-card {
+  padding: 14px 16px;
+}
+.nu-artifact-stage--slide .dtable th,
+.nu-artifact-stage--slide .dtable td {
+  padding: 6px 10px;
+  font-size: 11.5px;
+}
+.nu-artifact-stage--slide .art-footer {
+  padding: 12px 24px;
+  font-size: 10px;
+}

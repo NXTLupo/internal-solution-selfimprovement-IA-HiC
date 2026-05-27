@@ -10,9 +10,9 @@ score: 24
 upvote_ratio: 0.96
 num_comments: 38
 flair: "general question"
-extracted_at: "2026-05-13T23:02:38.899Z"
+extracted_at: "2026-05-26T14:30:23.761Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # How do you make friends as a transfer?
@@ -34,11 +34,11 @@ Is anyone else going through this? I want to know if there’s people that are e
 
 - **gyp_sy** (10↑): Yeah i have struggled with this too. I still dont have friends (been 2 years in NEU), i explore the city alone. I was hanging out by myself on christmas and new year's.
 Flatmates don't even bother. I am an introvert by nature so that doesn't help either.
-  - **SnooTigers4247** (8↑): I’m also quite introverted, but I can be extroverted. I’ve had fun conversations with people at school and everyone’s been really nice, but the difficult part is taking it outside of class or clubs or whatever and having a deep, close friendship that lasts.
+  - **SnooTigers4247** (9↑): I’m also quite introverted, but I can be extroverted. I’ve had fun conversations with people at school and everyone’s been really nice, but the difficult part is taking it outside of class or clubs or whatever and having a deep, close friendship that lasts.
     - **gyp_sy** (4↑): I agree, people are nice in class i have tried reaching out to them several times after the clas sto hang out but seems like they all have their own circles and plans already so i have stopped trying now.
-- **Expert_Sail2677** (5↑): I’ve also felt this, especially as a commuter! I’ve tried talking to people in class and in my clubs, but it never really goes anywhere. If you ever want to chat, dm me!
+- **Expert_Sail2677** (6↑): I’ve also felt this, especially as a commuter! I’ve tried talking to people in class and in my clubs, but it never really goes anywhere. If you ever want to chat, dm me!
 - **BostonNU** (2↑): Do you go to any of our gyms? Eat meals in Stetson or IV? Done any of the group stuff like ski trips during the past winter?
-  - **SnooTigers4247** (4↑): I go to a gym close to campus but not any of the NEU ones. I cook all of my own meals at home so I’ve never eaten in the dining hall, besides orientation. No group trips, either.
+  - **SnooTigers4247** (5↑): I go to a gym close to campus but not any of the NEU ones. I cook all of my own meals at home so I’ve never eaten in the dining hall, besides orientation. No group trips, either.
     - **BostonNU** (0↑): Why not go our gyms? It’s free, you just need to bring your gym stuff. All 3 gyms provide locker key and towels. Try the group trips next fall and btw, there are some events during the summer. It’s going to be more difficult in the fall while on co-op but come to campus for club meetings and gym and eat some of your meals in student dining. Don’t need a meal plan.
 - **TuringProblem** (2↑): Shit, if you a cs major I’ll be your friend :) I’m about to transfer to Boston campus in the fall—looking forward to it!
   - **SnooTigers4247** (3↑): I’m a health science major, but I’m still open 🤣

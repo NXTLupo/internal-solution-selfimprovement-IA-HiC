@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Navigating the full-time SDE search as a Dec 2025 MS grad - my story and what worked"
 author: "dark_stallion_99"
 date: "2025-12-19T04:00:11.000Z"
-score: 41
-upvote_ratio: 0.93
+score: 45
+upvote_ratio: 0.96
 num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:36:08.374Z"
+extracted_at: "2026-05-18T13:18:36.384Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Generate a slide-ready consulting report for NXT Humans, structured as an Executive Summary, Meeting Guardrails and Validation Criteria, Ideas to Retire or Reframe, Five CLR-Dependent Recommendations, Five Non-CLR Recommendations, Recommended Prioritization, and Suggested Next Steps for NXT Humans. This report must present 10 practical, AI-enabled recommendations for Northeastern University's first-year students to improve co-op and experiential learning readiness. Five recommendations must leverage CLR data and infrastructure, and five must be valuable independently of CLR. Each recommendation requires a title, description, rationale for first-year students and co-op readiness, explanation of CLR dependency/independence, execution within Northeastern's existing experiential learning stack, integration with Microsoft Copilot/365/Teams/SharePoint/Power Automate/Power BI for cost reduction, key stakeholders, implementation steps, risks, and explicit validation against Liz and Jen’s guardrails (cost containment, Microsoft ecosystem, no new platforms, advisor/student burden, AI-enabled, practical). The report should also summarize Liz and Jen’s priorities and non-starters, core design principles, and previous NXT Humans ideas to retire or reframe. Output the #recommendations #NU in this format, including tables comparing implementation complexity, student impact, Microsoft/Copilot fit, dependency, stakeholder burden, and strategic alignment."
 ---
 
 # Navigating the full-time SDE search as a Dec 2025 MS grad - my story and what worked
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/)
-Posted by **dark_stallion_99** · **41↑** · **7 comments**
+Posted by **dark_stallion_99** · **45↑** · **7 comments**
 
 Just wanted to share my job search experience for anyone going through this grind. Started applying seriously in late August after an internship and it's been quite the rollercoaster.
 

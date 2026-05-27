@@ -1,0 +1,47 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1s4zt4k/bsc_cs_student_23m_facing_financial_crisis_what/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "BSc CS Student (23M) facing financial crisis. What high-demand skills should I learn now for immediate freelancing and long-term career ?"
+author: "Feeling-Cell-2264"
+date: "2026-03-27T10:00:52.000Z"
+score: 2
+upvote_ratio: 1
+num_comments: 4
+flair: ""
+extracted_at: "2026-05-22T21:34:47.968Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# BSc CS Student (23M) facing financial crisis. What high-demand skills should I learn now for immediate freelancing and long-term career ?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s4zt4k/bsc_cs_student_23m_facing_financial_crisis_what/)
+Posted by **Feeling-Cell-2264** · **2↑** · **4 comments**
+
+I am currently a BSc Computer Science student in a small town (Maharashtra). I've recently realized that just having a BSc degree might not be enough to land a good job in this competitive market.
+On top of that, I am facing significant financial struggles right now, which is making it hard for me to even focus on completing my degree. I need to find a way to support myself financially in the short term while building a solid foundation for a long-term career.
+I am interested in Tech, AI, and even have a background in agriculture/agri-business.
+My questions are:
+What specific technical skills (Web Dev, Data Entry, AI Prompting, etc.) can I learn in 2-3 months to start earning as a freelancer?
+Which career path (Data Science, Cloud, DevOps, etc.) is most 'BSc-friendly' since many MNCs prefer BTech?
+Are there any niche tech skills that could bridge my interest in Agriculture and Computer Science?
+I am ready to put in the hard work, but I feel lost and 'unfit' due to my current lack of direction. Any guidance from seniors or industry experts would mean a lot.
+
+## Comments
+
+- **Left-Opposite5034** (1↑): Regarding your BSc thing - don't let that mess with your head. I hire people all the time and care way more about what they can actually do than whether their degree says BSc or BTech.
+
+  
+For quick freelancing cash, focus on web development basics (HTML, CSS, JavaScript, maybe React) since there's always demand for simple business websites. You could also look into data entry automation with Python - businesses pay decent money to have someone clean up their messy spreadsheets and databases. The agriculture angle is actually pretty solid too - there's growing demand for farm management software and agricultural data analysis, so that could be your niche once you get some core programming skills down.
+  - **Feeling-Cell-2264** (1↑): Thanks a lot for this perspective! It’s a huge relief to hear from someone who actually hires developers that skills matter more than the BSc vs BTech tag. I’ve been letting that get to my head lately
+- **milly_talk28598** (1↑): I'd say the financial crisis isnt the core problem here, the belief that you need to choose between immediate earning and long-term career building is. 
+
+Most people in your spot try to solve both at once, which usually means mediocre freelancing and a scattered career path so I'd say instead of asking 'what high-demand skills can I learn for freelancing?', ask 'what specific problems in can I go and solve or go and learn to solve with a CS that someone would pay for right now?' 
+
+That immediately narrows down the options from generic web dev to something like precision agriculture data analysis or supply chain optimization tools, giving you real-world experience and a portfolio that's highly specific and valuable. 
+
+Happy to dive deeper, share some examples of how to identify those specific problems and skills if want.
+  - **Feeling-Cell-2264** (1↑): Thanks for the detailed advice! I really want to move beyond just basic web development and solve real problems. While agriculture is one area, I don't want to limit myself to just that.
+Can you share more examples of 'specific problems' in other industries like Supply Chain, Logistics, or even Finance where a CS student can build valuable tools? I want to know what skills I should learn to solve those problems and build a high-value portfolio. Please guide me on how to identify these gaps. Thank you!

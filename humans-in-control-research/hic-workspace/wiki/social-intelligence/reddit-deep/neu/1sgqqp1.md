@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Schedule & Professors - Am I doomed?"
 author: "Gh0stlyVisitation"
 date: "2026-04-09T14:11:25.000Z"
-score: 3
-upvote_ratio: 0.8
+score: 4
+upvote_ratio: 0.83
 num_comments: 9
 flair: "Academics"
-extracted_at: "2026-05-13T20:23:48.330Z"
+extracted_at: "2026-05-19T17:57:09.047Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # Schedule & Professors - Am I doomed?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sgqqp1/schedule_professors_am_i_doomed/)
-Posted by **Gh0stlyVisitation** · **3↑** · **9 comments**
+Posted by **Gh0stlyVisitation** · **4↑** · **9 comments**
 
 I had a really rough semester in fall 2025, but I'm on co-op and just registered for my fall classes. I'm taking a lighter courseload and added a non-STEM elective, but I wanna know if my decisions are shit.
 

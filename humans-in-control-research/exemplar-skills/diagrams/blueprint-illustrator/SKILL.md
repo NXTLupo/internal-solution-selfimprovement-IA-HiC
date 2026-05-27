@@ -56,3 +56,117 @@ Scale swimlanes (customer actions / frontstage / backstage / support processes) 
 - Inheriting the exemplar's exact coordinate values when YOUR content has different lengths. RECOMPUTE Y offsets when label height changes.
 - Do not describe today's state — that belongs in a journey artifact.
 - Do not propose changes that are not justified by a diagnosed pain point in the corpus.
+
+---
+
+## Cell anatomy (2026-05-25 — replaces prior multi-statement rule)
+
+Blueprint reuses the journey exemplar's `.activities` grid (one column per phase/step). The exemplar enforces EXACTLY ONE `.activity` child per phase column. Emitting multiple `.activity` divs per cell breaks the grid identically to journey — every dot collapses to `top:50%` and labels overlap.
+
+**One activity statement + at most one fail-point row per (lane × step) cell.** Concentrate density INTO the single statement + the single fail-point row, never multiply rows.
+
+```html
+<div class="activity friction">                          <!-- friction class → rust dot -->
+  <div class="alabel">Customer submits final résumé via NUworks portal.</div>
+  <div class="dot"></div>
+  <div class="pain">Fail point: ATS keyword filter rejects 48% of submissions before recruiter sees them.</div>
+</div>
+```
+
+Use the existing `.pain` row to carry FAIL POINTS in blueprint context. The CSS `::before` renders "PAIN" — for blueprints, prefix the body with "Fail point:" so the resulting visual reads "PAIN  Fail point: ...". (A dedicated `.fail-point` class is the long-term cleanup; using `.pain` keeps blueprint compatible with the current journey exemplar.)
+
+---
+
+## Service-design primitives (UPGRADED 2026-05-25)
+
+### Lines of visibility and internal interaction (Shostack 1984)
+
+A blueprint is differentiated from a journey by TWO horizontal dividers, NOT one:
+- **Line of Visibility (LoV)** — separates Customer Action + Frontstage (above) from Backstage + Support (below). Rendered as 2px DASHED stroke in `var(--nu-stone)` / `var(--nx-stone)`, running the full width of the lanes container.
+- **Line of Internal Interaction (LoII)** — separates Backstage from Support Processes. Rendered as 2px DOTTED stroke in `var(--nu-mist)` / `var(--nx-mist)`.
+
+Render both lines BEFORE positioning lane content so labels paint over them.
+
+Lane order (top-to-bottom):
+1. Customer Action
+2. Frontstage (customer-facing staff/UI)
+3. — Line of Visibility —
+4. Backstage (internal staff, no customer contact)
+5. — Line of Internal Interaction —
+6. Support Processes (systems, automations, vendor integrations)
+
+When fewer than 4 lanes are warranted, OMIT — never combine. A 2-lane blueprint can be just "Customer Action + Backstage" with the LoV between them.
+
+### Moment-of-truth markers
+
+Critical customer-staff interaction points get `.activity.moment` — the dot becomes the brand-accent filled, 14×14px. Use sparingly — at most 2 per blueprint.
+
+### Fail-point markers (in addition to standard friction)
+
+Fail points are moments where the service can BREAK (not just hurt). They carry a distinct visual treatment:
+- Use `.activity.friction` (rust dot) for the activity.
+- Use the `.pain` row body prefixed with "Fail point:" — names the specific break condition.
+- A "Fail probability" annotation in monospace is encouraged when the corpus carries failure-rate data: "Fail point: ATS reject (P=0.48)."
+
+### Future-state diagnosis traceability (DATA, not visible chrome)
+
+Every step in the blueprint MUST be traceable back to a journey-stage pain that it resolves. The tether lives as a `data-resolves="<verbatim pain>"` attribute on the `.activity` div — invisible to the reader, available to audit tooling. The .alabel itself reads as a natural future-state sentence ("Resume-screen step replaced by skills-bench evaluator scoring against named rubric") — the FACT of resolution is implicit in the prose, not stamped as a debug arrow. If a step has no underlying journey pain, it does not belong in the blueprint — blueprint claims are never free-floating future state.
+
+### Service-KPI overlay row (NEW, optional but encouraged)
+
+Render an `.kpi-row` ABOVE the lane container with one cell per step column:
+- `.kpi-eye` — uppercase eyebrow naming the KPI ("WAIT TIME", "REJECT RATE", "SLA")
+- `.kpi-value` — current → target, e.g. "12 min → 3 min" in monospace
+- Use brand-accent color for improving KPIs, rust for KPIs that get worse, mist for unchanged.
+
+### Process-time vs touchpoint-time
+
+When the customer wait at a step is short but the backstage process is long, render BOTH:
+- `.touchpoint-time` on the Customer Action cell ("~30 sec")
+- `.process-time` on the Backstage / Support cell ("~20 min orchestration")
+A blueprint that flattens these times has misrepresented the service.
+
+### Support-process system inventory
+
+The Support Processes lane should name the SYSTEMS / AUTOMATIONS / VENDORS that power the step ("Workato auto-validation", "Airtable applicant DB", "Twilio SMS reminder"). System names go in the `.alabel`; integration arrows can be drawn as SVG between system cells.
+
+### Expected-emotion improvement layer
+
+Reuse the journey's `.emotion-arc` SVG, but render TWO polylines:
+- The CURRENT-STATE arc (lifted from the matching journey artifact) in muted color (mist).
+- The FUTURE-STATE arc (projected post-redesign) in brand-accent.
+The visual delta between the two lines is the value proposition of the blueprint.
+
+---
+
+## Density and symmetry across lanes (UPDATED 2026-05-25)
+
+- Every lane MUST emit EXACTLY N `.activity` children per `.activities` container (N = step count). If a lane has no activity at a step, emit the placeholder `<div class="activity"><div class="alabel">—</div><div class="dot" style="opacity:0.35"></div></div>` — never leave a cell empty (breaks grid).
+- N+1 children → REJECT. This is the same catastrophic-overlap bug that hit journey.
+- DO NOT try to "stack 3 actions vertically" per cell. Concentrate evidence INTO the single .alabel + single .pain row.
+
+---
+
+## Self-check BEFORE emitting (expanded 2026-05-25)
+
+### Geometry
+1. Each `.activities` container has EXACTLY N children where N = step count? If N+1, REJECT.
+2. Each `.activity` has at most ONE `.alabel`, ONE `.dot`, AT MOST ONE `.pain`?
+3. No two text elements share (x, y) ± 4px?
+
+### Service-design primitives
+4. Line of Visibility rendered as 2px dashed full-width? REQUIRED.
+5. Line of Internal Interaction rendered as 2px dotted full-width? REQUIRED if Support Processes lane exists.
+6. Every step has a `↪ resolves:` tether back to a journey pain? If a step has no tether, REJECT — it's free-floating future state.
+7. Moment-of-truth markers: ≤2 per blueprint, using `.activity.moment`?
+8. Future-state emotion arc rendered ALONGSIDE muted current-state arc? Encouraged not required.
+
+### Density and naming
+9. Each lane emits the correct N child count? Empty cells use the `—` placeholder?
+10. Lane labels are HUMAN/SYSTEM roles, not abstract categories ("Workato", "Career Center Director" — not "Technology", "Operations")?
+11. Step names are concrete behaviors, NOT gerund categories?
+
+### Brand parity
+12. Layout decisions are identical across NU and NXT?
+
+If any check fails, REGENERATE with corrected geometry. Do not ship.

@@ -10,9 +10,9 @@ score: 5
 upvote_ratio: 0.78
 num_comments: 2
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.929Z"
+extracted_at: "2026-05-19T15:08:27.153Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
 ---
 
 # What else can I do with my degree?
@@ -28,11 +28,11 @@ So given that I had to completely erase almost every single thing I accomplished
 
 ## Comments
 
-- **HigherEdPro** (6↑): Dear OP - I am reaching out as it appears the DMs are not open to receiving messages. Please know that help is available. If you are located in Boston, UHCS offers drop in hours daily from 11 AM to 2 PM, Tuesday and Thursday evening from 5 PM to 7:30 PM. You can also call to make an appointment and I’m happy to help you set time to talk with someone on our team. 
+- **HigherEdPro** (7↑): Dear OP - I am reaching out as it appears the DMs are not open to receiving messages. Please know that help is available. If you are located in Boston, UHCS offers drop in hours daily from 11 AM to 2 PM, Tuesday and Thursday evening from 5 PM to 7:30 PM. You can also call to make an appointment and I’m happy to help you set time to talk with someone on our team. 
 
 For urgent mental health support 24/7 call +1.877.233.9477. 
 
 [Find@Northeastern](https://healthandwellness.northeastern.edu/findnortheastern/)
 
 It sounds like sounds like you’re having a challenging time and working very hard. Support is available - please reach out to me here through direct message, responding to this post, or emailing me directly k.moran@northeastern.edu.
-- **Willing_Ordinary_735** (3↑): Yes, i was in similar position as you. I was international cs major that graduated last year. DM if you want to chat it out.
+- **Willing_Ordinary_735** (4↑): Yes, i was in similar position as you. I was international cs major that graduated last year. DM if you want to chat it out.

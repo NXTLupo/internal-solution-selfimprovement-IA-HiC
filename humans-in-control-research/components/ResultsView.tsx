@@ -534,6 +534,40 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
   });
 
+  // 2026-05-25 — Font-readiness gate. html2canvas captures the DOM at the moment
+  // it fires; if web fonts (Spectral, Roboto, JetBrains Mono, Bebas Neue, Archivo)
+  // are still loading, text falls back to a system font that has narrower glyph
+  // widths than the design system assumes. The 80px label column that holds
+  // "CHALLENGE" in 9px Roboto Mono will break to "CHALLENG/E" if Roboto Mono
+  // isn't loaded — exactly the pattern the user flagged on 2026-05-25.
+  //
+  // FontFaceSet.ready resolves when every font currently used in the document
+  // has finished loading or failed. We chain it with a small timeout ceiling
+  // so a stuck font load can't block the export forever.
+  const waitForFonts = async (timeoutMs = 4000): Promise<void> => {
+      if (typeof document === 'undefined' || !(document as any).fonts) return;
+      try {
+          await Promise.race([
+              (document as any).fonts.ready as Promise<unknown>,
+              new Promise(resolve => setTimeout(resolve, timeoutMs)),
+          ]);
+      } catch { /* best-effort */ }
+  };
+
+  // Captures the slide's RENDERED width so html2canvas can replay the exact
+  // same layout. Without this, html2canvas uses the viewport width and the
+  // slide's CSS responsiveness re-flows mid-capture (this is why the export
+  // showed CHALLENG/E broken mid-word while the preview was clean).
+  const measureExportGeometry = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      return {
+          // Prefer scroll dimensions if larger (content overflow), else
+          // bounding-rect (visible viewport-scoped size).
+          width: Math.max(el.scrollWidth, Math.round(rect.width)),
+          height: Math.max(el.scrollHeight, Math.round(rect.height)),
+      };
+  };
+
   // Checks if a canvas has meaningful content (not >95% single color)
   const isCanvasBlank = (canvas: HTMLCanvasElement, threshold = 0.95): boolean => {
       const ctx = canvas.getContext('2d');
@@ -568,6 +602,17 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
 
               // --- FIX 2: Apply print-mode to strip interactive chrome ---
               contentRef.current.setAttribute('data-print-mode', 'true');
+              // 2026-05-25 — also set data-export-mode so any per-template
+              // export-mode CSS rule (e.g., sidebar wordmark visibility) fires.
+              contentRef.current.setAttribute('data-export-mode', 'true');
+
+              // 2026-05-25 — Font readiness gate. Must precede the first paint
+              // wait so the layout reflows to final glyph widths BEFORE the
+              // capture geometry is measured. Without this, html2canvas captures
+              // text at fallback-font widths and the 80px label columns wrap
+              // mid-word ("CHALLENG/E", "APPROAC/H") — exactly the defect
+              // flagged on 2026-05-25 in the case-study export.
+              await waitForFonts();
 
               // Wait for print-mode CSS to apply
               await waitForPaint();
@@ -589,9 +634,18 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   slideElement.scrollIntoView({ behavior: 'instant' as any, block: 'center' });
                   // Step 2: Wait for images inside this slide
                   await waitForImages(slideElement);
-                  // Step 3: Wait for browser paint cycle + settle time
+                  // Step 3: Re-confirm fonts are loaded (cheap idempotent gate
+                  // covers any late-binding font fetches kicked off by this
+                  // slide's content)
+                  await waitForFonts(1500);
+                  // Step 4: Wait for browser paint cycle + settle time
                   await waitForPaint();
                   await new Promise(r => setTimeout(r, RENDER_WAIT_MS));
+
+                  // 2026-05-25 — Lock the exact rendered geometry so html2canvas
+                  // doesn't re-layout against the viewport width and break the
+                  // 80px label column / aspect ratio.
+                  const geom = measureExportGeometry(slideElement);
 
                   let canvas: HTMLCanvasElement | null = null;
                   let retries = 0;
@@ -604,8 +658,16 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       canvas = await html2canvas(slideElement, {
                           scale: 1.5, useCORS: true, logging: false,
                           backgroundColor: null, // Preserve actual backgrounds (dark slides!)
-                          windowWidth: slideElement.scrollWidth,
-                          windowHeight: slideElement.scrollHeight,
+                          // 2026-05-25 — windowWidth/Height now use the locked
+                          // geometry (max(scrollWidth, boundingRect.width)) so
+                          // the offscreen render matches what the user sees.
+                          // Previously this used only scrollWidth which omitted
+                          // the bounding-rect width when the element had no
+                          // overflow, causing the layout to reflow narrower.
+                          windowWidth: geom.width,
+                          windowHeight: geom.height,
+                          width: geom.width,
+                          height: geom.height,
                       });
 
                       // --- FIX 3: Pre-export blank detection ---
@@ -647,8 +709,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   }
               }
 
-              // Remove print mode
+              // Remove print mode + export mode (paired with the setAttribute pair above)
               contentRef.current.removeAttribute('data-print-mode');
+              contentRef.current.removeAttribute('data-export-mode');
 
               // --- FIX 3: Warn user about blank slides ---
               if (blankSlides.length > 0) {

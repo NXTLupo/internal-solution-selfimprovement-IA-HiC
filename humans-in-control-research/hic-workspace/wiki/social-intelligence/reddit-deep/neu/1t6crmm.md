@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Running out of Claude credits? Mahoraga is here."
 author: "Own-Professional3092"
 date: "2026-05-07T14:48:50.000Z"
-score: 13
-upvote_ratio: 0.68
-num_comments: 18
+score: 14
+upvote_ratio: 0.69
+num_comments: 25
 flair: "Co-op & Career"
-extracted_at: "2026-05-11T18:53:05.496Z"
+extracted_at: "2026-05-19T17:57:09.036Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # Running out of Claude credits? Mahoraga is here.
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/)
-Posted by **Own-Professional3092** · **13↑** · **18 comments**
+Posted by **Own-Professional3092** · **14↑** · **25 comments**
 
 Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!) 
 
@@ -42,7 +42,9 @@ Results, tables, and analysis is on the github. If you study CS/DS/AI, you proba
   - **Own-Professional3092** (5↑): A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
   
 I know a bunch of people that request credits every month tho. People use it to create their own trading tools, all kinds of cool stuff.
-    - **GreedyWorking1499** (4↑): That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.
+    - **GreedyWorking1499** (3↑): That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.
+  - **LeopardAway2812** (1↑): Its pretty easy when running claude on large projects. I ran out of credits in about a week for the past 2 months and luckily this month I got a premium seat.
+    - **GreedyWorking1499** (1↑): A premium seat? What is that and how do you get it?
 - **Well_-Oiled_Machine** (2↑): GOod Stuff!
   - **Own-Professional3092** (1↑): I appreciate it, well-oiled machine.
 - **Kadabrium** (2↑): Linkedin?
@@ -60,4 +62,4 @@ I really have to catch up to modulo.
     - **Affectionate-Net5939** (2↑): lol I know ppl who have received 500$ and 300$ is a lot but it is not enough for me
 - **Sabana400** (2↑): Nice bro!
   - **Own-Professional3092** (1↑): Love you too brother
-- **PayaPya** (1↑): this is actually pretty clever and solves my pain points you should post on product hunt (or just try to get more eyes on this)
+- **PayaPya** (2↑): this is actually pretty clever and solves my pain points you should post on product hunt (or just try to get more eyes on this)

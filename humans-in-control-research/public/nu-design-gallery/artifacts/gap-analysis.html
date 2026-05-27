@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Gap analysis — Co-Op Prep capability assessment</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .ga-strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; margin-bottom: 24px; }
+
+  /* Gap rows */
+  .gap-list {
+    display: flex; flex-direction: column;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .gap-row {
+    display: grid;
+    grid-template-columns: 60px 1.5fr 1.8fr 110px 110px 100px;
+    gap: 0;
+    padding: 16px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    align-items: start;
+  }
+  .gap-row:last-child { border-bottom: 0; }
+  .gap-row__num {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    padding-top: 3px;
+  }
+  .gap-row__cap {
+    padding-right: 16px;
+  }
+  .gap-row__cap h4 {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    line-height: 1.35;
+    letter-spacing: -.005em;
+    margin-bottom: 4px;
+  }
+  .gap-row__cap p {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--fg-muted);
+    margin: 0;
+  }
+  .gap-row__bar {
+    padding-right: 20px;
+  }
+  .gap-row__bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  .gap-row__bar-label b { color: var(--fg-default); font-weight: 500; font-family: var(--font-mono); font-size: 10.5px; }
+  .gap-row__impact {
+    font-size: 11px;
+    color: var(--fg-muted);
+    margin-top: 8px;
+    line-height: 1.4;
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 6px;
+  }
+  .gap-row__impact b { color: var(--fg-default); font-weight: 500; }
+  .gap-row__sev {
+    text-align: center;
+  }
+  .gap-row__eff {
+    text-align: center;
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+  .gap-row__eff b { color: var(--fg-default); font-weight: 500; display: block; font-size: 14px; font-family: var(--font-display); }
+  .gap-row__action {
+    text-align: right;
+  }
+  /* List head */
+  .gap-list-head {
+    display: grid;
+    grid-template-columns: 60px 1.5fr 1.8fr 110px 110px 100px;
+    padding: 10px 16px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--fg-muted);
+  }
+  .gap-list-head > div:nth-child(4),
+  .gap-list-head > div:nth-child(5),
+  .gap-list-head > div:nth-child(6) { text-align: center; }
+  .gap-list-head > div:last-child { text-align: right; }
+
+  /* Two-column: actions + risks */
+  .ga-two {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .ga-quick-wins {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  .ga-quick-wins > .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .ga-quick-wins > .head h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .quick-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .quick {
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--success-solid);
+    border-radius: 4px;
+    padding: 12px;
+  }
+  .quick h5 {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .quick p { font-size: 11.5px; line-height: 1.45; color: var(--fg-muted); margin: 0; }
+  .quick__meta {
+    display: flex; gap: 8px;
+    margin-top: 8px;
+    font-size: 10px;
+    letter-spacing: .04em;
+    color: var(--fg-subtle);
+  }
+  .quick__meta b { color: var(--fg-default); font-family: var(--font-mono); }
+
+  /* Risk register */
+  .risks {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .risks .head {
+    padding: 16px 20px 10px;
+    border-bottom: 1px solid var(--border-default);
+    background: var(--slate-50);
+  }
+  .risks h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg-strong);
+  }
+  .risk-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 12px;
+  }
+  .risk-item:last-child { border-bottom: 0; }
+  .risk-item .top {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 4px;
+  }
+  .risk-item .name {
+    font-weight: 500;
+    color: var(--fg-strong);
+    flex: 1;
+  }
+  .risk-item p { font-size: 11.5px; line-height: 1.45; color: var(--fg-muted); margin: 0; }
+  .risk-item .mit {
+    font-size: 11px;
+    color: var(--fg-default);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-subtle);
+  }
+  .risk-item .mit b { font-weight: 500; color: var(--fg-strong); }
+
+  /* Maturity bar — local override of shared matbar to be wider */
+  .gap-row__bar .matbar { width: 100%; }
+  .gap-row__bar .matbar__track { background: var(--slate-100); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Capability gap analysis · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Gap analysis · Gartner 1–5 maturity</div>
+    <h1 class="art-masthead__title">Six capability gaps separate Northeastern from its peer leaders — three are critical and addressable inside 12 months.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Gaps</dt><dd>6 (floor: 4–6)</dd></div>
+    <div class="art-masthead__meta-block"><dt>Critical</dt><dd>3 of 6</dd></div>
+    <div class="art-masthead__meta-block"><dt>Quick wins</dt><dd>4 (≤90 days)</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="stat-strip ga-strip">
+    <div class="stat">
+      <div class="stat__label">Assessment scope</div>
+      <div class="stat__value" style="font-size: 13px; font-family: var(--font-sans); font-weight: 400; line-height: 1.4; color: var(--fg-default);">Cross-organizational capability to convert experiential-learning placements into donor-engaging narratives, end-to-end.</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Overall maturity</div>
+      <div class="stat__value">2.4 <span class="u">/ 5</span></div>
+      <div class="stat__delta stat__delta--down">peer avg: 3.3</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Target by FY27</div>
+      <div class="stat__value">4.0 <span class="u">/ 5</span></div>
+      <div class="stat__delta">+1.6 lift across 6 gaps</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Quantified impact</div>
+      <div class="stat__value">$3.4<span class="u">M / yr</span></div>
+      <div class="stat__delta">officer time recovered + donor-cycle lift</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Risks tracked</div>
+      <div class="stat__value">4</div>
+      <div class="stat__delta">each with named mitigation</div>
+    </div>
+  </div>
+
+  <!-- GAP LIST -->
+  <section class="art-section" style="margin-top: 8px;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Capability gaps</h2>
+      <span class="art-section__counter">6 of 6 · Gartner scale · current ▮ target ▮ red marker</span>
+    </div>
+    <div class="gap-list">
+      <div class="gap-list-head">
+        <div>ID</div>
+        <div>Capability</div>
+        <div>Current → target maturity</div>
+        <div>Severity</div>
+        <div>Effort</div>
+        <div>Action</div>
+      </div>
+
+      <!-- GAP 01 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-01</div>
+        <div class="gap-row__cap">
+          <h4>Cross-system data spine for advancement &amp; student outcomes</h4>
+          <p>Donor and student records live in disconnected systems with no shared identity layer; staff manually cross-reference for every meeting prep. <sup class="cite">1</sup> <sup class="cite">2</sup></p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>2 → 4</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 40%;"></div>
+              <div class="matbar__target" style="left: 80%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> 40 min × 28 officers × 220 meetings / yr = ~$340K in officer time. <sup class="cite">3</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--error">critical</span></div>
+        <div class="gap-row__eff"><b>High</b><span>12 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-02 / R-05</span></div>
+      </div>
+
+      <!-- GAP 02 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-02</div>
+        <div class="gap-row__cap">
+          <h4>Silence-detection in the application funnel</h4>
+          <p>No trigger fires when an applying student goes inactive in Handshake; coordinators discover the dropout post-cycle. Cincinnati's day-5 detection sets the bar. <sup class="cite">4</sup></p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>1 → 4</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 20%;"></div>
+              <div class="matbar__target" style="left: 80%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> 38% silence-rate attrition · ~410 students per cycle leave with no second touch. <sup class="cite">5</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--error">critical</span></div>
+        <div class="gap-row__eff"><b>Med</b><span>3–6 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-03</span></div>
+      </div>
+
+      <!-- GAP 03 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-03</div>
+        <div class="gap-row__cap">
+          <h4>Outcomes-to-advancement narrative loop</h4>
+          <p>Placement events take 11 days to surface in Raiser's Edge; Drexel runs the same loop in 5. Donor relationship goes cold while the data sits. <sup class="cite">6</sup></p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>2 → 4</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 40%;"></div>
+              <div class="matbar__target" style="left: 80%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> 6-day lag costs ~$1.1M / yr in delayed stewardship moves (CASE benchmark). <sup class="cite">7</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--error">critical</span></div>
+        <div class="gap-row__eff"><b>Med</b><span>6–9 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-05</span></div>
+      </div>
+
+      <!-- GAP 04 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-04</div>
+        <div class="gap-row__cap">
+          <h4>Explainable AI for prospect &amp; placement scoring</h4>
+          <p>Models exist; trust does not. Officers and coordinators won't act on a score they can't interrogate. Drive an "explain view" before any new model deploys.</p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>2 → 3</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 40%;"></div>
+              <div class="matbar__target" style="left: 60%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> ~62% of officers report ignoring scores; adoption ceiling is the trust gap, not accuracy. <sup class="cite">8</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--warning">high</span></div>
+        <div class="gap-row__eff"><b>Low</b><span>≤3 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-04</span></div>
+      </div>
+
+      <!-- GAP 05 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-05</div>
+        <div class="gap-row__cap">
+          <h4>Peer-mentor scaffolding for first-years</h4>
+          <p>Peer trust exists informally; no system codifies it. Three campuses (Boston, Oakland, Vancouver) ran ad-hoc pilots with measured engagement lift but no funding to scale.</p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>2 → 3</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 40%;"></div>
+              <div class="matbar__target" style="left: 60%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> +14 pts engagement in pilot dorms (n=212); applies across ~2,200 first-years. <sup class="cite">9</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--warning">high</span></div>
+        <div class="gap-row__eff"><b>Low</b><span>≤3 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-01</span></div>
+      </div>
+
+      <!-- GAP 06 -->
+      <div class="gap-row">
+        <div class="gap-row__num">G-06</div>
+        <div class="gap-row__cap">
+          <h4>Mobile-first prep surface</h4>
+          <p>9 p.m.–1 a.m. is the dominant engagement window for first-years; the current portal is desktop-first and shows a 38% mobile drop-off. Georgia Tech sets the bar with a native app.</p>
+        </div>
+        <div class="gap-row__bar">
+          <div class="gap-row__bar-label"><span>current</span><b>2 → 4</b><span>target</span></div>
+          <div class="matbar">
+            <div class="matbar__track">
+              <div class="matbar__current" style="width: 40%;"></div>
+              <div class="matbar__target" style="left: 80%;"></div>
+            </div>
+          </div>
+          <div class="gap-row__impact"><b>Impact:</b> +22 pts time-on-task in mobile contexts; estimated $400K / yr in coordinator triage time saved. <sup class="cite">10</sup></div>
+        </div>
+        <div class="gap-row__sev"><span class="pill pill--warning">high</span></div>
+        <div class="gap-row__eff"><b>High</b><span>9–12 mo</span></div>
+        <div class="gap-row__action"><span class="pill pill--ink">R-06</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Two-column lower section -->
+  <div class="ga-two">
+
+    <div class="ga-quick-wins">
+      <div class="head">
+        <h3>Quick wins · ≤90 days</h3>
+        <span style="font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-muted); letter-spacing: .04em;">4 of 4 · low effort, named owner</span>
+      </div>
+      <div class="quick-grid">
+        <div class="quick">
+          <h5>Ship an "explain view" alongside every existing score</h5>
+          <p>Surface top 5 contributing signals + a "why this score?" overlay. No new model — just transparency on what's already running.</p>
+          <div class="quick__meta"><span>Owner: <b>Data Eng</b></span><span>Eff: <b>2 wks</b></span><span>Gap: <b>G-04</b></span></div>
+        </div>
+        <div class="quick">
+          <h5>Day-5 silence trigger via Handshake webhook</h5>
+          <p>Single rule: 5 days inactive → coordinator triage queue. Reuses existing infrastructure; replaces a template email.</p>
+          <div class="quick__meta"><span>Owner: <b>Co-op Ops</b></span><span>Eff: <b>6 wks</b></span><span>Gap: <b>G-02</b></span></div>
+        </div>
+        <div class="quick">
+          <h5>Peer-mentor pilot at 6 dorms · paid</h5>
+          <p>Codify the trio of informal pilots; pay mentors at student-worker rate; instrument touchpoints; run for one cycle.</p>
+          <div class="quick__meta"><span>Owner: <b>Student Aff</b></span><span>Eff: <b>8 wks</b></span><span>Gap: <b>G-05</b></span></div>
+        </div>
+        <div class="quick">
+          <h5>Daily placement digest to MGOs</h5>
+          <p>Until full integration, ship a daily digest of placement events filtered by donor-affinity tag. Reduces the 11-day lag to 1.</p>
+          <div class="quick__meta"><span>Owner: <b>Adv Ops</b></span><span>Eff: <b>3 wks</b></span><span>Gap: <b>G-03</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="risks">
+      <div class="head">
+        <h3>Risk register · 4 tracked</h3>
+      </div>
+      <div class="risk-item">
+        <div class="top">
+          <span class="signal signal--red"></span>
+          <span class="name">FERPA exposure when bridging student-side data to advancement</span>
+          <span class="pill pill--error">L:M I:H</span>
+        </div>
+        <p>Aggregated signals only. No GPA, no protected academic records. NACUBO guidance leaves gray zones around individual stewardship.</p>
+        <div class="mit"><b>Mitigation:</b> aggregated relationship-health buckets only; never individual academic records. General Counsel sign-off on data model in 30 days.</div>
+      </div>
+      <div class="risk-item">
+        <div class="top">
+          <span class="signal signal--yellow"></span>
+          <span class="name">Officer rejection of prospect scores</span>
+          <span class="pill pill--warning">L:H I:M</span>
+        </div>
+        <p>Trust gap is the adoption ceiling. If "explain view" lags model deploy, the score itself loses credibility.</p>
+        <div class="mit"><b>Mitigation:</b> ship explain view first (G-04 quick win); model updates gated on explainability presence.</div>
+      </div>
+      <div class="risk-item">
+        <div class="top">
+          <span class="signal signal--yellow"></span>
+          <span class="name">Sunset-replacement budget posture limits net-new platforms</span>
+          <span class="pill pill--warning">L:M I:M</span>
+        </div>
+        <p>VP Ops will not approve new SaaS without naming the platform that retires. Two satellite CRMs are the consolidation candidates.</p>
+        <div class="mit"><b>Mitigation:</b> name retirement targets in every roadmap initiative; track sunset $ alongside new $.</div>
+      </div>
+      <div class="risk-item">
+        <div class="top">
+          <span class="signal signal--blue"></span>
+          <span class="name">Cycle-aligned change windows</span>
+          <span class="pill pill--progress">L:H I:L</span>
+        </div>
+        <p>Co-op cycles run twice per year; deploys outside the change window cannot land. Plan dates inside Mar / Sep cohort breaks.</p>
+        <div class="mit"><b>Mitigation:</b> calendar-locked release plan; freeze 4 weeks pre-cycle.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>MGO-04 transcript</b> · M. Rodríguez, 2026-02-14 (verbatim)</li>
+      <li><b>CASE Benchmark</b> · officer time-use, 2025</li>
+      <li><b>UC Co-op annual report</b> · 2025 (day-5 triage)</li>
+      <li><b>NU Handshake funnel analytics</b> · 2025–26 cycle</li>
+      <li><b>Drexel Co-op CASE study</b> · 2024 (5-day loop)</li>
+      <li><b>CASE</b> · stewardship lag impact, 2025</li>
+      <li><b>HiEd Dive</b> · "Why fundraisers distrust prospect scores," 2025-09</li>
+      <li><b>NU peer-mentor pilot</b> · 3-dorm retrospective, 2025-Q4</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">GAP ANALYSIS · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>gap-analysis-evaluator</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

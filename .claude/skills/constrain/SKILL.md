@@ -1,5 +1,6 @@
 ---
 name: constrain
+version: 1.0
 description: Audit a prompt and replace every vague instruction with a specific, measurable constraint. Vague equals failure.
 allowed-tools: Read, Grep, Glob
 argument-hint: [file-path-or-paste]

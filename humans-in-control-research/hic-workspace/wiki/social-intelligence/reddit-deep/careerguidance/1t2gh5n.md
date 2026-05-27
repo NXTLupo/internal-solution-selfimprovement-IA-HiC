@@ -1,0 +1,56 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1t2gh5n/can_i_realistically_complete_acca_while_learning/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Can I realistically complete ACCA while learning AI/Data skills, or should I commit to one path?"
+author: "Legitimate-Meat-2720"
+date: "2026-05-03T09:11:07.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 2
+flair: "Advice"
+extracted_at: "2026-05-25T13:04:07.365Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# Can I realistically complete ACCA while learning AI/Data skills, or should I commit to one path?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t2gh5n/can_i_realistically_complete_acca_while_learning/)
+Posted by **Legitimate-Meat-2720** · **1↑** · **2 comments**
+
+I’m trying to decide between two career paths and would appreciate input. So for context, I have an undergrad in accounting and finance and a master’s in data Analytics. I recently registered for ACCA and got nine exemptions, so I only have four papers left. Claiming the exemptions will cost around £900+, and I’m currently unemployed, although my family has offered to help.
+
+There’s also a timing concern. Next year will be five years since I finished my undergrad, and delaying further could affect my exemptions or make things more complicated.
+
+Buttt...my Master’s points toward data and AI roles, which is obviously a growing field right now. Part of me thinks I should focus fully on the Data/AI/ML route, build projects and work toward becoming job-ready. The issue is that I’m not there yet, and the path is less structured compared to ACCA. I tend to prefer structured learning paths.
+
+Another factor I’m considering is how quickly AI is evolving, and what that might mean for the long term relevance of ACCA. I still see value in the qualification, but I’m trying to understand how it fits into future career opportunities.
+
+So my options:
+
+a) If I do ACCA now, it’s a clear, structured route and a recognised qualification, but it will require significant time and focus. I’d likely take papers one at a time (e.g., quarterly), which means AI learning would be limited or secondary. This would realistically take around 1 to 1.5 years of focused effort.
+
+b) If I skip ACCA and focus on AI/ML and data, I might progress faster in a growing field aligned with my Master’s, but I would be stepping away from a qualification I’m close to completing.
+
+c) I’ve also considered doing both: committing to ACCA while learning AI on the side and applying for jobs. This seems reasonable in theory, but I’m unsure if it’s sustainable long term or if it would just burn me out in both areas. Another option is to complete ACCA first and then shift focus to AI, but that would delay deeper progress in that field by 1 to 2 years.
+
+To add, my work experience is limited, mostly internships and part time roles, with one full-time role in a non relevant role to my degrees.
+
+So… is it realistic to complete ACCA while learning AI and building a portfolio on the side? Or is it better to focus on one path first? Alternatively, does it make more sense to complete ACCA and then pivot to AI/ML afterwards?
+
+I’d really appreciate honest advice.
+
+## Comments
+
+- **Original-Bus-6172** (1↑): honestly the AI field moves so fast that waiting 1.5 years might put you way behind, but ACCA is solid foundation that won't disappear
+
+  
+with your masters already in data analytics, seems like waste to not use it now while market is hot. You could always come back to those 4 ACCA papers later when you have job and income to pay for exemptions yourself
+
+  
+maybe focus on AI/ML path first since you already have the education base, then if you want that accounting qualification later you can do it part-time while working
+  - **Legitimate-Meat-2720** (1↑): From what I understand, I have a 30 day window to accept and pay for the ACCA exemption fees to lock them in. If I don’t, the offer could lapse and I may have to reapply, even though I’ve already paid the initial registration fee.
+There’s also a timing issue. ACCA exemptions are generally tied to how recent your degree is, and mine is approaching the 5 year mark. If I delay too long, I could lose eligibility for some or all exemptions. So if I ever want to do ACCA in the future I'd have to give 13 papers instead of just 4.
+So its not exactly a very flexible decision I can revisit anytime 😭

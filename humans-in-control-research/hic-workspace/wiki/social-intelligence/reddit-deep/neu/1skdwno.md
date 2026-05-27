@@ -7,10 +7,10 @@ title: "MS CS (co-op participation, networking)"
 author: "Playful-Rice-4063"
 date: "2026-04-13T15:17:34.000Z"
 score: 3
-upvote_ratio: 0.72
+upvote_ratio: 0.8
 num_comments: 0
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.924Z"
+extracted_at: "2026-05-14T12:20:30.889Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---

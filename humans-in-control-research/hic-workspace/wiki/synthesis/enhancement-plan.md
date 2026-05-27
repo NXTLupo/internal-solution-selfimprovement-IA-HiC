@@ -10,145 +10,38 @@ tags: [enhancement-plan, architecture, wiki-integration, quality]
 evidence_count: 0
 ---
 
-# Enhancement Plan: Wiki-Integrated Generation Architecture
+# Enhancement Plan: Evidence-Integrated Generation Architecture
 
-## Current State Assessment
+## Current State Assessment: Speculative Benchmarks vs. Active Findings
 
-The Humans in Control research platform is a production-grade multi-AI orchestration system with:
-- 11 deliverable types with consulting framework prompts (deliverableFrameworks.ts)
-- Multi-model AI routing (Claude Opus 4.6, GPT-5.4, Gemini 2.5 Flash)
-- 7-stage human-in-the-loop pipeline with dynamic branching
-- 3-tier credibility system for sources (Peer-Reviewed / Established / Community)
-- Source provenance tracking with freshness and relevance scoring
-- 20 elite visual style systems
-- Knowledge graph visualization
-- Export to PPTX, JSON, PDF
+The research platform exhibits a division between speculative benchmark frameworks and active, verified research findings [evidence/cx-maturity.md] [evidence/digital-transformation.md] [evidence/research-findings.md]:
 
-**Overall quality score: ~2.9/5.0 (below 3.8 minimum)**
+*   **Speculative Maturity and Transformation Benchmarks**: Key benchmark data remains flagged as `HYPOTHESIS` because primary source documents have not yet been fully ingested into the workspace [evidence/cx-maturity.md] [evidence/digital-transformation.md].
+    *   Benchmark data in `benchmarks/maturity-models` is marked `HYPOTHESIS` pending the ingestion of primary sources such as Gartner reports, Forrester CX Index data, and client assessments [evidence/cx-maturity.md].
+    *   Benchmark data in `benchmarks/technology-adoption` is marked `HYPOTHESIS` pending the ingestion of McKinsey transformation studies, Gartner surveys, Deloitte/MIT digital maturity research, and client case studies [evidence/digital-transformation.md].
+*   **Active Research Ingestion**: In contrast to the speculative benchmarks, active research runs have successfully populated verified, priority findings into the platform [evidence/research-findings.md].
 
-## Three Critical Problems Diagnosed
+---
 
-### Problem 1: Shallow Deliverables (Depth: 3.0/5.0)
-- **ROOT CAUSE**: Framework knowledge in deliverableFrameworks.ts is static. Good prompts, but no compiled evidence, benchmarks, or anti-patterns to draw from. Every generation starts from the same prompt text.
-- **SOLUTION**: Wire generation pipeline to load wiki/frameworks/, wiki/benchmarks/, wiki/anti-patterns/, and wiki/evidence/ pages before each generation. The prompt assembles from compiled knowledge.
-- **WIKI PAGES AFFECTED**: All 11 framework pages, all anti-pattern pages, all benchmark pages
-- **QUALITY GATE**: Generated output references specific data points from wiki pages. Depth scoring averages 3.5+.
+## Pending Evidence Categories Awaiting Ingestion
 
-### Problem 2: AI Slop Visuals (Visual Quality: 2.5/5.0)
-- **ROOT CAUSE**: Current brand palette (teal #115054, lime #CACA20, orange #FD8E2E) differs from the specified NXT Humans identity (chartreuse #B8B800, cyan #00B7C3, stark white #FFFFFF). No anti-slop enforcement layer.
-- **SOLUTION**: Create wikiService.ts that loads wiki/brand/ pages. Apply CSS variables from wiki/brand/identity.md. Enforce anti-slop rules from wiki/brand/anti-slop.md during output rendering.
-- **WIKI PAGES AFFECTED**: All 6 brand pages
-- **QUALITY GATE**: Generated HTML outputs use correct CSS variables. Anti-slop language detection catches banned phrases.
+The following categories require primary source ingestion to transition from `HYPOTHESIS` to `EVIDENCED` or `PARTIALLY EVIDENCED` status:
 
-### Problem 3: Evidence Starvation (Evidence: 2.5/5.0)
-- **ROOT CAUSE**: Sources processed at query time via real-time connectors. No pre-compiled evidence base. Evidence doesn't persist across runs.
-- **SOLUTION**: Implement INGEST operation that deeply processes sources into wiki/evidence/ and wiki/sources/ pages. At GENERATE time, draw from pre-compiled evidence base.
-- **WIKI PAGES AFFECTED**: wiki/evidence/, wiki/sources/, wiki/benchmarks/
-- **QUALITY GATE**: Every major section has 3+ cited data points. Sources & Methodology appendix present.
+1.  **CX Maturity Distribution and Progression** [evidence/cx-maturity.md]:
+    *   Maturity distribution data across Gartner 5-stage and Forrester 4-stage models [evidence/cx-maturity.md].
+    *   Progression benchmarks detailing the time required to advance levels and common stall points [evidence/cx-maturity.md].
+    *   Measurable revenue differences and correlations between maturity levels [evidence/cx-maturity.md].
+    *   Standard organizational governance structures [evidence/cx-maturity.md].
+2.  **Digital Transformation and Technology Adoption** [evidence/digital-transformation.md]:
+    *   Primary source verification and contextual nuance of transformation success/failure rates, specifically the widely cited McKinsey 70% failure rate [evidence/digital-transformation.md].
+    *   Technology adoption curves, including MarTech utilization (such as the Gartner 33% statistic), AI adoption rates, and Customer Data Platforms (CDP) [evidence/digital-transformation.md].
 
-## Implementation Phases
+---
 
-### Phase 1: Foundation Fixes (Week 1-2)
+## Active Research Findings
 
-#### FIX 1.1: Wiki Service Layer
-- **FILE**: Create `services/wikiService.ts`
-- **PURPOSE**: Read wiki pages from hic-workspace/wiki/ at generation time
-- **FUNCTIONS**:
-  - `loadFramework(type: string): string` -- loads wiki/frameworks/[type].md
-  - `loadAntiPatterns(type: string): string` -- loads wiki/anti-patterns/[type].md
-  - `loadBenchmarks(topics: string[]): string` -- loads relevant benchmark pages
-  - `loadEvidence(topics: string[]): string` -- loads relevant evidence pages
-  - `loadBrandStandards(): BrandConfig` -- loads wiki/brand/ pages
-  - `loadIndex(): WikiIndex` -- parses wiki/index.md for navigation
-  - `appendLog(entry: WikiLogEntry): void` -- appends to wiki/log.md
-- **IMPACT**: Every generation draws from compiled wiki knowledge instead of static prompts
+Completed research runs have established verified, priority findings [evidence/research-findings.md]:
 
-#### FIX 1.2: Generation Pre-Flight Check
-- **FILE**: Modify generation pipeline in `App.tsx` and `services/aiRouter.ts`
-- **CHANGE**: Before generating any deliverable, MUST load and verify:
-  1. Framework page exists and is not empty
-  2. Anti-pattern page exists
-  3. Relevant benchmark data available
-  4. Brand standards loaded
-- **IMPACT**: Prevents generation without compiled knowledge context
-
-#### FIX 1.3: Brand System Migration
-- **FILE**: Update CSS variables in deliverable rendering
-- **CHANGE**: Replace current palette with wiki/brand/identity.md CSS variables
-- **CURRENT**: teal #115054, lime #CACA20, orange #FD8E2E
-- **TARGET**: chartreuse #B8B800, cyan #00B7C3, stark white #FFFFFF, black #0D0D0D
-- **NOTE**: This affects ResultsView.tsx and exportService.ts rendering only. The app chrome/UI can retain its current palette.
-
-### Phase 2: Pipeline Upgrades (Week 3-6)
-
-#### FIX 2.1: Enhanced Prompt Assembly
-- **FILE**: Modify `services/deliverableFrameworks.ts`
-- **CHANGE**: Each framework constant becomes a function that assembles from wiki pages:
-  ```
-  getFrameworkPrompt('PERSONAS') =>
-    wiki/frameworks/personas.md (structure)
-    + wiki/anti-patterns/personas.md (what to avoid)
-    + wiki/benchmarks/cx-metrics.md (evidence to cite)
-    + wiki/brand/identity.md (visual rendering)
-  ```
-- **IMPACT**: Prompts become dynamic, drawing from the ever-evolving wiki
-
-#### FIX 2.2: Quality Scoring Integration
-- **FILE**: Create `services/qualityScorer.ts`
-- **FUNCTIONS**:
-  - `scoreCompleteness(output, frameworkPage): number` -- sections present / required
-  - `scoreDepth(output): number` -- average analysis layers
-  - `scoreEvidence(output): number` -- cited data points per section
-  - `scoreVisualQuality(output, brandPages): number` -- brand compliance
-  - `scoreSpecificity(output): number` -- actionability assessment
-  - `overallScore(): number` -- weighted aggregate (min 3.8 to pass)
-- **IMPACT**: Every deliverable scored before presentation. Sub-threshold triggers regeneration.
-
-#### FIX 2.3: Anti-Slop Language Filter
-- **FILE**: Create `services/antiSlopFilter.ts`
-- **FUNCTIONS**:
-  - `detectBannedPhrases(text: string): BannedPhrase[]` -- scans against wiki/brand/anti-slop.md
-  - `suggestReplacements(phrases: BannedPhrase[]): Replacement[]` -- specific data alternatives
-  - `enforceFilter(output: string): FilterResult` -- returns cleaned output + violations
-- **IMPACT**: Catches "In today's rapidly evolving landscape" and similar slop before output
-
-### Phase 3: Deep Enhancement (Week 7-12)
-
-#### FIX 3.1: INGEST Operation
-- Implement the full source ingest workflow from Part IV
-- Deep extraction of every data point from uploaded sources
-- Fan-out across 10-15 wiki pages per source
-- Source summary pages in wiki/sources/
-
-#### FIX 3.2: Evidence Persistence
-- Modify SavedProject to persist extracted evidence in wiki/evidence/
-- Cross-reference evidence across engagements
-- Build citation chains from source to evidence to deliverable
-
-#### FIX 3.3: Exemplar Collection
-- After human approval of generated output, offer to save as exemplar
-- Build wiki/exemplars/ library from approved outputs
-- Use exemplars as few-shot examples in future generation
-
-#### FIX 3.4: Industry Adaptation Pages
-- Expand analytical lens configs into full wiki/industries/ pages
-- Cross-reference industry-specific data across frameworks
-
-#### FIX 3.5: LINT Operation
-- Implement periodic wiki health check (Part IV, Operation 3)
-- Contradiction scanning, staleness detection, orphan detection
-- Cross-reference symmetry verification
-
-## Success Metrics
-
-| Metric | Current | Target | Measurement |
-|--------|---------|--------|-------------|
-| Overall quality score | 2.9/5.0 | 3.8+/5.0 | Part VI scoring system |
-| Completeness | 3.5/5.0 | 4.5+/5.0 | Required sections present |
-| Depth | 3.0/5.0 | 3.5+/5.0 | Analysis layers per section |
-| Evidence density | 2.5/5.0 | 3.0+/section | Cited data points |
-| Visual quality | 2.5/5.0 | 4.0+/5.0 | Brand compliance checks |
-| Specificity | 3.0/5.0 | 4.0+/5.0 | Actionability assessment |
-| Wiki pages | 35 | 100+ | Total active pages |
-| Evidence data points | 0 | 200+ | Total cited entries |
-| Sources ingested | 0 | 10+ | Source summary pages |
+*   **Increasing Scrutiny and Standardization of AI Ethics and Privacy**: The growing integration of AI in educational and operational contexts brings a heightened focus on ethical guidelines, privacy, and regulatory oversight [evidence/research-findings.md]. Initiatives like NIST's AI Agent Standards aim to guide future development, while concerns about data privacy and accountability are prominent across civil society organizations [evidence/research-findings.md]. Simultaneously, universities face increasing pressure for transparency in funding and donor relationships, particularly regarding potential reputational risks [evidence/research-findings.md].
+*   **AI-Enabled Personalized Student Support and Co-op Matching**: Northeastern University is actively developing AI tools to personalize student experiences, particularly for co-op readiness [evidence/research-findings.md]. This includes creating an AI-enabled First-Year Readiness Roadmap using LLMs to analyze student resumes and declared majors against employer skill requirements [evidence/research-findings.md]. The goal is to identify skill gaps earlier, democratize access to resources, and provide learning prompts, thereby improving co-op matching and overall student success [evidence/research-findings.md].
+*   **Pervasive AI Integration Across Higher Education Operations**: AI is becoming a central component across various functions in higher education, extending beyond specialized programs to encompass teaching, student support, admissions, and research workflows [evidence/research-findings.md]. A CSU survey involving over 94,000 faculty, staff, and students across 22 campuses documented widespread AI use, signifying a shift towards AI-driven institutional productivity and efficiency [evidence/research-findings.md].

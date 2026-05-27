@@ -1,5 +1,6 @@
 ---
 name: self-review
+version: 1.0
 description: Claude reviews its own planned changes against the original request before executing. Catches scope creep, over-engineering, and missed requirements.
 allowed-tools: Read, Grep, Glob, Bash
 argument-hint: [description-of-what-was-just-done]

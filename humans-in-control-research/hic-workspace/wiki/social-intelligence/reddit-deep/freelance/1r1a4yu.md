@@ -1,0 +1,84 @@
+---
+url: "https://www.reddit.com/r/freelance/comments/1r1a4yu/rejected_by_proxify_despite_years_of_professional/"
+kind: "social-post"
+source: "reddit-deep: r/freelance"
+subreddit: "freelance"
+title: "Rejected by Proxify despite years of professional experience - their assessment process is fundamentally broken"
+author: "mt_marco"
+date: "2026-02-10T19:16:00.000Z"
+score: 37
+upvote_ratio: 0.92
+num_comments: 46
+flair: ""
+extracted_at: "2026-05-26T12:53:48.703Z"
+extraction_method: "praw-deep"
+research_goal: "Identify emerging needs in the remote work sector."
+---
+
+# Rejected by Proxify despite years of professional experience - their assessment process is fundamentally broken
+
+Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1r1a4yu/rejected_by_proxify_despite_years_of_professional/)
+Posted by **mt_marco** · **37↑** · **46 comments**
+
+I just got rejected by Proxify. The email said my "technical skills did not meet their requirements." I want to share my experience because I think it highlights a growing problem in our industry.
+
+**My background:** I've worked at Amadeus, Alten, Reply. Built entire startup projects independently. Delivered more APIs than I can count. Never had a performance issue, consistently among the strongest on my teams.
+
+**The Proxify assessment:**
+
+* Timed coding test with **camera and full screen recording**
+* **No internet search allowed**
+* **No AI tools allowed**
+* **No documentation allowed**
+* **No syntax highlighting**
+* **No dependency suggestions or context hints**
+* Test was in a **language/framework I haven't actively used in years**
+* Result: a generic rejection with **zero specific feedback**
+
+**My take:**
+
+This process tests one thing: **memory**. Can you recall exact syntax and algorithm implementations without looking anything up? That's it. It has almost nothing to do with real software engineering.
+
+In my actual job, and in every developer's actual job, we use Google, Stack Overflow, documentation, and yes, AI tools. Every single day. Because the skill isn't memorizing, it's **knowing what to look for, how to evaluate it, and how to apply it** to solve real problems.
+
+By banning all of these tools and putting you on camera, Proxify is essentially running a crossword puzzle competition and calling it a technical assessment. The people who pass aren't necessarily the best developers, they're the best test-takers.
+
+On top of that, the surveillance felt invasive and disproportionate. Camera recording + screen capture just to apply to a freelance platform? And after all that, they can't even provide specific feedback on what you got wrong?
+
+I've talked to other developers who had the same experience. Some very senior people getting filtered out by this process while it likely lets through junior devs who happen to be good at LeetCode-style problems.
+
+I get that screening at scale is hard. But this approach is fundamentally flawed. It replaces human judgment with an automated quiz that correlates poorly with actual job performance. The industry needs to move away from this.
+
+Has anyone else been through Proxify's process? Curious to hear your experiences.
+
+---
+  
+**EDIT - For those who want the full details of what happened:**
+
+The test was on .NET Core 9. I haven't actively worked with .NET Core since version 4/5, I moved on to Java and other stacks years ago. But here's the thing: I didn't fail it.
+
+I completed exercises 1 and 2 with **100% correctness**. I had started exercise 3 but ran out of time. So the code I wrote was fully correct, I just wasn't fast enough.
+
+Why? Because without syntax highlighting, dependency suggestions, or any context hints, I was fighting the environment instead of solving problems. For example, one exercise required using request headers to apply conditions in an API. The test gave no indication that a global `Request` object existed or where to find `Context`/`Headers` in the SDK. If you don't have that specific framework version's API surface memorized, you're stuck, not because you can't code, but because you can't *recall*.
+
+That's the core issue: **the test doesn't distinguish between someone who writes correct code at a slower pace and someone who genuinely can't code.** In a real work environment, the 30 seconds I'd spend looking up "how to access request headers in .NET Core 9" would be completely irrelevant. In this test, it's the difference between passing and failing.
+
+## Comments
+
+- **khsh01** (8↑): I despise leetcode with a passion from my uni days. Always built actual projects instead.
+
+Whenever I take one of these exams, I spent 50% of the time figuring out how to do the thing within the thing, how the input is coming in, how it wants the output instead of ripping my hair out trying to solve the garbage.
+- **jfranklynw** (2↑): The no-documentation-allowed bit is what kills me. In what universe does a professional developer work without access to documentation? That's literally what documentation exists for.
+
+I've been through similar assessments where you're basically proving you've memorised an API surface rather than demonstrating you can actually solve problems. The .NET Core 9 thing makes it worse - frameworks move fast enough that even daily users would struggle to recall every method signature from memory.
+
+The zero feedback part is almost more frustrating than the rejection itself. You invest time, get surveilled the whole way through, and then get a form email. At least tell people which exercise tripped them up so they can calibrate whether it's worth retrying.
+
+Honestly the best technical assessments I've seen give you a small realistic project, let you use whatever tools you'd normally use, and evaluate the result. Takes longer to review on their end, which is probably why most platforms don't bother.
+- **ruibranco** (2↑): any platform that needs you on camera with screen recording just to apply has already told you everything about how they'll treat you as a contractor
+- **BoroBokachoda** (1↑): Totally agree with you, most of these platforms try to automate everything without humans in the loop, end up like this. 
+
+You might give a try to alternative platforms and see how it goes, I am also in the process of finding the perfect fit.
+
+Did you try index.dev / arc.dev or lemon.io ?
+- **South-Astronomer-757** (1↑): That's so freaking brutal.  I've heard Amazon is the same way with their software engineers.

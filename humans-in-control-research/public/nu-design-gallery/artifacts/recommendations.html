@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Strategic recommendations — Co-Op Prep &amp; Advancement</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+  /* Rumelt kernel block at top */
+  .kernel-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+  }
+  .kernel-band > div {
+    padding: 22px 28px;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .kernel-band > div:last-child { border-right: 0; }
+  .kernel-band h3 {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--nu-red-100);
+    margin-bottom: 8px;
+  }
+  .kernel-band p {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--white);
+    margin: 0;
+  }
+  .kernel-band p b {
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  /* Recommendations list */
+  .recs {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .rec {
+    display: grid;
+    grid-template-columns: 60px 1.4fr 1.2fr 200px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 28px;
+    align-items: start;
+  }
+  .rec:last-child { border-bottom: 0; }
+  .rec__id {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    padding-top: 2px;
+  }
+  .rec__title-block h3 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    margin-bottom: 8px;
+  }
+  .rec__pillar {
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .rec__pillar .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-800); }
+  .rec__pillar.p1 .dot { background: var(--nu-red-600); }
+  .rec__pillar.p2 .dot { background: var(--special-solid); }
+  .rec__pillar.p3 .dot { background: var(--success-solid); }
+  .rec__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--fg-default);
+  }
+  .rec__desc strong { color: var(--fg-strong); font-weight: 500; }
+  .rec__quote {
+    margin-top: 12px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.4;
+    padding-left: 12px;
+    border-left: 1.5px solid var(--slate-300);
+  }
+  .rec__actions h4,
+  .rec__side h4 {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
+  }
+  .rec__actions ol {
+    list-style: none;
+    counter-reset: ai;
+    padding: 0;
+    margin: 0;
+  }
+  .rec__actions li {
+    counter-increment: ai;
+    padding: 4px 0 4px 22px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--fg-default);
+    position: relative;
+  }
+  .rec__actions li::before {
+    content: counter(ai, decimal-leading-zero);
+    position: absolute; left: 0; top: 5px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .rec__actions li b { color: var(--fg-strong); font-weight: 500; }
+  .rec__side {
+    border-left: 1px solid var(--border-subtle);
+    padding-left: 24px;
+  }
+  .rec__impact-v {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--fg-strong);
+    letter-spacing: -.02em;
+    margin-bottom: 4px;
+  }
+  .rec__impact-v sup, .rec__impact-v .u {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fg-muted);
+  }
+  .rec__impact-d {
+    font-size: 11.5px;
+    color: var(--fg-default);
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+  .rec__meta {
+    margin-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .rec__meta b { color: var(--fg-default); font-family: var(--font-mono); font-weight: 500; }
+  .rec__meta dt { font-size: 9px; text-transform: uppercase; letter-spacing: .14em; }
+
+  /* Impact level pill */
+  .pill-impact {
+    display: inline-flex; align-items: center; gap: 5px;
+    height: 18px; padding: 0 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+  }
+  .pill-impact--high { background: var(--nu-red-100); color: var(--nu-red-700); }
+  .pill-impact--med  { background: var(--warning-bg); color: var(--warning-fg); }
+  .pill-impact--low  { background: var(--slate-100); color: var(--fg-muted); }
+
+  /* Recs head */
+  .recs-head {
+    display: grid;
+    grid-template-columns: 60px 1.4fr 1.2fr 200px;
+    padding: 10px 28px;
+    gap: 28px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+  }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Strategic recommendations · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Strategic recommendations · Rumelt's kernel</div>
+    <h1 class="art-masthead__title">Seven recommendations across three pillars compress the placement-to-donor loop and recover ~$3.4M in officer and coordinator capacity.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Recs</dt><dd>7</dd></div>
+    <div class="art-masthead__meta-block"><dt>Critical</dt><dd>3 high-impact</dd></div>
+    <div class="art-masthead__meta-block"><dt>Pillars</dt><dd>3 MECE</dd></div>
+  </dl>
+</header>
+
+<!-- Rumelt kernel band -->
+<div class="kernel-band">
+  <div>
+    <h3>Diagnosis</h3>
+    <p>Northeastern's experiential-learning and advancement flywheels share a constituent but not a data spine. <b>The placement-to-donor handoff lags 11 days against a 5-day peer benchmark</b>, masking a generational giving cliff (−12% in young alumni) under a +3% aggregate line.</p>
+  </div>
+  <div>
+    <h3>Guiding policy</h3>
+    <p>We will instrument the connective tissue between the two flywheels, sequenced by fastest-recovered capacity. <b>Triage before recommender accuracy. Sunset before purchase.</b> Aggregated signals only between donor and student sides.</p>
+  </div>
+  <div>
+    <h3>Coherent actions</h3>
+    <p>Seven recommendations grouped into three MECE pillars. <b>Three quick wins ship inside 90 days.</b> Two strategic builds land FY27. Each names a sunset target and a quantified impact.</p>
+  </div>
+</div>
+
+<div class="art-canvas art-canvas--full">
+
+  <section class="art-section" style="margin-top: 0;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">The seven coherent actions</h2>
+      <span class="art-section__counter">3 critical · 3 high · 1 medium · all evidence-cited</span>
+    </div>
+
+    <div class="recs">
+      <div class="recs-head">
+        <div>ID</div>
+        <div>Recommendation</div>
+        <div>Action plan</div>
+        <div>Impact &amp; meta</div>
+      </div>
+
+      <!-- R-01 -->
+      <article class="rec">
+        <div class="rec__id">R-01</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p3"><span class="dot"></span>Pillar 03 · Peer-mentor scaffolding</div>
+          <h3>Formalize and pay the peer-mentor pattern three Boston dorms already invented.</h3>
+          <p class="rec__desc">First-years escalate to upperclassmen 3.4× more often than to coordinators, and three Boston dorms have run informal peer-mentor pilots with measured <strong>+14-point engagement lift</strong>. Codify the trust pattern, pay mentors at student-worker rate, instrument the touchpoints, and run a one-cycle outcome test.</p>
+          <blockquote class="rec__quote">"He'd already been through it — and he answered me on a Tuesday at midnight." — A. Patel, first-year <sup class="cite">3</sup></blockquote>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 5</h4>
+          <ol>
+            <li><b>Recruit 60 mentors</b> across 6 dorms (Owner: Student Affairs · 4 wks)</li>
+            <li><b>Pay rate</b> at $18/hr, 4 hrs/week, capped at 16 hrs/term (Owner: Finance · 2 wks)</li>
+            <li><b>Instrument touchpoints</b> in Salesforce EDU with 5 event types (Owner: Data Eng · 3 wks)</li>
+            <li><b>Outcome target</b>: +12-pt cohort engagement vs. control dorms (Owner: Co-op Ops · cycle 1)</li>
+            <li><b>Scale-or-retire</b> review at end of cycle 1; decision criteria pre-registered</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">+14<span class="u"> pts</span></div>
+          <div class="rec__impact-d">first-year engagement vs. control dorms · expected to apply across ~2,200 students in scale</div>
+          <span class="pill-impact pill-impact--med">medium impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Student Aff</b>
+            <dt>Timeline</dt><b>≤90 days</b>
+            <dt>Effort</dt><b>Low</b>
+            <dt>Sunset</dt><b>—</b>
+            <dt>Risk</dt><b>R-04 mitig.</b>
+            <dt>Citations</dt><b>3 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-02 -->
+      <article class="rec">
+        <div class="rec__id">R-02</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p1"><span class="dot"></span>Pillar 01 · Connective tissue</div>
+          <h3>Build a cross-record identity layer so officers stop reconstructing dossiers by hand.</h3>
+          <p class="rec__desc">28 major gift officers spend 40 min × 220 meetings per year on cross-system prep — <strong>~$340K of officer time</strong> at fully-loaded rates. A shared identity layer between Raiser's Edge, Salesforce EDU, and the student-success warehouse cuts prep to under 10 min, with a single consolidated brief.</p>
+          <blockquote class="rec__quote">"By the time I've stitched it together, the meeting's tomorrow." — Maya R., MGO <sup class="cite">1</sup></blockquote>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 4</h4>
+          <ol>
+            <li><b>Define canonical constituent ID</b> across the 3 source systems (Owner: Data Architecture · 6 wks)</li>
+            <li><b>Privacy review</b>: aggregated signals only across the bridge, GC sign-off (Owner: GC · 4 wks parallel)</li>
+            <li><b>Brief-builder service</b>: one-pager per upcoming meeting (Owner: Adv Ops · 12 wks)</li>
+            <li><b>Adoption target</b>: 80% of MGOs use the brief for ≥70% of meetings by FY27 Q2</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">$340<span class="u">K / yr</span></div>
+          <div class="rec__impact-d">officer time recovered · prep 40 → 10 min · 28 officers × 220 meetings</div>
+          <span class="pill-impact pill-impact--high">high impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Adv Ops</b>
+            <dt>Timeline</dt><b>12 months</b>
+            <dt>Effort</dt><b>High</b>
+            <dt>Sunset</dt><b>2 CRMs</b>
+            <dt>Risk</dt><b>R-01 FERPA</b>
+            <dt>Citations</dt><b>4 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-03 -->
+      <article class="rec">
+        <div class="rec__id">R-03</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p2"><span class="dot"></span>Pillar 02 · Triage as v1 AI surface</div>
+          <h3>Detect silence at day five and route students to a coordinator triage queue.</h3>
+          <p class="rec__desc">Application-funnel attrition reaches 38% for students who go 14 days without a reply; Cincinnati's day-5 detection sets the benchmark. <strong>Replace the day-7 template email</strong> with a routed queue that ranks students by stalled-signal strength. Reuses existing Handshake webhooks.</p>
+          <blockquote class="rec__quote">"I find out a student didn't apply when the cycle's already closed." — J. Liu, coordinator <sup class="cite">9</sup></blockquote>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 4</h4>
+          <ol>
+            <li><b>Define stall signal</b>: 5 days no Handshake activity + open applications &lt; 4 (Owner: Co-op Ops · 2 wks)</li>
+            <li><b>Triage queue UI</b> for coordinators ranked by signal strength (Owner: Co-op Ops Eng · 4 wks)</li>
+            <li><b>Explain view</b>: every queue entry shows why it was flagged (Owner: Data Eng · 2 wks)</li>
+            <li><b>Outcome</b>: cycle-on-cycle attrition cut from 38% → &lt; 22% by end of FY27 Q1</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">−16<span class="u"> pts</span></div>
+          <div class="rec__impact-d">funnel attrition for stalled cohort · ~410 students per cycle recovered</div>
+          <span class="pill-impact pill-impact--high">high impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Co-op Ops</b>
+            <dt>Timeline</dt><b>3–6 mo</b>
+            <dt>Effort</dt><b>Med</b>
+            <dt>Sunset</dt><b>day-7 email</b>
+            <dt>Risk</dt><b>—</b>
+            <dt>Citations</dt><b>3 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-04 -->
+      <article class="rec">
+        <div class="rec__id">R-04</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p2"><span class="dot"></span>Pillar 02 · Triage as v1 AI surface</div>
+          <h3>Ship an "explain view" alongside every prospect &amp; placement score before any new model deploys.</h3>
+          <p class="rec__desc">62% of officers report ignoring prospect scores they cannot interrogate; the trust gap, not accuracy, is the adoption ceiling. <strong>Surface top 5 contributing signals and a "why this score?" overlay</strong> on the existing model. Gate any future model release on explainability presence.</p>
+          <blockquote class="rec__quote">"Tell me why this prospect is a 91, or I'll keep using my gut." <sup class="cite">8</sup></blockquote>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 4</h4>
+          <ol>
+            <li><b>SHAP-style feature attribution</b> for the live prospect model (Owner: Data Sci · 3 wks)</li>
+            <li><b>Officer UI</b>: top 5 drivers + plain-English explanation per score (Owner: Adv Ops Eng · 3 wks)</li>
+            <li><b>Governance</b>: no new model ships without an explain view (Owner: Adv Ops · ongoing)</li>
+            <li><b>Adoption metric</b>: officer-cited-score uplift +30 pts in QoQ survey</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">+30<span class="u"> pts</span></div>
+          <div class="rec__impact-d">officer-cited-score adoption · downstream pipeline value not yet quantified — pending baseline</div>
+          <span class="pill-impact pill-impact--med">medium impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Data Sci</b>
+            <dt>Timeline</dt><b>≤90 days</b>
+            <dt>Effort</dt><b>Low</b>
+            <dt>Sunset</dt><b>opaque model</b>
+            <dt>Risk</dt><b>R-02 trust</b>
+            <dt>Citations</dt><b>3 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-05 -->
+      <article class="rec">
+        <div class="rec__id">R-05</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p1"><span class="dot"></span>Pillar 01 · Connective tissue</div>
+          <h3>Compress the placement-to-donor handoff from 11 days to under 72 hours.</h3>
+          <p class="rec__desc">Drexel runs the placement-to-donor loop in 5 days at half NU's volume; the 11-day Northeastern lag costs ~$1.1M / yr in delayed stewardship moves at CASE-benchmarked elasticity. <strong>Daily digest of placement events tagged with donor-affinity bridges fires to MGOs</strong> while the full integration lands behind it.</p>
+          <blockquote class="rec__quote">"I missed an obvious bridge because the data lives in a different office." — Maya R. <sup class="cite">1</sup></blockquote>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 5</h4>
+          <ol>
+            <li><b>Daily placement digest</b> as a quick-win bridge (Owner: Adv Ops · 3 wks)</li>
+            <li><b>Donor-affinity tag</b> on placement events (Owner: Data Eng · 6 wks)</li>
+            <li><b>Stewardship trigger</b> in Raiser's Edge for tagged placements (Owner: Adv Ops · 9 wks)</li>
+            <li><b>Verbatim approval path</b>: students approve their own quotes (Owner: Marketing Ops · 6 wks)</li>
+            <li><b>Cycle target</b>: 11 d → &lt; 3 d median by FY27 Q4</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">$1.1<span class="u">M / yr</span></div>
+          <div class="rec__impact-d">delayed-stewardship recovery · 11 d → &lt; 3 d compression</div>
+          <span class="pill-impact pill-impact--high">high impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Adv Ops</b>
+            <dt>Timeline</dt><b>6–9 mo</b>
+            <dt>Effort</dt><b>Med</b>
+            <dt>Sunset</dt><b>events platf.</b>
+            <dt>Risk</dt><b>R-01 FERPA</b>
+            <dt>Citations</dt><b>4 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-06 -->
+      <article class="rec">
+        <div class="rec__id">R-06</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p3"><span class="dot"></span>Pillar 03 · Peer-mentor scaffolding</div>
+          <h3>Bring the prep surface to where prep actually happens — mobile, 9 p.m.–1 a.m.</h3>
+          <p class="rec__desc">First-year diary data shows 78% of co-op prep happens on a phone, in bed, after 9 p.m.; the current portal shows a 38% mobile drop-off at the breakpoint. <strong>Mobile-web parity first, native app only if instrumented evidence justifies it.</strong></p>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 3</h4>
+          <ol>
+            <li><b>Audit + fix</b> 12 highest-traffic surfaces for mobile parity (Owner: Co-op Ops Eng · 9 wks)</li>
+            <li><b>Push-notification path</b> via existing NU mobile app (Owner: Mobile · 6 wks)</li>
+            <li><b>Native build decision</b> gated on Q3 mobile-web KPI</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">+22<span class="u"> pts</span></div>
+          <div class="rec__impact-d">time-on-task on mobile · est. $400K coordinator triage time saved</div>
+          <span class="pill-impact pill-impact--med">medium impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Co-op Eng</b>
+            <dt>Timeline</dt><b>9 months</b>
+            <dt>Effort</dt><b>Med</b>
+            <dt>Sunset</dt><b>—</b>
+            <dt>Risk</dt><b>—</b>
+            <dt>Citations</dt><b>3 named</b>
+          </dl>
+        </div>
+      </article>
+
+      <!-- R-07 -->
+      <article class="rec">
+        <div class="rec__id">R-07</div>
+        <div class="rec__title-block">
+          <div class="rec__pillar p1"><span class="dot"></span>Pillar 01 · Connective tissue</div>
+          <h3>Sunset two satellite CRMs and the legacy events platform to fund the FY27 program.</h3>
+          <p class="rec__desc">VP Ops's stated posture: "If you can't tell me what dies, the answer is no." The IT census names three candidates with $2.1M annual run-cost, $1.8M of which is overlap with primary platforms. <strong>Re-allocation, not addition,</strong> is the program funding model.</p>
+        </div>
+        <div class="rec__actions">
+          <h4>Action items · 4</h4>
+          <ol>
+            <li><b>Final-use audit</b> of 3 platforms (Owner: IT · 6 wks)</li>
+            <li><b>Migration plan</b> for the 2 features that are not duplicative (Owner: IT + Adv Ops · 8 wks)</li>
+            <li><b>Contract non-renewal</b> sequenced to fiscal-year boundary (Owner: Procurement · 12 wks)</li>
+            <li><b>Re-allocation</b> of $1.8M to the FY27 program budget (Owner: Finance · 4 wks)</li>
+          </ol>
+        </div>
+        <div class="rec__side">
+          <h4>Quantified impact</h4>
+          <div class="rec__impact-v">$1.8<span class="u">M / yr</span></div>
+          <div class="rec__impact-d">re-allocated run-cost · funds R-02 and R-05 in full</div>
+          <span class="pill-impact pill-impact--high">high impact</span>
+          <dl class="rec__meta">
+            <dt>Owner</dt><b>Finance + IT</b>
+            <dt>Timeline</dt><b>6 months</b>
+            <dt>Effort</dt><b>Med</b>
+            <dt>Sunset</dt><b>3 platforms</b>
+            <dt>Risk</dt><b>R-03</b>
+            <dt>Citations</dt><b>3 named</b>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Summary footer -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Program totals</h2>
+      <span class="art-section__counter">aggregate impact across seven recommendations</span>
+    </div>
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat__label">Quantified annual impact</div>
+        <div class="stat__value">$3.4<span class="u">M</span></div>
+        <div class="stat__delta stat__delta--up">officer + coordinator time + stewardship recovery</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Funding source</div>
+        <div class="stat__value">$1.8<span class="u">M sunset</span></div>
+        <div class="stat__delta">no net-new SaaS spend</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Quick wins · ≤90 d</div>
+        <div class="stat__value">3<span class="u"> of 7</span></div>
+        <div class="stat__delta">R-01, R-04, R-05 phase A</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Cycle-aligned milestones</div>
+        <div class="stat__value">Mar / Sep</div>
+        <div class="stat__delta">freeze 4 weeks pre-cycle</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Risk register</div>
+        <div class="stat__value">4</div>
+        <div class="stat__delta">each with named mitigation</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>MGO-04 transcript</b> · M. Rodríguez, 2026-02-14 (verbatim)</li>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>STU-007 diary</b> · A. Patel, 8-week diary study, 2026-Q1 (verbatim)</li>
+      <li><b>CASE Benchmark</b> · officer time-use, 2025</li>
+      <li><b>Drexel Co-op CASE study</b> · "Outcomes to advancement," 2024</li>
+      <li><b>UC Co-op annual report</b> · 2025 (day-5 triage benchmark)</li>
+      <li><b>VP-OPS-09 memo</b> · D. Chen, advisory read-out, 2026-01-22 (verbatim)</li>
+      <li><b>HiEd Dive</b> · "Why fundraisers distrust prospect scores," 2025-09</li>
+      <li><b>COORD-12 field-note</b> · J. Liu, retrospective, 2025-12 (verbatim)</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">RECS · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>strategy-author</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 ---
 name: reinforcement-inference
+version: 1.0
 description: Training-free inference-time technique that re-asks the model to reconsider its own answer when uncertainty crosses a threshold. The second pass MUST include the prior answer verbatim plus an uncertainty hint — anchored re-asking is load-bearing; prompt-only "think harder" underperforms baseline. Composes with verbalized-sampling (VS surfaces uncertainty by emitting candidates with probabilities and per-claim confidence; RI acts on that uncertainty by triggering an anchored second pass). Apply at HiC's existing regeneration sites (recommendations, journey map, PRD, roadmap, gap analysis) and at four new surfaces (themes, persona enrichment, prototype Stage 1, chat answers). Effect size on the paper's benchmark: DeepSeek-v3.2 MMLU-Pro 60.72% → 84.03% with Cohen's h = 0.81 on re-asked subset.
 thinking: max
 ---

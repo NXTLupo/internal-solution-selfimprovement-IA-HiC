@@ -228,12 +228,14 @@ For every VS call, define how we consume the distribution:
 ## Rollout sequence (in order)
 
 ### Sprint 1 — Theme synthesis VS (highest foundational leverage)
-1. Add VS directive to `generateThemes()` Pass 1 BREADTH prompt
-2. Switch from "produce 15 themes" → "produce 24 candidate themes with probabilities < 0.10"
-3. Add selection step: rank by `1/p × source_count`, keep top 15
-4. Wire to feature flag `vs_themes_enabled` (default ON for new sessions)
-5. Log before/after diversity scores to `wiki/log.md`
-6. **Estimated effort: M (4-6 engineer-hours)**
+**STATUS: REVERTED on 2026-05-12 due to thin-evidence regressions.** The `1/p × evidence_density` ranker promoted candidates with insufficient corpus support, producing themes the post-processor could not back with citations. The VS probability field was removed from generateThemes Pass 1 at `geminiService.ts:1136-1140` and the explicit rollback comment lives at `geminiService.ts:770-793`. Original sprint plan below is preserved for historical reference but must NOT be re-implemented as-described. If themes VS returns, the ranker MUST apply a strict evidence-floor pre-filter (>=3 distinct external sources per candidate) BEFORE ranking by probability tail.
+
+1. ~~Add VS directive to `generateThemes()` Pass 1 BREADTH prompt~~
+2. ~~Switch from "produce 15 themes" → "produce 24 candidate themes with probabilities < 0.10"~~
+3. ~~Add selection step: rank by `1/p × source_count`, keep top 15~~
+4. ~~Wire to feature flag `vs_themes_enabled` (default ON for new sessions)~~
+5. ~~Log before/after diversity scores to `wiki/log.md`~~
+6. ~~**Estimated effort: M (4-6 engineer-hours)**~~
 
 ### Sprint 2 — Recommendations VS-Multi (most visible UX win)
 1. Change `#recommendations` handler to make 2 sequential Gemini calls

@@ -7,12 +7,12 @@ title: "Unsatisfactory Grade for leaving Co-op"
 author: "Financial-Zucchini14"
 date: "2026-01-31T16:11:05.000Z"
 score: 37
-upvote_ratio: 0.87
+upvote_ratio: 0.86
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T18:45:41.301Z"
+extracted_at: "2026-05-19T17:57:09.042Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # Unsatisfactory Grade for leaving Co-op
@@ -30,14 +30,14 @@ I’m confused because my CPT was approved based on the job description in my of
 
 ## Comments
 
-- **MIshAmAshAa** (51↑): u should reach out to ogs, ur visa might get in trouble if u leave ur coop
+- **MIshAmAshAa** (50↑): u should reach out to ogs, ur visa might get in trouble if u leave ur coop
 - **Sure_Paramedic9557** (13↑): You could check if your manager is open to relieving you early. If they are, maybe ask them to email your co-op advisor stating that it’s not related to your performance, but due to other reasons.
 
 In my case, I had to end my co-op early because of work authorization issues. After my manager emailed Northeastern explaining the situation, they were understanding.
 
 Not sure if this will work in your case, but just sharing as a suggestion.
 - **napoleonswife** (39↑): Do you have trusted professors or other advisors you can talk to who can maybe advocate for you? This doesn’t sound right
-- **border-coffee** (10↑): Current MS student/double husky here who did co-op and ended up leaving a hostile workplace. 
+- **border-coffee** (12↑): Current MS student/double husky here who did co-op and ended up leaving a hostile workplace. 
 
 My question to you is: would you describe the situation as materially unsafe? As in, abusive supervision or a supervisor acting in a discriminatory manner? If this is the case, documenting specific instances, in writing and with timestamps, would be helpful. 
 

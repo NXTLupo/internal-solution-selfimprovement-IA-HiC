@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Strategy deck — seven archetypes</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+
+  /* Slide showcase canvas */
+  .deck-canvas {
+    padding: 32px 40px 64px;
+    background: var(--bg-canvas);
+  }
+  .deck-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+    align-items: start;
+  }
+  .deck-label {
+    position: sticky; top: 24px;
+    padding: 12px 0 0;
+  }
+  .deck-label .arc-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-subtle);
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+  }
+  .deck-label h2 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .deck-label p {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-muted);
+    margin: 0 0 12px;
+  }
+  .deck-label dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3px 12px;
+    font-size: 10px;
+    margin: 0;
+  }
+  .deck-label dt { color: var(--fg-subtle); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+  .deck-label dd { margin: 0; color: var(--fg-default); font-family: var(--font-mono); }
+
+  /* 16:9 slide */
+  .slide {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    padding: 48px 56px;
+    display: grid;
+    box-shadow: var(--shadow-xs);
+    font-size: 14px;
+  }
+  .slide__nu {
+    position: absolute;
+    bottom: 20px; left: 56px;
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-subtle);
+    font-weight: 600;
+  }
+  .slide__num {
+    position: absolute;
+    bottom: 20px; right: 56px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .slide-kicker {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--nu-red-600);
+    margin-bottom: 12px;
+  }
+  .slide-heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -.015em;
+    color: var(--fg-strong);
+    text-wrap: pretty;
+  }
+  .slide-heading .end {
+    color: var(--nu-red-600);
+    font-weight: 700;
+  }
+
+  /* === Archetype 1 — TITLE === */
+  .arc-title { grid-template-rows: 1fr auto; align-items: end; }
+  .arc-title__lower {
+    border-top: 1px solid var(--border-default);
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 32px;
+    align-items: end;
+  }
+  .arc-title__rule {
+    height: 1px;
+    background: var(--border-default);
+    margin: 8px 0 12px;
+  }
+  .arc-title h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 46px;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+    max-width: 18ch;
+  }
+  .arc-title h1 em { font-style: italic; color: var(--nu-red-700); font-weight: 400; }
+  .arc-title__sub {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--fg-muted);
+    font-family: var(--font-display);
+    font-weight: 300;
+    max-width: 48ch;
+  }
+  .arc-title__meta {
+    text-align: right;
+    font-size: 10px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .arc-title__meta b { color: var(--fg-default); font-family: var(--font-mono); display: block; font-weight: 500; }
+
+  /* === Archetype 2 — SECTION HEADER === */
+  .arc-section {
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+    align-items: center;
+    padding: 56px 64px;
+    overflow: hidden;
+  }
+  .arc-section .slide__nu, .arc-section .slide__num { color: rgba(255,255,255,.4); }
+  .arc-section .ghost {
+    position: absolute;
+    right: -40px; bottom: -90px;
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-style: italic;
+    font-size: 200px;
+    line-height: .85;
+    color: rgba(255,255,255,.04);
+    letter-spacing: -.04em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .arc-section__kicker {
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #B8B800;
+    margin-bottom: 16px;
+  }
+  .arc-section h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.1;
+    color: var(--white);
+    letter-spacing: -.015em;
+    max-width: 20ch;
+  }
+
+  /* === Archetype 3 — DATA PANEL === */
+  .arc-data {
+    grid-template-columns: 55fr 45fr;
+    gap: 36px;
+    padding: 44px 56px;
+  }
+  .arc-data__left h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -.005em;
+    color: var(--fg-strong);
+    margin-bottom: 18px;
+  }
+  .arc-data__left h2 .end { color: var(--nu-red-600); font-weight: 700; }
+  .arc-data__bullets { list-style: none; padding: 0; margin: 0; }
+  .arc-data__bullets li {
+    padding: 10px 0 10px 26px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--fg-default);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  .arc-data__bullets li:last-child { border-bottom: 0; }
+  .arc-data__bullets li::before {
+    content: ""; position: absolute; left: 0; top: 14px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: rgba(200,16,46,.1);
+  }
+  .arc-data__bullets li::after {
+    content: ""; position: absolute; left: 4px; top: 18px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--nu-red-600);
+  }
+  .arc-data__bullets li b { color: var(--fg-strong); font-weight: 500; }
+  .arc-data__right {
+    background: var(--slate-50);
+    border-left: 2px solid var(--border-default);
+    padding: 20px 24px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+  }
+  .arc-data__card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--nu-red-600);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .arc-data__card.alt2 { border-left-color: var(--special-solid); }
+  .arc-data__card.alt3 { border-left-color: var(--ink-800); }
+  .arc-data__card .lbl {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .arc-data__card .val {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+  }
+  .arc-data__card .val sup { font-family: var(--font-sans); font-size: 13px; font-weight: 400; color: var(--fg-muted); }
+  .arc-data__card .desc { font-size: 11px; color: var(--fg-muted); margin-top: 4px; line-height: 1.35; }
+
+  /* === Archetype 4 — INSIGHT CHART === */
+  .arc-chart {
+    grid-template-columns: 55fr 45fr;
+    gap: 36px;
+    padding: 44px 56px;
+  }
+  .arc-chart h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -.005em;
+    color: var(--fg-strong);
+    margin-bottom: 16px;
+  }
+  .arc-chart .annot {
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+  .arc-chart__chart {
+    display: flex; align-items: flex-end;
+    gap: 14px;
+    padding: 20px 0;
+    height: 320px;
+    border-bottom: 1px solid var(--border-default);
+    position: relative;
+  }
+  .arc-chart__bar {
+    flex: 1;
+    background: var(--slate-200);
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .arc-chart__bar.crit { background: var(--nu-red-600); }
+  .arc-chart__bar .v {
+    position: absolute;
+    top: -22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-default);
+    font-weight: 500;
+  }
+  .arc-chart__bar.crit .v { color: var(--nu-red-700); }
+  .arc-chart__bar .l {
+    position: absolute;
+    bottom: -22px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    white-space: nowrap;
+  }
+
+  /* === Archetype 5 — FULL-WIDTH VIZ === */
+  .arc-viz {
+    padding: 36px 48px 56px;
+  }
+  .arc-viz h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    margin-bottom: 18px;
+    max-width: 36ch;
+  }
+  .arc-viz__matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    position: relative;
+    height: 340px;
+  }
+  .arc-viz__matrix > div {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    position: relative;
+  }
+  .arc-viz__matrix > div:nth-child(2n) { border-right: 0; }
+  .arc-viz__matrix > div:nth-child(n+3) { border-bottom: 0; }
+  .arc-viz__matrix .lbl {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .arc-viz__matrix .peer {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--slate-100);
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    color: var(--fg-strong);
+    font-weight: 500;
+    margin: 2px;
+  }
+  .arc-viz__matrix .peer.nu { background: var(--nu-red-100); color: var(--nu-red-700); border: 1px solid var(--nu-red-600); }
+  .arc-viz__matrix .axis-x {
+    position: absolute;
+    bottom: -22px; left: 0; right: 0;
+    display: flex; justify-content: space-between;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    pointer-events: none;
+  }
+  .arc-viz__matrix .axis-y {
+    position: absolute;
+    left: -18px; top: 0; bottom: 0;
+    width: 16px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    transform: rotate(0);
+    pointer-events: none;
+  }
+  .arc-viz__matrix .axis-y span { writing-mode: vertical-rl; transform: rotate(180deg); }
+
+  /* === Archetype 6 — BENTO === */
+  .arc-bento {
+    padding: 36px 48px 56px;
+  }
+  .arc-bento h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    margin-bottom: 14px;
+  }
+  .arc-bento__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+    height: 320px;
+  }
+  .bento {
+    background: var(--slate-50);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 16px;
+    display: grid;
+    align-content: center;
+    gap: 6px;
+  }
+  .bento.stat .v {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+  }
+  .bento.stat .v sup { font-family: var(--font-sans); font-size: 15px; color: var(--fg-muted); }
+  .bento.stat .d { font-size: 11.5px; color: var(--fg-muted); line-height: 1.4; }
+  .bento.quote .q {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--fg-strong);
+  }
+  .bento.quote .a {
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    margin-top: 4px;
+  }
+  .bento.feature {
+    background: var(--ink-900);
+    color: var(--white);
+    align-content: end;
+    grid-row: span 2;
+  }
+  .bento.feature .lbl {
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--nu-red-100);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .bento.feature .h {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--white);
+  }
+  .bento.feature .p { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.7); margin-top: 8px; }
+
+  /* === Archetype 7 — PROBLEM / SOLUTION === */
+  .arc-ps {
+    grid-template-columns: 55fr 45fr;
+    gap: 36px;
+    padding: 44px 56px;
+    position: relative;
+  }
+  .arc-ps::before {
+    content: "";
+    position: absolute;
+    left: calc(55% + 2px);
+    top: 44px; bottom: 44px;
+    width: 1px;
+    background: var(--border-default);
+  }
+  .arc-ps__problem .lbl,
+  .arc-ps__solution .lbl {
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .arc-ps__problem .lbl { color: var(--nu-red-700); }
+  .arc-ps__solution .lbl { color: var(--progress-fg); }
+  .arc-ps__problem h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    margin-bottom: 16px;
+    max-width: 22ch;
+  }
+  .arc-ps__problem .stat {
+    border: 0; background: transparent; padding: 0;
+    margin-bottom: 16px;
+  }
+  .arc-ps__problem .stat .stat__value {
+    font-size: 60px;
+    font-weight: 200;
+  }
+  .arc-ps__problem p { font-size: 12.5px; line-height: 1.55; color: var(--fg-muted); margin: 0; }
+  .arc-ps__solution h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 14px;
+  }
+  .arc-ps__solution ol { list-style: none; counter-reset: ps; padding: 0; margin: 0; }
+  .arc-ps__solution li {
+    counter-increment: ps;
+    padding: 12px 0 12px 36px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--fg-default);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  .arc-ps__solution li:last-child { border-bottom: 0; }
+  .arc-ps__solution li::before {
+    content: "";
+    position: absolute; left: 0; top: 17px;
+    width: 28px; height: 2px;
+    background: var(--progress-solid);
+  }
+  .arc-ps__solution li b { display: block; font-weight: 500; color: var(--fg-strong); margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Strategy deck · 7 archetype showcase</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Strategy deck · Seven slide archetypes</div>
+    <h1 class="art-masthead__title">All seven slide archetypes on a single canvas — choose the layout the content demands, not the deck demands.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Archetypes</dt><dd>7 of 7</dd></div>
+    <div class="art-masthead__meta-block"><dt>Aspect</dt><dd>16 : 9 · 1920 × 1080</dd></div>
+    <div class="art-masthead__meta-block"><dt>Selection</dt><dd>by content type</dd></div>
+  </dl>
+</header>
+
+<div class="deck-canvas">
+
+  <!-- A1 · TITLE -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 01</div>
+      <h2>Title slide</h2>
+      <p>Cover for any presentation. Left-aligned title in the lower quadrant; section label above with thin rule between. Sentence-case finding in the deck-spanning sub.</p>
+      <dl>
+        <dt>When</dt><dd>First slide</dd>
+        <dt>Rule</dt><dd>No subtitle quote</dd>
+        <dt>Brand</dt><dd>Single accent</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-title">
+      <div></div>
+      <div class="arc-title__lower">
+        <div>
+          <div class="slide-kicker">Strategic synthesis · 2026 Q2</div>
+          <div class="arc-title__rule"></div>
+          <h1>Codifying the work <em>that already works</em>.</h1>
+          <p class="arc-title__sub">Three coherent moves convert informal habits — peer mentorship, officer prep, donor stewardship — into the operating system the campaign needs.</p>
+        </div>
+        <div class="arc-title__meta">
+          <b>HiC Research</b>
+          for Northeastern University<br/>
+          Advancement Leadership · 2026-04-22<br/>
+          v1.0 · 18-slide read-out
+        </div>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+    </section>
+  </div>
+
+  <!-- A2 · SECTION HEADER -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 02</div>
+      <h2>Section header</h2>
+      <p>Between major sections. Full dark background. Section label in chartreuse. Ghost typography fills the corner. No illustrations — typography is the visual.</p>
+      <dl>
+        <dt>When</dt><dd>Section breaks</dd>
+        <dt>Bg</dt><dd>Ink-900</dd>
+        <dt>Accent</dt><dd>Chartreuse #B8B800</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-section">
+      <span class="ghost">02</span>
+      <div>
+        <div class="arc-section__kicker">Section 02 · Diagnosis</div>
+        <h2>Two flywheels share a constituent. They don't share a backbone.</h2>
+      </div>
+      <div class="slide__num" style="color: rgba(255,255,255,.4);">04 / 18</div>
+    </section>
+  </div>
+
+  <!-- A3 · DATA PANEL -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 03</div>
+      <h2>Content + data panel</h2>
+      <p>The most-used archetype. 55 / 45 split: narrative on the left (max 3 ringed-dot bullets), 2–4 metric cards on the right with rotating accent colors.</p>
+      <dl>
+        <dt>When</dt><dd>Stats + narrative</dd>
+        <dt>Cards</dt><dd>2–4 metrics</dd>
+        <dt>Accents</dt><dd>red → indigo → ink</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-data">
+      <div class="arc-data__left">
+        <div class="slide-kicker">Diagnosis</div>
+        <h2>The handoff between placement and donor stewardship lags eleven days against a five-day peer benchmark<span class="end">.</span></h2>
+        <ul class="arc-data__bullets">
+          <li><b>Drexel</b> runs the loop in 5 days at half NU's placement volume.</li>
+          <li><b>Cincinnati</b> flags inactive students at day 5 and routes them to triage — NU fires an untargeted template at day 7.</li>
+          <li><b>Young-alumni giving</b> fell 12% while overall fundraising grew 3% — the aggregate hides the cliff.</li>
+        </ul>
+      </div>
+      <div class="arc-data__right">
+        <div class="arc-data__card">
+          <div class="lbl">Placement lag</div>
+          <div class="val">11 <sup>days</sup></div>
+          <div class="desc">vs. 5-day Drexel benchmark · CHUNK_006</div>
+        </div>
+        <div class="arc-data__card alt2">
+          <div class="lbl">Silence attrition</div>
+          <div class="val">38 <sup>%</sup></div>
+          <div class="desc">first-years stalled at day 14 · CHUNK_005</div>
+        </div>
+        <div class="arc-data__card alt3">
+          <div class="lbl">Young alumni</div>
+          <div class="val">−12 <sup>%</sup></div>
+          <div class="desc">vs. +3% on the aggregate · CHUNK_009</div>
+        </div>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+      <div class="slide__num">07 / 18</div>
+    </section>
+  </div>
+
+  <!-- A4 · INSIGHT CHART -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 04</div>
+      <h2>Insight chart</h2>
+      <p>One trend, one comparison, or one before/after. All bars #E8E8E8 except the critical data point — that one is brand red. No gridlines. One italic "so what" line below.</p>
+      <dl>
+        <dt>When</dt><dd>Trend or comparison</dd>
+        <dt>Rule</dt><dd>One red bar max</dd>
+        <dt>Note</dt><dd>One italic line</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-chart">
+      <div class="arc-chart__left">
+        <div class="slide-kicker">Peer benchmark</div>
+        <h2>Cincinnati flags applicants at day five. Northeastern fires a template at day seven and waits.</h2>
+        <p class="annot">A two-day detection delta compounds into a thirty-day intervention delta when the queue is unranked and the email is identical for every student.</p>
+        <p class="annot" style="margin-top: 18px; color: var(--fg-default); font-family: var(--font-sans); font-style: normal;"><b>So what:</b> the rate-limiter is the queue, not the model.</p>
+      </div>
+      <div class="arc-chart__right" style="display: flex; flex-direction: column; padding: 8px 0 0;">
+        <div class="arc-chart__chart">
+          <div class="arc-chart__bar" style="height: 38%;"><span class="v">5d</span><span class="l">Cincinnati</span></div>
+          <div class="arc-chart__bar" style="height: 50%;"><span class="v">6d</span><span class="l">Drexel</span></div>
+          <div class="arc-chart__bar" style="height: 50%;"><span class="v">6d</span><span class="l">Purdue</span></div>
+          <div class="arc-chart__bar" style="height: 62%;"><span class="v">8d</span><span class="l">Waterloo</span></div>
+          <div class="arc-chart__bar crit" style="height: 100%;"><span class="v">14d</span><span class="l">Northeastern</span></div>
+        </div>
+        <div style="font-size: 10px; color: var(--fg-muted); margin-top: 28px; letter-spacing: .04em;">Median days to first coordinator contact after a stalled signal · n=5 peer institutions, FY25 data</div>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+      <div class="slide__num">08 / 18</div>
+    </section>
+  </div>
+
+  <!-- A5 · FULL-WIDTH VIZ -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 05</div>
+      <h2>Full-bleed viz</h2>
+      <p>Dedicated comparison or matrix. No 55/45 split. Heading top-left, visualization fills remaining space. 2×2 matrix uses 1px crosshairs, axis labels on the edges.</p>
+      <dl>
+        <dt>When</dt><dd>Matrix, map, full dataset</dd>
+        <dt>Rule</dt><dd>One viz per slide</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-viz">
+      <div class="slide-kicker">Peer positioning</div>
+      <h2>Northeastern leads in placement scale; trails in advancement coupling.</h2>
+      <div class="arc-viz__matrix">
+        <span class="axis-y"><span>placement scale →</span></span>
+        <div>
+          <div class="lbl">High scale · low coupling</div>
+          <span class="peer nu">Northeastern</span>
+        </div>
+        <div>
+          <div class="lbl">High scale · high coupling</div>
+          <span class="peer">Waterloo</span>
+          <span class="peer">Cincinnati</span>
+        </div>
+        <div>
+          <div class="lbl">Low scale · low coupling</div>
+          <span class="peer">Georgia Tech</span>
+          <span class="peer">Purdue</span>
+        </div>
+        <div>
+          <div class="lbl">Low scale · high coupling</div>
+          <span class="peer">Drexel</span>
+        </div>
+        <span class="axis-x"><span>advancement coupling →</span><span></span></span>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+      <div class="slide__num">10 / 18</div>
+    </section>
+  </div>
+
+  <!-- A6 · BENTO -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 06</div>
+      <h2>Bento grid</h2>
+      <p>3–6 discrete findings, stats, or quotes. Cell sizes vary intentionally. Stats and quotes alternate — never put two stat cells adjacent.</p>
+      <dl>
+        <dt>When</dt><dd>3–6 mixed findings</dd>
+        <dt>Rule</dt><dd>No two stats touching</dd>
+        <dt>Feature</dt><dd>One ink cell</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-bento">
+      <div class="slide-kicker">Field signals</div>
+      <h2>What we heard, in six pieces of evidence.</h2>
+      <div class="arc-bento__grid">
+        <div class="bento feature">
+          <div class="lbl">Cross-doc theme · T-02</div>
+          <div class="h">Peer mentorship already operates — informally, after midnight, and outside the system.</div>
+          <p class="p">19 chunks · 6 sources · 5 verbatim. Codifying it is the lowest-cost lift in the portfolio.</p>
+        </div>
+        <div class="bento stat">
+          <div class="v">3.4 <sup>×</sup></div>
+          <div class="d">Rate first-years route to upperclassmen vs. coordinators</div>
+        </div>
+        <div class="bento quote">
+          <div class="q">"He'd already been through it — and he answered me on a Tuesday at midnight."</div>
+          <div class="a">A. Patel · first-year diary · STU-007</div>
+        </div>
+        <div class="bento quote">
+          <div class="q">"If you can't tell me what dies, the answer is no."</div>
+          <div class="a">D. Chen · VP Ops · VP-OPS-09</div>
+        </div>
+        <div class="bento stat">
+          <div class="v">$2.1 <sup>M</sup></div>
+          <div class="d">Annual spend in sunset candidates · funds the FY27 program</div>
+        </div>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+      <div class="slide__num">11 / 18</div>
+    </section>
+  </div>
+
+  <!-- A7 · PROBLEM / SOLUTION -->
+  <div class="deck-row">
+    <aside class="deck-label">
+      <div class="arc-num">Archetype 07</div>
+      <h2>Problem / solution</h2>
+      <p>55/45 split with a 1px vertical divider. Left names the problem with one hero stat; right gives 2–3 solution points with a short accent rule before each.</p>
+      <dl>
+        <dt>When</dt><dd>Pain + remedy</dd>
+        <dt>Left</dt><dd>Red label, one stat</dd>
+        <dt>Right</dt><dd>Cyan label, 2–3 pts</dd>
+      </dl>
+    </aside>
+    <section class="slide arc-ps">
+      <div class="arc-ps__problem">
+        <div class="lbl">Problem</div>
+        <h2>Coordinators discover the dropout after the cycle has closed.</h2>
+        <div class="stat">
+          <div class="stat__label" style="margin-bottom: 4px;">silence-attrition rate</div>
+          <div class="stat__value" style="font-size: 60px; color: var(--nu-red-700);">38<span class="u">%</span></div>
+        </div>
+        <p>A single untargeted template email fires on day 7 and is identical for a student with one open application and a student with seven. <sup class="cite">5</sup></p>
+      </div>
+      <div class="arc-ps__solution">
+        <div class="lbl">Solution</div>
+        <h3>Triage at day five, with an explain view.</h3>
+        <ol>
+          <li><b>Day-5 silence trigger</b> via Handshake webhook routes flagged students into a ranked coordinator queue.</li>
+          <li><b>Explain view per entry</b> shows the top three contributing signals in plain English. Trust before recommendation.</li>
+          <li><b>Personalized nudge</b> mentions the student's actual application count, not a template.</li>
+        </ol>
+      </div>
+      <div class="slide__nu">Northeastern · Advancement</div>
+      <div class="slide__num">13 / 18</div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Reading the deck · selection rules</div>
+    <ol style="columns: 1; max-width: 720px;">
+      <li><b>First slide?</b> → Title (01)</li>
+      <li><b>Section break?</b> → Section header (02)</li>
+      <li><b>Contains specific stats?</b> Trend / comparison → Insight chart (04). Otherwise → Data panel (03).</li>
+      <li><b>Contrasts pain with remedy?</b> → Problem/Solution (07)</li>
+      <li><b>3+ discrete findings or quotes?</b> → Bento (06)</li>
+      <li><b>Dedicated data / matrix slide?</b> → Full-bleed viz (05)</li>
+      <li><b>Default</b> → Data panel (03)</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">DECK · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>deck-narrative-composer</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -21,7 +21,7 @@
 
 import { listEngagementManifests, type EngagementManifest } from './wikiService';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 // =============================================================================
 // Result shapes
@@ -232,11 +232,36 @@ function parseThemeTerm(raw: any): ThemeTerm {
 }
 
 async function collectThemes(): Promise<LibraryThemeCluster[]> {
-    const files = await listWikiDir('synthesis');
-    const jsonFiles = files.filter(f => f.endsWith('.json') && f.includes('topics-tm_'));
+    // 2026-05-23 — P0.3: topic-cache files moved out of wiki/synthesis to
+    // sessions/_topic-cache/. Read from the new endpoint which falls through
+    // to the legacy location for any files not yet migrated.
+    let jsonFiles: string[] = [];
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/topic-cache/list`);
+        if (resp.ok) {
+            const data = await resp.json();
+            jsonFiles = (data.files || []).filter((f: string) => f.endsWith('.json'));
+        }
+    } catch {
+        // fallback: legacy synthesis dir
+        const files = await listWikiDir('synthesis');
+        jsonFiles = files.filter(f => f.endsWith('.json') && f.includes('topics-tm_'));
+    }
     const all: LibraryThemeCluster[] = [];
     for (const file of jsonFiles) {
-        const payload = await readWikiJson<any>(`synthesis/${file}`);
+        // Try the new endpoint first; fall through to legacy wiki path for files
+        // that haven't been migrated yet.
+        let payload: any = null;
+        try {
+            const resp = await fetch(`${PROXY_BASE}/api/topic-cache/read/${encodeURIComponent(file)}`);
+            if (resp.ok) {
+                const data = await resp.json();
+                try { payload = JSON.parse(data.content); } catch { /* fall through */ }
+            }
+        } catch { /* fall through */ }
+        if (!payload) {
+            payload = await readWikiJson<any>(`synthesis/${file}`);
+        }
         if (!payload) continue;
         const engagementGoal = payload.research_goal || '';
         const completedAt = payload.completed_at || '';
@@ -466,7 +491,18 @@ export async function getLibraryCounts(): Promise<WikiLibraryCounts> {
     ] = await Promise.all([
         // engagements (already aggregated by wikiService)
         collectEngagements(),
-        listWikiDir('synthesis').then(fs => fs.filter(f => f.endsWith('.json') && f.includes('topics-tm_'))),
+        // 2026-05-23 — P0.3: topic caches moved to sessions/_topic-cache. New
+        // /api/topic-cache/list endpoint reads both new and legacy locations.
+        (async () => {
+            try {
+                const resp = await fetch(`${PROXY_BASE}/api/topic-cache/list`);
+                if (resp.ok) {
+                    const data = await resp.json();
+                    return (data.files || []).filter((f: string) => f.endsWith('.json'));
+                }
+            } catch { /* fall through */ }
+            return (await listWikiDir('synthesis')).filter(f => f.endsWith('.json') && f.includes('topics-tm_'));
+        })(),
         listWikiDir('sources').then(fs => fs.filter(f => f.endsWith('.md'))),
         // FIXED 2026-05-14: these were calling listWikiDir which only returns
         // files; the data lives in SUBDIRECTORIES (reddit-deep/<sub>/,

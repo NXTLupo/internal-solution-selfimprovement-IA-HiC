@@ -125,3 +125,14 @@ temp/
 EOL < /dev/null
 # Archive folder
 archive/
+
+# 2026-05-26 — Exclude large generated artifacts from the self-improvement repo push
+# (GitHub rejects >100MB; these are regenerated at runtime, not source).
+**/synthesis/lint-*.md
+**/wiki/.vectors.db*
+**/wiki/*.vectors.db*
+*-backup-2026-*
+.playwright-mcp/
+**/journey_maps/journey_map_*.html
+**/sessions/_journey-html/*.html
+**/sessions/_journey-rollouts/*.json

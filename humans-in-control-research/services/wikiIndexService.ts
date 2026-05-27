@@ -18,7 +18,7 @@
  * breaking theme/persona/challenge/recommendation generation.
  */
 
-const PROXY = 'http://localhost:5012';
+const PROXY = 'http://127.0.0.1:5012';
 
 export interface WikiIndexEntry {
     id: string;              // url_hash (10-char blake2b)

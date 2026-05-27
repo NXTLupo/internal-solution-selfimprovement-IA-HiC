@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 11
 flair: "Housing & Dorms"
-extracted_at: "2026-05-12T15:03:54.700Z"
+extracted_at: "2026-05-20T06:39:39.934Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
 ---
 
 # NEU Oakland: single vs. random roommate (first-year)
@@ -36,7 +36,7 @@ Any help on this topic would be greatly appreciated!
 
 ## Comments
 
-- **Necessary_Finance436** (4↑): Me and a bunch of other people had a single in Oakland and I too was scared that I wouldn’t be able to make friends but it’s not true. GET THE SINGLE TRUST. Having a private room to yourself is suchhh a luxury that you will miss in Boston just put yourself out there in the first weeks of school and you will be fine :)
+- **Necessary_Finance436** (6↑): Me and a bunch of other people had a single in Oakland and I too was scared that I wouldn’t be able to make friends but it’s not true. GET THE SINGLE TRUST. Having a private room to yourself is suchhh a luxury that you will miss in Boston just put yourself out there in the first weeks of school and you will be fine :)
   - **Anithepig** (1↑): How hard would you say it is to get a single 😭
     - **Necessary_Finance436** (2↑): I was in Oakland in 2024 and it was really easy. In Warren most dorms are singles, and in the other dorms most were singles connected by a suite, sharing a bathroom. If you apply with a medical condition you will 100% get a single. Everyone that I knew who applied for a single got one!
   - **miathekoala** (1↑): Thank you for ur reply! This reassured me about having friends in a single lol

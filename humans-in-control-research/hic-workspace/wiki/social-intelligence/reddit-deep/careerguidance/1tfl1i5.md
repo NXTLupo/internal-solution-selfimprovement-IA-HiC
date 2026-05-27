@@ -1,0 +1,44 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1tfl1i5/how_to_change_career_path_after_working_as_a_tech/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "How to change career path after working as a tech consultant at B4 for 3 years ? Does MBA work or will it get me into management consulting role?"
+author: "Emmaaaa_02"
+date: "2026-05-17T09:50:44.000Z"
+score: 1
+upvote_ratio: 0.99
+num_comments: 2
+flair: "Advice"
+extracted_at: "2026-05-23T19:45:11.367Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# How to change career path after working as a tech consultant at B4 for 3 years ? Does MBA work or will it get me into management consulting role?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfl1i5/how_to_change_career_path_after_working_as_a_tech/)
+Posted by **Emmaaaa_02** · **1↑** · **2 comments**
+
+Hi there,  
+This is for MBA graduates who have worked as a tech consultant or were in the technical role post undergrad and did MBA. How have been doing post your MBA? Are you happy to quit what you had or do you miss the old tech role which gave you comfortable wfh ? 
+This que is also for the people who are introverts but still want to work to make their life better by taking challenges. 
+It's been 3 years I am working at B4 as a tech consultant. My ug degree was not into tech but I somehow managed to work here. Now I want to make a switch for growth but don't want to stay too technical. so I thought of doing MBA which might help me to land roles outside tech. But holding workex as a tech consultant there is a high chance that I will land up into mgt consultant role which I don't think I am going to do. How can I prepare my cv before joining mba to get into different roles ?
+[ not interested in marketing , finance , HR , consultant]
+Will really love to get suggestions from the experienced people!!
+
+## Comments
+
+- **LeadershipLegal5144** (2↑): been down a similar path and the mba definitely opens doors outside tech but you need to be strategic about positioning yourself
+
+  
+during the program focus on case competitions or projects in areas you actually want to pivot into. internships are crucial too - thats where you prove you can transfer skills beyond just "consultant with mba"
+
+  
+most career services teams are pretty good at helping with the cv restructuring. emphasize problem solving and client management over the technical bits. loads of people successfully pivot from tech consulting through mba programs
+
+  
+what sectors are you actually drawn to if not the usual suspects? operations roles at startups or product management might suit someone with your background
+- **thepandapear** (2↑): Personally I'd probs look into product management or operations roles within corporate tech companies since they value your big four background but won't force you to write code or do heavy consulting. An MBA is definitely a great tool for pivoting, but you have to be very deliberate with your summer internship to make sure you don't get sucked right back into a management consulting firm. On your resume right now, focus on rewriting your bullets to highlight your leadership, cross-functional teamwork, and project ownership rather than the technical tools you used. 
+
+If you're trying to figure out how to switch paths without landing right back in consulting, you should check out the GradSimple newsletter. They share real stories and interviews with grads who have navigated major career changes, left big firms, and figured out how to translate their skills into entirely new industries. It's a solid resource to flip through if you want some extra ideas for your resume and future moves.

@@ -53,12 +53,44 @@ CLAUDE_MAX_OUTPUT_TOKENS = 64000  # Maximum for Claude 4.5 Opus
 CLAUDE_MAX_DETAILED_ITEMS = 15    # Maximum number of detailed items to include in data
 
 class DynamicJourneyMapper:
-    def __init__(self, anthropic_model=None, debug_mode=True, use_rag=True):
+    def __init__(self, anthropic_model=None, debug_mode=True, use_rag=True, brand=None, artifact_type=None, render_mode=None, include_metrics=False):
         # Use environment variable or default to the Sonnet model
         self.anthropic_model = anthropic_model or os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
         self.debug_mode = debug_mode
         self.logger = logging.getLogger(__name__)
         self.use_rag = use_rag
+        # 2026-05-26 — Artifact type ('journey' | 'blueprint' | 'competitive' |
+        # 'tech-arch' | 'personas' | ...). The journey-mapper is now a UNIVERSAL
+        # branded artifact renderer: the shared brand + quality bar (stark white,
+        # WCAG contrast, no meta, no broken graphics, single header) applies to
+        # every artifact; only the STRUCTURE contract differs per type. See
+        # _artifact_contract(). Defaults to 'journey' for backward compat.
+        self.artifact_type = (artifact_type or "journey").lower()
+        # 2026-05-26 — Render mode ('document' | 'slides'). 'document' is the
+        # continuous single-page artifact (default). 'slides' lays the SAME
+        # content out as a full-viewport slide deck, one element per slide, with
+        # the same brand/quality bar (the user's #artifact #slides request).
+        # Set via the render_mode param; see _slide_layout_contract().
+        self.render_mode = (render_mode or "document").lower()
+        # 2026-05-26 — KPI/metrics dashboard is OPT-IN. Big-number stat tiles
+        # (e.g. "68%", "200:1", "4/60") read as fabricated and are suspect by
+        # default, even with a source label. Only include the dashboard when the
+        # user explicitly requests a metrics treatment. Numbers otherwise appear
+        # ONLY inside verbatim cited quotes.
+        self.include_metrics = bool(include_metrics) if not isinstance(include_metrics, str) else include_metrics.lower() in ("1", "true", "yes", "on")
+        # 2026-05-26 — Brand identity ('nu' | 'nxt' | None). When set, the
+        # generation prompt receives a hard BRAND STYLING block so the model
+        # produces an on-brand journey from the start (NU Huskies red +
+        # Roboto, or NXT teal/chartreuse + Archivo/Bebas) instead of
+        # inventing a generic blue palette that a post-hoc recolor can't
+        # fully fix. This is the single injection the user asked for.
+        self.brand = (brand or "").lower() if brand else None
+        # 2026-05-26 — Single-pass by default. The two-pass (draft → deepen)
+        # pipeline doubled latency (each pass is a full 64k-token generation).
+        # The reasoning models (Claude Sonnet/Opus, Gemini Pro) produce a
+        # complete, deep journey in ONE pass, so the second pass is now
+        # opt-in via JOURNEY_TWO_PASS=1. Default off cuts wall-clock ~50%.
+        self.two_pass = os.environ.get("JOURNEY_TWO_PASS", "0") == "1"
         
         # Create logs directory if it doesn't exist
         os.makedirs("logs", exist_ok=True)
@@ -182,7 +214,29 @@ class DynamicJourneyMapper:
             first_journey_insights = self._extract_journey_from_html(valid_html)
             print(f"   - Extracted {len(first_journey_insights.get('stages', []))} journey stages")
             print(f"   - Found {len(first_journey_insights.get('insights', []))} key insights")
-            
+
+            # 2026-05-26 — SINGLE-PASS short-circuit. The reasoning models
+            # produce a complete, deep journey in one pass; the second pass
+            # doubled latency for marginal gain. Return the first-pass result
+            # unless JOURNEY_TWO_PASS=1 is explicitly set.
+            if not self.two_pass:
+                journey_summary = self._extract_summary_from_html(valid_html)
+                print("✅ Single-pass complete (JOURNEY_TWO_PASS not set). Returning first-pass journey map.")
+                self._save_debug_info(debug_file, "Single-pass journey map complete", {
+                    'html_length': len(valid_html),
+                    'journey_type': journey_type,
+                    'model_used': self.anthropic_model,
+                    'brand': self.brand,
+                    'stages_count': len(first_journey_insights.get('stages', [])),
+                })
+                print(f"Final journey map contains {len(valid_html)} characters of HTML")
+                print(f"Journey analysis generated with {self.anthropic_model} (single-pass)")
+                return {
+                    'interactive_html': valid_html,
+                    'journey_summary': journey_summary,
+                    'timestamp': datetime.now().isoformat(),
+                }
+
             # Create a second-pass prompt for deeper analysis
             self.logger.debug("Creating second-pass prompt for deeper analysis...")
             print("📝 Step 8: Creating second-pass prompt for deeper journey analysis...")
@@ -501,15 +555,400 @@ class DynamicJourneyMapper:
         
         return insights
 
+    def _brand_style_block(self):
+        """2026-05-26 — Hard brand-token block injected into the generation
+        prompt. Returns '' when no brand is set (default modern aesthetic).
+        NU = Northeastern Huskies red; NXT = teal + chartreuse. Fonts loaded
+        via Google Fonts <link> in the <head> the model emits."""
+        if self.brand == "nu":
+            return """
+*** MANDATORY BRAND STYLING — NORTHEASTERN UNIVERSITY (NU), STARK-WHITE EDITORIAL ***
+This is a STARK WHITE editorial layout, NOT a dark dashboard. Do NOT invent a different
+palette. Do NOT use blue. Match the Northeastern artifact system exactly:
+
+SURFACES (this is the most important rule):
+- PAGE BACKGROUND: #FFFFFF (pure white). The dominant surface of the ENTIRE document is white.
+- SECTION/CARD SURFACE: #FFFFFF on a #F8FAFC (near-white) canvas. Cards are white with a thin #E2E8F0 (1px) border, NOT dark fills.
+- DARK BANDS ARE RARE: use the dark band (#0B1326) for AT MOST the top masthead strip and the bottom footer/source-index band. NEVER render the hero summary, the pain-points section, the opportunities section, or the phase cards as large dark panels. Those are WHITE sections with dark text.
+
+TEXT COLOR — CONTRAST IS NON-NEGOTIABLE (WCAG AA, 4.5:1 minimum):
+- BODY TEXT ON WHITE: #141D30 (near-black ink). This is the default for nearly all text.
+- HEADINGS ON WHITE: #0B1326.
+- MUTED/CAPTION ON WHITE: #475569 (still 4.5:1+ on white). NEVER lighter than #64748B on white.
+- ON ANY DARK BAND: every word is pure #FFFFFF or #F5F5F5. ABSOLUTELY FORBIDDEN: grey, ink, or dark-on-dark text on a dark band. The single worst failure is a dark hero where connecting words ("applies to", "waits", "for an offer") are dark grey and invisible. If a band is dark, 100% of its text including connective words is white.
+
+ACCENT:
+- Huskies Red #C8102E: focal numbers, the emotion line/curve, eyebrow labels, pull-quote rules, active markers, emphasis. Use red as INK on white, never as a giant red fill behind body text.
+- Pale red tint #FCEAEC only for small chips/badges, never large panels.
+
+FONTS:
+- DISPLAY / HEADINGS: 'Spectral', serif (300 weight for large display, 600 for emphasis).
+- BODY: 'Roboto', sans-serif (400-500).
+- MONO / LABELS: 'Roboto Mono', monospace, uppercase, 10-12px, letter-spacing 2px, color #C8102E for eyebrows.
+- Load in <head>: <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;600&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+NU LAYOUT CONTRACT (fixes known failure modes):
+- HEADER: lead DIRECTLY with the diagnostic action-title in Spectral on white, then one short standfirst paragraph in #141D30. NO eyebrow metadata strip, NO slash-separated mono-label row, NO duplicate summary band. A tiny plain "Northeastern" wordmark is optional; nothing else above the title.
+- NO EMOTION CURVE / NO GRAPHS: do NOT draw an emotion curve, stress line, sparkline, SVG arc, or any line/area chart. The emotional arc never renders usefully and is BANNED. Emotion appears only as a short text label inside each phase card.
+- ONLY ONE DARK ELEMENT: the single thin top masthead strip may be dark navy (#0B1326) with small white mono labels. EVERY OTHER SECTION is white/near-white with dark ink. Do NOT render the source index, the footer, the synthesis, or any large content band as a dark panel. The repeated failure is a dark source-index/footer band with dark ink text on it (invisible). FIX: the SOURCE INDEX is a WHITE section, dark ink (#141D30) body, red mono eyebrows; never dark-on-dark. If you ever do place text on a dark surface, 100% of that text including headings and body is pure #FFFFFF.
+- PAIN / OPPORTUNITY SYNTHESIS: white cards on white canvas, dark ink text, red eyebrow for pains and a dark-green (#276749) eyebrow for opportunities. NOT a dark section.
+- NO SELF-REFERENTIAL / META LANGUAGE: section headings and standfirsts describe the JOURNEY and its EVIDENCE, never the artifact itself. FORBIDDEN phrasings: "Every quote, every number, traceable", "This map traces", "This journey shows", "this analysis", "this report", or any sentence describing the document's own properties, traceability, or how it was generated. Name the source index "Source Index" with NO editorial tagline.
+- Generous whitespace, thin 1px #E2E8F0 dividers, 2-4px corners, no drop shadows.
+- NEVER emit em-dash characters (U+2014). Use comma, semicolon, period.
+"""
+        if self.brand == "nxt":
+            return """
+*** MANDATORY BRAND STYLING — NXT HUMANS (NXT), STARK-WHITE EDITORIAL ***
+This is a STARK WHITE editorial layout, NOT a dark dashboard. Do NOT invent a different
+palette. Do NOT use generic blue. Match the NXT artifact system exactly:
+
+SURFACES (the most important rule):
+- PAGE BACKGROUND: #FFFFFF (pure white). The dominant surface of the ENTIRE document is white.
+- SECTION/CARD SURFACE: #FFFFFF on a #F5F5F0 (near-white paper) canvas. Cards are white with a thin #E2E2DC (1px) border, NOT dark fills.
+- DARK BANDS ARE RARE: use the dark band (#0D0D0D) for AT MOST the top masthead strip and the bottom footer band. NEVER render the hero summary, the pain-points section, the opportunities section, the source index, or the phase cards as large dark panels. Those are WHITE sections with dark ink.
+
+TEXT COLOR, CONTRAST IS NON-NEGOTIABLE (WCAG AA, 4.5:1 minimum):
+- BODY TEXT ON WHITE: #0D0D0D (near-black). The default for nearly all text.
+- HEADINGS ON WHITE: Teal #115054 (display) or #0D0D0D.
+- MUTED/CAPTION ON WHITE: #4A4A44. NEVER lighter than #5A5A52 on white.
+- ON ANY DARK BAND: every word is pure #FFFFFF or #F5F5F5. ABSOLUTELY FORBIDDEN: teal, chartreuse, or dark ink as body text on a dark band; no dark-on-dark anywhere. If a band is dark, 100% of its text including connective words is white.
+
+ACCENT:
+- Teal #115054: section headings, primary emphasis, eyebrow rules.
+- Chartreuse #B8B800: focal numbers, active markers, emphasis ticks. Use as INK/accent on white, never as a large fill behind body text.
+- Cyan #00B7C3: links, data labels. Rust #CC6644: pain markers.
+- Pale tints only for small chips/badges, never large panels.
+
+FONTS:
+- DISPLAY / HEADINGS: 'Bebas Neue', sans-serif (large section titles, tracked).
+- BODY: 'Archivo', sans-serif (weights 200-900).
+- MONO / LABELS: 'JetBrains Mono', monospace, uppercase, 10-12px, letter-spacing 2px; eyebrow color Teal #115054.
+- Load in <head>: <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+NXT LAYOUT CONTRACT (fixes known failure modes):
+- HEADER: lead DIRECTLY with the diagnostic action-title in Bebas Neue on white, then one short standfirst paragraph in #0D0D0D. NO eyebrow metadata strip, NO slash-separated mono-label row, NO duplicate summary band. A tiny plain "NXT" or "Northeastern" wordmark is optional; nothing else above the title.
+- NO EMOTION CURVE / NO GRAPHS: do NOT draw an emotion curve, stress line, sparkline, SVG arc, or any line/area chart. The emotional arc never renders usefully and is BANNED. Emotion appears only as a short text label inside each phase card.
+- ONLY ONE DARK ELEMENT: the single thin top masthead strip may be dark (#0D0D0D) with small white mono labels. EVERY OTHER SECTION is white/near-white with dark ink. Do NOT render the source index, the footer, the synthesis, or any large content band as a dark panel. The repeated failure is a dark source-index/footer band with dark ink text on it (invisible). FIX: the SOURCE INDEX is a WHITE section, dark ink (#0D0D0D) body, teal mono eyebrows; never dark-on-dark.
+- PAIN / OPPORTUNITY SYNTHESIS: white cards on white canvas, dark ink text, rust (#CC6644) eyebrow for pains and teal (#115054) eyebrow for opportunities. NOT a dark section.
+- NO SELF-REFERENTIAL / META LANGUAGE: section headings and standfirsts describe the JOURNEY and its EVIDENCE, never the artifact itself. FORBIDDEN phrasings: "Every quote, every number, traceable", "This map traces", "This journey shows", "this analysis", "this report", or any sentence describing the document's own properties, traceability, or how it was generated. Name the source index "Source Index" with NO editorial tagline.
+- Sharp 2-4px corners, geometric, restrained, generous whitespace, thin 1px #E2E2DC dividers, no decorative shadows.
+- NEVER emit em-dash characters (U+2014). Use comma, semicolon, period.
+"""
+        return ""
+
+    def _writing_quality_contract(self):
+        """Shared writing-quality rules applied to EVERY artifact, regardless of
+        brand or type. Fixes the AI-slop the user flagged 2026-05-26: quant-
+        crammed action titles and self-referential preview standfirsts."""
+        if self.include_metrics:
+            metrics_policy = """
+*** METRICS POLICY: DASHBOARD REQUESTED (opt-in is ON) ***
+A metrics treatment was explicitly requested, so you MAY include a KPI/stat dashboard. Even so:
+every numeric tile must be a REAL figure that a named source stated, rendered with that source
+attribution on the tile (e.g. "11 weeks, Source: NU Student Survey 2025"). Never invent or compute
+a stat. Prefer 3-4 tiles. If a figure was not actually stated by a source, use a qualitative tile instead.
+"""
+        else:
+            metrics_policy = """
+*** METRICS POLICY: NO DASHBOARD (default) ***
+Do NOT create a KPI/stat dashboard or big-number tiles (e.g. "68%", "200:1", "4/60", "11 wks").
+Big hoisted numbers read as fabricated and are suspect, even with a source label. OMIT the metrics
+dashboard entirely. Quantitative facts appear ONLY inside verbatim cited quotes in the evidence
+sections, never as headline stat tiles. (A metrics dashboard is opt-in and was NOT requested here.)
+"""
+        return metrics_policy + """
+*** WRITING QUALITY CONTRACT (APPLIES TO ALL TEXT, NON-NEGOTIABLE) ***
+Write like a senior consultant briefing a partner: clear, concise, specific, no decoration.
+- ACTION TITLE: ONE plain declarative sentence stating the single most important conclusion (a
+  judgment), with NO standalone number in it. The Partner Test: a reader seeing only the title
+  grasps the finding without effort.
+  BAD (quant-crammed): "A 200:1 advising ratio is being patched by an LLM readiness layer in front of NUworks, where 60 applications return 4 responses."
+  BAD (naked number): "One advisor for every 200 students leaves first-years to navigate co-op alone."
+  GOOD (qualitative judgment): "One overstretched advisor cannot carry a first-year through the co-op search alone."
+
+*** QUANTITATIVE CLAIM RULE (CRITICAL, applies to ALL text) ***
+Do NOT state standalone quantitative claims (percentages, ratios, counts, dollar figures,
+durations-as-metrics, "Nx", "N%", "N-to-M") as YOUR OWN assertion anywhere: titles, headings,
+prose, KPI/metric tiles, pain or opportunity statements, captions, synthesis. A naked number
+reads as fabricated and is the worst AI-slop tell.
+- A number may appear ONLY inside a VERBATIM quote with inline source attribution. If a real
+  source said it, show it in that quote's context. Allowed: a pull quote "I applied to 60 co-ops
+  and heard back from 4." with "Source: Reddit r/NEU". FORBIDDEN: the same "60-to-4" as a title,
+  heading, KPI tile, or narrative sentence.
+- Default to QUALITATIVE language everywhere else: name the pattern (FRAGMENTED, PERSISTENT,
+  SCARCE, ONE-TO-MANY), the system, or the proper noun, never the statistic.
+- THIS INCLUDES NUMBERS BURIED IN SYNTHESIS / STANDFIRST PROSE, not just titles and tiles.
+  BAD (naked ratio in prose): "the system produces a 9am workshop, a thousand-posting feed, and a 200-to-1 advising ratio."
+  GOOD (qualitative): "the system produces a badly timed workshop, an unfilterable feed, and an advisor stretched across far too many students."
+  If a specific number matters, move it into a cited verbatim quote; do not assert it in your own sentence.
+- When a contract below says "with a number" or "KPI tiles with real numbers", OVERRIDE it: use a
+  qualitative descriptor, OR render the number only as a cited verbatim quote.
+- FINAL SELF-SCAN before emitting: re-read every sentence that is NOT inside a quotation-marked,
+  source-attributed quote. If it contains a digit, %, ratio (N:M or N-to-M), or $ figure, REWRITE
+  it qualitatively. Numbers survive ONLY inside cited quotes. This scan is mandatory.
+
+*** NO METADATA CHROME (CRITICAL) ***
+The reader sees a finished consulting artifact, never a build trace. Do NOT render ANY micro-metadata
+strip, eyebrow row, masthead field, or footer field that exposes the artifact's inputs, scoring, or
+internal structure counts. SPECIFICALLY FORBIDDEN anywhere in the document:
+- input/corpus filenames or labels: "CORPUS / hic-corpus.txt", "hic-corpus.txt", "Corpus:", "Input file:", "N = 1 CORPUS"
+- model-generated scores: "OVERALL RATING / 78%", "OVERALL SENTIMENT 78%", "Sentiment score", any rating/score
+- structure/evidence-count metadata: "PERSONA COUNT / 4 DISTINCT TYPES", "N DISTINCT TYPES", "PHASE COUNT", "STEP COUNT", "EVIDENCE BASE / 11 PARAGRAPHS", "5 EVIDENCE PARAGRAPHS", "N SOURCE CHANNELS", "WINDOW MONTHS 1, 7"
+- run/pipeline stamps: "Run ID", "Pipeline version", "Generated with <model>", confidence labels.
+
+*** NO EYEBROW METADATA STRIP ***
+Do NOT render the slash-separated mono-label "eyebrow" strip across the top (e.g.
+"NORTHEASTERN UNIVERSITY / EXPERIENCE RESEARCH | PERSONA SET / FIRST-YEAR CO-OP | N = 1 CORPUS / 5 EVIDENCE PARAGRAPHS").
+No one reads it and it reads as AI chrome. The document LEADS with the action title. A header, if any,
+is at most a small plain brand wordmark on its own; it carries NO slash-separated category labels, NO
+artifact-type tag, NO corpus/evidence counts. The named sources live ONLY in the SOURCE INDEX at the end.
+- STANDFIRST / INTRO PROSE: state a SUBSTANTIVE FINDING, never a table of contents. It must NOT
+  preview or describe the artifact's own structure or sourcing.
+  BANNED openers and phrases (and anything like them): "Below is...", "Here is...", "The following...",
+  "This map/blueprint/analysis/architecture...", "evidenced in the corpus", "from the corpus",
+  "drawn from the sources", "the sections below", "as shown", "this document".
+  ABSOLUTELY BANNED, self-referential sourcing language (the reader must NEVER see the model's
+  awareness of its own inputs): "the corpus suggests", "the corpus shows", "the corpus reveals",
+  "the corpus indicates", "what the corpus suggests", "the corpus already suggests", "the data
+  shows/suggests", "the research suggests", "the evidence suggests", "the findings show",
+  "the sources indicate", "according to the corpus/data/research", "based on the corpus".
+  Write the CLAIM directly. "What the corpus already suggests will work" becomes "What will work".
+  "The corpus shows churn is the core failure" becomes "Churn is the core failure".
+  If you catch yourself listing what the artifact contains or naming where a claim came from in
+  the body prose, delete that framing and state the finding plainly. (Inline source attribution on
+  a specific quote, e.g. "Source: Reddit r/NEU", is fine; sentence-level "the corpus suggests" is not.)
+- VERBS: use plain verbs. BANNED purple/copula-avoidance verbs: threads, weaves, knits, patches together,
+  serves as, stands as, marks, represents (a/the), embodies, leverages, harnesses, orchestrates, underpins.
+  Say "is/are/has" plainly. "The stack has four layers" not "The stack threads four layers".
+- Cut hedges, filler, and AI-slop (delve, robust, comprehensive, pivotal, seamless, holistic, tapestry,
+  landscape, navigate). Every sentence earns its place. Prefer the short word and the active voice.
+- NO EMOJI, ANYWHERE (HARD BAN). Never emit emoji or pictographic characters (faces, arrows-as-emoji,
+  checkmarks, stars, flags, hourglasses, warning signs, etc.) in any title, label, card, bullet, KPI,
+  emotion indicator, or body text. Use plain words and brand-color cues instead. This is absolute.
+"""
+
+    def _artifact_contract(self):
+        """Return the per-artifact STRUCTURE + richness contract for
+        self.artifact_type. The shared brand/quality bar lives in
+        _brand_style_block(); this defines what the artifact IS (its sections,
+        its required counts, its layout) so one renderer can produce a journey,
+        a service blueprint, a competitive matrix, etc. with equal depth."""
+        at = self.artifact_type
+
+        journey_contract = """
+*** COMBINED SINGLE-PASS DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This ONE pass replaces the legacy two-pass pipeline: you must do internally what the
+old generate-then-deepen flow did across two calls. A thin journey is a failure.
+
+STEP A (draft, internal): map the obvious journey from the data.
+STEP B (critique, internal): interrogate your own draft. Which stages did you miss or
+under-emphasize? Which pains are stated generically instead of with severity AND
+frequency? Which phases have a weak or missing voice-of-user quote? Where is the
+emotional read shallow? Fix all of it.
+STEP C (emit): output ONLY the improved journey as a single complete HTML document.
+Never show Step A or Step B; the reader sees only the deepened result.
+
+RICHNESS FLOORS, meet ALL of them:
+- PHASES: 4 to 6 phases. Each phase is a concrete behavioral event (e.g. "Application submission", "Interview cycle"), NEVER a gerund category.
+- ACTIVITIES PER PHASE: at least 3 specific activities per phase, each a complete sentence (subject + verb + outcome).
+- PAIN POINTS: at least 1 named pain per phase carrying BOTH severity (how much it hurts) and frequency (how often / how many it affects), anchored to a number, a system name, or a proper noun. No generic "poor UX". Aim for 6+ distinct pains across the journey.
+- EVIDENCE QUOTES, PLENTY PER PHASE: 2 to 3 VERBATIM voice-of-user quotes in EVERY phase, pulled word-for-word from the corpus, each with inline source attribution (e.g. "Source: Reddit r/NEU"). NEVER fabricate, paraphrase, or stitch a quote. If the corpus genuinely offers only one usable quote for a phase, use one; never drop below one when the corpus has material. Aim for 12+ verbatim quotes across the journey. Additionally, surface 1 PULL QUOTE per phase: the single most impactful line, rendered large and visually distinct.
+- TOUCHPOINTS: name the specific system/channel at each phase (e.g. "NUworks job board", "Career Center walk-in").
+- EMOTION (NO GRAPH): give one emotion word + a one-clause psychological reason per phase, rendered as a small inline label inside that phase's card. DO NOT plot an emotion/stress curve, line chart, sparkline, or SVG arc anywhere. The emotional arc as a graphic is BANNED; it never renders usefully. Emotion lives as text in the phase, nothing more.
+- KPI DASHBOARD: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested). If a number would be invented, use a qualitative display word (FRAGMENTED, MULTIPLE, PERSISTENT) instead.
+- OVERALL PAIN POINTS + STRATEGIC OPPORTUNITIES: 3-5 journey-level entries each (cross-cutting, not per-phase), each opportunity actionable and tied to a named pain.
+- ONE diagnostic action-title naming the central tension as a QUALITATIVE judgment (no standalone number in the title; any figure rides only in a cited body quote), optionally anchored to a named entity from the corpus.
+LAYOUT: use the full viewport width efficiently, avoid large empty bands, and keep the
+timeline horizontal so phases read left to right.
+Final self-check: if any floor is unmet, EXPAND before returning. Use close to the full token budget.
+"""
+
+        blueprint_contract = """
+*** SERVICE BLUEPRINT DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a SERVICE BLUEPRINT, NOT a timeline journey map. IGNORE any instruction below that
+mentions an emotion curve, a single emotion track, or a phase-by-phase emotional arc. A
+service blueprint is a LAYERED GRID: columns are sequential service steps, rows are the
+service layers stacked across the LINE OF VISIBILITY and the LINE OF INTERNAL INTERACTION.
+
+STEP A (draft, internal): lay out the service steps and the layer for each.
+STEP B (critique, internal): which backstage actions or support systems did you omit?
+Which cells are vague instead of naming a real actor, system, or number? Which fail points
+lack evidence? Fix all of it before emitting.
+STEP C (emit): output ONLY the improved blueprint as one complete HTML document.
+
+STRUCTURE (build as a CSS-GRID table, columns = steps, rows = layers; never SVG with
+absolute coordinates):
+- COLUMNS: 5 to 7 sequential SERVICE STEPS (concrete events, left to right).
+- ROW 1 PHYSICAL EVIDENCE / CHANNEL: the tangible touchpoint at each step (portal, email, office).
+- ROW 2 CUSTOMER ACTIONS: what the user does at each step (complete sentence).
+- ===== LINE OF VISIBILITY (render as a labelled divider rule) =====
+- ROW 3 FRONTSTAGE (visible staff / interface actions): who/what the user interacts with.
+- ===== LINE OF INTERNAL INTERACTION =====
+- ROW 4 BACKSTAGE (employee actions the user never sees).
+- ROW 5 SUPPORT PROCESSES / SYSTEMS: the systems and teams enabling each step (name them).
+RICHNESS FLOORS:
+- Every cell is concrete: a named actor, system, or number, never a generic verb.
+- FAIL POINTS: mark at least 4 fail points / bottlenecks on the grid (rust/red marker) with a one-line evidenced reason (severity + frequency).
+- EVIDENCE QUOTES: 4+ VERBATIM corpus quotes total with inline source attribution, placed against the step they evidence. Never fabricate.
+- METRICS: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested) (or a qualitative word if no number exists).
+- ONE diagnostic action-title naming the central service-delivery tension as a QUALITATIVE judgment (no standalone number in the title; any figure rides only in a cited body quote), optionally anchored to a named entity.
+- A short "where it breaks + what to fix" synthesis: 3-5 fail points paired with 3-5 redesign moves, each move tied by name to a fail point.
+Final self-check: if any layer or floor is empty, EXPAND before returning. Use close to the full token budget.
+"""
+
+        competitive_contract = """
+*** COMPETITIVE ANALYSIS DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a COMPETITIVE ANALYSIS, NOT a timeline journey. IGNORE any instruction about an
+emotion curve, phases, or an emotional arc. Build a COMPARISON MATRIX plus a positioning read.
+
+STEP A (draft, internal): identify the real players and the dimensions that decide the market.
+STEP B (critique, internal): which players or dimensions did you omit? Which cells are vague
+instead of an evidenced capability or gap? Where is the "so what" missing? Fix it.
+STEP C (emit): output ONLY the improved analysis as one complete HTML document.
+
+STRUCTURE (CSS-GRID matrix, never SVG with absolute coordinates):
+- COMPETITORS / ALTERNATIVES: 4 to 7 REAL named players drawn from the corpus (never invented).
+- EVALUATION DIMENSIONS: 4 to 6 dimensions that actually decide buyer choice (columns).
+- Each cell: a concrete, evidenced capability or gap (a feature, a number, a named limitation), never a generic "strong/weak".
+- Optionally encode each cell with a strength marker (leader / parity / gap) using brand-accent intensity, never red-vs-green only (accessibility).
+RICHNESS FLOORS:
+- POSITIONING READ: one paragraph naming where the subject WINS and where it LOSES, each tied to a dimension and evidence.
+- WHITE SPACE / OPPORTUNITY: 3-5 unmet needs no player serves well, each evidenced.
+- EVIDENCE QUOTES: 4+ VERBATIM corpus quotes with inline source attribution, placed against the claim they support. Never fabricate.
+- METRICS: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested) (or a qualitative word if none exists).
+- ONE diagnostic action-title naming the competitive tension as a QUALITATIVE judgment (no standalone number in the title; any figure rides only in a cited body quote), optionally anchored to a named entity or named rival.
+Final self-check: if the matrix is thin or the positioning read is generic, EXPAND before returning.
+"""
+
+        tech_arch_contract = """
+*** TECHNICAL ARCHITECTURE DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a TECHNICAL ARCHITECTURE, NOT a timeline journey. IGNORE any instruction about an
+emotion curve, phases, or an emotional arc. Build a LAYERED ARCHITECTURE as STACKED CSS-GRID
+BANDS, never an SVG node-graph with absolute coordinates (those collide and fail to render).
+
+STEP A (draft, internal): identify the layers and the real components in each.
+STEP B (critique, internal): which components, data flows, or integration points did you omit?
+Which boxes are generic instead of a named system? Where are the risks unstated? Fix it.
+STEP C (emit): output ONLY the improved architecture as one complete HTML document.
+
+STRUCTURE (stacked horizontal layer bands, top to bottom):
+- 4 to 6 LAYERS (e.g. Experience / Presentation, Application & Services, Data & Integration, Infrastructure & Platform, Security & Governance as a cross-cutting rail).
+- Each layer is a full-width band containing 3+ COMPONENT CARDS naming REAL systems/services from the corpus.
+- DATA FLOW: describe how data moves between ADJACENT layers in TEXT or with short labeled connectors that terminate at box edges (16px exclusion zone, no line crossing a box). Prefer top-to-bottom reading order over drawn arrows.
+RICHNESS FLOORS:
+- INTEGRATION POINTS: name 3-5 real integrations / interfaces between systems.
+- RISKS / CONSTRAINTS: 3-5 architectural risks or constraints, each evidenced (a bottleneck, a single point of failure, a scaling limit) with severity.
+- EVIDENCE QUOTES: 3+ VERBATIM corpus quotes with source attribution where the corpus supports a technical claim. Never fabricate.
+- METRICS: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested) (or a qualitative word).
+- ONE diagnostic action-title naming the central architectural tension as a QUALITATIVE judgment (no standalone number in the title; any figure rides only in a cited body quote), optionally anchored to a named entity or named system.
+Final self-check: if any layer is empty or components are generic, EXPAND before returning.
+"""
+
+        personas_contract = """
+*** PERSONAS DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a PERSONA SET, NOT a timeline journey. IGNORE any instruction about an emotion curve,
+phases, or a single emotional arc. Build a set of PERSONA CARDS.
+
+STEP A (draft, internal): identify the distinct user types the corpus actually evidences.
+STEP B (critique, internal): are these real distinct segments or one persona split in two?
+Which goals/pains are generic instead of evidenced? Are the quotes verbatim? Fix it.
+STEP C (emit): output ONLY the improved persona set as one complete HTML document.
+
+STRUCTURE (CSS-grid persona cards, one card per persona):
+- 2 to 4 PERSONAS, each a distinct, evidenced user type. Lead with GOALS, not demographics.
+- NO persona NUMBERING or index label ("PERSONA 01 /", "PERSONA 02 /", "Persona type: Primary"). Each card leads with its goals-first NAME only.
+- NO SEGMENT-SIZE STAT ("SEGMENT ~ 68% OF FIRST-YEARS", "SEGMENT = N%"). Segment-size percentages are fabricated metadata and are BANNED. Describe who the persona is in words, not a made-up share.
+- Each card carries: a goals-first name/label; CONTEXT (one sentence on situation); GOALS (2-3, what they are trying to achieve); BEHAVIORS (2-3 observed patterns); PAIN POINTS (2-3 named, with severity + frequency); NEEDS (2-3, what would unblock them).
+- PERSONA PHOTO SLOT (REQUIRED): at the TOP of each persona card, include a situational-photo figure that a downstream image generator will fill. Emit it EXACTLY in this shape, with NOTHING else inside the figure:
+  <figure class="persona-photo"><img class="persona-img" data-gen-prompt="DESCRIBE A SITUATIONAL SCENE OF THIS PERSONA IN THEIR REAL CONTEXT" alt="" src="" /></figure>
+  HARD RULES for the figure:
+  - The figure contains ONLY the <img>. Do NOT add a <figcaption>, a caption, a label, or ANY text.
+  - Do NOT add a CSS ::before or ::after with `content:` on .persona-photo (no "Situational portrait" placeholder label, no "PHOTO" text). NO words rendered over or under the image, ever.
+  - Leave src empty; the generator fills it. Leave alt empty.
+  Rules for the data-gen-prompt value: a single vivid sentence describing THIS archetype in a DISTINCTIVE moment of friction or action. CRITICAL, AVOID THE CLICHE: do NOT make every persona "a person staring at a laptop at a desk." VARY the setting and the action across the personas, for example: walking out of a crowded advising office looking deflated; standing at a career-fair table mid-conversation with a recruiter; checking a phone in a stairwell after a rejection; sketching notes on a whiteboard with peers; arriving late and flustered to a workshop already in progress; pacing a dorm hallway on a call. Each persona gets a DIFFERENT environment, posture, and activity. Photographic, candid, editorial, natural light. NO on-image text, NO logos, NO watermark, NO UI screenshots. Make the personas authentically diverse across age-appropriate first-year students of varied ethnicity and gender; avoid stereotypes.
+RICHNESS FLOORS:
+- VERBATIM QUOTES: each persona carries 2 to 3 VERBATIM voice-of-user quotes pulled word-for-word from the corpus with inline source attribution, plus ONE large PULL QUOTE that defines the persona. NEVER fabricate, paraphrase, or composite a quote. (This is the single most important persona rule.)
+- CROSS-PERSONA INSIGHT: one paragraph on what unites or divides the personas and the design implication.
+- METRICS: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested) (segment size, frequency) or a qualitative word if none exists.
+- ONE diagnostic action-title naming the central user tension as a QUALITATIVE judgment (no standalone number in the title; any figure rides only in a cited body quote), optionally anchored to a named entity.
+Final self-check: if a persona lacks verbatim quotes or reads generic, EXPAND or merge before returning.
+"""
+
+        contracts = {
+            "journey": journey_contract,
+            "blueprint": blueprint_contract,
+            "competitive": competitive_contract,
+            "tech-arch": tech_arch_contract,
+            "personas": personas_contract,
+        }
+        return contracts.get(at, journey_contract)
+
+    def _slide_layout_contract(self):
+        """When render_mode == 'slides', return a layout contract that turns the
+        SAME artifact content into a full-viewport slide deck (one element per
+        slide) instead of one continuous page. Empty string in document mode."""
+        if self.render_mode != "slides":
+            return ""
+        return """
+*** SLIDE DECK LAYOUT (OVERRIDES ANY CONTINUOUS-PAGE LAYOUT ABOVE) ***
+Render this artifact as a SLIDE DECK, not one scrolling page. OVERRIDE any earlier
+instruction about a single horizontal timeline or one continuous grid: present the SAME
+content (same depth, same quotes, same evidence floors) as a sequence of full-viewport
+slides, ONE element per slide.
+
+MECHANICS:
+- The <body> uses: height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; margin:0.
+- Each slide is <section class="slide"> with: min-height:100vh; width:100%; scroll-snap-align:start; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:6vh 7vw.
+- ONE idea per slide. Do NOT cram. Generous margins, large type (slide titles 36-56px, body 18-22px).
+- Include a tiny vanilla-JS handler: ArrowDown/ArrowRight/Space -> next slide, ArrowUp/ArrowLeft -> previous (scrollIntoView smooth). No external libraries.
+- Each slide carries a small slide number (e.g. 03 / 11) and a persistent thin brand footer rule.
+
+SLIDE SEQUENCE:
+  1. COVER slide: the diagnostic action-title (large display) and the persona/standfirst line. A tiny plain brand wordmark is optional; NO eyebrow metadata strip, NO corpus/evidence counts.
+  2. METRICS slide: the 3-4 KPI tiles, large.
+  3. ONE slide PER primary element (per phase for a journey; per service step OR per layer for a blueprint). Each carries that element's activities, named pains (severity + frequency), 2-3 VERBATIM quotes with source attribution, touchpoint, and (journey) the emotion label.
+  4. SYNTHESIS slide(s): cross-cutting pains paired by name with opportunities / redesign moves.
+  5. SOURCE INDEX slide: the named sources.
+- Every slide obeys the brand contract: stark-white surface, WCAG-AA contrast, NO dark-on-dark, NO emotion curve or chart, NO meta/self-referential language, NO em-dashes.
+"""
+
     def _create_prompt(self, title, description, journey_type, data, insights):
         """Create an enhanced prompt for Claude 4.5 that leverages extended thinking mode
         to generate more detailed and data-driven journey maps, without biasing with journey-specific elements.
         """
         # Simplify the data to reduce prompt size
         simplified_data = self._simplify_data_for_prompt(data)
-        
+        # 2026-05-26 — Brand styling block (empty string when no brand set).
+        brand_block = self._brand_style_block()
+        # 2026-05-26 — Per-artifact STRUCTURE contract. The journey-mapper is a
+        # universal renderer now; this dispatches to the right richness/structure
+        # floor for self.artifact_type (journey, blueprint, ...). The brand +
+        # quality bar (brand_block) is shared across all artifact types.
+        depth_contract = self._artifact_contract()
+        # 2026-05-26 — Shared writing-quality contract (clear/concise titles,
+        # no quant-cramming, no self-referential sourcing) applies to ALL artifacts.
+        depth_contract = self._writing_quality_contract() + "\n" + depth_contract
+        # 2026-05-26 — Source Index content rule: a CLEAN citation list, never the
+        # model's process notes about each source.
+        depth_contract = depth_contract + """
+*** SOURCE INDEX CONTENT RULE ***
+The source index is a clean citation list for the reader. Each entry = the SOURCE NAME
+(e.g. "Reddit r/NEU", "NU Student Survey 2025") plus a one-line FACTUAL description of what
+that source IS or what it reports. NOTHING ELSE. ABSOLUTELY FORBIDDEN in the source index:
+- internal corpus indices ("PARAGRAPH 3", "CHUNK_017", "Document 2")
+- sentiment readouts ("Sentiment, positive", "Sentiment: neutral")
+- cross-references to the artifact's own internals ("Anchors Persona 02", "Anchors Phase 04", "Used in Step 03")
+- role-in-document framing ("Source of the 6.7% figure", "Backs the matching claim")
+Good entry: "Reddit r/NEU. First-year students describing the co-op search and NUworks experience."
+"""
+        # 2026-05-26 — Slide-deck layout override (empty in document mode).
+        slide_contract = self._slide_layout_contract()
+        if slide_contract:
+            depth_contract = depth_contract + "\n" + slide_contract
+
         # Base prompt with explicit request for extended thinking
         prompt = f"""**INSTRUCTION**: You are an EXPERT JOURNEY MAPPING SPECIALIST with exceptional data analysis and visualization skills. I'm activating your extended thinking mode to thoroughly analyze this data and produce a superior journey map with deep insights. **IMPORTANT: TAKE YOUR TIME, BE EXTREMELY THOROUGH, USE ALL THE DATA PROVIDED, AND PRODUCE THE MOST DETAILED ANALYSIS POSSIBLE.**
+{depth_contract}
 
 CRITICAL INSTRUCTION: YOUR RESPONSE MUST BE A COMPLETE, INTERACTIVE HTML DOCUMENT WITH ALL TAGS INTACT. YOU MUST INCLUDE <!DOCTYPE html>, <html>, <head>, <style>, <body>, AND ALL CLOSING TAGS INCLUDING </body> AND </html>.
 
@@ -530,6 +969,7 @@ ESSENTIAL REQUIREMENTS:
 7. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
 8. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
 9. OPTIMIZE READABILITY - Use appropriate font sizes (minimum 16px for body text, 24px+ for headings)
+{brand_block}
 
 *** THINKING PROCESS ***
 First, I'll need you to:
@@ -562,7 +1002,7 @@ emotional states, pain points, and opportunities, but base ALL conclusions stric
 2. Break down the journey into key phases/stages with EVIDENCE from the data
 3. For each stage, visualize with SPECIFIC DATA POINTS:
    - Activities (quote specific evidence from data)
-   - Emotions (using emoji or colors, only if there's evidence in the data)
+   - Emotions (as a short text label and brand-color cue ONLY, never an emoji, and only if there's evidence in the data)
    - Pain points (show in red, with specific examples from the data)
    - Opportunities for improvement (based on data patterns)
 4. Include a detailed section at the top summarizing the key journey insights from the data analysis
@@ -580,6 +1020,8 @@ emotional states, pain points, and opportunities, but base ALL conclusions stric
 4. Citations should be in a consistent format (e.g., "Source: Interview #3" or "Source: Survey Response 12")
 5. Do not include quotes that don't exist in the source data - only use actual text from the provided data
 6. If you're summarizing data, clearly indicate when you're synthesizing multiple sources vs. direct quoting
+7. Put 2 to 3 verbatim quotes inside EVERY phase, and elevate the single most impactful line per phase as a large, visually distinct PULL QUOTE
+8. Quotes are the spine of the journey, not decoration: each phase's pains and emotions must be evidenced by its quotes
 
 TITLE: {title}
 DESCRIPTION: {description}
@@ -698,7 +1140,18 @@ Now, create the complete HTML document with all required elements and closing ta
         return retry_prompt
     
     def _call_anthropic_api(self, prompt, max_tokens=CLAUDE_MAX_OUTPUT_TOKENS):
-        """Call the Anthropic API with retry logic"""
+        """Call the LLM API with retry logic.
+
+        2026-05-26 — Renamed-in-place dispatcher. The function is still named
+        _call_anthropic_api so all 100+ existing call sites keep working, but
+        the body now routes to Gemini when self.anthropic_model starts with
+        'gemini-'. Gemini Flash returns a journey in ~5-30s vs Claude Sonnet's
+        10-15 min two-pass. Chat-driven HiC #journey requests pass
+        llm_model=gemini-3.5-flash; legacy upload UI keeps the Claude default.
+        """
+        model = self.anthropic_model or ""
+        if model.lower().startswith("gemini-"):
+            return self._call_gemini_api(prompt, max_tokens)
         try:
             # Log API request details
             self._save_debug_info(None, "API request details", {
@@ -707,12 +1160,12 @@ Now, create the complete HTML document with all required elements and closing ta
                 "max_tokens": max_tokens,
                 "prompt_length": len(prompt)
             })
-            
+
             print(f"\n🔍 API Call Details:")
             print(f"   - Model: {self.anthropic_model}")
             print(f"   - Max tokens requested: {max_tokens}")
             print(f"   - Prompt length: {len(prompt)} characters")
-            
+
             # Call Claude API with maximum tokens and reduced temperature for more detailed output
             response = claude_api_call(
                 prompt=prompt,
@@ -720,13 +1173,13 @@ Now, create the complete HTML document with all required elements and closing ta
                 max_tokens=max_tokens,
                 temperature=0.3  # Lower temperature for more detailed, comprehensive output
             )
-            
+
             # Extract HTML from response
             if isinstance(response, dict) and "content" in response:
                 html_content = response["content"][0]["text"]
             else:
                 html_content = response
-            
+
             # Ensure the HTML is complete with closing tags
             if "<!DOCTYPE html>" in html_content and "</html>" not in html_content:
                 self.logger.warning("HTML response missing closing tags, attempting to fix")
@@ -734,19 +1187,95 @@ Now, create the complete HTML document with all required elements and closing ta
                     html_content = f"{html_content}\n</body>\n</html>"
                 else:
                     html_content = f"{html_content}\n</body>\n</html>"
-            
+
             return html_content
-            
+
         except Exception as e:
             self.logger.error(f"Error calling Anthropic API: {str(e)}")
             raise
+
+    def _call_gemini_api(self, prompt, max_tokens=CLAUDE_MAX_OUTPUT_TOKENS):
+        """Call Google Gemini API for journey HTML generation.
+
+        2026-05-26 — Added so the journey-mapper service supports the same
+        two-pass pipeline with Gemini Flash. The model identity comes from
+        self.anthropic_model (route-misnamed; kept for backward-compat).
+        GEMINI_API_KEY must be in env (wired in docker-compose-all.yml).
+        """
+        try:
+            from google import genai as _genai
+        except Exception as imp_err:
+            self.logger.error(f"google-genai not installed: {imp_err}")
+            raise
+
+        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("API_KEY")
+        if not api_key:
+            raise RuntimeError("GEMINI_API_KEY missing in journey-mapper container env")
+
+        print(f"\n🔍 Gemini API Call Details:")
+        print(f"   - Model: {self.anthropic_model}")
+        print(f"   - Max tokens requested: {max_tokens}")
+        print(f"   - Prompt length: {len(prompt)} characters")
+
+        self._save_debug_info(None, "Gemini API request details", {
+            "model": self.anthropic_model,
+            "endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+            "max_tokens": max_tokens,
+            "prompt_length": len(prompt),
+        })
+
+        client = _genai.Client(api_key=api_key)
+        try:
+            response = client.models.generate_content(
+                model=self.anthropic_model,
+                contents=prompt,
+                config={
+                    "max_output_tokens": max_tokens,
+                    "temperature": 0.3,
+                },
+            )
+        except Exception as gen_err:
+            self.logger.error(f"Error calling Gemini API: {gen_err}")
+            raise
+
+        html_content = getattr(response, "text", None) or ""
+        if not html_content:
+            # SDK shape varies — fall through to candidates -> parts -> text
+            try:
+                cand = response.candidates[0]
+                parts = getattr(cand.content, "parts", []) or []
+                html_content = "".join(getattr(p, "text", "") for p in parts)
+            except Exception:
+                html_content = ""
+
+        if not html_content:
+            raise RuntimeError("Gemini returned empty response (no .text and no candidates parts)")
+
+        # Defensive HTML closing-tag fix — same logic as the Claude path so
+        # downstream validators see consistent output regardless of model.
+        if "<!DOCTYPE html>" in html_content and "</html>" not in html_content:
+            self.logger.warning("HTML response missing closing tags, attempting to fix")
+            if "</body>" not in html_content:
+                html_content = f"{html_content}\n</body>\n</html>"
+            else:
+                html_content = f"{html_content}\n</body>\n</html>"
+
+        print(f"   - Response length: {len(html_content)} characters")
+        return html_content
     
     def _validate_and_fix_html(self, html_content):
         """Validate and fix HTML content if needed"""
         if not html_content:
             self.logger.warning("Empty HTML content received")
             return None
-        
+
+        # Hard em-dash ban (repo-wide rule). The model is instructed not to emit
+        # U+2014, but em-dashes can still leak by being echoed from source-label
+        # text in the corpus. Strip them deterministically: a spaced em-dash
+        # becomes a comma, a tight one becomes a colon-ish separator.
+        if "—" in html_content:
+            html_content = re.sub(r"\s*—\s*", ", ", html_content)
+
         # Check for required HTML tags
         required_tags = ['<!DOCTYPE html>', '<html', '<head', '<body', '</body>', '</html>']
         missing_tags = [tag for tag in required_tags if tag not in html_content]
@@ -1753,8 +2282,13 @@ Now, create the complete HTML document with all required elements and closing ta
         
         # Summary section removed as requested
         
-        # Add model info footer
-        model_info_html = f"""
+        # Add model info footer — but NOT on the branded path. "Generated with
+        # <model> on <date>" is banned reporting-depth metadata in branded
+        # deliverables (it leaks the generation process to the reader). The
+        # legacy upload UI keeps it; the HiC branded path suppresses it.
+        model_info_html = ""
+        if not self.brand:
+            model_info_html = f"""
 <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 0.8em; color: #666;">
   Generated with <strong>{self.anthropic_model}</strong> on {datetime.now().strftime('%Y-%m-%d')}
 </div>
@@ -1929,6 +2463,9 @@ window.journeyMapId = '{journey_id}';
         """
         # Simplify the data to reduce prompt size
         simplified_data = self._simplify_data_for_prompt(data)
+        # 2026-05-26 — Carry brand styling into the second pass too, so the
+        # deepening pass doesn't revert to a generic palette.
+        brand_block = self._brand_style_block()
         
         # Get additional RAG context for second pass if enabled
         second_pass_rag_context = ""
@@ -1968,6 +2505,7 @@ ESSENTIAL REQUIREMENTS:
 7. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
 8. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
 9. OPTIMIZE READABILITY - Use appropriate font sizes (minimum 16px for body text, 24px+ for headings)
+{brand_block}
 6. UTILIZE SPACE EFFICIENTLY - Make better use of horizontal space, avoid excessive white space
 7. OPTIMIZE JOURNEY TIMELINE - Create a timeline that uses the available width effectively
 

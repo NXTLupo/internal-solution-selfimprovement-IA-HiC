@@ -1,0 +1,50 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: co-op, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: op, im, linkedin, cooked, interviews, op search, email
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+co-op search, is it game over idk if im overthinking but im so cooked like i had 3 interviews during finals season (so around 16 days ago) but i havent heard back yet. its my first co-op btw. i've done 60 applications so far (im trying to get a clinical/research co-op), and i've sent a thank you email and a follow up email but i havent heard back since. i just spammed applied to 8 rn like i frl am stressed. am i cooked like idk all my friends are on the spring cycle so they had less time to find their co-ops and i've been avoiding linkedin so i literally do not know if i still have that much t [...]
+
+EXAMPLE 2:
+How cooked am I for finding a co-op Ive applied to over 80 positions all mechE related and had 4 interviews but all turned me down. I literally dont know what to do. Most of the nuWorks jobs I dont qualify for because of my gpa so ive been going thru linkedIn and Indeed mostly. Mind you this isn't my first co-op search, like I completed a co-op last year so its not like i have no experience. The interviews are also going pretty well and I understand that there are def more qualified people out there, but I just want someone to give me a chance!!! So ya, i have what, like 2 moths left to find a [...]
+
+EXAMPLE 3:
+Catastrophic Co-op Search I have been having the most miserable and agonizing co-op search this semester guys. Over 100 applications as a COS undergrad. At this point in my search I have landed 0 interviews.
+
+EXAMPLE 4:
+I visit the Career Design Studio often, I've reworked my resume countless times, but I have 0 results or feedback to work off of. Just the occasional rejection email that coincidentally comes out the second I see one of my peers accept the job on linkedin. Every day it takes all of my strength to keep holding on and keep myself from quitting. It's so hard and I feel like I have no reason to keep going. I have a great GPA for COS, I have completed a co-op already, and I'm an interesting candidate if you ask me. [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

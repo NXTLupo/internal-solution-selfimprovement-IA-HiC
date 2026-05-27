@@ -1,5 +1,6 @@
 ---
 name: guard
+version: 1.0
 description: Add failure prevention layers to existing code or prompts. Builds guardrails that catch problems before they cause downstream failures.
 allowed-tools: Read, Grep, Glob, Bash, Edit
 argument-hint: [file-path]

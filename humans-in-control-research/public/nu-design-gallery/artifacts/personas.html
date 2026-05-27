@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Personas — Co-Op Prep &amp; Advancement Research</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .persona {
+    background: var(--bg-surface);
+    padding: 22px 24px;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 16px;
+  }
+  .persona__head {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 14px;
+    align-items: center;
+  }
+  .persona__name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.015em;
+    line-height: 1.05;
+  }
+  .persona__role {
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+  .persona__conf {
+    text-align: right;
+    font-size: 9.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .persona__conf b { color: var(--fg-default); font-weight: 600; }
+  .persona__quote {
+    background: var(--slate-50);
+    border-left: 2px solid var(--ink-800);
+    padding: 12px 14px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--fg-strong);
+  }
+  .persona__quote .src {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .persona__body {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 18px;
+    font-size: 12.5px;
+  }
+  .persona__block h4 {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
+    display: flex; justify-content: space-between;
+  }
+  .persona__block h4 .count {
+    font-family: var(--font-mono);
+    color: var(--fg-subtle);
+    font-weight: 400;
+  }
+  .goals dt {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .goals dd {
+    margin: 2px 0 8px 0;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--fg-strong);
+  }
+  .goals dd:last-child { margin-bottom: 0; }
+  .jtbd {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--fg-default);
+    padding: 10px 12px;
+    background: var(--slate-50);
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+  }
+  .jtbd b { color: var(--fg-strong); font-weight: 500; }
+  .points {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .points li {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-default);
+    padding-left: 14px;
+    position: relative;
+  }
+  .points li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 6px;
+    width: 6px; height: 1.5px;
+    background: var(--nu-red-600);
+  }
+  .points--opp li::before { background: var(--success-solid); }
+  .points li b { color: var(--fg-strong); font-weight: 500; }
+  .points li .q {
+    display: block;
+    margin-top: 3px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 11.5px;
+    color: var(--fg-muted);
+    line-height: 1.35;
+  }
+  .behaviors {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 11.5px;
+  }
+  .behaviors > div {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+  .behaviors > div:last-child { border-bottom: 0; }
+  .behaviors b { color: var(--fg-strong); font-weight: 500; font-size: 11px; }
+  .behaviors span { color: var(--fg-muted); }
+  .pain-attr {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  /* Summary strip */
+  .roster-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 24px;
+  }
+  /* Persona stripe bar at top */
+  .persona__stripe {
+    grid-column: 1 / -1;
+    height: 2px;
+    margin: -22px -24px 0 -24px;
+    background: var(--slate-200);
+  }
+  .persona__stripe--major { background: var(--nu-red-600); }
+  .persona__stripe--leadership { background: var(--ink-800); }
+  .persona__stripe--coordinator { background: var(--special-solid); }
+  .persona__stripe--student { background: var(--success-solid); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Discovery research · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Personas · Discovery synthesis</div>
+    <h1 class="art-masthead__title" style="width: 500px">Four archetypes shape how a Co-Op Prep tool earns adoption — across staff, students, and donor-connected stakeholders.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Corpus</dt><dd>248 chunks</dd></div>
+    <div class="art-masthead__meta-block"><dt>Sources</dt><dd>32 external · 11 internal</dd></div>
+    <div class="art-masthead__meta-block"><dt>Confidence</dt><dd>3 of 4 evidenced</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- Roster summary strip -->
+  <div class="stat-strip roster-strip">
+    <div class="stat">
+      <div class="stat__label">Primary personas</div>
+      <div class="stat__value">4 <span class="u">of 8 candidates</span></div>
+      <div class="stat__delta">filtered by 0.10 probability + ≥2 evidence anchors</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Cooper goal coverage</div>
+      <div class="stat__value">100<span class="u">%</span></div>
+      <div class="stat__delta stat__delta--up">life / experience / functional split</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Verbatim quotes</div>
+      <div class="stat__value">17</div>
+      <div class="stat__delta">attributed · 14 external sources</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Pain points evidenced</div>
+      <div class="stat__value">26<span class="u"> / 26</span></div>
+      <div class="stat__delta">every pain point cites a chunk</div>
+    </div>
+  </div>
+
+  <div class="persona-grid">
+
+    <!-- PERSONA 1 -->
+    <article class="persona">
+      <div class="persona__stripe persona__stripe--major"></div>
+      <header class="persona__head">
+        <div class="avatar avatar--lg avatar--brand">MR</div>
+        <div>
+          <div class="persona__name">Maya Rodríguez</div>
+          <div class="persona__role">Major Gift Officer · 7 yrs · Boston region</div>
+        </div>
+        <div class="persona__conf">
+          <b>EVIDENCED</b><br/>9 sources · 4 verbatim
+        </div>
+      </header>
+      <blockquote class="persona__quote">
+        I can spend forty minutes preparing for a single 9 a.m. coffee — pulling giving history out of Raiser's Edge, capacity from iWave, and student-affinity notes from a sticky on my desk.
+        <span class="src"><b>Maya R.</b> · in-context interview, 2026-02-14 · transcript MGO-04 <sup class="cite" data-verbatim="true">v</sup></span>
+      </blockquote>
+
+      <div class="persona__body">
+        <div>
+          <div class="persona__block">
+            <h4>Cooper goal hierarchy <span class="count">3 / 3</span></h4>
+            <dl class="goals">
+              <dt>Life</dt><dd>Build relationships that survive job changes — donors who trust her, not the title.</dd>
+              <dt>Experience</dt><dd>Walk into every meeting feeling like the most-prepared person in the room.</dd>
+              <dt>Functional</dt><dd>Cut meeting prep from 40 minutes to under 10 without sacrificing nuance.</dd>
+            </dl>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>JTBD</h4>
+            <p class="jtbd">When I'm <b>preparing for a donor meeting</b>, I want <b>a single consolidated brief on capacity, history, and student affinity</b>, so I can <b>open with the right ask the first time</b>.</p>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Behaviors <span class="count">first 3 are behavioral, not demographic</span></h4>
+            <div class="behaviors">
+              <div><b>Pre-meeting ritual</b><span>40-min cross-referencing across 3 systems before each visit <sup class="cite">1</sup></span></div>
+              <div><b>Pipeline cadence</b><span>34 active prospects · re-touches every 18 days on average</span></div>
+              <div><b>Trust signal</b><span>Verifies any new data point against a second source before using it</span></div>
+              <div><b>Tool stack</b><span>Raiser's Edge NXT · iWave · Outlook · paper notes</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="persona__block">
+            <h4>Pain points <span class="count">3 of 4</span></h4>
+            <ul class="points">
+              <li>
+                <b>Fragmented constituent data</b> across 15+ departmental systems forces manual cross-referencing.
+                <span class="q">"By the time I've stitched it together, the meeting's tomorrow." <sup class="cite">1</sup> <sup class="cite">3</sup></span>
+              </li>
+              <li>
+                <b>No visibility into student-side affinity</b> — when a donor's nephew is on co-op at the firm she's calling, she finds out after.
+                <span class="q">"I missed an obvious bridge because the data lives in a different office." <sup class="cite">5</sup></span>
+              </li>
+              <li>
+                <b>AI scoring opacity</b> — gift officers don't trust prospect scores they can't interrogate.
+                <span class="q">"Tell me why this prospect is a 91, or I'll keep using my gut." <sup class="cite">2</sup></span>
+              </li>
+            </ul>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Motivations &amp; opportunities <span class="count">2 / 3</span></h4>
+            <ul class="points points--opp">
+              <li>
+                <b>Recognition tied to portfolio outcomes</b>, not activity counts — wants attribution for stewardship moves, not just closings. <sup class="cite">4</sup>
+              </li>
+              <li>
+                <b>Peer benchmarking</b> against the other 28 gift officers in the unit — cohort-anonymous, but real. <sup class="cite">6</sup>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 2 -->
+    <article class="persona">
+      <div class="persona__stripe persona__stripe--leadership"></div>
+      <header class="persona__head">
+        <div class="avatar avatar--lg avatar--slate">DC</div>
+        <div>
+          <div class="persona__name">David Chen</div>
+          <div class="persona__role">VP, Advancement Operations · 14 yrs · senior leadership</div>
+        </div>
+        <div class="persona__conf">
+          <b>EVIDENCED</b><br/>11 sources · 3 verbatim
+        </div>
+      </header>
+      <blockquote class="persona__quote">
+        I don't need another dashboard. I need to know which three things, this quarter, will move the campaign needle — and which two we've been doing out of habit.
+        <span class="src"><b>D. Chen</b> · advisory board read-out, 2026-01-22 · memo VP-OPS-09 <sup class="cite" data-verbatim="true">v</sup></span>
+      </blockquote>
+
+      <div class="persona__body">
+        <div>
+          <div class="persona__block">
+            <h4>Cooper goal hierarchy <span class="count">3 / 3</span></h4>
+            <dl class="goals">
+              <dt>Life</dt><dd>Leave the advancement function structurally stronger than he found it.</dd>
+              <dt>Experience</dt><dd>Trust the operating cadence — fewer surprises in board meetings.</dd>
+              <dt>Functional</dt><dd>Hit the $1.6B campaign target two quarters ahead of plan.</dd>
+            </dl>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>JTBD</h4>
+            <p class="jtbd">When I'm <b>planning quarterly priorities</b>, I want <b>three high-confidence levers ranked by expected gift uplift</b>, so I can <b>concentrate gift officer capacity where it pays</b>.</p>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Behaviors</h4>
+            <div class="behaviors">
+              <div><b>Decision cadence</b><span>Bi-weekly portfolio reviews · monthly board-level signal scan</span></div>
+              <div><b>Data trust threshold</b><span>Won't quote a number that hasn't been counter-checked by ops</span></div>
+              <div><b>Cross-unit relationships</b><span>Reports to President · partners with Provost on student-success</span></div>
+              <div><b>Reads</b><span>CASE · Higher Ed Dive · The Chronicle of Philanthropy · Inside Higher Ed</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="persona__block">
+            <h4>Pain points</h4>
+            <ul class="points">
+              <li>
+                <b>Generational giving cliff</b> — young alumni giving declined 12% while overall fundraising grew 3%. <sup class="cite">7</sup>
+              </li>
+              <li>
+                <b>Tooling sprawl</b> — 14 platforms across the division, 3 with overlapping CRM features.
+                <span class="q">"We have two donor portals and neither one is the system of record." <sup class="cite">8</sup></span>
+              </li>
+              <li>
+                <b>No clear handoff</b> between student-success signals and donor-relationship moves.
+              </li>
+            </ul>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Motivations &amp; opportunities</h4>
+            <ul class="points points--opp">
+              <li><b>Re-allocate, don't add</b> — fund this work from sunset tooling, not new budget. <sup class="cite">8</sup></li>
+              <li><b>Capacity-first metrics</b> — measure gift officer time recovered, not seats deployed.</li>
+              <li><b>Codify what already works</b> — peer-mentor handoffs the Boston region invented without a system.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 3 -->
+    <article class="persona">
+      <div class="persona__stripe persona__stripe--coordinator"></div>
+      <header class="persona__head">
+        <div class="avatar avatar--lg avatar--special">JL</div>
+        <div>
+          <div class="persona__name">Jordan Liu</div>
+          <div class="persona__role">Co-Op Coordinator · 4 yrs · Khoury College</div>
+        </div>
+        <div class="persona__conf">
+          <b>PARTIALLY EVIDENCED</b><br/>5 sources · 2 verbatim
+        </div>
+      </header>
+      <blockquote class="persona__quote">
+        First-years come in believing the system will assign them a co-op. I spend September walking them back from that assumption — and they still apply to four roles total.
+        <span class="src"><b>J. Liu</b> · cohort retrospective, 2025-12-09 · field-note COORD-12 <sup class="cite" data-verbatim="true">v</sup></span>
+      </blockquote>
+
+      <div class="persona__body">
+        <div>
+          <div class="persona__block">
+            <h4>Cooper goal hierarchy</h4>
+            <dl class="goals">
+              <dt>Life</dt><dd>Be the reason a student ended up in the right role for them, not just any role.</dd>
+              <dt>Experience</dt><dd>Stop spending office hours on the same five logistical questions.</dd>
+              <dt>Functional</dt><dd>Move every advisee from "applying to 4" to "applying to 12+" in first cycle.</dd>
+            </dl>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>JTBD</h4>
+            <p class="jtbd">When a <b>first-year is preparing for their first co-op cycle</b>, I want <b>a triage view of who's on pace and who isn't</b>, so I can <b>spend my hours on the students who need me</b>.</p>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Behaviors</h4>
+            <div class="behaviors">
+              <div><b>Caseload</b><span>180 active advisees · sees 22 each week on average</span></div>
+              <div><b>Triage signal</b><span>Reviews application count + last contact every Friday</span></div>
+              <div><b>Templates</b><span>Maintains 12 personal resume / cover templates outside the system</span></div>
+              <div><b>Tool stack</b><span>Handshake · Outlook · Google Sheets · Slack DMs</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="persona__block">
+            <h4>Pain points</h4>
+            <ul class="points">
+              <li>
+                <b>No early-warning view</b> for students who've stalled in the application funnel.
+                <span class="q">"I find out a student didn't apply when the cycle's already closed." <sup class="cite">9</sup></span>
+              </li>
+              <li>
+                <b>Resume feedback bottleneck</b> — 180 first drafts hit her inbox in a single week each fall. <sup class="cite">10</sup>
+              </li>
+              <li>
+                <b>Privacy guardrails are unclear</b> when a donor's office calls about a specific student. <sup class="cite">11</sup>
+              </li>
+            </ul>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Motivations &amp; opportunities</h4>
+            <ul class="points points--opp">
+              <li><b>Peer-mentor scaffolding</b> — first-years already trust juniors more than coordinators. <sup class="cite">12</sup></li>
+              <li><b>AI as triage, not authorship</b> — wants help ranking who needs her, not writing resumes for them.</li>
+              <li><b>Outcome attribution</b> — a way to show that her advisees' placement velocity tracks her interventions.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 4 -->
+    <article class="persona">
+      <div class="persona__stripe persona__stripe--student"></div>
+      <header class="persona__head">
+        <div class="avatar avatar--lg" style="background: linear-gradient(135deg, var(--success-fg), var(--success-solid));">AP</div>
+        <div>
+          <div class="persona__name">Aisha Patel</div>
+          <div class="persona__role">First-year, Behavioral Neuroscience · age 18</div>
+        </div>
+        <div class="persona__conf">
+          <b>EVIDENCED</b><br/>7 sources · 5 verbatim
+        </div>
+      </header>
+      <blockquote class="persona__quote">
+        I asked an upperclassman in my dorm what to do before I asked my coordinator. He'd already been through it — and he answered me on a Tuesday at midnight.
+        <span class="src"><b>A. Patel</b> · diary study, week 4 of 8, 2026-03-11 · STU-007 <sup class="cite" data-verbatim="true">v</sup></span>
+      </blockquote>
+
+      <div class="persona__body">
+        <div>
+          <div class="persona__block">
+            <h4>Cooper goal hierarchy</h4>
+            <dl class="goals">
+              <dt>Life</dt><dd>Become the version of herself that has options — not the one who only had one.</dd>
+              <dt>Experience</dt><dd>Feel like she's part of a cohort, not staring at a system alone.</dd>
+              <dt>Functional</dt><dd>Land a research-lab co-op by end of sophomore spring.</dd>
+            </dl>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>JTBD</h4>
+            <p class="jtbd">When I'm <b>figuring out what to do this semester to be ready for co-op</b>, I want <b>a step-by-step plan and someone who's already done it</b>, so I can <b>stop guessing what counts</b>.</p>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Behaviors</h4>
+            <div class="behaviors">
+              <div><b>Information source</b><span>Reddit r/Northeastern · upperclassmen DMs · official channels third</span></div>
+              <div><b>Engagement window</b><span>9 p.m.–1 a.m. is when the prep work actually happens</span></div>
+              <div><b>Anxiety driver</b><span>Doesn't know what "on pace" looks like vs. peers</span></div>
+              <div><b>Trust hierarchy</b><span>Peer &gt; coordinator &gt; centralized portal</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="persona__block">
+            <h4>Pain points</h4>
+            <ul class="points">
+              <li>
+                <b>No baseline for what "on track" means</b> — pace is invisible until it's too late. <sup class="cite">13</sup>
+              </li>
+              <li>
+                <b>Generic advice from the system</b> can't tell her whether her major requires a different cycle.
+                <span class="q">"The dashboard told me to update my resume — I don't have one yet." <sup class="cite">14</sup></span>
+              </li>
+              <li>
+                <b>Discoverability</b> — three campus resources exist for the question she's asking and she's used none. <sup class="cite">15</sup>
+              </li>
+            </ul>
+          </div>
+          <div class="persona__block art-mt-4">
+            <h4>Motivations &amp; opportunities</h4>
+            <ul class="points points--opp">
+              <li><b>Formalize peer mentorship</b> — the trust is already there, the system isn't. <sup class="cite">12</sup></li>
+              <li><b>Pace dashboard</b> — anonymized cohort-percentile so she knows where she stands. <sup class="cite">16</sup></li>
+              <li><b>Mobile-first</b> — every prep moment happens on a phone in a dorm. <sup class="cite">15</sup></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Phase-A candidate roster — the model's broader sample, for traceability -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Phase A · candidate roster <span style="font-family:var(--font-mono); font-size:11px; color: var(--fg-muted); font-weight:400; letter-spacing:.04em; margin-left: 8px;">8 considered → 4 shipped</span></h2>
+      <span class="art-section__counter">verbalized-sampling output, filtered by 0.10 probability + ≥2 evidence anchors</span>
+    </div>
+    <table class="dtable dtable--compact">
+      <thead>
+        <tr>
+          <th style="width: 26%;">Candidate archetype</th>
+          <th>Frame</th>
+          <th class="num">p</th>
+          <th class="num">Anchors</th>
+          <th>Differentiator</th>
+          <th>Disposition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="lead">Major Gift Officer (front-line)</td><td><span class="pill pill--outline">mainstream</span></td><td class="num">0.92</td><td class="num">11</td><td>Closes the loop between donor-side data and student-side affinity.</td><td><span class="pill pill--success">shipped · #1</span></td></tr>
+        <tr><td class="lead">VP, Advancement Operations</td><td><span class="pill pill--outline">mainstream</span></td><td class="num">0.88</td><td class="num">9</td><td>Allocator of officer capacity across the campaign portfolio.</td><td><span class="pill pill--success">shipped · #2</span></td></tr>
+        <tr><td class="lead">Co-Op Coordinator</td><td><span class="pill pill--outline">underserved</span></td><td class="num">0.81</td><td class="num">7</td><td>Bridges student outcomes to advancement narratives via co-op stories.</td><td><span class="pill pill--success">shipped · #3</span></td></tr>
+        <tr><td class="lead">First-year student (research-oriented major)</td><td><span class="pill pill--outline">non-obvious</span></td><td class="num">0.74</td><td class="num">6</td><td>Primary trust signal is upperclassman, not coordinator.</td><td><span class="pill pill--success">shipped · #4</span></td></tr>
+        <tr><td>Annual Giving Manager</td><td><span class="pill pill--outline">mainstream</span></td><td class="num">0.69</td><td class="num">4</td><td>Lower probability of being decisional in v1 scope.</td><td><span class="pill">held · v2</span></td></tr>
+        <tr><td>Co-Op Employer Partner</td><td><span class="pill pill--outline">edge case</span></td><td class="num">0.58</td><td class="num">3</td><td>External actor; out of scope for internal v1 surface.</td><td><span class="pill">held · v2</span></td></tr>
+        <tr><td>Parent of First-year</td><td><span class="pill pill--outline">contrarian</span></td><td class="num">0.41</td><td class="num">2</td><td>Influencer not user; covered indirectly through student persona.</td><td><span class="pill pill--outline">deferred</span></td></tr>
+        <tr><td>President's Council Donor</td><td><span class="pill pill--outline">edge case</span></td><td class="num">0.22</td><td class="num">1</td><td>One evidence anchor; below 0.10 probability floor for inclusion.</td><td><span class="pill pill--error">dropped</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Sources cited inline</div>
+    <ol>
+      <li><b>MGO-04 transcript</b> · in-context interview, M. Rodríguez, 2026-02-14 (verbatim)</li>
+      <li><b>Higher Ed Dive</b> · "Why fundraisers distrust prospect scores," 2025-09</li>
+      <li><b>VP-OPS-09 memo</b> · D. Chen, advisory read-out, 2026-01-22 (verbatim)</li>
+      <li><b>CASE Benchmarks</b> · Advancement workforce attribution, 2025</li>
+      <li><b>STU-007 diary</b> · A. Patel, week 4 of 8, 2026-03-11 (verbatim)</li>
+      <li><b>Inside Higher Ed</b> · "Cohort benchmarking for gift officers," 2025-06</li>
+      <li><b>CCS Fundraising Outlook</b> · Generational giving cliff, 2026</li>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>COORD-12 field-note</b> · J. Liu, retrospective, 2025-12-09 (verbatim)</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>FERPA &amp; advancement guidance</b> · NACUBO, 2024</li>
+      <li><b>Reddit r/Northeastern</b> · peer-mentor threads, sampled 2026-Q1</li>
+      <li><b>NU first-year longitudinal</b> · "On pace" benchmark study, 2024</li>
+      <li><b>STU diary corpus</b> · n=24 first-years, 8-week diary</li>
+      <li><b>NU mobile UX audit</b> · co-op surfaces, 2025-08</li>
+      <li><b>Higher Ed Dive</b> · "Anonymized cohort signals raise engagement," 2025-11</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">PERSONAS · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>persona-architect</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

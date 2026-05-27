@@ -13,6 +13,10 @@
 
 import type { FreeformKind } from '../schemas/freeformArtifact';
 import type { BrandHashtag } from './hashtagParser';
+// 2026-05-25 — wire the 9-rung repair ladder into the header-JSON parse.
+// The JM-depth uplift increases header citations[] payload size, raising
+// truncation risk. parseJSONWithRepair recovers most truncation classes.
+import { parseJSONWithRepair } from '../../services/aiOutputRepair';
 
 export interface FreeformHeader {
     id: string;
@@ -71,7 +75,12 @@ export function parseFreeformOutput(raw: string): FreeformParseResult {
 
     let header: FreeformHeader;
     try {
-        header = JSON.parse(headerJson);
+        // 2026-05-25 — use the 9-rung repair ladder so JM-depth headers
+        // (with longer citations[] arrays) tolerate trailing-comma drift,
+        // unescaped-quote drift, and Gemini's truncation at max-tokens.
+        header = parseJSONWithRepair<FreeformHeader>(headerJson, {
+            calling_context: 'freeform:header',
+        });
     } catch (e) {
         return { ok: false, error: `header JSON parse failed: ${(e as Error).message}` };
     }

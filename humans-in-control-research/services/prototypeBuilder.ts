@@ -16,7 +16,7 @@
 // Routes through HiC's existing Gemini proxy at /api/ai/gemini-compat (OpenAI-
 // compatible wire format the Gemini 3.1 Pro endpoint accepts).
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 const STAGE_MODEL = 'gemini-3.1-pro-preview';
 
 // 2026-05-14 — Design exemplar curator (Behance reference library). Pulls
@@ -790,7 +790,7 @@ Hard rules — violating any of these means the prototype is rejected as off-bra
 </brand_lock>
 
 <live_ai_primitives>
-This prototype runs at http://localhost:5012/api/prototypes/{slug}/view, which is **same-origin** with HiC's research proxy. That means the prototype can call ALL the proxy's AI endpoints directly — no API keys to expose, no CORS issues. WHENEVER THE CONCEPT IMPLIES AN AI BEHAVIOR (talk to data, smart suggestion, classification, embedding search, summarization, sentiment, semantic match, RAG, etc.), implement it with a REAL backend call, not a mock.
+This prototype runs at http://127.0.0.1:5012/api/prototypes/{slug}/view, which is **same-origin** with HiC's research proxy. That means the prototype can call ALL the proxy's AI endpoints directly — no API keys to expose, no CORS issues. WHENEVER THE CONCEPT IMPLIES AN AI BEHAVIOR (talk to data, smart suggestion, classification, embedding search, summarization, sentiment, semantic match, RAG, etc.), implement it with a REAL backend call, not a mock.
 
 Available endpoints (all same-origin, just fetch them):
 

@@ -79,7 +79,7 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
 // 2026-05-05 — Azure DeepSeek-V4-Flash via /api/ai/deepseek. OpenAI-
 // compatible chat-completions schema.
 async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
-    const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+    const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

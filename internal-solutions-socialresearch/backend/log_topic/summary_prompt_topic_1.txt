@@ -1,0 +1,76 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: co-op, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: models, local, claude, finance, mahoraga, cs, run
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Running out of Claude credits? Mahoraga is here. Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!)
+
+EXAMPLE 2:
+I built **Mahoraga**, which routes simple tasks using contextual bandits (LinUCB) to local models to cut costs, as well as increase speed. Most work you do consists of bash, edit, etc. honestly pretty quick and light commands that claude really shouldn't have to run. All local inference, all free. Cloud escalation exists but only fires on retry.
+
+EXAMPLE 3:
+However tokens are getting more expensive, models are heavier, and i know a bunch of kids that run out before the end of the month. they wait for northeastern, but there are a million students here, and they just can't give us more and more. I personally use claude in my co-op as well, which eats usage.
+
+EXAMPLE 4:
+"So just use a local model," a smart freshman kid would say. local models run on your own device, and are essentially free. However cloud models like claude, chatgpt, most mainstream subscription models are just smarter and logically sound.
+
+EXAMPLE 5:
+Results, tables, and analysis is on the github. If you study CS/DS/AI, you probably know more than me. Input would be appreciated.  Linkedin?
+
+EXAMPLE 6:
+I recently got an offer for the masters program for Chemical Engineering this upcoming fall semester. I was wondering if anyone had any insight into how the co-op programs work- specifically the companies NEU has tie-ups with as well as the process of potentially securing one (including success rates of securing companies if anyone has a rough idea). I'm pretty excited and would love to connect with anyone who is either currently in the program or is joining this upcoming semester! connect with a finance mentor on shinequo. [...]
+
+EXAMPLE 7:
+Fork, Clone, Star, Steal: [github.com/pockanoodles/Mahoraga](https://github.com/pockanoodles/Mahoraga)
+
+EXAMPLE 8:
+So if you're doing CS/Business/honestly whatever nowadays and want to build/ship more often this might be the solution. Clone the repo, fork the repo, everything is **opensource** so you can use claude to implement this if you run into difficulty. Runs on your computer, no one else gets the data except you. (not me, not northeastern).
+
+EXAMPLE 9:
+Just wanted to know, has anyone actually received these for the Boston campus?  
+Or had any success getting reconsidered?  
+Trying to understand how these are being allocated. The coop experiences were worth it because I got hired full time right from one of my coops
+
+EXAMPLE 10:
+MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars? I’ve been admitted to MS CS Align (Boston) and was told scholarships are automatically considered.
+
+EXAMPLE 11:
+I ran 192 tasks across 8 agents (4 local Ollama models, 4 cloud CLIs) on a 16GB MacBook Pro, forcing round-robin so every agent got every prompt. Quality is scored by a 4-layer heuristic system (novelty ratio, structural checks, embedding similarity, length ratio). Zero API cost for evaluation, and no LLM-as-judge.
+
+EXAMPLE 12:
+I qualify for both the International Academic Excellence and CPS Leaders & Scholars awards, but haven’t received any award. They said that students are automatically considered and awarded these scholarships which means they didn’t deem me qualified even tho I met the requirements.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

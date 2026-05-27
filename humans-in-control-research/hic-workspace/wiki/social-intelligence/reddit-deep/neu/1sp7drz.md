@@ -10,9 +10,9 @@ score: 0
 upvote_ratio: 0.4
 num_comments: 4
 flair: "Academics"
-extracted_at: "2026-05-13T23:02:38.891Z"
+extracted_at: "2026-05-19T17:57:09.033Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # Northeastern Data Analytics (60k, co-op) vs Scranton Software Engineering (30k) after failing MS CS — what should I choose?

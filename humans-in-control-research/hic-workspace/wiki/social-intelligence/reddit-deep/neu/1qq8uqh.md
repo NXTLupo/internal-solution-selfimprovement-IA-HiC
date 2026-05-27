@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "To everyone who didn't get into Boston..."
 author: "Johnnyg150"
 date: "2026-01-29T13:41:19.000Z"
-score: 212
+score: 211
 upvote_ratio: 0.88
 num_comments: 75
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-12T20:58:42.341Z"
+extracted_at: "2026-05-19T17:57:09.034Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # To everyone who didn't get into Boston...
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qq8uqh/to_everyone_who_didnt_get_into_boston/)
-Posted by **Johnnyg150** · **212↑** · **75 comments**
+Posted by **Johnnyg150** · **211↑** · **75 comments**
 
 You are the ones who control your narrative of Northeastern.
 
@@ -36,38 +36,38 @@ But if you're staying - the power of the narrative begins with you, right now.
 
 ## Comments
 
-- **barbcar** (104↑): Northeastern is extremely competitive whether you’re admitted directly to Boston or not. Because of how the co-op system works, the school has to manage the flow of students in and out of Boston, and those logistics are intentional and actually help students in the long run.
+- **barbcar** (105↑): Northeastern is extremely competitive whether you’re admitted directly to Boston or not. Because of how the co-op system works, the school has to manage the flow of students in and out of Boston, and those logistics are intentional and actually help students in the long run.
 
 My son had an almost perfect GPA and a 1560 SAT. He started in the NUin London program, completed two co-ops and an internship, and already has a job lined up for graduation.
-  - **antolworski** (17↑): Having gone through the co op program, can confidently say that some employers actually prefer candidates that have previously studied abroad. Echoing what barbcar said, co op program is what you make of it. Plenty of my friends didn’t get into Boston direct and got better jobs than those who did.
-  - **Less-Astronaut-8904** (5↑): Hi, just got accepted through this program. How long ago did your son attend and what kind of costs did you experience? Any info is helpful thx
+  - **antolworski** (18↑): Having gone through the co op program, can confidently say that some employers actually prefer candidates that have previously studied abroad. Echoing what barbcar said, co op program is what you make of it. Plenty of my friends didn’t get into Boston direct and got better jobs than those who did.
+  - **Less-Astronaut-8904** (4↑): Hi, just got accepted through this program. How long ago did your son attend and what kind of costs did you experience? Any info is helpful thx
     - **barbcar** (4↑): My son is graduating in May 2026. He spent one semester at the London campus and is still graduating in four years, even after completing two co-ops, largely because he entered with a significant number of AP credits. He took one remote class during each co-op. Northeastern is unquestionably expensive, but with sufficient AP credits, graduating on time is absolutely achievable.
   - **Main_Lobster_6001** (1↑): Holy shit I would have never gotten into northeastern today. I graduated 4 years ago
   - **Time_Nectarine842** (1↑): This school is for hacks
     - **dndm1** (1↑): Satire right?
 - **irqes** (54↑): From my experience, most people who do Boston for 4 years wished they got a chance to study abroad and most people ik who was in NUIn/Oakland loved it.
-  - **TeaSharp3154** (10↑): I'm an alumni, and I got into NUin but due to not deciding which college I wanted to go at the last minute I ended up with NUin Boston (idk if that still exists). I mean it was a fun time, but if I had to do it again I definitely would have taken advantage of the ability to study abroad.
+  - **TeaSharp3154** (11↑): I'm an alumni, and I got into NUin but due to not deciding which college I wanted to go at the last minute I ended up with NUin Boston (idk if that still exists). I mean it was a fun time, but if I had to do it again I definitely would have taken advantage of the ability to study abroad.
     - **tomofboston** (1↑): NU In Boston was due to COVID and the international travel ban.  It lasted two years.
-  - **Johnnyg150** (7↑): It's an incredibly valuable experience!
+  - **Johnnyg150** (6↑): It's an incredibly valuable experience!
 
 College admissions is so toxic that people are only concerned with the "prestige" (soley determined by acceptance rate) of where they go, rather than what they're actually signing up for.
 
 Also, people in 4 year residential colleges are always salivating at the idea of studying abroad in a year lol.
   - **No_Olive6914** (3↑): Coming from the Bay Area, idk about Oakland, but I’m having a blast in London right now! I was kinda disappointed that I didn’t get into Boston, but I think living in London has benefited me so much as a person and not just a uni student.
     - **foodoffthefloor24** (1↑): are u gonna be in boston eventually, or london all 4 years? as a current student i'll admit I don't know enough about this as I should lol
-- **Crushooo** (31↑): NUin was literally the best time of my life. Everyone’s jealous as fuck when you’re back in Boston sharing stories of it
-  - **Magmakidreddit** (7↑): Literally wouldn’t change a thing
+- **Crushooo** (32↑): NUin was literally the best time of my life. Everyone’s jealous as fuck when you’re back in Boston sharing stories of it
+  - **Magmakidreddit** (8↑): Literally wouldn’t change a thing
   - **JDSmagic** (4↑): I was GS Boston cohort (which I'm pretty sure they only did once) and yeah, my time in London was phenomenal. Wouldn't go back and change it if I could
 - **FrankDrebinOnReddit** (27↑): >I've got news for you - Northeastern isn't and never was a second BU. Northeastern was essentially a commuter college for much of its existince.
 
 Uh, are you familiar with the history of BU?
-  - **RemySchaefer3** (10↑): LMAO.  I love it when people like OP try to talk about something they know nothing about.  Comedy gold. Try B.U., OP.
+  - **RemySchaefer3** (9↑): LMAO.  I love it when people like OP try to talk about something they know nothing about.  Comedy gold. Try B.U., OP.
     - **Johnnyg150** (-4↑): Northeastern is unquestionably more correlated with being a commuter school.
-- **Hot-Nothing-4424** (11↑): hell yeah. i started at nuin london, then did a global co-op and a dialogue of civilizations. people need to stop complaining and start taking advantage of the amazing opportunities at NU.
+- **Hot-Nothing-4424** (9↑): hell yeah. i started at nuin london, then did a global co-op and a dialogue of civilizations. people need to stop complaining and start taking advantage of the amazing opportunities at NU.
   - **Cold_Collection_6077** (1↑): Hi, I got into the same program. How long ago you graduated? Can you pls share cost you have to experience? Any information would be helpful. Thx
   - **FrontSatisfaction152** (1↑): What is your major and where are you from?
 - **EHsE** (6↑): brodie if you let them charge you 100k/yr for the oakland campus, you're the biggest sucker on the planet lmao
-- **kajalk28** (3↑): I was NUi.n. Berlin, Germany in 2022 and I honestly loved it. I always knew I wanted to go abroad during my time in college and although it was a little daunting to do that for my first semester I found it really fun and honestly helpful in building my self sufficiency skills. I also think if I didn't go abroad then I never would have found the time because once you're immersed in student orgs and activities and friends you kinda get stuck in that bubble and don't wanna miss out.
+- **kajalk28** (5↑): I was NUi.n. Berlin, Germany in 2022 and I honestly loved it. I always knew I wanted to go abroad during my time in college and although it was a little daunting to do that for my first semester I found it really fun and honestly helpful in building my self sufficiency skills. I also think if I didn't go abroad then I never would have found the time because once you're immersed in student orgs and activities and friends you kinda get stuck in that bubble and don't wanna miss out.
   - **foodoffthefloor24** (1↑): this is what I always tell people! You're just starting out too so you don't have to worry about getting that \*one\* required class or else you won't graduate on time. 
 
 Some people def find that they're not ready to go abroad right away but if you're up to it I def think there are some HUGE silver linings to NUin first sem.

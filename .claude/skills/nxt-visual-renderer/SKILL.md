@@ -1,5 +1,6 @@
 ---
 name: nxt-visual-renderer
+version: 1.0
 description: NXT Humans Design System v3.0 — canonical layout, density, and quote-handling contract for the 18 web slide templates + PPTX export. Render-contract: always loaded when slide intent is detected (keywords like "slide", "deck", "#slide", or any template name). Covers both NXT (teal + chartreuse) and NU (Huskies near-black + red) brand variants — colors resolve per brand, layout geometry is shared. The Option B density upgrade (2026-04-21) adds per-template IMPLICATION lines, full-sentence smart-clipped quotes, role-attributed speakers, and template-specific extensions. For full content budgets and JSON example shapes read references/web-layouts.md. For quote-handling and anti-slop rules read references/anti-slop-rules.md.
 thinking: high
 category: render-contract

@@ -14,8 +14,21 @@ import CorpusChatPanel from './components/CorpusChatPanel';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './components/PromptEnhancer';
 import { useSubredditSuggester, SuggesterButton, SuggesterPanel } from './components/SubredditSuggester';
 import { CostMeterChip } from './components/CostMeterChip';
+// 2026-05-22 — Self-improvement loop, Phase 6: change-promotion surface
+import ChangeStrip from './components/ChangeStrip';
+import KnowledgeGapsPanel, { KnowledgeGapChip } from './components/KnowledgeGapsPanel';
+import type { KnowledgeGap, FindGapsResult } from './services/knowledgeGapFinder';
+
+// 2026-05-23 — Per-deliverable inline shortfall chip count.
+// Normalizes both sides (strip hyphens / underscores, lowercase) so a gap
+// tagged 'journey_map' matches a deliverable rendered as 'journey-map'.
+function countGapsForDeliverable(gaps: KnowledgeGap[] | undefined, deliverableType: string): number {
+    if (!gaps || gaps.length === 0) return 0;
+    const normalize = (s: string) => s.toLowerCase().replace(/[-_\s]+/g, '');
+    const target = normalize(deliverableType);
+    return gaps.filter(g => (g.affectedDeliverables || []).some(d => normalize(d) === target)).length;
+}
 import { ResumeEngagementPanel, useEngagementMatches, type ResumeSelection } from './components/ResumeEngagementPanel';
-import { CachedSynthesisOverlay, type CachedSynthesisStageId } from './components/CachedSynthesisOverlay';
 import { KnowledgeLibrary, type LibrarySelection } from './components/KnowledgeLibrary';
 import { KnowledgeLibraryPreview } from './components/KnowledgeLibraryPreview';
 import type { WikiLibrarySummary } from './services/wikiLibraryAggregator';
@@ -27,6 +40,16 @@ import { SourceCoverage } from './components/SourceCoverage';
 import type { ChatContext, ChatMessage } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
 import './styles/nxt-design-system.css';
+// 2026-05-23 — NU artifact design system (handoff bundle from claude.ai/design).
+// Order matters: tokens + fonts first, then component layer, then scoping wrapper.
+// Component classes (.art-masthead, .stat-strip, .dtable, .pill, .signal,
+// .matbar, .art-card, .art-footer, etc.) are global but only apply to elements
+// that opt in. Body-level rules are scoped to `.nu-artifact-stage` containers
+// to avoid leaking into existing pages. Apply `nu-artifact-stage--slide` for
+// 960×540 slide-canvas contexts (tightens type + spacing).
+import './styles/nu-artifacts/colors_and_type.css';
+import './styles/nu-artifacts/artifacts.css';
+import './styles/nu-artifacts/nu-stage.css';
 import { getChunkSourceMap } from './services/researchFabricOrchestrator';
 import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, addJourneyStagesToGraph, addPRDFeaturesToGraph, addRoadmapToGraph, addGapAnalysisToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
@@ -282,6 +305,7 @@ const LiveResearchBoard = ({
     registryTotal,
     redditDeepItems, topicModelResult, topicModelStatus, onTopicModelResult,
     initialChatMessages, onChatMessagesChange,
+    knowledgeGaps,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string, activeStage?: AnalysisStage,
@@ -297,6 +321,7 @@ const LiveResearchBoard = ({
     onDeliverableApproved?: (type: string, data: any) => void,
     onOpenDesignDesk?: () => void,
     registryTotal?: number,
+    knowledgeGaps?: KnowledgeGap[],
     redditDeepItems?: any[],
     topicModelResult?: any,
     topicModelStatus?: { jobId?: string; status: 'idle' | 'running' | 'completed' | 'failed'; message?: string },
@@ -471,6 +496,16 @@ const LiveResearchBoard = ({
                 onOpenDesignDesk={onOpenDesignDesk}
                 initialMessages={initialChatMessages}
                 onMessagesChange={onChatMessagesChange}
+                // 2026-05-26 — Gate chat Send while the main analysis pipeline is
+                // active. The earlier version gated only on isCollectingData, but
+                // the 545-second screenshot showed the chat fired DURING the
+                // synthesis stages (themes → personas → recs) which were
+                // hammering Gemini and OpenAI quota. The right signal is the
+                // currentStatus string the pipeline mutates on every stage:
+                // "Collecting data...", "Synthesizing Personas...", "Formulating
+                // Strategy...", etc. — all active. The terminal state is
+                // "Analysis Complete" (set in App.tsx when the run finishes).
+                pipelineActive={!!isCollectingData || (typeof currentStatus === 'string' && /\b(collecting|synthesiz|generating|mapping|drafting|architecting|formulating|defining|planning|analyzing|composing|inferring|extracting|enriching)/i.test(currentStatus))}
             />
 
             {/* Main content area — full width, scrollable */}
@@ -713,6 +748,11 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Themes</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">Pattern Recognition</div>
+                                    {knowledgeGaps && knowledgeGaps.length > 0 && (
+                                        <div style={{ marginTop: 4 }}>
+                                            <KnowledgeGapChip count={knowledgeGaps.length} deliverableType="all deliverables" />
+                                        </div>
+                                    )}
                                 </div>
                                 <span className="text-xl font-bold text-[var(--nxt-lime)]">{themes.themes.length}</span>
                             </div>
@@ -735,6 +775,9 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Personas</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">Archetype Synthesis</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'personas')} deliverableType="personas" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-indigo-500">{personas.personas.length}</span>
                             </div>
@@ -762,6 +805,9 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Blueprint</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">Service Journey</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'journey_map')} deliverableType="journey_map" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-blue-500">{journeyMap.stages.length} Steps</span>
                             </div>
@@ -789,6 +835,9 @@ const LiveResearchBoard = ({
                                 <div className="overflow-hidden">
                                     <h3 className="text-lg font-bold text-[var(--text-primary)] truncate">PRD</h3>
                                     <div className="text-xs text-[var(--text-tertiary)] truncate">{prd.prd.title}</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'prd')} deliverableType="prd" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-purple-500">{prd.prd.features.length} Feat.</span>
                             </div>
@@ -810,6 +859,9 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Roadmap</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">Strategic Timeline</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'roadmap')} deliverableType="roadmap" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-teal-500">{roadmap.roadmap.items.length} Items</span>
                             </div>
@@ -829,6 +881,9 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Architecture</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">System Design</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'tech_architecture')} deliverableType="tech_architecture" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-slate-500">{techArch.architecture.nodes.length} Nodes</span>
                             </div>
@@ -848,6 +903,9 @@ const LiveResearchBoard = ({
                                 <div>
                                     <h3 className="text-lg font-bold text-[var(--text-primary)]">Strategy</h3>
                                     <div className="text-xs text-[var(--text-tertiary)]">Opportunities</div>
+                                    <div style={{ marginTop: 4 }}>
+                                        <KnowledgeGapChip count={countGapsForDeliverable(knowledgeGaps, 'recommendations')} deliverableType="recommendations" />
+                                    </div>
                                 </div>
                                 <span className="text-xl font-bold text-orange-500">{recommendations.recommendations.length}</span>
                             </div>
@@ -1113,25 +1171,6 @@ const App = () => {
     // short-circuit data collection when the user picked T4 build-only.
     const cachedResumePayloadRef = useRef<ResumeSelection | null>(null);
     useEffect(() => { cachedResumePayloadRef.current = cachedResumePayload; }, [cachedResumePayload]);
-    // 2026-05-14 — Cached-synthesis stage tracker drives the overlay UI so
-    // the researcher sees clear, step-by-step progress during the library
-    // short-circuit path. Without this, the RESEARCH ASSEMBLY BOARD goes
-    // blank and there's no visible feedback that work is happening.
-    const [cachedSynthStage, setCachedSynthStage] = useState<CachedSynthesisStageId>('idle');
-    const [cachedSynthCompleted, setCachedSynthCompleted] = useState<Set<string>>(new Set());
-    const [cachedSynthItemCount, setCachedSynthItemCount] = useState<number>(0);
-    const [cachedSynthDetail, setCachedSynthDetail] = useState<string>('');
-    const [cachedSynthError, setCachedSynthError] = useState<string>('');
-    const advanceCachedSynthStage = useCallback((next: CachedSynthesisStageId, detail = '') => {
-        setCachedSynthStage(prev => {
-            // When transitioning forward, mark the previous stage complete.
-            if (prev && prev !== 'idle' && prev !== 'complete' && prev !== 'failed' && prev !== next) {
-                setCachedSynthCompleted(c => new Set([...c, prev]));
-            }
-            return next;
-        });
-        setCachedSynthDetail(detail);
-    }, []);
     // 2026-05-14 — Knowledge Library: full-screen panel that visualizes
     // everything cached in the wiki (engagements / themes / sources / social)
     // and lets the researcher pick what to feed into the next run. Fresh
@@ -1190,6 +1229,11 @@ const App = () => {
     const [result, setResult] = useState<AnalysisResult | null>(null);
     const [ingestionResult, setIngestionResult] = useState<any>(null);
     const [themesResult, setThemesResult] = useState<any>(null);
+    // 2026-05-23 — Karpathy Phase 2.3: Knowledge-gap detection result.
+    // Populated by findKnowledgeGaps after theme generation. Drives the
+    // inline KnowledgeGapsPanel and the per-deliverable shortfall chips.
+    const [gapsResult, setGapsResult] = useState<FindGapsResult | null>(null);
+    const [gapsDismissed, setGapsDismissed] = useState<boolean>(false);
     const [personasResult, setPersonasResult] = useState<any>(null);
     const [structureResult, setStructureResult] = useState<any>(null);
     const [narrativeResult, setNarrativeResult] = useState<any>(null);
@@ -1285,7 +1329,7 @@ const App = () => {
         // manifest activates automatically again.
         try { localStorage.removeItem('disable_institution_manifest'); } catch { /* no-op */ }
 
-        fetch('http://localhost:5012/api/sources')
+        fetch('http://127.0.0.1:5012/api/sources')
             .then(r => r.ok ? r.json() : null)
             .then(d => { if (d && typeof d.total === 'number') setRegistryTotal(d.total); })
             .catch(() => { /* non-fatal — counter just won't show the "of Z" suffix */ });
@@ -1630,6 +1674,126 @@ const App = () => {
                 if (count > 0) console.log(`[Startup] Loaded ${count} wiki constraints for cross-session compounding`);
             });
         }).catch(() => {}); // non-blocking
+
+        // 2026-05-22 — Self-improvement loop wiring.
+        // (a) Write a session-start entry to wiki/log.md so we always have
+        //     observable evidence the system is alive, even if the user only
+        //     does chat-driven work that bypasses the staged audit path.
+        // (b) Auto-run wiki lint if >=7 days have passed since the last lint.
+        //     The lint result is also logged, so a fresh session that hits the
+        //     lint threshold produces two log entries.
+        import('./services/wikiService').then(wiki => {
+            wiki.appendWikiLog('session', 'AI Analyst session started', {
+                user_agent: navigator.userAgent.substring(0, 80),
+                started_at: new Date().toISOString(),
+            }).catch(() => { /* non-blocking */ });
+        }).catch(() => {});
+        // 2026-05-23 — Dev/QA window helper: render any slide template with
+        // mock data into a #slide-preview-mount div for visual verification of
+        // the NU artifact refactor. Usage:
+        //   __hicRenderSlide('persona-card', { name: 'Maya', role: '...', ... })
+        // Mounts inside the existing app body; clears on second call.
+        Promise.all([
+            import('react-dom/client'),
+            import('./components/slideTemplates/web'),
+        ]).then(([{ createRoot }, w]) => {
+            const renderers: Record<string, (props: any) => any> = {
+                'stat-row': (props) => (w as any).StatRowSlide(props),
+                'principles': (props) => (w as any).PrinciplesSlide(props),
+                'persona-card': (props) => (w as any).PersonaCardSlide(props),
+                'recommendation': (props) => (w as any).RecommendationSlide(props),
+                'block-quote': (props) => (w as any).BlockQuoteSlide(props),
+                'section-divider': (props) => (w as any).SectionDividerFullBleed(props),
+                'case-study': (props) => (w as any).CaseStudySlide(props),
+                'theme-cluster': (props) => (w as any).ThemeClusterSlide(props),
+                'theme-spotlight': (props) => (w as any).ThemeSpotlightSlide(props),
+                'theme-arc': (props) => (w as any).ThemeArcSlide(props),
+                'theme-mosaic': (props) => (w as any).ThemeMosaicSlide(props),
+                'timeline': (props) => (w as any).TimelineSlide(props),
+                'gap-matrix': (props) => (w as any).GapMatrixSlide(props),
+                'competitive-matrix': (props) => (w as any).CompetitiveMatrixSlide(props),
+                'systems-inventory': (props) => (w as any).SystemsInventorySlide(props),
+                'prd-feature': (props) => (w as any).PrdFeatureSlide(props),
+                'architecture-map': (props) => (w as any).ArchitectureMapSlide(props),
+                'service-blueprint': (props) => (w as any).ServiceBlueprintSlide(props),
+            };
+            (window as any).__hicRenderSlide = (template: string, data: any, opts: any = {}) => {
+                let mount = document.getElementById('slide-preview-mount');
+                if (!mount) {
+                    mount = document.createElement('div');
+                    mount.id = 'slide-preview-mount';
+                    mount.style.cssText = 'position:fixed;top:20px;left:20px;width:960px;height:540px;background:#fff;border:1px solid #ccc;box-shadow:0 8px 32px rgba(0,0,0,0.18);z-index:99999;overflow:hidden;';
+                    document.body.appendChild(mount);
+                }
+                const r = (window as any).__hicSlideRoot || createRoot(mount);
+                (window as any).__hicSlideRoot = r;
+                const fn = renderers[template];
+                if (!fn) { mount.textContent = `Unknown template: ${template}`; return; }
+                const props: any = { data, sources: opts.sources || [], brand: opts.brand || 'nu' };
+                if (template === 'persona-card') props.hasImage = !!opts.hasImage;
+                // All renderers except persona-card, block-quote, and section-divider
+                // take a `title` string prop. (persona-card uses data.name; block-quote
+                // has no title; section-divider gets its title from data.title.)
+                const noTitleTemplates = new Set(['persona-card', 'block-quote', 'section-divider']);
+                if (!noTitleTemplates.has(template)) props.title = opts.title || '';
+                r.render(fn(props));
+            };
+            (window as any).__hicClearSlide = () => {
+                const mount = document.getElementById('slide-preview-mount');
+                if (mount) mount.remove();
+                delete (window as any).__hicSlideRoot;
+            };
+        }).catch(() => { /* dev helper only */ });
+        import('./services/wikiLintService').then(lint => {
+            // 2026-05-23 — P1.4: Two-phase lint to keep startup snappy while
+            // still firing the load-bearing contradiction check.
+            //
+            // 2026-05-26 — CONTRADICTION SCAN MOVED TO BACKGROUND CRON.
+            // The contradiction scan produced 740,156 findings on the
+            // current wiki and added 30-90s to every page load. The
+            // structural lint stays at startup (cheap, < 2s). The
+            // contradiction scan now ONLY fires via the `/loop`
+            // scheduled runner (daily cadence) or an explicit user
+            // action — NOT on every browser refresh.
+            lint.runIfDue({ skipContradictions: true }).then(report => {
+                if (report) console.log(`[Startup] Structural auto-lint produced ${report.summary.total} findings (${report.summary.errors} errors, ${report.summary.warnings} warnings).`);
+                console.info('[Startup] Contradiction scan deferred to scheduled background job (run via /loop daily or wiki-curator subagent). Skipping page-load scan to save 30-90s.');
+            }).catch(err => console.warn('[Startup] Auto-lint failed:', err));
+        }).catch(() => {});
+
+        // 2026-05-22 — Expose self-improvement debug hooks on `window` so
+        // smoke tests and Playwright can drive the engine from the page
+        // context without needing the bundler's hashed module paths. Safe
+        // to expose: all functions are write-throttled, additive only, and
+        // visible in the wiki audit log.
+        Promise.all([
+            import('./services/learningEngine'),
+            import('./services/wikiLintService'),
+            import('./services/wikiCompiler'),
+            import('./services/verifierService'),
+            import('./services/feedbackService'),
+            import('./services/promptImprovementEngine'),
+            import('./services/knowledgeGapFinder'),
+        ]).then(([learn, lint, compiler, verifier, feedback, engine, gapFinder]) => {
+            (window as any).__hicSelfImprovement = {
+                runLearningPass: learn.runLearningPass,
+                reviewConstraintEffectiveness: learn.reviewConstraintEffectiveness,
+                getRecentImprovements: learn.getRecentImprovements,
+                getRecurringShortfallTopics: learn.getRecurringShortfallTopics,
+                runWikiLint: lint.runWikiLint,
+                runIfDue: lint.runIfDue,
+                compileWiki: compiler.compileWiki,
+                verifyDeliverable: verifier.verifyDeliverable,
+                submitFeedback: feedback.submitFeedback,
+                readFeedbackIndex: feedback.readFeedbackIndex,
+                triggerLearningPassAfterFeedback: feedback.triggerLearningPassAfterFeedback,
+                loadWikiConstraints: engine.loadWikiConstraints,
+                getActiveConstraints: engine.getActiveConstraints,
+                getStats: engine.getStats,
+                findKnowledgeGaps: gapFinder.findKnowledgeGaps,
+                runRemediationForGap: gapFinder.runRemediationForGap,
+            };
+        }).catch(err => console.warn('[Startup] Failed to expose self-improvement debug hooks:', err));
     }, []);
 
     const handleStreamUpdate = (text: string) => {
@@ -1849,6 +2013,39 @@ const App = () => {
         } catch (e: any) {
             console.error('[session] load failed:', e);
             setNotification(`Load failed: ${e?.message || 'unknown'}`);
+        }
+    }, []);
+
+    // 2026-05-26 — Soft-delete a saved session from the landing-page picker.
+    // Proxy moves the folder to hic-workspace/sessions/.deleted/<slug>.<ts>/
+    // so accidental deletes can be recovered manually. The user explicitly
+    // requested this so stale sessions (especially ones generated through
+    // the retired in-HiC journey path before the 2026-05-25 cleanup) can
+    // be cleared from the Continue Session picker. The proxy endpoint
+    // already existed (DELETE /api/sessions/{slug}) — only the UI was
+    // missing.
+    const handleDeleteSession = useCallback(async (slug: string, title: string) => {
+        const confirmed = window.confirm(
+            `Delete saved session?\n\n"${title}"\n\nThe folder is moved to .deleted/ so it can be recovered manually. ` +
+            `It will no longer appear in the Continue Session picker.`
+        );
+        if (!confirmed) return;
+        try {
+            const { deleteSession, listSessions } = await import('./services/sessionService');
+            const ok = await deleteSession(slug);
+            if (!ok) {
+                setNotification(`Delete failed: ${slug}`);
+                setTimeout(() => setNotification(null), 3000);
+                return;
+            }
+            const refreshed = await listSessions();
+            setSessionListings(refreshed);
+            setNotification(`Deleted session: ${title.slice(0, 60)}`);
+            setTimeout(() => setNotification(null), 3000);
+        } catch (e: any) {
+            console.error('[session] delete failed:', e);
+            setNotification(`Delete failed: ${e?.message || 'unknown'}`);
+            setTimeout(() => setNotification(null), 3000);
         }
     }, []);
 
@@ -2078,6 +2275,53 @@ const App = () => {
             const constraints = getActiveConstraints();
             const constraintList = constraints ? constraints.split('\n').filter(l => l.startsWith('- ')).map(l => l.substring(2)) : [];
             await persistQualityScore(deliverableType, 100 - slopScore, constraintList, new Date().toISOString().split('T')[0]);
+
+            // 2026-05-23 — P1.1: Wire verifyDeliverable into the generation pipeline.
+            // Previously the verifier existed but ran only as a dev-console hook.
+            // Now every generated deliverable goes through brief-fit / framework-fit
+            // / evidence-fit checks. Findings stream into the reasoning panel and
+            // persist to wiki/synthesis/verifier-history.md for the learning engine.
+            try {
+                const { verifyDeliverable } = await import('./services/verifierService');
+                const engagementSlug = (window as any).__hicCurrentEngagementSlug || undefined;
+                const deliverableId = `${deliverableType}_${new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '')}`;
+                const report = await verifyDeliverable({
+                    text: text.slice(0, 24000),  // cap to keep verifier prompt < 30K input chars
+                    deliverableType,
+                    deliverableId,
+                    engagementSlug,
+                    autoRegenerate: false,  // don't auto-regen; surface findings instead
+                });
+                if (report.overall !== 'pass') {
+                    const summary = `${report.findings.filter(f => f.severity === 'fail').length} fail, ${report.findings.filter(f => f.severity === 'weak').length} weak`;
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'CORRECTION',
+                        content: `[VERIFIER] ${deliverableType} → ${report.overall.toUpperCase()} (${summary}). Top issue: "${(report.findings.find(f => f.severity === 'fail') || report.findings[0])?.message?.slice(0, 160) || 'check verifier-history.md'}"`,
+                    }]);
+                    // Persist the report for the learning engine
+                    try {
+                        const reportRow = `\n## ${new Date().toISOString()} | ${deliverableType} | ${report.overall}\n` +
+                            `- duration_ms: ${report.durationMs}\n` +
+                            `- findings:\n${report.findings.slice(0, 8).map(f => `  - [${f.severity}] ${f.check}: ${f.message.slice(0, 200)}`).join('\n')}\n`;
+                        await fetch('http://127.0.0.1:5012/api/wiki/append', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ path: 'synthesis/verifier-history.md', content: reportRow }),
+                        });
+                    } catch { /* non-blocking */ }
+                } else {
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'INSIGHT',
+                        content: `[VERIFIER] ${deliverableType} → PASS (brief-fit + framework-fit + evidence-fit). ${report.durationMs}ms.`,
+                    }]);
+                }
+            } catch (verErr: any) {
+                console.warn('[verifier] non-blocking failure:', verErr?.message || verErr);
+                setThinkingEvents(prev => [...prev, {
+                    type: 'CORRECTION',
+                    content: `[VERIFIER] Could not verify ${deliverableType} (${(verErr?.message || verErr).toString().slice(0, 100)}). Deliverable shipped without verification.`,
+                }]);
+            }
         } catch (e) { /* non-blocking */ }
     };
 
@@ -2456,9 +2700,12 @@ const App = () => {
                      collectedSources: liveSourceResults, // Archive articles to wiki
                  });
 
-                 // Log source curation decisions to wiki for cross-session learning
+                 // Log source curation decisions to wiki for cross-session learning.
+                 // 2026-05-23 — Use buildEngagementSlug so the curation log lands at
+                 // engagements/<60-char canonical slug>... matching the other writers.
                  if (excludedSources.size > 0) {
-                     const slug = researchGoal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
+                     const { buildEngagementSlug } = await import('./services/wikiService');
+                     const slug = buildEngagementSlug(researchGoal, 60);
                      const excludedList = Array.from(excludedSources).map((key: string) => {
                          if (key.startsWith('kg::')) return `KG node: ${key.substring(4)}`;
                          const [srcId, idx] = key.split('::');
@@ -2546,251 +2793,11 @@ const App = () => {
             return;
         }
 
-        // 2026-05-14 — SECOND SHORT-CIRCUIT: Knowledge Library selection.
-        // If the user picked items in the Library modal (themes / sources /
-        // social / engagements), their intent is "use this cached intelligence
-        // INSTEAD of fresh data collection." Skip the orchestrator entirely.
-        // Hydrate any selected engagement bundles into deliverable state
-        // (themes/personas/journey/gap/recs/competitive). Drop into the
-        // Analyst Desk view populated with the cached work.
-        const librarySel = librarySelectionRef.current;
-        const hasLibraryItems = librarySel && (
-            librarySel.engagementSlugs.length > 0 ||
-            librarySel.themeClusterIds.length > 0 ||
-            librarySel.sourceArchivePaths.length > 0 ||
-            librarySel.socialSubreddits.length > 0
-        );
-        if (hasLibraryItems) {
-            const totalSelections =
-                librarySel!.engagementSlugs.length +
-                librarySel!.themeClusterIds.length +
-                librarySel!.sourceArchivePaths.length +
-                librarySel!.socialSubreddits.length;
-            console.log(`[startAnalysis] Library short-circuit — ${totalSelections} cached items selected; skipping data collection.`);
-            setAppState(AppState.ANALYZING);
-            setStatusMessage(`Synthesizing from ${totalSelections} cached items — no live data collection needed.`);
-            // 2026-05-14 — Initialize the cached-synthesis overlay state so
-            // the user sees prominent step-by-step progress instead of a
-            // blank Research Assembly Board. Each generate* call transitions
-            // the stage via advanceCachedSynthStage; the overlay renders all
-            // 10 stages with checkmarks for completed ones.
-            setCachedSynthStage('hydrating-deliverables');
-            setCachedSynthCompleted(new Set());
-            setCachedSynthItemCount(totalSelections);
-            setCachedSynthDetail('');
-            setCachedSynthError('');
-            // Hydrate cached engagement deliverables into state. This puts the
-            // Analyst Desk into the same populated state as a completed run,
-            // without burning any AI tokens.
-            (async () => {
-                try {
-                    const { loadEngagementBundles, loadCachedRedditPostsFromWiki, assembleCachedCorpus } = await import('./services/wikiCacheLoader');
-
-                    // Track which deliverable kinds were hydrated from cached
-                    // engagements so the re-synthesis step below SKIPS them
-                    // (don't pay to regenerate what's already in cache).
-                    const hydratedKinds = new Set<string>();
-
-                    // 1. Engagement deliverables -> direct state hydration
-                    if (librarySel!.engagementSlugs.length > 0) {
-                        advanceCachedSynthStage('hydrating-deliverables', `Reading ${librarySel!.engagementSlugs.length} engagement bundle(s)…`);
-                        const bundles = await loadEngagementBundles(librarySel!.engagementSlugs);
-                        let hydratedCount = 0;
-                        bundles.forEach(b => {
-                            if (b.themes) { setThemesResult(b.themes); hydratedKinds.add('themes'); hydratedCount++; }
-                            if (b.personas) { setPersonasResult(b.personas); hydratedKinds.add('personas'); hydratedCount++; }
-                            if (b.journey) { setJourneyResult(b.journey); hydratedKinds.add('journey'); hydratedCount++; }
-                            if (b.gap) { setGapResult(b.gap); hydratedKinds.add('gap'); hydratedCount++; }
-                            if (b.recs) { setRecsResult(b.recs); hydratedKinds.add('recs'); hydratedCount++; }
-                            if (b.competitive) { setCompetitiveResult(b.competitive); hydratedKinds.add('competitive'); hydratedCount++; }
-                        });
-                        console.log(`[startAnalysis] Hydrated ${hydratedCount} deliverables from ${bundles.length} cached engagement(s).`);
-                        if (hydratedCount > 0) {
-                            setThinkingEvents(prev => [...prev, {
-                                type: 'INSIGHT',
-                                content: `[CACHE] Loaded ${hydratedCount} deliverables from ${bundles.length} cached engagement(s) — no generation cost for those kinds.`,
-                            }]);
-                        }
-                    }
-
-                    // 2. Social posts -> redditDeepItems
-                    if (librarySel!.socialSubreddits.length > 0) {
-                        const social = await loadCachedRedditPostsFromWiki(librarySel!.socialSubreddits);
-                        if (social && social.posts.length > 0) {
-                            setRedditDeepItems(social.posts);
-                            setThinkingEvents(prev => [...prev, {
-                                type: 'PHASE',
-                                content: `[CACHE] Loaded ${social.posts.length} Reddit posts from ${social.subreddits_loaded.length} cached subreddit(s) — no live Reddit fetch.`,
-                            }]);
-                        }
-                    }
-
-                    if (librarySel!.socialSubreddits.length > 0) {
-                        advanceCachedSynthStage('loading-social', `Reading ${librarySel!.socialSubreddits.length} subreddit folder(s)…`);
-                    }
-
-                    // 3. Assemble the cached corpus from ALL selections (engagement
-                    // source archives + standalone source archives + theme cluster
-                    // summaries + social posts). This is what feeds re-synthesis.
-                    advanceCachedSynthStage('assembling-corpus', `Stitching together every selected item into one corpus blob…`);
-                    const corpus = await assembleCachedCorpus(librarySel!);
-                    if (corpus.text && corpus.chars > 0) {
-                        corpusTextRef.current = corpus.text;
-                        setThinkingEvents(prev => [...prev, {
-                            type: 'PHASE',
-                            content: `[CACHE] Assembled corpus from cache — ${Math.round(corpus.chars / 1024)}KB across ${corpus.itemCount} item(s): ${corpus.breakdown.engagements} engagement source archive(s), ${corpus.breakdown.themeClusters} theme cluster(s), ${corpus.breakdown.sources} source archive(s), ${corpus.breakdown.socialPosts} social post(s).`,
-                        }]);
-                    }
-
-                    // 4. Initialize the synthesis session against the cached
-                    // corpus. Mirrors the live path's GenAISession setup so the
-                    // chat panel + KG auto-synthesis behave the same way they
-                    // do after a fresh data collection.
-                    const collectedDataFiles: any[] = [];
-                    if (corpus.text && corpus.chars > 0) {
-                        try {
-                            const base64 = btoa(unescape(encodeURIComponent(corpus.text.slice(0, 2_000_000))));
-                            collectedDataFiles.push({
-                                name: `cached_intelligence_${Date.now()}.txt`,
-                                type: 'text/plain',
-                                size: corpus.text.length,
-                                data: base64,
-                            });
-                        } catch (encErr) {
-                            console.warn('[startAnalysis] cached corpus encode failed (non-fatal):', encErr);
-                        }
-                    }
-                    sessionRef.current = new GenAISession(researchGoal, analysisApproach, selectedOutputs);
-
-                    // 5. Mark data collection complete so the Analyst Desk renders.
-                    setIsCollectingData(false);
-                    setCollectionPhase('done' as any);
-
-                    // 6. Re-synthesize on the cached corpus. Skip kinds that
-                    // were already hydrated from engagement bundles.
-                    //
-                    // Each stage wrapped in its own try/catch + persistence
-                    // hook so a single failure can't kill the chain.
-                    classicKgSynthesisRef.current.status = 'running';
-                    const session = sessionRef.current;
-                    const noop = () => { /* unused stream callback */ };
-
-                    // Engagement slug for deliverable persistence so the NEW
-                    // synthesis results also get written to wiki for next time.
-                    const { buildEngagementSlug, writeEngagementDeliverable } = await import('./services/wikiService');
-                    const persistSlug = buildEngagementSlug(researchGoal || 'cached-resynthesis', 60);
-                    const persist = async (kind: 'themes' | 'personas' | 'journey' | 'gap' | 'recs' | 'competitive' | 'blueprint', data: any) => {
-                        try { await writeEngagementDeliverable(persistSlug, kind, data); }
-                        catch (e) { console.warn(`[Cache resynth] persist ${kind} failed (non-fatal):`, e); }
-                    };
-
-                    // 2026-05-14 — Honest failure when there's NOTHING to work
-                    // with. The previous behavior was to silently mark the
-                    // overlay as 'complete' even when corpus was 0 chars and no
-                    // deliverables hydrated. That looked like success but was
-                    // actually a no-op. Now we surface the actual state.
-                    if (collectedDataFiles.length === 0 && hydratedKinds.size === 0) {
-                        const reason = `No cached content found for the selected engagement.\n\nThe engagement's briefs are saved, but its source corpus + deliverables were archived under naming conventions this version can't auto-resolve, and no theme clusters / source archives / subreddits were selected separately.\n\nWhat to do:\n  • Start a fresh research run on this goal (cached briefs will still persist)\n  • OR open the chat panel and use #proto to iterate on the cached briefs directly\n  • OR pick theme clusters / source archives / subreddits explicitly in the Knowledge Library`;
-                        console.warn('[startAnalysis] Cached synthesis no-op:', reason);
-                        advanceCachedSynthStage('failed', reason);
-                        setCachedSynthError(reason);
-                        setIsCollectingData(false);
-                        setCollectionPhase('done' as any);
-                        setStatusMessage('Cached synthesis failed — no usable cached content for this selection.');
-                        return;
-                    }
-                    if (collectedDataFiles.length > 0) {
-                        // Ingest the cached corpus into the GenAISession BEFORE
-                        // running the synthesis chain. Without this, the session's
-                        // generateThemes/Personas/etc. fire with no context and
-                        // hallucinate from the goal alone. Mirrors the live path's
-                        // ingestion step (App.tsx ~line 4233).
-                        try {
-                            advanceCachedSynthStage('ingesting', `Feeding ${Math.round(corpus.chars / 1024)}KB cached corpus into Gemini…`);
-                            setStatusMessage('Ingesting cached corpus into synthesis session…');
-                            await session.ingestContext(collectedDataFiles, noop);
-                        } catch (ingestErr) {
-                            console.warn('[Cache resynth] Ingestion failed, aborting chain:', ingestErr);
-                            classicKgSynthesisRef.current.status = 'failed';
-                            setCachedSynthError(`Corpus ingestion failed: ${(ingestErr as any)?.message || 'unknown'}`);
-                            setCachedSynthStage('failed');
-                            setStatusMessage('Cached corpus ingestion failed. Hydrated deliverables (if any) are still loaded.');
-                            return;
-                        }
-                        setStatusMessage('Re-synthesizing on cached corpus — themes, personas, recommendations…');
-
-                        // THEMES
-                        let themes: any = (themesResult as any) || null;
-                        if (!hydratedKinds.has('themes')) {
-                            try {
-                                advanceCachedSynthStage('themes', 'Generating themes from cached corpus…');
-                                themes = await session.generateThemes(undefined, noop);
-                                if (themes) { setThemesResult(themes); persist('themes', themes); }
-                            } catch (err) { console.warn('[Cache resynth] Themes failed:', err); }
-                        }
-                        // PERSONAS
-                        if (!hydratedKinds.has('personas')) {
-                            try {
-                                advanceCachedSynthStage('personas', 'Building personas from cached corpus…');
-                                const personas = await session.generatePersonas(themes, undefined, noop, noop);
-                                if (personas) { setPersonasResult(personas); persist('personas', personas); }
-                            } catch (err) { console.warn('[Cache resynth] Personas failed:', err); }
-                        }
-                        // RECOMMENDATIONS
-                        if (!hydratedKinds.has('recs')) {
-                            try {
-                                advanceCachedSynthStage('recs', 'Synthesizing recommendations from cached corpus…');
-                                const recs = await session.generateRecommendations(undefined, noop);
-                                if (recs) { setRecsResult(recs); persist('recs', recs); }
-                            } catch (err) { console.warn('[Cache resynth] Recommendations failed:', err); }
-                        }
-                        // JOURNEY MAP
-                        if (!hydratedKinds.has('journey')) {
-                            try {
-                                advanceCachedSynthStage('journey', 'Mapping the service journey from cached corpus…');
-                                const journey = await session.generateJourneyMap(undefined, noop);
-                                if (journey) { setJourneyResult(journey); persist('journey', journey); }
-                            } catch (err) { console.warn('[Cache resynth] Journey failed:', err); }
-                        }
-                        // GAP ANALYSIS
-                        if (!hydratedKinds.has('gap')) {
-                            try {
-                                advanceCachedSynthStage('gap', 'Scoring capability gaps from cached corpus…');
-                                const gap = await session.generateGapAnalysis(undefined, noop);
-                                if (gap) { setGapResult(gap); persist('gap', gap); }
-                            } catch (err) { console.warn('[Cache resynth] Gap failed:', err); }
-                        }
-                        // COMPETITIVE
-                        if (!hydratedKinds.has('competitive')) {
-                            try {
-                                advanceCachedSynthStage('competitive', 'Reading the competitive landscape from cached corpus…');
-                                const comp = await session.generateCompetitiveAnalysis(undefined, noop);
-                                if (comp) { setCompetitiveResult(comp); persist('competitive', comp); }
-                            } catch (err) { console.warn('[Cache resynth] Competitive failed:', err); }
-                        }
-
-                        classicKgSynthesisRef.current.status = 'complete';
-                        advanceCachedSynthStage('complete', `Done. ${hydratedKinds.size > 0 ? hydratedKinds.size + ' deliverable(s) reused from cache; ' : ''}fresh synthesis produced for the rest.`);
-                        setStatusMessage(`Re-synthesis complete from cached intelligence. ${hydratedKinds.size > 0 ? hydratedKinds.size + ' deliverable(s) reused from cache; ' : ''}fresh synthesis produced for the rest.`);
-                    } else {
-                        // No corpus assembled — all selections were engagement
-                        // deliverables (already hydrated). Nothing to synthesize.
-                        advanceCachedSynthStage('complete', 'Cached deliverables loaded; no corpus to re-synthesize against.');
-                        setStatusMessage('Cached intelligence loaded. Use the chat to explore or compose deliverables.');
-                    }
-
-                    setNotification(`Loaded ${totalSelections} cached item${totalSelections === 1 ? '' : 's'} — no data collection occurred.`);
-                    setTimeout(() => setNotification(null), 6000);
-                } catch (hydrationErr: any) {
-                    console.warn('[startAnalysis] Library hydration failed (non-fatal):', hydrationErr);
-                    setStatusMessage(`Cached-data load partially failed: ${hydrationErr?.message || 'unknown'}. You can still use the chat.`);
-                    classicKgSynthesisRef.current.status = 'failed';
-                    setCachedSynthError(String(hydrationErr?.message || hydrationErr));
-                    setCachedSynthStage('failed');
-                }
-            })();
-            return;
-        }
+        // 2026-05-16 — Cached-synthesis short-circuit REMOVED.
+        // The Knowledge Library still exists as a UI surface; selections are
+        // used (further down in the live data-collection path) to augment
+        // fresh sources with cached subreddit posts. Every analysis run now
+        // always does fresh data collection — no skip path on librarySelection.
 
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
@@ -3559,7 +3566,7 @@ const App = () => {
                                 const tier = tierMap[sid] || 3;
 
                                 try {
-                                    const resp = await fetchWithRetry(`http://localhost:5012/api/search/${sid}?q=${encodeURIComponent(query)}&limit=15`);
+                                    const resp = await fetchWithRetry(`http://127.0.0.1:5012/api/search/${sid}?q=${encodeURIComponent(query)}&limit=15`);
                                     if (!resp.ok) {
                                         setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
                                         return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
@@ -4050,9 +4057,9 @@ const App = () => {
                     ];
 
                     const models = [
-                        { name: 'GeminiPro', url: 'http://localhost:5012/api/ai/gemini', model: 'gemini-3.1-pro-preview', maxChars: 2_500_000, timeout: 240_000 },
-                        { name: 'GeminiFlash', url: 'http://localhost:5012/api/ai/gemini', model: 'gemini-2.5-flash', maxChars: 2_500_000, timeout: 180_000 },
-                        { name: 'OpenAI', url: 'http://localhost:5012/api/ai/openai', model: 'gpt-5.4-mini', maxChars: 320_000, timeout: 180_000 },
+                        { name: 'GeminiPro', url: 'http://127.0.0.1:5012/api/ai/gemini', model: 'gemini-3.1-pro-preview', maxChars: 2_500_000, timeout: 240_000 },
+                        { name: 'GeminiFlash', url: 'http://127.0.0.1:5012/api/ai/gemini', model: 'gemini-2.5-flash', maxChars: 2_500_000, timeout: 180_000 },
+                        { name: 'OpenAI', url: 'http://127.0.0.1:5012/api/ai/openai', model: 'gpt-5.4-mini', maxChars: 320_000, timeout: 180_000 },
                     ];
 
                     const analyzePart = async (part: string, m: typeof models[0], partNum: number): Promise<string> => {
@@ -4197,8 +4204,10 @@ ${synthesisParts.join('\n')}
         // misaligned prior engagement.
         if (!engagementMemoryDismissed) {
             try {
-                const { loadEngagementMemory } = await import('./services/wikiService');
-                const slug = researchGoal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
+                // 2026-05-23 — Canonical slug so memory lookup hits the same key
+                // that saveEngagementMemory writes (was 50-char, now 60-char).
+                const { loadEngagementMemory, buildEngagementSlug } = await import('./services/wikiService');
+                const slug = buildEngagementSlug(researchGoal, 60);
                 const memory = await loadEngagementMemory(slug, researchGoal);
                 if (memory?.content) {
                     wikiKnowledge += `\n\n=== PRIOR ENGAGEMENT MEMORY ===\nA previous research run with a similar goal was found:\n${memory.content}\nUse this context to build on prior work — don't repeat the same analysis.\n=== END ENGAGEMENT MEMORY ===\n`;
@@ -4299,15 +4308,43 @@ ${synthesisParts.join('\n')}
                     // against this goal can cache-load from disk (next-session
                     // wiring: cache READ for deliverables).
                     let _persistSlug: string | null = null;
+                    // 2026-05-19 — Track which deliverables have been persisted
+                    // for this engagement so the manifest's `cached` block stays
+                    // in sync. Without this the engagement dir contains 6
+                    // deliverable JSONs but no manifest.json — the Knowledge
+                    // Library resume picker then 404s and the user sees a
+                    // cascade of failed fetches in the console.
+                    const _persistedKinds = new Set<string>();
                     const persistDeliverable = async (kind: 'themes' | 'personas' | 'journey' | 'gap' | 'recs' | 'competitive' | 'blueprint', data: any) => {
                         try {
                             if (!_persistSlug) {
                                 const { buildEngagementSlug } = await import('./services/wikiService');
                                 _persistSlug = buildEngagementSlug(researchGoal || 'untitled-engagement', 60);
                             }
-                            const { writeEngagementDeliverable } = await import('./services/wikiService');
+                            const { writeEngagementDeliverable, writeEngagementManifest } = await import('./services/wikiService');
                             const ok = await writeEngagementDeliverable(_persistSlug, kind, data);
-                            if (ok) console.log(`[Phase B] persisted ${kind}.json to engagements/${_persistSlug}/`);
+                            if (ok) {
+                                _persistedKinds.add(kind);
+                                console.log(`[Phase B] persisted ${kind}.json to engagements/${_persistSlug}/`);
+                                // 2026-05-19 — Write/refresh the manifest after every
+                                // successful deliverable persist. writeEngagementManifest
+                                // merges with existing, so this is idempotent — the
+                                // manifest's cached.<kind> entries accumulate as more
+                                // deliverables land. Non-fatal on failure: the
+                                // deliverable is already on disk.
+                                try {
+                                    const cached: Record<string, { count: number; path: string }> = {};
+                                    for (const k of _persistedKinds) {
+                                        cached[k] = { count: 1, path: `engagements/${_persistSlug}/${k}.json` };
+                                    }
+                                    await writeEngagementManifest(_persistSlug, {
+                                        research_goal: researchGoal || 'untitled-engagement',
+                                        cached: cached as any,
+                                    });
+                                } catch (manifestErr) {
+                                    console.warn(`[Phase B] manifest refresh for ${_persistSlug} failed (non-fatal):`, manifestErr);
+                                }
+                            }
                         } catch (persistErr) {
                             console.warn(`[Phase B] persist ${kind} failed (non-fatal):`, persistErr);
                         }
@@ -4537,6 +4574,62 @@ ${synthesisParts.join('\n')}
                 setThemesResult(themes);
                 setStatusMessage("Themes Identified");
                 setActiveStage(AnalysisStage.THEMES);
+
+                // 2026-05-23 — Karpathy Phase 2.3: Knowledge gap detection.
+                // After themes are identified we have a condensed corpus summary
+                // — perfect input for the gap finder. The finder parses the
+                // engagement goal + every selected deliverable's framework page
+                // into specific research questions, checks corpus coverage
+                // per question, and proposes remediation for uncovered ones.
+                // Findings are persisted to wiki/synthesis/knowledge-gaps-<slug>.md
+                // and surfaced in the Knowledge Library Coverage tab.
+                try {
+                    const { findKnowledgeGaps } = await import('./services/knowledgeGapFinder');
+                    const corpusSummary = (themes?.themes || []).slice(0, 25)
+                        .map((t: any) => `${t.name}: ${(t.description || '').slice(0, 240)}`)
+                        .join('\n');
+                    const engagementSlugForGaps = (window as any).__hicCurrentEngagementSlug
+                        || (researchGoal || 'default-engagement').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+                    const deliverableTypesForGaps = (selectedOutputs || [])
+                        .map(o => String(o).toLowerCase().replace(/_/g, '-').replace(/^strategic-recs$/, 'recommendations'));
+
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: '[GAP_FINDER] Checking corpus coverage against engagement goal + framework dimensions...',
+                    }]);
+
+                    const gapResultPromise = findKnowledgeGaps({
+                        goal: researchGoal,
+                        engagementSlug: engagementSlugForGaps,
+                        industry: undefined,
+                        deliverableTypes: deliverableTypesForGaps,
+                        corpusSummary,
+                        corpusChunkCount: (liveSourceResults || []).reduce((s, src) => s + (src.items?.length || 0), 0),
+                    }, (msg: string) => {
+                        setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[GAP_FINDER] ${msg}` }]);
+                    });
+
+                    // Fire-and-store: don't block the pipeline, but record the
+                    // result on a window-accessible hook so the Knowledge Library
+                    // panel can read it.
+                    gapResultPromise.then(result => {
+                        (window as any).__hicKnowledgeGaps = result;
+                        setGapsResult(result);
+                        setGapsDismissed(false);
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'INSIGHT',
+                            content: `[GAP_FINDER] Done in ${result.durationMs}ms. ${result.questionsCovered}/${result.questionsExamined} covered, ${result.gaps.length} shortfalls (${result.cachedEngagementMatches} matched cached engagements).`,
+                        }]);
+                    }).catch((err: any) => {
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'CORRECTION',
+                            content: `[GAP_FINDER] Coverage check failed (${err?.message || err}); pipeline continued without gap analysis.`,
+                        }]);
+                    });
+                } catch (err: any) {
+                    // Best-effort import failure; never block themes
+                    console.warn('[GAP_FINDER] import failed:', err?.message || err);
+                }
             }
             else if (activeStage === AnalysisStage.THEMES) {
                 if (modifiedData) {
@@ -4742,6 +4835,32 @@ ${synthesisParts.join('\n')}
              {/* Cost meter chip — floats bottom-right, hidden until first AI call. */}
              <CostMeterChip accentColor="#00B7C3" />
 
+             {/* 2026-05-22 — Change-promotion strip. Tells users what skill
+                 versions, anti-patterns, and constraints have changed since
+                 their last session. Dismissible. Hidden when there is
+                 nothing to report. */}
+             <ChangeStrip />
+
+             {/* 2026-05-23 — Karpathy Phase 2.3: Knowledge-gap panel. Auto-mounts
+                 when the gap finder detects shortfalls after theme generation.
+                 Dismissible per-session. Deliverable artifacts NEVER reference
+                 the gaps — this panel is the meta-layer the user reads. */}
+             {!gapsDismissed && gapsResult && gapsResult.gaps.length > 0 && (
+                 <div style={{ margin: '8px 16px' }}>
+                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                         <div />
+                         <button
+                             onClick={() => setGapsDismissed(true)}
+                             style={{ background: 'transparent', border: 'none', color: '#666', fontSize: 10, cursor: 'pointer', textTransform: 'uppercase', letterSpacing: 0.5, fontFamily: "'JetBrains Mono', monospace" }}
+                         >Dismiss coverage panel</button>
+                     </div>
+                     <KnowledgeGapsPanel
+                         gaps={gapsResult.gaps as KnowledgeGap[]}
+                         engagementSlug={(window as any).__hicCurrentEngagementSlug || (researchGoal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 60)}
+                     />
+                 </div>
+             )}
+
              {/* Knowledge Library — full-screen modal triggered from the IDLE
                  page entry. Renders nothing when closed. researchGoal is passed
                  in so the library can highlight items most relevant to what
@@ -4945,18 +5064,20 @@ ${synthesisParts.join('\n')}
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                        {sessionListings.slice(0, 6).map((s: any) => (
-                                            <button
+                                        {/* 2026-05-26 — Show ALL sessions (was capped at 6) so stale
+                                            sessions are reachable for delete. Each card is a div with
+                                            a clickable restore region + a corner delete button so the
+                                            two actions don't fight for the same click target. */}
+                                        {sessionListings.map((s: any) => (
+                                            <div
                                                 key={s.slug}
-                                                onClick={() => handleLoadSession(s.slug)}
                                                 style={{
-                                                    textAlign: 'left',
+                                                    position: 'relative',
                                                     padding: '12px 14px',
                                                     background: '#FAFAFA',
                                                     border: '1px solid #E5E5E5',
                                                     borderLeft: '4px solid #B8B800',
                                                     borderRadius: 2,
-                                                    cursor: 'pointer',
                                                     fontFamily: 'Archivo, sans-serif',
                                                     transition: 'background 140ms, border-color 140ms',
                                                 }}
@@ -4964,40 +5085,84 @@ ${synthesisParts.join('\n')}
                                                 onMouseLeave={e => { e.currentTarget.style.background = '#FAFAFA'; e.currentTarget.style.borderLeftColor = '#B8B800'; }}
                                                 title={`${s.research_goal || s.title}\nSlug: ${s.slug}`}
                                             >
-                                                <div style={{
-                                                    fontFamily: "'Bebas Neue', sans-serif",
-                                                    fontSize: 14, letterSpacing: 1, color: '#0D0D0D',
-                                                    lineHeight: 1.2,
-                                                    marginBottom: 6,
-                                                    display: '-webkit-box',
-                                                    WebkitLineClamp: 2,
-                                                    WebkitBoxOrient: 'vertical' as any,
-                                                    overflow: 'hidden',
-                                                    textTransform: 'uppercase',
-                                                }}>
-                                                    {s.title || s.research_goal || s.slug}
-                                                </div>
-                                                <div style={{ fontSize: 10, color: '#525252', fontFamily: "'JetBrains Mono', monospace", display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                                                    {s.deliverable_count ? <span>{s.deliverable_count} deliverables</span> : null}
-                                                    {s.topic_count ? <span>· {s.topic_count} topics</span> : null}
-                                                    {s.chat_turn_count ? <span>· {s.chat_turn_count} chat turns</span> : null}
-                                                </div>
-                                                <div style={{ fontSize: 10, color: '#ACACAC', marginTop: 6, fontFamily: "'JetBrains Mono', monospace" }}>
-                                                    {(() => {
-                                                        try {
-                                                            const d = new Date(s.saved_at);
-                                                            const diffMs = Date.now() - d.getTime();
-                                                            const min = Math.floor(diffMs / 60000);
-                                                            if (min < 1) return 'just now';
-                                                            if (min < 60) return `${min} min ago`;
-                                                            const hr = Math.floor(min / 60);
-                                                            if (hr < 24) return `${hr} hr ago`;
-                                                            const days = Math.floor(hr / 24);
-                                                            return `${days} day${days === 1 ? '' : 's'} ago`;
-                                                        } catch { return s.saved_at; }
-                                                    })()}
-                                                </div>
-                                            </button>
+                                                <button
+                                                    onClick={() => handleDeleteSession(s.slug, s.title || s.research_goal || s.slug)}
+                                                    aria-label={`Delete session ${s.title || s.slug}`}
+                                                    style={{
+                                                        position: 'absolute',
+                                                        top: 6,
+                                                        right: 6,
+                                                        width: 22,
+                                                        height: 22,
+                                                        background: 'transparent',
+                                                        border: '1px solid transparent',
+                                                        borderRadius: 2,
+                                                        cursor: 'pointer',
+                                                        color: '#999',
+                                                        fontFamily: "'JetBrains Mono', monospace",
+                                                        fontSize: 14,
+                                                        lineHeight: '20px',
+                                                        textAlign: 'center',
+                                                        padding: 0,
+                                                        transition: 'background 120ms, color 120ms, border-color 120ms',
+                                                    }}
+                                                    onMouseEnter={e => { e.currentTarget.style.background = '#FFEEEE'; e.currentTarget.style.color = '#CC3333'; e.currentTarget.style.borderColor = '#CC3333'; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#999'; e.currentTarget.style.borderColor = 'transparent'; }}
+                                                >
+                                                    {String.fromCharCode(0x00D7)}
+                                                </button>
+                                                <button
+                                                    onClick={() => handleLoadSession(s.slug)}
+                                                    style={{
+                                                        display: 'block',
+                                                        width: '100%',
+                                                        textAlign: 'left',
+                                                        background: 'transparent',
+                                                        border: 'none',
+                                                        padding: 0,
+                                                        margin: 0,
+                                                        cursor: 'pointer',
+                                                        fontFamily: 'inherit',
+                                                        color: 'inherit',
+                                                    }}
+                                                    title={`Restore: ${s.title || s.slug}`}
+                                                >
+                                                    <div style={{
+                                                        fontFamily: "'Bebas Neue', sans-serif",
+                                                        fontSize: 14, letterSpacing: 1, color: '#0D0D0D',
+                                                        lineHeight: 1.2,
+                                                        marginBottom: 6,
+                                                        marginRight: 28,
+                                                        display: '-webkit-box',
+                                                        WebkitLineClamp: 2,
+                                                        WebkitBoxOrient: 'vertical' as any,
+                                                        overflow: 'hidden',
+                                                        textTransform: 'uppercase',
+                                                    }}>
+                                                        {s.title || s.research_goal || s.slug}
+                                                    </div>
+                                                    <div style={{ fontSize: 10, color: '#525252', fontFamily: "'JetBrains Mono', monospace", display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                                                        {s.deliverable_count ? <span>{s.deliverable_count} deliverables</span> : null}
+                                                        {s.topic_count ? <span>{String.fromCharCode(0x00B7)} {s.topic_count} topics</span> : null}
+                                                        {s.chat_turn_count ? <span>{String.fromCharCode(0x00B7)} {s.chat_turn_count} chat turns</span> : null}
+                                                    </div>
+                                                    <div style={{ fontSize: 10, color: '#ACACAC', marginTop: 6, fontFamily: "'JetBrains Mono', monospace" }}>
+                                                        {(() => {
+                                                            try {
+                                                                const d = new Date(s.saved_at);
+                                                                const diffMs = Date.now() - d.getTime();
+                                                                const min = Math.floor(diffMs / 60000);
+                                                                if (min < 1) return 'just now';
+                                                                if (min < 60) return `${min} min ago`;
+                                                                const hr = Math.floor(min / 60);
+                                                                if (hr < 24) return `${hr} hr ago`;
+                                                                const days = Math.floor(hr / 24);
+                                                                return `${days} day${days === 1 ? '' : 's'} ago`;
+                                                            } catch { return s.saved_at; }
+                                                        })()}
+                                                    </div>
+                                                </button>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
@@ -5402,21 +5567,6 @@ ${synthesisParts.join('\n')}
                   {/* ANALYZING STATE */}
                   {appState === AppState.ANALYZING && (
                       <div className="flex-1 p-8 bg-[var(--bg-primary)] h-full overflow-auto flex flex-col">
-                           {/* 2026-05-14 — Cached-synthesis overlay. Shows
-                               step-by-step progress when the user picked
-                               cached items via the Library or Resume panel
-                               (the orchestrator is skipped, so the normal
-                               LiveResearchBoard surfaces nothing — without
-                               this overlay the screen looks frozen.) */}
-                           <CachedSynthesisOverlay
-                               show={cachedSynthStage !== 'idle'}
-                               stage={cachedSynthStage}
-                               completed={cachedSynthCompleted}
-                               itemCount={cachedSynthItemCount}
-                               detail={cachedSynthDetail}
-                               error={cachedSynthError}
-                               accentColor="#00B7C3"
-                           />
                            <LiveResearchBoard
                                ingestion={ingestionResult}
                                themes={themesResult}
@@ -5458,6 +5608,7 @@ ${synthesisParts.join('\n')}
                                onTopicModelResult={setTopicModelResult}
                                initialChatMessages={initialChatMessagesRef.current || undefined}
                                onChatMessagesChange={(msgs: any[]) => { chatMessagesRef.current = msgs; }}
+                               knowledgeGaps={gapsResult?.gaps || []}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);

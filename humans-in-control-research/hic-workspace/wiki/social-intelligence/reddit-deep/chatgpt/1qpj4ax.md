@@ -6,19 +6,19 @@ subreddit: "chatgpt"
 title: "Warning to ChatGPT Users"
 author: "ms221988"
 date: "2026-01-28T18:11:44.000Z"
-score: 1031
+score: 1033
 upvote_ratio: 0.92
-num_comments: 624
+num_comments: 628
 flair: "Prompt engineering "
-extracted_at: "2026-05-11T16:54:08.821Z"
+extracted_at: "2026-05-17T01:12:48.206Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
 ---
 
 # Warning to ChatGPT Users
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qpj4ax/warning_to_chatgpt_users/)
-Posted by **ms221988** · **1031↑** · **624 comments**
+Posted by **ms221988** · **1033↑** · **628 comments**
 
 *Preface: This blew up more than I thought and it seems I am not alone. Hopefully it gets OpenAI's attention (I remain dubious). The stories I'm seeing about important conversations lost for both free and paid users should be something they address. Whether that simply means better UX/UI, or better programming, the fact is: we take their product seriously, and when stuff like this happens, it seems they do not take users seriously.*
 
@@ -74,32 +74,24 @@ Note: For any ChatGPT-related concerns, email support@openai.com - this subreddi
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*
-- **Educational-Flan-570** (418↑): My recommendation going forward would be to create a project and have multiple chats in that project. Long chat threads lead to poorer outputs (in my experience). Having multiple shorter ones help it reference the proper context and ignore any noise. 
+- **Educational-Flan-570** (416↑): My recommendation going forward would be to create a project and have multiple chats in that project. Long chat threads lead to poorer outputs (in my experience). Having multiple shorter ones help it reference the proper context and ignore any noise. 
 
 Additionally, another approach you could use instead of projects is to create a prompt that gets Chat GPT to create a contextual dump of your chat thread. You can have it ask you questions about what is valuable information to keep, this would also give you a good understanding if GPT is overlooking context. This would provide you with a solid contextual backup and the ability to start a fresh chat to get better outputs.
-  - **GigabitISDN** (99↑): Not to mention the performance hit. Once a chat goes past a few days or more than a handful of memories, I see a MAJOR drop in performance. Responses take longer and longer, and the text takes longer to render.
-    - **jeweliegb** (26↑): Might not be the same thing, but there's an issue with the web version of ChatGPT that causes it to slow right down and become a total mess for long conversations.
+  - **GigabitISDN** (98↑): Not to mention the performance hit. Once a chat goes past a few days or more than a handful of memories, I see a MAJOR drop in performance. Responses take longer and longer, and the text takes longer to render.
+    - **jeweliegb** (25↑): Might not be the same thing, but there's an issue with the web version of ChatGPT that causes it to slow right down and become a total mess for long conversations.
     - **ReasonableSpinach717** (2↑): I felt that. Was working on a very complex contract. After some days of work, GPT got really sluggish.
     - **BradCoopper** (2↑): i noticed that too
-  - **libertondm** (24↑): Interestingly, it doesn't appear that projects help Chat. Projects are for users. They're like folders. 
+  - **libertondm** (23↑): Interestingly, it doesn't appear that projects help Chat. Projects are for users. They're like folders. 
 
 What you want for helping Chat keep track of things is a Glob. I learned about Globs from a Reddit post. You can ask your Chat to help you create on within the current thread, and you can edit that and craft a final version that you can export and reuse as the foundation of a similar prompt. I've also seen something similar to a Glob referred to as a Master Prompt, but I see those two things as different.
     - **Fuckit445** (12↑): 👆This - recently asked it to scan threads in a project folder and it told me that’s not how this works. Projects are for organization of the user and for the most part, unless committed to memory, it cannot scan the other chats.
     - **mandypantsy** (3↑): Where is the ChatGPT user manual? Tech writers (the human kind) we need you!!
-  - **ms221988** (24↑): Actually in this case long chat threads have been HUGELY helpful. The ongoing context enabled some incredibly great co-working experiences and output. It's where I really began to be impressed with AI.
-    - **Educational-Flan-570** (37↑): I’d recommend trying the projects, you should see the benefits of the ongoing context along with the benefits of a shorter conversation threads and organization. I think it might impress you even more!
-    - **LpcArk357** (12↑): ChatGPT is not able to recall the entire chat and it's actually worse at doing that than it is at recalling overall vibes it has from projects. Often times you can ask it about something you talked about in a long chat and it will forget parts of it but if it's in a project and all the messages are short it's able to quickly recall that information
+  - **ms221988** (26↑): Actually in this case long chat threads have been HUGELY helpful. The ongoing context enabled some incredibly great co-working experiences and output. It's where I really began to be impressed with AI.
+    - **Educational-Flan-570** (39↑): I’d recommend trying the projects, you should see the benefits of the ongoing context along with the benefits of a shorter conversation threads and organization. I think it might impress you even more!
+    - **LpcArk357** (11↑): ChatGPT is not able to recall the entire chat and it's actually worse at doing that than it is at recalling overall vibes it has from projects. Often times you can ask it about something you talked about in a long chat and it will forget parts of it but if it's in a project and all the messages are short it's able to quickly recall that information
     - **Secret_Consequence48** (2↑): I think the problem you describe, aside from being a known bug in the web platform, could be solved using the desktop app, at least on a Mac. Now, the problem that arises when resuming long conversations with the new models is, firstly, extreme token saving, and secondly, that when restarting the conversation, the triage model can change the responding model. Getting the attention of the deep model takes time again because it's the one that spends the most tokens. As a result, it responds with anything, either to save tokens or intentionally frustrate you so you stop spending tokens.
 Until AI becomes free and collaborative without censorship, all of this will continue to happen, and worse.
-    - **Randiomo** (3↑): I usually , when conversation gets too long and browser starts to fail , ask chat to summerize the whole convo into a file , in my case i use pdfs , and take that summery pdf and past it to a new convo as ctx , for a convo as long as urs maybe multiple files ? But i mainly use this approach bcz i need the pdfs for documentation anyway , other than the browser overload issue , so it may not be as effective in ur case , not sure .
-    - **trefster** (1↑): The problem is that the model can only handle a certain amount of context. When it runs out of space it starts to get stupid and forgetful. I like the way Claude handles this. It compacts the important parts of the entire previous context and moves that forward. I don’t think Chat GPT does that yet.
-    - **hindianguy** (1↑): It doesnt works the way you think it does. LLMs are not "magic" so as to speak. To create the illusion of memory, LLMs retain context from previous prompts. But there are limits.GPT-5.2 Thinking for example has limit of 196K, unless you are rehydrating context, at 1000 tokens per prompt it would "forget" stuff from earlier completely after say 200 prompts or so.
-
-What I do is, make chatGPT projects, upload key chats/text summary of stuff to remember in the file section of the project. That way it will often refer to those or I can manually rehydrate facts by asking it to add those to context. It will mimic your "long ongoing context". You can add up to 10 files. Also, if you stop a session for few hours, it would lose earlier context from the active threads anyways, when you come back. Think in terms of cacheing.  
-  
-Another way I leverage projects for example is, that for my "photography" project, I uploaded the entire manual for my camera. And a few "expert" photography books. So when I upload my photos of critiques, or if I ask advice on how to achieve a specific results, it doesnt needs to waste time online searching for info. It just gives me the settings from the manual itself. I am going through the manual myself too, but it helps to have ChatGPT guide me through specifics when I need quick info. 
-
-This is what I believe, others are trying to tell you. Inside a project, it will far more easily refer to other related chat sessions too, inside the same project.
+    - **Randiomo** (1↑): I usually , when conversation gets too long and browser starts to fail , ask chat to summerize the whole convo into a file , in my case i use pdfs , and take that summery pdf and past it to a new convo as ctx , for a convo as long as urs maybe multiple files ? But i mainly use this approach bcz i need the pdfs for documentation anyway , other than the browser overload issue , so it may not be as effective in ur case , not sure .
   - **qbit1010** (3↑): This is what I do along with manually saving (especially work related) in word documents offline. Also it doesn’t hurt to request a chat gpt entire backup every 3-6 months.
   - **lady8godiva** (3↑): I separate into multiple chats within projects as well. If I remember correctly there is an option to branch into a new chat which I've used for this purpose.
   - **fiziksphreak** (3↑): 100% This is how I do it and I am a VERY heavy user. It retains context. Honestly, at this point it will even reference other projects unless you specifically set up that project to not be referenced elsewhere. It sometimes will blow my mind be referencing something that I said in a different project a year ago.
@@ -113,19 +105,19 @@ Use the ChatGPT Light Session extension from the extension store and will be goo
   - **Hoopznheelz** (1↑): Can you break this down more please? I have a crazy important legal thread going on that when I ask Chat how many pages it would be if it were printed out it’s at about 400 pages.🤦🏼‍♀️🤦🏼‍♀️😩 I’m assuming I should just start a new thread referencing the one that I just mentioned, but are you suggesting I do something else as well?
     - **Educational-Flan-570** (2↑): You can create a project and drag and drop your mega thread to start and then start using small chats along with it.
   - **SmartPuppyy** (1↑): That's exactly what I do.
-- **ghettokatniss** (152↑): Yeah I realized this. As someone who was In top1% of messages sent last year I know chat is unreliable for long form thread memory and stopped expecting it to remember earlier thread context. Feels like a shortcoming of chat. 
+- **ghettokatniss** (150↑): Yeah I realized this. As someone who was In top1% of messages sent last year I know chat is unreliable for long form thread memory and stopped expecting it to remember earlier thread context. Feels like a shortcoming of chat. 
 
 I instead keep important stuff in chats dedicated memory function and make a new thread every so often to prevent looping
-  - **Leather-Ad-546** (63↑): Hey, top 1% too. To solve your memory and context issue, copy and paste the entire chat periodically updating it and save it as a .txt and upload it to your project.  Tell it that this is its "memory" and reference it like irs working memory for the project so thar i always knows what youre doing, what youve done and all that.  You will at times need to give it some thing to reference or find in the "memory" but this system has let me keep a project fully coherent and on track over 23k messages.
+  - **Leather-Ad-546** (66↑): Hey, top 1% too. To solve your memory and context issue, copy and paste the entire chat periodically updating it and save it as a .txt and upload it to your project.  Tell it that this is its "memory" and reference it like irs working memory for the project so thar i always knows what youre doing, what youve done and all that.  You will at times need to give it some thing to reference or find in the "memory" but this system has let me keep a project fully coherent and on track over 23k messages.
 
 The added bonus to this is you have a permanent archive of your entire chats and project too
 
 Edit: having more but not as large .txt thar are properly named with date rages as its doc title speeds up its ability to read, and also alows it to hold more of the docs in its ctx while looking
-    - **Desperate-Poem7526** (48↑): Hey top 1% here too.
+    - **Desperate-Poem7526** (49↑): Hey top 1% here too.
 
 
 Dude everyone in this subreddit is probably 1% 🙄
-    - **AstroZombieInvader** (9↑): The one downside I've experienced from this quite recently is that if you have other chats in the project, those memory documents can have a very heavy influence on any chat in that project.
+    - **AstroZombieInvader** (8↑): The one downside I've experienced from this quite recently is that if you have other chats in the project, those memory documents can have a very heavy influence on any chat in that project.
 
 I was trying to use certain chat excerpts to set an overall tone for the project, but it was pulling too many specifics from the memory files. When I tried creating a new chat that was thematically the same, but topically different from the memories, it literally ignored my opening paragraph to set up the new chat and wanted to continue on with the chats in the existing memory files.
 
@@ -138,10 +130,8 @@ But if every chat is going to use those memories then, yes, this is a great way 
     - **JazzlikeProject6274** (2↑): I do this with Claude. Makes a difference.
     - **ms221988** (2↑): Good advice.
     - **Careless_Ad4329** (1↑): How much memory does that take up on your drive?
-    - **knightsabre7** (1↑): How do you copy and paste the entire chat easily? App or website?
   - **peasantking** (3↑): How do you determine your usage percentage?
-    - **Public_Park5921** (1↑): GPT will send a recap at the end of year giving you all your stats. It's pretty cool actually.
-  - **ms221988** (8↑): I also am in the top percentile. But I didn't realize this was a problem. Hard way to find out. As a programmer, I back-up frequently, but...I am not sure why ChatGPT isn't backing up data, too. Especially for those who pay money for this service. Maybe NVIDIA needs to give Sam Altman another cash infusion lol.
+  - **ms221988** (7↑): I also am in the top percentile. But I didn't realize this was a problem. Hard way to find out. As a programmer, I back-up frequently, but...I am not sure why ChatGPT isn't backing up data, too. Especially for those who pay money for this service. Maybe NVIDIA needs to give Sam Altman another cash infusion lol.
     - **Bunkersmasher** (8↑): Ask GPT to summarize your chats in detail.
 
 Have it make a "master prompt" in another chat which consolidates everything. Then that summary you can inject into a new chat and once you feel that the context window is running out, rinse and repeat, adding to your summary each time.
@@ -165,13 +155,13 @@ Any type of info you wanna draw from your chats, ChatGPT can write a script for 
 EDIT: Sorry. I was in a bit of a rush earlier. Usually, right before it hits your “phase 3” I have it spin up what I call a context flag. I copy the flag, tell the model to close the thread, and then I jump to a new thread, plant the flag with the addition of “thread is live, welcome back.”  
 
 It’s the closest thing for thread to thread persistent memory that I’ve been able to find. Almost negligible recap if any, and that’s how I reached over 70k messages in 326 chats in the 6 months I used ChatGPT for after finding it in June last year. Hope that helps.
-- **InternationalEnd8934** (16↑): any serious work should have backups, same as alwyas. nothing changed in that regard
+- **InternationalEnd8934** (15↑): any serious work should have backups, same as alwyas. nothing changed in that regard
   - **SocksOnHands** (3↑): I don't treat anything in a ChatGPT conversation as permanent or important.  Anything I want to keep, I copy into files.  I frequently delete conversations and start fresh new ones - I'll never go back to the old stuff, and I want to control exactly what information the AI is referencing for more focused responses.  I don't even have memory turned on because I want every chat to be as independent as possible so it is only addressing the current task at hand.
-- **oooranooo** (9↑): This occurs from the use of 2 devices in 2 periods of time. To simulate, leave tab open on pc, have a long conversation on your phone. Go back to pc tab and comment. Phone conversation disappears. I call it scratchpad mode, and it can be useful when accounted for.
+- **oooranooo** (8↑): This occurs from the use of 2 devices in 2 periods of time. To simulate, leave tab open on pc, have a long conversation on your phone. Go back to pc tab and comment. Phone conversation disappears. I call it scratchpad mode, and it can be useful when accounted for.
 Edit: can also be done between pc tabs.
-- **pbeens** (7↑): Might be a good idea to run the [GPT Thread Saver](https://chromewebstore.google.com/detail/chatgpt-thread-saver/monacbfpcobmaoijgepedjklkpknponk?hl=en-US&utm_source=ext_sidebar) (Chrome Extension) regularly for important threads.
+- **pbeens** (6↑): Might be a good idea to run the [GPT Thread Saver](https://chromewebstore.google.com/detail/chatgpt-thread-saver/monacbfpcobmaoijgepedjklkpknponk?hl=en-US&utm_source=ext_sidebar) (Chrome Extension) regularly for important threads.
 - **Logical_Fix_6700** (5↑): In addition to regularly scheduled exports, each chat is copied and saved as an .md file and becomes part of the project file. ChatGPT can access other chats as points of reference without doing this, but that extra backup avoids leaving it up to tech support to fix bugs. Those same files are also saved on my hard drive.
-- **TemporaryKangaroo387** (9↑): this is the thing that finally pushed me to treat AI chats like any other document i care about. now i just copy paste anything important into a local notes app or notion as i go. its annoying but the convenience of not doing it evaporates real fast when you lose actual work
+- **TemporaryKangaroo387** (10↑): this is the thing that finally pushed me to treat AI chats like any other document i care about. now i just copy paste anything important into a local notes app or notion as i go. its annoying but the convenience of not doing it evaporates real fast when you lose actual work
 
 the export feature is basically useless too since apparently it doesnt even capture everything. kind of wild for a $20/mo product
   - **[deleted]** (2↑): 20/mo is basically OpenAi losing money on high traffic users.

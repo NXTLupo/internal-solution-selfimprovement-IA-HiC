@@ -10,9 +10,9 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 2
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T23:02:38.891Z"
+extracted_at: "2026-05-26T14:30:23.760Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Khoury MSCS (Boston) Beginner with 1yr Frontend exp | Fall '26

@@ -56,7 +56,7 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
     // 2026-05-05 — DeepSeek V4 Flash is the primary path.
     if (m === 'deepseek-v4-flash') {
-        const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+        const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

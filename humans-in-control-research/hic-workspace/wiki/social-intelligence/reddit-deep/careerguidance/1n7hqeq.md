@@ -1,0 +1,53 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1n7hqeq/advice_on_transitioning_into_computer_engineering/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Advice on transitioning into Computer Engineering?"
+author: "throwawaytrn30"
+date: "2025-09-03T15:22:17.000Z"
+score: 2
+upvote_ratio: 1
+num_comments: 4
+flair: "Education & Qualifications"
+extracted_at: "2026-05-22T23:34:01.139Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+---
+
+# Advice on transitioning into Computer Engineering?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1n7hqeq/advice_on_transitioning_into_computer_engineering/)
+Posted by **throwawaytrn30** · **2↑** · **4 comments**
+
+Hey everyone,  
+I'm hoping to get some insight or shared experiences around making a career/education shift later in life.
+
+I'm in my 30s with a bachelor's degree in Graphic Design and currently work in tech as a UX Designer. Over the years, I've developed a strong interest in computer engineering, and I'm now seriously considering pursuing a degree in the field.
+
+The biggest challenge is that I need to keep working full-time to support myself, so I’d only be able to attend evening or night classes. However, I’ve been struggling to find any universities in Europe that offer part-time or evening Computer Engineering degrees (in English or Portuguese).
+
+Here are the options I'm currently considering:
+
+**a)** Finding a university that offers a part-time or evening Computer Engineering degree program, even if it takes longer to complete. (If anyone knows of any in Europe, I’d *really* appreciate recommendations)
+
+**b)** Starting with a part-time or online Bachelor's in Computer Science (which seems more available) and later transitioning into Computer Engineering by doing a specialized Master's degree.
+
+**c)** Saving up money or taking out student loans to eventually afford full-time study for 3–4 years and go all-in on a new degree.
+
+Another factor I’m seriously considering is whether the job market would make this shift worth it in the long run, both in terms of job opportunities and salary growth. I really enjoy UX, but I feel drawn to the more technical side of things and want to make sure the investment of time and money would actually open new doors.
+
+I’d love to hear from anyone who’s been in a similar situation or has thoughts on the viability of these options. Especially curious about any experiences with online or part-time programs in Europe, and how realistic it is to transition into engineering from CS.
+
+Thank you so much! :)
+
+## Comments
+
+- **LoweringPass** (2↑): Since the market is fucked I would do a) and go full time if it becomes clear it's going to recover
+  - **throwawaytrn30** (1↑): Thank you for the answer!
+
+That was my main option as well, but I'm having a really hard time to find a university in Europe that offers the engineering major in a part-time format (or evening/night classes).  
+I did find several that offer computer science though, so that's where option B came from.  
+  
+It's a really complex scenario, tbh. Especially considering that it might not be worth from a purely financial point of view due to the market. But I'm quite interested in the area, so I would really love to pursue it.
+    - **LoweringPass** (2↑): You could enroll in a US based program. They are expensive but not as expensive as on campus. I'm not sure about computer engineering but the name is not really critical as long as you can take the right classes

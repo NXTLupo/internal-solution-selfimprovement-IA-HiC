@@ -11,7 +11,7 @@
 
 // --- SERVICE URLS ---
 // Route through research proxy (port 5012) to bypass CORS
-const CX_PROXY_URL = 'http://localhost:5012/api/cx';
+const CX_PROXY_URL = 'http://127.0.0.1:5012/api/cx';
 // Direct URLs for server-side only
 const REDDIT_RIPPER_URL = typeof window !== 'undefined' ? CX_PROXY_URL : 'http://localhost:5001';
 const SOCIAL_RESEARCH_URL = 'http://localhost:8081';

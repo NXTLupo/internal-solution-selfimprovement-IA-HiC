@@ -1,0 +1,30 @@
+{
+  "0": {
+    "post_count": 7,
+    "total_comments": 7,
+    "total_score": 67,
+    "avg_comments_per_post": 1.0,
+    "avg_score_per_post": 9.571428571428571
+  },
+  "1": {
+    "post_count": 4,
+    "total_comments": 4,
+    "total_score": 21,
+    "avg_comments_per_post": 1.0,
+    "avg_score_per_post": 5.25
+  },
+  "2": {
+    "post_count": 3,
+    "total_comments": 3,
+    "total_score": 43,
+    "avg_comments_per_post": 1.0,
+    "avg_score_per_post": 14.333333333333334
+  },
+  "3": {
+    "post_count": 3,
+    "total_comments": 3,
+    "total_score": 6,
+    "avg_comments_per_post": 1.0,
+    "avg_score_per_post": 2.0
+  }
+}

@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Technical architecture — Co-Op Triage + Advancement bridge</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .arch-overview {
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+    padding: 22px 32px;
+    display: grid;
+    grid-template-columns: 1fr 280px 280px;
+    gap: 36px;
+  }
+  .arch-overview h3 {
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--nu-red-100);
+    margin-bottom: 6px;
+  }
+  .arch-overview p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,.85);
+    margin: 0;
+  }
+  .arch-overview ul {
+    list-style: none; padding: 0; margin: 0;
+    font-size: 11.5px;
+    color: rgba(255,255,255,.7);
+  }
+  .arch-overview li { padding: 3px 0; line-height: 1.4; }
+  .arch-overview li b { color: var(--white); font-weight: 500; }
+
+  /* C4 diagram — single canvas */
+  .c4-canvas {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    position: relative;
+    min-height: 720px;
+  }
+  .c4-canvas h3.layer {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 4px;
+  }
+  .c4-canvas .layer-sub {
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    margin-bottom: 16px;
+  }
+  /* Layers stacked */
+  .c4-layer {
+    margin-bottom: 28px;
+    padding: 16px 18px;
+    border-radius: 8px;
+    border: 1px dashed var(--border-default);
+    background: var(--slate-50);
+  }
+  .c4-layer h4 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .c4-layer h4 .lvl { font-family: var(--font-mono); color: var(--fg-subtle); }
+  .c4-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .node {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11.5px;
+    line-height: 1.35;
+    display: grid;
+    gap: 4px;
+    position: relative;
+  }
+  .node__id {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .node__label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    line-height: 1.2;
+  }
+  .node__type {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .node__desc {
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    line-height: 1.4;
+  }
+  .node__cites { font-size: 9.5px; color: var(--fg-subtle); font-family: var(--font-mono); }
+
+  /* Color-code node types via left border */
+  .node--user      { border-left: 3px solid var(--success-solid); }
+  .node--app       { border-left: 3px solid var(--ink-800); }
+  .node--db        { border-left: 3px solid var(--special-solid); }
+  .node--integ     { border-left: 3px solid var(--warning-solid); }
+  .node--ext       { border-left: 3px solid var(--slate-400); }
+  .node--ai        { border-left: 3px solid var(--nu-red-600); }
+
+  /* Flows table */
+  .flows {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 12px;
+    background: var(--bg-surface);
+  }
+  .flows thead th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  .flows tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: middle;
+  }
+  .flows tbody tr:last-child td { border-bottom: 0; }
+  .flows .from-to {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-default);
+  }
+  .flows .from-to .arr { color: var(--fg-subtle); margin: 0 6px; }
+  .flows .action { font-weight: 500; color: var(--fg-strong); }
+  .flows .protocol { font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-muted); }
+  .flows .stat-cell { display: flex; align-items: center; gap: 6px; }
+  .flow-status-active { color: var(--success-fg); }
+  .flow-status-planned { color: var(--progress-fg); }
+  .flow-status-broken { color: var(--nu-red-700); }
+
+  /* Sections column for arch sections */
+  .arch-sections {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .arch-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+  }
+  .arch-section:nth-child(2n) { border-right: 0; }
+  .arch-section h4 {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .arch-section h4 .n {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .arch-section p { font-size: 11.5px; line-height: 1.5; color: var(--fg-default); margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Technical architecture · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Technical architecture · C4 Context + Container</div>
+    <h1 class="art-masthead__title">Fifteen named systems · three layers · two new integration boundaries — the connective tissue is the smallest delta, not the biggest build.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Nodes</dt><dd>15 named</dd></div>
+    <div class="art-masthead__meta-block"><dt>Flows</dt><dd>14 typed</dd></div>
+    <div class="art-masthead__meta-block"><dt>Health</dt><dd>10 active · 3 planned · 1 broken</dd></div>
+  </dl>
+</header>
+
+<!-- Overview band -->
+<div class="arch-overview">
+  <div>
+    <h3>Architecture overview</h3>
+    <p>The target state extends the existing Northeastern data spine with two new integration boundaries: a <b>donor-affinity tag</b> on placement events, and a <b>FERPA-bridged identity layer</b> between Salesforce EDU and Raiser's Edge. Triage logic stays inside the co-op domain; advancement reads aggregated signals only. Two satellite CRMs and the legacy events platform retire to fund the work.</p>
+  </div>
+  <div>
+    <h3>Type legend</h3>
+    <ul>
+      <li><b>● User</b> personas + service roles · 3 nodes</li>
+      <li><b>● Application</b> primary user-facing systems · 4 nodes</li>
+      <li><b>● Database</b> data stores &amp; warehouses · 3 nodes</li>
+      <li><b>● Integration</b> webhooks, identity, ETL · 2 nodes</li>
+      <li><b>● External</b> third-party systems · 2 nodes</li>
+      <li><b>● AI/ML</b> models + explainability · 1 node</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Security &amp; boundaries</h3>
+    <ul>
+      <li><b>FERPA boundary</b> between SF EDU ↔ Raiser's Edge: aggregated signals only</li>
+      <li><b>SSO</b> via Okta across all NU applications</li>
+      <li><b>Vendor data</b> stays at vendor (Handshake, iWave) — pull, not push</li>
+      <li><b>Audit log</b> on the identity-bridge service · 5-yr retention</li>
+    </ul>
+  </div>
+</div>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- C4 diagram -->
+  <section class="art-section" style="margin-top: 0;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">C4 model · Context + Container</h2>
+      <span class="art-section__counter">15 nodes across 3 layers · external systems shown with dashed borders</span>
+    </div>
+
+    <div class="c4-canvas">
+
+      <!-- L1: People / users -->
+      <div class="c4-layer">
+        <h4><span class="lvl">L1</span>Users · personas in the system</h4>
+        <div class="c4-grid">
+          <div class="node node--user" style="grid-column: span 2;">
+            <span class="node__id">N-01</span>
+            <span class="node__label">First-year student</span>
+            <span class="node__type">User</span>
+            <span class="node__desc">Primary consumer of co-op prep surfaces. 9 p.m.–1 a.m. on mobile. <sup class="cite">3</sup></span>
+          </div>
+          <div class="node node--user" style="grid-column: span 2;">
+            <span class="node__id">N-02</span>
+            <span class="node__label">Co-op coordinator</span>
+            <span class="node__type">User</span>
+            <span class="node__desc">Operates the triage queue. 180:1 advising load. <sup class="cite">8</sup></span>
+          </div>
+          <div class="node node--user" style="grid-column: span 2;">
+            <span class="node__id">N-03</span>
+            <span class="node__label">Major gift officer</span>
+            <span class="node__type">User</span>
+            <span class="node__desc">Consumer of placement digest + brief-builder service. <sup class="cite">1</sup></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- L2: Application containers -->
+      <div class="c4-layer">
+        <h4><span class="lvl">L2</span>Application containers · what users interact with</h4>
+        <div class="c4-grid">
+          <div class="node node--app" style="grid-column: span 2;">
+            <span class="node__id">N-04</span>
+            <span class="node__label">Co-op Triage Surface (v1)</span>
+            <span class="node__type">Application · Web + Mobile-web</span>
+            <span class="node__desc">React app on NU mobile-web. Hosts coordinator triage queue + student pace dashboard.</span>
+            <span class="node__cites">CHUNK_044 · CHUNK_047</span>
+          </div>
+          <div class="node node--app" style="grid-column: span 2;">
+            <span class="node__id">N-05</span>
+            <span class="node__label">Salesforce Education Cloud</span>
+            <span class="node__type">Application</span>
+            <span class="node__desc">Source of record for co-op placements and student-success events.</span>
+          </div>
+          <div class="node node--app" style="grid-column: span 2;">
+            <span class="node__id">N-06</span>
+            <span class="node__label">Raiser's Edge NXT</span>
+            <span class="node__type">Application</span>
+            <span class="node__desc">Source of record for donor records, gifts, stewardship actions.</span>
+          </div>
+          <div class="node node--app" style="grid-column: span 2;">
+            <span class="node__id">N-07</span>
+            <span class="node__label">MGO Brief-builder service</span>
+            <span class="node__type">Application · planned</span>
+            <span class="node__desc">Generates a one-pager per upcoming donor meeting from N-06 + N-15.</span>
+          </div>
+          <div class="node node--ext" style="grid-column: span 2;">
+            <span class="node__id">N-08</span>
+            <span class="node__label">Handshake</span>
+            <span class="node__type">External · vendor</span>
+            <span class="node__desc">Student-facing job board + employer ATS bridge. Webhook source for activity events.</span>
+          </div>
+          <div class="node node--ext" style="grid-column: span 2;">
+            <span class="node__id">N-09</span>
+            <span class="node__label">iWave</span>
+            <span class="node__type">External · vendor</span>
+            <span class="node__desc">Prospect capacity scoring. Read-only consumer of donor IDs.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- L3: Data + integration -->
+      <div class="c4-layer">
+        <h4><span class="lvl">L3</span>Data + integration · behind the line of interaction</h4>
+        <div class="c4-grid">
+          <div class="node node--integ" style="grid-column: span 2;">
+            <span class="node__id">N-10</span>
+            <span class="node__label">FERPA-bridged identity layer</span>
+            <span class="node__type">Integration · planned</span>
+            <span class="node__desc">Canonical constituent ID across student + donor records. Aggregated signals only. GC sign-off required. <sup class="cite">7</sup></span>
+          </div>
+          <div class="node node--integ" style="grid-column: span 2;">
+            <span class="node__id">N-11</span>
+            <span class="node__label">Day-5 silence webhook</span>
+            <span class="node__type">Integration</span>
+            <span class="node__desc">Listens to Handshake activity events, fires triage signal when student inactive ≥5 days.</span>
+          </div>
+          <div class="node node--db" style="grid-column: span 2;">
+            <span class="node__id">N-12</span>
+            <span class="node__label">Co-op data warehouse</span>
+            <span class="node__type">Database · Snowflake</span>
+            <span class="node__desc">Activity events, application counts, placement outcomes. Owns the stalled-signal score.</span>
+          </div>
+          <div class="node node--db" style="grid-column: span 2;">
+            <span class="node__id">N-13</span>
+            <span class="node__label">Advancement data warehouse</span>
+            <span class="node__type">Database · Snowflake</span>
+            <span class="node__desc">Donor records, capacity scores, gift history. Receives aggregated signals from N-10.</span>
+          </div>
+          <div class="node node--db" style="grid-column: span 2;">
+            <span class="node__id">N-14</span>
+            <span class="node__label">Audit log store</span>
+            <span class="node__type">Database</span>
+            <span class="node__desc">Append-only log of every read/write across N-10. 5-year retention.</span>
+          </div>
+          <div class="node node--ai" style="grid-column: span 2;">
+            <span class="node__id">N-15</span>
+            <span class="node__label">Prospect + placement scoring</span>
+            <span class="node__type">AI/ML · with explain layer</span>
+            <span class="node__desc">Existing prospect model (donor side) + new placement-affinity tag. Both ship with SHAP-style explain. <sup class="cite">6</sup></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Flows -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Flows · 14 typed interactions</h2>
+      <span class="art-section__counter">10 active · 3 planned · 1 broken</span>
+    </div>
+    <table class="flows">
+      <thead>
+        <tr>
+          <th style="width: 80px;">ID</th>
+          <th style="width: 220px;">From → To</th>
+          <th>Action</th>
+          <th style="width: 130px;">Protocol</th>
+          <th style="width: 100px;">Status</th>
+          <th style="width: 110px;">Health</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="from-to">F-01</td><td class="from-to">N-08 <span class="arr">→</span> N-11</td><td class="action">Activity event stream (student loginsubmit)</td><td class="protocol">Webhook · JSON</td><td><span class="stat-cell flow-status-active"><span class="signal signal--green"></span>active</span></td><td>healthy</td></tr>
+        <tr><td class="from-to">F-02</td><td class="from-to">N-11 <span class="arr">→</span> N-12</td><td class="action">Write stalled-signal score on inactivity ≥5d</td><td class="protocol">REST · internal</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2026-07</td></tr>
+        <tr><td class="from-to">F-03</td><td class="from-to">N-12 <span class="arr">→</span> N-04</td><td class="action">Queue: ranked stalled students for coord triage</td><td class="protocol">GraphQL · internal</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2026-07</td></tr>
+        <tr><td class="from-to">F-04</td><td class="from-to">N-02 <span class="arr">→</span> N-04</td><td class="action">Coord triages queue entry; routes or nudges</td><td class="protocol">UI · SSO Okta</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2026-07</td></tr>
+        <tr><td class="from-to">F-05</td><td class="from-to">N-04 <span class="arr">→</span> N-01</td><td class="action">Personalized student nudge (mobile push + email)</td><td class="protocol">FCM / SES</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2026-08</td></tr>
+        <tr><td class="from-to">F-06</td><td class="from-to">N-05 <span class="arr">→</span> N-13</td><td class="action">Placement event → donor warehouse digest</td><td class="protocol">ETL · daily</td><td><span class="stat-cell flow-status-broken"><span class="signal signal--red"></span>broken</span></td><td>11-day lag · F-09 replaces</td></tr>
+        <tr><td class="from-to">F-07</td><td class="from-to">N-05 <span class="arr">→</span> N-10</td><td class="action">Student-side signal contribution (aggregated)</td><td class="protocol">REST · FERPA-bridged</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>GC sign-off req.</td></tr>
+        <tr><td class="from-to">F-08</td><td class="from-to">N-06 <span class="arr">→</span> N-10</td><td class="action">Donor-side signal contribution</td><td class="protocol">REST · internal</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>GC sign-off req.</td></tr>
+        <tr><td class="from-to">F-09</td><td class="from-to">N-10 <span class="arr">→</span> N-13</td><td class="action">Aggregated signal write to advancement warehouse</td><td class="protocol">Event · async</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2026-Q4</td></tr>
+        <tr><td class="from-to">F-10</td><td class="from-to">N-10 <span class="arr">→</span> N-14</td><td class="action">Audit every read/write</td><td class="protocol">Event · append-only</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>SOC 2 control</td></tr>
+        <tr><td class="from-to">F-11</td><td class="from-to">N-13 <span class="arr">→</span> N-07</td><td class="action">Brief-builder reads enriched donor record</td><td class="protocol">REST · internal</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2027-Q1</td></tr>
+        <tr><td class="from-to">F-12</td><td class="from-to">N-09 <span class="arr">→</span> N-13</td><td class="action">Prospect capacity score sync</td><td class="protocol">Pull · nightly</td><td><span class="stat-cell flow-status-active"><span class="signal signal--green"></span>active</span></td><td>healthy</td></tr>
+        <tr><td class="from-to">F-13</td><td class="from-to">N-15 <span class="arr">→</span> N-04</td><td class="action">Score + explain payload</td><td class="protocol">REST · internal</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>explain view gate</td></tr>
+        <tr><td class="from-to">F-14</td><td class="from-to">N-03 <span class="arr">→</span> N-07</td><td class="action">MGO consumes pre-meeting brief</td><td class="protocol">UI · SSO Okta</td><td><span class="stat-cell flow-status-planned"><span class="signal signal--blue"></span>planned</span></td><td>ship 2027-Q1</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Architecture sections -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Architecture concerns</h2>
+      <span class="art-section__counter">ten sections · each grounded in evidence, not boilerplate</span>
+    </div>
+
+    <div class="arch-sections">
+
+      <div class="arch-section">
+        <h4><span class="n">§01</span>Executive summary</h4>
+        <p>Two new integration boundaries land in FY27; everything else extends existing platforms. Three satellite systems retire to fund the work.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§02</span>Current state</h4>
+        <p>15 disconnected systems; placement-to-donor lag of 11 days; no shared identity layer between SF EDU and Raiser's Edge. <sup class="cite">4</sup></p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§03</span>Future state</h4>
+        <p>FERPA-bridged identity layer (N-10) writes aggregated signals only across the bridge. Co-op data stays in co-op domain.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§04</span>Data architecture</h4>
+        <p>Two Snowflake warehouses persist; identity bridge sits between them with append-only audit log. No data movement; signal contributions only.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§05</span>Integration architecture</h4>
+        <p>Webhook-first for activity events (low-latency); ETL only for batch warehouse jobs. Single canonical ID across the bridge.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§06</span>Security</h4>
+        <p>Okta SSO; service-to-service mTLS; aggregated-signal contract enforced at the bridge layer; 5-year audit retention.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§07</span>Scalability</h4>
+        <p>Activity event volume ≈ 8K events/day at peak cycle; webhook path designed for 10× headroom. Triage queue renders 180 entries &lt;1 s.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§08</span>Tech stack rationale</h4>
+        <p>React + Snowflake + Salesforce — existing investments. No net-new vendor relationships. Two satellite CRMs retire (R-07).</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§09</span>Gap analysis</h4>
+        <p>Largest gap: cross-record identity. Largest risk: GC sign-off on the aggregated-signal contract. See <span class="cite-chip">gap-analysis.html</span>.</p>
+      </div>
+      <div class="arch-section">
+        <h4><span class="n">§10</span>Risks</h4>
+        <p>FERPA exposure on the bridge (mitigated by aggregation); webhook latency (mitigated by hourly backfill); coord rejection of queue (mitigated by opt-in pilot).</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>Salesforce EDU contract</b> · 2024 (rolling renewal)</li>
+      <li><b>Blackbaud Raiser's Edge NXT</b> · current MSA</li>
+      <li><b>NU Snowflake architecture review</b> · 2025-Q3</li>
+      <li><b>Handshake API documentation</b> · v2.4</li>
+      <li><b>HiEd Dive</b> · explainable AI in advancement, 2025-09</li>
+      <li><b>NACUBO FERPA guidance</b> · 2024</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>MGO-04 transcript</b> · 2026-02-14 (verbatim)</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">TECH ARCH · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>tech-arch-generator</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -17,6 +17,17 @@ export interface EvidenceCatalogOptions {
     minExternalPct?: number;
     minDistinctSources?: number;
     contentCapOverride?: { tier1?: number; tier2?: number; tier3?: number };
+    /**
+     * 2026-05-22 — Hard cap on the total chars emitted by this function.
+     * Once the running total exceeds this, the iterator stops adding more
+     * articles and appends a "truncated" notice. Default: 1.2M chars
+     * (~300K tokens) — large enough that themes/personas don't hit it,
+     * small enough that gap/competitive (which run late in the chain
+     * after themes + personas + recs + journey have accumulated) leave
+     * headroom under Gemini Flash's 1M-token context limit. Pass a
+     * smaller value (e.g., 600_000) for late-chain deliverables.
+     */
+    maxTotalChars?: number;
 }
 
 export interface DeliverableContext {
@@ -41,10 +52,13 @@ export function buildEvidenceCatalogBlock(
     const minExternalPct = opts.minExternalPct ?? 30;
     const minDistinctSources = opts.minDistinctSources ?? 8;
     const caps = { ...DEFAULT_CONTENT_CAPS, ...(opts.contentCapOverride || {}) };
+    const maxTotalChars = opts.maxTotalChars ?? 1_200_000;
 
     const evidenceEntries: string[] = [];
     const sourceNames = new Set<string>();
     let totalArticlesInjected = 0;
+    let runningChars = 0;
+    let truncated = false;
 
     for (const tier of [1, 2, 3]) {
         const tierSources = rawSources.filter(
@@ -76,22 +90,37 @@ export function buildEvidenceCatalogBlock(
             });
 
             for (const item of sortedItems) {
+                if (truncated) break;
                 const content = item.content ? String(item.content).substring(0, contentCap) : '';
                 const date = item.date ? ` | Date: ${item.date}` : '';
                 const url = item.url ? ` | URL: ${item.url}` : '';
                 const relevance = item.relevanceScore ? ` | Relevance: ${item.relevanceScore}/100` : '';
                 const author = item.author ? ` | Author: ${item.author}` : '';
-                evidenceEntries.push(
-                    `  ARTICLE: "${item.title || 'Untitled'}"${author}${date}${url}${relevance}\n  ${content}`
-                );
+                const entry = `  ARTICLE: "${item.title || 'Untitled'}"${author}${date}${url}${relevance}\n  ${content}`;
+                // 2026-05-22 — Budget guard. Stop adding articles once the
+                // catalog exceeds maxTotalChars. PRIORITY items always emit
+                // even when budget is exhausted (they're user-flagged).
+                if (runningChars + entry.length > maxTotalChars && !item.priority) {
+                    truncated = true;
+                    break;
+                }
+                evidenceEntries.push(entry);
+                runningChars += entry.length;
                 if (item.priority) {
-                    evidenceEntries.push(
-                        `  *** PRIORITY CITATION — User flagged this article for MANDATORY prominent placement ***`
-                    );
+                    const note = `  *** PRIORITY CITATION — User flagged this article for MANDATORY prominent placement ***`;
+                    evidenceEntries.push(note);
+                    runningChars += note.length;
                 }
                 totalArticlesInjected++;
             }
+            if (truncated) break;
         }
+        if (truncated) break;
+    }
+    if (truncated) {
+        evidenceEntries.push(
+            `\n*** EVIDENCE CATALOG TRUNCATED to fit within ${maxTotalChars.toLocaleString()}-char budget. Cited ${totalArticlesInjected} of ${rawSources.reduce((s: number, r: any) => s + (r.items?.length || 0), 0)} available articles. Cite from the SOURCE CATALOG names — do not invent claims from sources not shown above. ***`
+        );
     }
 
     if (evidenceEntries.length === 0) return '';
@@ -163,8 +192,10 @@ export async function loadDeliverableContext(goal: string): Promise<DeliverableC
 
     let engagementMemory = '';
     try {
-        const { loadEngagementMemory } = await import('./wikiService');
-        const goalSlug = (goal || '').substring(0, 60).replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+        // 2026-05-22 — Use buildEngagementSlug for slug consistency across
+        // every read/write site (see geminiService.ts companion fix).
+        const { loadEngagementMemory, buildEngagementSlug } = await import('./wikiService');
+        const goalSlug = buildEngagementSlug(goal || '', 60);
         if (goalSlug) {
             const memory = await loadEngagementMemory(goalSlug, goal);
             if (memory) {

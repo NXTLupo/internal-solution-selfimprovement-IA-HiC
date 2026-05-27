@@ -1,0 +1,672 @@
+/* =========================================================================
+   Research Artifact Templates — shared component layer
+   Builds on shared/colors_and_type.css (tokens + .t-* type classes).
+   Designed for density: tighter base body (14px), inline citation chips,
+   no extraneous chrome, multi-column friendly grids.
+   ========================================================================= */
+
+/* 2026-05-23 — Global reset / base rules moved to `.nu-artifact-stage`
+   scope in nu-stage.css to avoid leaking into the rest of the HiC SPA
+   (which has its own Tailwind base + nxt-design-system.css). The
+   component classes below (.art-*, .stat, .dtable, .pill, etc.) remain
+   global — they only apply where elements opt in by class name. */
+button { font: inherit; cursor: pointer; }
+::selection { background: rgba(20,29,48,.12); }
+
+/* =========================================================================
+   PAGE FRAME — every artifact opens with the same masthead pattern.
+   Goal: minimum chrome, maximum info. One row, no methodology blurb.
+   ========================================================================= */
+.art-masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--space-8) var(--space-5);
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-surface);
+}
+.art-masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--fg-strong);
+}
+.art-masthead__brand-seal {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  background: var(--ink-900);
+  color: var(--white);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -.02em;
+}
+.art-masthead__brand-text { line-height: 1.1; }
+.art-masthead__brand-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--fg-strong);
+}
+.art-masthead__brand-sub {
+  font-size: 11px;
+  color: var(--fg-muted);
+  letter-spacing: .04em;
+}
+.art-masthead__center { flex: 1; }
+.art-masthead__kicker {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 6px;
+}
+.art-masthead__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -.015em;
+  color: var(--fg-strong);
+  max-width: 64ch;
+}
+.art-masthead__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: 11px;
+  color: var(--fg-muted);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.art-masthead__meta dt {
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 9px;
+  color: var(--fg-subtle);
+  margin-right: 4px;
+}
+.art-masthead__meta dd {
+  display: inline;
+  margin: 0;
+  color: var(--fg-default);
+  font-feature-settings: "tnum" 1;
+}
+.art-masthead__meta-block + .art-masthead__meta-block {
+  border-left: 1px solid var(--border-subtle);
+  padding-left: var(--space-4);
+}
+
+/* Page body container --------------------------------------------------- */
+.art-canvas {
+  padding: var(--space-6) var(--space-8) var(--space-10);
+}
+.art-canvas--full {
+  padding: var(--space-5) var(--space-6) var(--space-8);
+}
+
+/* Section heading — minimal, no big banners ----------------------------- */
+.art-section { margin-top: var(--space-8); }
+.art-section:first-child { margin-top: 0; }
+.art-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+.art-section__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--fg-strong);
+  letter-spacing: -.005em;
+}
+.art-section__counter {
+  font-size: 11px;
+  font-feature-settings: "tnum" 1;
+  color: var(--fg-muted);
+  letter-spacing: .04em;
+}
+.art-section__rule {
+  height: 1px;
+  background: var(--border-default);
+  margin-bottom: var(--space-4);
+}
+
+/* =========================================================================
+   EYEBROW + TITLE block (used inside cards)
+   ========================================================================= */
+.art-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  line-height: 1;
+}
+.art-eyebrow--brand { color: var(--nu-red-600); }
+.art-eyebrow--accent { color: var(--special-fg); }
+.art-eyebrow--num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+}
+
+/* Card title is a complete-sentence finding ---------------------------- */
+.art-finding {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--fg-strong);
+  letter-spacing: -.005em;
+  text-wrap: pretty;
+}
+.art-finding--lg { font-size: 17px; line-height: 1.3; }
+.art-finding--sm { font-size: 13px; }
+.art-finding em {
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--fg-strong);
+}
+
+/* =========================================================================
+   CARD — base surface
+   ========================================================================= */
+.art-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.art-card--flush { padding: 0; }
+.art-card--pad-lg { padding: var(--space-5) var(--space-5); }
+.art-card--ink {
+  background: var(--ink-900);
+  color: var(--fg-inverse);
+  border-color: var(--ink-800);
+}
+.art-card--ink .art-eyebrow,
+.art-card--ink .art-finding { color: var(--white); }
+.art-card--ink .t-caption { color: rgba(255,255,255,.6); }
+.art-card--accent {
+  background: linear-gradient(180deg, rgba(11,19,38,.02), transparent 40%);
+}
+
+/* Tight grid utilities -------------------------------------------------- */
+.art-grid { display: grid; gap: var(--space-3); }
+.art-grid--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.art-grid--3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.art-grid--4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.art-grid--6 { grid-template-columns: repeat(6, minmax(0,1fr)); }
+.art-grid--gap-lg { gap: var(--space-4); }
+.art-grid--gap-sm { gap: var(--space-2); }
+.art-flex { display: flex; }
+.art-flex--col { flex-direction: column; }
+.art-flex--wrap { flex-wrap: wrap; }
+.art-flex--gap-2 { gap: var(--space-2); }
+.art-flex--gap-3 { gap: var(--space-3); }
+.art-flex--gap-4 { gap: var(--space-4); }
+.art-flex--between { justify-content: space-between; }
+.art-flex--center { align-items: center; }
+.art-flex--baseline { align-items: baseline; }
+.art-mt-2 { margin-top: var(--space-2); }
+.art-mt-3 { margin-top: var(--space-3); }
+.art-mt-4 { margin-top: var(--space-4); }
+.art-mt-6 { margin-top: var(--space-6); }
+
+/* =========================================================================
+   CITATION — inline chip, no separate strip.
+   <sup class="cite" data-src="HiEd Dive 2024">3</sup>
+   or use <span class="cite-chip">HiEd Dive '24</span>
+   ========================================================================= */
+.cite,
+.cite-chip {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: .02em;
+  color: var(--fg-muted);
+  background: var(--slate-100);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 1px 6px;
+  vertical-align: super;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: help;
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+.cite { font-weight: 500; padding: 0 5px; }
+.cite-chip {
+  vertical-align: baseline;
+  padding: 2px 7px;
+  font-size: 10px;
+}
+.cite:hover,
+.cite-chip:hover { background: var(--bg-muted); color: var(--fg-default); }
+.cite[data-verbatim="true"] { color: var(--nu-red-700); background: var(--nu-red-100); border-color: rgba(170,29,37,.2); }
+
+/* Verbatim quote block -------------------------------------------------- */
+.art-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fg-strong);
+  border-left: 2px solid var(--ink-800);
+  padding: 2px 0 2px var(--space-3);
+  margin: 0;
+}
+.art-quote__attrib {
+  margin-top: 4px;
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 11px;
+  color: var(--fg-muted);
+  letter-spacing: .02em;
+}
+.art-quote__attrib b { color: var(--fg-default); font-weight: 500; }
+
+/* =========================================================================
+   PILLS + TAGS — compact density
+   ========================================================================= */
+.pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 18px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  line-height: 1;
+  background: var(--slate-100);
+  color: var(--fg-default);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.pill--ink { background: var(--ink-800); color: var(--white); }
+.pill--success { background: var(--success-bg); color: var(--success-fg); }
+.pill--warning { background: var(--warning-bg); color: var(--warning-fg); }
+.pill--error   { background: var(--error-bg);   color: var(--error-fg); }
+.pill--progress{ background: var(--progress-bg);color: var(--progress-fg); }
+.pill--special { background: var(--special-bg); color: var(--special-fg); }
+.pill--outline { background: transparent; border-color: var(--border-default); color: var(--fg-muted); }
+.pill--brand { background: var(--nu-red-100); color: var(--nu-red-700); }
+.pill--lg { height: 22px; padding: 0 10px; font-size: 11.5px; }
+
+.tag {
+  display: inline-flex; align-items: center;
+  height: 20px; padding: 0 7px;
+  border-radius: var(--radius-sm);
+  background: var(--slate-100);
+  color: var(--fg-muted);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Signal dot (relationship-health pattern) ------------------------------ */
+.signal {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--slate-300);
+  vertical-align: middle;
+  margin-right: 6px;
+  flex: 0 0 8px;
+}
+.signal--green   { background: var(--success-solid); }
+.signal--yellow  { background: var(--warning-solid); }
+.signal--red     { background: var(--error-solid); }
+.signal--blue    { background: var(--progress-solid); }
+.signal--neutral { background: var(--slate-400); }
+
+/* =========================================================================
+   STAT — hero number
+   ========================================================================= */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+.stat__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--fg-strong);
+  letter-spacing: -.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.stat__value sup, .stat__value .u {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fg-muted);
+  margin-left: 2px;
+  vertical-align: baseline;
+}
+.stat__delta {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  display: flex; align-items: center; gap: 4px;
+  font-feature-settings: "tnum" 1;
+}
+.stat__delta--up { color: var(--success-fg); }
+.stat__delta--down { color: var(--error-fg); }
+.stat__delta::before { content: ""; width: 0; height: 0; }
+.stat__delta--up::before {
+  border: 4px solid transparent;
+  border-bottom-color: var(--success-solid);
+  margin-bottom: 3px;
+}
+.stat__delta--down::before {
+  border: 4px solid transparent;
+  border-top-color: var(--error-solid);
+  margin-top: 3px;
+}
+
+/* Stat strip (no card) ------------------------------------------------- */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.stat-strip > .stat {
+  border: 0;
+  border-right: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: var(--space-4);
+}
+.stat-strip > .stat:last-child { border-right: 0; }
+
+/* =========================================================================
+   MATURITY BAR — used in gap analysis, tech audit
+   ========================================================================= */
+.matbar {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-feature-settings: "tnum" 1;
+}
+.matbar__track {
+  position: relative;
+  flex: 1;
+  height: 6px;
+  background: var(--slate-100);
+  border-radius: 999px;
+  overflow: visible;
+}
+.matbar__current {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  background: var(--ink-800);
+  border-radius: 999px;
+}
+.matbar__target {
+  position: absolute;
+  top: -3px;
+  width: 2px; height: 12px;
+  background: var(--nu-red-600);
+  border-radius: 1px;
+}
+.matbar__ticks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.matbar__ticks span {
+  width: 1px;
+  background: var(--white);
+}
+.matbar__nums {
+  font-size: 10px;
+  color: var(--fg-muted);
+  letter-spacing: .02em;
+  min-width: 38px;
+  text-align: right;
+}
+.matbar__nums b { color: var(--fg-default); font-weight: 600; }
+
+/* =========================================================================
+   DENSE TABLE — used in tech audit, recommendations, gap analysis
+   ========================================================================= */
+.dtable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 12.5px;
+}
+.dtable thead th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  padding: 8px var(--space-3);
+  background: var(--slate-50);
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.dtable tbody td {
+  padding: 8px var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+  color: var(--fg-default);
+}
+.dtable tbody tr:last-child td { border-bottom: 0; }
+.dtable tbody tr:hover td { background: var(--slate-50); }
+.dtable td.num,
+.dtable th.num {
+  text-align: right;
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+.dtable td.mono { font-family: var(--font-mono); font-size: 11.5px; }
+.dtable--compact thead th,
+.dtable--compact tbody td { padding: 6px var(--space-3); }
+.dtable--compact { font-size: 12px; }
+
+/* Row first column emphasis */
+.dtable tbody td.lead {
+  color: var(--fg-strong);
+  font-weight: 500;
+}
+
+/* Sticky first column for very wide tables ----------------------------- */
+.dtable--sticky thead th:first-child,
+.dtable--sticky tbody td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--bg-surface);
+  z-index: 1;
+  border-right: 1px solid var(--border-default);
+}
+.dtable--sticky thead th:first-child { background: var(--slate-50); z-index: 2; }
+.dtable--sticky tbody tr:hover td:first-child { background: var(--slate-50); }
+
+/* =========================================================================
+   PRINCIPLE / PILLAR list — numbered, dense
+   ========================================================================= */
+.principle-list { list-style: none; padding: 0; margin: 0; counter-reset: pl; }
+.principle-list li {
+  position: relative;
+  padding-left: 36px;
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  counter-increment: pl;
+}
+.principle-list li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.principle-list li::before {
+  content: counter(pl, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 1px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-subtle);
+  letter-spacing: .04em;
+}
+.principle-list li b {
+  display: block;
+  font-weight: 500;
+  color: var(--fg-strong);
+  font-size: 13.5px;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+/* =========================================================================
+   KEY:VALUE definition list — compact two-column
+   ========================================================================= */
+.kv {
+  display: grid;
+  grid-template-columns: minmax(100px, max-content) 1fr;
+  gap: 2px var(--space-3);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.kv dt {
+  color: var(--fg-muted);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-top: 4px;
+}
+.kv dd { margin: 0; color: var(--fg-default); padding-bottom: 6px; border-bottom: 1px solid var(--border-subtle); }
+.kv dt + dd { padding-bottom: 6px; }
+.kv dt:last-of-type, .kv dd:last-of-type { border-bottom: 0; padding-bottom: 0; }
+
+/* =========================================================================
+   BULLETS — minimal, no decorative spheres
+   ========================================================================= */
+.b-list { list-style: none; padding: 0; margin: 0; }
+.b-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-default);
+  margin-bottom: 4px;
+}
+.b-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .7em;
+  width: 6px; height: 1px;
+  background: var(--slate-400);
+}
+.b-list--num { counter-reset: bn; }
+.b-list--num li { padding-left: 22px; }
+.b-list--num li::before {
+  content: counter(bn, decimal-leading-zero);
+  counter-increment: bn;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+  width: auto; height: auto; background: none; top: 2px;
+}
+
+/* =========================================================================
+   AVATAR — initials placeholder
+   ========================================================================= */
+.avatar {
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--ink-700), var(--ink-900));
+  color: var(--white);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: .01em;
+  flex-shrink: 0;
+}
+.avatar--sm { width: 26px; height: 26px; font-size: 11px; }
+.avatar--lg { width: 56px; height: 56px; font-size: 18px; }
+.avatar--brand { background: linear-gradient(135deg, var(--nu-red-700), var(--nu-red-500)); }
+.avatar--slate { background: linear-gradient(135deg, var(--slate-500), var(--slate-600)); color: var(--white); }
+.avatar--special { background: linear-gradient(135deg, var(--special-fg), var(--special-solid)); }
+
+/* =========================================================================
+   FOOTER — sources index (used optionally at end of long artifacts)
+   ========================================================================= */
+.art-footer {
+  margin-top: var(--space-10);
+  padding: var(--space-5) var(--space-8);
+  border-top: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  font-size: 11px;
+  color: var(--fg-muted);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.art-footer ol { columns: 2; column-gap: var(--space-8); padding: 0; margin: 0; list-style: none; counter-reset: srcc; }
+.art-footer li {
+  counter-increment: srcc;
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 4px;
+  break-inside: avoid;
+}
+.art-footer li::before {
+  content: counter(srcc);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+}
+.art-footer li b { color: var(--fg-default); font-weight: 500; }
+
+/* =========================================================================
+   ARROW UTILITIES (for flows, journeys)
+   ========================================================================= */
+.arr-right::after {
+  content: "→";
+  font-family: var(--font-mono);
+  margin-left: 6px;
+  color: var(--fg-subtle);
+}
+
+/* =========================================================================
+   PRINT
+   ========================================================================= */
+@media print {
+  body { background: var(--white); }
+  .art-masthead, .art-card, .stat, .dtable { box-shadow: none !important; }
+  .no-print { display: none !important; }
+}

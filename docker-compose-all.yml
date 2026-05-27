@@ -170,6 +170,7 @@ services:
       - "${JOURNEY_MAPPER_PORT:-8080}:8000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
       - PORT=8000
       - ANTHROPIC_MODEL=claude-opus-4-5-20251101
     volumes:
@@ -387,15 +388,42 @@ services:
       - research-proxy
 
   # Research Data Proxy (solves CORS for external data APIs)
+  # 2026-05-19 — Migrated from `image: python:3.11-slim + bash pip-install
+  # wrapper` to a dedicated cached-deps Dockerfile. The previous pattern
+  # reinstalled 50+ Python packages from PyPI on every container start,
+  # producing a 60-120 sec window where the container reported `Up` but
+  # uvicorn hadn't bound port 5012 yet — every browser request during that
+  # window returned ERR_EMPTY_RESPONSE. The Dockerfile bakes the deps
+  # into a Docker layer that's cached across rebuilds; only requirements.txt
+  # changes invalidate the layer. ffmpeg is also baked in (was apt-installed
+  # on every start by the old wrapper).
+  #
+  # The runtime volume mount of ./humans-in-control-research/proxy:/app
+  # is preserved so app.py / pptx_export.py / etc. are still hot-editable
+  # on the host without a rebuild. Dependencies live in
+  # /usr/local/lib/python3.11/site-packages where they survive the /app overlay.
   research-proxy:
-    image: python:3.11-slim
+    build: ./humans-in-control-research/proxy
     ports:
-      - "${RESEARCH_PROXY_PORT:-5012}:5012"
+      # 2026-05-20 — Explicit IPv4 bind (127.0.0.1) to work around Docker
+      # Desktop on Windows advertising [::]:5012 but not actually forwarding
+      # IPv6 traffic to the container. Chrome on Windows resolves `localhost`
+      # to ::1 first; without this explicit IPv4 bind, every browser request
+      # connected then hung silently. With this, IPv6 fails fast (port not
+      # bound on ::1) and Chrome's Happy-Eyeballs falls back to 127.0.0.1
+      # which works in <100ms. Use 0.0.0.0:PORT:PORT if you need access from
+      # other machines on the LAN.
+      - "127.0.0.1:${RESEARCH_PROXY_PORT:-5012}:5012"
     environment:
       - PORT=5012
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      # 2026-05-25 — Journey Mapper IA service URL (internal Docker network).
+      # HiC #journey requests proxy through to JM's /api/analyze and return
+      # the rendered HTML directly to the Design Desk. Matches the pattern
+      # already used for topic-modeling re-leverage of Social Analytics.
+      - JOURNEY_MAPPER_URL=http://journey-mapper:8000
       # 2026-05-05 — Azure DeepSeek-V4-Flash key. Proxy reads either name.
       - DEEPSEEK_AZURE=${DEEPSEEK_AZURE:-}
       - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
@@ -407,19 +435,24 @@ services:
       - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID:-}
       - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET:-}
       - REDDIT_USER_AGENT=${REDDIT_USER_AGENT:-script:HiC-Research:1.0}
+      # 2026-05-19 — Embedding provider. Gemini text-embedding-004 is the
+      # default because OpenAI's text-embedding-3-small key on this account
+      # hit `insufficient_quota`. Override to `openai` once billing is
+      # restored if you want to switch back. Other valid values:
+      # `openai-large` (text-embedding-3-large, 3072 dims) or `voyage`
+      # (voyage-3, 1024 dims, requires VOYAGE_API_KEY).
+      - EMBED_PROVIDER=${EMBED_PROVIDER:-gemini}
     volumes:
       - ./humans-in-control-research/proxy:/app
       # S8: mount full hic-workspace so the scheduler can read youtube-channels.json
       # + institution-manifest.json AND write scheduler-state.json. Previously
       # only wiki/ was exposed; the wiki path stays reachable at /hic-workspace/wiki.
       - ./humans-in-control-research/hic-workspace:/hic-workspace
+      # 2026-05-22 — self-improvement loop, Phase 3. Skills are mounted RW
+      # so the learningEngine can patch SKILL.md files in response to feedback
+      # clusters. Versioned archives go under each skill's _versions/ subdir.
+      - ./.claude/skills:/skills
     working_dir: /app
-    # S5 note: ffmpeg needed for YouTube transcription audio chunking (>25 MB audio
-    # → segment into 10-min MP3 chunks before OpenAI whisper-1 upload).
-    # `command -v ffmpeg || ...` skips apt install on container restart if already
-    # present, keeping warm-restart cycles fast.
-    command: >-
-      bash -c "command -v ffmpeg >/dev/null 2>&1 || (apt-get update -qq && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*); pip install --no-cache-dir -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
     container_name: research-proxy

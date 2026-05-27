@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "CS at Northeastern Oakland. Honest takes?"
 author: "Optimal_Yam1084"
 date: "2026-02-24T23:38:19.000Z"
-score: 6
-upvote_ratio: 0.87
+score: 5
+upvote_ratio: 0.86
 num_comments: 10
 flair: "Advice & Experiences"
-extracted_at: "2026-05-13T23:02:38.893Z"
+extracted_at: "2026-05-18T13:18:36.382Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Generate a slide-ready consulting report for NXT Humans, structured as an Executive Summary, Meeting Guardrails and Validation Criteria, Ideas to Retire or Reframe, Five CLR-Dependent Recommendations, Five Non-CLR Recommendations, Recommended Prioritization, and Suggested Next Steps for NXT Humans. This report must present 10 practical, AI-enabled recommendations for Northeastern University's first-year students to improve co-op and experiential learning readiness. Five recommendations must leverage CLR data and infrastructure, and five must be valuable independently of CLR. Each recommendation requires a title, description, rationale for first-year students and co-op readiness, explanation of CLR dependency/independence, execution within Northeastern's existing experiential learning stack, integration with Microsoft Copilot/365/Teams/SharePoint/Power Automate/Power BI for cost reduction, key stakeholders, implementation steps, risks, and explicit validation against Liz and Jen’s guardrails (cost containment, Microsoft ecosystem, no new platforms, advisor/student burden, AI-enabled, practical). The report should also summarize Liz and Jen’s priorities and non-starters, core design principles, and previous NXT Humans ideas to retire or reframe. Output the #recommendations #NU in this format, including tables comparing implementation complexity, student impact, Microsoft/Copilot fit, dependency, stakeholder burden, and strategic alignment."
 ---
 
 # CS at Northeastern Oakland. Honest takes?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rdwrug/cs_at_northeastern_oakland_honest_takes/)
-Posted by **Optimal_Yam1084** · **6↑** · **10 comments**
+Posted by **Optimal_Yam1084** · **5↑** · **10 comments**
 
 Hi everyone! I got admitted to Northeastern University Oakland as a Computer Science major, and I had a few questions for current students or alumni.
 
@@ -58,7 +58,7 @@ I hope current and former Oakland students will also weigh in. In the meantime, 
   - **Optimal_Yam1084** (2↑): Thanks for the detailed response! I appreciate the faculty perspective. If you don’t mind one broader question: for an incoming CS student starting in Oakland who wants to make the most out of their first year, what would you recommend prioritizing academically?
     - **espertus** (1↑): There's nothing you need to do to prepare. Enjoy your last semester of high school and the summer!
   - **ButchUnicorn** (1↑): Are the faculty in Oakland tenured?
-    - **espertus** (4↑): The answer to that is complicated...
+    - **espertus** (5↑): The answer to that is complicated...
 
 Most of the [Khoury faculty in Oakland](https://www.khoury.northeastern.edu/people/?filters%5B%5D=locations%7C41338) are on the teaching professor ladder, which is parallel to the tenure-track/tenured professor ladder (with assistant, associate, and full ranks). Many teaching faculty do research, especially but not exclusively in pedagogy, but their primary job and passion is teaching. While not eligible for tenure, teaching faculty have job security and are not considered adjuncts. As a full teaching professor, I get 5-year contracts, and the university has to give me a year's advance notice if they will not renew the contract. 
 

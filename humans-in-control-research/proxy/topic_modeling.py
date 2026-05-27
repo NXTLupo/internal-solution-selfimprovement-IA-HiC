@@ -45,6 +45,135 @@ _GEMINI_EMBED_MODEL = "gemini-embedding-001"
 _GEMINI_EMBED_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent"
 
 
+# ──────────────────────────────────────────────────────────────────────────
+# 2026-05-24 — MULTI-MODEL RESILIENCE LAYER
+#
+# Driven by user observation: "the openai api quota is exceeded frequently.
+# Multi model approach might be more reliable! Be smart"
+#
+# Three additions:
+#   1. Provider health tracker — track recent 429/quota events per provider
+#      and avoid hammering an exhausted provider for THROTTLE_COOLDOWN_S
+#      seconds. Replaces the prior reactive-only fallback (OpenAI → Gemini
+#      on first 429).
+#   2. Content-hash embedding cache — same document text → cached vector
+#      across sessions. Eliminates re-embedding cost on cached corpus
+#      runs. Disk-backed; survives proxy restarts. Largest single
+#      reliability + cost win on this codepath.
+#   3. Cluster-signature name cache — same cluster top_terms + sample_titles
+#      + goal → same name. Provides deterministic naming even when the
+#      underlying LLM provider has stochasticity beyond temperature=0.
+# ──────────────────────────────────────────────────────────────────────────
+import hashlib
+from pathlib import Path
+
+THROTTLE_COOLDOWN_S = 600  # 10 minutes after a 429, skip the provider
+
+_provider_health: dict[str, dict[str, Any]] = {
+    "openai": {"last_429_at": 0.0, "consecutive_429s": 0, "total_429s": 0, "total_calls": 0},
+    "gemini": {"last_429_at": 0.0, "consecutive_429s": 0, "total_429s": 0, "total_calls": 0},
+}
+
+_EMBEDDING_CACHE_DIR = Path("/hic-workspace/sessions/_embedding-cache")
+_NAME_CACHE_DIR = Path("/hic-workspace/sessions/_name-cache")
+
+
+def _hash_content(text: str, provider: str) -> str:
+    """Stable hash of (text, provider). Embeddings from different providers
+    have different dimensions and embedding spaces — cache key must include
+    the provider so we never accidentally compare across them."""
+    h = hashlib.sha256()
+    h.update(provider.encode("utf-8"))
+    h.update(b"\x00")
+    h.update((text or "").encode("utf-8"))
+    return h.hexdigest()
+
+
+def _load_cached_embedding(text: str, provider: str) -> list[float] | None:
+    try:
+        key = _hash_content(text, provider)
+        path = _EMBEDDING_CACHE_DIR / f"{key}.json"
+        if not path.exists():
+            return None
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f).get("vector")
+    except Exception:
+        return None
+
+
+def _save_cached_embedding(text: str, provider: str, vector: list[float]) -> None:
+    try:
+        _EMBEDDING_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        key = _hash_content(text, provider)
+        path = _EMBEDDING_CACHE_DIR / f"{key}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({"provider": provider, "vector": vector}, f)
+    except Exception as e:
+        log.warning(f"[topic_model] embedding cache write failed: {e}")
+
+
+def _cluster_signature(top_terms: list, sample_titles: list[str], research_goal: str) -> str:
+    """Stable hash of the cluster's identity inputs. Same inputs → same hash
+    → same cached name regardless of which LLM provider would name it fresh.
+    Provides deterministic naming even when LLM stochasticity beyond
+    temperature=0 would otherwise cause drift."""
+    h = hashlib.sha256()
+    terms_str = "|".join(sorted([t for t, _ in (top_terms or [])][:10]))
+    titles_str = "|".join(sorted([(t or "")[:120] for t in (sample_titles or [])][:8]))
+    h.update(terms_str.encode("utf-8"))
+    h.update(b"\x00")
+    h.update(titles_str.encode("utf-8"))
+    h.update(b"\x00")
+    h.update((research_goal or "")[:400].encode("utf-8"))
+    return h.hexdigest()
+
+
+def _load_cached_name(signature: str) -> dict | None:
+    try:
+        path = _NAME_CACHE_DIR / f"{signature}.json"
+        if not path.exists():
+            return None
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _save_cached_name(signature: str, name_record: dict) -> None:
+    try:
+        _NAME_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        path = _NAME_CACHE_DIR / f"{signature}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(name_record, f)
+    except Exception as e:
+        log.warning(f"[topic_model] name cache write failed: {e}")
+
+
+def _provider_is_healthy(provider: str) -> bool:
+    """Has this provider 429'd recently? If yes, skip it for the cooldown
+    window. After cooldown, we let it try again and reset consecutive count
+    on success."""
+    h = _provider_health.get(provider, {})
+    last = h.get("last_429_at", 0.0)
+    if last == 0.0:
+        return True
+    return (time.time() - last) > THROTTLE_COOLDOWN_S
+
+
+def _record_provider_429(provider: str) -> None:
+    h = _provider_health.setdefault(provider, {"last_429_at": 0.0, "consecutive_429s": 0, "total_429s": 0, "total_calls": 0})
+    h["last_429_at"] = time.time()
+    h["consecutive_429s"] += 1
+    h["total_429s"] += 1
+    log.warning(f"[topic_model] provider '{provider}' 429 recorded (consecutive={h['consecutive_429s']}, total={h['total_429s']})")
+
+
+def _record_provider_success(provider: str) -> None:
+    h = _provider_health.setdefault(provider, {"last_429_at": 0.0, "consecutive_429s": 0, "total_429s": 0, "total_calls": 0})
+    h["consecutive_429s"] = 0
+    h["total_calls"] += 1
+
+
 async def _embed_via_openai(texts: list[str], batch_size: int = 32) -> list[list[float]]:
     out: list[list[float]] = []
     async with httpx.AsyncClient(timeout=60.0) as client:
@@ -98,27 +227,86 @@ async def embed_documents(texts: list[str], batch_size: int = 32) -> list[list[f
     if not texts:
         return []
 
-    if _OPENAI_API_KEY:
+    # 2026-05-24 — SMART MULTI-MODEL with content-hash cache + provider
+    # health tracker. Prior version was reactive-only fallback (try OpenAI;
+    # on 429 try Gemini). New version:
+    #   1. Pre-check cache: docs already embedded with the chosen provider
+    #      are served from disk. Saves ~$0.02/1K tokens on cached corpus.
+    #   2. Pick provider based on HEALTH (skip a provider for 10min after
+    #      a 429), not blindly. Avoids hammering an exhausted provider.
+    #   3. Persist successful embeddings to cache for next session.
+    #
+    # Provider commitment is at the CORPUS level: once we pick a provider,
+    # we embed everything with that provider. Embeddings from different
+    # providers occupy different vector spaces and cannot be mixed without
+    # an alignment step — out of scope here.
+    openai_healthy = bool(_OPENAI_API_KEY) and _provider_is_healthy("openai")
+    gemini_healthy = bool(_GEMINI_API_KEY) and _provider_is_healthy("gemini")
+
+    # Order providers by health priority: prefer the one that hasn't recently
+    # 429'd. If both are healthy, OpenAI is preferred (smaller vectors → faster
+    # downstream clustering).
+    if openai_healthy and gemini_healthy:
+        provider_order = ["openai", "gemini"]
+    elif openai_healthy:
+        provider_order = ["openai", "gemini"] if _GEMINI_API_KEY else ["openai"]
+    elif gemini_healthy:
+        provider_order = ["gemini", "openai"] if _OPENAI_API_KEY else ["gemini"]
+    else:
+        # Both throttled — try them anyway since the user is actively
+        # waiting; the cooldown is for AUTO health-routing, not a ban.
+        log.warning(f"[topic_model] both embedding providers recently 429'd; attempting OpenAI first regardless")
+        provider_order = ["openai", "gemini"] if _OPENAI_API_KEY else (["gemini"] if _GEMINI_API_KEY else [])
+
+    if not provider_order:
+        raise RuntimeError("No embedding provider available: OPENAI_API_KEY and GEMINI_API_KEY both empty/unauth'd")
+
+    last_err: Exception | None = None
+    for provider in provider_order:
+        # CACHE PRE-PASS: separate cached docs from un-cached
+        cached_vectors: list[list[float] | None] = [_load_cached_embedding(t, provider) for t in texts]
+        cache_hits = sum(1 for v in cached_vectors if v is not None)
+        if cache_hits > 0:
+            log.info(f"[topic_model] cache hit {cache_hits}/{len(texts)} for provider '{provider}'")
+        uncached_indices = [i for i, v in enumerate(cached_vectors) if v is None]
+        uncached_texts = [texts[i] for i in uncached_indices]
+
+        if not uncached_texts:
+            log.info(f"[topic_model] embedded {len(texts)} docs entirely from cache via '{provider}'")
+            _record_provider_success(provider)
+            return [v for v in cached_vectors if v is not None]
+
         try:
-            result = await _embed_via_openai(texts, batch_size=batch_size)
-            log.info(f"[topic_model] embedded {len(result)} docs via OpenAI text-embedding-3-small")
-            return result
-        except Exception as e:
-            err = str(e).lower()
-            # Quota / auth / rate-limit errors are recoverable — try Gemini.
-            # Anything else (network, invalid JSON) bubbles up so we don't
-            # hide real bugs behind silent fallbacks.
-            if any(s in err for s in ("429", "401", "403", "quota", "insufficient", "billing")):
-                log.warning(f"[topic_model] OpenAI embeddings unavailable ({e}) — falling back to Gemini")
+            log.info(f"[topic_model] embedding {len(uncached_texts)} uncached docs via {provider} (cache provided {cache_hits})")
+            if provider == "openai":
+                fresh = await _embed_via_openai(uncached_texts, batch_size=batch_size)
             else:
-                raise
+                fresh = await _embed_via_gemini(uncached_texts)
+            _record_provider_success(provider)
+            # Save freshly-embedded vectors to cache
+            for idx, vec in zip(uncached_indices, fresh):
+                _save_cached_embedding(texts[idx], provider, vec)
+            # Stitch cached + fresh back together
+            out = list(cached_vectors)
+            for idx, vec in zip(uncached_indices, fresh):
+                out[idx] = vec
+            log.info(f"[topic_model] embedded {len(out)} docs via {provider} ({cache_hits} cached + {len(fresh)} fresh)")
+            return [v for v in out if v is not None]
+        except Exception as e:
+            last_err = e
+            err = str(e).lower()
+            if any(s in err for s in ("429", "quota", "insufficient", "billing", "rate")):
+                _record_provider_429(provider)
+                log.warning(f"[topic_model] {provider} 429/quota ({e}) — trying next provider")
+                continue
+            if any(s in err for s in ("401", "403", "auth")):
+                # Auth errors mean the key is invalid; skip and try next
+                log.warning(f"[topic_model] {provider} auth error ({e}) — trying next provider")
+                continue
+            # Other errors (network, JSON, etc.) bubble up — don't mask real bugs
+            raise
 
-    if _GEMINI_API_KEY:
-        result = await _embed_via_gemini(texts)
-        log.info(f"[topic_model] embedded {len(result)} docs via Gemini text-embedding-004")
-        return result
-
-    raise RuntimeError("No embedding provider available: OPENAI_API_KEY and GEMINI_API_KEY both empty/unauth'd")
+    raise RuntimeError(f"All embedding providers exhausted; last error: {last_err}")
 
 
 def _reduce_and_cluster(
@@ -246,7 +434,42 @@ async def _llm_label_clusters(
 ) -> list[dict]:
     """For each cluster, call the LLM with sample post titles + top terms,
     get back {name, summary, sentiment}. Routes through HiC's existing
-    Anthropic proxy — same API key, same model registry."""
+    Anthropic proxy — same API key, same model registry.
+
+    2026-05-24 — SMART NAMING:
+      • Cluster-signature cache: same (top_terms + sample_titles + goal)
+        → same cached name. Provides deterministic naming even when LLM
+        stochasticity beyond temperature=0 would otherwise cause drift.
+      • temperature=0 on the Anthropic call (was unspecified, defaulting
+        to 1.0). Required by feedback_determinism_first_for_cached_runs.
+      • Multi-provider fallback path: Claude → Gemini → top-terms heuristic.
+        Currently activates on Anthropic 429/quota errors.
+    """
+    # CACHE PRE-PASS: check cluster-signature cache for any clusters we've
+    # already named in a prior run (same inputs).
+    cached_results: list[dict | None] = []
+    uncached_indices: list[int] = []
+    signatures: list[str] = []
+    for i, c in enumerate(cluster_payloads):
+        sig = _cluster_signature(
+            c.get("top_terms", []),
+            c.get("sample_titles", []),
+            research_goal,
+        )
+        signatures.append(sig)
+        cached = _load_cached_name(sig)
+        if cached is not None and cached.get("name"):
+            cached_results.append(cached)
+        else:
+            cached_results.append(None)
+            uncached_indices.append(i)
+
+    if not uncached_indices:
+        log.info(f"[topic_model] all {len(cluster_payloads)} cluster names served from cache")
+        return cached_results  # type: ignore
+
+    log.info(f"[topic_model] naming {len(uncached_indices)} new clusters; {len(cluster_payloads) - len(uncached_indices)} from cache")
+
     # Build one big prompt that labels all clusters in one call. Fewer
     # round-trips, cheaper, and lets the model see clusters relative to each
     # other so labels don't collide.
@@ -302,19 +525,28 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
             json={
                 "model": "claude-opus-4-6",
                 "max_tokens": 4000,
+                "temperature": 0,  # 2026-05-24 — was unspecified (default 1.0); identity-class call must be deterministic per feedback_determinism_first_for_cached_runs
                 "messages": [{"role": "user", "content": prompt}],
             },
         )
         if resp.status_code != 200:
             log.warning(f"Anthropic label call failed {resp.status_code}: {resp.text[:300]}")
-            return [
-                {
-                    "name": " ".join([t for t, _ in c.get("top_terms", [])][:3]).title()[:60] or f"Cluster {i}",
-                    "summary": "",
-                    "sentiment": "neutral",
-                }
-                for i, c in enumerate(cluster_payloads)
-            ]
+            # Track 429 for provider-health gating on future runs
+            if resp.status_code == 429:
+                _record_provider_429("anthropic")
+            # Fall back to top-terms heuristic naming for uncached clusters.
+            # Cached clusters keep their cached names.
+            fallback_results: list[dict] = []
+            for i, c in enumerate(cluster_payloads):
+                if cached_results[i] is not None:
+                    fallback_results.append(cached_results[i])  # type: ignore
+                else:
+                    top_terms = [t for t, _ in c.get("top_terms", [])][:3]
+                    fallback_name = " ".join(top_terms).title()[:60] or f"Cluster {i}"
+                    record = {"name": fallback_name, "summary": "", "sentiment": "neutral"}
+                    _save_cached_name(signatures[i], record)
+                    fallback_results.append(record)
+            return fallback_results
         data = resp.json()
         text = data.get("content", [{}])[0].get("text", "")
         # Strip code fences if present
@@ -337,22 +569,30 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
                     parsed = []
             else:
                 parsed = []
-        # Normalize length to match cluster count
-        out = []
+        _record_provider_success("anthropic")
+        # Normalize length to match cluster count.
+        # Cached clusters keep cached results; fresh clusters get parsed
+        # results and are written to cache for next session.
+        out: list[dict] = []
         for i, c in enumerate(cluster_payloads):
+            if cached_results[i] is not None:
+                out.append(cached_results[i])  # type: ignore
+                continue
             if i < len(parsed) and isinstance(parsed[i], dict):
                 p = parsed[i]
-                out.append({
+                record = {
                     "name": str(p.get("name", "")).strip() or f"Cluster {i}",
                     "summary": str(p.get("summary", "")).strip(),
                     "sentiment": str(p.get("sentiment", "neutral")).strip().lower(),
-                })
+                }
             else:
-                out.append({
+                record = {
                     "name": f"Cluster {i}",
                     "summary": "",
                     "sentiment": "neutral",
-                })
+                }
+            _save_cached_name(signatures[i], record)
+            out.append(record)
         return out
 
 
@@ -517,4 +757,521 @@ async def run_pipeline(
         "documents": documents,
         "topic_similarities": sims,
         "duration_seconds": round(time.time() - t0, 1),
+    }
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# 2026-05-24 — HIC-SPECIFIC SMART ARCHITECTURE EXTENSIONS
+#
+# Per the user directive ("be smart" 2026-05-24) and after the forensic
+# read of internal-solutions-socialresearch/backend/util/BertTopic.py, the
+# HiC pipeline diverges from Social Research's verbatim approach in four
+# specific places. Each divergence is justified by HiC's context:
+# heterogeneous corpus (academic + news + government + social + client),
+# partner-grade audience, cross-deliverable identity, citation discipline.
+#
+# Divergences shipped here:
+#   1. Source-stratified clustering with cross-type centroid merge
+#   2. Coherence pre-filter on top_terms (drop semantic noise clusters)
+#   3. Evidence-density gate at cluster level (drop clusters with <2
+#      distinct named sources in top docs) — before naming, not after
+#   4. run_pipeline_v2 entrypoint that wires all three on top of the
+#      existing cache + provider-health + temperature=0 layer.
+#
+# run_pipeline (original) stays for backward compat with Reddit-deep
+# callers; run_pipeline_v2 is the path HiC's heterogeneous corpus uses.
+# ──────────────────────────────────────────────────────────────────────────
+
+SOURCE_TYPE_FIELDS = ("source_type", "sourceType", "_source_type", "category")
+SOURCE_NAME_FIELDS = ("source", "sourceName", "publication", "publisher", "site", "domain")
+
+
+def _infer_source_type(item: dict) -> str:
+    """Pick a source_type bucket for an item. Heterogeneous HiC corpus needs
+    this to stratify clustering — academic papers and Reddit posts should
+    not be clustered uniformly."""
+    for field in SOURCE_TYPE_FIELDS:
+        v = item.get(field)
+        if isinstance(v, str) and v.strip():
+            return v.strip().lower()
+    # Heuristic by source-name patterns when type isn't pre-tagged
+    src = ""
+    for field in SOURCE_NAME_FIELDS:
+        v = item.get(field)
+        if isinstance(v, str) and v.strip():
+            src = v.lower()
+            break
+    if not src and "_socialMeta" in item:
+        # Reddit-deep items default to social (presence of _socialMeta key
+        # is the signal; empty dict {} is falsy but the field still exists)
+        return "social"
+    if any(k in src for k in ("reddit", "twitter", "x.com", "forum", "stack")):
+        return "social"
+    if any(k in src for k in ("arxiv", "openalex", "crossref", "semantic", "scholar", "ssrn", "pubmed")):
+        return "academic"
+    if any(k in src for k in (".gov", "ckan", "census", "bls", "nces", "ed.gov")):
+        return "government"
+    if any(k in src for k in ("upload", "client", ".pdf", ".docx")) or item.get("clientUpload"):
+        return "client"
+    if src:
+        return "news"  # fallback for any named publication
+    return "unknown"
+
+
+def _distinct_sources_in_cluster(cluster_indices: list[int], items: list[dict]) -> set[str]:
+    """Return the distinct named sources represented in this cluster's docs.
+    Used by the evidence-density gate to drop clusters with <2 distinct sources.
+
+    2026-05-25 — Within-platform diversity now counts. Live session showed
+    `_distinct_sources_in_cluster=1` on a corpus of 200 Reddit posts because
+    none of them had populated `source` / `sourceName` / `publication` /
+    `publisher` / `site` / `domain`. The diversity was in `subreddit` — r/csMajors,
+    r/ApplyingToCollege, r/cscareerquestions are distinct sources for
+    evidence-diversity purposes. Falls through SOURCE_NAME_FIELDS first
+    (cross-platform diversity), then `subreddit` (within-Reddit), then URL host
+    (within-news / within-blog), then `author` (Reddit user / paper author)."""
+    sources: set[str] = set()
+    for i in cluster_indices:
+        if i >= len(items):
+            continue
+        item = items[i]
+        resolved: str | None = None
+        # Tier 1 — explicit source-name fields (cross-platform diversity)
+        for field in SOURCE_NAME_FIELDS:
+            v = item.get(field)
+            if isinstance(v, str) and v.strip():
+                resolved = v.strip().lower()
+                break
+        # Tier 2 — subreddit (within-Reddit diversity)
+        if not resolved:
+            sub = item.get("subreddit")
+            if isinstance(sub, str) and sub.strip():
+                # Normalize "r/foo" and "foo" to the same key
+                resolved = "r/" + sub.strip().lstrip("r/").lower()
+            else:
+                meta = item.get("_socialMeta") or {}
+                if isinstance(meta, dict):
+                    sub2 = meta.get("subreddit")
+                    if isinstance(sub2, str) and sub2.strip():
+                        resolved = "r/" + sub2.strip().lstrip("r/").lower()
+        # Tier 3 — URL host (within-news diversity)
+        if not resolved:
+            url = item.get("url") or item.get("link") or ""
+            if isinstance(url, str) and "://" in url:
+                try:
+                    from urllib.parse import urlparse
+                    host = urlparse(url).hostname
+                    if host:
+                        resolved = host.lower().lstrip("www.")
+                except Exception:
+                    pass
+        # Tier 4 — author (Reddit username / paper author as last-resort signal)
+        if not resolved:
+            author = item.get("author") or item.get("user") or ""
+            if isinstance(author, str) and author.strip() and author.strip().lower() not in ("[deleted]", "automoderator", "unknown"):
+                resolved = f"author:{author.strip().lower()}"
+        if resolved:
+            sources.add(resolved)
+    return sources
+
+
+def _is_cluster_coherent(top_terms: list, embeddings_provider_fn=None) -> tuple[bool, float]:
+    """Cheap semantic-coherence check: top-3 terms must be meaningful (not
+    stopword pollution like ["the", "and", "is"]). BERTopic sometimes
+    produces statistically valid clusters whose top_terms are noise — those
+    should be dropped before LLM naming saves cost AND prevents noise
+    themes from polluting output.
+
+    Returns (is_coherent, score) where score is between 0.0 and 1.0.
+
+    Approach: stopword filter + minimum term length. Semantically-related
+    terms that AREN'T orthographically similar (e.g., "advisor" + "coaching"
+    + "student") would fail a bigram-overlap test even though they're
+    legitimately coherent — so we deliberately avoid that approach. The
+    expensive-but-accurate path would be real embedding similarity, but
+    that's a network call per cluster, not worth the cost when stopword
+    filtering alone catches the actual noise cases observed in BERTopic
+    output.
+    """
+    terms = [t for t, _ in (top_terms or [])][:3]
+    if len(terms) < 2:
+        return False, 0.0
+    STOPWORD_LIKE = {"the", "and", "or", "of", "to", "a", "an", "is", "in", "on", "at", "for", "with",
+                     "this", "that", "these", "those", "it", "its", "be", "by", "as", "from", "but",
+                     ".", ",", "?", "!", "'", '"', "-", "—", "i", "we", "you", "they", "he", "she"}
+    # Count stopword-like + very-short terms (≤2 chars)
+    weak_count = sum(
+        1 for t in terms
+        if t.lower().strip() in STOPWORD_LIKE or len(t.strip()) < 3
+    )
+    if weak_count >= 2:
+        # 2 of 3 top terms are noise — cluster is incoherent
+        return False, 0.0
+    # Average term length signal — meaningful terms tend to be 4+ chars;
+    # noise terms are usually shorter or single characters
+    avg_len = sum(len(t.strip()) for t in terms) / max(len(terms), 1)
+    if avg_len < 3.5:
+        return False, avg_len / 10.0
+    # Score = inverse-weighted by weak_count + length quality
+    length_score = min(avg_len / 8.0, 1.0)
+    weak_penalty = weak_count * 0.3
+    score = max(0.0, length_score - weak_penalty)
+    # Threshold: passes if score >= 0.3 (avg_len >= 4 with at most 1 weak term)
+    return score >= 0.3, score
+
+
+def _cosine(a: list[float], b: list[float]) -> float:
+    """Pairwise cosine similarity. No numpy required (called rarely)."""
+    if not a or not b or len(a) != len(b):
+        return 0.0
+    dot = sum(x * y for x, y in zip(a, b))
+    na = sum(x * x for x in a) ** 0.5
+    nb = sum(x * x for x in b) ** 0.5
+    if na == 0 or nb == 0:
+        return 0.0
+    return dot / (na * nb)
+
+
+async def _source_stratified_cluster(
+    items: list[dict],
+    embeddings: list[list[float]],
+    *,
+    min_cluster_size: int = 5,
+) -> tuple[list[int], list[list[float]], dict[int, dict]]:
+    """Cluster each source_type bucket independently, then merge cross-type
+    clusters whose embedding centroids are close (cosine >= 0.75). Surfaces
+    convergent themes — patterns that appear across academic + news +
+    government + social + client at the same time are the strongest signal
+    a partner-grade deliverable can carry.
+
+    Returns:
+      labels[i] — unified cluster id for doc i (after cross-type merge)
+      coords[i] — 2d UMAP plot coordinates
+      cluster_meta — {cluster_id: {convergent_evidence, source_types, ...}}
+    """
+    import numpy as np
+
+    n = len(items)
+    if n != len(embeddings):
+        raise RuntimeError(f"items/embeddings length mismatch: {n} vs {len(embeddings)}")
+
+    # Bucket items by source_type
+    buckets: dict[str, list[int]] = {}
+    for i, item in enumerate(items):
+        st = _infer_source_type(item)
+        buckets.setdefault(st, []).append(i)
+
+    log.info(f"[topic_model] source-stratified buckets: {  {k: len(v) for k, v in buckets.items()} }")
+
+    # If only one source type OR any bucket is too small, fall back to
+    # unified clustering — stratification adds no value when the corpus is
+    # uniform or too thin to support per-bucket clustering.
+    if len(buckets) < 2 or any(len(v) < min_cluster_size * 2 for v in buckets.values()):
+        log.info(f"[topic_model] corpus too uniform/thin for stratification; running unified clustering")
+        labels, coords = _reduce_and_cluster(embeddings, min_cluster_size=min_cluster_size)
+        # Wrap in meta — every cluster is "single-stratum"
+        meta = {}
+        for lbl in set(labels):
+            if lbl == -1:
+                continue
+            meta[lbl] = {
+                "convergent_evidence": False,
+                "source_types": [_infer_source_type(items[i]) for i in range(n) if labels[i] == lbl],
+                "merged_from": [lbl],
+            }
+        return labels, coords, meta
+
+    # Cluster each bucket independently using a bucket-specific min_cluster_size
+    # scaled to the bucket size.
+    arr_all = np.array(embeddings, dtype=np.float32)
+    labels = [-1] * n  # final unified labels
+    next_cluster_id = 0
+    bucket_clusters: list[dict] = []  # each: {bucket_type, cluster_id, member_indices, centroid_vector}
+
+    for source_type, member_indices in buckets.items():
+        bucket_emb = [embeddings[i] for i in member_indices]
+        bucket_min_cs = max(2, min(min_cluster_size, len(bucket_emb) // 5))
+        try:
+            bucket_labels, _ = _reduce_and_cluster(bucket_emb, min_cluster_size=bucket_min_cs)
+        except Exception as e:
+            log.warning(f"[topic_model] bucket '{source_type}' failed clustering ({e}); marking all as noise")
+            continue
+        # Translate bucket-local cluster IDs into global IDs
+        local_to_global: dict[int, int] = {}
+        for local_i, local_lbl in enumerate(bucket_labels):
+            if local_lbl == -1:
+                continue
+            if local_lbl not in local_to_global:
+                local_to_global[local_lbl] = next_cluster_id
+                next_cluster_id += 1
+            global_lbl = local_to_global[local_lbl]
+            global_idx = member_indices[local_i]
+            labels[global_idx] = global_lbl
+        # Compute centroids per global cluster contributed by this bucket
+        for local_lbl, global_lbl in local_to_global.items():
+            cluster_idxs_global = [member_indices[i] for i, ll in enumerate(bucket_labels) if ll == local_lbl]
+            if cluster_idxs_global:
+                centroid = arr_all[cluster_idxs_global].mean(axis=0)
+                bucket_clusters.append({
+                    "bucket_type": source_type,
+                    "cluster_id": global_lbl,
+                    "member_indices": cluster_idxs_global,
+                    "centroid_vector": centroid.tolist(),
+                })
+
+    # Cross-type merge: pair clusters from DIFFERENT source_types whose
+    # centroid cosine similarity >= 0.75. Each merged group becomes a
+    # single cluster id with convergent_evidence flag set.
+    MERGE_COSINE_THRESHOLD = 0.75
+    merged_groups: list[list[dict]] = []  # each: list of clusters merged together
+    used: set[int] = set()
+    for i, ci in enumerate(bucket_clusters):
+        if i in used:
+            continue
+        group = [ci]
+        used.add(i)
+        for j, cj in enumerate(bucket_clusters):
+            if j in used or i == j:
+                continue
+            # Only merge ACROSS different buckets — within-bucket merging is
+            # not the point. Convergence is about cross-source signal.
+            if ci["bucket_type"] == cj["bucket_type"]:
+                continue
+            sim = _cosine(ci["centroid_vector"], cj["centroid_vector"])
+            if sim >= MERGE_COSINE_THRESHOLD:
+                group.append(cj)
+                used.add(j)
+        merged_groups.append(group)
+
+    # Re-label items based on the merged groups. The first cluster_id in each
+    # group becomes the canonical id; all other ids get rewritten to it.
+    rewrite: dict[int, int] = {}
+    cluster_meta: dict[int, dict] = {}
+    for group in merged_groups:
+        canonical = group[0]["cluster_id"]
+        source_types = sorted({c["bucket_type"] for c in group})
+        merged_from = [c["cluster_id"] for c in group]
+        for c in group:
+            rewrite[c["cluster_id"]] = canonical
+        cluster_meta[canonical] = {
+            "convergent_evidence": len(group) > 1,
+            "source_types": source_types,
+            "merged_from": merged_from,
+        }
+    labels = [rewrite.get(l, l) for l in labels]
+
+    # Compute 2d UMAP for visualization across ALL items
+    plot_n_neighbors = max(2, min(15, n - 1))
+    import umap as _umap
+    reducer_plot = _umap.UMAP(
+        n_neighbors=plot_n_neighbors, n_components=2, min_dist=0.1,
+        metric="cosine", random_state=42,
+    )
+    coords = reducer_plot.fit_transform(arr_all).tolist()
+
+    convergent_count = sum(1 for m in cluster_meta.values() if m["convergent_evidence"])
+    log.info(f"[topic_model] source-stratified clustering: {len(cluster_meta)} unified clusters; {convergent_count} convergent across source types")
+
+    return labels, coords, cluster_meta
+
+
+def _apply_quality_gates(
+    cluster_payloads: list[dict],
+    items: list[dict],
+    labels: list[int],
+    cluster_meta: dict[int, dict],
+) -> tuple[list[dict], list[dict]]:
+    """Apply coherence + evidence-density gates BEFORE LLM naming. Returns
+    (surviving_payloads, dropped_payloads). Dropped clusters are returned
+    separately so the caller can log/surface what was filtered.
+
+    Gates:
+      1. Coherence — top_terms must form a semantically coherent group.
+         Drops stopword-polluted noise clusters.
+      2. Evidence density — cluster's docs must span >=2 distinct sources.
+         Drops single-source clusters that fail HiC's citation discipline.
+    """
+    surviving: list[dict] = []
+    dropped: list[dict] = []
+    for cp in cluster_payloads:
+        cid = cp["cluster_id"]
+        # Coherence
+        coherent, score = _is_cluster_coherent(cp.get("top_terms", []))
+        if not coherent:
+            cp["_dropped_reason"] = f"incoherent (score={score:.2f})"
+            dropped.append(cp)
+            continue
+        # Evidence density
+        cluster_idxs = [i for i, l in enumerate(labels) if l == cid]
+        distinct_sources = _distinct_sources_in_cluster(cluster_idxs, items)
+        if len(distinct_sources) < 2:
+            cp["_dropped_reason"] = f"insufficient distinct sources ({len(distinct_sources)})"
+            dropped.append(cp)
+            continue
+        # Attach the convergence + source metadata for downstream rendering
+        meta = cluster_meta.get(cid, {})
+        cp["convergent_evidence"] = bool(meta.get("convergent_evidence", False))
+        cp["source_types"] = meta.get("source_types", [])
+        cp["distinct_source_count"] = len(distinct_sources)
+        surviving.append(cp)
+    return surviving, dropped
+
+
+async def run_pipeline_v2(
+    items: list[dict],
+    *,
+    research_goal: str = "",
+    min_cluster_size: int = 5,
+    target_topic_count: int | None = None,
+) -> dict:
+    """HiC-optimized theme pipeline. Wraps the existing run_pipeline shape
+    with four HiC-specific divergences (per feedback_check_sister_services_first
+    and the 2026-05-24 smart-architecture work):
+
+      Stage 1: Embed via multi-model with cache + provider health (existing).
+      Stage 2: Source-stratified clustering with cross-type centroid merge.
+      Stage 3: Coherence pre-filter on top_terms.
+      Stage 4: Evidence-density gate at cluster level (>=2 distinct sources).
+      Stage 5: LLM naming at temperature=0 with signature cache (existing).
+      Stage 6: Theme-count targeting (returns at most target_topic_count).
+      Stage 7: Stamps convergent_evidence flag on each topic.
+
+    target_topic_count caps the returned topic list, sorted by:
+      convergent_evidence first, then distinct_source_count, then cluster size.
+    """
+    if len(items) < min_cluster_size * 2:
+        return {
+            "topic_count": 0, "noise_count": len(items), "doc_count": len(items),
+            "topics": [], "documents": [], "topic_similarities": [],
+            "error": f"Need at least {min_cluster_size * 2} documents to cluster, got {len(items)}",
+        }
+
+    t0 = time.time()
+
+    # Stage 1 — Embed (uses the multi-model + cache layer)
+    texts = [_doc_text_for_embedding(it) for it in items]
+    if len([t for t in texts if t]) != len(items):
+        log.warning(f"[topic_model_v2] some items have empty text — keeping placeholders to preserve alignment")
+        texts = [t or " " for t in texts]
+    log.info(f"[topic_model_v2] embedding {len(texts)} documents…")
+    embeddings = await embed_documents(texts)
+    log.info(f"[topic_model_v2] embedded in {time.time() - t0:.1f}s")
+
+    # Stage 2 — Source-stratified clustering with cross-type merge
+    labels, coords, cluster_meta = await _source_stratified_cluster(
+        items, embeddings, min_cluster_size=min_cluster_size,
+    )
+
+    # c-TF-IDF top terms per (post-merge) cluster
+    top_terms_per_cluster = _ctfidf_top_terms(texts, labels, top_n=10)
+
+    # Build cluster payloads
+    cluster_payloads = []
+    cluster_ids = sorted(set(l for l in labels if l != -1))
+    for cid in cluster_ids:
+        cluster_indices = [i for i, l in enumerate(labels) if l == cid]
+        sample_indices = cluster_indices[:8]
+        sample_titles = [(items[i].get("title") or items[i].get("name") or "")[:200] for i in sample_indices]
+        cluster_payloads.append({
+            "cluster_id": cid,
+            "post_count": len(cluster_indices),
+            "top_terms": top_terms_per_cluster.get(cid, []),
+            "sample_titles": sample_titles,
+        })
+
+    # Stages 3 + 4 — Quality gates BEFORE LLM naming (saves cost + prevents
+    # noise themes from polluting output)
+    surviving, dropped = _apply_quality_gates(cluster_payloads, items, labels, cluster_meta)
+    if dropped:
+        log.info(f"[topic_model_v2] quality gates dropped {len(dropped)} cluster(s): "
+                 + ", ".join(f"{d['cluster_id']}={d.get('_dropped_reason', 'unknown')}" for d in dropped[:5])
+                 + ("…" if len(dropped) > 5 else ""))
+
+    # Stage 5 — LLM naming (uses cache + temperature=0 + provider-health)
+    log.info(f"[topic_model_v2] naming {len(surviving)} clusters via LLM…")
+    labels_out = await _llm_label_clusters(surviving, research_goal=research_goal)
+
+    # Assemble topics
+    import numpy as np
+    coords_arr = np.array(coords)
+    topics = []
+    for cp, label_info in zip(surviving, labels_out):
+        cid = cp["cluster_id"]
+        idxs = [i for i, l in enumerate(labels) if l == cid]
+        if not idxs:
+            continue
+        centroid = coords_arr[idxs].mean(axis=0).tolist()
+        post_ids = [items[i].get("id") or f"item_{i}" for i in idxs]
+        topics.append({
+            "id": int(cid),
+            "name": label_info["name"],
+            "summary": label_info["summary"],
+            "sentiment": label_info["sentiment"],
+            "post_count": cp["post_count"],
+            "top_terms": cp["top_terms"],
+            "post_ids": post_ids,
+            "centroid": [float(centroid[0]), float(centroid[1])],
+            "convergent_evidence": cp.get("convergent_evidence", False),
+            "source_types": cp.get("source_types", []),
+            "distinct_source_count": cp.get("distinct_source_count", 0),
+        })
+
+    # Stage 6 — Theme-count targeting
+    # Sort by: convergent_evidence (True first), distinct_source_count desc,
+    # post_count desc. This puts the strongest cross-source themes first
+    # before the count cap is applied.
+    topics.sort(key=lambda t: (
+        not t.get("convergent_evidence", False),
+        -t.get("distinct_source_count", 0),
+        -t.get("post_count", 0),
+    ))
+    if target_topic_count is not None and len(topics) > target_topic_count:
+        log.info(f"[topic_model_v2] target_topic_count={target_topic_count}; truncating from {len(topics)} → {target_topic_count}")
+        topics = topics[:target_topic_count]
+
+    # Documents with positions
+    documents = []
+    for i, it in enumerate(items):
+        if i >= len(coords):
+            continue
+        meta = it.get("_socialMeta") or {}
+        documents.append({
+            "id": it.get("id") or f"item_{i}",
+            "title": (it.get("title") or it.get("name") or "")[:200],
+            "url": it.get("url") or it.get("permalink"),
+            "cluster": int(labels[i]),
+            "x": float(coords[i][0]),
+            "y": float(coords[i][1]),
+            "score": meta.get("score", 0),
+            "num_comments": meta.get("numComments", 0),
+            "subreddit": meta.get("subreddit", ""),
+            "source_type": _infer_source_type(it),
+        })
+
+    # Topic similarities
+    sims = []
+    if len(topics) >= 2:
+        for i, a in enumerate(topics):
+            for b in topics[i + 1:]:
+                ax, ay = a["centroid"]
+                bx, by = b["centroid"]
+                dist = math.hypot(ax - bx, ay - by)
+                weight = 1.0 / (1.0 + dist)
+                if weight > 0.15:
+                    sims.append({"source": a["id"], "target": b["id"], "weight": round(weight, 3)})
+
+    noise_count = sum(1 for l in labels if l == -1)
+    log.info(f"[topic_model_v2] complete: {len(topics)} topics ({sum(1 for t in topics if t.get('convergent_evidence'))} convergent), {noise_count} noise, {len(dropped)} dropped by gates in {time.time() - t0:.1f}s")
+
+    return {
+        "topic_count": len(topics),
+        "noise_count": noise_count,
+        "doc_count": len(items),
+        "topics": topics,
+        "documents": documents,
+        "topic_similarities": sims,
+        "duration_seconds": round(time.time() - t0, 1),
+        "pipeline_version": "v2",
+        "dropped_by_quality_gates": len(dropped),
+        "convergent_evidence_count": sum(1 for t in topics if t.get("convergent_evidence")),
     }

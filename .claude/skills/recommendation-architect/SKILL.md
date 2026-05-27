@@ -1,5 +1,6 @@
 ---
 name: recommendation-architect
+version: 1.0
 description: Generate consulting-grade AI-tool recommendations grounded in client-uploaded docs and stakeholder constraints. Extracts an engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, existing systems, hard non-starters, regulatory constraints) from the user's prompt and uploads — then produces 5-12 distinct recommendations honoring every constraint, with implementation depth a senior consultant would defend in a client meeting. Brand/industry/persona-agnostic.
 thinking: max
 ---
@@ -146,7 +147,28 @@ The skill structure stays identical across all four — only the extracted conte
 
 No "revolutionary", "transform", "unlock", "best-in-class", "seamless", "leverage", "synergy", "paradigm shift", "robust", "cutting-edge", "next-generation", "game-changer", "holistic", "actionable insights". No "AI-powered" as the only descriptor — name what the AI does.
 
+**Compound-phrase variants are also banned** — the model frequently slips these past the single-word filter:
+- "holistic approach" / "holistic strategy" / "holistic view" / "holistic ecosystem" (caught in Gemini 3.5 output 2026-05-23)
+- "transform the way" / "transformative impact" / "transformational change"
+- "best-in-class platform" / "world-class capability"
+- "leverage the power of" / "harness the potential of"
+- "drive significant value" / "deliver tangible outcomes"
+
+If the rationale or thesis uses any banned root word in any compound form, REJECT and rewrite around the SPECIFIC mechanism (what the AI/system does, to which input, producing which output, for which named stakeholder).
+
 No marketing copy. No hyperbole. No self-referential framing ("this concept", "this recommendation"). Direct, declarative prose only.
+
+## Length Budgets (HARD — enforced by content-budget post-processor)
+
+- **title**: <=120 chars. Imperative sentence. If you find yourself writing "and" twice in a title, it's two recommendations — split them or cut the second clause.
+- **thesis**: 20-30 words. Not 35. Not 40.
+- **rationale**: 2-3 sentences, max 400 chars total. If you need more, the recommendation is bundling concerns — split it.
+- **impact**: a single metric statement, max 25 words, with a NUMBER or NAMED OUTCOME (not "significant improvement", not "major impact").
+
+Title rewriting discipline (when over 120 chars):
+- "Launch a mandatory first-semester co-op preparation milestone and guaranteed placement pathway for all incoming freshmen." (121 chars)
+  → "Launch a mandatory first-semester co-op prep milestone for every incoming freshman." (87 chars)
+- Pattern: drop "comprehensive", "guaranteed", "for all" — these add char count without adding meaning. If the word "all" is structurally required, change "for all incoming freshmen" → "for every incoming freshman" (saves 4 chars, sharper).
 
 ## Evidence Citation Rules
 
@@ -179,3 +201,59 @@ Walk through the output once more:
 10. **Slug check** — kebab-case, unique, used verbatim in every variant command.
 
 Only after all 10 checks pass do you emit the JSON.
+
+---
+
+## Quality Discipline v2 (2026-05-20) — universal contract
+
+This block is applied identically across every artifact-expert skill. Where a skill needs artifact-specific rules they appear above this block; this block is the floor every artifact must pass.
+
+### Evidence density floor (HARD)
+- **>=3 named external citations per top-level record** (theme, recommendation, persona, gap, system, phase, etc.). Generic "research" / "studies" / "data" / "the corpus" / "various sources" auto-rejected.
+- **>=60% of citations across the artifact MUST be external** (named publications, named databases, named authors — NOT client uploads or filenames). Below 60%, the artifact is REJECTED.
+- **>=1 verbatim quote per record** when the corpus supports it, attributed with source + author/role + date when available. Paraphrased "quotes" auto-rejected.
+- **NO fabricated entities** — every named institution, person, system, statistic must trace to a corpus passage. If you cannot trace it, omit it.
+
+### Anti-slop floor (HARD)
+- The 350+ banned phrases in `.claude/CLAUDE.md` are auto-rejected. Pre-strip any that appear in your output before emission.
+- Meta-narration ("In this section...", "We will now examine...", "As shown above...") auto-rejected.
+- Self-referential / process-aware language ("based on the research", "the data indicates", "this report aims to") auto-rejected.
+- QA-annotation strings ("EVIDENCE GAP", "TBD", "[needs baseline]", "evidence is limited", "more research is needed") auto-rejected — readers must NEVER see the model's awareness of its own gaps.
+
+### Action-title floor (HARD)
+- Every top-level title/heading is a **complete sentence stating a finding with data** — not a topic label.
+- BAD: "The Landscape", "Key Findings", "Recommendations", "Our Strategy", "Market Overview"
+- GOOD: "First-year attrition costs Northeastern $9.2M annually and concentrates in three majors"
+- Title test: a partner reading ONLY the titles of every record in the artifact must understand the complete argument. If they can't, REJECT and rewrite.
+
+### Specificity floor (HARD)
+- Every claim names a specific entity, number, date, or mechanism. Vague claims ("students struggle with...", "many institutions face...") auto-rejected — REPLACE with "[Named institution] reports [N]% of [specific population] face [specific friction] during [specific period]" or REMOVE.
+- Recommendations include quantified expected impact (% delta, $ delta, time-to-X delta) OR an explicit "impact: not yet quantified — pending baseline measurement" note.
+
+### Density floor by artifact type
+- Themes: >=12 distinct themes for corpora >=200 chunks. Each theme cites >=3 chunks from >=2 source types.
+- Personas: 3-5 primary personas; each with full Cooper goal hierarchy + JTBD + >=2 pain points + >=2 motivations.
+- Recommendations: 5-12 distinct recommendations; each with quantified impact + 4-5 action items + named owner + risk register entry.
+- Journeys / Blueprints: see illustrator skills — per-cell density floor of 3 activities + 2 pain points.
+- Strategy: Rumelt's Kernel (diagnosis + guiding policy + 5-7 coherent actions).
+- Gap analysis: 4-6 gaps minimum; each with Gartner 1-5 maturity score, severity, quantified business impact, named quick win.
+- Tech audit: full systems inventory; risk + consolidation opportunity per system.
+- Competitive: >=4 NAMED peer entities (never "Industry Average" / "Peers Collective").
+- PRD: all 16 Cagan/SVPG sections present; problem statement is the most important.
+- Roadmap: NOW/NEXT/LATER horizons; >=2 initiatives per horizon; each with dependency callout.
+- Tech architecture: C4 Context AND Container levels; integration payload + boundary limits per node.
+
+### Self-improvement participation
+- This skill is graded by the `improvementDiscriminator` after every generation. Quality scorecards persist to wiki/synthesis/improvement-lineage.md and drive the auto-dismissal of rules that hurt output.
+- If the user provides feedback in chat, the `chatFeedbackExtractor` captures it as a kind-scoped rule. Subsequent generations of this artifact type WILL inherit those rules — apply them strictly, even when the user doesn't restate them.
+- See `services/promptImprovementEngine.ts:getActiveConstraints(kind)` for the kind-scoped constraint feed.
+
+### Self-check BEFORE emitting
+1. Every record cites >=3 named external sources? If no, REJECT and pull more.
+2. Every claim has a specific entity / number / date / mechanism? If vague, REJECT and replace or remove.
+3. External citation share >=60%? If no, REJECT and rebalance.
+4. Every title is a complete-sentence finding (not a topic label)? If no, REJECT and rewrite.
+5. Zero banned phrases / meta-narration / QA-annotations? If any present, STRIP before emission.
+6. Density floor for this artifact type met? If no, REJECT and expand.
+
+If any check fails, regenerate — do not ship the artifact.

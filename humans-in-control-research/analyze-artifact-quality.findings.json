@@ -1,0 +1,69 @@
+{
+  "bannedSlop": [
+    {
+      "artifact": "recommendations",
+      "path": "recommendations[4].rationale",
+      "value": "Advisors must be equipped to guide students in building machine-readable Comprehensive Learner Records (CLRs). Integrating this into existing co-op prep courses",
+      "hits": [
+        "holistic approach"
+      ]
+    }
+  ],
+  "metaNarration": [],
+  "processReferences": [],
+  "hedgeWords": [],
+  "genericCitations": [
+    {
+      "artifact": "tech-audit",
+      "path": "inventory[6].debtNotes",
+      "value": "The database is a custom, on-premise legacy system with no external API access. Valuable skills and competency data generated during co-ops are trapped in unstr",
+      "hits": [
+        "the data"
+      ]
+    }
+  ],
+  "actionTitleViolations": [],
+  "budgetViolations": [
+    {
+      "artifact": "themes",
+      "path": "themes[1].headline",
+      "field": "title",
+      "length": 121,
+      "limit": 120,
+      "value": "Northeastern's reliance on PDF transcripts creates severe operational friction for the majority of its employer partners."
+    },
+    {
+      "artifact": "themes",
+      "path": "themes[2].headline",
+      "field": "title",
+      "length": 143,
+      "limit": 120,
+      "value": "Adopting the IMS Global Comprehensive Learner Record (CLR) standard represents a major competitive differentiator due to low national adoption."
+    },
+    {
+      "artifact": "themes",
+      "path": "themes[4].headline",
+      "field": "title",
+      "length": 126,
+      "limit": 120,
+      "value": "Modernizing the technical delivery of co-op credentials is required to meet the automated hiring workflows of major employers."
+    },
+    {
+      "artifact": "themes",
+      "path": "themes[5].headline",
+      "field": "title",
+      "length": 128,
+      "limit": 120,
+      "value": "Early, structured exposure to the co-op process is a strategic necessity to prevent student attrition before the sophomore year."
+    },
+    {
+      "artifact": "recommendations",
+      "path": "recommendations[0].title",
+      "field": "title",
+      "length": 121,
+      "limit": 120,
+      "value": "Launch a mandatory first-semester co-op preparation milestone and guaranteed placement pathway for all incoming freshmen."
+    }
+  ],
+  "markdownInOutput": []
+}

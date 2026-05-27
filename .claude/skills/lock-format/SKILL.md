@@ -1,5 +1,6 @@
 ---
 name: lock-format
+version: 1.0
 description: Eliminate output format drift by designing an airtight output specification with locked sections, labels, and length rules. Use when outputs vary in structure between runs.
 allowed-tools: Read, Grep, Glob
 argument-hint: [file-path-or-paste]

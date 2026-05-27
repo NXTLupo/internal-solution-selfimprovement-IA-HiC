@@ -1,0 +1,58 @@
+---
+url: "https://www.reddit.com/r/cscareerquestions/comments/1lt8su4/cs_career_advice/"
+kind: "social-post"
+source: "reddit-deep: r/cscareerquestions"
+subreddit: "cscareerquestions"
+title: "Cs career advice"
+author: "Squash1010"
+date: "2025-07-06T18:49:03.000Z"
+score: 5
+upvote_ratio: 0.86
+num_comments: 9
+flair: "New Grad"
+extracted_at: "2026-05-23T19:45:00.917Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Cs career advice
+
+Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lt8su4/cs_career_advice/)
+Posted by **Squash1010** · **5↑** · **9 comments**
+
+Hey guys I needed some advice. A little background about myself I recently graduated from a state college here in SoCal. Unfortunately despite trying my hardest I wasn’t able to land an Internship  Junior year. The previous years I was in community college and not entirely sure what field I’d be getting into and with only 2 CS classes under my belt I didn’t think it was wise to apply to internships. 
+
+Im writing this because I can’t find ANY work. Im not trying to break into the top companies that pay 100k+, I just want a job that’s slightly related to the CS degree and it doesn’t have to be amazing money. My main concern is i feel sooner or later I’m simply going to forget the stuff I’ve learned. I would be okay with I.T related jobs that has at least minimal programming, but can’t find any of that either. 
+
+
+Is there anything that I could do? Ideally I don’t want to move seeing how there are companies letting people go left and right. Additionally I have family here so I do have a safety net.
+
+## Comments
+
+- **SmokeOk6601** (2↑): Yes. First, start applying to smaller roles. Go to local events and meet tech people, they will have networks and might be involved at small companies. Those interactions are informal interviews. A lot of those jobs don’t get posted online.
+
+Try www.wellfound.com — they have small companies that will probably pay less but are more active and have fewer applicants than the big ones
+
+Update your resume to match each job you apply to (without lying). That will increase response rate. There are a ton of AI tools to help with this. One I like is www.faangresume.ai
+
+Lastly, get some personal projects with relevant technologies going. Nobody is going to stop you from building something with the tools these companies use in your free time. Build something cool, put it on github and on your resume. Keep your skills sharp.
+- **Chrithtoph** (1↑): Try applying to gov contracting swe jobs as well
+  - **Broad-Cranberry-9050** (3↑): This, 
+
+I worked at a defense industry off the bat (think RTX, BAE, Lockheed martin types) and first off it is so chill to work at these places. Second, work-life balance is amazing. They dont pay as much as the top companies due to government contracts but you can make a good living off of it and it is fairly respected in the industry. 
+
+It was so easy to coast too. I likely worked 20 hour weeks and was ahaead of the pack.
+  - **Squash1010** (1↑): See that’s what I’m aiming for more than anything. I’ve tried a ton here Northrop, Lockheed and a local favorite General Atomics. I can’t get anything. I have been waitlisted for a spot at GA, but it’s been nearly 2 weeks and they haven’t said anything so I’m simply assuming they just forgot to reject me.
+    - **Chrithtoph** (1↑): Yeah it can be difficult to get a foot in the door. Half of the people in defense go their clearance in the military, the other half do get it sponsored by the contractors themselves. Once you have a clearance it's a stable community. Sometimes they have non-cleared work as well. Also typically no leet code type interviews
+- **Ok_Experience_5151** (1↑): If you're not doing these already:
+
+* make your search nationwide
+* don't limit yourself in terms of where you're willing to live, including small towns
+* don't limit yourself in terms of what sort of employer you're willing to work for
+* be willing to work in-office full time
+* prioritize positions where you have meaningful experience with \~3/4 of the skills they list in the job description; if there are none of those, then consider adding some skills
+* make use of your "network", i.e. you're associated (or that your parents, extended family, neighbors or friends are associated with) who works in tech and who might be able to get your resume in front of someone who would interview you
+* if you're using a site like Indeed to find jobs, maybe try a different one to see if it has any different listings.
+- **Dependent_Gur1387** (1↑): breaking in is tough, especially without internships. Keep applying to smaller companies, and don’t overlook contract or IT roles with some scripting. Also, check out prepare.sh for real interview questions; I used it myself when prepping.
+- **irinabrassi4** (1↑): Maybe try applying to helpdesk or QA roles that involve some scripting, just to get your foot in the door. Also, check out "prepare.sh" for real interview questions
+- **[deleted]** (1↑): General IT helpdesk might work

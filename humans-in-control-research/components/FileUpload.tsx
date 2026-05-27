@@ -15,7 +15,7 @@ async function parseFilesInBackground(
     files: FileUploadType[],
     onFilesSelected: (files: FileUploadType[]) => void,
 ): Promise<void> {
-    const PROXY = 'http://localhost:5012';
+    const PROXY = 'http://127.0.0.1:5012';
     const results = await Promise.all(files.map(async (f) => {
         // Skip re-parsing text files the FileReader already decoded into
         // UTF-8-safe base64 (they decode losslessly in the chat callback).

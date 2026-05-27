@@ -1,0 +1,33 @@
+---
+url: "https://www.reddit.com/r/gradadmissions/comments/1sjznbj/a_wild_grad_school_application_experience/"
+kind: "social-post"
+source: "reddit-deep: r/gradadmissions"
+subreddit: "gradadmissions"
+title: "A wild grad school application experience"
+author: "DentistImpossible859"
+date: "2026-04-13T03:43:00.000Z"
+score: 35
+upvote_ratio: 0.96
+num_comments: 7
+flair: "Engineering"
+extracted_at: "2026-05-24T14:10:06.598Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# A wild grad school application experience
+
+Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sjznbj/a_wild_grad_school_application_experience/)
+Posted by **DentistImpossible859** · **35↑** · **7 comments**
+
+_(no body — link/image post)_
+
+## Comments
+
+- **Ambitious-Soil1229** (3↑): Congrats on your offers and best wishes in your grad school journey!! Make sure to take some much needed rest before starting!!
+  - **DentistImpossible859** (2↑): Thank you :) I'm finishing up Fulbright right now, so I'm looking to take a few months of self care before starting.
+- **SeriousFlight6885** (2↑): 30 applications? insane
+  - **DentistImpossible859** (3↑): After a while I found my groove, but the first half were tough. It was also interesting to watch my interests change within realtime from application to application.
+    - **Ambitious-Soil1229** (2↑): Same thing with me too! First half of applications, my interests were a bit scatted and I seemed to be attracted to everything and anything. As I read more about the faculty's work and did more research during applications, I found the niche area I was really driven to and helped me curate much more specific application materials. I actually got offers from that second half of applications than the first half!
+  - **SeriousFlight6885** (1↑): where did you even apply to? im guessing this is for a masters program?
+    - **DentistImpossible859** (1↑): Doctorate in Biomedical Engineering, some in Biology, some in Computational/Systems Biology

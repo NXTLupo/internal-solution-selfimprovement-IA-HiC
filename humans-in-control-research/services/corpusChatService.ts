@@ -1,3 +1,10 @@
+// 2026-05-26 — Static ESM import for the hashtag registry. Replaces the
+// Node-style `require('./hashtagRegistry')` call that broke at runtime
+// in the Vite browser bundle. `hashtagRegistry.ts` has no dependencies
+// on this file, so no circular risk. The `_hashtagRegistryModule` alias
+// is used by `extractHashtagDirectives` below.
+import * as _hashtagRegistryModule from './hashtagRegistry';
+
 /**
  * Corpus Chat Service v2 — Chat-Driven Research Workbench
  *
@@ -24,7 +31,7 @@
 // The legacy DeepSeek IDs remain in the type so prior localStorage values
 // don't reject at parse-time — the resolver in sendChatMessage maps any
 // unrecognized model to gemini-3.1-pro-preview.
-export type ChatModel = 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'council';
+export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-3.5-flash' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'council';
 
 export interface ChatMessage {
     id: string;
@@ -59,10 +66,36 @@ export interface ChatMessage {
         citationCount?: number;
         sourceCount?: { external: number; uploaded: number; analysis: number; total: number };
     };
+    /** 2026-05-25 — Journey-map launcher (kept for backward compat). New
+     *  generations use artifactLaunchUrl below. */
+    journeyMapUrl?: string;
+    journeyMapMeta?: {
+        title?: string;
+        brand?: 'NXT' | 'NU';
+        journey_id?: string;
+        model?: string;
+        source?: string;
+    };
+    /** 2026-05-25 — Unified artifact launcher (any deliverable kind). Set when
+     *  the unified /api/artifact/* engine produced the artifact and the proxy
+     *  returned a launcher_url. The renderer surfaces a card with a Launch
+     *  button that opens the full interactive HTML in a new browser window —
+     *  the chat iframe sandbox blocks scripts so interactive widgets are
+     *  non-functional inside the Design Desk preview. Replaces journeyMapUrl
+     *  for everything except legacy journey artifacts. */
+    artifactLaunchUrl?: string;
+    artifactLaunchMeta?: {
+        title?: string;
+        brand?: 'NXT' | 'NU';
+        kind?: string;
+        artifact_id?: string;
+        model?: string;
+        source?: string;
+    };
     /** 2026-05-11 — Prototype launcher. Set when the chat built an interactive
      *  experience prototype via #proto. The renderer surfaces a card with
      *  Launch / Edit / Delete chips that open the prototype in a new window
-     *  on http://localhost:5012/api/prototypes/{slug}/view. */
+     *  on http://127.0.0.1:5012/api/prototypes/{slug}/view. */
     prototypeUrl?: string;
     prototypeMeta?: {
         slug?: string;
@@ -327,7 +360,15 @@ export interface SkillManifestEntry {
      *  when ANY trigger keyword matches. Used for layout/design contracts that
      *  must govern every slide emission regardless of which consulting lens
      *  produced the content. Today: nxt-visual-renderer. */
-    category: 'research-deliverable' | 'prompt-engineering' | 'render-contract' | 'retrieval-enhancer';
+    category: 'research-deliverable' | 'prompt-engineering' | 'render-contract' | 'retrieval-enhancer' | 'quality-enhancer';
+    /** Skills to auto-load alongside this one. When a research-deliverable
+     *  is the top content skill, every entry here gets loaded and its
+     *  SKILL.md concatenated into the same system prompt — no extra LLM
+     *  call. Used to make quality skills (source-ranker, contradiction-
+     *  finder, second-order-thinker, slide-title-lab) load automatically
+     *  whenever the user invokes a deliverable, without them having to
+     *  type extra hashtags. Added 2026-05-19. */
+    composes_with?: string[];
     triggers: string[];
     /** Wiki pages (in hic-workspace/wiki/) to load alongside SKILL.md */
     wikiCompanions: string[];
@@ -386,6 +427,26 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         // 1M tokens × ~4 chars/tok = ~4MB chars. We cap at 1.4MB so the
         // system prompt + uploads + wiki menu + history all fit with
         // headroom for tool-loop turns.
+        maxCorpusChars: 1_400_000,
+    },
+    {
+        // 2026-05-22 — Gemini 3.5 Flash added as a chat-tier option. Google's
+        // most-capable agentic + coding model in the budget band: $1.50/M
+        // input + $9/M output (vs Opus $15/$75). Default for the
+        // self-improvement loops (learning, verifier, compiler) and the
+        // "Apply now" regeneration path. Offered here as a fast, low-cost
+        // chat option for grounded Q&A on the corpus. Stays NON-DEFAULT
+        // because Gemini 3.1 Pro has the established quality bar for
+        // deliverable generation — users opt in when latency or budget
+        // matters more than 3.1 Pro's depth.
+        id: 'gemini-3.5-flash',
+        name: 'Gemini 3.5 Flash',
+        provider: 'google',
+        description: 'Google\'s fastest agentic + coding model. 1M context, ~10x cheaper than premium tier, multi-step reasoning. Default for HiC self-improvement loops; opt-in for chat.',
+        contextWindow: '1M tokens',
+        strengths: 'Low latency (~3-6s), low cost, agentic multi-step, structured JSON',
+        color: '#00B7C3',
+        available: true,
         maxCorpusChars: 1_400_000,
     },
     {
@@ -1613,7 +1674,7 @@ export async function loadWikiArticleBodies(
     if (!graph || !Array.isArray(graph.nodes)) return '';
     const maxArticles = opts.maxArticles ?? 40;
     const perArticleChars = opts.perArticleChars ?? 8000;
-    const proxyBase = opts.proxyBase ?? 'http://localhost:5012';
+    const proxyBase = opts.proxyBase ?? 'http://127.0.0.1:5012';
     // Pick evidence nodes that have a wikiPath
     const withPath = graph.nodes.filter((n: any) => n.type === 'evidence' && n.wikiPath);
     if (withPath.length === 0) return '';
@@ -1727,8 +1788,15 @@ function stem(word: string): string {
     return word;
 }
 
-/** Expand a user query with known synonyms to widen trigger overlap. */
-function expandQuery(query: string): string {
+/** Expand a user query with known synonyms to widen trigger overlap.
+ *  Returns BOTH the expanded text (for trigger matching) AND the original
+ *  normalized text (so the scorer can tell whether a trigger matched
+ *  verbatim or only via synonym expansion). 2026-05-26 — added the
+ *  `original` channel to fix the "Give Trailblazers Tools to Monitor" →
+ *  tech-audit-inspector misroute: synonym matches now score lower than
+ *  direct verbatim matches.
+ */
+function expandQuery(query: string): { expanded: string; original: string } {
     const norm = normalize(query);
     const words = norm.split(' ');
     const extras: string[] = [];
@@ -1736,7 +1804,10 @@ function expandQuery(query: string): string {
         const mapped = SYNONYM_MAP[w] || SYNONYM_MAP[stem(w)];
         if (mapped) extras.push(...mapped);
     }
-    return extras.length > 0 ? `${norm} ${extras.join(' ')}` : norm;
+    return {
+        expanded: extras.length > 0 ? `${norm} ${extras.join(' ')}` : norm,
+        original: norm,
+    };
 }
 
 /**
@@ -1747,13 +1818,187 @@ function expandQuery(query: string): string {
  *   - Stemmed match: 60% of trigger.length (partial signal)
  * Returns skills ranked by total score, highest first.
  */
+// 2026-05-26 — Hashtag-directive → owning-skill map. When the user types an
+// explicit registered hashtag, that hashtag's owning skill DOMINATES the
+// keyword-matching scorer. This closes the regression where "Give Advisors
+// & Trailblazers Tools to Monitor" expanded `tools` → `systems inventory`
+// (a tech-audit-inspector trigger) and overrode the user's literal
+// `#case study #slides` intent.
+//
+// Source of truth is services/hashtagRegistry.ts. This map is duplicated
+// here intentionally to keep the dispatcher dependency-free and synchronous;
+// any new directive added to the registry MUST add an entry here OR get a
+// safety-net warning emitted (see HASHTAG_REGISTERED_BUT_UNMAPPED below).
+const HASHTAG_TO_SKILL_ID: Record<string, string> = {
+    // experience-builder / consulting-deliverable
+    '#proto': 'experience-prototype-composer',
+    '#presentation': 'deck-narrative-composer',
+    '#recommendations': 'recommendation-architect',
+    '#journey': 'service-blueprint-mapper',
+    '#blueprint': 'service-blueprint-mapper',
+    '#arch': 'tech-arch-generator',
+    '#roadmap': 'roadmap-builder',
+    '#org': 'tech-arch-generator',
+    '#persona': 'persona-architect',
+    '#prd': 'prd-compiler',
+    '#gap': 'gap-analysis-evaluator',
+    '#audit': 'tech-audit-inspector',
+    '#compete': 'competitive-analyst',
+    '#strategy': 'strategy-author',
+    '#case-study': 'case-study-analyst',
+    '#brief': 'html-deliverable-composer',
+    '#explainer': 'html-deliverable-composer',
+    '#report': 'strategic-report-writer',
+    '#playground': 'html-deliverable-composer',
+    '#approaches': 'html-deliverable-composer',
+    '#mindmap': 'mind-map-architect',
+    '#brief-dialog': 'brief-dialog',
+    '#meta-themes': 'meta-themes',
+    '#deep-research': 'research-planner',
+};
+
+// Aliases the user may type (registry .aliases + common plurals). These
+// resolve to the SAME owning skill as the canonical hashtag.
+const HASHTAG_ALIASES: Record<string, string> = {
+    '#prototypes': '#proto',
+    '#presentations': '#presentation',
+    '#journeys': '#journey',
+    '#blueprints': '#blueprint',
+    '#architecture': '#arch',
+    '#roadmaps': '#roadmap',
+    '#orgs': '#org',
+    '#orgchart': '#org',
+    '#orgcharts': '#org',
+    '#personas': '#persona',
+    '#prds': '#prd',
+    '#audits': '#audit',
+    '#techaudit': '#audit',
+    '#tech-audit': '#audit',
+    '#competitive': '#compete',
+    '#competitives': '#compete',
+    '#competitors': '#compete',
+    '#strategies': '#strategy',
+    '#case-studies': '#case-study',
+    '#casestudy': '#case-study',
+    '#casestudies': '#case-study',
+    '#recs': '#recommendations',
+    '#briefs': '#brief',
+    '#explainers': '#explainer',
+    '#reports': '#report',
+    '#mind-map': '#mindmap',
+    '#mindmaps': '#mindmap',
+    '#dialog': '#brief-dialog',
+    '#brief-dialogue': '#brief-dialog',
+    '#meta-theme': '#meta-themes',
+    '#metathemes': '#meta-themes',
+    '#research-plan': '#deep-research',
+};
+
+// Hashtags that are MODIFIERS, not directives. Their presence does NOT
+// select a skill — they decorate whichever directive was chosen.
+const HASHTAG_MODIFIERS = new Set([
+    '#nxt', '#nu', '#slide', '#slides', '#preview', '#export-pptx',
+    '#auto-open', '#dark', '#light', '#help', '#artifacts',
+]);
+
+/**
+ * Extract registered hashtag directives from a user message. Returns the
+ * owning skill IDs in document order. Unrecognized hashtags are returned
+ * separately so the caller can warn the user. When an unrecognized hashtag
+ * has a strong fuzzy match in the registry (score >= 80 — id-prefix match),
+ * it is auto-promoted to the directive so the user's near-miss intent
+ * still routes correctly. Borderline matches (score < 80) stay in the
+ * unknown list with a "did you mean" suggestion.
+ */
+export function extractHashtagDirectives(userMessage: string): {
+    skillIds: string[];
+    unknownHashtags: string[];
+    fuzzyPromoted: Array<{ typed: string; resolved: string }>;
+} {
+    // 2026-05-26 — FIXED: was using Node `require('./hashtagRegistry')`
+    // which breaks at runtime in the Vite browser bundle ("require is not
+    // defined"). Replaced with synchronous module-scope import resolved
+    // at the top of the file (hashtagRegistry.ts is leaf, no circular
+    // dependency risk). The local-require pattern is BANNED in
+    // browser-bundled code; see the new precheck hook
+    // precheck_no_node_require.py for the auto-guard.
+    const { searchDirectives } = _hashtagRegistryModule;
+
+    const skillIds: string[] = [];
+    const unknownHashtags: string[] = [];
+    const fuzzyPromoted: Array<{ typed: string; resolved: string }> = [];
+    const seenSkills = new Set<string>();
+    // Tokenize: same regex as the design-desk parser plus key= modifiers
+    // we don't care about for routing.
+    const matches = userMessage.matchAll(/#([a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z])(?:=[^\s]*)?/g);
+    for (const m of matches) {
+        const raw = '#' + m[1].toLowerCase();
+        if (HASHTAG_MODIFIERS.has(raw)) continue;
+        const canonical = HASHTAG_ALIASES[raw] ?? raw;
+        let skillId = HASHTAG_TO_SKILL_ID[canonical];
+
+        // Fuzzy fallback: if an exact lookup miss, ask the registry for a
+        // strong prefix match. searchDirectives returns id-prefix at score
+        // 100, alias-prefix at 80. We only auto-promote on score >= 80 to
+        // avoid trapping legitimately ambiguous user inputs.
+        if (!skillId) {
+            const tail = canonical.replace(/^#/, '');
+            const guesses = searchDirectives(tail, 1);
+            if (guesses.length > 0) {
+                const guessedId = guesses[0].id;
+                const guessedTail = guessedId.replace(/^#/, '').toLowerCase();
+                const isStrong = guessedTail.startsWith(tail) || (guesses[0].aliases ?? []).some(a => a.toLowerCase().replace(/^#/, '').startsWith(tail));
+                if (isStrong && HASHTAG_TO_SKILL_ID[guessedId]) {
+                    skillId = HASHTAG_TO_SKILL_ID[guessedId];
+                    fuzzyPromoted.push({ typed: raw, resolved: guessedId });
+                }
+            }
+        }
+
+        if (skillId) {
+            if (!seenSkills.has(skillId)) {
+                skillIds.push(skillId);
+                seenSkills.add(skillId);
+            }
+        } else {
+            // Track for "did you mean" warning. Skip bare `#NU`-style modifiers
+            // that we already filtered above and `=` key tokens.
+            if (raw.length > 1 && !raw.includes('=')) {
+                unknownHashtags.push(raw);
+            }
+        }
+    }
+    return { skillIds, unknownHashtags, fuzzyPromoted };
+}
+
 export function matchSkills(userMessage: string, manifest: SkillManifestEntry[]): SkillManifestEntry[] {
-    const expanded = expandQuery(userMessage);
+    // ─── HASHTAG DIRECTIVE DOMINANCE ───────────────────────────────────────
+    // 2026-05-26 — If the user typed any explicit registered hashtag, that
+    // directive's owning skill wins. Synonym expansion of ordinary English
+    // words ("tools", "stack", "platform") can no longer override an
+    // explicit hashtag intent. The skill is returned FIRST in the ranked
+    // list; other skills still flow through the keyword scorer below as
+    // companions (render contracts, retrieval enhancers).
+    const { skillIds: directiveSkillIds } = extractHashtagDirectives(userMessage);
+    const directiveSkills: SkillManifestEntry[] = [];
+    if (directiveSkillIds.length > 0) {
+        for (const wantedId of directiveSkillIds) {
+            const found = manifest.find(s => s.id === wantedId);
+            if (found) directiveSkills.push(found);
+        }
+    }
+
+    const { expanded, original } = expandQuery(userMessage);
     const expandedWords = new Set(expanded.split(' ').filter(w => w.length >= 2));
     const expandedStems = new Set([...expandedWords].map(stem));
+    const originalWords = new Set(original.split(' ').filter(w => w.length >= 2));
+    const originalStems = new Set([...originalWords].map(stem));
     const scored: Array<{ skill: SkillManifestEntry; score: number }> = [];
 
     for (const skill of manifest) {
+        // Skip skills the directive layer already promoted — they get prepended
+        // below at the highest rank.
+        if (directiveSkills.includes(skill)) continue;
         // Include content skills (research-deliverable), render contracts,
         // AND retrieval enhancers. Render contracts govern layout; retrieval
         // enhancers (wiki-query-expander, wiki-reranker, wiki-synthesizer)
@@ -1763,33 +2008,66 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
             skill.category !== 'research-deliverable'
             && skill.category !== 'render-contract'
             && skill.category !== 'retrieval-enhancer'
+            && skill.category !== 'quality-enhancer'
         ) continue;
+
+        // 2026-05-26 — Hashtag-dominance corollary: if hashtag directives
+        // selected a primary content skill, do NOT also rank competing
+        // research-deliverable skills via keyword fuzz. Render contracts,
+        // retrieval enhancers, and quality enhancers may still match — they
+        // are companions, not alternatives.
+        if (directiveSkills.length > 0 && skill.category === 'research-deliverable') continue;
+
         let score = 0;
         for (const trigger of skill.triggers) {
             const normTrigger = trigger.toLowerCase();
             const triggerWords = normTrigger.split(' ').filter(w => w.length >= 2);
 
             if (triggerWords.length > 1) {
-                // Multi-word trigger — full-phrase presence is strongest
-                if (expanded.includes(normTrigger)) {
+                // Multi-word trigger.
+                // 2026-05-26 — Direct verbatim match in the ORIGINAL message
+                // beats synonym-expansion match. Prevents the regression where
+                // a colloquial verb ("Tools to Monitor") synonym-expanded into
+                // a noun-form skill trigger ("systems inventory") and outscored
+                // a literal phrase the user actually wrote ("case study").
+                if (original.includes(normTrigger)) {
                     score += normTrigger.length * 2;
                     continue;
                 }
-                // Every word from the trigger must appear as a word/stem in the query
-                const allHit = triggerWords.every(w => expandedWords.has(w) || expandedStems.has(stem(w)));
-                if (allHit) score += normTrigger.length;
+                // Synonym-expansion match — score at parity with single-word
+                // direct, not at the 2x multi-word direct bonus.
+                if (expanded.includes(normTrigger)) {
+                    score += normTrigger.length;
+                    continue;
+                }
+                // Every word from the trigger must appear as a word/stem in
+                // the ORIGINAL message (not the synonym-expanded form).
+                // Cross-word stems via synonyms scored too aggressively and
+                // caused false-positive routes.
+                const allHitOriginal = triggerWords.every(w => originalWords.has(w) || originalStems.has(stem(w)));
+                if (allHitOriginal) {
+                    score += normTrigger.length;
+                    continue;
+                }
+                const allHitExpanded = triggerWords.every(w => expandedWords.has(w) || expandedStems.has(stem(w)));
+                if (allHitExpanded) score += Math.round(normTrigger.length * 0.6);
             } else {
                 // Single-word trigger
                 const w = triggerWords[0];
                 if (!w) continue;
-                if (expandedWords.has(w)) score += w.length;
-                else if (expandedStems.has(stem(w))) score += Math.round(w.length * 0.6);
+                if (originalWords.has(w)) score += w.length;
+                else if (originalStems.has(stem(w))) score += Math.round(w.length * 0.7);
+                else if (expandedWords.has(w)) score += Math.round(w.length * 0.5);
+                else if (expandedStems.has(stem(w))) score += Math.round(w.length * 0.3);
             }
         }
         if (score > 0) scored.push({ skill, score });
     }
 
-    return scored.sort((a, b) => b.score - a.score).map(s => s.skill);
+    const keywordRanked = scored.sort((a, b) => b.score - a.score).map(s => s.skill);
+    // Directive skills first, then keyword-ranked companions (render contracts,
+    // retrieval enhancers, quality enhancers).
+    return [...directiveSkills, ...keywordRanked];
 }
 
 /**
@@ -1803,9 +2081,93 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
  */
 const _skillContextCache = new Map<string, SkillContext>();
 
+// 2026-05-26 — Inline skill templates. The skill-manifest registers some
+// skills with `path: "inline://<template-name>"` instead of a file path
+// (case-study-analyst, block-quote-template, benchmark-reporter,
+// stat-row-template, principles-template, section-divider-template).
+// These bodies live here so loadSkillContext can resolve them without a
+// fetch — browsers reject `fetch("inline://...")` as an unsupported
+// URL scheme. When a new inline-path skill is added to the manifest,
+// add its body here. Falls back to a minimal stub if missing.
+const INLINE_SKILL_TEMPLATES: Record<string, string> = {
+    'case-study-template': [
+        '# Case Study Analyst',
+        '',
+        'Generate named, evidence-grounded case studies from the corpus. Each case study MUST include:',
+        '',
+        '- **Subject**: a named organization, institution, or person from the corpus (no synthetic / composite names)',
+        '- **Context**: the situation that motivated the case (1-2 sentences, corpus-cited)',
+        '- **Intervention**: what was done — named program, tool, framework, or decision',
+        '- **Outcome**: quantified delta with a baseline and timeframe; cite the source by name',
+        '- **Applicability**: a 1-sentence "how this maps to the user\'s situation" tied to the research goal',
+        '- **Evidence**: 2-3 verbatim quotes from corpus with [CHUNK_XXX] markers AND named-source attribution',
+        '',
+        'BAN: composite subjects, unsourced numbers, "many universities" generic claims, vague outcomes like "improved engagement".',
+        '',
+        'STRUCTURE: when #slide / #slides modifier is present, emit each case study as a `:::slide template=case-study` block with the schema declared in components/slideTemplates/types.ts.',
+        '',
+        'COMPOSES with: source-ranker (validates case-study sources meet the >=60% external floor), evidence-density-pre-checker (predicts whether the corpus can support the requested case count).',
+    ].join('\n'),
+
+    'block-quote-template': [
+        '# Block Quote Renderer',
+        '',
+        'Emit a `:::slide template=block-quote` with the schema:',
+        '- `quote`: verbatim corpus text, max 250 chars',
+        '- `attribution`: the named source (publication, person, role)',
+        '- `context`: 1 sentence framing why this quote matters here',
+        '',
+        'BAN: fabricated quotes, generic "users said" framing, quotes >250 chars (truncate or pick a sharper passage).',
+    ].join('\n'),
+
+    'stat-row-template': [
+        '# Stat Row Renderer',
+        '',
+        'Emit a `:::slide template=stat-row` with 3-4 stat tiles:',
+        '- `value`: the headline number (with unit if non-obvious)',
+        '- `label`: uppercase tracked, <=20 chars',
+        '- `support`: 1 sentence naming the source + timeframe',
+        '',
+        'BAN: invented stats (use stat-callout text "MULTIPLE" / "FRAGMENTED" if no real number); >4 tiles; missing source attribution.',
+    ].join('\n'),
+
+    'principles-template': [
+        '# Principles Renderer',
+        '',
+        'Emit `:::slide template=principles` with 3-5 numbered principle blocks. Each block:',
+        '- `title`: a complete action-title sentence (>=8 words, no topic labels)',
+        '- `description`: 1-2 sentences expanding what + why',
+        '- `application`: 1 sentence on the concrete first move',
+    ].join('\n'),
+
+    'section-divider-template': [
+        '# Section Divider Renderer',
+        '',
+        'Emit `:::slide template=section-divider` with:',
+        '- `kicker`: 2-3 word uppercase tag',
+        '- `title`: section title (complete action sentence)',
+        '- `subtitle`: 1 sentence framing what the section will demonstrate',
+    ].join('\n'),
+};
+
 export async function loadSkillContext(skill: SkillManifestEntry): Promise<SkillContext> {
     const cached = _skillContextCache.get(skill.id);
     if (cached) return cached;
+
+    // 2026-05-26 — Inline-template skills (path = "inline://<template-name>")
+    // are in-memory; do NOT fetch. The skill manifest uses inline:// for
+    // skills whose body is embedded in the dispatcher (case-study-analyst,
+    // block-quote, benchmark-reporter etc.). Calling fetch() on a custom
+    // URL scheme throws "Fetch API cannot load inline://..." in browsers.
+    // Resolve to the inline body via INLINE_SKILL_TEMPLATES, or fall back
+    // to a minimal stub keyed on the skill id. Either way, NEVER fetch.
+    if (skill.path?.startsWith('inline://')) {
+        const templateName = skill.path.slice('inline://'.length);
+        const inlineBody = INLINE_SKILL_TEMPLATES[templateName] || `# ${skill.name}\n\n${skill.description || ''}\n\nTriggers: ${(skill.triggers || []).join(', ')}\n`;
+        const ctx: SkillContext = { skill, skillContent: inlineBody, companionContent: '' };
+        _skillContextCache.set(skill.id, ctx);
+        return ctx;
+    }
 
     const fetches: Promise<string>[] = [];
 
@@ -1849,15 +2211,157 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
 
 // --- Main Send Function ---
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export async function sendChatMessage(
     model: ChatModel,
     userMessage: string,
     conversationHistory: ChatMessage[],
     context: ChatContext,
+    opts?: { signal?: AbortSignal; onProgress?: (status: string) => void },
 ): Promise<ChatMessage> {
     const startTime = Date.now();
+    const abortSignal = opts?.signal;
+    const onProgress = opts?.onProgress;
+    // 2026-05-26 — Abort propagation. The chat tool loops can run for
+    // minutes (5 iterations x 4-5 min each when the proxy is congested
+    // by the main analysis pipeline). Users need an escape hatch.
+    // Plumbing the signal into the global module scope so the tool-loop
+    // helpers (callDeepSeek, callGPT, callGemini below) can poll it
+    // without each helper needing a separate parameter rewrite.
+    // Single-call-at-a-time chat is enforced upstream in CorpusChatPanel,
+    // so module-level signal mutation is safe here.
+    (globalThis as any).__hicChatAbortSignal = abortSignal;
+    // 2026-05-26 — Progress callback for the LiveProcessingIndicator.
+    // Tool-loop iterations push "iter N/5 - <action>" status strings
+    // through this so the user sees forward motion instead of a static
+    // "Validating citations..." for minutes.
+    (globalThis as any).__hicChatProgressFn = onProgress;
+    const throwIfAborted = () => {
+        if (abortSignal?.aborted) {
+            throw new DOMException('Cancelled by user', 'AbortError');
+        }
+    };
+    throwIfAborted();
+
+    // 2026-05-26 — Unknown-hashtag guard. If the user typed `#foo` and `foo`
+    // is not a registered directive, surface a one-line warning ABOVE the
+    // generation. This prevents the silent fall-through where a misspelled
+    // hashtag (`#case`, `#audit2`, `#proto-deck`) gets ignored and the keyword
+    // scorer fires a tangentially-related skill. Emitted as a metadata field
+    // the UI can render in the response header; does NOT abort generation.
+    const { skillIds: directiveSkillIdsTop, unknownHashtags, fuzzyPromoted } = extractHashtagDirectives(userMessage);
+    if (unknownHashtags.length > 0) {
+        console.warn('[Chat] Unknown hashtag directive(s):', unknownHashtags.join(', '));
+    }
+    if (fuzzyPromoted.length > 0) {
+        console.info('[Chat] Fuzzy-promoted hashtag(s):', fuzzyPromoted.map(p => `${p.typed} → ${p.resolved}`).join(', '));
+    }
+
+    // 2026-05-26 — Evidence-density pre-check. Before firing a research-
+    // deliverable skill against a thin corpus, predict whether the corpus
+    // can support the deliverable. If not, prepend an UPSTREAM REMEDIATION
+    // PREAMBLE to the chat prompt so the model fires wiki-query-expander
+    // / analog-finder retrieval BEFORE attempting the deliverable.
+    // Closes Issue 11 from the 2026-05-26 audit (quality-degradation
+    // refusals). Per feedback_quality_first_never_relax_default.md:
+    // never relax the floor; remediate UPSTREAM.
+    const isResearchDeliverableRequest = directiveSkillIdsTop.length > 0 || /\b(theme|persona|recommendation|case.study|brief|explainer|report|gap|audit|compete|strategy|roadmap|prd)\b/i.test(userMessage);
+    const corpusByteCount = (context.corpusText || '').length;
+    const corpusChunkCount = ((context.corpusText || '').match(/\[CHUNK_[A-Z0-9_]+\]/g) || []).length;
+    const EVIDENCE_THIN_BYTE_THRESHOLD = 50_000;
+    const EVIDENCE_THIN_CHUNK_THRESHOLD = 8;
+    const isEvidenceThin = isResearchDeliverableRequest
+        && corpusByteCount > 0
+        && (corpusByteCount < EVIDENCE_THIN_BYTE_THRESHOLD || corpusChunkCount < EVIDENCE_THIN_CHUNK_THRESHOLD);
+    let evidenceDensityPreamble = '';
+    if (isEvidenceThin) {
+        evidenceDensityPreamble = `\n=== EVIDENCE DENSITY PRE-CHECK (UPSTREAM REMEDIATION REQUIRED) ===\n` +
+            `The corpus for this request has ${corpusChunkCount} chunks / ${(corpusByteCount / 1000).toFixed(0)}KB.\n` +
+            `\n` +
+            `Per the standing rule (feedback_quality_first_never_relax_default), you MUST NOT respond with a corpus-shortfall dodge. Instead, do these moves IN ORDER before drafting the deliverable:\n` +
+            `\n` +
+            `  1. Call fetch_wiki_articles(query) with the user request decomposed into 3-4 distinct angle variants (see wiki-query-expander skill). Pull additional chunks from the wiki archive.\n` +
+            `  2. If still thin, abstract the user challenge to its underlying functional pattern (see analog-finder skill) and retrieve from adjacent industries. Cross-industry analogues are valid evidence.\n` +
+            `  3. After upstream remediation, draft the deliverable from the EXPANDED corpus. Cite the expansion sources explicitly.\n` +
+            `\n` +
+            `Refusal phrasings BANNED. These violate the quality floor.\n` +
+            `=== END EVIDENCE DENSITY PRE-CHECK ===\n`;
+        console.info(`[Chat] Evidence-density pre-check FIRED: ${corpusChunkCount} chunks / ${corpusByteCount} bytes — UPSTREAM remediation preamble injected.`);
+        const _prog0 = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+        _prog0?.(`Corpus is thin (${corpusChunkCount} chunks). Firing upstream wiki retrieval before drafting...`);
+    }
+    (context as any)._evidenceDensityPreamble = evidenceDensityPreamble;
+
+    // 2026-05-24 NotebookLM uplift Wire 4: Multi-angle query decomposition
+    // + cross-encoder reranking. Replaces single-pass retrieval with the
+    // NotebookLM-grade pattern. Fires only for substantive questions
+    // (length >= 24 chars + at least one of: ?, "how", "why", "what",
+    // "explain", "compare"). Hashtag-driven chat skips this; hashtag
+    // routes have their own retrieval.
+    const isHashtagCommand = /(^|\s)#\w/.test(userMessage);
+    const isSubstantiveQuestion = userMessage.length >= 24 && /[?]|how|why|what|explain|compare|when|where/i.test(userMessage);
+
+    // Derive an in-memory chunk array from corpusText. The chat path receives
+    // chunks as a joined string with [CHUNK_XXX] markers; we split on those
+    // to reconstruct {id, body, source} records for keyword scoring.
+    // ChatContext also accepts a pre-built corpusChunks array (untyped escape
+    // hatch) if callers want to skip the parsing step.
+    const preBuiltChunks = (context as any).corpusChunks as Array<{ id?: string; chunk_id?: string; body?: string; content?: string; text?: string; source?: string; sourceName?: string }> | undefined;
+    const derivedChunks: Array<{ id: string; body: string; source: string }> = [];
+    if (!preBuiltChunks && context.corpusText) {
+        const chunkRegex = /\[CHUNK_([A-Z0-9_]+)\]([\s\S]*?)(?=\[CHUNK_[A-Z0-9_]+\]|$)/g;
+        let match: RegExpExecArray | null;
+        while ((match = chunkRegex.exec(context.corpusText)) !== null) {
+            const id = `CHUNK_${match[1]}`;
+            const body = match[2].trim();
+            if (body.length < 20) continue;
+            const sourceMeta = context.chunkMap?.[id];
+            derivedChunks.push({ id, body, source: sourceMeta?.sourceName || '' });
+        }
+    }
+    const corpusChunks = preBuiltChunks || derivedChunks;
+
+    if (!isHashtagCommand && isSubstantiveQuestion && corpusChunks.length > 20) {
+        try {
+            const { plannedRetrieval } = await import('./chatQueryPlanner');
+            const firstId = (corpusChunks[0] as any)?.id ?? (corpusChunks[0] as any)?.chunk_id ?? '';
+            const corpusHash = String(corpusChunks.length) + '_' + firstId;
+            // Build a retrieve() that scores against the in-memory corpus chunks
+            const planResult = await plannedRetrieval({
+                userMessage,
+                corpusContext: (context.researchGoal || '').slice(0, 200),
+                corpusHash,
+                retrieve: async (query: string, k: number) => {
+                    // Cheap keyword scoring as fallback retrieve (proxy-side
+                    // embedding retrieval is preferred but adds latency on
+                    // first chat turn — this delivers acceptable recall).
+                    const queryTokenArr = query.toLowerCase().split(/\s+/).filter(t => t.length >= 4);
+                    const queryTokenCount = queryTokenArr.length;
+                    const scored = corpusChunks.map((c: any) => {
+                        const text = (c.body || c.content || c.text || '').toLowerCase();
+                        let score = 0;
+                        for (let i = 0; i < queryTokenArr.length; i++) {
+                            if (text.includes(queryTokenArr[i])) score += 1;
+                        }
+                        return { chunk_id: c.id || c.chunk_id, body: c.body || c.content || '', source: c.source || c.sourceName || '', score: score / Math.max(queryTokenCount, 1) };
+                    });
+                    return scored.filter(c => c.score > 0).sort((a, b) => b.score - a.score).slice(0, k);
+                },
+                kPerSubQuery: 8,
+                keepTopAfterRerank: 12,
+            });
+            // Stash the reranked chunks on the context so downstream synthesis
+            // sees the better top-k. Falls back gracefully if context lacks
+            // the slot.
+            (context as any)._plannedRetrieval = planResult;
+            console.log(`[Chat Wire 4] multi-angle: ${planResult.plan.sub_queries.length} sub-queries → ${planResult.post_dedup_count} merged → ${planResult.final_count} reranked`);
+        } catch (err: any) {
+            // Non-blocking: if the planner fails, chat falls back to its
+            // original single-shot retrieval. Surfaced in console only.
+            console.warn('[Chat Wire 4] planned retrieval failed (non-fatal):', err?.message || err);
+        }
+    }
 
     // Skill matching: find relevant skills from manifest.
     // Load at MOST one content skill (research-deliverable) and ALWAYS load
@@ -1868,6 +2372,7 @@ export async function sendChatMessage(
     let skillContext: SkillContext | null = null;
     let renderContracts: SkillContext[] = [];
     let retrievalEnhancers: SkillContext[] = [];
+    let qualityEnhancers: SkillContext[] = [];
     let skillUsed: string | undefined;
     if (context.skillManifest?.length) {
         const matched = matchSkills(userMessage, context.skillManifest);
@@ -1886,6 +2391,36 @@ export async function sendChatMessage(
         if (matchedEnhancers.length > 0) {
             retrievalEnhancers = await Promise.all(matchedEnhancers.map(loadSkillContext));
             console.log(`[chat] retrieval enhancers active: ${retrievalEnhancers.map(c => c.skill.id).join(', ')}`);
+        }
+
+        // 2026-05-19 — Quality enhancers auto-load via composes_with.
+        // When a deliverable skill is the top content skill, walk its
+        // composes_with array and pull every referenced quality skill into
+        // the same system prompt. The user does NOT have to type extra
+        // hashtags — every deliverable inherits its quality stack. One
+        // LLM call carries all layered instructions (the quality skill
+        // SKILL.md content gets concatenated into the prompt, not invoked
+        // as a separate call), so cost stays ~prompt-token only.
+        const composersToLoad = new Set<string>();
+        for (const src of [topContentSkill, ...matchedContracts, ...matchedEnhancers]) {
+            if (!src) continue;
+            const composes = (src as any).composes_with as string[] | undefined;
+            if (!Array.isArray(composes)) continue;
+            for (const id of composes) {
+                // Skip composers already loaded via direct keyword match —
+                // no double-loading.
+                if (id === topContentSkill?.id) continue;
+                if (matchedContracts.find(s => s.id === id)) continue;
+                if (matchedEnhancers.find(s => s.id === id)) continue;
+                composersToLoad.add(id);
+            }
+        }
+        if (composersToLoad.size > 0) {
+            const composerSkills = context.skillManifest.filter(s => composersToLoad.has(s.id));
+            if (composerSkills.length > 0) {
+                qualityEnhancers = await Promise.all(composerSkills.map(loadSkillContext));
+                console.log(`[chat] quality enhancers auto-loaded via composes_with: ${qualityEnhancers.map(c => c.skill.id).join(', ')}`);
+            }
         }
     }
 
@@ -1907,16 +2442,23 @@ export async function sendChatMessage(
                 || (context as any)?.goal
                 || (context as any)?.brief
                 || undefined;
+            // 2026-05-20 — Pre-fetch budgets raised. Was limit:6 / 80KB total.
+            // For a corpus with ~600 indexed chunks, 6 articles is a thin pre-roll
+            // and the model would then have to spend turns on tool calls to fill
+            // in the rest. New: 20 articles / 200KB block. Each turn now lands
+            // ~3x more relevant evidence in front of the model BEFORE any
+            // tool call is required, so artifacts answer denser even on
+            // single-turn questions.
             const prefetchedArticles = await Promise.race([
                 prefetchArticlesForMessage(userMessage, {
-                    limit: 6, maxCharsPerArticle: 12_000, minChars: 500,
+                    limit: 20, maxCharsPerArticle: 12_000, minChars: 500,
                     engagementGoal,
                     goalBlendWeight: 0.30,
                 }),
-                new Promise<any[]>(resolve => setTimeout(() => resolve([]), 6000)),
+                new Promise<any[]>(resolve => setTimeout(() => resolve([]), 8000)),
             ]);
             if (prefetchedArticles && prefetchedArticles.length > 0) {
-                const block = formatArticlesAsCorpusBlock(prefetchedArticles, 80_000);
+                const block = formatArticlesAsCorpusBlock(prefetchedArticles, 200_000);
                 if (block.length > 200) {
                     context = { ...context, prefetchedArticlesBlock: block };
                     console.log(`[chat] wiki pre-fetch: injected ${prefetchedArticles.length} article bodies (${Math.round(block.length / 1024)}KB)`);
@@ -1968,6 +2510,25 @@ ${skillContext.companionContent}
 === RETRIEVAL ENHANCER: ${re.skill.name} ===
 ${re.skillContent}
 === END RETRIEVAL ENHANCER ===
+`;
+    }
+    // 2026-05-19 — Quality enhancers come AFTER retrieval enhancers so they
+    // operate on top of the retrieval set the model just assembled. These
+    // are auto-loaded via composes_with on the active content skill — the
+    // user does NOT have to opt in. Source-ranker disciplines citation
+    // diversity; contradiction-finder forces engagement with counter-
+    // evidence; second-order-thinker deepens recommendations; slide-title-
+    // lab governs slide titles. The instructions are concatenated INTO this
+    // single generation call — zero extra LLM round-trips.
+    for (const qe of qualityEnhancers) {
+        skillInstructions += `
+=== QUALITY ENHANCER (auto-loaded via composes_with): ${qe.skill.name} ===
+The deliverable you are generating MUST internalize and apply the rules below.
+These are not optional — they are quality gates the runtime enforces post-hoc
+via slidePostProcessor + hic-output-qa. Applying them inline is cheaper than
+having your output rejected and regenerated.
+${qe.skillContent}
+=== END QUALITY ENHANCER ===
 `;
     }
 
@@ -2077,7 +2638,7 @@ ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 ON-DEMAND WIKI RETRIEVAL (function-calling — used by Gemini Pro on this branch):
 You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE giving up on a claim, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
 
-  - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 6) to pull 6 real bodies, then select the 3 best quotes.
+  - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 30) to pull 30 real bodies, then select the 3 best quotes. Synthesis tasks: use limit 40-60. Narrow factual lookups: 10-15.
   - Need a specific peer institution's outcome? Call fetch_wiki_articles(query: "<peer name> <topic>", source: "<outlet>") to retrieve the article body.
   - Building a case study slide? Call fetch_wiki_articles(query: "<subject> <vendor> <outcome>", kind: "article") to get the case study body, then write from it.
   - Never call more than 2-3 times per turn. Be specific in your queries.
@@ -2302,9 +2863,44 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // the chat reply before it's rendered. Prompts forbid these tokens;
         // this layer guarantees they never reach the user.
         try {
-            const { stripQAAnnotations } = await import('./slidePostProcessor');
+            const { stripQAAnnotations, stripEmDashes } = await import('./slidePostProcessor');
             responseText = stripQAAnnotations(responseText);
+            // 2026-05-26 — Em-dash hard-ban per .claude/CLAUDE.md ("Format
+            // Tells"). slidePostProcessor.stripEmDashes was being applied to
+            // slide content but NOT to chat replies, letting "data—including"
+            // and "outcomes—necessary" reach users in the design-desk chat.
+            // Applied here unconditionally; ASCII hyphens are untouched.
+            responseText = stripEmDashes(responseText);
         } catch (e) { /* non-blocking */ }
+
+        // 2026-05-26 — Surface unknown / fuzzy-promoted hashtag notices to the
+        // user. Two cases:
+        //   1) fuzzyPromoted — the directive WAS resolved via prefix match.
+        //      Tell the user what we routed to so they can correct next time.
+        //   2) unknownHashtags — no resolution found. Suggest closest match.
+        // Both are emitted as plain-text leaders above the response so the
+        // analyst sees the routing decision without reading logs.
+        const notices: string[] = [];
+        if (fuzzyPromoted.length > 0) {
+            notices.push(
+                '[Routed]: ' + fuzzyPromoted.map(p => `${p.typed} → ${p.resolved}`).join(' · ')
+            );
+        }
+        if (unknownHashtags.length > 0) {
+            try {
+                const { searchDirectives } = await import('./hashtagRegistry');
+                const suggestions = unknownHashtags
+                    .map(h => {
+                        const guesses = searchDirectives(h.replace(/^#/, ''), 1);
+                        return guesses.length > 0 ? `${h} → did you mean ${guesses[0].id}?` : `${h} (unknown)`;
+                    })
+                    .join(' · ');
+                notices.push(`[Unknown directive]: ${suggestions}`);
+            } catch (e) { /* non-blocking */ }
+        }
+        if (notices.length > 0) {
+            responseText = notices.join('\n') + '\n\n' + responseText;
+        }
 
         return {
             id: `msg_${Date.now()}`,
@@ -2352,6 +2948,13 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 //     drawn on real body text pulled during the loop.
 
 const MAX_TOOL_ITER = 5;
+// 2026-05-26 — Wall-clock budget for chat tool loops. Caps the worst-case
+// at 3 minutes per turn (vs the 23-min case-study wait we observed during
+// pipeline contention). When the budget is exceeded, the loop short-circuits
+// and finalizes with whatever evidence was gathered so far. Quality preserved
+// because 3 min of well-grounded retrieval beats 23 min of redundant tool
+// calls hitting the same articles. Per-provider override possible if needed.
+const MAX_TOOL_WALLCLOCK_MS = 180_000;
 const TOOL_CALL_TIMEOUT_MS = 18_000;
 
 const FETCH_WIKI_ARTICLES_TOOL = {
@@ -2376,8 +2979,8 @@ Returns: array of articles with title, source, url, date, and body text (up to m
             source: { type: 'string', description: 'OPTIONAL: substring filter on source name. Example: "Higher Ed Dive", "Reddit r/MBA", "EverTrue"' },
             kind: { type: 'string', enum: ['article', 'transcript', 'upload'], description: 'OPTIONAL: restrict to articles, YouTube transcripts, or uploaded client documents.' },
             minChars: { type: 'number', description: 'OPTIONAL: skip entries shorter than this many body chars. Default 500 (filters out archive stubs).' },
-            limit: { type: 'number', description: 'Max articles to return. Default 5, hard max 15. Keep small — body text is verbose.' },
-            maxCharsPerArticle: { type: 'number', description: 'Max body chars per article. Default 8000, hard max 20000.' },
+            limit: { type: 'number', description: 'Max articles to return. Default 25, hard max 80. Use 40-60 for synthesis tasks that need broad evidence coverage; 10-15 for narrow factual lookups.' },
+            maxCharsPerArticle: { type: 'number', description: 'Max body chars per article. Default 12000, hard max 20000.' },
         },
     },
 };
@@ -2613,15 +3216,21 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
         const timer = setTimeout(() => abort.abort(), TOOL_CALL_TIMEOUT_MS);
         let articles: any[] = [];
         try {
+            // 2026-05-20 — Budgets raised. Old: default 5, hard max 15,
+            // max chars 8K. Across 3 tool calls that's ~45 articles max from
+            // a 600-chunk corpus — chat-composed decks were citing 5-8% of
+            // the indexed evidence and the user could see the gap. New:
+            // default 25 / hard max 80 / 12K chars per body. Proxy ceiling
+            // is 250 chunks; we're still well under it for any single call.
             articles = await fetchWikiArticles({
-                ids: Array.isArray(input?.ids) ? input.ids.slice(0, 15) : undefined,
-                wikiPaths: Array.isArray(input?.wikiPaths) ? input.wikiPaths.slice(0, 15) : undefined,
+                ids: Array.isArray(input?.ids) ? input.ids.slice(0, 80) : undefined,
+                wikiPaths: Array.isArray(input?.wikiPaths) ? input.wikiPaths.slice(0, 80) : undefined,
                 query: typeof input?.query === 'string' ? input.query : undefined,
                 source: typeof input?.source === 'string' ? input.source : undefined,
                 kind: typeof input?.kind === 'string' ? input.kind : undefined,
                 minChars: typeof input?.minChars === 'number' ? input.minChars : 500,
-                limit: Math.max(1, Math.min(15, Number(input?.limit) || 5)),
-                maxCharsPerArticle: Math.max(500, Math.min(20_000, Number(input?.maxCharsPerArticle) || 8000)),
+                limit: Math.max(1, Math.min(80, Number(input?.limit) || 25)),
+                maxCharsPerArticle: Math.max(500, Math.min(20_000, Number(input?.maxCharsPerArticle) || 12000)),
             });
         } finally { clearTimeout(timer); }
         if (!articles || articles.length === 0) {
@@ -2722,7 +3331,17 @@ async function callDeepSeek(
     ];
 
     let lastText = '';
+    const _deepseekLoopStart = Date.now();
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
+        if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
+        if (Date.now() - _deepseekLoopStart > MAX_TOOL_WALLCLOCK_MS) {
+            console.warn(`[chat.tools] DeepSeek wall-clock budget ${MAX_TOOL_WALLCLOCK_MS}ms exceeded at iter ${iter + 1}; finalizing with current evidence`);
+            break;
+        }
+        const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+        _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (DeepSeek)`);
         const resp = await fetch(`${PROXY_BASE}/api/ai/deepseek`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2866,7 +3485,17 @@ async function callOpenAI(
     ];
 
     let lastText = '';
+    const _gptLoopStart = Date.now();
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
+        if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
+        if (Date.now() - _gptLoopStart > MAX_TOOL_WALLCLOCK_MS) {
+            console.warn(`[chat.tools] GPT wall-clock budget ${MAX_TOOL_WALLCLOCK_MS}ms exceeded at iter ${iter + 1}; finalizing with current evidence`);
+            break;
+        }
+        const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+        _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (GPT)`);
         // 2026-05-12 — Use shared retry client. OpenAI's API returns
         // 429 (quota / rate-limit) and 5xx transients under load — both
         // are retryable with backoff. Previously a single failure killed
@@ -3003,17 +3632,76 @@ async function callGemini(
     }];
 
     let lastText = '';
+    const _geminiLoopStart = Date.now();
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
-        const response = await ai.models.generateContent({
-            model,
-            contents,
-            config: {
-                systemInstruction: system,
-                temperature: 0.2,
-                maxOutputTokens: 65536,
-                tools: tools as any,
-            } as any,
-        });
+        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
+        if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
+        if (Date.now() - _geminiLoopStart > MAX_TOOL_WALLCLOCK_MS) {
+            console.warn(`[chat.tools] Gemini wall-clock budget ${MAX_TOOL_WALLCLOCK_MS}ms exceeded at iter ${iter + 1}; finalizing with current evidence`);
+            break;
+        }
+        const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+        _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (Gemini)`);
+        // 2026-05-26 — 429 fallback to DeepSeek-V4-Flash. When Gemini returns
+        // quota-exhausted (HTTP 429 or "Resource exhausted" message), don't
+        // grind through retries — immediately re-fire the same call through
+        // the proxy /api/ai/deepseek endpoint. DeepSeek is in the pipeline
+        // and has separate Azure quota. The chat user sees zero downtime;
+        // a one-line progress notice surfaces the fallback.
+        let response: any;
+        try {
+            response = await ai.models.generateContent({
+                model,
+                contents,
+                config: {
+                    systemInstruction: system,
+                    temperature: 0.2,
+                    maxOutputTokens: 65536,
+                    tools: tools as any,
+                } as any,
+            });
+        } catch (geminiErr: any) {
+            const msg = String(geminiErr?.message || geminiErr || '');
+            const is429 = /429|resource exhausted|quota|rate.?limit/i.test(msg);
+            if (!is429) throw geminiErr;
+            console.warn(`[chat.tools] Gemini 429/quota at iter ${iter + 1}; falling back to DeepSeek-V4-Flash`);
+            _prog?.(`Gemini quota exhausted - switching to DeepSeek-V4-Flash...`);
+            // Translate Gemini contents -> DeepSeek/OpenAI-compat messages
+            const deepseekMessages: any[] = [{ role: 'system', content: system }];
+            for (const turn of contents) {
+                const role = turn.role === 'model' ? 'assistant' : 'user';
+                const text = (turn.parts || []).map((p: any) => p?.text || '').join('\n').trim();
+                if (text) deepseekMessages.push({ role, content: text });
+            }
+            const dsResp = await fetch(`${PROXY_BASE}/api/ai/deepseek`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'deepseek-v4-flash',
+                    messages: deepseekMessages,
+                    max_tokens: 32000,
+                    temperature: 0.2,
+                    stream: false,
+                }),
+                signal: AbortSignal.timeout(120_000),
+            });
+            if (!dsResp.ok) {
+                const errTxt = await dsResp.text().catch(() => '');
+                throw new Error(`DeepSeek fallback ${dsResp.status}: ${errTxt.slice(0, 200)}`);
+            }
+            const dsData = await dsResp.json();
+            const dsContent = dsData?.choices?.[0]?.message?.content || '';
+            // Build a synthetic Gemini-shaped response so the downstream parser is unchanged
+            response = {
+                candidates: [{
+                    content: { parts: [{ text: dsContent }] },
+                    finishReason: dsData?.choices?.[0]?.finish_reason || 'STOP',
+                }],
+                text: dsContent,
+                _fallback_provider: 'deepseek-v4-flash',
+            };
+        }
 
         const cand = (response as any).candidates?.[0];
         const respParts: GPart[] = cand?.content?.parts || [];
@@ -3027,7 +3715,48 @@ async function callGemini(
         // Execute every functionCall part
         const callParts = respParts.filter((p: any) => p?.functionCall);
         if (callParts.length === 0) {
-            return lastText || (response as any).text || 'No response';
+            const finalText = lastText || (response as any).text || '';
+            if (finalText && finalText.trim().length > 0) return finalText;
+
+            // 2026-05-23 — Empty-response guard. Gemini sometimes returns a
+            // response with no function calls AND no text after a long tool
+            // chain (degraded API session, safety filter on a non-blocking
+            // signal, or finishReason=OTHER). Previously we surfaced the
+            // literal string "No response" to the user. Now: log the
+            // finishReason, append a closing nudge, and retry once. If that
+            // also comes back empty, return a clearer message.
+            const finishReason = cand?.finishReason || 'unknown';
+            console.warn(
+                `[chat.tools] Gemini returned empty content on iter ${iter + 1} ` +
+                `(finishReason=${finishReason}, parts=${respParts.length}). ` +
+                `Retrying once with a closing nudge.`
+            );
+            contents.push({ role: 'model', parts: respParts.length > 0 ? respParts : [{ text: '' }] });
+            contents.push({
+                role: 'user',
+                parts: [{
+                    text: 'Provide your final answer now using the wiki/KG/topic data you have already retrieved. Do not call any more tools. If you cannot answer from the data on hand, say what is missing in one sentence.',
+                }],
+            });
+            const retryResp = await ai.models.generateContent({
+                model,
+                contents,
+                config: {
+                    systemInstruction: system,
+                    temperature: 0.2,
+                    maxOutputTokens: 65536,
+                    // No tools on the retry — force a textual answer.
+                } as any,
+            });
+            const retryParts: GPart[] = (retryResp as any).candidates?.[0]?.content?.parts || [];
+            const retryText = retryParts
+                .filter((p: any) => typeof p?.text === 'string' && p.text.length > 0)
+                .map((p: any) => p.text)
+                .join('\n')
+                || (retryResp as any).text
+                || '';
+            if (retryText.trim().length > 0) return retryText;
+            return 'Model returned an empty response after retrieving data. The API may be degraded — try again, or rephrase the question more narrowly.';
         }
 
         // Append assistant turn with all its parts (Gemini requires the model

@@ -74,7 +74,17 @@ export interface GenerationContext {
     research: ResearchContext;
     industryAdaptation?: string;
     engagementContext?: string;
+    /** 2026-05-22 — Phase 4.3. Engagement goals lifted from the engagement
+     *  page's `## Goals` section, formatted as a hard constraint string
+     *  ready to be injected at the end of any generation prompt. */
+    engagementGoals?: string;
     exemplar?: string;
+    /** 2026-05-24 — Phase 6.1 of NotebookLM uplift. Cross-engagement patterns
+     *  mined from prior runs (synthesis/cross-engagement-patterns.md). Injected
+     *  into every generation system prompt so the model can build on portfolio
+     *  patterns instead of re-discovering them per engagement. Best-effort
+     *  load — silent on miss, never blocks generation. */
+    crossEngagementPatterns?: string;
 }
 
 export interface QualityScore {
@@ -310,7 +320,7 @@ async function readWikiPage(relativePath: string): Promise<WikiPage | null> {
 // --- WIKI WRITE LAYER (P6-01) ---
 // Writes go through the research-proxy which has filesystem access.
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 /**
  * Resilient GET wrapper for wiki proxy calls (2026-04-21).
@@ -622,8 +632,16 @@ export function extractResearchObjective(goal: string): string {
 
 /** Build an engagement slug from a research goal. Uses extracted objective
  *  (not raw goal) so the slug reflects the actual research topic, not the
- *  prompt-engineering preamble. */
-export function buildEngagementSlug(goal: string, maxLen: number = 40): string {
+ *  prompt-engineering preamble.
+ *
+ *  2026-05-22 — Default maxLen bumped from 40 to 60. Phase B writers and
+ *  the geminiService deliverable readers were already calling this with an
+ *  explicit `60` argument; the three legacy call sites (uploads archive
+ *  paths) were still using the 40 default, causing the same goal to write
+ *  to /uploads/<40-char> while the rest of the chain wrote / read at
+ *  /engagements/<60-char>. Bumping the default unifies every call site
+ *  on a single canonical slug for any given goal. */
+export function buildEngagementSlug(goal: string, maxLen: number = 60): string {
     const objective = extractResearchObjective(goal);
     return objective.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, maxLen).replace(/-+$/, '') || 'misc';
 }
@@ -1027,7 +1045,9 @@ function _serializeSynthesis(kind: SynthesisKind, data: any): string {
  */
 export async function archiveSynthesisOutput(kind: SynthesisKind, data: any, researchGoal: string): Promise<string | null> {
     if (!data) return null;
-    const engagementSlug = (researchGoal || 'untitled').toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40) || 'misc';
+    // 2026-05-23 — Use the canonical buildEngagementSlug so synthesis archives
+    // co-locate with the rest of the engagement's wiki state under the same slug.
+    const engagementSlug = buildEngagementSlug(researchGoal || 'untitled', 60);
     const ts = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
     const body = _serializeSynthesis(kind, data);
     const frontmatter = `---
@@ -1080,7 +1100,12 @@ export async function saveEngagementMemory(
     recommendations: any[],
     sourceCount: number
 ): Promise<boolean> {
-    const slug = createGoalSlug(goal);
+    // 2026-05-22 — Use buildEngagementSlug for consistency with the rest of
+    // the wiki write/read paths. createGoalSlug was producing a different
+    // slug (50-char raw-goal vs 60-char extracted-objective) which caused
+    // saveEngagementMemory to write under a slug the deliverable generators
+    // would never look up.
+    const slug = buildEngagementSlug(goal, 60);
     if (!slug) {
         console.warn('[WikiService] Cannot save engagement memory: empty slug from goal');
         return false;
@@ -1481,6 +1506,62 @@ function getDefaultFrontmatter(): WikiFrontmatter {
  * - Evidence pages (pre-compiled citations)
  * - Brand standards (visual rendering rules)
  */
+
+// 2026-05-23 — P1.2: Module-scope throttle for the incremental wiki compile.
+// One compile per 10 minutes max per browser session; running too often
+// burns tokens without changing output. The COMPILE itself is lightweight
+// — it just refreshes evidence pages — but the LLM contradiction-check
+// inside the compile path is expensive.
+let _lastIncrementalCompileTs = 0;
+const _INCREMENTAL_COMPILE_INTERVAL_MS = 10 * 60 * 1000;
+let _incrementalCompilePromise: Promise<void> | null = null;
+
+// 2026-05-23 — Recurring shortfall topics, cached for the session. Read by
+// loadGenerationContext to inject a "prior shortfalls" preamble into every
+// generation's context.
+let _cachedRecurringShortfalls: Array<{ topic: string; occurrenceCount: number; engagementSlugs: string[] }> = [];
+let _recurringShortfallsLoadedAt = 0;
+const _RECURRING_SHORTFALL_TTL_MS = 10 * 60 * 1000;
+
+async function _maybeLoadRecurringShortfallTopics(): Promise<void> {
+    if (Date.now() - _recurringShortfallsLoadedAt < _RECURRING_SHORTFALL_TTL_MS && _cachedRecurringShortfalls.length > 0) return;
+    try {
+        const { getRecurringShortfallTopics } = await import('./learningEngine');
+        _cachedRecurringShortfalls = await getRecurringShortfallTopics();
+        _recurringShortfallsLoadedAt = Date.now();
+    } catch {
+        _cachedRecurringShortfalls = [];
+    }
+}
+
+export function getRecurringShortfallPreamble(): string {
+    if (_cachedRecurringShortfalls.length === 0) return '';
+    const top = _cachedRecurringShortfalls.slice(0, 8);
+    return `\n=== RECURRING COVERAGE SHORTFALLS (from prior engagements) ===\n` +
+        `These topics have been undercovered by the corpus in 2+ prior engagements. Prioritize evidence collection on them in this engagement and cite specifically when they apply:\n` +
+        top.map(t => `- ${t.topic.replace(/-/g, ' ')} (hit in ${t.occurrenceCount} prior engagement${t.occurrenceCount === 1 ? '' : 's'})`).join('\n') +
+        `\n=== END RECURRING SHORTFALLS ===\n`;
+}
+
+async function _maybeIncrementalCompile(): Promise<void> {
+    const now = Date.now();
+    if (now - _lastIncrementalCompileTs < _INCREMENTAL_COMPILE_INTERVAL_MS) return;
+    if (_incrementalCompilePromise) return _incrementalCompilePromise;
+    _incrementalCompilePromise = (async () => {
+        try {
+            const { compileWiki } = await import('./wikiCompiler');
+            await compileWiki({ incremental: true } as any);
+            _lastIncrementalCompileTs = Date.now();
+            console.log('[wikiService] incremental compile completed at', new Date().toISOString());
+        } catch (err: any) {
+            console.warn('[wikiService] incremental compile failed (non-blocking):', err?.message || err);
+        } finally {
+            _incrementalCompilePromise = null;
+        }
+    })();
+    return _incrementalCompilePromise;
+}
+
 export async function loadGenerationContext(
     outputType: OutputOption,
     options?: {
@@ -1499,6 +1580,29 @@ export async function loadGenerationContext(
     const frameworkKey = OUTPUT_TO_FRAMEWORK[outputType] || 'personas';
     const benchmarkKeys = FRAMEWORK_BENCHMARKS[frameworkKey] || ['cx-metrics'];
     const wantExtras = options?.eagerExtras === true;
+
+    // 2026-05-23 — P1.2: Auto-invoke incremental compile of wiki evidence
+    // pages before loading context. Previously compileWiki() was only reachable
+    // via the dev console hook (window.__hicSelfImprovement.compileWiki),
+    // meaning the wiki never recompiled from new evidence between sessions.
+    // Now every generation triggers an incremental compile (cheap if nothing
+    // changed). Throttled at module scope so concurrent generators don't
+    // double-fire.
+    try {
+        await _maybeIncrementalCompile();
+    } catch {
+        // Best-effort; compile failures must never block generation.
+    }
+
+    // 2026-05-23 — Karpathy Phase 2.3: Recurring-shortfall topics from
+    // cross-engagement memory. Reads wiki/known-gaps/ and surfaces topics
+    // hit by 2+ prior engagements so the model prioritizes evidence
+    // collection on them this session. Throttled (cached for 10 min).
+    try {
+        await _maybeLoadRecurringShortfallTopics();
+    } catch {
+        // Best-effort
+    }
 
     // Core load — these are the irreducibles that affect EVERY generation
     // of this output type. Tight, fast, ~5-15KB total.
@@ -1550,6 +1654,7 @@ export async function loadGenerationContext(
     // Optional: industry and engagement context
     let industryAdaptation: string | undefined;
     let engagementContext: string | undefined;
+    let engagementGoals: string | undefined;
     if (options?.industry) {
         const page = await readWikiPage(`industries/${options.industry}.md`);
         industryAdaptation = page?.content;
@@ -1557,6 +1662,14 @@ export async function loadGenerationContext(
     if (options?.engagement) {
         const page = await readWikiPage(`engagements/${options.engagement}.md`);
         engagementContext = page?.content;
+        // 2026-05-22 — Goals-as-filter (Phase 4.3 of the self-improvement loop).
+        // Extract the engagement's stated goals and inject them as a hard
+        // constraint into the generation prompt. Best-effort; failure is
+        // silent so existing flows are unaffected.
+        try {
+            const verifier = await import('./verifierService');
+            engagementGoals = await verifier.getEngagementGoalsAsConstraint(options.engagement);
+        } catch { /* verifier not available; skip */ }
     }
 
     // Combine benchmark data
@@ -1571,6 +1684,21 @@ export async function loadGenerationContext(
         .filter((p): p is WikiPage => p !== null)
         .map(p => p.content)
         .join('\n\n');
+
+    // 2026-05-24 — Phase 6.1: Cross-engagement patterns injection.
+    // Read synthesis/cross-engagement-patterns.md and surface it on the
+    // returned context so prompt builders can include portfolio-level
+    // patterns in the system prompt. Best-effort — silent on miss.
+    let crossEngagementPatterns: string | undefined;
+    try {
+        const patternsPage = await readWikiPage('synthesis/cross-engagement-patterns.md');
+        if (patternsPage?.content && patternsPage.content.trim().length > 50) {
+            // Cap at 8KB so even rich pattern logs don't blow the prompt budget.
+            crossEngagementPatterns = patternsPage.content.slice(0, 8000);
+        }
+    } catch {
+        // Best-effort; the file may not exist yet (first run of any engagement).
+    }
 
     return {
         framework: framework?.content || '',
@@ -1592,6 +1720,8 @@ export async function loadGenerationContext(
         },
         industryAdaptation,
         engagementContext,
+        engagementGoals,
+        crossEngagementPatterns,
     };
 }
 
@@ -1636,7 +1766,7 @@ let _wikiManifestCache: WikiManifestEntry[] | null = null;
 export async function buildWikiManifest(forceRefresh = false): Promise<WikiManifestEntry[]> {
     if (_wikiManifestCache && !forceRefresh) return _wikiManifestCache;
 
-    const proxyBase = (typeof window !== 'undefined' ? 'http://localhost:5012' : '');
+    const proxyBase = (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
 
     // Directories we expose to the model. Article archives are deliberately
     // excluded — those are searched via fetch_wiki_articles (semantic), not
@@ -2230,7 +2360,38 @@ export async function writeEngagementDeliverable(
             saved_at: new Date().toISOString(),
             data: payload,
         };
-        return await writeWikiPage(deliverablePath(slug, kind), JSON.stringify(wrapped, null, 2));
+        const ok = await writeWikiPage(deliverablePath(slug, kind), JSON.stringify(wrapped, null, 2));
+        // 2026-05-19 — Defensive manifest guarantee. Callers SHOULD also call
+        // writeEngagementManifest with the real research_goal, but historically
+        // some paths (App.tsx persistDeliverable pre-fix) wrote 6 deliverables
+        // without ever creating the manifest. That left the engagement dir
+        // visible to wikiCacheLoader.fetch but with manifest.json 404ing —
+        // cascading console errors and broken Knowledge Library entries.
+        //
+        // This layer ensures a minimal manifest exists for every engagement
+        // that has at least one deliverable. If the caller later updates the
+        // manifest with the real goal, writeEngagementManifest merges and the
+        // placeholder goal is overwritten. If they don't, the placeholder
+        // (derived from the slug) is at least serviceable.
+        if (ok) {
+            try {
+                const existing = await readEngagementManifest(slug);
+                if (!existing) {
+                    const placeholderGoal = slug.replace(/-/g, ' ');
+                    const cached: any = {};
+                    cached[kind] = { count: 1, path: deliverablePath(slug, kind) };
+                    await writeEngagementManifest(slug, {
+                        research_goal: placeholderGoal,
+                        cached,
+                    });
+                    console.log(`[WikiService] Auto-created placeholder manifest for ${slug} (caller did not write one). Update with the real goal via writeEngagementManifest.`);
+                }
+            } catch (manifestErr) {
+                // Non-fatal — the deliverable is on disk. Manifest can be repaired later.
+                console.warn(`[WikiService] Placeholder manifest for ${slug} failed (non-fatal):`, manifestErr);
+            }
+        }
+        return ok;
     } catch (e) {
         console.warn(`[WikiService] writeEngagementDeliverable failed for ${slug}/${kind} (non-fatal):`, e);
         return false;

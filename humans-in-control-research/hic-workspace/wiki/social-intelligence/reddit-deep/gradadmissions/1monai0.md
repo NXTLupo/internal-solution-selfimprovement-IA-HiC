@@ -1,0 +1,99 @@
+---
+url: "https://www.reddit.com/r/gradadmissions/comments/1monai0/postbacc_options/"
+kind: "social-post"
+source: "reddit-deep: r/gradadmissions"
+subreddit: "gradadmissions"
+title: "Postbacc options"
+author: "Nervous_Protection_8"
+date: "2025-08-12T22:36:21.000Z"
+score: 4
+upvote_ratio: 1
+num_comments: 10
+flair: "Biological Sciences"
+extracted_at: "2026-05-20T03:56:10.755Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# Postbacc options
+
+Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1monai0/postbacc_options/)
+Posted by **Nervous_Protection_8** · **4↑** · **10 comments**
+
+Hiii guys,
+
+So my goal is to do a PhD in neuroscience but I'm planning in getting some more experience before applying (and with the current state of things) would be a good idea. Fortunately, I got offers from two amazing biomedical institutions. They are both incredible opportunities and sometimes I wish there was a twin version of me just so I could pursue both lol. 
+
+I saw some other posts similar to the one I'm making now but just wanted some more input/opinions from my point of view I guess? Anyways, I listed out the pros/cons of both and would love for some input. 
+
+  
+Institution A
+
+**Pros:** 
+
+* Very little moving required. Can be close to family still..
+* Very well regarded program, many go to top tier schools from what I have heard and read. 
+* Visited the institution so I know where I would be at, got a sense of the environment, etc. 
+* Smaller lab (\~8-10 people)
+* PI much more accessible because of this I would imagine. Also would make deeper connections with the members there I would assume too. 
+* LOTS of opportunities for career development, graduate app prep, etc. 
+* The people who interviewed me were very very nice and welcoming. Were very interested in my experience since they do similar work. 
+* Campus-like area (very big institution) so lots of opportunities to learn.
+* Government regulated (I guess this is a pro?) 
+* This program is very specifically for training & preparing for graduate/medical school.
+* Good benefits
+* **If** I want to do a MD/PHD, would be a great place to prep (but for the time being, I'm interested in a PhD)
+* My experience aligns well with the labs, plus can learn a lot of other techniques 
+* Can interact with a lot of post baccs from other labs
+* If lab is not a good fit, I am able to transfer to another lab (unlikely but just there as an option)
+* Author on paper very likely..
+* Experience fits well 
+* Has name value/well respected within grad admissions..
+
+**Cons:**
+
+*  \~$10k LESS in money compared to Institution B
+* Expensive ish area 
+* Technically a trainee/fellowship than an "employee" 
+* with the whole scientific climate, not sure what will happen but not too worried
+
+
+
+Institution B
+
+**Pros:**
+
+* Located in Boston/Cambridge area is very nice area, largest biotechnology hub in the world, many networking opportunities 
+* Very well regarded research institute, a unique mix between academic and industry 
+   * Transitioning to academic or industry more flexible if needed
+* Very good benefits (tuition reimbursement, traveling, etc)
+* Experience fits well with me as well
+* \~10+k MORE in money but area is expensive, will need roommates for sure (not a problem per se)
+* An actual “job/employee” than a trainee/fellowship position
+* Can probably transition to industry with a very good salary in a few years if I go down that route (but I’m a academia person so kinda unlikely..) but it would get my feet on the ground so that once I finish a PhD, it would make a good connection sort of thing..
+* Institution B looks amazing on paper too
+
+**Cons:**
+
+* Bigger lab (15+) so likely less interactions with the PI (less connection with the entire lab I’m assuming)..
+* Very expensive area 
+* Requires long distance moving, away from family
+* Never visited the lab (can't help it though)
+* First and foremost, it is a job not a training program like Institution A, so I'd assume less emphasis on the training aspect of preparing for grad stuff BUT they do have a ton of resources / workshops too.. 
+* Not sure on pubs at this time
+
+  
+I honestly love both places and I am so fortunate to have both opportunities on the table. They both do amazing neuro work so you can imagine how hard it is to make a decision 🤧. I did super long interviews at both so just the thought of not going to either one makes me sad haha. Any input would be amazing and I can provide more info if possible! Thanks!
+
+## Comments
+
+- **tube_ebooks** (2↑): I'd choose institution A easy even if it is more medical focused and pays less. It would be helpful to know the general region to make a better comparison but Boston has become nauseatingly expensive and the housing market is so bad. I don't think the fellowship vs employee thing will actually look that much different on PhD applications as long as you're doing research in both so I wouldn't make a choice based off that at all
+  - **Nervous_Protection_8** (1↑): Thanks for the input! A is located in the Bethesda, MD area, forgot to mention that
+    - **tube_ebooks** (1↑): Okay yeah I was 99% sure you were talking about NIH based on your other info. MoCo and DC are both expensive as well, but it's much easier to find a place (and the fact that the IRTA program is so large means there's FB groups for students looking to share places). Unless you REALLY want to go into biotech I would go NIH, despite the funding questions
+- **[deleted]** (1↑): After reading through that I wasn't entirely sure if this was part of the question, but I would definitely accept one of the offers instead of taking a gap year to get more experience. And missions are getting harder and harder, and I know from a friend that Neuroscience labs are overfilled because they accepted a lot of people last year. State of Texas for reference
+- **2025PhDApplicant** (1↑): Hey OP, I think the most important thing to consider is how you get along with the PI. Your relationship with the PI can make a shitty lab amazing and a well respected lab absolute hell. If you have time ask the grad students in the lab about the PI and their time in the lab. Usually they will spill all the tea.
+- **Stereoisomer** (1↑): Definitely institution A which sounds like IRTA or PREP. Notwithstanding the current political chaos especially affecting NIH intramural programs, I've only heard great things about the preparation it gives and the outcomes of the students. Especially if you're with a really supportive PI then you might even leave with a first-author (I know a few that have). They really do care about getting their trainees to the best institutions possible.
+
+The Boston lab you'll probably just be another lab monkey and be relegated to grunt work. It'll be a J-O-B job and they'll treat you like a pair of hands. Boston and the institution (sounds like the Whitehead or Broad) may look fancy on paper but that doesn't matter nearly so much as the training you get and the letter of rec you receive. Both will be far superior at the NIH.
+  - **Nervous_Protection_8** (1↑): Oh wow, thank you for the input. Have you done the IRTA program yourself?
+    - **Stereoisomer** (1↑): No but I have friends that have. Of course, some PIs are better than others but it’s a well-structured program and pretty unique in its purpose. They’re aren’t other programs like it afaik. A few postbacc things exist like at MPFI or individual universities like Harvard (PiNBAC) tho

@@ -18,7 +18,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 const PARSE_TIMEOUT_MS = 60_000;
 
 export interface ChatAttachment {

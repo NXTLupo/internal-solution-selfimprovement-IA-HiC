@@ -31,7 +31,7 @@ async function fetchWikiPage(path: string): Promise<string> {
     try {
         const resp = await fetch(`/hic-workspace/wiki/${path}`);
         if (resp.ok) return await resp.text();
-        const proxyResp = await fetch(`http://localhost:5012/api/wiki/read/${path}`);
+        const proxyResp = await fetch(`http://127.0.0.1:5012/api/wiki/read/${path}`);
         if (proxyResp.ok) {
             const data = await proxyResp.json();
             return data.content || '';

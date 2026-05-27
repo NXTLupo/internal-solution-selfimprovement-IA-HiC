@@ -21,7 +21,7 @@
  * the rest and the Stage 4 injection block uses the thumbnail + title alone.
  */
 
-const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://localhost:5012';
+const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://127.0.0.1:5012';
 const INDEX_URL = `${PROXY_BASE}/hic-workspace/wiki/exemplars/behance/_raw_index.json`;
 
 export type BrandHashtag =

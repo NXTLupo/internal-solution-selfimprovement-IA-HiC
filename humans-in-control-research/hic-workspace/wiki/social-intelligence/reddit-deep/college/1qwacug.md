@@ -1,0 +1,54 @@
+---
+url: "https://www.reddit.com/r/college/comments/1qwacug/going_back_5_years_after_dropping_out/"
+kind: "social-post"
+source: "reddit-deep: r/college"
+subreddit: "college"
+title: "Going Back 5 Years after Dropping Out"
+author: "Objective_Life6292"
+date: "2026-02-05T03:34:37.000Z"
+score: 20
+upvote_ratio: 0.88
+num_comments: 13
+flair: "Academic Life"
+extracted_at: "2026-05-22T13:32:26.399Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Going Back 5 Years after Dropping Out
+
+Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qwacug/going_back_5_years_after_dropping_out/)
+Posted by **Objective_Life6292** · **20↑** · **13 comments**
+
+This has been weighing on my mind for a while, and I wanted to know if anyone had experience or any advice. 
+
+A little less than 5 years ago I started community college right after high school. I graduated high school at peak covid time, so I wasn't in person for the second half of my junior year and my whole senior year. I was also trying to get my driver's license at 18, move out (large family in a bit of a small house, bit of a rough family life) get a stable job, all that fun adulting stuff. I chose to go into Computer Science because "get a tech degree" was repeated to me all through high school, as if it was some end-all/be-all best degree. I thought I was interested in technology, but I hated it, and trying to sort my life out at the same time was a nightmare. I ended up just dipping from college. I had flunks and "failed/withdrew" all over my academic sheet. I had even tried to retake some classes but had mental breakdowns over it and failed them again. 
+
+Fast forward to now and I've been working retail for several years. I've realized I need something more mentally stimulating, and also something that pays better since things keep getting more expensive. I've also learned more about what I actually want and not just what I thought I should want. I've already been accepted back into the same community college that I dropped out of before. 
+
+I'm worried since I've been thinking about doing something medical related, and on the off chance that I decide to go to graduate school, my past decisions could royally screw me over. I know I need to talk to the school advisor/counsellor, but was just wanting to see if anyone had a similar experience or recommendation based on their past experiences. Am I screwed? Possibly barred from ever going to graduate school? Where do I go from here? I really regret dropping out before, but my mental health was awful and I honestly wasn't mature enough for all of that at the time.
+
+## Comments
+
+- **Confident_Concern_10** (8↑): Honestly I don’t blame you for dropping out when you did especially because you graduated high school and entered college during the peak of COVID and with all the other stuff going on in your life school was definitely overwhelming. I’m currently a sophomore and graduated high school in 2024 but if you now know what you want to do and go back to school for congrats and definitely stay focus. You’ll realize college isn’t for everyone straight out of high school and that you can finish college at any age.
+- **MightBeYourProfessor** (7↑): What past decisions are you referring to? Taking some classes and dropping out? This really won't affect you at all. I'm on grad school admissions, and the gap is clear and plain as day, and it is common for folks to realize something isn't what they want to do and to come back and do something different.
+
+The only deal breaker is if you start again and you fuck up. You start again and you do well? That's what everyone is looking for.
+  - **Objective_Life6292** (3↑): It's really comforting hearing this from someone who is directly involved in that type of stuff. I'm super excited to get an education and do the best at whatever I decide to do, so I'm glad this won't be a huge roadblock.
+- **smoltims** (4↑): It tells a better story to see a record like yours instead of a perfect straight-A no blemishes records. I don’t regret dropping out because if I didn’t, I would’ve failed a lot more classes and wasted thousands of dollars more than necessary.
+
+Work on your mental health to avoid triggering breakdowns as much as possible (it’s impossible to completely avoid the a mental breakdown forever, trust me) and do well when you get back to school.
+
+You’re not going to get barred from graduate school because of what happened 5 years ago. They’ll care more about what you did recently and you can easily explain that your heart was not in the correct field, but this is your true calling as proven by xyz.
+- **Clothes-Excellent** (3↑): So go talk to a counselor, but dropping out or flunking should not barr you from going back.
+
+You will have to retake the classes you flunked or maybe be on scholastic probation. 
+
+40 years back this was me but I retook the classes and kept moving forward.
+- **Pretend_Watercress57** (1↑): I am in my 4th year and i havent passed any subjects due to 0 intrest and no discipline. No i have to pass 10 subjects in total till June. I have repeated subjects because in my 2nd year my confidence was down the mud because i was denied a student visa to the USA because it was my dream place to visit and due to realization that i have no intrest in the stuff being thought. Now that I gave a word to a very special person that i am going to pass all of the exams, 10/10. It will be very hard but I am going to give it my all. You just have to stick to the thought and fight for that.
+- **EquivalentFig9890** (1↑): I’ve been through the exact same! Community college 5 years ago around covid, failing and withdrawing from classes and coming back just now in 2026 5 years later. I talked to my advisor and she showed me the proper forms and I filled them out and explained the situation before my classes even started and they were able to put me on an appeal to reinstate financial aid and remove the old classes from my GPA calculation (for my college this is called Academic Amnesty and their policy is that it could only ever be used once, so check with your advisor on that).
+
+Totally not the end of the world and will likely have no effect on whatever you choose to do this time around :)
+- **StudyForgeDev** (1↑): For those who need to hear this, “no, you’re not screwed”. Unless you’re retirement age, maybe then you’re screwed because it’s pretty pointless.
+
+Computer science is hard and overwhelming for anyone. And it’s not for everyone. Just go back, don’t overthink it, and go for everything you want.

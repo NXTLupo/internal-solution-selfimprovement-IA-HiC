@@ -1,0 +1,22 @@
+[
+  {
+    "topic_id": 0,
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.24890242304120744
+  },
+  {
+    "topic_id": 1,
+    "sentiment_category": "positive",
+    "sentiment_score": 0.3199808821082115
+  },
+  {
+    "topic_id": 2,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.030911048253377277
+  },
+  {
+    "topic_id": 3,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.1538136104742686
+  }
+]

@@ -27,6 +27,11 @@ COPY hic-workspace/institution-manifest.json /usr/share/nginx/html/hic-workspace
 COPY hic-workspace/youtube-channels.json /usr/share/nginx/html/hic-workspace/youtube-channels.json
 # Copy documentation page (public/ may not be included in Vite build if .dockerignore excludes it)
 COPY public/documentation.html /usr/share/nginx/html/documentation.html
+# Copy NU design gallery (handoff bundle from claude.ai/design — 13 artifact
+# templates + style guide + GUIDE.md + Spectral fonts). Vite SHOULD pick this
+# up via publicDir, but copy explicitly as a defensive measure matching the
+# documentation.html pattern above.
+COPY public/nu-design-gallery /usr/share/nginx/html/nu-design-gallery
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 5011
 CMD ["nginx", "-g", "daemon off;"]

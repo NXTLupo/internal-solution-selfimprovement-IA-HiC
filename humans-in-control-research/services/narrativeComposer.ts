@@ -451,13 +451,13 @@ function getOutputSchemaText(): string {
 // runOpenAILoop, which dispatches to OpenAI or Google's OpenAI-compatible
 // endpoint based on model prefix.
 
-const OPENAI_PROXY_URL = 'http://localhost:5012/api/ai/openai';
-const GEMINI_OPENAI_COMPAT_PROXY_URL = 'http://localhost:5012/api/ai/gemini-compat';
+const OPENAI_PROXY_URL = 'http://127.0.0.1:5012/api/ai/openai';
+const GEMINI_OPENAI_COMPAT_PROXY_URL = 'http://127.0.0.1:5012/api/ai/gemini-compat';
 // 2026-05-05 — Azure DeepSeek-V4-Flash. OpenAI-compatible chat-completions
 // schema, accessed via the proxy at /api/ai/deepseek (auth uses api-key
 // header — proxy handles that detail). 256K context, tool-use confirmed
 // against discriminated-union schema.
-const DEEPSEEK_PROXY_URL = 'http://localhost:5012/api/ai/deepseek';
+const DEEPSEEK_PROXY_URL = 'http://127.0.0.1:5012/api/ai/deepseek';
 // 8 iterations × ~1.7 parallel tool calls per turn = ~14 actual tool invocations
 // in the worst case. Anything more bloats the context past the point where the
 // model can produce a clean submit_presentation payload — that was the failure
@@ -498,11 +498,15 @@ async function withRetry<T>(
       lastErr = e;
       const err = e as RetriableHttpError;
       const status = err.status;
+      // 2026-05-20 — Added 'Failed to fetch' (Chrome TypeError) and
+      // 'NetworkError' (Firefox) and 'AbortError' (signal-aborted) to the
+      // transient set. These three are how browsers surface mid-flight TCP
+      // resets / proxy-side connection drops on long composer runs.
       const transient =
         err.isTransient ||
         status === 429 ||
         status === 500 || status === 502 || status === 503 || status === 504 ||
-        /ECONNRESET|ETIMEDOUT|ConnectError|fetch failed|network/i.test(err.message || '');
+        /ECONNRESET|ETIMEDOUT|ConnectError|fetch failed|network|Failed to fetch|NetworkError|AbortError|The operation was aborted/i.test(err.message || '');
       if (!transient || attempt === maxAttempts) throw e;
       const delay = Math.min(8_000, 1_000 * Math.pow(2, attempt - 1));
       // eslint-disable-next-line no-console

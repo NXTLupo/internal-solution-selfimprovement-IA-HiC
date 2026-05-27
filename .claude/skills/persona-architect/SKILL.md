@@ -1,8 +1,29 @@
 ---
 name: persona-architect
-description: Generate evidence-grounded CX personas using two-phase roster+enrichment with Cooper goal hierarchy
+version: 1.1
+last_improved: 2026-05-23
+description: Generate evidence-grounded CX personas using two-phase roster+enrichment with Cooper goal hierarchy. Quality Discipline v2 enforces evidence-density floor (3+ named external citations per persona), verbatim quotes mandatory, JTBD presence required, demographics-first thinking auto-rejected, persona elasticity (age ranges >12 years, contradictory behaviors) auto-rejected. 2026-05-23 — Phase A now uses Verbalized Sampling (k=8 candidates with frame + probability) to break canonical-collapse personas.
 thinking: high
 ---
+
+## Verbalized Sampling — Phase A persona generation
+
+When generating the Phase A persona roster, do NOT emit a fixed list of 4-6 personas. Instead emit `personaCandidates[]` with k=8 entries, each tagged with:
+- `frame`: 'mainstream' | 'underserved' | 'edge_case' | 'contrarian' | 'non_obvious_archetype'
+- `probability`: 0.0-1.0 (the model's own credence that this persona is supported by the corpus)
+- `differentiator`: one-sentence reason this archetype is distinct from siblings
+- `evidenceAnchors`: 2-3 [CHUNK_XXX] citations or "(no evidence anchor)" — used to filter low-evidence personas
+
+The downstream selector then:
+1. Filters out candidates with `probability < 0.10` AND no evidence anchors (low-confidence guesses without grounding)
+2. Picks the top-2 mainstream personas (highest probability with frame='mainstream')
+3. Picks the top-2 distinct non-mainstream personas (highest probability across underserved/edge_case/contrarian)
+4. Picks one non_obvious_archetype if its evidenceAnchors are >= 2
+5. Emits Phase B enrichment for the selected 4-5
+
+This breaks the canonical-collapse pattern (every persona becomes "overwhelmed first-year" + "type-A senior") by FORCING the model to articulate k=8 distinct archetypes with explicit frame-and-credence, then selecting for diversity instead of probability alone.
+
+Phase B per-persona enrichment is unchanged — same Cooper goal hierarchy, JTBD, 3+ citations, verbatim quotes, evidence density floor.
 
 # Persona Architecture
 
@@ -153,3 +174,36 @@ The model sometimes dumps all 3 goals into lifeGoal as one blob. Post-processing
 - JTBD statements exceeding 25 words or missing the When/Want/So structure
 - fiveWs fields with single sentences or empty strings
 - Attributes without observable, verifiable behaviors
+
+---
+
+## Quality Discipline v2 (2026-05-20)
+
+Hard contract every persona MUST satisfy before emission:
+
+### Evidence density floor
+- **>=3 named external citations per persona** (Higher Ed Dive: "...", OpenAlex: Smith 2024, Reddit r/internships thread URL, etc.). Generic "research" / "studies" / "data" auto-rejected.
+- **>=1 verbatim quote per persona** from the corpus, attributed with source + author + date when available. Paraphrased quotes auto-rejected.
+- **>=2 pain points per persona, each tied to a specific verbatim or near-verbatim corpus passage**.
+- **>=2 motivations per persona, each grounded in observed behavior — not assumed**.
+
+### Anti-elasticity floor
+- Age range max 12 years. If the corpus implies a wider span, SPLIT into two personas.
+- "Both X and not-X" contradictions auto-rejected (e.g. "prefers self-service AND wants white-glove support").
+- Demographics may appear ONLY after behavior is established. First three persona attributes MUST be behavioral, not demographic.
+
+### Per-field discipline
+- `lifeGoal`: 1 sentence, identity-level ("who they are becoming"). Not a task. Not a feature wish.
+- `experienceGoal`: 1 sentence, feeling-level ("how they want the process to feel"). Not a deliverable.
+- `functionalGoal`: 1 sentence, task-level ("what they need to accomplish"). Specific verb + outcome.
+- `jtbd`: Strict "When [situation], I want to [motivation], so I can [expected outcome]" format. <= 25 words.
+- `fiveWs` (Who/What/When/Where/Why): each gets 2-3 sentences minimum, grounded in corpus.
+
+### Self-check BEFORE emitting
+1. Does every persona cite >=3 distinct external sources? If no, REJECT and pull more.
+2. Does every persona include >=1 verbatim quote with attribution? If no, REJECT.
+3. Are demographics (age, income, job title) absent from the first 3 attributes of every persona? If demographics lead, REJECT and rewrite behavior-first.
+4. Is any persona's age range >12 years OR contains contradictory behaviors? REJECT and split.
+5. Does every pain point tie to a quoted observation in the corpus? If a pain point is unsupported, REJECT.
+
+If any check fails, regenerate — do not ship.

@@ -1,0 +1,185 @@
+{
+  "total_topics": 4,
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 7,
+      "name": "0_op_ops_accounting_gpa",
+      "representation": [
+        {
+          "term": "op",
+          "weight": 0.028290783346396457
+        },
+        {
+          "term": "ops",
+          "weight": 0.025110320719499906
+        },
+        {
+          "term": "accounting",
+          "weight": 0.02506717429473492
+        },
+        {
+          "term": "gpa",
+          "weight": 0.023944298300937538
+        },
+        {
+          "term": "spring",
+          "weight": 0.02228193270643104
+        },
+        {
+          "term": "business",
+          "weight": 0.021757549542649902
+        },
+        {
+          "term": "big",
+          "weight": 0.02059338888345251
+        },
+        {
+          "term": "school",
+          "weight": 0.02059338888345251
+        },
+        {
+          "term": "year",
+          "weight": 0.020010312226950766
+        },
+        {
+          "term": "fall",
+          "weight": 0.017898241188039142
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 4,
+      "name": "1_models_local_claude_finance",
+      "representation": [
+        {
+          "term": "models",
+          "weight": 0.030324683956927702
+        },
+        {
+          "term": "local",
+          "weight": 0.026219093932908763
+        },
+        {
+          "term": "claude",
+          "weight": 0.026219093932908763
+        },
+        {
+          "term": "finance",
+          "weight": 0.02190524814925731
+        },
+        {
+          "term": "mahoraga",
+          "weight": 0.02190524814925731
+        },
+        {
+          "term": "cs",
+          "weight": 0.02190524814925731
+        },
+        {
+          "term": "run",
+          "weight": 0.02097527514632701
+        },
+        {
+          "term": "able",
+          "weight": 0.02097527514632701
+        },
+        {
+          "term": "resume",
+          "weight": 0.01853324276997173
+        },
+        {
+          "term": "work",
+          "weight": 0.01809708130198396
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 3,
+      "name": "2_op_search_im_linkedin",
+      "representation": [
+        {
+          "term": "op",
+          "weight": 0.04100225860340746
+        },
+        {
+          "term": "im",
+          "weight": 0.031807620600291436
+        },
+        {
+          "term": "linkedin",
+          "weight": 0.03045724884261182
+        },
+        {
+          "term": "cooked",
+          "weight": 0.03045724884261182
+        },
+        {
+          "term": "interviews",
+          "weight": 0.029355401821318138
+        },
+        {
+          "term": "op search",
+          "weight": 0.02842505601916863
+        },
+        {
+          "term": "email",
+          "weight": 0.025163182440635937
+        },
+        {
+          "term": "applications",
+          "weight": 0.023855715450218577
+        },
+        {
+          "term": "coop",
+          "weight": 0.0207151764541232
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 3,
+      "name": "3_op_fall_fenway health_fenway",
+      "representation": [
+        {
+          "term": "op",
+          "weight": 0.07740943650126064
+        },
+        {
+          "term": "fall",
+          "weight": 0.034980922124899165
+        },
+        {
+          "term": "fenway health",
+          "weight": 0.033993410601931846
+        },
+        {
+          "term": "walk",
+          "weight": 0.033993410601931846
+        },
+        {
+          "term": "start",
+          "weight": 0.033993410601931846
+        },
+        {
+          "term": "end",
+          "weight": 0.03167090203735213
+        },
+        {
+          "term": "applying",
+          "weight": 0.030025297032171657
+        },
+        {
+          "term": "june",
+          "weight": 0.030025297032171657
+        },
+        {
+          "term": "date",
+          "weight": 0.030025297032171657
+        }
+      ]
+    }
+  ]
+}

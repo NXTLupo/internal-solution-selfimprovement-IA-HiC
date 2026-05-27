@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 0.66
 num_comments: 0
 flair: "Housing & Dorms"
-extracted_at: "2026-05-12T17:09:38.650Z"
+extracted_at: "2026-05-19T15:08:27.153Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
 ---
 
 # Quick question for students who've subleased before

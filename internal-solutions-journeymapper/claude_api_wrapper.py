@@ -4,6 +4,20 @@ import requests
 import json
 import time
 
+
+def _model_deprecates_temperature(model: str) -> bool:
+    """Reasoning models reject the `temperature` parameter (400 error).
+    Opus 4.7 is the first; treat 4.7+ Opus and any explicitly-tagged
+    reasoning model as temperature-free. The 400 retry below is the
+    backstop for anything this misses."""
+    m = (model or "").lower()
+    if "opus-4-7" in m or "opus-4-8" in m or "opus-4-9" in m:
+        return True
+    if "-reasoning" in m or "-thinking" in m:
+        return True
+    return False
+
+
 def claude_api_call(prompt, model="claude-opus-4-5-20251101", max_tokens=64000, temperature=0.3, system="You are Claude, an AI assistant with expertise in journey mapping, data analysis, visualization, and WCAG accessibility standards. Use your expertise to create highly detailed, informative, and visually appealing journey maps that maximize content depth and maintain accessibility best practices. Generate content up to the maximum token limits."):
     """
     Simple wrapper for Anthropic API that doesn't use the SDK
@@ -35,6 +49,13 @@ def claude_api_call(prompt, model="claude-opus-4-5-20251101", max_tokens=64000, 
         "max_tokens": max_tokens,
         "temperature": temperature
     }
+    # Reasoning models (Opus 4.7+) deprecate the `temperature` parameter and
+    # return a 400 if it is sent. Rather than maintain an allowlist that rots
+    # every time a new reasoning model ships, drop temperature pre-emptively
+    # for any model we know deprecates it, and additionally retry-without it on
+    # the specific 400 below. Belt and suspenders so this can never whack-a-mole.
+    if temperature is None or _model_deprecates_temperature(model):
+        data.pop("temperature", None)
     # Print key parameters
     print(f"\n🔄 API Request Details:")
     print(f" - Model: {model}")
@@ -66,12 +87,31 @@ def claude_api_call(prompt, model="claude-opus-4-5-20251101", max_tokens=64000, 
                 raise  # Reraise on final attempt
     if response.status_code != 200:
         error_msg = f"API call failed with status {response.status_code}"
+        error_detail = ""
         try:
             error_detail = response.json().get("error", {}).get("message", "Unknown error")
             error_msg += f": {error_detail}"
         except:
             pass
-        raise Exception(error_msg)
+        # Backstop: if the model rejected `temperature`, strip it and retry
+        # once. This auto-adapts to any reasoning model that deprecates the
+        # parameter without needing a name allowlist.
+        if response.status_code == 400 and "temperature" in error_detail.lower() and "temperature" in data:
+            print(" - Model rejected `temperature`; retrying once without it")
+            data.pop("temperature", None)
+            try:
+                response = requests.post(
+                    "https://api.anthropic.com/v1/messages",
+                    headers=headers,
+                    json=data,
+                    timeout=timeout
+                )
+            except requests.exceptions.SSLError:
+                raise Exception(error_msg)
+            if response.status_code != 200:
+                raise Exception(error_msg)
+        else:
+            raise Exception(error_msg)
     # Extract and return text response
     result = response.json()
     # Log response details

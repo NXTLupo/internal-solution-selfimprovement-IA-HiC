@@ -10,9 +10,9 @@ score: 26
 upvote_ratio: 0.96
 num_comments: 23
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T23:02:38.856Z"
+extracted_at: "2026-05-26T14:30:23.757Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Scholarships
@@ -33,7 +33,7 @@ Edit: Guess who cut the funding which made these institutions panic in fear of l
     - **SexWithPaws69** (3↑): Will have to see their subsequent comments, but atm I'm getting more the vibe they meant "why is northeastern only offering this to Indian students only and not other internationals" rather than something racist.
 - **titanslicer** (5↑): But why give scholarship(Impact Award) only to Indian students? Is there any reasoning behind it?
   - **SnoopyScone** (12↑): It’s not just Northeastern - almost all universities are doing this. Majority of the masters programs are cash generating machines for universities. International student enrollment has plummeted due to visa uncertainties. India is a feeder for masters programs all across the US, and the highest international student enrollment is from that country. Some cash is better than no cash - hence ‘scholarships’
-  - **iCameEarly** (2↑): i am an indian student, the thing is they arent giving any of these. i got 2 offers from nue in khoury college neu. But i only got 5% scholarship. according to this i have to get 45% as its a stackable scholarship.  But i only got 5%. mfs did this just for scholarship.
+  - **iCameEarly** (4↑): i am an indian student, the thing is they arent giving any of these. i got 2 offers from nue in khoury college neu. But i only got 5% scholarship. according to this i have to get 45% as its a stackable scholarship.  But i only got 5%. mfs did this just for scholarship.
     - **titanslicer** (1↑): Which campus did you choose?
 - **ImperialAgent120** (2↑): Lol, only 5%?
 

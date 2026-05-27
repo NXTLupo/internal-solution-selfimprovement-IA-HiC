@@ -4,7 +4,7 @@
 // prototypeLibrary.ts. Supports the new #brief / #explainer / #report /
 // #playground / #approaches / #help directives that produce HTML artifacts.
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface ArtifactSummary {
     slug: string;

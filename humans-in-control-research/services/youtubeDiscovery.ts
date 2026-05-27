@@ -43,7 +43,7 @@ export async function suggestVideoQueries(goal: string, lens?: string): Promise<
     }
 
     // Use the proxy's Gemini endpoint so we don't need a client-side API key
-    const PROXY_BASE = 'http://localhost:5012';
+    const PROXY_BASE = 'http://127.0.0.1:5012';
     const prompt = `You are optimizing YouTube search queries for a research project.
 
 RESEARCH OBJECTIVE:
@@ -185,7 +185,7 @@ export async function discoverVideosByChannels(params: {
     if (!params.channelIds || params.channelIds.length === 0) {
         return { total_channels_queried: 0, total_videos_scanned: 0, videos: [], errors: [] };
     }
-    const PROXY_BASE = 'http://localhost:5012';
+    const PROXY_BASE = 'http://127.0.0.1:5012';
     try {
         const resp = await fetch(`${PROXY_BASE}/api/youtube/discover-by-channels`, {
             method: 'POST',

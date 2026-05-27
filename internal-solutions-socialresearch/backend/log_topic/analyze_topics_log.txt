@@ -1,2 +1,8 @@
-Analyzing 0 documents
-ERROR: Empty document list provided. Cannot perform topic modeling with 0 documents.
+Analyzing 19 documents
+Document length statistics:
+  Min length: 239 characters
+  Max length: 2327 characters
+  Average length: 840.74 characters
+Using specialized hyperparameters for very small dataset (<100 documents)
+Fitting BERTopic model to documents...
+Successfully fit BERTopic model and transformed documents

@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "NORTHEASTERN CO-OP QUESTION"
 author: "WorldIntelligent7639"
 date: "2026-04-03T16:37:22.000Z"
-score: 20
+score: 21
 upvote_ratio: 0.92
 num_comments: 28
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.852Z"
+extracted_at: "2026-05-26T14:30:23.756Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # NORTHEASTERN CO-OP QUESTION
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sbikpz/northeastern_coop_question/)
-Posted by **WorldIntelligent7639** · **20↑** · **28 comments**
+Posted by **WorldIntelligent7639** · **21↑** · **28 comments**
 
 As a prospective Northeastern student, I am confused about how students are able to take up to 2 co-ops and still graduate within 4 years (I know this might sound like a stupid question). In many universities with co-op programs, students graduate in 5 years, or they take their required courses during the summer/ squeeze in an extra course during the semester they are not doing co-op. At Northeastern, how does the school manage to let you squeeze in all of your required courses before graduation in 3 years? Does Northeastern just require less credits? I am very drawn to Northeastern's co-op program, but I do not want to have to take courses during the summer or extra courses during a semester.
 
@@ -28,19 +28,19 @@ Also, for Northeastern's exchange program, up to how many times are you allowed 
 
 ## Comments
 
-- **National_Bridge3942** (47↑): if u do 2 co-ops and wanna graduate in 4 years, u will def have to do summer classes unforch
+- **National_Bridge3942** (43↑): if u do 2 co-ops and wanna graduate in 4 years, u will def have to do summer classes unforch
   - **Rockfire23** (13↑): Yeah i only had to take 2 summer classes (1 summer semester), but i also had a lot of AP credits
     - **Nervous-Hair-2107** (1↑): Yeah same i came with like 22 credits so not that many but yeah
-- **adelialela** (9↑): im finishing in 4 years after having done 2 coops, I came in with I think 17 credits, i did a course of two while on coop, and only had to do one half summer of classes  (what we call summer 1 or summer 2 classes (this might have a new name now with the new schedule idk lol im graduating so idgaf))
-- **Dapper_Amoeba_403** (7↑): came in with 3 class credits (12) and used those, did one entire summer of classes (4 classes), now i am able to graduate in 4 with that one summer after freshman year and doing 2 co-ops
-- **Bright_Golf_6349** (6↑): I was a grad student. I did a 8 months long co-op and extended the graduation. But I had the option to take on more credits in my last semester if i wanted to graduate on-time. Academic advisors can increase the credits limit of semester (depends case to case & not guaranteed).
+- **adelialela** (10↑): im finishing in 4 years after having done 2 coops, I came in with I think 17 credits, i did a course of two while on coop, and only had to do one half summer of classes  (what we call summer 1 or summer 2 classes (this might have a new name now with the new schedule idk lol im graduating so idgaf))
+- **Dapper_Amoeba_403** (6↑): came in with 3 class credits (12) and used those, did one entire summer of classes (4 classes), now i am able to graduate in 4 with that one summer after freshman year and doing 2 co-ops
+- **Bright_Golf_6349** (4↑): I was a grad student. I did a 8 months long co-op and extended the graduation. But I had the option to take on more credits in my last semester if i wanted to graduate on-time. Academic advisors can increase the credits limit of semester (depends case to case & not guaranteed).
 
 Few take classes during summer term as well!  
 Some schools allow to take 1 course during co-op. (I didnt have that option. im from COE. but my collegue from khoury had taken a course when she was a fulltime co-op & she was able to graduate on time)
 
 i dont think neu requirng less credits is true. You must complete required credits.   
 hope this helps
-- **BoredBee05** (5↑): I did 2 6 month co-ops, 2 summer internships, no course overloads, and no summer classes and am going to graduate within 4 years. I came in with around 34 credits from APs, most of that fulfilled my nu path requirements (General coursework) so I was in sophomore standing pretty early on.
+- **BoredBee05** (4↑): I did 2 6 month co-ops, 2 summer internships, no course overloads, and no summer classes and am going to graduate within 4 years. I came in with around 34 credits from APs, most of that fulfilled my nu path requirements (General coursework) so I was in sophomore standing pretty early on.
 
 You can go on an exchange as soon as you fulfill the requirements. The GEO study abroad website has the different programs and requirements. I think most require you to have been on campus for a sem at least but I’m not sure
   - **WorldIntelligent7639** (1↑): Hi! Thank you for your reply, should I speak with Northeastern admissions to see if I can also get any transfer credits? Do most people need to take summer courses and courses during their co-op semester in order to graduate in 4 years, or is there also a lot of people who graduate in 5 years? If I were to do global co-op, would I be able to do online courses if Northeastern offers it? I want to graduate in 4 years, so I am trying to better understand for Northeastern and the co-op works since it seems like I wouldn't be going to school for a large portion of university lol

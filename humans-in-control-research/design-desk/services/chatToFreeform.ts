@@ -32,6 +32,21 @@ export interface FreeformGenerateArgs {
     corpus: string;
     currentArtifact: FreeformArtifact | null;
     model: FreeformGenerationModel;
+    /**
+     * 2026-05-19 — Accumulated user instructions across prior turns of this
+     * artifact's chat session. The Designer Desk chat is turn-amnesic by
+     * default: each call passes ONLY the current turn's userPrompt + the
+     * last artifact. That means when a user says "remove the metadata" on
+     * turn 2 and "fix the title" on turn 3, the turn-3 generation no longer
+     * sees the turn-2 instruction — and any partial compliance gets undone.
+     *
+     * This array carries the verbatim user messages from prior turns (oldest
+     * first) so buildPrompt can render them as an "ACCUMULATED INSTRUCTIONS"
+     * block. The model is told to apply ALL of them, not just the most
+     * recent. The caller (DesignDeskChat) is responsible for filtering out
+     * system messages and limiting the depth (typically last 8 user turns).
+     */
+    priorUserInstructions?: string[];
 }
 
 export type FreeformGenerateResult =
@@ -88,7 +103,7 @@ function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
 
 // 2026-05-05 — Azure DeepSeek-V4-Flash via /api/ai/deepseek.
 async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
-    const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+    const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -137,6 +152,21 @@ async function callForModel(prompt: string, model: FreeformGenerationModel): Pro
  * elements MUST be present in the body for that kind, beyond just visual fidelity.
  */
 function perKindGuidance(kind: FreeformKind): string {
+    // 2026-05-26 — Journey + Blueprint are now ROUTED through the dedicated
+    // Journey Mapper service (internal-solutions-journeymapper, container
+    // `journey-mapper`, port 8080) via proxy /api/journey-map/generate.
+    // The inline guidance below was a 2026-05-25 depth-port that created
+    // drift risk. The dispatcher in components/CorpusChatPanel.tsx routes
+    // around this function for both kinds; this stub fails loudly if a
+    // future caller bypasses the dispatcher and lands here.
+    // See: memory/feedback_journey_must_route_to_journey_mapper.md
+    if (kind === 'journey' || kind === 'blueprint') {
+        throw new Error(
+            `[journey-routing] kind=${kind} must route via /api/journey-map/generate (Journey Mapper IA service). ` +
+            `Do not regenerate inline via chatToFreeform; the depth lives in internal-solutions-journeymapper/. ` +
+            `If you see this error, the dispatcher in CorpusChatPanel.tsx around line 6264 lost its routing branch.`
+        );
+    }
     switch (kind) {
         case 'org':
             return `        ORG CHART body must contain:\n` +
@@ -160,73 +190,16 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • If the corpus describes a 12-person leadership team you cannot fit cleanly, GROUP smaller teams into a band node ("L3 · Alumni Relations · 22 FTE — Lead: Morgan Ellis + 5 directs") rather than rendering each person as a tiny illegible box.\n` +
                 `        • Render reporting lines with <line> or <path> elements, NOT with HTML borders, so they line up exactly with the SVG-positioned boxes.\n`;
 
-        case 'journey':
-            return `        JOURNEY MAP DESIGN SYSTEM — NON-NEGOTIABLE (apply on EVERY generation and revision, IDENTICALLY for #NU and #NXT — brand only changes color/font, not layout):\n\n` +
-                `        === 1. CANVAS, FRAME, SAFE AREA ===\n` +
-                `        • Artboard locked to 1920 × 1080. Nothing crosses those bounds.\n` +
-                `        • 80px safe area on all four sides. No content of any kind crosses the safe area.\n` +
-                `        • 12-column grid, 24px gutters, 80px outer margins. Every element snaps to columns 1–12.\n` +
-                `        • Three horizontal bands with hard boundaries: HEADER (0–240px from top), JOURNEY (240–880px), SYNTHESIS (880–1080px). Content lives strictly inside its band; nothing floats between bands.\n\n` +
-                `        === 2. TITLE & HEADLINE ===\n` +
-                `        • Title sits in COLUMNS 1–9 of the header band. Type auto-sizes between 40px and 64px to fit a maximum of 3 lines. Title NEVER crosses into columns 10–12.\n` +
-                `        • Eyebrow above title: uppercase, tracked, 10–12px (e.g. "JOURNEY MAP · CURRENT STATE"). The eyebrow self-identifies the artifact.\n` +
-                `        • Title is a complete action-title SENTENCE stating a finding with data when possible. NOT a topic phrase.\n` +
-                `        • If the title cannot fit at 40px in 3 lines, the title must be shortened — never the layout.\n\n` +
-                `        === 3. RIGHT-RAIL PARAGRAPH ===\n` +
-                `        • Reserved exclusively for COLUMNS 10–12, top-aligned to the title baseline.\n` +
-                `        • LINE LENGTH: 45–65 characters per line. NON-NEGOTIABLE — anything below 45 produces an unreadable vertical river.\n` +
-                `        • Type: 14–16px, line-height 1.5, max 8 lines.\n` +
-                `        • If the paragraph won't fit in 8 lines at 14px, EITHER move it below the title as a full-width subdeck spanning columns 1–9, OR truncate at a clean clause boundary. NEVER narrow the column further.\n\n` +
-                `        === 4. NEGATIVE SPACE & BALANCE ===\n` +
-                `        • The journey diagram occupies the FULL HORIZONTAL WIDTH (columns 1–12) within the journey band.\n` +
-                `        • The upper-left quadrant of the canvas must hold something purposeful — a key-findings callout, an emotion-arc preview, a persona summary, or intentional whitespace anchored by a horizontal rule.\n` +
-                `        • No quadrant of the canvas may be more than 50% empty without an explicit design reason.\n\n` +
-                `        === 5. SWIMLANE STRUCTURE ===\n` +
-                `        • Every persona lane runs the FULL WIDTH of the journey band — even when the persona is inactive in some phases. INACTIVE segments: 30%-opacity DASHED line. ACTIVE segments: 100%-opacity SOLID line. This prevents orphaned line fragments.\n` +
-                `        • MAXIMUM 4 PERSONA LANES. Beyond 4, group secondary actors or split into a second map.\n` +
-                `        • MAXIMUM 6 PHASE COLUMNS. Most journeys work at 3–5 phases.\n` +
-                `        • Phase header anatomy is IDENTICAL for every phase: (1) Eyebrow "PHASE 0X · WK YY-ZZ"; (2) Phase name; (3) System callouts beneath. Same structure for every phase, no exceptions.\n` +
-                `        • EXACTLY ONE phase may be visually emphasized as the focal phase. Use a SINGLE signal — tinted background OR italic OR underline, not all three. Default: tinted background only.\n\n` +
-                `        === 6. TOUCHPOINT NODES & ACTIVITY LABELS ===\n` +
-                `        • If touchpoint IDs (S-01, A-02, E-01) are referenced elsewhere, they must be legible — minimum 9px, sufficient contrast, positioned consistently below each node. If not referenced anywhere, REMOVE them — decorative IDs are noise.\n` +
-                `        • Node states vocabulary: STANDARD (open circle), FRICTION POINT (filled rust), MOMENT OF TRUTH (filled accent, larger), HANDOFF (split circle between lanes). Choose one state per node.\n` +
-                `        • Touchpoint labels: max 2 lines, max ~50 characters, 11–12px.\n` +
-                `        • ALL activity labels MUST be COMPLETE SENTENCES with subject + verb. NEVER gerund fragments. BAD: "Hears about co-op", "Browses NUworks". GOOD: "Students learn about co-op through peer referrals and faculty advising."\n` +
-                `        • All activity labels sit ABOVE their corresponding timeline dot. Never below. Never alternating. Position at band_top + 14px consistently.\n\n` +
-                `        === 7. EMOTION / PAIN / OPPORTUNITY LAYERS (optional, predefined treatment) ===\n` +
-                `        • Emotion arc: a single thin curve threaded across phase columns at a fixed y-offset; color signals valence (negative=rust, neutral=mute, positive=accent).\n` +
-                `        • Pain-point markers: small icons or flags attached to specific touchpoints with 1-line description. Visually distinct from neutral touchpoints.\n` +
-                `        • Opportunity markers: brand-accent treatment at intervention points. Distinct from pain markers.\n` +
-                `        • Visual treatment is consistent across NU and NXT exemplars.\n\n` +
-                `        === 8. VOICE-OF-USER ROW ===\n` +
-                `        • LOCKED to the bottom of the JOURNEY BAND (above the synthesis band).\n` +
-                `        • ONE QUOTE PER PHASE, MAXIMUM. Pull verbatim from the corpus. If a phase truly has no evidenced quote, omit the row for that phase rather than fabricating.\n` +
-                `        • Quote anatomy: eyebrow "VOICE OF [PERSONA]" (10px tracked uppercase); participant code in MONOSPACE (e.g. "S-01-04"); quote body in ITALIC SERIF, 14px, line-height 1.4; max 4 lines, max ~140 characters.\n\n` +
-                `        === 9. SYNTHESIS & METRIC ROW (bottom band, y=880 to y=1080) ===\n` +
-                `        • Synthesis paragraph: COLUMNS 1–4, 14px, line-height 1.5, max 5 lines.\n` +
-                `        • Metric tiles: COLUMNS 5–12, EXACTLY 3 or 4 tiles, all the same size, all the same visual weight BY DEFAULT.\n` +
-                `        • Maximum ONE inverted tile (dark bg, white text) — and only when it is the headline finding. Its eyebrow reads "KEY FINDING". Author's deliberate choice.\n` +
-                `        • Tile anatomy: 24px icon; 48–64px numeral; uppercase tracked 10px label; 12px supporting line max ~50 characters.\n\n` +
-                `        === 10. TYPOGRAPHIC SYSTEM (exactly five roles, NO exceptions) ===\n` +
-                `        • DISPLAY (title): bold sans, 40–64px, line-height 1.05\n` +
-                `        • BODY (right-rail paragraph, synthesis): regular sans, 14–16px, line-height 1.5\n` +
-                `        • LABEL (persona, phase, system, eyebrow): uppercase tracked sans, 10–12px\n` +
-                `        • QUOTE (voice-of-user body): italic serif, 14px, line-height 1.4\n` +
-                `        • DATA (metric numerals, participant codes): bold sans for numerals, monospace for codes\n\n` +
-                `        === FRAMING (CURRENT-STATE) ===\n` +
-                `        Title naming the journey (e.g., "Students navigate compounding friction across co-op placement, campus safety, and academic pressure"). 3–6 stage columns left to right adapted to corpus. Pain points are real, observed, evidenced. Opportunities noted but not committed. Frame everything as observed reality — what IS today, not what should be.\n\n` +
-                `        === ANTI-PATTERNS (AUTO-REJECT) ===\n` +
-                `        • Logo/brand-mark/seal anywhere on the slide. Header is eyebrow + title + lede only — no graphical mark.\n` +
-                `        • Headline overrunning into the right-rail paragraph zone (columns 10–12).\n` +
-                `        • Right-rail paragraph set narrower than 45 chars per line.\n` +
-                `        • Inactive persona-lane segments rendered solid (must be 30% dashed).\n` +
-                `        • More than one visually emphasized phase.\n` +
-                `        • More than one inverted metric tile.\n` +
-                `        • Activity labels rendered as gerund fragments rather than complete sentences.\n` +
-                `        • Activity labels positioned below or alternating with the timeline dot.\n` +
-                `        • Layout decisions differing between #NU and #NXT (structure must be identical; only color/font differ).\n` +
-                `        • Inheriting the exemplar's exact Y coordinates when YOUR label lengths differ. RECOMPUTE Y offsets.\n` +
-                `        • Content overlapping any line, divider, dot, or arrow.\n`;
+        // 2026-05-26 — `case 'journey':` and `case 'blueprint':` REMOVED.
+        // Both kinds route to /api/journey-map/generate via the dispatcher
+        // in components/CorpusChatPanel.tsx; the throw stub at the top of
+        // this function fails loudly if anyone bypasses the dispatcher.
+        // The ~250 lines of inline journey + blueprint design guidance were
+        // a 2026-05-25 depth-port of the dedicated Journey Mapper service.
+        // Keeping a fork meant the two implementations would drift; the
+        // service is the source of truth. See:
+        // memory/feedback_journey_must_route_to_journey_mapper.md
+
 
         case 'arch':
             return `        TECHNICAL ARCHITECTURE body must contain:\n` +
@@ -274,72 +247,6 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Density: ≤6 phases or ≤8 workstreams = full annotation; 6–12 / 8–16 = standard; 12–20 / 16–25 = cluster initiatives by capability; 20+ / 25+ = top-N + appendix footnote.\n` +
                 `        • DO NOT inherit the exemplar's coordinates when your phase count differs. RECOMPUTE column widths.\n`;
 
-        case 'blueprint':
-            return `        SERVICE BLUEPRINT DESIGN SYSTEM — NON-NEGOTIABLE (IDENTICAL 10-point spec as #journey, only the framing changes: blueprint is FUTURE-STATE with pain-points-solved and recommendations layered. Apply IDENTICALLY for #NU and #NXT — brand only changes color/font, not layout):\n\n` +
-                `        === 1. CANVAS, FRAME, SAFE AREA ===\n` +
-                `        • Artboard locked to 1920 × 1080. Nothing crosses those bounds.\n` +
-                `        • 80px safe area on all four sides. No content of any kind crosses the safe area.\n` +
-                `        • 12-column grid, 24px gutters, 80px outer margins. Every element snaps to columns 1–12.\n` +
-                `        • Three horizontal bands with hard boundaries: HEADER (0–240px from top), BLUEPRINT BODY (240–880px), SYNTHESIS (880–1080px). Content lives strictly inside its band.\n\n` +
-                `        === 2. TITLE & HEADLINE ===\n` +
-                `        • Title sits in COLUMNS 1–9. Auto-size 40–64px to fit max 3 lines. Title NEVER crosses into columns 10–12.\n` +
-                `        • Eyebrow above title: uppercase, tracked, 10–12px (e.g. "BLUEPRINT · FUTURE STATE"). Self-identifies the artifact.\n` +
-                `        • Title is a complete action-title sentence describing the redesigned outcome. NOT a topic phrase.\n\n` +
-                `        === 3. RIGHT-RAIL PARAGRAPH ===\n` +
-                `        • Reserved exclusively for COLUMNS 10–12, top-aligned to title baseline.\n` +
-                `        • LINE LENGTH: 45–65 characters per line. NON-NEGOTIABLE.\n` +
-                `        • Type: 14–16px, line-height 1.5, max 8 lines.\n\n` +
-                `        === 4. NEGATIVE SPACE & BALANCE ===\n` +
-                `        • The blueprint diagram occupies the FULL HORIZONTAL WIDTH (columns 1–12) within the body band.\n` +
-                `        • Upper-left quadrant must hold something purposeful — intervention summary, before/after delta, or anchored whitespace.\n\n` +
-                `        === 5. SWIMLANE STRUCTURE (BLUEPRINT-SPECIFIC) ===\n` +
-                `        • Four canonical lanes (Customer Action / Frontstage / Backstage / Support Processes). When fewer warranted, OMIT — never combine.\n` +
-                `        • Every lane runs the FULL WIDTH of the body band. Active segments: solid line. Inactive segments (lane not engaged at this step): 30%-opacity DASHED line.\n` +
-                `        • MAXIMUM 6 STEP COLUMNS (the future-state journey has 3–5 steps; complex blueprints split into a second map).\n` +
-                `        • Step header anatomy is IDENTICAL for every step: (1) eyebrow "STEP 0X · {time/state marker}"; (2) step name; (3) system callouts. Same structure no exceptions.\n` +
-                `        • EXACTLY ONE step may be visually emphasized as the focal redesign — single signal (tinted background OR italic OR underline).\n` +
-                `        • Vertical "line of visibility" between Frontstage and Backstage: 2px dashed, full body height.\n` +
-                `        • Vertical "line of internal interaction" between Backstage and Support Processes: 2px dotted, full body height.\n\n` +
-                `        === 6. STEP / TOUCHPOINT NODES & ACTIVITY LABELS ===\n` +
-                `        • Step IDs (CA-01, FS-02, BS-03, SP-04) min 9px when referenced; otherwise REMOVE.\n` +
-                `        • Node states for blueprint: STANDARD (open circle), INTERVENTION (filled accent — the design response, equivalent to journey's "moment of truth"), HANDOFF (split circle between lanes), AUTOMATED (square node).\n` +
-                `        • Touchpoint labels: max 2 lines, max ~50 characters, 11–12px.\n` +
-                `        • ALL activity labels MUST be COMPLETE SENTENCES with subject + verb. NEVER gerund fragments. BAD: "Creates account", "Lists jobs". GOOD: "The system creates a student account upon enrollment.", "NUworks lists open co-op postings by employer."\n` +
-                `        • All activity labels sit ABOVE their corresponding timeline dot. Never below. Never alternating.\n\n` +
-                `        === 7. INTERVENTION / OUTCOME / RECOMMENDATION LAYERS (BLUEPRINT-SPECIFIC) ===\n` +
-                `        • Intervention markers: small icons or flags attached to specific steps with a 1-line description of the design response. These REPLACE journey's pain-point markers — blueprint shows the solution, not the friction.\n` +
-                `        • Outcome arc: a single thin curve threaded across step columns at fixed y-offset showing the projected emotion/sentiment improvement (rust → mute → accent).\n` +
-                `        • Recommendation chips at the bottom of each step (or in a dedicated row above the lanes) summarizing the design choice that step embodies.\n\n` +
-                `        === 8. EVIDENCE QUOTE ROW (replaces journey's voice-of-user row) ===\n` +
-                `        • Locked to the bottom of the BLUEPRINT BODY band.\n` +
-                `        • ONE VERBATIM EVIDENCE QUOTE per step column — every step must have a diagnosis quote that grounds the design choice. Pull verbatim from the corpus.\n` +
-                `        • Quote anatomy: eyebrow "EVIDENCE FOR STEP 0X" (10px tracked uppercase); participant code in MONOSPACE; quote body in ITALIC SERIF, 14px, line-height 1.4; max 4 lines / ~140 characters.\n\n` +
-                `        === 9. SYNTHESIS & PROJECTED-IMPACT ROW (bottom band) ===\n` +
-                `        • Synthesis paragraph: COLUMNS 1–4, 14px, line-height 1.5, max 5 lines. Frame as "What this redesign achieves".\n` +
-                `        • Projected-impact tiles: COLUMNS 5–12, EXACTLY 3 or 4 tiles, all the same size, all the same visual weight by default.\n` +
-                `        • One inverted tile permitted — and only when it is the headline impact. Eyebrow reads "PROJECTED IMPACT" or "TARGET". Author's deliberate choice.\n` +
-                `        • Tile anatomy: 24px icon; 48–64px numeral; uppercase tracked 10px label; 12px supporting line max ~50 characters.\n\n` +
-                `        === 10. TYPOGRAPHIC SYSTEM (exactly five roles, NO exceptions) ===\n` +
-                `        • DISPLAY (title): bold sans, 40–64px, line-height 1.05\n` +
-                `        • BODY (right-rail paragraph, synthesis): regular sans, 14–16px, line-height 1.5\n` +
-                `        • LABEL (lane, step, system, eyebrow): uppercase tracked sans, 10–12px\n` +
-                `        • QUOTE (evidence row body): italic serif, 14px, line-height 1.4\n` +
-                `        • DATA (metric numerals, participant codes): bold sans for numerals, monospace for codes\n\n` +
-                `        === FRAMING (FUTURE-STATE) ===\n` +
-                `        Title naming the redesigned service or workflow (e.g., "An AI-augmented co-op match closes the late-cycle reschedule gap"). 3–6 step columns. Activity labels describe the redesigned interaction (the future-state behavior). Intervention markers signal where the design responds to evidenced pain. Justify every change with verbatim corpus evidence in the bottom row.\n\n` +
-                `        === ANTI-PATTERNS (AUTO-REJECT) ===\n` +
-                `        • Logo/brand-mark/seal anywhere on the slide. Header is eyebrow + title + lede only.\n` +
-                `        • Headline overrunning into the right-rail paragraph zone (columns 10–12).\n` +
-                `        • Right-rail paragraph set narrower than 45 chars per line.\n` +
-                `        • Inactive lane segments rendered solid (must be 30% dashed).\n` +
-                `        • More than one visually emphasized step. More than one inverted tile.\n` +
-                `        • Activity labels rendered as gerund fragments rather than complete sentences.\n` +
-                `        • Activity labels positioned below or alternating with the timeline dot.\n` +
-                `        • Layout decisions differing between #NU and #NXT (structure must be identical; only color/font differ).\n` +
-                `        • Inheriting the exemplar's exact Y coordinates when YOUR label lengths differ. RECOMPUTE.\n` +
-                `        • Content overlapping any lane line, line-of-visibility, line-of-internal-interaction, divider, dot, or arrow.\n` +
-                `        • Combining canonical lanes (Customer Action / Frontstage / Backstage / Support Processes). When fewer warranted, OMIT.\n` +
-                `        • Showing pain points without showing the corresponding intervention. Blueprint is the SOLUTION view; journey is the diagnosis view.\n`;
     }
 }
 
@@ -451,7 +358,7 @@ Format:
 `;
 }
 
-function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string; brandSkill: string; diagramSkill: string }): string {
+async function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string; brandSkill: string; diagramSkill: string }): Promise<string> {
     const sections: string[] = [];
 
     // 2026-05-08 — Universal tone rules at the top of every freeform prompt
@@ -460,6 +367,76 @@ function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string;
     // catastrophizing metaphors / hyperbole / jargon in any text emitted
     // inside the rendered HTML.
     sections.push(UNIVERSAL_TONE_RULES_INLINE);
+
+    // 2026-05-25 — ANTI-SLOP UPLIFT
+    // Patterns ingested from ignorance.ai "Field Guide to AI Slop", Wikipedia
+    // "Signs of AI writing", Algorithmic Bridge "10 Signs of AI Writing".
+    // The model receives these as MUST-NOT generation constraints — runtime
+    // post-processor catches anything that slips through.
+    sections.push(
+        `\n=== ANTI-SLOP — MUST-NOT GENERATION CONSTRAINTS ===\n` +
+        `\n` +
+        `VERBAL TICS — never use these words/phrases ANYWHERE in the rendered output:\n` +
+        `  delve, delves into, delving into, tapestry, rich tapestry, tapestry of,\n` +
+        `  testament, is a testament, stands as a testament, meticulous, meticulously,\n` +
+        `  nestled, vibrant, enduring legacy, interplay, garner, garnered, intricate,\n` +
+        `  intricacies, showcase, showcasing, bolster, bolsters, bolstered, foster,\n` +
+        `  fostering, fosters, enhance/enhances/enhancing (use "improve" / "make better"),\n` +
+        `  boasts (use "has"), paramount, of paramount, valuable insights, cultural\n` +
+        `  landscape, broader landscape, utilize (use "use"), comprehensive, foundational,\n` +
+        `  multifaceted, leveraging, facilitate (use "help" / "let"),\n` +
+        `  facilitating, facilitates.\n` +
+        `\n` +
+        `PIVOTAL-MOMENT PUFFERY — never emit:\n` +
+        `  pivotal moment, pivotal role, plays a pivotal/crucial/key/vital role,\n` +
+        `  plays a role in the ecosystem, marks a pivotal moment, represents a paradigm,\n` +
+        `  embodies the, epitomizes.\n` +
+        `\n` +
+        `COPULA AVOIDANCE — write "is" instead of these elaborate verbs:\n` +
+        `  serves as a → is a\n` +
+        `  stands as a → is a\n` +
+        `  marks the / marks a → is the / is a\n` +
+        `  represents the → is the\n` +
+        `  features (vs. has) → has\n` +
+        `\n` +
+        `RHETORICAL PATTERNS — never use:\n` +
+        `  "It's not X, it's Y"  /  "Not just X, but Y"  — reflexive AI parallelism\n` +
+        `  Snappy triads of adjectives ("fast, efficient, and reliable")\n` +
+        `  Mid-sentence rhetorical questions ("The solution? It's simpler than you think.")\n` +
+        `  "Something shifted." / "Everything changed." — unearned profundity\n` +
+        `  "But here's the thing —"  — false-revelation transition\n` +
+        `  "We are excited/thrilled/delighted to..." — press-release voice\n` +
+        `\n` +
+        `FORMAT TELLS:\n` +
+        `  • NEVER emit Unicode bold/italic stylization characters (e.g. mathematical bold script).\n` +
+        `  • NEVER use em-dash characters (U+2014) ANYWHERE in the rendered HTML output. Use comma, semicolon, colon, period, or parenthesis instead. Em-dashes are the single strongest AI-writing rhythm tell. The post-processor auto-strips them; do not emit them. ASCII hyphens in compound words are fine.\n` +
+        `  • NEVER emit ChatGPT artifact tags (oaicite, oai_citation, contentReference, turn0search0, attached_file).\n` +
+        `  • NEVER emit graphic elements that overlap: connector lines that cross through node bounding boxes, text labels that intersect dividers or arrows, SVG paths that cross other SVG primitives without a routing midpoint. If you would draw a connector that crosses through a node, route around with a midpoint, OR move to a CSS-grid layout where the geometry is inherently collision-free.\n` +
+        `\n` +
+        `KNOWLEDGE-CUTOFF / AI-AWARE DISCLAIMERS — never emit:\n` +
+        `  "As an AI..." / "I'm an AI..." / "As of my knowledge cutoff..." /\n` +
+        `  "My training data..." / "I don't have real-time..." / "I cannot provide..." /\n` +
+        `  "I should note..." / "It's worth mentioning..." / "Please note that..."\n` +
+        `\n` +
+        `REPORTING-DEPTH METADATA — never render as visible chrome:\n` +
+        `  "Run ID:", "Pipeline version", "Framework version", "Reproducibility hash",\n` +
+        `  "Confidence: HYPOTHESIS/EMERGING/VERIFIED", "Segment size:", "Mental model:",\n` +
+        `  "Non-goal:", "Persona type:", "(composite)" / "(synthetic)" name suffixes,\n` +
+        `  "↪ resolves:" arrows, "Phase 0X · Wk YY-ZZ" eyebrow stamps, "Pass 1B" /\n` +
+        `  "Phase 1C" pipeline-stage indicators, raw "[CHUNK_XXX]" markers.\n` +
+        `\n` +
+        `If the corpus genuinely doesn't support a claim, OMIT the claim and narrow\n` +
+        `the surrounding prose to what IS evidenced. NEVER add a debug tag or QA\n` +
+        `annotation. The reader sees a finished consulting artifact, never a\n` +
+        `debugging trace.\n` +
+        `\n` +
+        `POSITIVE COUNTER-PATTERNS — write like this instead:\n` +
+        `  • Concrete over abstract: "ATS rejects 48% of resumes" (not "comprehensive solutions")\n` +
+        `  • Specific over hedged: "8 of 12 interviews show…" (not "many participants suggested")\n` +
+        `  • Named over generic: "Higher Ed Dive (2025)" (not "research indicates")\n` +
+        `  • Conviction over balance: lead with the finding, not "while X has benefits, Y has challenges"\n` +
+        `  • Vary sentence length and rhythm. AI-rhythm is monotonously consistent.\n`
+    );
 
     // 2026-05-12 — Emphasis-VS preamble. Forces the model to enumerate 4
     // candidate framings with probabilities and commit to one before
@@ -538,7 +515,226 @@ function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string;
             `${args.currentArtifact.html}`);
     }
 
-    sections.push(`\n=== USER REQUEST ===\n${args.userPrompt}`);
+    // 2026-05-19 — TITLE RULES (ABSOLUTE).
+    // Bug observed: across 4 user turns asking to "eliminate claims in title",
+    // model still emitted "Codifying AI-driven readiness... recovers ~15 hours
+    // per cycle and mitigates placement anxiety" as the title. Titles are
+    // labels of the SUBJECT being mapped, not claims about it. Claims live in
+    // the body. The exemplar's <em> styling is for ONE noun phrase emphasis,
+    // never a full clause.
+    sections.push(
+        `\n=== TITLE RULES (ABSOLUTE — APPLIES TO journey/blueprint/org/arch/roadmap) ===\n` +
+        `The title is a SUBJECT LABEL identifying what is being mapped — never a finding, ` +
+        `recommendation, or claim. Claims belong in the body.\n` +
+        `\n` +
+        `GOOD title formats (4-9 words, noun-phrase, no quantifiers):\n` +
+        `  • "Co-op application lifecycle, current state"\n` +
+        `  • "Donor cultivation journey, future state"\n` +
+        `  • "Customer onboarding, end-to-end"\n` +
+        `  • "Claims intake to adjudication"\n` +
+        `\n` +
+        `BAD titles (NEVER emit these patterns):\n` +
+        `  • "Students navigate 20 disconnected systems" (finding, not subject)\n` +
+        `  • "Codifying X recovers Y hours" (recommendation, not subject)\n` +
+        `  • Any title containing %, $, numbers, "recovers", "mitigates", ` +
+        `"consolidates", "reduces", "increases", "drives", "saves", time spans like ` +
+        `"~15 hours", or benefit clauses like "and mitigates anxiety"\n` +
+        `  • Titles with verbs in present continuous ("Codifying...", "Consolidating...", ` +
+        `"Centralizing...") — those signal a recommendation, not a subject\n` +
+        `\n` +
+        `The <em> styling (italic + accent color) is for AT MOST ONE noun phrase ` +
+        `inside the subject label — never a verb, clause, statistic, or benefit. ` +
+        `If you cannot find a clean 4-9 word subject label, emit "[Subject pending — ` +
+        `user must name what this journey maps]" rather than inventing a claim title.`
+    );
+
+    // 2026-05-20 — MINIMAL-BY-DEFAULT for journey + blueprint (first generation).
+    // The exemplar HTML carries multiple decorative sections (phase-metadata
+    // codes like S-01 / "Phase 03 · Wk 09-12", the synthesis-band with 4 KPI
+    // tiles + a synthesis paragraph, and the voice-of-X row of quotes). Each
+    // has been the source of repeated user pain across multiple sessions:
+    //   • Wrong phase labels (e.g., "Phase 05 · Break") get replicated verbatim
+    //   • KPI tiles cite numbers the user didn't ask for
+    //   • Synthesis paragraph + voice-row collide in the layout when both render
+    //
+    // New default: on FIRST generation (currentArtifact === null) for a
+    // journey or blueprint, the model OMITS these sections from the output
+    // entirely. The user adds them back with explicit asks ("add KPI tiles",
+    // "add a synthesis paragraph", "add voice-of-student quotes"). This
+    // reverses the prior "render everything by default and force the user
+    // to subtract" pattern.
+    //
+    // On REVISIONS (currentArtifact present), the model preserves whatever
+    // sections the prior artifact contained — so if the user added them
+    // back on turn 2, they stay on turn 3.
+    const isFirstGen = !args.currentArtifact;
+    const isJourneyOrBlueprint = args.kind === 'journey' || args.kind === 'blueprint';
+    if (isFirstGen && isJourneyOrBlueprint) {
+        sections.push(
+            `\n=== MINIMAL-BY-DEFAULT (FIRST GENERATION ONLY) ===\n` +
+            `For this initial ${args.kind} generation, EMIT ONLY the load-bearing structure:\n` +
+            `  • Title + context callout (upper right)\n` +
+            `  • Phase columns with phase NAME labels (no metadata codes like "Phase 01 · Wk 01-04" — just the name)\n` +
+            `  • Swimlanes with role labels (STUDENT / COORDINATOR / EMPLOYER / etc.)\n` +
+            `  • Activity cells inside each lane × phase intersection\n` +
+            `\n` +
+            `SKIP these decorative sections on the first emission (the user adds them back if needed):\n` +
+            `  • Phase metadata codes: NEVER emit a ".ph-eye" div ("Phase 01 · Wk 01-04"). Removed permanently as reporting-depth metadata; the .ph-name and .ph-sys may stay\n` +
+            `  • Activity codes: remove ".tcode" divs (S-01, C-01, E-01, A-01) entirely from every activity\n` +
+            `  • Synthesis band: omit the entire ".synthesis-band" element (no synthesis paragraph, no KPI tiles)\n` +
+            `  • Voice-of-X row: omit the entire ".voice-row" element (no per-phase quote cells)\n` +
+            `\n` +
+            `If you keep these sections out, the user gets a clean foundation. If they want any of them,\n` +
+            `they will explicitly ask ("add the KPI tiles", "add a synthesis paragraph", "add voice-of-student\n` +
+            `quotes per phase") and you regenerate WITH the requested section. Until then, OMIT.\n`
+        );
+    }
+
+    // 2026-05-19 — USER-CONTROLLABLE SECTIONS.
+    // The exemplar HTML contains visual zones (KPI tiles, synthesis paragraph,
+    // phase metadata strip) that users frequently ask to remove for cleaner
+    // current-state journey maps. Without explicit guidance, the model keeps
+    // re-emitting them on every revision because they're in the exemplar
+    // structure. Once removed by user request, they must stay removed.
+    sections.push(
+        `\n=== USER-CONTROLLABLE SECTIONS (REMOVABLE ON REQUEST) ===\n` +
+        `The exemplar contains several optional decorative sections. When the user ` +
+        `asks to remove any of these, DELETE the corresponding DOM nodes entirely ` +
+        `from your output — do not just blank their content.\n` +
+        `\n` +
+        `Removable sections (match by visual purpose, the class names may vary):\n` +
+        `  • Bottom KPI tile row — large numeric tiles (e.g., "20 / 100 / 60% / 256:5"). ` +
+        `Remove if user says: "remove tiles", "remove KPIs", "remove bottom stats", ` +
+        `"no tiles", "no stat cards".\n` +
+        `  • Bottom synthesis paragraph — multi-line prose under "VOICE OF X" or ` +
+        `"SYNTHESIS" label. Remove if user says: "remove synthesis", "remove the bottom ` +
+        `paragraph", "drop the voice", "no synthesis block".\n` +
+        `  • Phase metadata strip — small caps labels like "PHASE 01 · WK 01-04" / ` +
+        `"S-01". Remove if user says: "remove metadata", "remove the phase numbers", ` +
+        `"drop the WK markers", "no phase codes".\n` +
+        `  • Context callout in the upper right (CLIENT, STATE, project code) — ` +
+        `remove if user says: "remove context box", "no client tag".\n` +
+        `\n` +
+        `STICKY REMOVAL: when ACCUMULATED INSTRUCTIONS below shows the user previously ` +
+        `requested removal of one of these zones, the zone STAYS REMOVED on this ` +
+        `regeneration even if the current turn doesn't restate it. Removal is permanent ` +
+        `unless the user explicitly re-requests it ("add the tiles back").`
+    );
+
+    // 2026-05-19 — SWIMLANE DENSITY + PHASE LABEL RULES.
+    // Bug observed: journey output had 2 activities per cell on STUDENT /
+    // ADVISOR / EMPLOYER lanes but only 1 on IT_SUPPORT. Also emitted
+    // "PHASE 05 · BREAK" as a phase label — abstract hallucination.
+    if (args.kind === 'journey' || args.kind === 'blueprint') {
+        sections.push(
+            `\n=== CELL ANATOMY + PHASE LABEL RULES (journey/blueprint) — 2026-05-25 ===\n` +
+            `CRITICAL: The .activities container is a CSS grid expecting EXACTLY N children\n` +
+            `(N = phase count). Emitting more than N .activity children per .activities\n` +
+            `container collapses every dot onto the same y-coordinate and produces\n` +
+            `catastrophic text overlap. THIS REPLACES THE PRIOR "3 activities + 2 pain\n` +
+            `points per cell" density floor — that rule was incompatible with the\n` +
+            `exemplar CSS.\n\n` +
+            `EXACTLY ONE <div class="activity"> PER PHASE COLUMN. Each cell carries:\n` +
+            `  (top)    <div class="alabel">One complete sentence — subject + verb + outcome</div>\n` +
+            `  (middle) <div class="dot"></div>\n` +
+            `  (bottom) <div class="pain">One short clause naming a specific friction</div>  ← OPTIONAL\n` +
+            `\n` +
+            `Quality density comes from making the SINGLE .alabel + the SINGLE .pain more\n` +
+            `evidenced (named numbers, named systems, proper nouns), NOT from stacking 3\n` +
+            `activity divs per cell.\n\n` +
+            `The CSS ::before pseudo-element renders the "PAIN" prefix automatically —\n` +
+            `DO NOT write "Pain:" or "PAIN:" inside the .pain body.\n\n` +
+            `If a (lane × phase) cell genuinely has no activity in this phase (e.g., the\n` +
+            `Employer lane during Term Start), emit a placeholder that preserves the\n` +
+            `grid: <div class="activity"><div class="alabel">—</div><div class="dot" style="opacity:0.35"></div></div>.\n` +
+            `NEVER leave a cell empty — that collapses grid alignment.\n\n` +
+            `Every lane MUST emit EXACTLY N .activity children per .activities container.\n` +
+            `Asymmetric child counts break the grid and AUTO-REJECT.\n\n` +
+            `PHASE LABELS: every phase name is a concrete BEHAVIORAL EVENT (the moment\n` +
+            `the actor's intent or system context shifts), NOT a gerund category.\n` +
+            `  GOOD: "Skill triage", "Posting browse", "Submission", "Interview cycle",\n` +
+            `        "Decision", "Onboarding", "Match", "Solicitation", "Triage",\n` +
+            `        "Resolution".\n` +
+            `  BAD:  "Preparation", "Application", "Assessment" (gerund categories),\n` +
+            `        "Phase N" / "Step N" without a noun,\n` +
+            `        "Break" / "Reset" / "Pause" / "Idle" / "Transition" / "Cycle",\n` +
+            `        Placeholder words ("TBD", "Other", "Misc", "Various").\n\n` +
+            `If the corpus does not support a clean phase noun for slot N, REDUCE the\n` +
+            `phase count instead of inventing an abstract one. 4 strong phases beats\n` +
+            `5 phases where the last is "Break".\n\n` +
+            `NEVER emit an .ph-eye eyebrow stamp like "Phase 0X · Wk YY-ZZ". The phase\n` +
+            `NAME (and optional .ph-sys system callout) is all the reader needs.\n` +
+            `Reporting-depth metadata stamps are AI-slop chrome — strip them.`
+        );
+    }
+
+    // 2026-05-19 — ACCUMULATED INSTRUCTIONS across prior turns.
+    // The Designer Desk chat is turn-amnesic without this block. When user
+    // has corrected the same issue 2-3 times, they expect cumulative
+    // compliance — they will not state a rule a fourth time.
+    if (args.priorUserInstructions && args.priorUserInstructions.length > 0) {
+        const numbered = args.priorUserInstructions
+            .map((msg, i) => `  ${i + 1}. ${msg.trim().replace(/\s+/g, ' ').slice(0, 600)}`)
+            .join('\n');
+        sections.push(
+            `\n=== ACCUMULATED USER INSTRUCTIONS (PRIOR TURNS — APPLY ALL) ===\n` +
+            `The user has made the following requests across prior turns of this ` +
+            `artifact's chat session. ALL of them remain in force on this regeneration ` +
+            `— the user has not retracted any. If a prior turn told you to remove ` +
+            `something, it STAYS REMOVED. If a prior turn told you to change tone, the ` +
+            `tone STAYS CHANGED. The user will not state these rules again — they ` +
+            `expect strict cumulative compliance.\n` +
+            `\n${numbered}\n` +
+            `\nIf a current-turn request conflicts with a prior turn, the CURRENT turn ` +
+            `wins (the user is updating). Otherwise, prior turns are still active rules.`
+        );
+    }
+
+    // 2026-05-19 — CROSS-SESSION LEARNED CONSTRAINTS injection.
+    // Previously broken: the Designer Desk captured user feedback via
+    // classifyMessage + logChatFeedback (DesignDeskChat.tsx:244/248) and
+    // persisted high-confidence rules to wiki/synthesis/learned-constraints.md,
+    // but the Designer's own regeneration path never called
+    // getActiveConstraints() — so the loop was open. Capture without read-back.
+    // This block closes the loop: every freeform regeneration now pulls the
+    // active learned-constraints set and applies it. Constraints accumulate
+    // across sessions (loadWikiConstraints runs on App.tsx boot at line 1609)
+    // and cross-engagement (any session writes to the same wiki ledger).
+    //
+    // 2026-05-20 — Now SCOPED by artifact kind. Each rule carries an
+    // artifactKind tag set at capture time. The scoped getter returns ONLY
+    // rules tagged for this artifact (plus universal 'all' rules), so a
+    // density preference said during a journey iteration doesn't pollute
+    // persona generation.
+    try {
+        // Dynamic import keeps the dependency unidirectional and survives
+        // bundle splitting. promptImprovementEngine is the SSOT for the
+        // constraint store; calling getActiveConstraints(kind) is read-only.
+        const { getActiveConstraints } = await import('../../services/promptImprovementEngine');
+        const learned = getActiveConstraints(args.kind);
+        if (learned && learned.trim().length > 0) {
+            sections.push(
+                `\n=== LEARNED CONSTRAINTS (cross-session, from prior user feedback) ===\n` +
+                `These constraints were learned from feedback the user (or other users) ` +
+                `gave on prior chat regenerations of "${args.kind}" artifacts (and universal rules ` +
+                `applicable to any artifact). They are HARD RULES — apply them unless a ` +
+                `current-turn instruction explicitly retracts one. The user expects ` +
+                `compounding improvement: the SAME mistake should NOT recur on this ` +
+                `regeneration.\n` +
+                `${learned.trim()}`
+            );
+            console.log(`[chatToFreeform] injected learned constraints (kind=${args.kind}): ${learned.split('\n').length - 3} rule(s)`);
+        } else {
+            // Visible no-op so we can SEE the loop is alive even when empty.
+            console.log(`[chatToFreeform] no learned constraints active for kind=${args.kind} yet`);
+        }
+    } catch (constraintLoadErr) {
+        // Non-fatal: if the engine fails to load, the regeneration still runs
+        // with the rest of the prompt. We log so this is visible if it happens.
+        console.warn('[chatToFreeform] learned-constraints load failed (non-fatal):', constraintLoadErr);
+    }
+
+    sections.push(`\n=== USER REQUEST (CURRENT TURN) ===\n${args.userPrompt}`);
 
     // MIDDLE HAMMER — body-only emission requirements
     sections.push(`\n=== CRITICAL EMISSION REQUIREMENTS ===\n` +
@@ -596,7 +792,7 @@ function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string;
  * Returns null if body content is complete; returns a specific error string
  * otherwise. No fallbacks — incomplete output is surfaced as a hard failure.
  */
-function checkBodyContentCompleteness(bodyContent: string): string | null {
+function checkBodyContentCompleteness(bodyContent: string, kind?: FreeformKind): string | null {
     if (!bodyContent || bodyContent.length < 200) {
         return `body content too short (${bodyContent?.length ?? 0} chars) — likely truncated or empty`;
     }
@@ -622,10 +818,205 @@ function checkBodyContentCompleteness(bodyContent: string): string | null {
         return `unbalanced <div> tags: ${openDivs} opened, ${closeDivs} closed — output truncated mid-element`;
     }
 
+    // Blockquote balance (matters for journey/blueprint .vq verbatim quote cells)
+    const openBQ = (bodyContent.match(/<blockquote\b[^>]*>/gi) ?? []).length;
+    const closeBQ = (bodyContent.match(/<\/blockquote\s*>/gi) ?? []).length;
+    if (openBQ !== closeBQ) {
+        return `unbalanced <blockquote> tags: ${openBQ} opened, ${closeBQ} closed — verbatim-quote cell likely truncated`;
+    }
+
+    // Per-kind depth contract (post-JM uplift, 2026-05-25).
+    if (kind) {
+        const depthError = checkKindSpecificDepth(bodyContent, kind);
+        if (depthError) return depthError;
+    }
+
     return null;
 }
 
+/**
+ * Per-kind structural depth check. For #journey this enforces the Journey
+ * Mapper-derived depth contract:
+ *   - dashboard block with personas + overall_pain_points + overall_opportunities + kpi tiles
+ *   - cell-internal richness: ≥40% .vq density, ≥60% .tp density, ≥80% .emo density
+ *   - exactly one .phase-head.focal
+ *   - no deprecated swimlane classes
+ *
+ * Returns null if depth is acceptable; otherwise a specific error string.
+ * The pipeline treats this as a hard failure so depth regressions can't ship.
+ */
+function checkKindSpecificDepth(bodyContent: string, kind: FreeformKind): string | null {
+    if (kind === 'journey') {
+        // Retired swimlane classes — auto-reject if any leaked from older
+        // exemplar bodies or older prompts.
+        const retired = ['phase-strip', 'lane-track', 'emotion-arc', 'opportunity-row', 'voice-row', 'synthesis-band'];
+        for (const cls of retired) {
+            if (new RegExp(`class="[^"]*\\b${cls}\\b[^"]*"`).test(bodyContent)) {
+                return `journey uses retired swimlane class ".${cls}". Migrated to grid-table layout 2026-05-25 — see exemplar-skills/diagrams/journey-illustrator/SKILL.md`;
+            }
+        }
+
+        // Grid container required
+        if (!/class="(?:[^"]*\s)?grid(?:\s[^"]*)?"/.test(bodyContent)) {
+            return 'journey lacks required .grid container (the shared blueprint grid-table layout)';
+        }
+
+        // Cell count
+        const cellMatches = bodyContent.match(/class="(?:[^"]*\s)?cell(?:\s[^"]*)?"/gi) ?? [];
+        const cellCount = cellMatches.length;
+        if (cellCount < 6) {
+            return `journey has only ${cellCount} .cell elements — minimum 6 (e.g., 2 lanes × 3 phases). Likely a layout truncation, not a deliberate choice`;
+        }
+
+        // Focal phase: must be EXACTLY one
+        const focal = (bodyContent.match(/class="(?:[^"]*\s)?phase-head\s+focal(?:\s[^"]*)?"/g) ?? []).length;
+        if (focal !== 1) {
+            return `journey has ${focal} .phase-head.focal elements; must be exactly 1 (the recommendation-intervention column)`;
+        }
+
+        // Depth contract — verbatim quote density (skill spec ≥40%)
+        const vqCount = (bodyContent.match(/<blockquote\b[^>]*class="(?:[^"]*\s)?vq(?:\s[^"]*)?"/gi) ?? []).length;
+        const vqRatio = cellCount > 0 ? vqCount / cellCount : 0;
+        if (vqRatio < 0.30) {
+            return `journey verbatim-quote density ${(vqRatio * 100).toFixed(0)}% (${vqCount} .vq across ${cellCount} cells); contract minimum is 40% (warn-floor 30%). Add verbatim corpus quotes to cells`;
+        }
+
+        // Depth contract — named touchpoint density (skill spec ≥60%)
+        const tpCount = (bodyContent.match(/class="(?:[^"]*\s)?tp(?:\s[^"]*)?"/gi) ?? []).length;
+        const tpRatio = cellCount > 0 ? tpCount / cellCount : 0;
+        if (tpRatio < 0.50) {
+            return `journey named-touchpoint density ${(tpRatio * 100).toFixed(0)}% (${tpCount} .tp across ${cellCount} cells); contract minimum 60% (warn-floor 50%). Add named touchpoint channels to cells`;
+        }
+
+        // Depth contract — emotion specificity (skill spec ≥80%)
+        const emoCount = (bodyContent.match(/class="(?:[^"]*\s)?emo(?:\s[^"]*)?"/gi) ?? []).length;
+        const emoRatio = cellCount > 0 ? emoCount / cellCount : 0;
+        if (emoRatio < 0.60) {
+            return `journey emotion specificity ${(emoRatio * 100).toFixed(0)}% (${emoCount} .emo across ${cellCount} cells); contract minimum 80% (warn-floor 60%). Add per-cell emotion + intensity`;
+        }
+
+        // Dashboard presence
+        const hasDashboard = /class="(?:[^"]*\s)?kpi-dashboard(?:\s[^"]*)?"/.test(bodyContent);
+        const hasKpiTiles = /class="(?:[^"]*\s)?kpi-tiles?(?:\s[^"]*)?"/.test(bodyContent) || (bodyContent.match(/class="(?:[^"]*\s)?kpi-tile(?:\s[^"]*)?"/g) ?? []).length >= 3;
+        const hasPersonas = /class="(?:[^"]*\s)?personas?(?:\s[^"]*)?"/.test(bodyContent);
+        const hasOverallPain = /class="(?:[^"]*\s)?overall-pain(?:\s[^"]*)?"/.test(bodyContent);
+        const hasOverallOpp = /class="(?:[^"]*\s)?overall-opp(?:\s[^"]*)?"/.test(bodyContent);
+        const dashSignals = [hasDashboard, hasKpiTiles, hasPersonas, hasOverallPain, hasOverallOpp].filter(Boolean).length;
+        if (dashSignals < 3) {
+            return `journey dashboard underbuilt: only ${dashSignals}/5 signals (dashboard wrapper, kpi tiles, personas, overall-pain, overall-opp). Dashboard is required at top of body`;
+        }
+
+        // No reporting-depth metadata leaks
+        if (/class="(?:[^"]*\s)?ph-eye(?:\s[^"]*)?"/.test(bodyContent)) {
+            return 'journey contains .ph-eye phase-metadata stamps (e.g. "Phase 0X · Wk YY-ZZ") — banned 2026-05-25 as reporting-depth metadata';
+        }
+        if (/class="(?:[^"]*\s)?tphase(?:\s[^"]*)?"/.test(bodyContent)) {
+            return 'journey KPI tile contains .tphase mini-tag — banned 2026-05-25. Phase reference belongs in tile prose';
+        }
+    }
+
+    // Blueprint inherits the journey grid contract with different framing fields
+    if (kind === 'blueprint') {
+        if (!/class="(?:[^"]*\s)?grid(?:\s[^"]*)?"/.test(bodyContent)) {
+            return 'blueprint lacks required .grid container (shared grid-table layout with journey)';
+        }
+    }
+
+    return null;
+}
+
+// ─── 2026-05-25 — ARTIFACT ENGINE KIND MAP ───────────────────────────────
+// Every freeform kind now routes through the unified /api/artifact/* proxy
+// engine. Journey gets special-cased to JM's two-pass pipeline; all other
+// kinds use the generic Claude-driven generator with the kind-specific
+// skill markdown as the system prompt. This unifies brand override +
+// anti-slop + launcher-card + self-improvement across the deliverable suite.
+const ARTIFACT_ENGINE_KINDS = new Set<string>([
+    'journey', 'blueprint', 'persona', 'prd', 'roadmap', 'recommendation',
+    'strategy-slide', 'strategy', 'brief', 'org', 'arch', 'gap-analysis',
+    'tech-audit', 'competitive', 'presentation', 'mindmap', 'brief-dialog',
+    'meta-themes', 'research-plan',
+]);
+
 export async function generateFreeformArtifact(args: FreeformGenerateArgs): Promise<FreeformGenerateResult> {
+    // ─── ARTIFACT ENGINE ROUTE — unified across every kind ────────────────
+    // Generation path: hits /api/artifact/generate (which special-cases
+    // journey to the JM IA service internally). Revision path: hits
+    // /api/artifact/revise with the current HTML + user instruction.
+    if (ARTIFACT_ENGINE_KINDS.has(args.kind)) {
+        const isRevision = !!args.currentArtifact && typeof (args.currentArtifact as any).html === 'string' && (args.currentArtifact as any).html.length > 100;
+        const endpoint = isRevision ? '/api/artifact/revise' : (args.kind === 'journey' ? '/api/journey-map/generate' : '/api/artifact/generate');
+        const reqBody = isRevision
+            ? {
+                  kind: args.kind,
+                  brand: args.brand,
+                  current_html: (args.currentArtifact as any).html,
+                  revision_instruction: args.userPrompt,
+              }
+            : {
+                  kind: args.kind,
+                  brand: args.brand,
+                  goal: args.userPrompt,
+                  description: '',
+                  journey_type: 'general',
+                  corpus: args.corpus || '',
+              };
+        try {
+            const resp = await fetch(`http://127.0.0.1:5012${endpoint}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(reqBody),
+            });
+            if (resp.ok) {
+                const data = await resp.json();
+                if (data?.ok && data?.html) {
+                    const launcherUrl = data.launcher_url ? `http://localhost:5012${data.launcher_url}` : '';
+                    const citations: Array<{ label: string; source: string }> = [];
+                    if (launcherUrl) {
+                        citations.push({
+                            label: `Open full ${args.kind} report`,
+                            source: launcherUrl,
+                        });
+                    }
+                    const artifact: FreeformArtifact = {
+                        id: `f_${Date.now()}`,
+                        type: 'freeform',
+                        kind: args.kind as any,
+                        brand: args.brand,
+                        title: (args.userPrompt || `${args.kind} report`).slice(0, 200),
+                        html: data.html,
+                        citations,
+                        createdAt: args.currentArtifact?.createdAt ?? Date.now(),
+                        updatedAt: Date.now(),
+                    };
+                    const modelLabel = `artifact-engine ${args.kind} via ${data.model || 'claude'}${data.source ? ` (${data.source})` : ''}`;
+                    console.info(`[generateFreeformArtifact] ${isRevision ? 'REVISED' : 'GENERATED'} ${args.kind} via artifact engine (${data.html.length} chars, id=${data.artifact_id || data.journey_id}, launcher=${data.launcher_url})`);
+                    return { ok: true, artifact, modelUsed: modelLabel as any };
+                }
+                // 2026-05-25 — DO NOT fall through to inline. The user explicitly
+                // chose the artifact engine pipeline. Surface the failure with the
+                // actual error so they can act on it.
+                return {
+                    ok: false,
+                    error: `Artifact engine returned: ${data?.error || 'unknown error'}. Retry with a smaller corpus or different model.`,
+                    modelUsed: 'artifact-engine-failed' as any,
+                };
+            }
+            const errText = await resp.text();
+            return {
+                ok: false,
+                error: `Artifact engine HTTP ${resp.status} for #${args.kind}: ${errText.slice(0, 300)}. Check proxy logs.`,
+                modelUsed: 'artifact-engine-failed' as any,
+            };
+        } catch (engineErr: any) {
+            return {
+                ok: false,
+                error: `Artifact engine error for #${args.kind}: ${engineErr?.message || engineErr}. Verify the proxy + Anthropic key.`,
+                modelUsed: 'artifact-engine-failed' as any,
+            };
+        }
+    }
+
     let bundle;
     try {
         bundle = loadExemplar(args.kind, args.brand);
@@ -633,7 +1024,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
         return { ok: false, error: err?.message ?? String(err) };
     }
 
-    const prompt = buildPrompt(args, bundle);
+    const prompt = await buildPrompt(args, bundle);
 
     let raw: string;
     try {
@@ -691,6 +1082,24 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
     // the user can inspect the actual emitted document via the browser console
     // and we can pinpoint exactly which CSS rule or element was malformed.
     console.info(`[Freeform] generated ${args.kind}/${args.brand} (${sanitizedHtml.length} chars). Full HTML:`, sanitizedHtml);
+
+    // 2026-05-20 — Discriminator: score the new output, compare to prior,
+    // attribute deltas to active constraints, dismiss bad ones, emit a
+    // lineage record the UI can render. Failure-isolated; the artifact
+    // ships regardless.
+    try {
+        const { discriminate, snapshotActiveConstraints } = await import('../../services/improvementDiscriminator');
+        const activeConstraints = snapshotActiveConstraints(args.kind);
+        discriminate({
+            artifactKind: args.kind,
+            artifactId: validation.value.id,
+            timestamp: Date.now(),
+            content: sanitizedHtml,
+            activeConstraints,
+        });
+    } catch (discrimErr: any) {
+        console.warn('[Freeform] discriminator step skipped (non-fatal):', discrimErr?.message || discrimErr);
+    }
 
     return { ok: true, artifact: validation.value, modelUsed: args.model };
 }

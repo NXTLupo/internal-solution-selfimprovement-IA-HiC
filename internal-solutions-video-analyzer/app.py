@@ -179,6 +179,46 @@ def format_timestamp(seconds):
     seconds = int(seconds % 60)
     return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
+
+# 2026-05-22 — Structured JSON export.
+# Earlier transcripts were persisted only as formatted .txt files, so the
+# /transcript/{job_id} endpoint flattened the entire transcription (video
+# metadata, full text, per-segment timings) into a single "transcript" string
+# field. The JSON download was effectively just that string wrapped in JSON —
+# useless to any downstream parser. We now persist a structured sidecar
+# `{job_id}_transcript.json` alongside the .txt at every transcript-write
+# site, and /transcript/{job_id} merges it into the response. The .txt file
+# is preserved for any existing readers.
+def _whisper_segments_to_list(segments, offset_seconds: float = 0.0) -> list:
+    """Normalize Whisper-style segment objects to plain dicts. Accepts both
+    OpenAI SDK Segment instances and our WhisperResponse.Segment stitched
+    placeholders — both expose .start/.end/.text."""
+    out = []
+    for seg in segments or []:
+        start = float(getattr(seg, 'start', 0) or 0) + offset_seconds
+        end = float(getattr(seg, 'end', 0) or 0) + offset_seconds
+        text = (getattr(seg, 'text', '') or '').strip()
+        if not text:
+            continue
+        out.append({"start": round(start, 3), "end": round(end, 3), "text": text})
+    return out
+
+
+def _save_transcript_sidecar(job_id: str, source: dict, transcription: dict) -> str:
+    """Persist a structured transcript JSON next to the .txt file.
+    Returns the absolute path to the written sidecar."""
+    payload = {
+        "job_id": job_id,
+        "format_version": "1.0",
+        "completed_at": datetime.now().isoformat(),
+        "source": source,
+        "transcription": transcription,
+    }
+    path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+    return path
+
 async def process_video(job_id: str, file_path: str):
     """Real video processing function using FFmpeg and Whisper API"""
     temp_dir = None
@@ -189,17 +229,22 @@ async def process_video(job_id: str, file_path: str):
         temp_dir = tempfile.mkdtemp(dir=TEMP_DIR)
         active_jobs[job_id]["progress"] = 10
         
-        # Extract audio from video using FFmpeg (as MP3 for Whisper API)
+        # 2026-05-20 — Switched to Whisper-optimal extraction (16 kHz mono
+        # 64 kbps). Was 44.1 kHz stereo VBR q=4 (~165 kbps); produced files
+        # that exceeded Whisper's 25 MB cap for anything over ~20 min and
+        # silently fell back to "Speech segment" placeholders. Whisper
+        # internally downsamples to 16 kHz anyway, so this is lossless from
+        # the model's perspective and ~5x smaller on disk.
         audio_file = os.path.join(temp_dir, f"{job_id}_audio.mp3")
         logger.info(f"Extracting audio from video: {file_path} to {audio_file}")
-        
+
         cmd = [
-            'ffmpeg', '-i', file_path, 
-            '-vn', '-acodec', 'libmp3lame', 
-            '-ar', '44100', '-ac', '2', '-q:a', '4',
+            'ffmpeg', '-y', '-i', file_path,
+            '-vn', '-acodec', 'libmp3lame',
+            '-ar', '16000', '-ac', '1', '-b:a', '64k',
             audio_file
         ]
-        
+
         subprocess.run(cmd, check=True, capture_output=True)
         active_jobs[job_id]["progress"] = 50
         
@@ -218,75 +263,121 @@ async def process_video(job_id: str, file_path: str):
             with open(transcript_path, "w") as f:
                 f.write(f"Video File: {os.path.basename(file_path)}\n\n")
                 f.write("==== WHISPER TRANSCRIPTION ====\n\n")
-                
+
                 # Write the full transcript
                 f.write(transcript_data.text + "\n\n")
-                
+
                 # Write segments with timestamps
                 f.write("==== TRANSCRIPT WITH TIMESTAMPS ====\n\n")
-                
+
                 for segment in transcript_data.segments:
                     start_time = format_timestamp(segment.start)
                     end_time = format_timestamp(segment.end)
                     text = segment.text.strip()
                     f.write(f"[{start_time} - {end_time}] {text}\n")
-        
+
+            sidecar_path = _save_transcript_sidecar(
+                job_id,
+                source={
+                    "type": "upload",
+                    "filename": os.path.basename(file_path),
+                },
+                transcription={
+                    "method": "whisper",
+                    "language": getattr(transcript_data, "language", "en"),
+                    "full_text": (transcript_data.text or "").strip(),
+                    "segments": _whisper_segments_to_list(getattr(transcript_data, "segments", []) or []),
+                },
+            )
+            active_jobs[job_id]["transcript_json_path"] = sidecar_path
+
         except Exception as e:
             logger.error(f"Error with Whisper API, falling back to simple speech detection: {str(e)}")
             active_jobs[job_id]["progress"] = 70
-            
+
             # Fallback to speech segment detection
             cmd = [
-                'ffmpeg', '-i', audio_file, 
-                '-af', 'silencedetect=n=-30dB:d=0.5', 
+                'ffmpeg', '-i', audio_file,
+                '-af', 'silencedetect=n=-30dB:d=0.5',
                 '-f', 'null', '-'
             ]
-            
+
             result = subprocess.run(cmd, capture_output=True, text=True)
             output = result.stderr
-            
+
             # Parse the silence detection output
             silence_starts = re.findall(r'silence_start: (\d+\.\d+)', output)
             silence_ends = re.findall(r'silence_end: (\d+\.\d+)', output)
-            
+
             # Create transcript with detected speech segments
             transcript_path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.txt")
             with open(transcript_path, "w") as f:
                 f.write(f"Video File: {os.path.basename(file_path)}\n\n")
                 f.write("==== AUDIO SEGMENTS ====\n\n")
-                
+
                 # If we have silence markers, use them to identify speech segments
                 if silence_starts and silence_ends:
                     # Ensure we start from the beginning
                     if float(silence_starts[0]) > 0:
                         f.write(f"[00:00:00 - {format_timestamp(float(silence_starts[0]))}] Speech segment\n")
-                    
+
                     # Process middle segments
                     for i in range(min(len(silence_ends), len(silence_starts))):
                         end_time = float(silence_ends[i])
-                        
+
                         if i < len(silence_starts):
                             start_time = float(silence_starts[i])
                             f.write(f"[{format_timestamp(end_time)} - {format_timestamp(start_time)}] Speech segment\n")
                 else:
                     f.write("No clear speech segments detected. The audio may be continuous or very quiet.\n")
-                    
+
                 f.write("\n==== NOTE ====\n")
                 f.write("Failed to use Whisper API for transcription. Falling back to speech detection.\n")
                 f.write(f"Error: {str(e)}\n")
-        
+
+            fallback_segments = []
+            if silence_starts and silence_ends:
+                if float(silence_starts[0]) > 0:
+                    fallback_segments.append({
+                        "start": 0.0,
+                        "end": round(float(silence_starts[0]), 3),
+                        "text": "Speech segment",
+                    })
+                for i in range(min(len(silence_ends), len(silence_starts))):
+                    fallback_segments.append({
+                        "start": round(float(silence_ends[i]), 3),
+                        "end": round(float(silence_starts[i]), 3),
+                        "text": "Speech segment",
+                    })
+
+            sidecar_path = _save_transcript_sidecar(
+                job_id,
+                source={
+                    "type": "upload",
+                    "filename": os.path.basename(file_path),
+                },
+                transcription={
+                    "method": "silence_detection",
+                    "language": None,
+                    "full_text": "",
+                    "segments": fallback_segments,
+                    "fallback_reason": str(e),
+                },
+            )
+            active_jobs[job_id]["transcript_json_path"] = sidecar_path
+
         active_jobs[job_id]["progress"] = 95
-        
+
         # Clean up temp files but keep the transcript
         if temp_dir and os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
-        
+
         # Update job status
         active_jobs[job_id]["status"] = "completed"
         active_jobs[job_id]["end_time"] = datetime.now().isoformat()
         active_jobs[job_id]["transcript_path"] = transcript_path
         active_jobs[job_id]["progress"] = 100
-        
+
         logger.info(f"Video processing completed for job {job_id}")
     
     except Exception as e:
@@ -313,35 +404,156 @@ class WhisperResponse:
         self.text = text
         self.segments = []
 
+# 2026-05-20 — Whisper API has a hard 25 MB upload limit. Any audio file
+# larger than that returns 413 and the pipeline silently falls back to
+# silence-detection ("Speech segment" placeholders for every timestamp).
+# The fix is two-layered:
+#   1. _whisper_optimize_audio() recompresses to 16 kHz mono 64 kbps MP3,
+#      which is Whisper's recommended preprocessing and ~5x smaller than
+#      the previous 44.1 kHz stereo 165 kbps output. Most videos under
+#      ~2 hours now fit under 25 MB in a single shot.
+#   2. _split_audio_for_whisper() chunks audio that's STILL too big into
+#      ~10-minute segments via FFmpeg and transcribes each. Segment
+#      timestamps are offset by the chunk's start time so the stitched
+#      transcript has a continuous, monotonic timeline.
+WHISPER_MAX_BYTES = 24 * 1024 * 1024   # 24 MB — 1 MB safety margin under 25 MB API cap
+WHISPER_CHUNK_SECONDS = 600            # 10-min chunks; ~5 MB each at 64kbps mono
+
+
+def _whisper_optimize_audio(input_path: str, output_path: str) -> None:
+    """Recompress audio to Whisper-optimal format (16 kHz mono 64 kbps MP3).
+    Raises CalledProcessError on FFmpeg failure."""
+    cmd = [
+        'ffmpeg', '-y', '-i', input_path,
+        '-vn',                  # drop any video
+        '-ac', '1',             # mono
+        '-ar', '16000',         # 16 kHz (Whisper internal sample rate)
+        '-b:a', '64k',          # 64 kbps — Whisper-recommended
+        '-acodec', 'libmp3lame',
+        output_path,
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+def _audio_duration_seconds(path: str) -> float:
+    """Read media duration in seconds via ffprobe. Returns 0 on failure
+    so the chunker can decide based on file size alone."""
+    try:
+        result = subprocess.run(
+            ['ffprobe', '-v', 'error', '-show_entries', 'format=duration',
+             '-of', 'default=noprint_wrappers=1:nokey=1', path],
+            capture_output=True, text=True, check=True,
+        )
+        return float(result.stdout.strip())
+    except (subprocess.CalledProcessError, ValueError):
+        return 0.0
+
+
+def _split_audio_for_whisper(audio_path: str, chunk_dir: str, chunk_seconds: int = WHISPER_CHUNK_SECONDS) -> list:
+    """Split audio into fixed-duration chunks via FFmpeg's segment muxer.
+    Returns list of (chunk_path, start_offset_seconds) tuples in time order."""
+    os.makedirs(chunk_dir, exist_ok=True)
+    pattern = os.path.join(chunk_dir, "chunk_%03d.mp3")
+    cmd = [
+        'ffmpeg', '-y', '-i', audio_path,
+        '-f', 'segment',
+        '-segment_time', str(chunk_seconds),
+        '-c', 'copy',                  # no re-encode — splits are byte-fast
+        '-reset_timestamps', '1',
+        pattern,
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+    chunks = sorted(f for f in os.listdir(chunk_dir) if f.startswith("chunk_") and f.endswith(".mp3"))
+    return [(os.path.join(chunk_dir, name), idx * chunk_seconds) for idx, name in enumerate(chunks)]
+
+
+def _whisper_single_call(client, audio_file_path: str):
+    """Single Whisper API call. Caller owns chunking + error handling."""
+    with open(audio_file_path, "rb") as audio_file:
+        return client.audio.transcriptions.create(
+            model="whisper-1",
+            file=audio_file,
+            language="en",
+            response_format="verbose_json",
+            timestamp_granularities=["segment", "word"],
+        )
+
+
 async def transcribe_with_whisper(audio_file_path):
-    """Transcribe audio using OpenAI Whisper API or fallback to local transcription"""
+    """Transcribe audio via OpenAI Whisper. Handles files >25 MB by:
+      (a) recompressing to Whisper-optimal 16kHz mono 64 kbps MP3
+      (b) if still too big, chunking into 10-min segments and stitching results."""
     if not OPENAI_API_KEY:
         logger.warning("No OpenAI API key provided. Using speech segment detection instead.")
         raise Exception("No OpenAI API key provided")
-    
-    # Debug log the API key (masked)
-    if OPENAI_API_KEY:
-        masked_key = f"{OPENAI_API_KEY[:7]}...{OPENAI_API_KEY[-4:]}" if len(OPENAI_API_KEY) > 10 else "[INVALID KEY]"
-        logger.info(f"Using OpenAI API key: {masked_key}, length: {len(OPENAI_API_KEY)}")
-        
+
+    masked_key = f"{OPENAI_API_KEY[:7]}...{OPENAI_API_KEY[-4:]}" if len(OPENAI_API_KEY) > 10 else "[INVALID KEY]"
+    logger.info(f"Using OpenAI API key: {masked_key}, length: {len(OPENAI_API_KEY)}")
+
+    client = OpenAI(api_key=OPENAI_API_KEY)
+
+    # Step 1: ensure audio is Whisper-optimal. If recompression fails, fall
+    # back to the original file (smaller-is-better, but original > nothing).
+    work_dir = tempfile.mkdtemp(dir=TEMP_DIR, prefix="whisper_")
     try:
-        client = OpenAI(api_key=OPENAI_API_KEY)
-        
-        # Open the audio file
-        with open(audio_file_path, "rb") as audio_file:
-            # Call Whisper API for transcription
-            response = client.audio.transcriptions.create(
-                model="whisper-1", 
-                file=audio_file,
-                language="en",
-                response_format="verbose_json",
-                timestamp_granularities=["segment", "word"]
+        optimized_path = os.path.join(work_dir, "optimized.mp3")
+        try:
+            _whisper_optimize_audio(audio_file_path, optimized_path)
+            active_path = optimized_path
+            logger.info(
+                f"Whisper preprocess: {os.path.getsize(audio_file_path):,} → "
+                f"{os.path.getsize(optimized_path):,} bytes (16kHz mono 64kbps)"
             )
-            
-            return response
-    except Exception as e:
-        logger.error(f"Error transcribing with Whisper API: {str(e)}")
-        raise
+        except subprocess.CalledProcessError as e:
+            logger.warning(f"Whisper preprocess failed; using original audio. {e.stderr[:200] if e.stderr else ''}")
+            active_path = audio_file_path
+
+        # Step 2: single shot if under 24 MB.
+        size_bytes = os.path.getsize(active_path)
+        if size_bytes <= WHISPER_MAX_BYTES:
+            logger.info(f"Whisper single-shot transcription ({size_bytes:,} bytes)")
+            try:
+                return _whisper_single_call(client, active_path)
+            except Exception as e:
+                logger.error(f"Whisper single-shot failed: {e}")
+                raise
+
+        # Step 3: chunk + stitch.
+        logger.info(f"Audio is {size_bytes:,} bytes (>24 MB) — chunking into {WHISPER_CHUNK_SECONDS}s segments")
+        chunk_dir = os.path.join(work_dir, "chunks")
+        chunks = _split_audio_for_whisper(active_path, chunk_dir, WHISPER_CHUNK_SECONDS)
+        if not chunks:
+            raise Exception("Audio chunking produced zero chunks")
+
+        full_text_parts: list = []
+        all_segments: list = []
+        for chunk_path, offset_s in chunks:
+            chunk_size = os.path.getsize(chunk_path)
+            logger.info(f"Whisper chunk @+{offset_s}s ({chunk_size:,} bytes): {os.path.basename(chunk_path)}")
+            chunk_resp = _whisper_single_call(client, chunk_path)
+            if getattr(chunk_resp, 'text', None):
+                full_text_parts.append(chunk_resp.text)
+            chunk_segments = getattr(chunk_resp, 'segments', None) or []
+            for seg in chunk_segments:
+                # Offset timestamps so the stitched transcript has a continuous timeline.
+                seg_start = getattr(seg, 'start', 0) or 0
+                seg_end = getattr(seg, 'end', 0) or 0
+                seg_text = getattr(seg, 'text', '') or ''
+                all_segments.append(WhisperResponse.Segment(
+                    start=seg_start + offset_s,
+                    end=seg_end + offset_s,
+                    text=seg_text,
+                ))
+
+        stitched = WhisperResponse('\n'.join(full_text_parts))
+        stitched.segments = all_segments
+        logger.info(f"Whisper stitched: {len(chunks)} chunks → {len(all_segments)} segments, {len(stitched.text):,} chars")
+        return stitched
+    finally:
+        try:
+            shutil.rmtree(work_dir)
+        except Exception:
+            pass
 
 async def process_youtube_video(job_id: str, youtube_url: str):
     """Real YouTube video processing function using yt-dlp and OpenAI Whisper API"""
@@ -389,26 +601,52 @@ async def process_youtube_video(job_id: str, youtube_url: str):
             transcript_list = transcript_api.fetch(video_id)
             
             # Format and save the transcript
+            structured_segments = []
+            full_text_parts = []
+            for entry in transcript_list:
+                entry_text = (entry.text or "").replace('\n', ' ').strip()
+                if not entry_text:
+                    continue
+                start = float(entry.start or 0)
+                duration = float(getattr(entry, 'duration', 0) or 0)
+                full_text_parts.append(entry_text)
+                structured_segments.append({
+                    "start": round(start, 3),
+                    "end": round(start + duration, 3),
+                    "text": entry_text,
+                })
+            full_text = " ".join(full_text_parts)
+
             with open(transcript_path, "w") as f:
                 f.write(f"YouTube Video: {youtube_url}\n")
                 f.write(f"Title: {active_jobs[job_id]['video_title']}\n")
                 f.write(f"Channel: {active_jobs[job_id]['video_channel']}\n")
                 f.write(f"Duration: {active_jobs[job_id]['video_duration']} seconds\n\n")
                 f.write("==== YOUTUBE TRANSCRIPT (AUTO-GENERATED) ====\n\n")
-                
-                # Write full transcript
-                full_text = " ".join([entry.text for entry in transcript_list])
                 f.write(full_text + "\n\n")
-                
-                # Write transcript with timestamps
                 f.write("==== TRANSCRIPT WITH TIMESTAMPS ====\n\n")
-                for entry in transcript_list:
-                    start_time = format_timestamp(entry.start)
-                    duration = getattr(entry, 'duration', 0)
-                    end_time = format_timestamp(entry.start + duration)
-                    text = entry.text.replace('\n', ' ').strip()
-                    f.write(f"[{start_time} - {end_time}] {text}\n")
-            
+                for seg in structured_segments:
+                    f.write(f"[{format_timestamp(seg['start'])} - {format_timestamp(seg['end'])}] {seg['text']}\n")
+
+            sidecar_path = _save_transcript_sidecar(
+                job_id,
+                source={
+                    "type": "youtube",
+                    "url": youtube_url,
+                    "video_id": video_id,
+                    "title": active_jobs[job_id]["video_title"],
+                    "channel": active_jobs[job_id]["video_channel"],
+                    "duration_seconds": active_jobs[job_id]["video_duration"],
+                },
+                transcription={
+                    "method": "youtube_captions",
+                    "language": getattr(transcript_list, "language_code", None),
+                    "full_text": full_text,
+                    "segments": structured_segments,
+                },
+            )
+            active_jobs[job_id]["transcript_json_path"] = sidecar_path
+
             logger.info("Successfully fetched YouTube transcript")
             active_jobs[job_id]["progress"] = 90
             
@@ -476,37 +714,56 @@ async def process_youtube_video(job_id: str, youtube_url: str):
                 f.write(f"Channel: {active_jobs[job_id]['video_channel']}\n")
                 f.write(f"Duration: {active_jobs[job_id]['video_duration']} seconds\n\n")
                 f.write("==== WHISPER TRANSCRIPTION ====\n\n")
-                
+
                 # Write the full transcript
                 f.write(transcript_data.text + "\n\n")
-                
+
                 # Write segments with timestamps
                 f.write("==== TRANSCRIPT WITH TIMESTAMPS ====\n\n")
-                
+
                 for segment in transcript_data.segments:
                     start_time = format_timestamp(segment.start)
                     end_time = format_timestamp(segment.end)
                     text = segment.text.strip()
                     f.write(f"[{start_time} - {end_time}] {text}\n")
-                
+
+            sidecar_path = _save_transcript_sidecar(
+                job_id,
+                source={
+                    "type": "youtube",
+                    "url": youtube_url,
+                    "video_id": video_id,
+                    "title": active_jobs[job_id]["video_title"],
+                    "channel": active_jobs[job_id]["video_channel"],
+                    "duration_seconds": active_jobs[job_id]["video_duration"],
+                },
+                transcription={
+                    "method": "whisper",
+                    "language": getattr(transcript_data, "language", "en"),
+                    "full_text": (transcript_data.text or "").strip(),
+                    "segments": _whisper_segments_to_list(getattr(transcript_data, "segments", []) or []),
+                },
+            )
+            active_jobs[job_id]["transcript_json_path"] = sidecar_path
+
         except Exception as e:
             logger.error(f"Error with Whisper API, falling back to simple speech detection: {str(e)}")
             active_jobs[job_id]["progress"] = 70
-            
+
             # Fallback to speech segment detection
             cmd = [
-                'ffmpeg', '-i', downloaded_audio_file, 
-                '-af', 'silencedetect=n=-30dB:d=0.5', 
+                'ffmpeg', '-i', downloaded_audio_file,
+                '-af', 'silencedetect=n=-30dB:d=0.5',
                 '-f', 'null', '-'
             ]
-            
+
             result = subprocess.run(cmd, capture_output=True, text=True)
             output = result.stderr
-            
+
             # Parse the silence detection output
             silence_starts = re.findall(r'silence_start: (\d+\.\d+)', output)
             silence_ends = re.findall(r'silence_end: (\d+\.\d+)', output)
-            
+
             # Create transcript with detected speech segments
             transcript_path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.txt")
             with open(transcript_path, "w") as f:
@@ -515,26 +772,61 @@ async def process_youtube_video(job_id: str, youtube_url: str):
                 f.write(f"Channel: {active_jobs[job_id]['video_channel']}\n")
                 f.write(f"Duration: {active_jobs[job_id]['video_duration']} seconds\n\n")
                 f.write("==== AUDIO SEGMENTS ====\n\n")
-                
+
                 # If we have silence markers, use them to identify speech segments
                 if silence_starts and silence_ends:
                     # Ensure we start from the beginning
                     if float(silence_starts[0]) > 0:
                         f.write(f"[00:00:00 - {format_timestamp(float(silence_starts[0]))}] Speech segment\n")
-                    
+
                     # Process middle segments
                     for i in range(min(len(silence_ends), len(silence_starts))):
                         end_time = float(silence_ends[i])
-                        
+
                         if i < len(silence_starts):
                             start_time = float(silence_starts[i])
                             f.write(f"[{format_timestamp(end_time)} - {format_timestamp(start_time)}] Speech segment\n")
                 else:
                     f.write("No clear speech segments detected. The audio may be continuous or very quiet.\n")
-                    
+
                 f.write("\n==== NOTE ====\n")
                 f.write("Failed to use Whisper API for transcription. Falling back to speech detection.\n")
                 f.write(f"Error: {str(e)}\n")
+
+            fallback_segments = []
+            if silence_starts and silence_ends:
+                if float(silence_starts[0]) > 0:
+                    fallback_segments.append({
+                        "start": 0.0,
+                        "end": round(float(silence_starts[0]), 3),
+                        "text": "Speech segment",
+                    })
+                for i in range(min(len(silence_ends), len(silence_starts))):
+                    fallback_segments.append({
+                        "start": round(float(silence_ends[i]), 3),
+                        "end": round(float(silence_starts[i]), 3),
+                        "text": "Speech segment",
+                    })
+
+            sidecar_path = _save_transcript_sidecar(
+                job_id,
+                source={
+                    "type": "youtube",
+                    "url": youtube_url,
+                    "video_id": video_id,
+                    "title": active_jobs[job_id]["video_title"],
+                    "channel": active_jobs[job_id]["video_channel"],
+                    "duration_seconds": active_jobs[job_id]["video_duration"],
+                },
+                transcription={
+                    "method": "silence_detection",
+                    "language": None,
+                    "full_text": "",
+                    "segments": fallback_segments,
+                    "fallback_reason": str(e),
+                },
+            )
+            active_jobs[job_id]["transcript_json_path"] = sidecar_path
         
         active_jobs[job_id]["progress"] = 95
         
@@ -603,10 +895,27 @@ async def get_transcript(job_id: str):
         )
     
     try:
-        with open(job["transcript_path"], "r") as f:
+        with open(job["transcript_path"], "r", encoding="utf-8") as f:
             transcript = f.read()
-        
-        return {"job_id": job_id, "transcript": transcript}
+
+        # Merge in the structured sidecar when present. Older jobs (pre-2026-05-22)
+        # won't have one — they still return the legacy text-only shape.
+        response = {"job_id": job_id, "transcript": transcript}
+        sidecar_path = job.get("transcript_json_path") or os.path.join(
+            TRANSCRIPT_DIR, f"{job_id}_transcript.json"
+        )
+        if os.path.exists(sidecar_path):
+            try:
+                with open(sidecar_path, "r", encoding="utf-8") as f:
+                    sidecar = json.load(f)
+                response["source"] = sidecar.get("source")
+                response["transcription"] = sidecar.get("transcription")
+                response["completed_at"] = sidecar.get("completed_at")
+                response["format_version"] = sidecar.get("format_version", "1.0")
+            except Exception as sidecar_err:
+                logger.warning(f"Could not read transcript sidecar for {job_id}: {sidecar_err}")
+
+        return response
     except Exception as e:
         logger.error(f"Error reading transcript: {str(e)}")
         return JSONResponse(

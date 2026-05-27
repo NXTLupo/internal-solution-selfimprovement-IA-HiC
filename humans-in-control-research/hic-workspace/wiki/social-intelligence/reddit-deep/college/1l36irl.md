@@ -1,0 +1,44 @@
+---
+url: "https://www.reddit.com/r/college/comments/1l36irl/firstgen_college_student_starting_criminal/"
+kind: "social-post"
+source: "reddit-deep: r/college"
+subreddit: "college"
+title: "First-Gen College Student Starting Criminal Justice — Hoping to Become a Criminal Defense Attorney"
+author: "MobilePrestigious612"
+date: "2025-06-04T14:09:10.000Z"
+score: 2
+upvote_ratio: 0.76
+num_comments: 5
+flair: "Career/work"
+extracted_at: "2026-05-23T14:53:53.127Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# First-Gen College Student Starting Criminal Justice — Hoping to Become a Criminal Defense Attorney
+
+Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l36irl/firstgen_college_student_starting_criminal/)
+Posted by **MobilePrestigious612** · **2↑** · **5 comments**
+
+Hi everyone,
+I’m starting college this fall as a first-generation student, and I’m majoring in criminal justice. My long-term goal is to go to law school and become a criminal defense attorney.
+
+Since no one in my family has gone to college (or law school), I’m trying to learn as much as I can from people who’ve gone through this path, especially other first-gen students or attorneys.
+
+If you’ve studied criminal justice before law school, or made the journey as a first-gen college/law student, I’d love to hear your story.
+
+Was a criminal justice major helpful (or not) when it came to applying to law school or succeeding there?
+
+What advice do you have for making the most of undergrad and preparing early for law school?
+
+Are there any common mistakes to avoid or things you wish you knew when you started?
+
+Thanks in advance for any insight or encouragement. I’m excited (and a little nervous) to begin this journey.
+
+## Comments
+
+- **Sensing_Force1138** (3↑): Pick a minor that involves reading copious amounts of reading and summarizing/writing a lot of essays and papers.
+- **etherealmermaid53** (3↑): Is your goal a top law school or any law school? Some law schools are considered scams because they accept anyone who pays. If your goal is any law school the major criminal justice is fine. If you’d like a top law school with more resources, criminal justice is the worst major to choose. LSAT and GPA are the most important for law school admissions. Check out r/LawSchool and r/LawSchoolAdmissions. Although they mainly talk about top law schools they have good information. Also google “undergrad major to LSAT score”. You’ll see criminal justice majors have an average of the lowest LSAT scores.
+- **CA_home_** (3↑): A philosophy major is great for law school and for the LSAT.
+  - **CodeAgile9585** (1↑): second, i’m a philosophy major scoring 160+
+- **ItsFourCantSleep** (1↑): Learn some formal logic. Helps immensely with the LSAT. Keep a high GPA

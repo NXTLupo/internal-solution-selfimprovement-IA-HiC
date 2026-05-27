@@ -10,9 +10,9 @@ score: 4
 upvote_ratio: 0.75
 num_comments: 12
 flair: "Academics"
-extracted_at: "2026-05-13T20:23:48.328Z"
+extracted_at: "2026-05-19T17:57:09.041Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
 ---
 
 # Feel like just failed my final, what can I do before the grade got released
@@ -36,12 +36,12 @@ I've already emailed my academic advisor but got an auto-reply saying they'll re
 
 ## Comments
 
-- **disfiguredcoconut** (13↑): there’s nothing you can do but hope you passed. if you’re not on financial aid then academic probation isn’t a big deal at all. don’t email and grade grub it’s too late for that
+- **disfiguredcoconut** (12↑): there’s nothing you can do but hope you passed. if you’re not on financial aid then academic probation isn’t a big deal at all. don’t email and grade grub it’s too late for that
   - **Routine-Collection36** (1↑): This might not be true
     - **disfiguredcoconut** (1↑): so are you gonna tell us how or be mysterious?
-- **Extension_Radish_139** (7↑): If you fail the class then you just retake it and the grade replaces the F on your transcript, so it will have basically 0 bearing on your GPA. And a bad grade shouldn’t affect your co op offer
+- **Extension_Radish_139** (8↑): If you fail the class then you just retake it and the grade replaces the F on your transcript, so it will have basically 0 bearing on your GPA. And a bad grade shouldn’t affect your co op offer
   - **trapdoorinthesunn** (2↑): Retaking a class removes the F from the transcript?
-    - **SovereignPhobia** (8↑): The typical policy is one or two retakes that replace the previous grade. This is more or less across the board for all universities unless otherwise stated.
+    - **SovereignPhobia** (6↑): The typical policy is one or two retakes that replace the previous grade. This is more or less across the board for all universities unless otherwise stated.
 
 btw bad grades do affect offers for some conditional internships and stuff like that, but it's not super common
     - **Extension_Radish_139** (1↑): It doesn’t remove the F, but it replaces the grade in your GPA

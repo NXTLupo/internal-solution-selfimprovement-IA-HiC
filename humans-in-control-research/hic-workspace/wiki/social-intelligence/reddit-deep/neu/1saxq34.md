@@ -8,17 +8,17 @@ author: "Embarrassed_North638"
 date: "2026-04-02T23:47:51.000Z"
 score: 1
 upvote_ratio: 1
-num_comments: 4
+num_comments: 5
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.895Z"
+extracted_at: "2026-05-26T14:30:23.760Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Northeastern MPP: Boston vs Arlington (DC)?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1saxq34/northeastern_mpp_boston_vs_arlington_dc/)
-Posted by **Embarrassed_North638** · **1↑** · **4 comments**
+Posted by **Embarrassed_North638** · **1↑** · **5 comments**
 
 Hey everyone,
 
@@ -55,3 +55,4 @@ Again I don’t have a graduate student perspective but I can imagine that Bosto
 Thanks for the input, it puts things in perspective for me.
     - **Joshi1381** (1↑): If you haven’t already I would reach out to the program director or something in that space who can share more about the partnerships you are looking for
 - **Horror-Paramedic-887** (1↑): Boston any day!
+- **Puzzleheaded-Time370** (1↑): Hey have you decided ? Are you going to Arlington, this fall 2026 ?

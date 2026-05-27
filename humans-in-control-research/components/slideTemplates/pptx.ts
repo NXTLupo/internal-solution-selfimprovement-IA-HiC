@@ -7,7 +7,7 @@
  */
 
 import { TOKENS } from './types';
-import { nxtBrand, type Brand } from './brands';
+import { nxtBrand, fontForRole, type Brand } from './brands';
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
@@ -15,12 +15,25 @@ import type {
     SlideTemplate,
 } from './types';
 import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
+import type { JourneyBrief } from '../../services/journeyBriefExporter';
 
 // Default brand — used unless exportSlideToPPTX is called with an explicit brand.
 // Inside this file, every reference to `T` resolves through the active brand
 // set at the top of exportSlideToPPTX, so color values swap cleanly per brand.
 let T: Brand = nxtBrand;
-const FONT = TOKENS.FONT;
+// 2026-05-26 — Font-role accessors derived from the ACTIVE brand. Replaces
+// the single `const FONT = TOKENS.FONT` (which was the body face, applied
+// to titles + numbers + everything, causing the preview-vs-PPTX serif/sans
+// drift). Every addText now picks the role-appropriate face via these,
+// matching web.tsx's var(--font-display)/--font-body/--font-mono usage.
+// These are getters because `T` is reassigned per-export inside
+// exportSlideToPPTX. `FONT` is retained as the body alias for backward
+// compatibility but should NOT be used for display/title/number text.
+const FONT = TOKENS.FONT;                       // body alias (legacy)
+const fDisplay = () => fontForRole('display', T); // Spectral — titles, hero numbers
+const fBody = () => fontForRole('body', T);       // Roboto — prose
+const fLabel = () => fontForRole('label', T);     // Roboto Mono — eyebrow labels
+const fMono = () => fontForRole('mono', T);       // Roboto Mono — sources, codes
 
 // Responsive hero-number sizing identical to web.tsx so PPTX exports never
 // overflow their column when the AI emits a long value like "Steady" or "$2.4M".
@@ -195,17 +208,25 @@ export async function addBaseShell(
 
 // === MICRO-PRIMITIVES ===
 
+// 2026-05-26 — Eyebrow labels use the MONO face (matches web --font-mono)
+// and charSpacing reduced 4 → 2. The old charSpacing:4 + a narrow box was
+// the root cause of the "CHALLENG\nE" / "APPROAC\nH" mid-word wraps in the
+// PPTX export: tracked caps overflowed the fixed box width. 2pt tracking
+// keeps the editorial look without overflowing single words.
 const tag = (s: any, x: number, y: number, w: number, text: string, color = T.CHARTREUSE_BRIGHT) =>
-    s.addText(text, { x, y, w, h: 0.2, fontSize: 9, color, fontFace: FONT, bold: true, charSpacing: 4, valign: 'top' });
+    s.addText(text, { x, y, w, h: 0.2, fontSize: 9, color, fontFace: fLabel(), bold: true, charSpacing: 2, valign: 'top', wrap: false });
 
+// 2026-05-26 — Titles use the DISPLAY face (Spectral), matching web's
+// var(--font-display). Was using the body face (Roboto), which is why the
+// PPTX title looked heavy-sans while the preview was elegant serif.
 const title = (s: any, x: number, y: number, w: number, text: string, size = 28) =>
-    s.addText(text, { x, y, w, h: Math.max((Math.ceil(text.length / Math.max(Math.floor((w * 72) / (size * 0.52)), 20)) * size * 1.1) / 72 + 0.05, 0.6), fontSize: size, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.05, charSpacing: -2 });
+    s.addText(text, { x, y, w, h: Math.max((Math.ceil(text.length / Math.max(Math.floor((w * 72) / (size * 0.52)), 20)) * size * 1.1) / 72 + 0.05, 0.6), fontSize: size, color: T.INK, fontFace: fDisplay(), bold: true, valign: 'top', lineSpacingMultiple: 1.05, charSpacing: -2 });
 
 const sourceFooter = (s: any, x: number, w: number, sources?: string[]) => {
     if (!sources || sources.length === 0) return;
     const srcY = 7.10;
     s.addShape('line' as any, { x, y: srcY, w, h: 0, line: { color: T.RULE, width: 0.5 } });
-    s.addText(`Sources: ${sources.join('  |  ')}`, { x, y: srcY + 0.05, w, h: 0.22, fontSize: 7, color: T.MUTED, fontFace: FONT, valign: 'top' });
+    s.addText(`Sources: ${sources.join('  |  ')}`, { x, y: srcY + 0.05, w, h: 0.22, fontSize: 7, color: T.MUTED, fontFace: fMono(), valign: 'top' });
 };
 
 // === TEMPLATE EXPORTERS ===
@@ -1097,7 +1118,7 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
     if (data.investment) metaParts.push(`INVESTMENT  ${data.investment}`);
     if (metaParts.length > 0) {
         s.addShape('line' as any, { x: tx, y: y + 0.24, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
-        s.addText(metaParts.join('      '), { x: tx, y, w: tw, h: 0.24, fontSize: 9, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
+        s.addText(metaParts.join('      '), { x: tx, y, w: tw, h: 0.24, fontSize: 9, color: T.SECONDARY, fontFace: fMono(), valign: 'top' });
         y += 0.34;
     }
 
@@ -1121,8 +1142,8 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
     blocks.forEach(b => {
         s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: blockH, fill: { color: b.bg } });
         s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: blockH, fill: { color: b.color } });
-        s.addText(b.label, { x: tx + 0.18, y: by + 0.08, w: 1.0, h: 0.22, fontSize: 9, color: b.color, fontFace: FONT, bold: true, charSpacing: 2 });
-        s.addText(truncate(b.text, 340), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: blockH - 0.1, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        s.addText(b.label, { x: tx + 0.18, y: by + 0.08, w: 1.05, h: 0.22, fontSize: 9, color: b.color, fontFace: fLabel(), bold: true, charSpacing: 1, valign: 'top', wrap: false });
+        s.addText(truncate(b.text, 340), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: blockH - 0.1, fontSize: 10, color: T.BODY, fontFace: fBody(), valign: 'top', lineSpacingMultiple: 1.5 });
         by += blockH + 0.06;
     });
 
@@ -1130,8 +1151,8 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
     if (hasLesson) {
         s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: lessonH, fill: { color: T.PALE } });
         s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: lessonH, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText('LESSON', { x: tx + 0.18, y: by + 0.08, w: 1.0, h: 0.22, fontSize: 9, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
-        s.addText(truncate(data.lesson, 280), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: lessonH - 0.1, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
+        s.addText('LESSON', { x: tx + 0.18, y: by + 0.08, w: 1.05, h: 0.22, fontSize: 9, color: T.CHARTREUSE_BRIGHT, fontFace: fLabel(), bold: true, charSpacing: 1, valign: 'top', wrap: false });
+        s.addText(truncate(data.lesson, 280), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: lessonH - 0.1, fontSize: 10, color: T.INK, fontFace: fBody(), bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
     }
 
     // === RIGHT: dashboard ===
@@ -1144,11 +1165,11 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
         // Hero metric
         if (data.keyMetric) {
             const fs = heroPt(data.keyMetric.value, 50, 24, 4);
-            s.addText('KEY OUTCOME', { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.22, fontSize: 8, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 3 });
+            s.addText('KEY OUTCOME', { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.22, fontSize: 8, color: T.CHARTREUSE_BRIGHT, fontFace: fLabel(), bold: true, charSpacing: 2, wrap: false });
             ry += 0.28;
-            s.addText(data.keyMetric.value, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 1.05, fontSize: fs, color: T.WHITE, fontFace: FONT, valign: 'top', charSpacing: -3 });
+            s.addText(data.keyMetric.value, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 1.05, fontSize: fs, color: T.WHITE, fontFace: fDisplay(), valign: 'top', charSpacing: -3 });
             ry += 1.0;
-            s.addText(truncate(data.keyMetric.label, 90), { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.55, fontSize: 10, color: 'F0F0F0', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            s.addText(truncate(data.keyMetric.label, 90), { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.55, fontSize: 10, color: 'F0F0F0', fontFace: fBody(), valign: 'top', lineSpacingMultiple: 1.35 });
             ry += 0.62;
         }
         // Supporting metrics (2-col grid)
@@ -1166,8 +1187,8 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
                 const cx = rightX + 0.22 + col * (cellW + gapIn);
                 const cy = ry + row * (cellH + 0.1);
                 const sz = heroPt(m.value, 22, 14, 3);
-                s.addText(m.value, { x: cx, y: cy, w: cellW, h: 0.3, fontSize: sz, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -2 });
-                s.addText(truncate(m.label, 50), { x: cx, y: cy + 0.26, w: cellW, h: 0.28, fontSize: 8, color: 'F0F0F0', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3 });
+                s.addText(m.value, { x: cx, y: cy, w: cellW, h: 0.3, fontSize: sz, color: T.CHARTREUSE_BRIGHT, fontFace: fDisplay(), valign: 'top', charSpacing: -2 });
+                s.addText(truncate(m.label, 50), { x: cx, y: cy + 0.26, w: cellW, h: 0.28, fontSize: 8, color: 'F0F0F0', fontFace: fBody(), valign: 'top', lineSpacingMultiple: 1.3 });
             });
             ry += Math.ceil(sms.length / cols) * (cellH + 0.1) + 0.1;
         }
@@ -1191,9 +1212,9 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
             const qy = panelY + panelH - 0.82;
             s.addShape('line' as any, { x: rightX + 0.22, y: qy - 0.08, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
             s.addShape('rect' as any, { x: rightX + 0.22, y: qy, w: 0.04, h: 0.4, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${smartQuoteClip(data.pullQuote.text, 200)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.45, fontSize: 9, color: 'F0F0F0', fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            s.addText(`"${smartQuoteClip(data.pullQuote.text, 200)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.45, fontSize: 9, color: 'F0F0F0', fontFace: fontForRole('quote', T), italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
             const pqAttr = `— ${data.pullQuote.attribution}${data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}`;
-            s.addText(truncate(pqAttr, 110), { x: rightX + 0.32, y: qy + 0.48, w: rightW - 0.54, h: 0.3, fontSize: 8, color: 'B0C4C5', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            s.addText(truncate(pqAttr, 110), { x: rightX + 0.32, y: qy + 0.48, w: rightW - 0.54, h: 0.3, fontSize: 8, color: 'B0C4C5', fontFace: fMono(), valign: 'top', lineSpacingMultiple: 1.35 });
         }
     }
     sourceFooter(s, tx, tw, sources);
@@ -1725,6 +1746,118 @@ function exportSystemsInventory(s: any, slideTitle: string, data: SystemsInvento
 }
 
 // === MAIN DISPATCHER ===
+// JOURNEY BRIEF — 2026-05-26
+// Renders a reasoning-model-distilled journey summary as a CLEAN TABULAR
+// slide. Per the user directive: use the blueprint tabular layout (rect +
+// text cells, NO SVG emotion curve, NO stretched theme boxes) to avoid the
+// graphics/overlap issues that plagued the rasterized journey export.
+// Structure: title + persona eyebrow → stage grid (cols = stages, rows =
+// PAIN / OPPORTUNITY) → cross-cutting pains | strategic opportunities
+// two-column block → KPI tiles → closing quote → sources.
+function exportJourneyBrief(s: any, slideTitle: string, brief: JourneyBrief, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.36;
+    const tw = geom.contentW - 0.72;
+    let y = 0.32;
+
+    tag(s, tx, y, tw, `JOURNEY BRIEF  /  ${(brief.journey_type || 'GENERAL').toUpperCase()}`);
+    y += 0.24;
+    title(s, tx, y, tw, brief.diagnostic_title || slideTitle, 22);
+    y += 0.78;
+
+    if (brief.persona_line) {
+        s.addShape('line' as any, { x: tx, y: y + 0.22, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(brief.persona_line, { x: tx, y, w: tw, h: 0.24, fontSize: 9, color: T.SECONDARY, fontFace: fMono(), valign: 'top' });
+        y += 0.34;
+    }
+
+    // === STAGE GRID (tabular — header row + PAIN row + OPPORTUNITY row) ===
+    const stages = (brief.stages || []).slice(0, 6);
+    if (stages.length > 0) {
+        const labelColW = 1.15;
+        const gridW = tw - labelColW;
+        const colW = gridW / stages.length;
+        const headerH = 0.42;
+        const cellH = 1.05;
+
+        // Header row: stage names
+        s.addShape('rect' as any, { x: tx + labelColW, y, w: gridW, h: headerH, fill: { color: T.TEAL } });
+        stages.forEach((st, i) => {
+            const cx = tx + labelColW + i * colW;
+            s.addText(truncate(st.name, 46), { x: cx + 0.08, y: y + 0.05, w: colW - 0.16, h: headerH - 0.08, fontSize: 9, color: T.WHITE, fontFace: fLabel(), bold: true, align: 'center', valign: 'middle', charSpacing: 1, lineSpacingMultiple: 1.1 });
+        });
+        y += headerH;
+
+        // Row anatomy: label cell (col 1) + per-stage cells
+        const rows: Array<{ label: string; pick: (st: typeof stages[number]) => string; color: string; bg: string }> = [
+            { label: 'PAIN', pick: st => st.key_pain, color: T.RED, bg: 'FFF5F5' },
+            { label: 'OPPORTUNITY', pick: st => st.key_opportunity, color: T.GREEN, bg: 'F0FBF5' },
+        ];
+        rows.forEach((row) => {
+            // left label cell
+            s.addShape('rect' as any, { x: tx, y, w: labelColW, h: cellH, fill: { color: T.PALE } });
+            s.addShape('rect' as any, { x: tx, y, w: 0.05, h: cellH, fill: { color: row.color } });
+            s.addText(row.label, { x: tx + 0.12, y: y + 0.08, w: labelColW - 0.18, h: 0.3, fontSize: 8, color: row.color, fontFace: fLabel(), bold: true, charSpacing: 1, valign: 'top', wrap: false });
+            // per-stage cells
+            stages.forEach((st, i) => {
+                const cx = tx + labelColW + i * colW;
+                s.addShape('rect' as any, { x: cx, y, w: colW, h: cellH, fill: { color: row.bg } });
+                s.addShape('line' as any, { x: cx, y, w: 0, h: cellH, line: { color: T.RULE, width: 0.5 } });
+                s.addText(truncate(row.pick(st) || '', 160), { x: cx + 0.08, y: y + 0.06, w: colW - 0.16, h: cellH - 0.1, fontSize: 8, color: T.BODY, fontFace: fBody(), valign: 'top', lineSpacingMultiple: 1.3 });
+            });
+            y += cellH;
+        });
+        y += 0.2;
+    }
+
+    // === CROSS-CUTTING PAINS | STRATEGIC OPPORTUNITIES (two-column text) ===
+    const colGap = 0.3;
+    const halfW = (tw - colGap) / 2;
+    const listTop = y;
+    const drawList = (lx: number, label: string, items: string[], labelColor: string) => {
+        let ly = listTop;
+        s.addText(label, { x: lx, y: ly, w: halfW, h: 0.2, fontSize: 8.5, color: labelColor, fontFace: fLabel(), bold: true, charSpacing: 2, wrap: false });
+        ly += 0.26;
+        (items || []).slice(0, 3).forEach((it, i) => {
+            s.addText([
+                { text: `${i + 1}.  `, options: { bold: true, color: labelColor, fontFace: fBody(), fontSize: 9 } },
+                { text: truncate(it, 180), options: { color: T.BODY, fontFace: fBody(), fontSize: 9 } },
+            ], { x: lx, y: ly, w: halfW, h: 0.5, valign: 'top', lineSpacingMultiple: 1.3 });
+            ly += 0.5;
+        });
+        return ly;
+    };
+    const leftEnd = drawList(tx, 'CROSS-CUTTING PAINS', brief.cross_cutting_pains, T.RED);
+    const rightEnd = drawList(tx + halfW + colGap, 'STRATEGIC OPPORTUNITIES', brief.strategic_opportunities, T.GREEN);
+    y = Math.max(leftEnd, rightEnd) + 0.18;
+
+    // === KPI TILES (clean text, 2-4) ===
+    const kpis = (brief.kpis || []).slice(0, 4);
+    if (kpis.length > 0) {
+        const kGap = 0.16;
+        const kW = (tw - (kpis.length - 1) * kGap) / kpis.length;
+        const kH = 0.85;
+        kpis.forEach((k, i) => {
+            const kx = tx + i * (kW + kGap);
+            s.addShape('rect' as any, { x: kx, y, w: kW, h: kH, fill: { color: i === 0 ? T.TEAL : T.PALE } });
+            const numColor = i === 0 ? T.WHITE : T.INK;
+            const labelColor = i === 0 ? 'F0F0F0' : T.MUTED;
+            const fs = heroPt(k.value, 30, 18, 4);
+            s.addText(k.value, { x: kx + 0.12, y: y + 0.1, w: kW - 0.24, h: 0.4, fontSize: fs, color: numColor, fontFace: fDisplay(), valign: 'top', charSpacing: -2 });
+            s.addText(truncate(k.label, 60), { x: kx + 0.12, y: y + 0.52, w: kW - 0.24, h: 0.3, fontSize: 8, color: labelColor, fontFace: fBody(), valign: 'top', lineSpacingMultiple: 1.25 });
+        });
+        y += kH + 0.16;
+    }
+
+    // === CLOSING QUOTE (verbatim VOC) ===
+    if (brief.closing_quote && brief.closing_quote.text) {
+        s.addShape('rect' as any, { x: tx, y, w: 0.05, h: 0.5, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(`"${truncate(brief.closing_quote.text, 200)}"`, { x: tx + 0.16, y, w: tw - 0.3, h: 0.32, fontSize: 10, color: T.INK, fontFace: fontForRole('quote', T), italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+        s.addText(`— ${truncate(brief.closing_quote.attribution, 90)}`, { x: tx + 0.16, y: y + 0.34, w: tw - 0.3, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: fMono(), valign: 'top' });
+    }
+
+    sourceFooter(s, tx, tw, sources.length > 0 ? sources : brief.sources);
+}
+
 export interface ExportSlideArgs {
     template: SlideTemplate;
     title: string;
@@ -1746,6 +1879,7 @@ export interface ExportSlideArgs {
     architectureMap?: ArchitectureMapData;
     prdFeature?: PrdFeatureData;
     systemsInventory?: SystemsInventoryData;
+    journeyBrief?: JourneyBrief;
 }
 
 /**
@@ -1821,6 +1955,9 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
             break;
         case 'systems-inventory':
             if (args.systemsInventory) exportSystemsInventory(s, args.title, args.systemsInventory, sources, geom);
+            break;
+        case 'journey-brief':
+            if (args.journeyBrief) exportJourneyBrief(s, args.title, args.journeyBrief, sources, geom);
             break;
     }
 }

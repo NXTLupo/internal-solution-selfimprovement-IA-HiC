@@ -3,28 +3,8 @@
     "Stop": [
       {
         "type": "command",
-        "command": "python .claude/hooks/scripts/validate_citations.py",
-        "timeout": 30
-      },
-      {
-        "type": "command",
-        "command": "python .claude/hooks/scripts/validate_evidence.py",
-        "timeout": 30
-      },
-      {
-        "type": "command",
-        "command": "python .claude/hooks/scripts/validate_titles.py",
-        "timeout": 15
-      },
-      {
-        "type": "command",
-        "command": "python .claude/hooks/scripts/validate_source_diversity.py",
-        "timeout": 15
-      },
-      {
-        "type": "command",
-        "command": "python .claude/hooks/scripts/validate_budgets.py",
-        "timeout": 15
+        "command": "python .claude/hooks/scripts/run_hooks_parallel.py --concurrency 4",
+        "timeout": 60
       }
     ],
     "SubagentStop": [
@@ -37,6 +17,33 @@
         "type": "command",
         "command": "python .claude/hooks/scripts/validate_evidence.py",
         "timeout": 30
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_quantification.py",
+        "timeout": 15
+      }
+    ],
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/precheck_spread_push_unbounded.py",
+        "timeout": 5
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/precheck_no_node_require.py",
+        "timeout": 5
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/precheck_no_custom_scheme_fetch.py",
+        "timeout": 5
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/precheck_pptx_font_role.py",
+        "timeout": 5
       }
     ]
   }

@@ -19,7 +19,7 @@
 
 import type { ChatModel, ChatMessage, ChatContext } from './corpusChatService';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 // The three independent readers. Picked for distinct lineages so their
 // reads don't collapse into stylistic clones of each other.

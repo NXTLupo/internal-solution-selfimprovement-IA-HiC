@@ -1,5 +1,6 @@
 ---
 name: drift-check
+version: 1.0
 description: Compare outputs across multiple runs to detect format drift, quality degradation, or inconsistency. Use to validate prompt stability.
 allowed-tools: Read, Grep, Glob, Bash
 argument-hint: [output-file-1] [output-file-2]

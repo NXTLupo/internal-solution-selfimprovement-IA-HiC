@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Email implies I got in even though I'm on the wiatlist? What does this mean?"
 author: "Old-Pop-5134"
 date: "2026-03-20T22:00:24.000Z"
-score: 8
-upvote_ratio: 0.84
+score: 9
+upvote_ratio: 0.91
 num_comments: 7
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T23:02:38.888Z"
+extracted_at: "2026-05-26T14:30:23.759Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Email implies I got in even though I'm on the wiatlist? What does this mean?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rz9nuq/email_implies_i_got_in_even_though_im_on_the/)
-Posted by **Old-Pop-5134** · **8↑** · **7 comments**
+Posted by **Old-Pop-5134** · **9↑** · **7 comments**
 
 Got this email from Northeastern today.......even though I thought I got waitlisted 
 
@@ -36,6 +36,6 @@ Got this email from Northeastern today.......even though I thought I got waitlis
 ## Comments
 
 - **Adventurous_Rule1914** (14↑): idk I got this as well, I think everyone got it. I feel like it was a mistake but a really BAD mistake... literally sounds like we got accepted
-  - **Old-Pop-5134** (5↑): damn bro that's evil
+  - **Old-Pop-5134** (7↑): damn bro that's evil
     - **Adventurous_Rule1914** (2↑): ikr I actually got my hopes up and then I saw everyone started to get this and I was like uhhh yeah this is probably just a mistake or something
-  - **MelonCola7** (5↑): This wouldn't be the first time they've mistakenly sent acceptance related emails lol
+  - **MelonCola7** (4↑): This wouldn't be the first time they've mistakenly sent acceptance related emails lol

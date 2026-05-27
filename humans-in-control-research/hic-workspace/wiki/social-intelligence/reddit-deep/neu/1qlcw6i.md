@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 0
 flair: "Advice & Experiences"
-extracted_at: "2026-05-13T18:45:41.300Z"
+extracted_at: "2026-05-26T14:30:23.765Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Admitted MSEM (SCM concentration) – Is the Co-op advantage real for international students given the recent merger?

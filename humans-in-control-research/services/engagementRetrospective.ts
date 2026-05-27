@@ -19,7 +19,7 @@
 // matcher to read, easy for the model to load into context, and easy for
 // humans to skim later.
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface EngagementSnapshot {
     researchGoal: string;

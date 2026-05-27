@@ -237,13 +237,21 @@ class VectorStore:
         source: str | None = None,
         tier_min: int | None = None,
         exclude_article_ids: list[str] | None = None,
+        exclude_kinds: list[str] | None = None,
     ) -> list[dict]:
         """Return up to `limit` best-matching chunks with article metadata.
 
         Filters applied in SQL: kind exact, source exact, tier >= min,
-        exclude_article_ids. Distance is L2 from sqlite-vec; we convert to
-        cosine-similarity-equivalent rank order (smaller L2 = better, since
-        embeddings are unit-normalized by OpenAI's API).
+        exclude_article_ids, exclude_kinds. Distance is L2 from sqlite-vec;
+        we convert to cosine-similarity-equivalent rank order (smaller L2 =
+        better, since embeddings are unit-normalized).
+
+        2026-05-23 — exclude_kinds added so callers can suppress synthesis
+        chunks at retrieval time. Without this, syntheses dominate the
+        top-K (they're written specifically about research topics and
+        match queries densely), forcing the proxy to discard everything
+        and fall back to Tier-2. With this, chunked retrieval actually
+        services primary-source queries.
         """
         if len(query_embedding) != self.dim:
             raise ValueError(f"query dim {len(query_embedding)} != {self.dim}")
@@ -252,7 +260,18 @@ class VectorStore:
         # vec0 doesn't support post-filtering directly — we over-fetch then filter
         # in app code. At our scale this is fine; switch to vec0 metadata if
         # we ever cross 100K chunks.
+        #
+        # 2026-05-23 — sqlite-vec has a HARD CAP of k <= 4096 on KNN queries.
+        # When called from search_articles() with chat-path limit=40 and
+        # chunks_per_article=6, the previous formula yielded k=7680, which
+        # sqlite-vec rejects with "k value in knn query too large, provided
+        # 7680 and the limit is 4096" — causing every Phase-2 retrieval to
+        # silently fall back to the legacy single-vector sidecar. Clamp here
+        # so the chunk store actually services chat retrieval.
+        SQLITE_VEC_K_CAP = 4096
         overfetch = max(limit * 8, 100)
+        if overfetch > SQLITE_VEC_K_CAP:
+            overfetch = SQLITE_VEC_K_CAP
         rows = conn.execute(
             """
             SELECT
@@ -271,6 +290,7 @@ class VectorStore:
         ).fetchall()
 
         exclude = set(exclude_article_ids or [])
+        exclude_kind_substrings = [k.lower() for k in (exclude_kinds or []) if k]
         out: list[dict] = []
         for r in rows:
             (chunk_rowid, article_id, chunk_idx, section, text,
@@ -287,6 +307,10 @@ class VectorStore:
                 continue
             if article_id in exclude:
                 continue
+            if exclude_kind_substrings:
+                kf = (kind_field or "").lower()
+                if any(s in kf for s in exclude_kind_substrings):
+                    continue
 
             # Cosine similarity ≈ 1 - L2/2 for unit-norm OpenAI embeddings.
             cosine_score = max(0.0, 1.0 - (distance ** 2) / 2.0)
@@ -346,6 +370,7 @@ class VectorStore:
         source: str | None = None,
         tier_min: int | None = None,
         chunks_per_article: int = 3,
+        exclude_kinds: list[str] | None = None,
     ) -> list[dict]:
         """Like search() but groups chunks by article and returns the top
         `chunks_per_article` chunks per article. Use this for chat retrieval —
@@ -356,6 +381,7 @@ class VectorStore:
             query_embedding,
             limit=limit * max(chunks_per_article, 3) * 4,
             kind=kind, source=source, tier_min=tier_min,
+            exclude_kinds=exclude_kinds,
         )
 
         by_article: dict[str, dict] = {}

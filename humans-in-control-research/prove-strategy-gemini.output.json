@@ -1,0 +1,89 @@
+{
+  "elapsed_ms": 14395,
+  "finish_reason": "STOP",
+  "parse_path": "JSON.parse (clean output)",
+  "raw_chars": 4888,
+  "parsed": {
+    "methodology": "Our analysis synthesized qualitative insights from student and employer personas with quantitative data on retention, ATS friction, and CLR adoption to identify strategic opportunities for Northeastern University's co-op program.",
+    "storyArc": "The current co-op system faces critical challenges in first-year retention and employer integration, necessitating a strategic shift towards a CLR-powered ecosystem, which can be achieved through a set of coordinated actions.",
+    "slides": [
+      {
+        "slideNumber": 1,
+        "layout": "TITLE_SLIDE",
+        "title": "Northeastern University must implement a CLR-powered co-op strategy to significantly improve first-year retention and streamline employer integration.",
+        "rationale": "This slide introduces the core recommendation and frames the entire presentation's objective.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 2,
+        "layout": "SECTION_HEADER",
+        "title": "Current co-op challenges are eroding first-year retention and creating significant friction for key employers.",
+        "rationale": "This section header introduces the diagnosis phase of Rumelt's Kernel, setting up the problem statement.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 3,
+        "layout": "CONTENT_DATA_PANEL",
+        "title": "Nearly a quarter of first-year students transfer, with co-op uncertainty being a primary driver of mobility risk.",
+        "rationale": "This slide presents evidence of the first-year retention challenge, directly addressing a key research goal.",
+        "sourceDeliverable": "themes"
+      },
+      {
+        "slideNumber": 4,
+        "layout": "CONTENT_DATA_PANEL",
+        "title": "Top employers face significant ATS friction due to NU's inability to export structured candidate data, hindering co-op placements.",
+        "rationale": "This slide provides evidence of the employer ATS friction, highlighting a critical barrier to effective co-op matching.",
+        "sourceDeliverable": "themes"
+      },
+      {
+        "slideNumber": 5,
+        "layout": "FULL_WIDTH_VIZ",
+        "title": "The current co-op system creates a critical disconnect between student expectations, employer needs, and NU's data capabilities.",
+        "rationale": "This slide visually synthesizes the interconnected problems, demonstrating the systemic nature of the challenges identified.",
+        "sourceDeliverable": "themes"
+      },
+      {
+        "slideNumber": 6,
+        "layout": "SECTION_HEADER",
+        "title": "Northeastern University will adopt a Comprehensive Learner Record (CLR) as the foundation for a modernized co-op ecosystem.",
+        "rationale": "This section header introduces the guiding policy, clearly stating the strategic choice to address the diagnosed problems.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 7,
+        "layout": "PROBLEM_SOLUTION",
+        "title": "A CLR-centric co-op strategy offers a singular path to address student uncertainty, employer friction, and NU's data limitations.",
+        "rationale": "This slide explicitly positions the CLR as the strategic solution that excludes alternatives, fulfilling the guiding policy requirement.",
+        "sourceDeliverable": "themes"
+      },
+      {
+        "slideNumber": 8,
+        "layout": "SECTION_HEADER",
+        "title": "Implementing a CLR-driven co-op strategy requires a coordinated set of actions across student experience, technology, and industry partnerships.",
+        "rationale": "This section header introduces the coherent actions phase, outlining the necessary steps to execute the guiding policy.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 9,
+        "layout": "BENTO_GRID",
+        "title": "Five strategic initiatives will integrate CLR across the co-op lifecycle to deliver immediate and long-term impact.",
+        "rationale": "This slide details the 5-7 coherent actions, ensuring they are MECE and directly support the CLR-centric guiding policy.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 10,
+        "layout": "CONTENT_INSIGHT_CHART",
+        "title": "These actions will significantly improve first-year retention, increase employer satisfaction, and position NU as a leader in experiential learning.",
+        "rationale": "This slide summarizes the expected positive outcomes and strategic benefits of implementing the proposed actions.",
+        "sourceDeliverable": "composite"
+      },
+      {
+        "slideNumber": 11,
+        "layout": "TITLE_SLIDE",
+        "title": "Northeastern University is uniquely positioned to redefine the future of co-op through a strategic investment in CLR technology and student support.",
+        "rationale": "This concluding slide reiterates the main recommendation and emphasizes Northeastern's leadership opportunity.",
+        "sourceDeliverable": "composite"
+      }
+    ]
+  }
+}

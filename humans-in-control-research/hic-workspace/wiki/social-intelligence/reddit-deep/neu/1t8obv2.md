@@ -7,12 +7,12 @@ title: "Indian student confused about Northeastern MSBA (Fall 2026) – Need hon
 author: "Dull-Technology5468"
 date: "2026-05-09T21:57:15.000Z"
 score: 0
-upvote_ratio: 0.2
+upvote_ratio: 0.11
 num_comments: 7
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-13T23:02:38.874Z"
+extracted_at: "2026-05-22T13:32:12.388Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Indian student confused about Northeastern MSBA (Fall 2026) – Need honest reality check

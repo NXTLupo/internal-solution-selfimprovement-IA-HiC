@@ -23,6 +23,7 @@ import {
     startTopicModelJob,
     waitForTopicModelJob,
 } from '../services/topicModelService';
+import { useSemanticSearch } from '../services/semanticUiSearch';
 
 const COLORS = {
     bg: '#FFFFFF',
@@ -124,15 +125,46 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
         })();
     }, [redditDeepItems, researchGoal, cachedResult]);
 
-    const filteredTopics = useMemo(() => {
-        if (!result) return [];
-        const term = searchTerm.trim().toLowerCase();
-        if (!term) return result.topics;
-        return result.topics.filter(t => {
-            const hay = `${t.name} ${t.summary} ${t.top_terms.map(([w]) => w).join(' ')}`.toLowerCase();
-            return hay.includes(term);
-        });
-    }, [result, searchTerm]);
+    // 2026-05-20 — Semantic search via /api/embed (Gemini gemini-embedding-001).
+    // The user types "co-op" and gets back topics about "internship struggles"
+    // and "experiential learning gripes" — not just topics that literally
+    // contain "co-op" in their auto-generated summary. The hook caches item
+    // embeddings (one batch per session) and debounces query embeddings
+    // (300ms) so typing stays responsive.
+    //
+    // Pre-index post titles by cluster so each topic's embedded text includes
+    // the post body signal, not just the auto-generated summary.
+    const docsByCluster = useMemo(() => {
+        const map = new Map<number, string[]>();
+        if (!result) return map;
+        for (const doc of result.documents || []) {
+            if (typeof doc.cluster !== 'number') continue;
+            const arr = map.get(doc.cluster) || [];
+            arr.push(`${doc.title || ''} ${doc.subreddit || ''}`);
+            map.set(doc.cluster, arr);
+        }
+        return map;
+    }, [result]);
+
+    const topicsForSearch = result?.topics || [];
+    const getTopicSearchText = (t: Topic): string => {
+        const docTitles = (docsByCluster.get(t.id) || []).slice(0, 25).join(' ');
+        return [
+            t.name,
+            t.summary,
+            t.sentiment,
+            (t.top_terms || []).map(([w]) => w).join(' '),
+            docTitles,
+        ].filter(Boolean).join(' — ');
+    };
+    const semantic = useSemanticSearch(
+        topicsForSearch,
+        (t: Topic) => `topic_${t.id}`,
+        getTopicSearchText,
+        searchTerm,
+        { minSimilarity: 0.32 },
+    );
+    const filteredTopics = semantic.filtered;
 
     const grouped = useMemo(() => {
         const buckets: Record<SentimentBucket, Topic[]> = { positive: [], neutral: [], negative: [], mixed: [] };
@@ -190,22 +222,40 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
                     </div>
                 </div>
                 <div style={{ flex: 1 }} />
-                <input
-                    type="text"
-                    placeholder="Search topics or terms…"
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                    style={{
-                        padding: '8px 12px',
-                        fontSize: 12,
-                        border: `1px solid ${COLORS.line}`,
-                        borderRadius: 2,
-                        background: COLORS.panel,
-                        outline: 'none',
-                        width: 280,
-                        fontFamily: "'JetBrains Mono', monospace",
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2 }}>
+                    <input
+                        type="text"
+                        placeholder="Search topics or terms…"
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                        style={{
+                            padding: '8px 12px',
+                            fontSize: 12,
+                            border: `1px solid ${COLORS.line}`,
+                            borderRadius: 2,
+                            background: COLORS.panel,
+                            outline: 'none',
+                            width: 280,
+                            fontFamily: "'JetBrains Mono', monospace",
                     }}
                 />
+                {searchTerm.trim() && (
+                    <span style={{
+                        fontSize: 9,
+                        letterSpacing: 1.5,
+                        textTransform: 'uppercase',
+                        color: semantic.usedSemantic ? COLORS.lime : COLORS.muted,
+                        fontWeight: 600,
+                        fontFamily: 'Archivo, sans-serif',
+                    }}>
+                        {semantic.isComputing
+                            ? 'embedding…'
+                            : semantic.usedSemantic
+                                ? `semantic · ${semantic.filtered.length} hit(s)`
+                                : `literal · ${semantic.filtered.length} hit(s)`}
+                    </span>
+                )}
+                </div>
             </div>
 
             {/* 3-column sentiment grid */}

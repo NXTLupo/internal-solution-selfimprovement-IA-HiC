@@ -1,0 +1,71 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1te6sd4/struggling_to_find_a_job_after_almost_2_year/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Struggling to find a job after almost 2 year career break despite decent experience. Guidance on how to position myself ?"
+author: "anon_War893"
+date: "2026-05-15T19:37:38.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 7
+flair: ""
+extracted_at: "2026-05-23T14:54:05.574Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Struggling to find a job after almost 2 year career break despite decent experience. Guidance on how to position myself ?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1te6sd4/struggling_to_find_a_job_after_almost_2_year/)
+Posted by **anon_War893** · **1↑** · **7 comments**
+
+I am 30 years old and will have been on a career break for almost 2 years this summer. It initially was started due to unexpected loss in my immediate family that really devastated my family. To only complicate things further, the person we lost was in charge of our small family business and I was the one that had to step in and deal with all of the joys that come with financials, taxes and legal stuff related to the close out of that business. Between that and the grief, it honestly took up about one year of my time.
+
+I then decided this past fall that I was ready to re-enter my career, which mainly has spanned Finance and Operations (see details below). However, I have been having an extremely hard time getting to an offer.  Here are some details on my professional experience and my thoughts:
+
+* I have \~7 years of experience post undergrad, which is not including the 2 year break. On my resume you can see the natural progression I had from Financial Analyst -> Senior FA -> Business Operations Analyst -> Senior BOA - > Asst Manager of Strategy (my last full time role)
+* R**oles im targeting:** Due to my break, I don’t personally feel at the level of Asst Manager that I was at when I left, and I recognize this so ive been mostly targeting Senior Analyst or regular Analyst roles. I apply for roles in FP&A, Biz Ops/ gen ops,  Sales/Rev Ops, Strategy, etc. 
+* I consistently get recruiter screenings and often hiring manager interviews, and even a handful of final rounds; but something isn’t clicking. I know part of it is likely my own confidence in interviews which ive been working on and feel like im getting better each time, but its frustrating when I have an interview where I can name multiple examples of where ive performed the EXACT duties in their job description, yet later find out im not a good fit.
+* **career break positioning**; I had met with a career coach last year for advice on how to get the job search process started and positioning, and they had advised that I don’t bring up the break unless I was asked, and then to have a spiel prepared that lightly explains the situation but highlights the positives ive been doing in my time off and emphasizes that im ready to re-enter. I feel okay explaining this and haven’t had any strange reactions; though I recently switched from waiting for them to ask to addressing it myself, as Ive found that some people don’t ask me and I feel worried that theyre making assumptions about timeline on my resume…
+
+
+
+**My thoughts:** 
+
+I have been wondering if perhaps my long resume is confusing when im applying to border line entry level positions…In a way I recognize that im slightly over-qualified for those but I also feel like I need a re-introduction to work after my traumatic 2 years, so I feel underqualified for higher level positions. It also doesn’t help that my longest job history is about 2.5 years. Between 3 (!) layoffs in my career and the career break, im worried I look unstable…
+
+Seeking advice on what types of positions I should be targeting, how to position myself, if I should tamper down my resume a bit more, and your thoughts on talking about my career break…. This job hunt has done a number on my psyche. I have always been a hard worker, and received glowing reviews throughout my career. I've formed strong connections and friends from my jobs and genuinely enjoyed the positions I was in, but life happened. Appreciate any tips or thoughts anyone can give!  
+  
+
+
+**General summary of what's on my resumes:**
+
+* Asst Mgr of Strategy @ global financial services company
+   * 6 months in 2024, when the loss occurred and I had to leave work
+* Senior Business Operations Analyst @ global consulting firm
+   * 2.5 years, position affected by mass layoffs
+* Financial & Operations Analyst @ early stage startup
+   * 9 months, laid off due to the startup shutting down their US operations and moving to Europe
+* Financial Analyst @ global hospitality company
+   * 1 year 3 months, laid off April 2020 when COVID hit hospitality industry hard
+*  FA then Senior Financial Analyst (licensed broker) @  leading global investment bank
+   * 1.5 years, the only position I actually left on my own (besides career break). This was my first full-time job after undergrad and was in private wealth. I wanted to get into corporate FP&A and I successfully did this by starting my MBA and obtaining my next role at the hospitality company.
+* **Education**
+   * BBA in Finance
+   * MBA with concentrations in Accounting and Operations Research
+   * I also taught online finance courses as a side gig for one year during COVID at a local community college
+
+## Comments
+
+- **Psytrense** (1↑): You're shooting for senior level positions and management but you previous roles you were not in them for very long. I mean besides 2.5 year role. I would lower your expectations and at this point try to get anything in your field. The market is really bad you probably have guys 15 years of experience and 10+ at the same company competing for the same roles as you.
+  - **anon_War893** (1↑): Sorry maybe I did not explain that well- i actually am targeting entry-level roles more than anything. Mainly like regular financial analyst and the occasional senior financial analyst. That’s a good point though about the competition I should really just focus on mainly entry level.
+    - **Psytrense** (1↑): Sorry I missed that I guess. At this point it's all a numbers game. I submitted like 600 applications before I landed my role.
+
+Have you polished up your resume with something like rxresu.me?
+- **Ok_Notice6843** (1↑): Man 3 layoffs plus family tragedy - that's rough luck happening together, but your experience looks solid. 
+
+  
+Maybe try targeting contract or temp-to-perm roles for getting back in market, easier to show value without commitment concerns.
+  - **anon_War893** (1↑): Yeah its been a fun ride lol….That’s a good idea with the contract roles though im going to look into that, thank you!!
+- **resume-razor** (1↑): own the two-year gap in your summary instead of letting recruiters guess. highlight the specific technical skills you maintained or learned to prove your decent experience is still current and relevant.

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HiC Research Artifact Templates</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<link rel="stylesheet" href="shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+  .home {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+  }
+  .home__head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 48px;
+  }
+  .home__kicker {
+    font-size: 10px;
+    letter-spacing: .18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--nu-red-600);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .home__kicker::before {
+    content: "";
+    display: inline-block;
+    width: 22px; height: 1.5px;
+    background: var(--nu-red-600);
+  }
+  .home__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+    max-width: 18ch;
+  }
+  .home__title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--nu-red-700);
+  }
+  .home__lede {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg-default);
+    max-width: 48ch;
+  }
+  .home__lede p { margin: 0 0 12px; }
+  .home__lede .meta {
+    font-size: 11px;
+    letter-spacing: .04em;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    margin-top: 12px;
+  }
+
+  .home__nav-section { margin-bottom: 64px; }
+  .home__nav-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .home__nav-head h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .home__nav-head .count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+
+  .tpl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .tpl-card {
+    background: var(--bg-surface);
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    transition: background var(--duration-base) var(--ease-standard);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  .tpl-card:hover { background: var(--slate-50); }
+  .tpl-card:hover .tpl-card__title { color: var(--nu-red-700); }
+  .tpl-card__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .tpl-card__num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .06em;
+    color: var(--fg-subtle);
+  }
+  .tpl-card__medium {
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--fg-muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tpl-card__medium .signal { margin: 0; }
+  .tpl-card__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    color: var(--fg-strong);
+    letter-spacing: -.015em;
+    transition: color var(--duration-base) var(--ease-standard);
+  }
+  .tpl-card__desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-muted);
+    margin-top: 8px;
+    flex: 1;
+  }
+  .tpl-card__signals {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .tpl-card__arrow {
+    position: absolute;
+    bottom: 24px; right: 24px;
+    width: 28px; height: 28px;
+    border-radius: 999px;
+    display: grid; place-items: center;
+    background: var(--slate-100);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    transition: all var(--duration-base) var(--ease-standard);
+  }
+  .tpl-card:hover .tpl-card__arrow {
+    background: var(--ink-800);
+    color: var(--white);
+    transform: translateX(2px);
+  }
+
+  .tpl-card--guide {
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+    grid-column: span 2;
+    min-height: 200px;
+  }
+  .tpl-card--guide:hover { background: var(--ink-800); }
+  .tpl-card--guide .tpl-card__title { color: var(--white); }
+  .tpl-card--guide:hover .tpl-card__title { color: var(--white); }
+  .tpl-card--guide .tpl-card__desc { color: rgba(255,255,255,.65); max-width: 56ch; }
+  .tpl-card--guide .tpl-card__num,
+  .tpl-card--guide .tpl-card__medium { color: rgba(255,255,255,.5); }
+  .tpl-card--guide .tpl-card__arrow { background: rgba(255,255,255,.1); color: var(--white); }
+  .tpl-card--guide:hover .tpl-card__arrow { background: var(--white); color: var(--ink-900); }
+
+  .tpl-card--style {
+    background: linear-gradient(160deg, rgba(200,16,46,.04), transparent 50%);
+  }
+
+  /* mini visual preview using pure CSS — one per card */
+  .tpl-card__viz {
+    height: 38px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    opacity: .85;
+  }
+  .tpl-card__viz .b {
+    flex: 1;
+    background: var(--ink-800);
+    border-radius: 1px;
+    opacity: .85;
+  }
+  .tpl-card__viz .b.r { background: var(--nu-red-600); }
+  .tpl-card__viz .b.m { background: var(--slate-300); }
+
+  .home__principles {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-default);
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 60px;
+  }
+  .home__principles h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--fg-strong);
+  }
+  .home__principles h3 + p { font-size: 12px; color: var(--fg-muted); margin-top: 8px; }
+  .home__principles .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 56px;
+    row-gap: 28px;
+  }
+  .home__principles .principles-grid > div b {
+    display: block;
+    font-size: 13px;
+    color: var(--fg-strong);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .home__principles .principles-grid > div p {
+    font-size: 12.5px;
+    color: var(--fg-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+<main class="home">
+  <header class="home__head">
+    <div>
+      <div class="home__kicker">HiC Research Operating System</div>
+      <h1 class="home__title">A denser, quieter library of <em>research artifacts</em>.</h1>
+    </div>
+    <div class="home__lede">
+      <p>Fourteen institutional templates for the artifacts CX and product research generates day-in, day-out. Built on the Northeastern Advancement design system. Optimized for content density: less chrome, tighter typography, multi-column rhythm, inline citation chips, and packing more records per page.</p>
+      <p class="meta">v1.0 · NU brand · 14 templates · 1 living style guide</p>
+    </div>
+  </header>
+
+  <section class="home__nav-section">
+    <div class="home__nav-head">
+      <h2>Research &amp; insight</h2>
+      <span class="count">06 · Discovery to synthesis</span>
+    </div>
+    <div class="tpl-grid">
+
+      <a class="tpl-card" href="artifacts/themes.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">01 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--blue"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:40%"></span><span class="b" style="height:75%"></span><span class="b m" style="height:55%"></span><span class="b" style="height:90%"></span><span class="b m" style="height:30%"></span><span class="b" style="height:70%"></span><span class="b m" style="height:50%"></span><span class="b r" style="height:85%"></span></div>
+        <h3 class="tpl-card__title">Themes</h3>
+        <p class="tpl-card__desc">12-tile evidence grid. Cross-document themes with frequency, source mix, and inline chunk citations.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/personas.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">02 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--blue"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:60%"></span><span class="b m" style="height:60%"></span><span class="b" style="height:60%"></span><span class="b m" style="height:60%"></span><span class="b r" style="height:60%"></span><span class="b m" style="height:60%"></span><span class="b" style="height:60%"></span><span class="b m" style="height:60%"></span></div>
+        <h3 class="tpl-card__title">Personas</h3>
+        <p class="tpl-card__desc">Four-up roster on one canvas. Cooper goal hierarchy, JTBD, pain points and motivations with verbatim quotes.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/service-blueprint.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">03 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--blue"></span>Wide canvas</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:30%"></span><span class="b" style="height:50%"></span><span class="b" style="height:65%"></span><span class="b r" style="height:80%"></span><span class="b" style="height:70%"></span><span class="b" style="height:55%"></span><span class="b" style="height:40%"></span><span class="b m" style="height:30%"></span></div>
+        <h3 class="tpl-card__title">Service blueprint</h3>
+        <p class="tpl-card__desc">Bitner 5-layer model with persona swimlanes, fail points, emotion arcs, and technology systems per phase.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/competitive-analysis.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">04 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--blue"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:80%"></span><span class="b m" style="height:50%"></span><span class="b r" style="height:65%"></span><span class="b" style="height:75%"></span><span class="b m" style="height:35%"></span><span class="b" style="height:60%"></span><span class="b m" style="height:45%"></span><span class="b" style="height:70%"></span></div>
+        <h3 class="tpl-card__title">Competitive analysis</h3>
+        <p class="tpl-card__desc">Named peers (never "Industry Average") in a benchmark matrix with strengths, weaknesses, and differentiators.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/gap-analysis.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">05 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--blue"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:25%"></span><span class="b r" style="height:90%"></span><span class="b" style="height:45%"></span><span class="b r" style="height:75%"></span><span class="b" style="height:60%"></span><span class="b r" style="height:85%"></span><span class="b" style="height:40%"></span><span class="b m" style="height:30%"></span></div>
+        <h3 class="tpl-card__title">Gap analysis</h3>
+        <p class="tpl-card__desc">Capability gaps with Gartner 1–5 maturity bars, severity, quick wins, and a real risk register.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/strategic-report.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">06 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--special"></span>Document</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span></div>
+        <h3 class="tpl-card__title">Strategic report</h3>
+        <p class="tpl-card__desc">Long-form synthesis with marginalia citations, embedded pull-quotes, and an editorial three-column inset.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="home__nav-section">
+    <div class="home__nav-head">
+      <h2>Strategy &amp; activation</h2>
+      <span class="count">07 · Synthesis to action</span>
+    </div>
+    <div class="tpl-grid">
+
+      <a class="tpl-card" href="artifacts/recommendations.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">07 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--yellow"></span>Document</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:70%"></span><span class="b m" style="height:50%"></span><span class="b" style="height:80%"></span><span class="b m" style="height:40%"></span><span class="b r" style="height:75%"></span><span class="b m" style="height:55%"></span><span class="b" style="height:65%"></span><span class="b m" style="height:45%"></span></div>
+        <h3 class="tpl-card__title">Strategic recommendations</h3>
+        <p class="tpl-card__desc">Rumelt's Kernel — diagnosis, guiding policy, 5–7 coherent actions — with quantified impact per recommendation.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/roadmap.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">08 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--yellow"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:90%"></span><span class="b" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b m" style="height:90%"></span><span class="b r" style="height:90%"></span><span class="b r" style="height:90%"></span></div>
+        <h3 class="tpl-card__title">Strategic roadmap</h3>
+        <p class="tpl-card__desc">Now / Next / Later columns, theme-tagged initiatives, dependency callouts, and confidence levels per horizon.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/prd.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">09 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--yellow"></span>Document</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:85%"></span><span class="b m" style="height:85%"></span><span class="b" style="height:85%"></span><span class="b" style="height:85%"></span><span class="b m" style="height:85%"></span><span class="b" style="height:85%"></span><span class="b m" style="height:85%"></span><span class="b" style="height:85%"></span></div>
+        <h3 class="tpl-card__title">Product requirements</h3>
+        <p class="tpl-card__desc">Cagan / SVPG 16-section PRD with MoSCoW-prioritized features, acceptance criteria, and persona traceability.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/strategy-deck.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">10 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--green"></span>Slides</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:50%"></span><span class="b r" style="height:80%"></span><span class="b" style="height:35%"></span><span class="b" style="height:65%"></span><span class="b m" style="height:45%"></span><span class="b" style="height:70%"></span><span class="b m" style="height:55%"></span></div>
+        <h3 class="tpl-card__title">Strategy deck</h3>
+        <p class="tpl-card__desc">All seven slide archetypes on one canvas — title, section header, data panel, insight chart, bento, problem/solution, full-bleed viz.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/tech-architecture.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">11 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--neutral"></span>Canvas</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:60%"></span><span class="b m" style="height:45%"></span><span class="b" style="height:75%"></span><span class="b m" style="height:30%"></span><span class="b" style="height:55%"></span><span class="b m" style="height:40%"></span><span class="b r" style="height:65%"></span><span class="b m" style="height:25%"></span></div>
+        <h3 class="tpl-card__title">Technical architecture</h3>
+        <p class="tpl-card__desc">C4 Context + Container layers with named nodes, typed flows, and an integration health register.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/tech-audit.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">12 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--neutral"></span>Dashboard</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b m" style="height:30%"></span><span class="b" style="height:55%"></span><span class="b m" style="height:40%"></span><span class="b" style="height:70%"></span><span class="b m" style="height:25%"></span><span class="b r" style="height:60%"></span><span class="b m" style="height:35%"></span><span class="b" style="height:50%"></span></div>
+        <h3 class="tpl-card__title">Technology audit</h3>
+        <p class="tpl-card__desc">Systems inventory table with vendor, owner, maturity, integration health, and consolidation opportunities.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card" href="artifacts/org-chart.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">13 / 13</span>
+          <span class="tpl-card__medium"><span class="signal signal--neutral"></span>Canvas</span>
+        </div>
+        <div class="tpl-card__viz"><span class="b" style="height:90%"></span><span class="b m" style="height:60%"></span><span class="b m" style="height:60%"></span><span class="b" style="height:30%"></span><span class="b" style="height:30%"></span><span class="b" style="height:30%"></span><span class="b" style="height:30%"></span><span class="b" style="height:30%"></span></div>
+        <h3 class="tpl-card__title">Organizational chart</h3>
+        <p class="tpl-card__desc">Three-tier hierarchy with reporting lines, dotted-line collaborators, and capacity load per role.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="home__nav-section">
+    <div class="home__nav-head">
+      <h2>Reference</h2>
+      <span class="count">02 · How to build &amp; modify</span>
+    </div>
+    <div class="tpl-grid" style="grid-template-columns: 2fr 1fr;">
+
+      <a class="tpl-card tpl-card--guide" href="style-guide.html">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">REF · A</span>
+          <span class="tpl-card__medium" style="color: rgba(255,255,255,.5);">Living style guide</span>
+        </div>
+        <h3 class="tpl-card__title">Anatomy of an artifact</h3>
+        <p class="tpl-card__desc">Interactive walkthrough of every shared element — masthead, eyebrow, citation chip, maturity bar, signal dot, dense table — with copy-pasteable HTML snippets.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+      <a class="tpl-card tpl-card--style" href="GUIDE.md">
+        <div class="tpl-card__row">
+          <span class="tpl-card__num">REF · B</span>
+          <span class="tpl-card__medium">Markdown spec</span>
+        </div>
+        <h3 class="tpl-card__title">Build &amp; modify guide</h3>
+        <p class="tpl-card__desc">The full specification: token map, density rules, per-artifact anatomy, and modification recipes.</p>
+        <span class="tpl-card__arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="home__principles">
+    <div>
+      <h3>Density principles</h3>
+      <p>What the templates fix, in order of priority.</p>
+    </div>
+    <div class="principles-grid">
+      <div>
+        <b>01 · Kill the chrome</b>
+        <p>No methodology blurbs, no slide numbers on documents, no full source strips. Brand mark stays. Title stays. Everything else earns its space.</p>
+      </div>
+      <div>
+        <b>02 · Citations as chips, not bibliographies</b>
+        <p>Inline <span class="cite-chip" style="vertical-align: baseline;">HiEd Dive '24</span> with a tooltip-grade hint. A consolidated source index lives once, at the foot of the document.</p>
+      </div>
+      <div>
+        <b>03 · Tabular numerals everywhere</b>
+        <p>Roboto with <code style="font-family:var(--font-mono); font-size:11px;">font-feature-settings: 'tnum' 1</code> applied globally. Numbers line up across rows; comparisons read at a glance.</p>
+      </div>
+      <div>
+        <b>04 · Multi-column over stacked</b>
+        <p>4-up persona roster, 12-tile theme grid, 3-column report inset. Side-by-side reads faster than scrolling.</p>
+      </div>
+      <div>
+        <b>05 · One section divider rule</b>
+        <p>A 1px line, an 18px display heading, optional counter on the right. No banner bars, no dark hero blocks (except deck section headers).</p>
+      </div>
+      <div>
+        <b>06 · Northeastern red is a scalpel</b>
+        <p>It marks critical state, target maturity, and one verbatim quote per page. It is never a background, never a divider, never decoration.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

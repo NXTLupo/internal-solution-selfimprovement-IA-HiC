@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NU Journey Map — Current State</title>
+<title>NU Journey Map — Current State (grid layout)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* =============================================================
      JOURNEY MAP EXEMPLAR — NU brand
-     Locked 1920x1080 canvas. 80px safe area on all sides.
-     12-column grid, 24px gutters, 80px outer margins.
-     Three horizontal bands: HEADER (0-240), JOURNEY (240-880),
-     SYNTHESIS (880-1080).
-     Five type roles: Display, Body, Label, Quote, Data.
-     NO brand-mark, seal, or wordmark — header is eyebrow + title
-     + lede only. Voice-of-user row at bottom of journey band.
+     2026-05-25 — Migrated to the shared grid-table layout used by
+     service blueprint (file 03-blueprint). Journey and blueprint
+     differ ONLY semantically:
+       • Journey  = current state, pain rows (rust),  facts in cell prose
+       • Blueprint = future state,  gain rows (chartreuse), redesigns in prose
+     The prior swimlane SVG with .lanes + .activities grid + emotion
+     arc + voice-row + synthesis-band + opportunity-row produced
+     persistent collisions whenever cell density was above one item
+     and is RETIRED.
      ============================================================= */
 
   :root {
@@ -31,440 +33,453 @@
     --nu-paper: #FAF8F4;
     --nu-cream: #F4F1EA;
     --nu-white: #FFFFFF;
-    --nu-tint: #FBF6E8; /* focal-phase tint */
+    --nu-tint: #FBF6E8;
     --nu-rust: #CC6644;
     --nu-teal: #115054;
+    --nu-cyan: #0091B6;
     --nu-chartreuse: #B8B800;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
-    background: #1A1A1A;
-    font-family: 'Archivo', sans-serif;
-    color: var(--nu-black);
-    -webkit-font-smoothing: antialiased;
-    width: 100%; height: 100%;
-    overflow: hidden;
-  }
-  .stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; }
-  .slide-frame { width: 1920px; height: 1080px; transform-origin: center center; flex-shrink: 0; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
-  .slide {
-    width: 1920px; height: 1080px;
-    background: var(--nu-paper);
-    position: relative;
-    overflow: hidden;
-  }
+  html, body { background: var(--nu-paper); font-family: 'Archivo', sans-serif; color: var(--nu-black); width: 1920px; height: 1080px; overflow: hidden; }
 
-  /* ============ FRAME — 12-column grid + 3 horizontal bands ============ */
-  .frame {
-    width: 1920px;
-    height: 1080px;
-    padding: 80px;
+  .slide { width: 1920px; height: 1080px; position: relative; }
+  .frame { width: 1920px; height: 1080px; padding: 60px 80px; }
+  .header { margin-bottom: 24px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--nu-red); margin-bottom: 8px; }
+  .title { font-weight: 800; font-size: 42px; line-height: 1.05; letter-spacing: -0.02em; color: var(--nu-black); max-width: 1400px; }
+  .title em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: var(--nu-red); }
+  .lede { font-size: 14px; line-height: 1.5; color: var(--nu-graphite); max-width: 1400px; margin-top: 10px; }
+
+  /* ============ CORE GRID (shared with blueprint) ============ */
+  .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
-    grid-template-rows: 160px 600px 160px;
+    grid-template-columns: 160px repeat(5, 1fr);
+    column-gap: 16px;
     row-gap: 0;
+    margin-top: 28px;
   }
 
-  /* ============ TYPE ROLES (5 only) ============ */
-  /* Display = Title */
-  .display {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 800;
-    font-size: 52px;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--nu-black);
+  .phase-head {
+    grid-column-end: span 1;
+    padding: 8px 4px;
+    border-bottom: 1px solid var(--nu-black);
   }
-  .display em {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--nu-red);
-    letter-spacing: -0.01em;
-  }
-  /* Body = Right-rail paragraph, synthesis */
-  .body-text {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--nu-graphite);
-  }
-  /* Label = Persona, phase, system, eyebrow */
-  .label {
-    font-family: 'Archivo', sans-serif;
+  .phase-head .pname { font-weight: 700; font-size: 13px; color: var(--nu-black); }
+  .phase-head .psys { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--nu-mist); margin-top: 2px; }
+  .phase-head.focal { background: var(--nu-tint); }
+  .phase-head.empty { border: none; padding-bottom: 9px; }
+
+  .lane-row { display: contents; }
+  .lane-label {
+    padding: 12px 8px 12px 0;
+    border-right: 1px solid var(--nu-line);
     font-weight: 700;
     font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nu-black);
+  }
+  .lane-label .lrole {
+    display: block;
+    font-weight: 400;
+    font-size: 9.5px;
+    color: var(--nu-mist);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    text-transform: none;
+  }
+
+  .cell {
+    padding: 10px 8px;
+    border-right: 1px solid var(--nu-line);
+  }
+  .cell:last-child { border-right: none; }
+  .cell.focal { background: var(--nu-tint); }
+  .cell .ctext { font-size: 11.5px; line-height: 1.35; color: var(--nu-graphite); }
+  /* Empty cells (actor not active in this phase) — em dash placeholder */
+  .cell .empty { color: var(--nu-mist); font-style: italic; font-size: 11px; }
+
+  /* Pain row (journey-specific — rust accent). Optional, max ONE per cell. */
+  .cell .pain {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 9.5px;
+    line-height: 1.3;
+    color: var(--nu-graphite);
+  }
+  .cell .pain::before {
+    content: 'PAIN';
+    flex-shrink: 0;
+    color: var(--nu-rust);
+    font-weight: 700;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+    padding-top: 1px;
+  }
+
+  /* Gain row (blueprint-specific — chartreuse accent). NOT used in journeys. */
+  .cell .gain {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 9.5px;
+    line-height: 1.3;
+    color: var(--nu-graphite);
+  }
+  .cell .gain::before {
+    content: 'GAIN';
+    flex-shrink: 0;
+    color: var(--nu-chartreuse);
+    font-weight: 700;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+    padding-top: 1px;
+  }
+
+  /* ============ KPI ROW (legacy — kept for backward compat) ============ */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 160px repeat(5, 1fr);
+    column-gap: 16px;
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid var(--nu-black);
+  }
+  .kpi-label {
+    padding-right: 8px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nu-black);
+  }
+  .kpi-cell { display: flex; flex-direction: column; gap: 4px; padding: 0 4px; }
+  .kpi-eye { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); }
+  .kpi-value { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; color: var(--nu-rust); }
+  .kpi-value.good { color: var(--nu-cyan); }
+  .kpi-value.mute { color: var(--nu-mist); }
+
+  /* ============================================================
+     JM-DEPTH CLASSES (2026-05-25 — JOURNEY MAPPER pattern ported)
+     The skill instructs the model to emit a top dashboard with personas,
+     overall pain points, strategic opportunities, and KPI tiles, plus
+     in-cell .tp (touchpoint), .emo (emotion + intensity), .vq (verbatim
+     quote). These rules style those classes so the rendered artifact
+     looks like a finished consulting report.
+     ============================================================ */
+
+  .kpi-dashboard {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+    margin: 18px 0 22px;
+    padding: 14px 0;
+    border-top: 1px solid var(--nu-line);
+    border-bottom: 1px solid var(--nu-line);
+  }
+  .kpi-eyebrow {
+    grid-column: 1 / span 12;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nu-red);
+    margin-bottom: 6px;
+  }
+
+  .personas {
+    grid-column: 1 / span 5;
+  }
+  .persona-eye {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--nu-stone);
+    margin-bottom: 6px;
   }
-  .label-tight { letter-spacing: 0.16em; font-size: 11px; }
-  /* Quote = Voice-of-user body */
-  .quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
+  .personas ul { list-style: none; padding: 0; margin: 0; }
+  .personas li {
+    font-size: 10.5px;
     line-height: 1.4;
     color: var(--nu-graphite);
+    margin-bottom: 4px;
   }
-  /* Data = Metric numerals, participant codes */
-  .data-num {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 800;
-    font-size: 56px;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    color: var(--nu-black);
-  }
-  .data-code {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-    font-size: 9.5px;
-    letter-spacing: 0.06em;
-    color: var(--nu-stone);
-  }
+  .personas li strong { color: var(--nu-black); font-weight: 700; }
 
-  /* ============ HEADER BAND (row 1, 0-160 within padded area) ============ */
-  .header-band { grid-column: 1 / span 12; grid-row: 1; display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-content: start; }
-  .title-zone { grid-column: 1 / span 9; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 12px;
-    margin-bottom: 14px;
-  }
-  .eyebrow .dot { width: 6px; height: 6px; background: var(--nu-red); }
-  .eyebrow .rule { width: 24px; height: 1px; background: var(--nu-black); }
-
-  .right-rail {
-    grid-column: 10 / span 3;
-    padding-top: 4px;
-    border-left: 1px solid var(--nu-line);
-    padding-left: 18px;
-  }
-  .client-meta {
-    margin-bottom: 10px;
-  }
-  .client-meta .row { display: flex; gap: 8px; margin-bottom: 4px; }
-  .client-meta .k { color: var(--nu-mist); }
-  .client-meta .v { color: var(--nu-graphite); }
-
-  /* ============ JOURNEY BAND (row 2, 600px tall) ============ */
-  .journey-band {
-    grid-column: 1 / span 12;
-    grid-row: 2;
+  .overall-row {
+    grid-column: 6 / span 7;
     display: grid;
-    grid-template-rows: 36px 1fr 96px;
-    row-gap: 0;
-    padding-top: 24px;
-  }
-
-  /* Phase header strip */
-  .phase-strip {
-    grid-row: 1;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* default 5 phases — model adapts 3-6 */
-    column-gap: 24px;
-    border-bottom: 1px solid var(--nu-black);
-    padding-bottom: 8px;
-  }
-  .phase-col { display: flex; flex-direction: column; gap: 2px; }
-  .phase-col.focal { background: var(--nu-tint); }
-  .phase-col .ph-eye { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: var(--nu-stone); text-transform: uppercase; }
-  .phase-col .ph-name { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: -0.005em; color: var(--nu-black); }
-  .phase-col .ph-sys { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--nu-mist); margin-top: 2px; }
-
-  /* Lanes container — flexible vertical split per persona lane */
-  .lanes {
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 8px 0;
-    position: relative;
-  }
-  .lane {
-    position: relative;
-    display: grid;
-    grid-template-columns: 140px 1fr; /* persona label | timeline */
+    grid-template-columns: 4fr 3fr;
     column-gap: 16px;
-    align-items: center;
-    height: 130px;
   }
-  .lane-label { display: flex; flex-direction: column; gap: 4px; padding-right: 8px; border-right: 1px solid var(--nu-line); height: 100%; padding-top: 18px; }
-  .lane-label .lname { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nu-black); }
-  .lane-label .lrole { font-family: 'Archivo', sans-serif; font-weight: 400; font-size: 10px; color: var(--nu-mist); letter-spacing: 0.04em; }
-
-  .lane-track { position: relative; height: 100%; }
-  /* Lane line at vertical center */
-  .lane-track .line { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--nu-black); }
-  .lane-track .line.dashed { background-image: linear-gradient(to right, var(--nu-stone) 50%, transparent 50%); background-size: 8px 1px; background-repeat: repeat-x; opacity: 0.3; }
-  /* Activity column — N columns matching phase-strip */
-  .activities {
-    position: absolute; inset: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    column-gap: 24px;
-  }
-  .activity {
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: flex-start;
-    padding-top: 14px;
-    position: relative;
-  }
-  .activity .alabel {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 1.3;
-    color: var(--nu-graphite);
-    text-align: center;
-    max-width: 200px;
-    margin-bottom: 8px;
-  }
-  /* All activity labels sit ABOVE the dot — never below, never alternating */
-  .activity .dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--nu-paper);
-    border: 2px solid var(--nu-black);
-    position: absolute; top: 50%; transform: translateY(-50%);
-  }
-  .activity.friction .dot { background: var(--nu-rust); border-color: var(--nu-rust); }
-  .activity.moment .dot { width: 14px; height: 14px; background: var(--nu-red); border-color: var(--nu-red); }
-  .activity .tcode {
-    position: absolute; bottom: 6px;
+  .overall-pain, .overall-opp { min-width: 0; }
+  .oeye {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .overall-pain .oeye { color: var(--nu-rust); }
+  .overall-opp .oeye { color: var(--nu-chartreuse); }
+  .overall-pain ol, .overall-opp ol {
+    list-style: decimal inside;
+    padding: 0;
+    margin: 0;
+  }
+  .overall-pain li, .overall-opp li {
+    font-size: 9.5px;
+    line-height: 1.4;
+    color: var(--nu-graphite);
+    margin-bottom: 4px;
+  }
+  .overall-pain cite, .overall-opp cite {
+    display: block;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
     color: var(--nu-mist);
+    margin-top: 1px;
+    letter-spacing: 0.04em;
   }
 
-  /* Voice-of-user row at bottom of journey band */
-  .voice-row {
-    grid-row: 3;
-    display: grid;
-    grid-template-columns: 140px repeat(5, 1fr); /* align with lane-label + 5 phase columns */
-    column-gap: 16px;
-    border-top: 1px solid var(--nu-line);
-    padding-top: 12px;
-    margin-left: 0;
-  }
-  .voice-row .voice-label-col { display: flex; align-items: flex-start; padding-top: 4px; padding-right: 8px; border-right: 1px solid var(--nu-line); height: 100%; }
-  .voice-row .voice-label-col .vl { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); }
-  .voice-cell { display: flex; flex-direction: column; gap: 4px; padding: 0 4px; }
-  .voice-cell .vc-eye { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); }
-  .voice-cell .vc-code { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--nu-mist); margin-bottom: 2px; }
-  .voice-cell .vc-quote { /* uses .quote spec; max 4 lines, ~140 chars */ }
-
-  /* ============ SYNTHESIS BAND (row 3, 160px) ============ */
-  .synthesis-band {
+  .kpi-tiles {
     grid-column: 1 / span 12;
-    grid-row: 3;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
-    border-top: 1px solid var(--nu-black);
-    padding-top: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    margin-top: 14px;
   }
-  .synthesis-text { grid-column: 1 / span 4; padding-right: 8px; }
-  .synthesis-text .seye { margin-bottom: 8px; }
-  .metric-tiles { grid-column: 5 / span 8; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 16px; }
-  .tile {
-    background: var(--nu-white);
-    border: 1px solid var(--nu-line);
-    padding: 14px 16px;
-    display: flex; flex-direction: column; gap: 4px;
+  .kpi-tile {
+    padding: 10px 12px;
+    background: var(--nu-cream);
+    border-left: 3px solid var(--nu-line);
+    min-width: 0;
+    overflow: hidden;
   }
-  .tile.key-finding { background: var(--nu-black); border-color: var(--nu-black); color: var(--nu-white); }
-  .tile.key-finding .tnum { color: var(--nu-white); }
-  .tile.key-finding .tlabel { color: var(--nu-chartreuse); }
-  .tile .tnum { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 48px; line-height: 1; letter-spacing: -0.04em; color: var(--nu-black); }
-  .tile .tlabel { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); margin-top: 4px; }
-  .tile .tnote { font-family: 'Archivo', sans-serif; font-weight: 400; font-size: 11px; color: var(--nu-graphite); line-height: 1.35; }
-  .tile.key-finding .tnote { color: rgba(255,255,255,0.78); }
+  .kpi-tile.headline {
+    background: var(--nu-black);
+    border-left-color: var(--nu-red);
+    color: var(--nu-white);
+  }
+  .kpi-tile .kpi-eye, .kpi-tile .kpi-lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nu-stone);
+  }
+  .kpi-tile.headline .kpi-eye, .kpi-tile.headline .kpi-lbl { color: var(--nu-red); }
+  .kpi-tile .kpi-val {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 1;
+    margin-top: 4px;
+    color: var(--nu-black);
+    letter-spacing: -0.01em;
+  }
+  .kpi-tile.headline .kpi-val { color: var(--nu-white); }
+  .kpi-tile .kpi-sup {
+    font-size: 10px;
+    color: var(--nu-graphite);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+  .kpi-tile.headline .kpi-sup { color: rgba(255,255,255,0.78); }
+
+  /* ============ CELL INTERNALS — JM depth ============ */
+
+  .cell .tp {
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+    margin-top: 5px;
+    font-size: 9px;
+    line-height: 1.3;
+    color: var(--nu-graphite);
+  }
+  .cell .tp .ch {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nu-cyan);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .cell .emo {
+    margin-top: 5px;
+    padding-left: 38px;
+    position: relative;
+    font-size: 9.5px;
+    line-height: 1.3;
+    color: var(--nu-graphite);
+  }
+  .cell .emo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 32px;
+    height: 3px;
+    background: var(--nu-line);
+    border-radius: 2px;
+  }
+  /* Intensity rendered as a colored overlay; inline style sets --bar width */
+  .cell .emo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 3px;
+    width: var(--bar, 0%);
+    max-width: 32px;
+    background: var(--nu-rust);
+    border-radius: 2px;
+  }
+
+  .cell .vq {
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-left: 2px solid var(--nu-red);
+    background: var(--nu-cream);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--nu-black);
+    border-radius: 0;
+  }
+  .cell .vq cite {
+    display: block;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5px;
+    color: var(--nu-stone);
+    margin-top: 3px;
+    letter-spacing: 0.04em;
+  }
 </style>
 </head>
 <body>
-<div class="stage">
-  <div class="slide-frame">
-    <div class="slide">
-      <div class="frame">
+<div class="slide">
+<div class="frame">
 
-        <!-- =========== HEADER BAND (cols 1-9 title, cols 10-12 right-rail lede) =========== -->
-        <div class="header-band">
-          <div class="title-zone">
-            <div class="label eyebrow">
-              <span class="rule"></span>
-              <span>Journey Map · Current State</span>
-              <span class="dot"></span>
-            </div>
-            <h1 class="display">First-year students navigate <em>compounding friction</em> across co-op placement and campus support.</h1>
-          </div>
-          <div class="right-rail">
-            <div class="label" style="margin-bottom: 8px;">Context</div>
-            <p class="body-text">The current student experience features strong peer communities alongside systemic gaps. Students manage intense academic loads and competitive co-op cycles, while navigating emerging challenges in advising capacity and onboarding consistency.</p>
-            <div class="client-meta data-code" style="margin-top: 14px;">
-              <div class="row"><span class="k">CLIENT</span><span class="v">Northeastern · NU-001</span></div>
-              <div class="row"><span class="k">STATE</span><span class="v">Current · 05/26</span></div>
-            </div>
-          </div>
-        </div>
+  <div class="header">
+    <div class="eyebrow">Journey Map · Current State</div>
+    <h1 class="title">First-year students lose <em>nearly half</em> their qualified applications to keyword screening before any recruiter reviews them.</h1>
+    <p class="lede">Five phases, three actors. Each cell carries what happens in that (actor × phase) intersection plus the dominant friction. Phases are behavior-anchored events; rust "PAIN" rows mark named, evidenced friction.</p>
+  </div>
 
-        <!-- =========== JOURNEY BAND (phase strip + lanes + voice-of-user row) =========== -->
-        <div class="journey-band">
+  <div class="grid">
 
-          <!-- Phase strip (3-6 phases — exemplar shows 5) -->
-          <div class="phase-strip">
-            <div class="phase-col">
-              <div class="ph-eye">Phase 01 · Wk 01-04</div>
-              <div class="ph-name">Term Start</div>
-              <div class="ph-sys">Canvas · Campus Police</div>
-            </div>
-            <div class="phase-col focal">
-              <div class="ph-eye">Phase 02 · Wk 05-08</div>
-              <div class="ph-name">Midterms</div>
-              <div class="ph-sys">Learn · Odyssey</div>
-            </div>
-            <div class="phase-col">
-              <div class="ph-eye">Phase 03 · Wk 09-12</div>
-              <div class="ph-name">Co-op Match</div>
-              <div class="ph-sys">NUworks · CECCA</div>
-            </div>
-            <div class="phase-col">
-              <div class="ph-eye">Phase 04 · Wk 13-16</div>
-              <div class="ph-name">Finals</div>
-              <div class="ph-sys">Quest · Learn</div>
-            </div>
-            <div class="phase-col">
-              <div class="ph-eye">Phase 05 · Break</div>
-              <div class="ph-name">Reflection</div>
-              <div class="ph-sys">Email · Advising</div>
-            </div>
-          </div>
+    <div class="phase-head empty"></div>
+    <div class="phase-head"><div class="pname">Skill triage</div><div class="psys">NUworks profile · LinkedIn</div></div>
+    <div class="phase-head"><div class="pname">Posting browse</div><div class="psys">NUworks · Handshake</div></div>
+    <div class="phase-head focal"><div class="pname">Submission</div><div class="psys">Employer ATS · Workday</div></div>
+    <div class="phase-head"><div class="pname">Interview cycle</div><div class="psys">Zoom · On-site</div></div>
+    <div class="phase-head"><div class="pname">Decision</div><div class="psys">NUworks match · email</div></div>
 
-          <!-- Lanes -->
-          <div class="lanes">
-            <!-- Lane 1: STUDENT (active across all phases — solid line) -->
-            <div class="lane">
-              <div class="lane-label">
-                <div class="lname">Student</div>
-                <div class="lrole">First-year, undergrad</div>
-              </div>
-              <div class="lane-track">
-                <div class="line"></div>
-                <div class="activities">
-                  <div class="activity"><div class="alabel">Students settle into campus housing and confirm their fall course schedule.</div><div class="dot"></div><div class="tcode">S-01</div></div>
-                  <div class="activity friction"><div class="alabel">Students endure back-to-back exams while juggling co-op application deadlines.</div><div class="dot"></div><div class="tcode">S-02</div></div>
-                  <div class="activity moment"><div class="alabel">Students review match results and accept or decline their co-op offer.</div><div class="dot"></div><div class="tcode">S-03</div></div>
-                  <div class="activity"><div class="alabel">Students sit weighted final exams while preparing co-op start logistics.</div><div class="dot"></div><div class="tcode">S-04</div></div>
-                  <div class="activity"><div class="alabel">Students reflect on the term and reset goals before the next cycle.</div><div class="dot"></div><div class="tcode">S-05</div></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Lane 2: COORDINATOR (active phases 1-3, inactive 4-5 — line dashed at 30% past phase 3) -->
-            <div class="lane">
-              <div class="lane-label">
-                <div class="lname">Coordinator</div>
-                <div class="lrole">Co-op advisor</div>
-              </div>
-              <div class="lane-track">
-                <div class="line"></div>
-                <div class="activities">
-                  <div class="activity"><div class="alabel">Coordinators host info sessions and orient new cohorts to the co-op model.</div><div class="dot"></div><div class="tcode">C-01</div></div>
-                  <div class="activity"><div class="alabel">Coordinators administer back-to-back review sessions across student lists.</div><div class="dot"></div><div class="tcode">C-02</div></div>
-                  <div class="activity friction"><div class="alabel">Coordinators triage student-employer match conflicts under load.</div><div class="dot"></div><div class="tcode">C-03</div></div>
-                  <div class="activity"><div class="alabel">Coordinators close the cycle and document outcomes for the next round.</div><div class="dot"></div><div class="tcode">C-04</div></div>
-                  <div class="activity"><div class="alabel">Coordinators reset systems and onboard the next student cohort.</div><div class="dot"></div><div class="tcode">C-05</div></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Lane 3: EMPLOYER (inactive phases 1-2, active 3-4, inactive 5 — mostly dashed) -->
-            <div class="lane">
-              <div class="lane-label">
-                <div class="lname">Employer</div>
-                <div class="lrole">Hiring manager</div>
-              </div>
-              <div class="lane-track">
-                <div class="line dashed"></div>
-                <div class="activities">
-                  <div class="activity"><div class="alabel">—</div><div class="dot" style="opacity: 0.35"></div></div>
-                  <div class="activity"><div class="alabel">—</div><div class="dot" style="opacity: 0.35"></div></div>
-                  <div class="activity moment"><div class="alabel">Employers review applications and conduct structured interviews.</div><div class="dot"></div><div class="tcode">E-03</div></div>
-                  <div class="activity"><div class="alabel">Employers extend offers and finalize start dates with selected students.</div><div class="dot"></div><div class="tcode">E-04</div></div>
-                  <div class="activity"><div class="alabel">—</div><div class="dot" style="opacity: 0.35"></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Voice-of-user row at bottom of journey band (one quote per phase max) -->
-          <div class="voice-row">
-            <div class="voice-label-col"><div class="vl">Voice of Student</div></div>
-            <div class="voice-cell">
-              <div class="vc-eye">Phase 01</div>
-              <div class="vc-code">S-01-04</div>
-              <p class="quote">"Move-in week was honestly fine. I felt the system was working."</p>
-            </div>
-            <div class="voice-cell">
-              <div class="vc-eye">Phase 02</div>
-              <div class="vc-code">S-02-09</div>
-              <p class="quote">"Without my notes I couldn't study anymore. I wrote the one exam I'd actually prepared for."</p>
-            </div>
-            <div class="voice-cell">
-              <div class="vc-eye">Phase 03</div>
-              <div class="vc-code">S-03-02</div>
-              <p class="quote">"I got matched with an employer in cycle 3. Then a week later they rescinded the offer."</p>
-            </div>
-            <div class="voice-cell">
-              <div class="vc-eye">Phase 04</div>
-              <div class="vc-code">S-04-07</div>
-              <p class="quote">"The 80% final exam weight made a single bad night collapse the term."</p>
-            </div>
-            <div class="voice-cell">
-              <div class="vc-eye">Phase 05</div>
-              <div class="vc-code">S-05-01</div>
-              <p class="quote">"I keep going. Tenth time you'd never know it was the eleventh."</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- =========== SYNTHESIS BAND (synthesis cols 1-4 + 4 metric tiles cols 5-12) =========== -->
-        <div class="synthesis-band">
-          <div class="synthesis-text">
-            <div class="label seye">Synthesis</div>
-            <p class="body-text">Current state reveals a resilient student body navigating structural friction. While peer communities provide strong support, systemic gaps in co-op reliability and campus safety create compounding stress during peak academic periods.</p>
-          </div>
-          <div class="metric-tiles">
-            <div class="tile">
-              <span class="tnum">5</span>
-              <span class="tlabel">Midterms in Hell Week</span>
-              <span class="tnote">Back-to-back exams during peak stress</span>
-            </div>
-            <div class="tile">
-              <span class="tnum">1</span>
-              <span class="tlabel">Offers Rescinded</span>
-              <span class="tnote">Late-cycle co-op cancellations</span>
-            </div>
-            <div class="tile key-finding">
-              <span class="label" style="color: var(--nu-chartreuse); font-size: 8.5px; margin-bottom: 4px;">Key Finding</span>
-              <span class="tnum">80%</span>
-              <span class="tlabel">Final Exam Weight</span>
-              <span class="tnote">Grade concentration following stolen materials</span>
-            </div>
-            <div class="tile">
-              <span class="tnum">10</span>
-              <span class="tlabel">Attempts</span>
-              <span class="tnote">Resilience required across the cycle</span>
-            </div>
-          </div>
-        </div>
-
+    <div class="lane-row">
+      <div class="lane-label">Student<span class="lrole">CS undergrad, Year 2</span></div>
+      <div class="cell">
+        <div class="ctext">Students audit their resume against last year's posting examples and update one keyword set.</div>
+        <div class="pain">Advisor templates still reference Java/MERN; current postings ask for Python data stack.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students scroll NUworks and Handshake for two evenings and shortlist 30+ postings.</div>
+        <div class="pain">Posting density doubled to 4,200; no semantic filter on required skills.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Students submit 8-12 applications during weeks 5-8 between midterms.</div>
+        <div class="pain">48% of qualified submissions are rejected by ATS keyword filter pre-review.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students take 2-4 first-round interviews, mostly via Zoom in 30-min blocks.</div>
+        <div class="pain">9 of 12 students missed at least one class for an interview time-zone collision.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students accept or decline an offer within the partner-employer window.</div>
+        <div class="pain">48-hour match window often lands inside finals prep.</div>
       </div>
     </div>
+
+    <div class="lane-row">
+      <div class="lane-label">Advisor<span class="lrole">CECCA co-op coordinator</span></div>
+      <div class="cell">
+        <div class="ctext">Advisors host 45-minute prep workshops grouped by major.</div>
+        <div class="pain">First-gen students attend at 1.4× rate but report lower satisfaction.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors review one resume per student in a 20-minute slot booked 3+ weeks ahead.</div>
+        <div class="pain">Capacity rationing limits reviews to one variant per student per cycle.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Advisors push application-deadline reminders via email.</div>
+        <div class="pain">Reminder email lands during midterm week; opens drop to 31% from 64% baseline.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors mediate scheduling conflicts when students request class excuses.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors confirm match outcomes and prep students for site logistics.</div>
+        <div class="pain">38% first-cycle CS match rate vs 61% institutional average.</div>
+      </div>
+    </div>
+
+    <div class="lane-row">
+      <div class="lane-label">Employer<span class="lrole">Hiring manager / recruiter</span></div>
+      <div class="cell">
+        <div class="empty">— not active in this phase</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Employers post requisitions and configure ATS filters by required-keyword threshold.</div>
+        <div class="pain">Filter thresholds set at 7+ keyword matches; tuned for senior roles, not interns.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Employers review the ATS-surfaced top 20 from a pool of 300+ submissions.</div>
+        <div class="pain">Recruiters see only 6.7% of applicant pool — qualified candidates filtered upstream.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Employers interview 4-6 candidates and rank for offer.</div>
+        <div class="pain">Interview slots compete with NU student class schedule.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Employers extend offer with 48-hour acceptance window.</div>
+        <div class="pain">Tight window forces students to accept without comparing competing offers.</div>
+      </div>
+    </div>
+
   </div>
+
+  <div class="kpi-row">
+    <div class="kpi-label">Current-state KPI</div>
+    <div class="kpi-cell">
+      <div class="kpi-eye">Template freshness</div>
+      <div class="kpi-value">30-month median lag</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-eye">Shortlist signal</div>
+      <div class="kpi-value">30+ postings, unranked</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-eye">Recruiter visibility</div>
+      <div class="kpi-value">6.7% of qualified pool</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-eye">Class collision</div>
+      <div class="kpi-value">9 of 12 missed class</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-eye">Decision window</div>
+      <div class="kpi-value">48 hours</div>
+    </div>
+  </div>
+
+</div>
 </div>
 </body>
 </html>

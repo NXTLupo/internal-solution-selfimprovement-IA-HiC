@@ -1,0 +1,57 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1setq8e/what_is_the_best_career_path_for_me_first_us_job/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "What is the best career path for me? (First US job)"
+author: "Busy_Abrocoma1205"
+date: "2026-04-07T11:51:29.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 2
+flair: ""
+extracted_at: "2026-05-25T18:32:57.394Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+---
+
+# What is the best career path for me? (First US job)
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1setq8e/what_is_the_best_career_path_for_me_first_us_job/)
+Posted by **Busy_Abrocoma1205** · **1↑** · **2 comments**
+
+I'm trying to get some insight or tips on the US job market for someone like me, and see if there's an opportunity, or if I'm wasting time on LinkedIn and interviews.
+
+31M, from South America, Business Administration bachelor's from an unknown school (low grades), no master's, Spanish is my first language, English is my second.
+
+At the age of 18, I decided to look for a job at a mid-size family-owned business rather than a large corporation. I always wanted to be a business owner, so I thought, what better idea than to be close to the owners, learn from them, and not have all this red tape you'd find in a corporation to deal with.
+
+It was a footwear and apparel brand distributor in my country that owned exclusive distribution contracts with some major US brands, selling wholesale and in its own stores.
+
+2012-2019 I started as a marketing assistant and by the age of 25, I was overseeing the whole commercial side of the company, reporting to the CEO directly, overseeing a $20M P&L, 30 stores with \~150 associates in it, and was also involved in brand negotiations, product buying, and inventory management. (This, of course, had merit in it but was only possible because the company was small and family-owned)
+
+2019 to 2023 - I started a brick-and-mortar franchise business in the dessert space. I currently own 7 stores, and it's paying me \~$40k/yr semi-passively in dividends. 
+
+2023-2026 Moved to the US. Took a fully remote job at the same company I had worked for years, building international distribution for one brand. $60k/yr, fully remote, unlimited PTO, no benefits whatsoever, of course, and pay the Self-Employed Tax in the US. $60k for South America is solid, so there's no realistic way to make more money in my current job.
+
+So now I'm making around \~$100k; my wife works in healthcare, so we get insurance and benefits from there.
+
+I had some interviews for $120k-$140k Regional Manager roles, but never passed the first one. I know I have the experience, but my past employers are unknown companies in another country, English is my second language, and I have never worked in the US, so I understand that finding that kind of job is challenging, to say the least.
+
+Some American friends told me things like.. "In the US, we appreciate professionals who specialize in one specific area. You, coming from SA, worked all over the place and did all kinds of things, but never specialized in anything, so employers will ditch you. You should try to open a business or find a remote job for a LATAM company."
+
+Any insights and tips will be appreciated.
+
+## Comments
+
+- **Itchy-Ad7531** (1↑): Man your American friends are giving you some questionable advice there. Yeah the US loves specialists but your background is actually pretty solid for certain roles - you managed a full P&L and had real responsibility early on which is exactly what companies want to see
+
+  
+The interview struggles might be more about presentation than your actual experience. When you're explaining your background try focusing in one specific area that matches what they're looking for instead of listing everything you did. Like if its a operations role emphasize the inventory management and store oversight, if its business development focus in the brand negotiations and distribution stuff
+
+  
+I'd also suggest looking at mid-size companies rather than huge corporations - they tend to appreciate generalist backgrounds more and your entrepreneurial experience could be a real selling point there. Companies around 500-2000 employees often need people who can wear multiple hats just like you did
+
+  
+The remote work setup you have now isn't bad as a stepping stone but if you want to move up you'll probably need some US market experience eventually. Maybe try for hybrid roles where you can build local connections while still leveraging your international background
+  - **Busy_Abrocoma1205** (1↑): Solid advice, thanks!

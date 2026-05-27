@@ -494,7 +494,10 @@ async def analyze_files(
     description: Optional[str] = Form(None),
     journey_type: Optional[str] = Form(None),
     llm_model: Optional[str] = Form(None),
-    content_selection: Optional[str] = Form(None)
+    content_selection: Optional[str] = Form(None),
+    brand: Optional[str] = Form(None),
+    artifact_type: Optional[str] = Form(None),
+    render_mode: Optional[str] = Form(None)
 ) -> JSONResponse:
     """
     Main endpoint for file uploads. Saves the files, processes them, then uses DynamicJourneyMapper to generate an HTML-based journey map.
@@ -515,9 +518,12 @@ async def analyze_files(
         log.info("Vector store module not found, disabling RAG capabilities")
     
     custom_journey_mapper = DynamicJourneyMapper(
-        anthropic_model=model_to_use, 
+        anthropic_model=model_to_use,
         debug_mode=True,
-        use_rag=use_rag
+        use_rag=use_rag,
+        brand=brand,
+        artifact_type=artifact_type,
+        render_mode=render_mode
     )
     
     try:
@@ -581,16 +587,24 @@ async def analyze_files(
         log.info("Retrieving interactive HTML visualization...")
         journey_html = custom_journey_mapper.render_journey_map_html(journey_map)
         
+        # 2026-05-26 — On the BRANDED path (HiC #journey/#blueprint), the model
+        # already emits a complete, self-contained, on-brand document with its
+        # own hero/standfirst. The legacy injected wrappers below (a blue
+        # "Journey Analysis Summary" box and a "Generated with <model>" footer)
+        # then DUPLICATE the summary, break brand (blue #4264D0), and leak
+        # banned reporting-depth metadata. Suppress both when a brand is set.
         summary_html = ""
-        if "journey_summary" in journey_map and journey_map["journey_summary"]:
+        if not brand and "journey_summary" in journey_map and journey_map["journey_summary"]:
             summary_html = f"""
 <div class="journey-summary" style="background-color: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #4264D0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h2 style="color: #4264D0; margin-top: 0; font-size: 1.4rem;">Journey Analysis Summary</h2>
     <div style="white-space: pre-line; font-size: 0.95rem; line-height: 1.6; color: #333333;">{journey_map["journey_summary"]}</div>
 </div>
 """
-        
-        model_info_html = f"""
+
+        model_info_html = ""
+        if not brand:
+            model_info_html = f"""
 <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 0.8em; color: #666;">
   Generated with <strong>{model_to_use}</strong> on {datetime.now().strftime('%Y-%m-%d')}
 </div>

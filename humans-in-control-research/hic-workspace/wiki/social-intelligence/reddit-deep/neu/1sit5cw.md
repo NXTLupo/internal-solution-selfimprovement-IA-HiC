@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "NYC Scholars"
 author: "New-Language-6515"
 date: "2026-04-11T19:55:17.000Z"
-score: 6
-upvote_ratio: 0.88
+score: 8
+upvote_ratio: 1
 num_comments: 10
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T23:02:38.878Z"
+extracted_at: "2026-05-26T14:30:23.757Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # NYC Scholars
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sit5cw/nyc_scholars/)
-Posted by **New-Language-6515** · **6↑** · **10 comments**
+Posted by **New-Language-6515** · **8↑** · **10 comments**
 
 Is anyone a student in the NYC Scholars program? I'm an incoming freshman that was accepted to this program. I can’t go to any of the info sessions due to schedule conflicts, but I’m visiting the Upper East Side soon, so I was going to check out the campus. What is the student experience like? Is there a lot of mixing with Marymount students or are NEU students kinda isolated from the rest of the college? How’s the meal plan (I heard it‘s UberEats ☠️)? Also, does being in the city help with internship or co-op opportunities even though it’s only for one year? I have so many questions lol. Any response is helpful!
 

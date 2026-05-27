@@ -138,6 +138,70 @@
     ]
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_slop.py",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_axios_pin.py",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_wiki_write.py",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_main_branch.py",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_commit_approval.py",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_startup_mode.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/post_hic_rebuild_reminder.py",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/post_agent_restart_reminder.py",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/precheck_orphan_export.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",
@@ -146,6 +210,18 @@
             "type": "command",
             "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/hooks/validate_output.py",
             "timeout": 15
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/inject_active_constraints_and_patterns.py",
+            "timeout": 5
           }
         ]
       }

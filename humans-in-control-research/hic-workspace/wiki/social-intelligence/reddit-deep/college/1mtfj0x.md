@@ -1,0 +1,41 @@
+---
+url: "https://www.reddit.com/r/college/comments/1mtfj0x/anxious_new_university_student/"
+kind: "social-post"
+source: "reddit-deep: r/college"
+subreddit: "college"
+title: "Anxious New University Student"
+author: "DryAfternoon4038"
+date: "2025-08-18T07:41:43.000Z"
+score: 12
+upvote_ratio: 0.89
+num_comments: 7
+flair: "Emotional health/coping/adulting"
+extracted_at: "2026-05-23T12:15:24.670Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+---
+
+# Anxious New University Student
+
+Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mtfj0x/anxious_new_university_student/)
+Posted by **DryAfternoon4038** · **12↑** · **7 comments**
+
+Hi, I've been at a community college for about 2.5 years, and I got an associates degree in Liberal Arts and Sciences this spring. I moved to a local university and I'm honestly scared and intimidated. I start classes in about a week, but I still feel like I just can't do it. I met with my advisor in June and they had set me up for Bio I (with lab), Gen Chem I (with lab), Intro to Clinical Immunology, and College Algebra (I'm majoring in Medical Laboratory Science). All of this totals up to 14 credits. During my time in community college, I once had a 16 credit course load, and I did fine, but they were mostly writing-based courses with one STEM class mixed in. I've been able to keep my GPA a 4.0 so far.
+
+I feel like my success in college so far has been mostly due to luck, and I feel like this semester at uni will show me that and leave me overwhelmed. I already feel like not going through with uni. Thoughts about failing and having to drop out have been occupying my mind for days now. My Bio I professor opened up the course early for people to preview, and I check the syllabus for labs and I see that having lab partners is going to be a requirement. I know that eventually I'll have to work with other people but it worries me that I'll have partners that don't put in their work or don't want to cooperate. Math is also not something I am particularly strong at and have had long lasting issues with, but I have been trying to prep for College Algebra over the summer by myself. I feel like I won't be able to juggle these courses all at once, despite having a greater course load during a previous semester. 
+
+I honestly just want to be free of all this anxiety. It hurts. But I don't know what to do. I want to pursue my major, but I'm terrified of going to uni.
+
+## Comments
+
+- **FalseDrive** (3↑): Are you premed specifically? Is it necessary for you to take all these at once, or can you spread them across the year with some easier electives? All of those sound like decently hard courses, and if you’re already anxious, it might not be the best to take 3 intro science classes and algebra at the same time. 
+
+If not, just know that self-doubt is normal. It hasn’t been just luck for two years straight that’s given you a 4.0—that’s the imposter syndrome talking. You’re a capable hard worker. Please don’t freak out if you lose your 4.0—you’ve chosen a hard major and while it’s possible, it nearly requires you to have zero other life, lol. You’ve got this.
+  - **DryAfternoon4038** (2↑): No, I'm not a pre-med. This is just for a bachelors in Medical Laboratory Science. And yeah, you're right. I need to re-frame my thinking from a grades mindset to a learning one. Maintaining a 4.0 GPA isn't everything. Thank you so much.
+- **Ok_Cartographer3395** (1↑): Uni s stress? Chillax! U got dis 💪😅 #FreshmanFFeels
+- **Cute-Meringue2314** (1↑): Yes that class load at a four year university is going to be more work than a smaller class load with mainly humanities classes at a cc. But you have shown that you can handle college work and handle it well at your cc. 4.0s don't just fall out of the sky. Will it be harder, yes, will you rise to the challenge? Of course you will. You are young, healthy, clearly bright, hardworking, I can tell you care....that is half the battle already. Now put your energy into things you can control. Syllabus already open? Start calendaring dates in whatever you are going to use (planner, digital planner, etc.) for the important things for that class. Use this time to get organized and pump yourself up. When those voices start talking to you in your head, and tell you you might not be able to do it, tell that voice to SHUT IT. You have to start by being your own best friend. What would you say to your best friend if they felt this way? Now tell that to yourself. Remind yourself of all you have already done. Remind yourself that you are capable of doing the same and more. Get angry at the voice that tells you you aren't going to do well. That voice by the way is NOT your friend. You have to over time put some duct tape on that voice so it is heard less and less and the voice in your head telling you that you can do anything you set your mind to, as long as you are willing to work hard, and never quit will become louder and louder. Listen to that person. That is the smart one.
+  - **DryAfternoon4038** (1↑): Thank you. This is what I needed. My family and friends have been saying the same, but it helps when it comes from a random person on the internet. I guess I think I should focus on my growth rather than stressing too much about grades.
+- **normalghoul** (1↑): "I feel like my success in college so far has been mostly due to luck" - this screams imposter syndrome to me. That anxiety is so real, but remind yourself that it's just anxiety. You earned that 4.0 GPA through your own hard work and investment. Will higher level courses at a university be tougher? Sure, but that's what learning is. You are already prepared because you care. 
+
+You can do hard things! You've already proven you can. Go easy on yourself. You will be alright.
+- **collegehub** (1↑): It makes sense to feel anxious when moving from community college to a university, especially with a heavier STEM schedule. The fact that you managed a 16 credit load before and kept a 4.0 shows you’re more capable than you think. Fourteen credits with labs will be work, but it’s not unmanageable if you pace yourself. Most students feel nervous about group labs, but professors know that and usually grade fairly so one partner doesn’t sink another. For math, the prep you’ve already been doing will pay off and using tutoring or office hours early can make a big difference. Feeling like past success was “luck” is really common, but it’s usually a sign of imposter syndrome rather than reality. You’ve proven you can do the work and you’ll find your rhythm again here too.

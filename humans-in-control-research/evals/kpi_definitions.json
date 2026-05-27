@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "created": "2026-05-24",
+  "purpose": "Canonical KPI definitions for the NotebookLM uplift plan",
+  "kpis": {
+    "theme_recall_at_20": {
+      "description": "Fraction of human-expected themes the pipeline surfaces in its top 20 by density",
+      "type": "ratio",
+      "range": [0.0, 1.0],
+      "match_algorithm": "fuzzy_match",
+      "fuzzy_threshold": 0.7,
+      "acceptance_bar_phase_1": "baseline + 0.15",
+      "acceptance_bar_plan_end": "baseline + 0.25"
+    },
+    "citation_grounding_rate": {
+      "description": "Fraction of claim-bearing sentences whose cited chunk_ids contain the claim's key entities + predicate within edit distance 15%",
+      "type": "ratio",
+      "range": [0.0, 1.0],
+      "extraction": "ner_for_entities + verb_phrase_for_predicate",
+      "edit_distance_threshold": 0.15,
+      "acceptance_bar_phase_2": 0.85,
+      "expected_baseline": 0.65
+    },
+    "reproducibility_drift": {
+      "description": "Percentage of theme names that change across 5 consecutive runs with same corpus_hash + goal",
+      "type": "ratio",
+      "range": [0.0, 1.0],
+      "sample_size": 5,
+      "acceptance_bar": 0.05,
+      "lower_is_better": true
+    },
+    "time_to_first_theme": {
+      "description": "Seconds from collect-click to first theme rendered",
+      "type": "seconds",
+      "acceptance_bar_cache_hit": 8.0,
+      "acceptance_bar_cache_miss_200_docs": 60.0,
+      "lower_is_better": true
+    },
+    "provider_failover_p99": {
+      "description": "p99 latency added when primary provider 429s mid-pipeline",
+      "type": "seconds",
+      "acceptance_bar": 8.0,
+      "lower_is_better": true,
+      "measurement_method": "induce_429_via_test_proxy"
+    }
+  },
+  "regression_policy": {
+    "block_phase_advancement_when": "any KPI regresses against the most recent baseline by > 2%",
+    "warn_phase_advancement_when": "any KPI regresses against baseline by 0-2%"
+  }
+}

@@ -238,7 +238,12 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
 // the library. `#help` produces the hashtag reference guide. `#refine`
 // targets an existing artifact slug. All accept `--variants k` (2-6).
 
-export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches';
+// 2026-05-23 — P1.5 (Sprint H3): added `#whitepaper` for the strategic-report
+// HTML output. The previous strategic-report pipeline emitted slide-deck JSON
+// only; the whitepaper directive composes a consulting-grade HTML long-form
+// document using the same html-deliverable-composer skill plus a whitepaper-
+// specific structural prompt overlay.
+export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper';
 
 export interface ArtifactDirective {
     triggered: boolean;
@@ -287,6 +292,7 @@ export const parseExplainerDirective = buildArtifactParser('#explainer');
 export const parseReportDirective = buildArtifactParser('#report');
 export const parsePlaygroundDirective = buildArtifactParser('#playground');
 export const parseApproachesDirective = buildArtifactParser('#approaches');
+export const parseWhitepaperDirective = buildArtifactParser('#whitepaper');
 
 /** Help directive — bare hashtag, no topic needed. */
 export function parseHelpDirective(message: string): { triggered: boolean } {

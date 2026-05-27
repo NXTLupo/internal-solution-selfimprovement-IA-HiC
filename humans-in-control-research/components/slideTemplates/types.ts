@@ -24,7 +24,10 @@ export type SlideTemplate =
     | 'gap-matrix'          // gap-analysis-evaluator    (gap)
     | 'architecture-map'    // tech-arch-generator       (tech_node)
     | 'prd-feature'         // prd-compiler              (prd_feature)
-    | 'systems-inventory';  // tech-audit-inspector      (tech_audit_system)
+    | 'systems-inventory'   // tech-audit-inspector      (tech_audit_system)
+    | 'journey-brief';      // journeyBriefExporter — reasoning-model journey summary,
+                            // rendered as a clean TABULAR slide (no SVG/curve) to
+                            // avoid the stretched-diagram export defect (2026-05-26)
 
 export interface PersonaCardData {
     name: string;
@@ -249,8 +252,32 @@ export interface ServiceBlueprintData {
         support: string;            // infrastructure / data
         painPoint?: string;         // friction at this stage
         failPoint?: boolean;        // stage breaks entirely
+        // 2026-05-25 — JM-depth fields (ported from internal-solutions-journeymapper)
+        /** Emotion intensity 0-100 (0=very low ... 100=very high). Renderer treats <=5 as legacy 1-5 scale. */
+        emotionIntensity?: number;
+        /** One-clause reason the actor feels this way at this phase. */
+        emotionReason?: string;
+        /** Verbatim quote pulled directly from the corpus. NEVER fabricated. */
+        voiceQuote?: string;
+        /** Source attribution for voiceQuote, e.g. "r/cscareerquestions, 2024-09". */
+        sourceAttribution?: string;
+        /** Named touchpoints with channel + importance. */
+        namedTouchpoints?: Array<{ channel: string; name: string; importance?: number }>;
+        /** Calibrated confidence per evidence strength. */
+        confidence?: 'verified' | 'emerging' | 'hypothesis';
     }>;
     keyInsight?: string;
+    // 2026-05-25 — JM-depth dashboard fields (rendered above the grid)
+    /** Journey-type classification, e.g. "coop", "educational", "customer-purchase". */
+    journeyType?: string;
+    /** 2-5 personas, JTBD-first (NOT demographics-first). */
+    personas?: Array<{ name: string; role: string; characterization: string }>;
+    /** 3-5 journey-level pain patterns (cross-cutting, not per-stage). */
+    overallPainPoints?: Array<{ pattern: string; sourceCitation: string }>;
+    /** 3-5 high-leverage strategic opportunities. */
+    overallOpportunities?: Array<{ opportunity: string; sourceCitation: string }>;
+    /** 3-5 KPI tiles. value must be a real corpus number or qualitative word. */
+    kpiTiles?: Array<{ value: string; label: string; supportingPhase?: string; isHeadline?: boolean }>;
 }
 
 // === GAP MATRIX (1-5 maturity, current vs target) ===

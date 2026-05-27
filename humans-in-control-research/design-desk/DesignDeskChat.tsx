@@ -5,15 +5,29 @@ import { generateFreeformArtifact } from './services/chatToFreeform';
 import { generateSlideSpec } from './services/chatToSlideSpec';
 import type { FreeformKind } from './schemas/freeformArtifact';
 
-const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set(['org', 'journey', 'arch', 'roadmap', 'blueprint']);
+// 2026-05-25 — Unified artifact-engine kinds. Every kind routes through the
+// /api/artifact/* engine (special-cased journey -> JM IA service). Revisions
+// use /api/artifact/revise which preserves the existing HTML layout.
+const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
+    'org', 'journey', 'arch', 'roadmap', 'blueprint',
+    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
+    'persona', 'prd', 'recommendation', 'strategy-slide', 'strategy', 'brief',
+    'gap-analysis', 'tech-audit', 'competitive', 'presentation',
+] as FreeformKind[]);
 
 import { useDesignDeskStore } from './store/designDeskStore';
+import FeedbackWidget from '../components/FeedbackWidget';
+import { regenerateWithFeedback } from '../services/feedbackRegeneration';
 import type { DesignTokens } from './services/designMdLoader';
 import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type DesignContext } from './services/designContext';
 // 2026-05-08 — Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
 import ChatAttachmentDropzone, { type ChatAttachment } from '../components/ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/PromptEnhancer';
+// 2026-05-20 — Improvement lineage panel: shows the user, in-line with the
+// artifact chat, what changed since the prior generation of this kind. Surfaces
+// the self-improvement loop visibly so users can witness compounding quality.
+import ImprovementLineagePanel from './components/ImprovementLineagePanel';
 
 interface ChatMsg {
     id: string;
@@ -215,8 +229,17 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         return decoratedParts.join('\n\n');
     };
 
-    const send = async () => {
-        let text = input.trim();
+    const send = async (textOverride?: string) => {
+        // 2026-05-23 — `textOverride` lets Apply-now re-fire the original
+        // user prompt with feedback appended, going through the same
+        // hashtag/skill routing the original send used. Without an override
+        // we fall back to whatever's in the input field.
+        // 2026-05-23 — Defensive: callers may accidentally pass a non-string
+        // (e.g., onClick={send} passes the synthetic event as textOverride).
+        // Coerce to string before trim() to prevent a hard crash from any
+        // future caller mistake.
+        const rawText = typeof textOverride === 'string' ? textOverride : (typeof input === 'string' ? input : '');
+        let text = rawText.trim();
         // 2026-05-08 — Allow attachment-only sends (e.g., drop a brief and
         // the user expects "summarize this"). Synthesize a default that
         // surfaces the filenames so the model knows what to do.
@@ -235,8 +258,27 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 : ''),
             timestamp: Date.now(),
         };
+        // 2026-05-19 — Chat feedback capture (Designer Desk variant). Mirrors
+        // the analyst panel intercept in CorpusChatPanel.tsx. Fire-and-forget.
+        // 2026-05-20 — Pass the active artifact's kind to the classifier so
+        // captured rules get scoped (journey/blueprint/persona/etc.). The
+        // active artifact tells us which kind the user is iterating on; a
+        // density preference said during a journey iteration applies to
+        // journey, not persona.
+        const _lastAiForFeedback = [...messages].reverse().find(m => m.role !== 'user')?.content;
+        const _activeArtifactKind = (active as any)?.kind
+            || (active && active.type === 'persona' ? 'persona' : undefined)
+            || undefined;
         setMessages(prev => [...prev, userMsg]);
         setInput('');
+        import('../services/chatFeedbackExtractor').then(({ classifyMessage }) => {
+            return classifyMessage(text, _lastAiForFeedback, 'designer', _activeArtifactKind);
+        }).then(signal => {
+            if (!signal) return;
+            return import('../services/promptImprovementEngine').then(({ logChatFeedback }) => {
+                logChatFeedback(signal);
+            });
+        }).catch(() => { /* feedback capture must never break a chat send */ });
 
         // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
         // BEFORE the generation dispatch. Fire-and-forget; uses 'designer' chat
@@ -295,12 +337,25 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 return;
             }
             if ((active as any).type === 'freeform') {
+                // 2026-05-20 — Collect prior user turns from this artifact's
+                // chat session so the freeform generator has cumulative memory
+                // (the priorUserInstructions field was added 2026-05-19 but
+                // the call site never populated it — silent dead code). Each
+                // revision now sees every earlier user instruction in this
+                // chat: "remove the KPI tiles", "3 activities per phase",
+                // "no metadata codes", etc. The model is told to apply ALL
+                // of these unless the current turn explicitly retracts one.
+                const priorUserInstructions = messages
+                    .filter(m => m.role === 'user' && typeof m.content === 'string' && m.content.trim())
+                    .slice(-8)  // last 8 user turns — enough memory without bloating the prompt
+                    .map(m => m.content);
                 const ff = await generateFreeformArtifact({
                     kind: (active as any).kind as FreeformKind,
                     brand: active.brand,
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
+                    priorUserInstructions,
                     // Designer revisions need to re-emit the FULL body content
                     // with edits applied. Gemini 2.5 Flash truncates dense
                     // diagrams mid-element ("INCOMPLETE BODY CONTENT: 17 divs
@@ -340,12 +395,22 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         for (const contentTag of parsed.content) {
             // Diagram kinds → freeform pipeline. Persona → legacy structured pipeline.
             if (FREEFORM_KINDS.has(contentTag as FreeformKind)) {
+                // 2026-05-20 — Same priorUserInstructions wiring as the
+                // revision path above (kept in sync). On first generation
+                // (currentArtifact: null) this is usually empty, but if the
+                // user typed multiple messages before the first artifact
+                // generated, those earlier turns should still inform output.
+                const priorUserInstructions = messages
+                    .filter(m => m.role === 'user' && typeof m.content === 'string' && m.content.trim())
+                    .slice(-8)
+                    .map(m => m.content);
                 const ff = await generateFreeformArtifact({
                     kind: contentTag as FreeformKind,
                     brand: parsed.brand,
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: null,
+                    priorUserInstructions,
                     model: 'gemini-3.1-pro-preview',
                 });
                 if (ff.ok) {
@@ -422,16 +487,95 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         <br/>or: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#org #NU advancement division</code>
                     </div>
                 )}
-                {messages.map(m => (
-                    <div key={m.id} style={{
-                        alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
-                        maxWidth: '85%', padding: '8px 12px', fontSize: 13, lineHeight: 1.5,
-                        background: m.role === 'user' ? '#0D0D0D' : '#FFFFFF',
-                        color: m.role === 'user' ? '#FFFFFF' : '#333',
-                        border: m.role === 'system' ? '1px solid #E0E0E0' : 'none',
-                        whiteSpace: 'pre-wrap',
-                    }}>{m.content}</div>
-                ))}
+                {/* 2026-05-20 — Improvement lineage. Renders whenever the active
+                    artifact has a lineage record (post first generation). Shows
+                    score deltas, newly-applied rules, attribution. */}
+                {active && ((active as any)?.kind || active.type) && (
+                    <ImprovementLineagePanel
+                        artifactKind={(active as any)?.kind || active.type}
+                        refreshKey={messages.length}
+                        density="compact"
+                    />
+                )}
+                {messages.map(m => {
+                    // Derive context for the feedback widget. For Designer Desk,
+                    // the deliverable is the active artifact; the engagement
+                    // slug is the artifact id (or a default if none active).
+                    const deliverableType = (active as any)?.kind || active?.type || 'design-chat';
+                    const engagementSlug = (active?.id || 'design-desk-default')
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/^-+|-+$/g, '')
+                        .slice(0, 80) || 'design-desk-default';
+                    const isAssistant = m.role !== 'user' && m.role !== 'system';
+                    return (
+                        <div key={m.id} style={{
+                            alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
+                            maxWidth: '85%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 4,
+                        }}>
+                            <div style={{
+                                padding: '8px 12px', fontSize: 13, lineHeight: 1.5,
+                                background: m.role === 'user' ? '#0D0D0D' : '#FFFFFF',
+                                color: m.role === 'user' ? '#FFFFFF' : '#333',
+                                border: m.role === 'system' ? '1px solid #E0E0E0' : 'none',
+                                whiteSpace: 'pre-wrap',
+                            }}>{m.content}</div>
+                            {isAssistant && (
+                                <FeedbackWidget
+                                    engagement_slug={engagementSlug}
+                                    deliverable_id={m.id}
+                                    deliverable_type={deliverableType}
+                                    compact
+                                    onApplyNow={async ({ feedbackId, text, sectionScope }) => {
+                                        try {
+                                            // 2026-05-23 — Apply-now re-fires the originating user
+                                            // prompt through the normal send() path, augmented with
+                                            // the feedback. Same rationale as the Analyst panel:
+                                            // calling regenerateWithFeedback on the truncated assistant
+                                            // output produced cosmetic revisions only, never a fresh
+                                            // complete generation. The send() path runs hashtag
+                                            // detection, skill matching, and corpus context loading
+                                            // — none of which the revise path did.
+                                            const myIndex = messages.findIndex(mm => mm.id === m.id);
+                                            let originatingPrompt = '';
+                                            if (myIndex >= 0) {
+                                                for (let i = myIndex - 1; i >= 0; i -= 1) {
+                                                    if (messages[i].role === 'user') {
+                                                        originatingPrompt = messages[i].content;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            if (!originatingPrompt) {
+                                                console.warn('[DesignDeskChat.onApplyNow] no originating user message found');
+                                                originatingPrompt = 'Re-attempt the previous artifact.';
+                                            }
+                                            const regenKey = `hic_regen_count_${m.id}`;
+                                            const priorRegens = parseInt(localStorage.getItem(regenKey) || '0', 10);
+                                            localStorage.setItem(regenKey, String(priorRegens + 1));
+                                            const scopeNote = sectionScope ? ` (specifically the "${sectionScope}" section)` : '';
+                                            const escalationNote = priorRegens >= 1
+                                                ? '\n\nNOTE: This is the user\'s second attempt to refine this output. Bias toward MORE completeness, MORE depth, and STRICTER adherence to every requested element.'
+                                                : '';
+                                            const augmentedPrompt = `${originatingPrompt}
+
+FEEDBACK FROM LAST ATTEMPT${scopeNote} — APPLY ON THIS RUN:
+${text}
+
+Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE artifact — not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
+                                            await send(augmentedPrompt);
+                                        } catch (err) {
+                                            console.warn('[DesignDeskChat.onApplyNow] threw:', err);
+                                        }
+                                    }}
+                                />
+                            )}
+                        </div>
+                    );
+                })}
                 {busy && (
                     <div style={{ alignSelf: 'flex-start', padding: '8px 12px', fontSize: 12, color: '#888', fontStyle: 'italic' }}>Generating&hellip;</div>
                 )}
@@ -498,7 +642,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     </span>
                     <div style={{ display: 'flex', gap: 6 }}>
                         <EnhanceButton handle={enhancer} accentColor="#00B7C3" disabled={busy} />
-                        <button onClick={send} disabled={busy || (!input.trim() && pendingAttachments.length === 0)}
+                        <button onClick={() => send()} disabled={busy || (!input.trim() && pendingAttachments.length === 0)}
                             style={{ padding: '6px 16px', background: '#0D0D0D', color: '#FFFFFF', border: 'none',
                                 fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase',
                                 cursor: busy || (!input.trim() && pendingAttachments.length === 0) ? 'not-allowed' : 'pointer',

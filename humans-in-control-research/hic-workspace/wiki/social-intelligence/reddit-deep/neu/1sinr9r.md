@@ -6,11 +6,11 @@ subreddit: "neu"
 title: "COOPS opportunities count....."
 author: "iCameEarly"
 date: "2026-04-11T16:32:49.000Z"
-score: 8
-upvote_ratio: 0.83
+score: 7
+upvote_ratio: 0.82
 num_comments: 6
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.887Z"
+extracted_at: "2026-05-14T12:20:30.882Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
 ---
@@ -18,7 +18,7 @@ research_goal: "Identify a comprehensive new strategy for co-op based on the cur
 # COOPS opportunities count.....
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sinr9r/coops_opportunities_count/)
-Posted by **iCameEarly** · **8↑** · **6 comments**
+Posted by **iCameEarly** · **7↑** · **6 comments**
 
 https://preview.redd.it/sf74u7219lug1.png?width=1635&format=png&auto=webp&s=776f25c73bd41eeab783285011e27500d3c5c776
 

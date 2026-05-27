@@ -19,14 +19,20 @@ import json
 import logging
 import time
 import random
+import threading
+import uuid
 import feedparser
 import httpx
 from datetime import datetime, timezone
 from fastapi import FastAPI, Query, Path, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from typing import Optional, Dict, Any, List, Tuple
 import asyncio
+# 2026-05-23 — Knowledge-gap endpoints use BaseModel. The legacy code imports
+# pydantic.BaseModel locally at line ~7321 inside the wiki-endpoints section,
+# but my new endpoints at line ~2497 need it earlier. Hoist to module top.
+from pydantic import BaseModel
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -70,7 +76,13 @@ SOURCES = {
 
     # --- SCHOLARLY APIs ---
     "openalex": {"name": "OpenAlex", "category": "Academic Literature", "type": "rest", "tier": 1,
-        "base_url": "https://api.openalex.org/works", "params": {"sort": "relevance_score:desc", "mailto": "research@nxthumans.com"},
+        "base_url": "https://api.openalex.org/works",
+        # 2026-05-23 — Explicit `select` so OpenAlex returns open_access +
+        # primary_location.pdf_url + best_oa_location, which the gated-filter
+        # reads to decide whether to keep or drop each item. Without `select`
+        # OpenAlex omits these fields and EVERY academic item gets dropped.
+        "params": {"sort": "relevance_score:desc", "mailto": "research@nxthumans.com",
+                   "select": "id,doi,title,abstract_inverted_index,publication_date,authorships,open_access,primary_location,best_oa_location,cited_by_count,type"},
         "query_param": "search", "limit_param": "per_page", "default_limit": 20,
         "results_path": "results", "total_path": "meta.count"},
     "semantic_scholar": {"name": "Semantic Scholar", "category": "Academic Literature", "type": "rest", "tier": 1,
@@ -80,7 +92,10 @@ SOURCES = {
         "results_path": "data", "total_path": "total"},
     "crossref": {"name": "Crossref", "category": "Academic Literature", "type": "rest", "tier": 1,
         "base_url": "https://api.crossref.org/works",
-        "params": {"sort": "relevance", "order": "desc", "mailto": "research@nxthumans.com"},
+        # 2026-05-23 — Add `select` so Crossref returns `link[]` array with
+        # content-type=application/pdf entries that detect_pdf_url reads.
+        "params": {"sort": "relevance", "order": "desc", "mailto": "research@nxthumans.com",
+                   "select": "DOI,title,abstract,published-online,published-print,author,link,type,container-title"},
         "query_param": "query", "limit_param": "rows", "default_limit": 20,
         "results_path": "message.items", "total_path": "message.total-results"},
     "doaj": {"name": "DOAJ", "category": "Academic Literature", "type": "rest", "tier": 1,
@@ -1880,6 +1895,96 @@ def _get_jina_semaphore() -> "asyncio.Semaphore":
     return _JINA_SEMAPHORE
 
 
+# 2026-05-26 — Per-provider semaphores so a 429 storm on one provider
+# can't tie up the workers needed by the others. Previously the proxy
+# had a single Jina semaphore + an implicit semaphore-of-1 per uvicorn
+# worker; a Gemini-Pro generation could block a Gemini-embed call could
+# block a wiki write. Each provider now gets its own bounded concurrency.
+# Values chosen against observed quota tiers:
+#   - Gemini chat (generateContent) — Pro is 50 RPM, Flash 200+ RPM; 6 cap
+#     leaves headroom for retry-on-429 without saturating per-minute quota.
+#   - Gemini embed (batchEmbedContents) — much higher RPM; 12 cap.
+#   - OpenAI chat — 500 RPM on standard tier; 8 cap.
+#   - Anthropic chat — 50 RPM on tier 1; 4 cap.
+_GEMINI_CHAT_SEMAPHORE: Optional["asyncio.Semaphore"] = None
+_GEMINI_EMBED_SEMAPHORE: Optional["asyncio.Semaphore"] = None
+_OPENAI_CHAT_SEMAPHORE: Optional["asyncio.Semaphore"] = None
+_ANTHROPIC_CHAT_SEMAPHORE: Optional["asyncio.Semaphore"] = None
+
+
+def _get_gemini_chat_semaphore() -> "asyncio.Semaphore":
+    global _GEMINI_CHAT_SEMAPHORE
+    if _GEMINI_CHAT_SEMAPHORE is None:
+        _GEMINI_CHAT_SEMAPHORE = asyncio.Semaphore(6)
+    return _GEMINI_CHAT_SEMAPHORE
+
+
+def _get_gemini_embed_semaphore() -> "asyncio.Semaphore":
+    global _GEMINI_EMBED_SEMAPHORE
+    if _GEMINI_EMBED_SEMAPHORE is None:
+        _GEMINI_EMBED_SEMAPHORE = asyncio.Semaphore(12)
+    return _GEMINI_EMBED_SEMAPHORE
+
+
+def _get_openai_chat_semaphore() -> "asyncio.Semaphore":
+    global _OPENAI_CHAT_SEMAPHORE
+    if _OPENAI_CHAT_SEMAPHORE is None:
+        _OPENAI_CHAT_SEMAPHORE = asyncio.Semaphore(8)
+    return _OPENAI_CHAT_SEMAPHORE
+
+
+def _get_anthropic_chat_semaphore() -> "asyncio.Semaphore":
+    global _ANTHROPIC_CHAT_SEMAPHORE
+    if _ANTHROPIC_CHAT_SEMAPHORE is None:
+        _ANTHROPIC_CHAT_SEMAPHORE = asyncio.Semaphore(4)
+    return _ANTHROPIC_CHAT_SEMAPHORE
+
+
+# 2026-05-26 — Query-embedding cache. The chat tool loop's
+# fetch_wiki_articles call embeds the query string before searching the
+# chunk store. Same engagement, same query string is embedded fresh on
+# every chat turn. Cache by hash(text + provider + dim); TTL 1 hour;
+# bounded LRU at 2000 entries. Saves 25-100s of wall-clock per chat turn
+# that re-queries the same terms across tool-loop iterations.
+_QUERY_EMBED_CACHE: Dict[str, Tuple[float, List[float]]] = {}
+_QUERY_EMBED_CACHE_TTL_S = 3600
+_QUERY_EMBED_CACHE_MAX = 2000
+
+
+def _query_embed_cache_key(text: str, provider: str, dim: int) -> str:
+    """Hash key for the embedding cache. Stable across processes for a
+    given (text, provider, dim) triple."""
+    import hashlib as _hl
+    h = _hl.sha1()
+    h.update(provider.encode("utf-8"))
+    h.update(b"|")
+    h.update(str(dim).encode("utf-8"))
+    h.update(b"|")
+    h.update(text.encode("utf-8"))
+    return h.hexdigest()
+
+
+def _query_embed_cache_get(text: str, provider: str, dim: int) -> Optional[List[float]]:
+    key = _query_embed_cache_key(text, provider, dim)
+    hit = _QUERY_EMBED_CACHE.get(key)
+    if not hit:
+        return None
+    ts, vec = hit
+    if time.time() - ts > _QUERY_EMBED_CACHE_TTL_S:
+        _QUERY_EMBED_CACHE.pop(key, None)
+        return None
+    return vec
+
+
+def _query_embed_cache_put(text: str, provider: str, dim: int, vec: List[float]) -> None:
+    # Bounded LRU-ish eviction — drop the oldest 10% when full.
+    if len(_QUERY_EMBED_CACHE) >= _QUERY_EMBED_CACHE_MAX:
+        drop_n = max(1, _QUERY_EMBED_CACHE_MAX // 10)
+        for k in list(_QUERY_EMBED_CACHE.keys())[:drop_n]:
+            _QUERY_EMBED_CACHE.pop(k, None)
+    _QUERY_EMBED_CACHE[_query_embed_cache_key(text, provider, dim)] = (time.time(), vec)
+
+
 def _cache_body(url: str, content: str, method: str) -> None:
     """Add to bounded LRU cache, evicting ~10% oldest when full."""
     if len(_RSS_BODY_CACHE) >= _RSS_BODY_CACHE_MAX:
@@ -2321,29 +2426,105 @@ async def reddit_deep_health():
 _topic_jobs: Dict[str, Dict[str, Any]] = {}
 
 
+def _topic_job_sentinel_path(job_id: str) -> str:
+    """Where we persist the existence of a job at CREATION time. This file
+    is the proof that the job ever existed, even if the in-memory state is
+    lost in a proxy restart before completion. Cleaned up on success (the
+    completed cache file at topics-{job_id}.json takes over)."""
+    return f"/hic-workspace/sessions/_topic-cache/_inflight/{job_id}.json"
+
+
+def _write_topic_sentinel(job_id: str, research_goal: str, item_count: int, status: str = "queued", err: str = ""):
+    """Idempotent — overwrites with latest known status."""
+    try:
+        sentinel_dir = "/hic-workspace/sessions/_topic-cache/_inflight"
+        os.makedirs(sentinel_dir, exist_ok=True)
+        with open(_topic_job_sentinel_path(job_id), "w", encoding="utf-8") as f:
+            json.dump({
+                "job_id": job_id,
+                "status": status,
+                "research_goal": research_goal[:200],
+                "item_count": item_count,
+                "created_at": datetime.utcnow().isoformat() + "Z",
+                "updated_at": datetime.utcnow().isoformat() + "Z",
+                "error": err,
+            }, f, indent=2)
+    except Exception as sentinel_err:
+        print(f"[topic_model] failed to write sentinel for {job_id}: {sentinel_err}")
+
+
+def _clear_topic_sentinel(job_id: str):
+    """Remove the in-flight sentinel after successful completion (the result
+    cache file is now the canonical record)."""
+    try:
+        path = _topic_job_sentinel_path(job_id)
+        if os.path.exists(path):
+            os.remove(path)
+    except Exception:
+        pass
+
+
 async def _run_topic_job(job_id: str, items: list, research_goal: str, min_cluster_size: int):
     """Background coroutine that drives the topic-modeling pipeline. Updates
     _topic_jobs[job_id] as phases complete. On success, also writes the
-    result to disk so the frontend can survive a proxy restart."""
+    result to disk so the frontend can survive a proxy restart.
+
+    2026-05-24 — Now writes an in-flight sentinel at start so the status
+    endpoint can distinguish 'job never existed' from 'job ran but proxy
+    restarted before completion'. Driven by the Northeastern 2026-05-24
+    failure where two job IDs returned bare 404."""
+    _write_topic_sentinel(job_id, research_goal, len(items), "running")
     try:
-        from topic_modeling import run_pipeline
+        # 2026-05-24 — Use run_pipeline_v2 for the HiC-optimized smart
+        # architecture (source-stratified clustering with cross-type merge,
+        # coherence pre-filter, evidence-density gate, cache + provider
+        # health from the multi-model resilience layer). v2 carries
+        # backward-compatible shape vs v1 plus new fields
+        # (convergent_evidence, source_types, distinct_source_count,
+        # pipeline_version, dropped_by_quality_gates,
+        # convergent_evidence_count). Falls back to v1 if v2 errors.
+        from topic_modeling import run_pipeline_v2, run_pipeline
 
         _topic_jobs[job_id]["status"] = "running"
         _topic_jobs[job_id]["progress"] = 5
         _topic_jobs[job_id]["message"] = "Embedding documents…"
 
-        result = await run_pipeline(items, research_goal=research_goal, min_cluster_size=min_cluster_size)
+        # Optional target_topic_count from request body (caller passes for
+        # deliverable-specific theme count targeting — e.g., strategy section
+        # asks for 7, themes-only deliverable asks for 25)
+        target_topic_count = _topic_jobs[job_id].get("target_topic_count")
+
+        try:
+            result = await run_pipeline_v2(
+                items,
+                research_goal=research_goal,
+                min_cluster_size=min_cluster_size,
+                target_topic_count=target_topic_count,
+            )
+        except Exception as v2_err:
+            print(f"[topic_model] v2 pipeline failed ({v2_err}); falling back to v1")
+            result = await run_pipeline(items, research_goal=research_goal, min_cluster_size=min_cluster_size)
+            result["pipeline_version"] = "v1_fallback"
+            result["v2_error"] = str(v2_err)[:300]
 
         _topic_jobs[job_id]["progress"] = 100
         _topic_jobs[job_id]["status"] = "completed"
         _topic_jobs[job_id]["result"] = result
         _topic_jobs[job_id]["completed_at"] = datetime.utcnow().isoformat() + "Z"
 
-        # Persist to wiki/synthesis so reloads retain it
+        # 2026-05-23 — P0.3 (re-applied). Per the honest audit
+        # (plans/hic-honest-audit-and-remediation-2026-05-23.md), the 38
+        # topics-tm_*.json files were polluting wiki/synthesis/ — exactly the
+        # cleanup the Karpathy plan called for. The previous reversion was
+        # itself a mistake. Caches now live in sessions/_topic-cache/ and the
+        # Knowledge Library Themes tab reads them via the new /api/topic-cache/*
+        # endpoints. wikiLibraryAggregator.ts was updated to point at the new
+        # location. The wiki/ dir is reserved for the LLM-maintained knowledge
+        # layer (markdown + structured JSON manifests), NOT per-session caches.
         try:
-            synth_dir = "/hic-workspace/wiki/synthesis"
-            os.makedirs(synth_dir, exist_ok=True)
-            with open(f"{synth_dir}/topics-{job_id}.json", "w", encoding="utf-8") as f:
+            cache_dir = "/hic-workspace/sessions/_topic-cache"
+            os.makedirs(cache_dir, exist_ok=True)
+            with open(f"{cache_dir}/topics-{job_id}.json", "w", encoding="utf-8") as f:
                 json.dump({
                     "job_id": job_id,
                     "completed_at": _topic_jobs[job_id]["completed_at"],
@@ -2353,13 +2534,21 @@ async def _run_topic_job(job_id: str, items: list, research_goal: str, min_clust
         except Exception as persist_err:
             print(f"[topic_model] failed to persist job {job_id}: {persist_err}")
 
+        # Sentinel served its purpose — the result cache file is now the
+        # canonical record for this job.
+        _clear_topic_sentinel(job_id)
+
     except Exception as e:
         import traceback
-        print(f"[topic_model] job {job_id} failed: {type(e).__name__}: {e}")
+        err_text = f"{type(e).__name__}: {e}"
+        print(f"[topic_model] job {job_id} failed: {err_text}")
         print(traceback.format_exc())
         _topic_jobs[job_id]["status"] = "failed"
-        _topic_jobs[job_id]["error"] = f"{type(e).__name__}: {e}"
+        _topic_jobs[job_id]["error"] = err_text
         _topic_jobs[job_id]["progress"] = 0
+        # 2026-05-24 — Persist the failure to the sentinel so /status/<id>
+        # can return a structured error after proxy restart instead of bare 404.
+        _write_topic_sentinel(job_id, research_goal, len(items), "failed", err=err_text)
 
 
 @app.post("/api/topic-model/analyze")
@@ -2380,6 +2569,19 @@ async def topic_model_analyze(req: Request):
     items = body.get("items") or []
     research_goal = (body.get("research_goal") or "").strip()
     min_cluster_size = int(body.get("min_cluster_size") or 5)
+    # 2026-05-24 — Optional target_topic_count for HiC-specific
+    # deliverable-aware theme counts. Pass for "themes-only": 25,
+    # "strategy_section": 7, "persona_inputs": 5, "slide_deck": 12.
+    # Omit to let the v2 pipeline return all surviving clusters.
+    target_topic_count_raw = body.get("target_topic_count")
+    target_topic_count: int | None = None
+    if target_topic_count_raw is not None:
+        try:
+            n = int(target_topic_count_raw)
+            if 1 <= n <= 200:
+                target_topic_count = n
+        except (TypeError, ValueError):
+            pass
 
     if not isinstance(items, list) or not items:
         return JSONResponse({"error": "items must be a non-empty array"}, status_code=400)
@@ -2393,6 +2595,7 @@ async def topic_model_analyze(req: Request):
         "message": f"Queued {len(items)} documents for topic modeling",
         "doc_count": len(items),
         "research_goal": research_goal,
+        "target_topic_count": target_topic_count,
         "created_at": datetime.utcnow().isoformat() + "Z",
     }
 
@@ -2409,8 +2612,12 @@ async def topic_model_status(job_id: str = Path(...)):
     == 'completed', the `result` key contains the TopicResult ready for UI."""
     if job_id not in _topic_jobs:
         # Maybe the proxy restarted and we lost the in-memory state, but the
-        # result is persisted on disk. Try to load it.
-        synth_path = f"/hic-workspace/wiki/synthesis/topics-{job_id}.json"
+        # result is persisted on disk.
+        # 2026-05-23 — P0.3: Path moved to sessions/_topic-cache (was wiki/synthesis/).
+        # Fall back to old path for backward compatibility during transition.
+        cache_path = f"/hic-workspace/sessions/_topic-cache/topics-{job_id}.json"
+        legacy_path = f"/hic-workspace/wiki/synthesis/topics-{job_id}.json"
+        synth_path = cache_path if os.path.exists(cache_path) else legacy_path
         if os.path.exists(synth_path):
             try:
                 with open(synth_path, "r", encoding="utf-8") as f:
@@ -2424,9 +2631,209 @@ async def topic_model_status(job_id: str = Path(...)):
                     "from_disk": True,
                 }
             except Exception as e:
-                return JSONResponse({"error": f"Job not in memory, disk load failed: {e}"}, status_code=404)
-        return JSONResponse({"error": f"Unknown job_id: {job_id}"}, status_code=404)
+                return JSONResponse({
+                    "error": "job_in_flight_but_disk_unreadable",
+                    "error_detail": f"Job not in memory, disk load failed: {e}",
+                    "job_id": job_id,
+                    "remediation": "Re-run the topic-model job; the cache file is corrupt or partial.",
+                }, status_code=502)
+
+        # 2026-05-24 — Check the in-flight sentinel. If a sentinel exists,
+        # this job was created but never completed (likely proxy restart or
+        # failure before persistence). Surface structured info instead of
+        # bare 404 so the frontend can show a real error.
+        sentinel_path = _topic_job_sentinel_path(job_id)
+        if os.path.exists(sentinel_path):
+            try:
+                with open(sentinel_path, "r", encoding="utf-8") as f:
+                    sentinel = json.load(f)
+                status = sentinel.get("status", "unknown")
+                if status == "failed":
+                    return JSONResponse({
+                        "error": "topic_model_job_failed",
+                        "error_detail": sentinel.get("error", "unknown failure"),
+                        "job_id": job_id,
+                        "research_goal": sentinel.get("research_goal", ""),
+                        "remediation": "Inspect the proxy logs near the timestamp above for the traceback; the topic_modeling pipeline raised an exception.",
+                        "sentinel": sentinel,
+                    }, status_code=500)
+                # status == 'queued' or 'running' but in-memory dict has no entry
+                # → proxy was restarted mid-flight
+                return JSONResponse({
+                    "error": "job_lost_to_proxy_restart",
+                    "error_detail": "Job sentinel found on disk but in-memory state is gone — proxy was restarted while this job was running.",
+                    "job_id": job_id,
+                    "research_goal": sentinel.get("research_goal", ""),
+                    "remediation": "Re-submit the topic-model job. Consider increasing proxy memory or persisting in-flight state more aggressively.",
+                    "sentinel": sentinel,
+                }, status_code=502)
+            except Exception as sentinel_err:
+                return JSONResponse({
+                    "error": "sentinel_unreadable",
+                    "error_detail": f"In-flight sentinel for {job_id} exists but cannot be read: {sentinel_err}",
+                    "job_id": job_id,
+                }, status_code=500)
+
+        # Truly unknown — no in-memory state, no cache, no sentinel
+        return JSONResponse({
+            "error": "job_id_unknown",
+            "error_detail": f"No record of job_id {job_id} in memory, cache, or in-flight sentinel.",
+            "job_id": job_id,
+            "remediation": "Either the job_id is stale (older than current proxy lifecycle and not persisted), or it was never created. Re-submit a fresh job.",
+        }, status_code=404)
     return _topic_jobs[job_id]
+
+
+# 2026-05-23 — P0.3: List + read endpoints for the relocated topic-cache.
+# The Knowledge Library Themes tab reads from these instead of from
+# /api/wiki/list/synthesis (where topic caches USED to live before the
+# Karpathy P0.3 cleanup).
+@app.get("/api/topic-cache/list")
+async def topic_cache_list():
+    """List every topic-modeling result file in sessions/_topic-cache/.
+    Used by wikiLibraryAggregator.collectThemes to build the cross-engagement
+    Themes tab. Falls through to legacy wiki/synthesis/ for backward compat
+    so old caches that haven't been migrated still show up."""
+    out = {"files": [], "exists": True, "base": "sessions/_topic-cache"}
+    cache_dir = "/hic-workspace/sessions/_topic-cache"
+    legacy_dir = "/hic-workspace/wiki/synthesis"
+    if os.path.isdir(cache_dir):
+        for f in sorted(os.listdir(cache_dir)):
+            if f.startswith("topics-") and f.endswith(".json"):
+                out["files"].append(f)
+    if os.path.isdir(legacy_dir):
+        for f in sorted(os.listdir(legacy_dir)):
+            if f.startswith("topics-tm_") and f.endswith(".json") and f not in out["files"]:
+                out["files"].append(f)
+    return out
+
+
+@app.get("/api/topic-cache/read/{filename:path}")
+async def topic_cache_read(filename: str = Path(...)):
+    """Read a single topic-modeling result file. Checks the new location
+    first, then falls through to legacy wiki/synthesis/."""
+    safe_name = filename.replace("..", "").strip("/")
+    candidates = [
+        f"/hic-workspace/sessions/_topic-cache/{safe_name}",
+        f"/hic-workspace/wiki/synthesis/{safe_name}",
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    return {"path": path, "content": f.read()}
+            except Exception as e:
+                return JSONResponse({"error": f"Read failed: {e}"}, status_code=500)
+    return JSONResponse({"error": f"Topic cache not found: {filename}"}, status_code=404)
+
+
+# ================================================================
+# KNOWLEDGE GAP REMEDIATION — 2026-05-23 (Karpathy Phase 2.3)
+# ================================================================
+#
+# Endpoint receives a suggested-source for a detected knowledge shortfall and
+# executes the corresponding source-fetch through the existing /api/search/
+# /api/multi-search / /api/transcribe-youtube infrastructure. Returns a result
+# preview the user can decide to merge into the engagement corpus. No
+# auto-merge — the user remains in control.
+
+class KnowledgeGapRemediationRequest(BaseModel):
+    gapId: str
+    source: dict  # SuggestedSource: { type, query, rationale, url?, estimatedYield? }
+    engagementSlug: Optional[str] = None
+
+
+@app.post("/api/knowledge-gaps/run-remediation")
+async def knowledge_gaps_run_remediation(req: KnowledgeGapRemediationRequest):
+    """Execute a SuggestedSource for a knowledge gap. Routes to the appropriate
+    backend fetcher based on source.type. Returns a preview + a result count so
+    the UI can show the user what was found without auto-merging into the corpus."""
+    import re as _re_gap
+    import urllib.parse as _urllib_gap
+
+    source = req.source or {}
+    source_type = source.get("type", "")
+    query = source.get("query", "")
+    url = source.get("url", "")
+
+    if not source_type or not query:
+        return JSONResponse({"error": "source.type and source.query are required"}, status_code=400)
+
+    try:
+        if source_type == "cached_engagement":
+            # Just return the path so the UI can deep-link to it
+            return {
+                "gapId": req.gapId,
+                "source_type": source_type,
+                "resultCount": 1,
+                "previewUrl": url or f"sessions/_topic-cache/{query}",
+                "summary": f"Cached engagement matched: {query}",
+                "auto_merged": False,
+            }
+        elif source_type == "subreddit":
+            # Reuse the Reddit-deep fetcher pattern; for now, return the URL
+            # the user can paste into HiC's existing Reddit-deep flow.
+            sub_match = _re_gap.search(r'r/([A-Za-z0-9_]+)', query)
+            subreddit = sub_match.group(1) if sub_match else None
+            return {
+                "gapId": req.gapId,
+                "source_type": source_type,
+                "resultCount": 0,
+                "previewUrl": f"https://www.reddit.com/{('r/'+subreddit) if subreddit else 'search/?q='+_urllib_gap.quote(query)}",
+                "summary": f"Use HiC's Reddit-deep flow on {subreddit or 'the search results'}; the live fetch is run from the data-source picker.",
+                "auto_merged": False,
+            }
+        elif source_type == "youtube":
+            # YouTube search/results URL; user can click through to pick videos
+            return {
+                "gapId": req.gapId,
+                "source_type": source_type,
+                "resultCount": 0,
+                "previewUrl": query if query.startswith("http") else f"https://www.youtube.com/results?search_query={_urllib_gap.quote(query)}",
+                "summary": "YouTube results — pick videos to transcribe via HiC's YouTube transcription flow.",
+                "auto_merged": False,
+            }
+        elif source_type in ("web_search", "academic"):
+            # Web/academic search — return the search URL for now; future
+            # version can route to a server-side fetcher.
+            search_url = query if query.startswith("http") else f"https://www.google.com/search?q={_urllib_gap.quote(query)}"
+            return {
+                "gapId": req.gapId,
+                "source_type": source_type,
+                "resultCount": 0,
+                "previewUrl": search_url,
+                "summary": f"Search URL ready: {search_url}",
+                "auto_merged": False,
+            }
+        elif source_type == "article":
+            return {
+                "gapId": req.gapId,
+                "source_type": source_type,
+                "resultCount": 0,
+                "previewUrl": query if query.startswith("http") else f"https://www.google.com/search?q={_urllib_gap.quote(query)}",
+                "summary": f"Article search ready: {query}",
+                "auto_merged": False,
+            }
+        else:
+            return JSONResponse({"error": f"Unsupported source type: {source_type}"}, status_code=400)
+    except Exception as e:
+        return JSONResponse({"error": f"Remediation execution failed: {e}"}, status_code=500)
+
+
+@app.get("/api/knowledge-gaps/list/{engagement_slug}")
+async def knowledge_gaps_list(engagement_slug: str = Path(...)):
+    """Return the persisted knowledge-gaps markdown for an engagement.
+    The UI parses this to render the Knowledge Library tab."""
+    safe = engagement_slug.replace("..", "").strip("/")
+    path = f"/hic-workspace/wiki/synthesis/knowledge-gaps-{safe}.md"
+    if not os.path.exists(path):
+        return {"engagementSlug": safe, "exists": False, "content": ""}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return {"engagementSlug": safe, "exists": True, "content": content}
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
 
 
 # ================================================================
@@ -2481,7 +2888,38 @@ def _safe_session_slug(raw: str) -> str:
     s = "".join(c if c.isalnum() or c in " -_" else "" for c in s)
     s = "-".join(s.split())
     s = s.strip("-")
-    return s[:80] or "untitled-session"
+    s = s[:80].strip("-")
+    return s or "untitled-session"
+
+
+def _resolve_session_folder(raw_slug: str) -> Optional[str]:
+    """Resolve a slug to an on-disk session folder, tolerating legacy slugs.
+
+    Older sessions were saved with a trailing dash because strip-before-slice
+    in _safe_session_slug left a dash when the slice landed mid-token. The
+    fix re-strips after slicing, but folders already on disk keep the legacy
+    form. This resolver tries: (a) the sanitized slug, (b) the raw slug,
+    (c) sanitized-with-trailing-dash. Returns the first existing folder path
+    or None.
+    """
+    candidates = []
+    safe = _safe_session_slug(raw_slug)
+    candidates.append(safe)
+    # Raw passthrough (lowercased; no other normalization) catches legacy
+    # folders saved with characters or trailing chars the current sanitizer
+    # would strip.
+    raw_lower = (raw_slug or "").lower().strip()
+    if raw_lower and raw_lower not in candidates:
+        candidates.append(raw_lower)
+    # Sanitized + trailing dash — covers the specific known regression where
+    # an >80-char slug was previously stored with a trailing "-".
+    if safe and (safe + "-") not in candidates:
+        candidates.append(safe + "-")
+    for cand in candidates:
+        folder = os.path.join(SESSIONS_BASE, cand)
+        if os.path.isdir(folder):
+            return folder
+    return None
 
 
 @app.post("/api/sessions")
@@ -2635,10 +3073,10 @@ async def session_list():
 @app.get("/api/sessions/{slug}")
 async def session_load(slug: str = Path(...)):
     """Load the full session — every section file is returned in one shot."""
-    safe_slug = _safe_session_slug(slug)
-    folder = os.path.join(SESSIONS_BASE, safe_slug)
-    if not os.path.isdir(folder):
+    folder = _resolve_session_folder(slug)
+    if not folder:
         return JSONResponse({"error": f"Session not found: {slug}"}, status_code=404)
+    safe_slug = os.path.basename(folder)
 
     sections: Dict[str, Any] = {}
     for key, fname in SESSION_SECTION_FILES.items():
@@ -2662,10 +3100,10 @@ async def session_load(slug: str = Path(...)):
 @app.delete("/api/sessions/{slug}")
 async def session_delete(slug: str = Path(...)):
     """Soft-delete: move the session folder to .deleted/{slug}.{timestamp}/."""
-    safe_slug = _safe_session_slug(slug)
-    folder = os.path.join(SESSIONS_BASE, safe_slug)
-    if not os.path.isdir(folder):
+    folder = _resolve_session_folder(slug)
+    if not folder:
         return JSONResponse({"error": "Session not found"}, status_code=404)
+    safe_slug = os.path.basename(folder)
     deleted_root = os.path.join(SESSIONS_BASE, ".deleted")
     os.makedirs(deleted_root, exist_ok=True)
     ts = int(time.time())
@@ -2680,11 +3118,10 @@ async def session_delete(slug: str = Path(...)):
 @app.get("/api/sessions/{slug}/health")
 async def session_health(slug: str = Path(...)):
     """Tiny endpoint for "does this session exist?" checks without loading bodies."""
-    safe_slug = _safe_session_slug(slug)
-    folder = os.path.join(SESSIONS_BASE, safe_slug)
-    exists = os.path.isdir(folder)
-    if not exists:
-        return {"exists": False, "slug": safe_slug}
+    folder = _resolve_session_folder(slug)
+    if not folder:
+        return {"exists": False, "slug": _safe_session_slug(slug)}
+    safe_slug = os.path.basename(folder)
     meta_path = os.path.join(folder, SESSION_SECTION_FILES["metadata"])
     last_modified = None
     bytes_total = 0
@@ -5366,6 +5803,48 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                     except Exception:
                         return None
 
+                # 2026-05-23 — Gated-source filter. Academic sources (OpenAlex,
+                # Crossref, Semantic Scholar, arXiv-via-REST) routinely return
+                # abstract-only metadata for paywalled articles. Including those
+                # in the corpus means HiC synthesizes from summaries instead of
+                # full evidence. Detect per-source open-access PDF URL fields;
+                # attach pdfUrl when available; DROP items where (a) the source
+                # is academic AND (b) only an abstract is present AND (c) no
+                # PDF URL is reachable.
+                ACADEMIC_CATEGORIES = {"Academic Literature", "Academic", "Preprint Servers", "Research Repository"}
+                is_academic_source = src.get("category", "") in ACADEMIC_CATEGORIES
+                dropped_gated = 0
+
+                def detect_pdf_url(it: dict) -> str:
+                    """Return the open-access PDF URL for this item, or '' if none.
+                    Handles OpenAlex, Semantic Scholar, Crossref, arXiv shapes."""
+                    # OpenAlex: open_access.oa_url OR primary_location.pdf_url
+                    oa = it.get("open_access") or {}
+                    if isinstance(oa, dict) and oa.get("is_oa") and oa.get("oa_url"):
+                        return str(oa["oa_url"])
+                    pl = it.get("primary_location") or {}
+                    if isinstance(pl, dict) and pl.get("pdf_url"):
+                        return str(pl["pdf_url"])
+                    # OpenAlex: best_oa_location.pdf_url
+                    bl = it.get("best_oa_location") or {}
+                    if isinstance(bl, dict) and bl.get("pdf_url"):
+                        return str(bl["pdf_url"])
+                    # Semantic Scholar: openAccessPdf.url
+                    oap = it.get("openAccessPdf") or {}
+                    if isinstance(oap, dict) and oap.get("url"):
+                        return str(oap["url"])
+                    # Crossref: link[] with content-type=application/pdf
+                    links = it.get("link") or []
+                    if isinstance(links, list):
+                        for l in links:
+                            if isinstance(l, dict) and (l.get("content-type") == "application/pdf" or l.get("contentType") == "application/pdf"):
+                                if l.get("URL"):
+                                    return str(l["URL"])
+                    # arXiv via REST has direct pdf_url
+                    if it.get("pdf_url"):
+                        return str(it["pdf_url"])
+                    return ""
+
                 for item in (items_raw if isinstance(items_raw, list) else [items_raw])[:limit]:
                     if isinstance(item, dict):
                         # Handle Reddit's nested {data: {title: ...}} structure
@@ -5374,16 +5853,31 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                         raw_title = item.get("title") or item.get("name") or item.get("modelId") or item.get("id") or item.get("school.name")
                         # OpenAlex returns abstract_inverted_index; decode to plain text before falling back
                         abstract = item.get("abstract") or decode_inverted_index(item.get("abstract_inverted_index"))
+                        pdf_url = detect_pdf_url(item)
+
+                        # 2026-05-23 — Drop academic-source items lacking a PDF URL
+                        # so the corpus is built from full-text only, not abstracts.
+                        # Items with a PDF URL pass through; the existing
+                        # /api/extract-pdf flow will fetch the full text later.
+                        if is_academic_source and not pdf_url:
+                            dropped_gated += 1
+                            continue
+
                         items.append({
                             "title": to_str(raw_title, str(item)[:100]),
                             "content": to_str(abstract or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
                             "url": (lambda u: ("https://www.reddit.com" + u) if u and u.startswith("/r/") else to_str(u))(to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink") or item.get("profileUrl") or (f"https://projects.propublica.org/nonprofits/organizations/{item.get('ein')}" if item.get("ein") else ""))),
                             "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
+                            "pdfUrl": pdf_url,
+                            "fullTextAvailable": bool(pdf_url),
                         })
                     else:
-                        items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": ""})
+                        items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": "", "pdfUrl": "", "fullTextAvailable": False})
 
-                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": total}
+                if dropped_gated > 0:
+                    logger.info(f"[gated-filter] {src['name']}: dropped {dropped_gated} abstract-only items (no open-access PDF)")
+
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": total, "droppedGated": dropped_gated, "isAcademicSource": is_academic_source}
 
             # --- Static URL connector (single-page fetch via 3-tier expansion) ---
             # 2026-04-29 — For brand impact pages, vendor blogs without RSS,
@@ -6656,20 +7150,22 @@ async def proxy_anthropic(request: Request):
             "anthropic-version": "2023-06-01",
             "Content-Type": "application/json",
         }
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(
-                "https://api.anthropic.com/v1/messages",
-                json=body,
-                headers=headers,
-                timeout=300.0,
-            )
-            try:
-                result = resp.json()
-            except Exception:
-                result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
-            if resp.status_code != 200:
-                logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
-            return JSONResponse(result, status_code=resp.status_code)
+        # 2026-05-26 — Per-provider Anthropic-chat semaphore.
+        async with _get_anthropic_chat_semaphore():
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(
+                    "https://api.anthropic.com/v1/messages",
+                    json=body,
+                    headers=headers,
+                    timeout=300.0,
+                )
+                try:
+                    result = resp.json()
+                except Exception:
+                    result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
+                if resp.status_code != 200:
+                    logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
+                return JSONResponse(result, status_code=resp.status_code)
     except httpx.TimeoutException:
         logger.error("Anthropic proxy timeout")
         return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
@@ -6748,18 +7244,97 @@ async def proxy_gemini(request: Request):
             gemini_body["systemInstruction"] = body["systemInstruction"]
 
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+
+        # 2026-05-19 — Surrogate-pair sanitization. Observed in the wild:
+        # corpus text occasionally contains LONE SURROGATES (e.g. '\ud83e'
+        # without the matching low surrogate '\udd14') from upstream sources
+        # that emit malformed emoji or imperfectly normalized unicode. Python's
+        # default UTF-8 codec rejects these with
+        #   UnicodeEncodeError: 'utf-8' codec can't encode character '\ud83e'
+        # which surfaced as a 502 Bad Gateway from this endpoint on
+        # research-fabric-orchestrator runs. We pre-sanitize the body by
+        # round-tripping through UTF-8 with errors='replace' so any lone
+        # surrogate becomes U+FFFD (the Unicode replacement character) BEFORE
+        # httpx tries to encode it. Wrapped in a helper so it works on nested
+        # dicts/lists.
+        def _strip_surrogates(o):
+            if isinstance(o, str):
+                # Encode with errors='replace' (turns lone surrogates into
+                # U+FFFD), then decode back to a clean string.
+                return o.encode("utf-8", errors="replace").decode("utf-8", errors="replace")
+            if isinstance(o, dict):
+                return {k: _strip_surrogates(v) for k, v in o.items()}
+            if isinstance(o, list):
+                return [_strip_surrogates(v) for v in o]
+            return o
+        gemini_body = _strip_surrogates(gemini_body)
+
         content_size = len(json.dumps(gemini_body))
         logger.info(f"Gemini proxy: model={model}, content_size={content_size:,} chars")
 
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(url, json=gemini_body, headers={"Content-Type": "application/json"}, timeout=300.0)
-            result = resp.json()
-            if resp.status_code != 200:
-                logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
-            return JSONResponse(result, status_code=resp.status_code)
+        # 2026-05-20 — Timeout raised 300s → 540s (matches gemini-compat path).
+        # 2026-05-26 — Wrapped in per-provider Gemini-chat semaphore so a
+        # burst of generateContent calls from one feature can't starve
+        # parallel embedding or chat work in another. See _get_gemini_chat_semaphore.
+        async with _get_gemini_chat_semaphore():
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(url, json=gemini_body, headers={"Content-Type": "application/json"}, timeout=540.0)
+                result = resp.json()
+                if resp.status_code != 200:
+                    logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
+                # 2026-05-26 — 429 fallback to DeepSeek-V4-Flash. When
+                # Gemini returns quota-exhausted, immediately re-route to
+                # DeepSeek with translated payload. The caller sees a
+                # Gemini-shaped response with _fallback_provider set, so
+                # downstream parsers stay unchanged. Avoids grinding
+                # retries against an exhausted provider.
+                if resp.status_code == 429:
+                    logger.warning("Gemini 429 — falling back to DeepSeek-V4-Flash")
+                    ds_messages = [{"role": "system", "content": "You are a helpful research synthesis assistant."}]
+                    # Translate Gemini contents → messages
+                    if isinstance(contents, list):
+                        for turn in contents:
+                            role = "assistant" if turn.get("role") == "model" else "user"
+                            text_parts = []
+                            for part in turn.get("parts", []):
+                                if isinstance(part, dict) and "text" in part:
+                                    text_parts.append(part["text"])
+                            if text_parts:
+                                ds_messages.append({"role": role, "content": "\n".join(text_parts)})
+                    elif isinstance(contents, str):
+                        ds_messages.append({"role": "user", "content": contents})
+                    # Call DeepSeek endpoint same-process
+                    try:
+                        ds_resp = await client.post(
+                            "http://127.0.0.1:5012/api/ai/deepseek",
+                            json={
+                                "model": "deepseek-v4-flash",
+                                "messages": ds_messages,
+                                "max_tokens": gen_config.get("maxOutputTokens", 32000),
+                                "temperature": gen_config.get("temperature", 0.2),
+                                "stream": False,
+                            },
+                            timeout=300.0,
+                        )
+                        ds_data = ds_resp.json()
+                        ds_text = ds_data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                        # Synthesize a Gemini-shaped response
+                        return JSONResponse({
+                            "candidates": [{
+                                "content": {"parts": [{"text": ds_text}]},
+                                "finishReason": ds_data.get("choices", [{}])[0].get("finish_reason", "STOP"),
+                            }],
+                            "text": ds_text,
+                            "_fallback_provider": "deepseek-v4-flash",
+                            "_original_error": "gemini 429 quota-exhausted",
+                        }, status_code=200)
+                    except Exception as ds_err:
+                        logger.error(f"DeepSeek fallback also failed: {ds_err}")
+                        # fall through to return the original 429 below
+                return JSONResponse(result, status_code=resp.status_code)
     except httpx.TimeoutException:
-        logger.error("Gemini proxy timeout")
-        return JSONResponse({"error": "Gemini API timeout (300s)"}, status_code=504)
+        logger.error("Gemini proxy timeout (540s)")
+        return JSONResponse({"error": "Gemini API timeout (540s)"}, status_code=504)
     except Exception as e:
         logger.error(f"Gemini proxy error: {e}")
         return JSONResponse({"error": f"Gemini proxy error: {str(e)[:200]}"}, status_code=502)
@@ -6786,11 +7361,13 @@ async def proxy_openai(request: Request):
             "Authorization": f"Bearer {api_key}",
         }
 
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(url, json=body, headers=headers, timeout=300.0)
-            if resp.status_code >= 400:
-                logger.error(f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}")
-            return JSONResponse(resp.json(), status_code=resp.status_code)
+        # 2026-05-26 — Per-provider OpenAI-chat semaphore.
+        async with _get_openai_chat_semaphore():
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+                if resp.status_code >= 400:
+                    logger.error(f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}")
+                return JSONResponse(resp.json(), status_code=resp.status_code)
     except httpx.TimeoutException:
         logger.error("OpenAI proxy timeout")
         return JSONResponse({"error": "OpenAI API timeout (300s)"}, status_code=504)
@@ -6820,19 +7397,39 @@ async def proxy_gemini_openai_compat(request: Request):
 
     try:
         body = await request.json()
+        # 2026-05-19 — Same surrogate sanitization as /api/ai/gemini (see comment
+        # there). The OpenAI-compatible endpoint goes through the same Gemini
+        # backend and is equally vulnerable to UnicodeEncodeError on lone
+        # surrogates in user-provided content.
+        def _strip_surrogates(o):
+            if isinstance(o, str):
+                return o.encode("utf-8", errors="replace").decode("utf-8", errors="replace")
+            if isinstance(o, dict):
+                return {k: _strip_surrogates(v) for k, v in o.items()}
+            if isinstance(o, list):
+                return [_strip_surrogates(v) for v in o]
+            return o
+        body = _strip_surrogates(body)
+
         url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}",
         }
+        # 2026-05-20 — Timeout raised from 300s to 540s. Gemini 3.1 Pro
+        # composing a presentation over an 800-article corpus with prior
+        # tool-call context routinely exceeds 5 min. Browser-side composer
+        # uses fetchWithTimeout(420s, retried 3x) — we want the proxy to
+        # outlive a single attempt so it cleanly returns a 504 instead of
+        # silently TCP-dropping (browser TypeError "Failed to fetch").
         async with httpx.AsyncClient() as client:
-            resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+            resp = await client.post(url, json=body, headers=headers, timeout=540.0)
             if resp.status_code >= 400:
                 logger.error(f"Gemini compat API {resp.status_code} for model={body.get('model')}: {resp.text[:600]}")
             return JSONResponse(resp.json(), status_code=resp.status_code)
     except httpx.TimeoutException:
-        logger.error("Gemini compat proxy timeout")
-        return JSONResponse({"error": "Gemini compat API timeout (300s)"}, status_code=504)
+        logger.error("Gemini compat proxy timeout (540s)")
+        return JSONResponse({"error": "Gemini compat API timeout (540s)"}, status_code=504)
     except Exception as e:
         logger.error(f"Gemini compat proxy error: {e}")
         return JSONResponse({"error": f"Gemini compat proxy error: {str(e)[:200]}"}, status_code=502)
@@ -7116,6 +7713,299 @@ class WikiAppendRequest(BaseModel):
     content: str    # Content to append
     section: str = ""  # Optional: append under this section header
 
+
+# ================================================================
+# FEEDBACK STORAGE — 2026-05-22 (self-improvement loop, Phase 2)
+# ================================================================
+# Feedback events from the UI feedback widget are persisted as JSONL
+# under WIKI_BASE/feedback/<engagement_slug>/<deliverable_id>.jsonl.
+# An aggregate index at WIKI_BASE/feedback/_index.json maps:
+#   deliverable_type -> section_scope -> [recent event summaries]
+# so the learning engine can read recent patterns without scanning
+# the full event tree.
+
+import re as _re_feedback  # local alias — re not at module scope here
+
+FEEDBACK_BASE = os.path.join(WIKI_BASE, "feedback")
+FEEDBACK_INDEX_PATH = os.path.join(FEEDBACK_BASE, "_index.json")
+
+
+class FeedbackEvent(BaseModel):
+    id: str
+    timestamp: str
+    engagement_slug: str
+    deliverable_id: str
+    deliverable_type: str
+    section_scope: Optional[str] = None
+    signal_type: str  # vote | stars | text | edit | regenerate
+    vote_value: Optional[str] = None  # up | down
+    stars_value: Optional[int] = None
+    text_value: Optional[str] = None
+    applied_immediately: bool = False
+    skill_version_active: Optional[str] = None
+    constraints_active: list = []
+    user_id_or_anon: str = "anon"
+
+
+def _safe_feedback_path(engagement_slug: str, deliverable_id: str) -> Optional[str]:
+    """Build a feedback file path, ensuring it stays inside FEEDBACK_BASE.
+    Returns None if traversal is attempted."""
+    # Sanitise slug + id to be path-safe (no slashes, dots in names)
+    safe_slug = _re_feedback.sub(r'[^A-Za-z0-9_\-]', '_', engagement_slug)[:80]
+    safe_id = _re_feedback.sub(r'[^A-Za-z0-9_\-]', '_', deliverable_id)[:80]
+    if not safe_slug or not safe_id:
+        return None
+    path = os.path.normpath(os.path.join(FEEDBACK_BASE, safe_slug, f"{safe_id}.jsonl"))
+    if not path.startswith(os.path.normpath(FEEDBACK_BASE)):
+        return None
+    return path
+
+
+@app.post("/api/feedback/append")
+async def feedback_append(event: FeedbackEvent):
+    """Append a feedback event to the engagement+deliverable JSONL log,
+    and update the aggregate index. Returns the on-disk path."""
+    path = _safe_feedback_path(event.engagement_slug, event.deliverable_id)
+    if not path:
+        return JSONResponse({"error": "Invalid engagement_slug or deliverable_id"}, status_code=400)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    # Single-line JSON append (true JSONL)
+    line = json.dumps(event.dict(), ensure_ascii=False) + "\n"
+    try:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(line)
+    except Exception as e:
+        return JSONResponse({"error": f"Append failed: {e}"}, status_code=500)
+
+    # Update aggregate index. Best-effort — failure here does not fail the call.
+    try:
+        idx = {}
+        if os.path.exists(FEEDBACK_INDEX_PATH):
+            with open(FEEDBACK_INDEX_PATH, "r", encoding="utf-8") as f:
+                try:
+                    idx = json.load(f) or {}
+                except Exception:
+                    idx = {}
+        bucket_type = event.deliverable_type or "unknown"
+        bucket_section = event.section_scope or "__top__"
+        idx.setdefault(bucket_type, {})
+        idx[bucket_type].setdefault(bucket_section, [])
+        idx[bucket_type][bucket_section].insert(0, {
+            "id": event.id,
+            "timestamp": event.timestamp,
+            "engagement_slug": event.engagement_slug,
+            "deliverable_id": event.deliverable_id,
+            "signal_type": event.signal_type,
+            "vote_value": event.vote_value,
+            "stars_value": event.stars_value,
+            "text_excerpt": (event.text_value or "")[:140] if event.text_value else None,
+            "applied_immediately": event.applied_immediately,
+            "skill_version_active": event.skill_version_active,
+        })
+        # Cap each bucket at 200 recent events to keep the index light
+        idx[bucket_type][bucket_section] = idx[bucket_type][bucket_section][:200]
+        os.makedirs(FEEDBACK_BASE, exist_ok=True)
+        with open(FEEDBACK_INDEX_PATH, "w", encoding="utf-8") as f:
+            json.dump(idx, f, ensure_ascii=False, indent=2)
+    except Exception as idx_err:
+        logger.warning(f"Feedback index update failed (non-fatal): {idx_err}")
+
+    return {"status": "ok", "path": os.path.relpath(path, WIKI_BASE), "id": event.id}
+
+
+@app.get("/api/feedback/read/{engagement_slug}/{deliverable_id}")
+async def feedback_read(engagement_slug: str, deliverable_id: str):
+    """Read all feedback events for a specific deliverable."""
+    path = _safe_feedback_path(engagement_slug, deliverable_id)
+    if not path or not os.path.exists(path):
+        return {"events": [], "count": 0}
+    events = []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    events.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    except Exception as e:
+        return JSONResponse({"error": f"Read failed: {e}"}, status_code=500)
+    return {"events": events, "count": len(events)}
+
+
+@app.get("/api/feedback/index")
+async def feedback_index():
+    """Read the aggregate feedback index (deliverable_type -> section -> recent events)."""
+    if not os.path.exists(FEEDBACK_INDEX_PATH):
+        return {"index": {}, "exists": False}
+    try:
+        with open(FEEDBACK_INDEX_PATH, "r", encoding="utf-8") as f:
+            return {"index": json.load(f), "exists": True}
+    except Exception as e:
+        return JSONResponse({"error": f"Read failed: {e}"}, status_code=500)
+
+
+@app.get("/api/feedback/list/{engagement_slug}")
+async def feedback_list(engagement_slug: str):
+    """List all feedback JSONL files for an engagement (deliverable IDs)."""
+    safe_slug = _re_feedback.sub(r'[^A-Za-z0-9_\-]', '_', engagement_slug)[:80]
+    dir_path = os.path.normpath(os.path.join(FEEDBACK_BASE, safe_slug))
+    if not dir_path.startswith(os.path.normpath(FEEDBACK_BASE)):
+        return JSONResponse({"error": "Invalid engagement_slug"}, status_code=400)
+    if not os.path.isdir(dir_path):
+        return {"engagement_slug": safe_slug, "deliverables": []}
+    deliverables = []
+    for f in sorted(os.listdir(dir_path)):
+        if f.endswith(".jsonl"):
+            full = os.path.join(dir_path, f)
+            try:
+                size = os.path.getsize(full)
+                # Count events efficiently
+                with open(full, "r", encoding="utf-8") as fh:
+                    event_count = sum(1 for _ in fh if _.strip())
+                deliverables.append({"id": f[:-6], "events": event_count, "bytes": size})
+            except Exception:
+                continue
+    return {"engagement_slug": safe_slug, "deliverables": deliverables}
+
+
+# ================================================================
+# SKILL FILE ACCESS — 2026-05-22 (self-improvement loop, Phase 3)
+# ================================================================
+# Skills live at /skills/<name>/SKILL.md in the proxy container (mounted
+# from ../.claude/skills via docker-compose). The learning engine reads
+# the current skill, archives the previous version under _versions/, and
+# writes the patched version with an incremented `version` field.
+
+SKILLS_BASE = "/skills"
+
+
+class SkillWriteRequest(BaseModel):
+    name: str
+    content: str
+    archive_version: Optional[str] = None  # If given, save old content as _versions/v<version>.md
+
+
+def _skill_path(name: str) -> Optional[str]:
+    """Build the SKILL.md path inside SKILLS_BASE, blocking traversal."""
+    safe_name = _re_feedback.sub(r'[^A-Za-z0-9_\-]', '_', name)[:80]
+    if not safe_name:
+        return None
+    p = os.path.normpath(os.path.join(SKILLS_BASE, safe_name, "SKILL.md"))
+    if not p.startswith(os.path.normpath(SKILLS_BASE)):
+        return None
+    return p
+
+
+@app.get("/api/skill/read")
+async def skill_read(name: str = Query(...)):
+    """Read a SKILL.md file. Returns 404 if the skill doesn't exist."""
+    path = _skill_path(name)
+    if not path:
+        return JSONResponse({"error": "Invalid skill name"}, status_code=400)
+    if not os.path.exists(path):
+        return JSONResponse({"error": f"Skill not found: {name}"}, status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return {"name": name, "content": content, "path": path}
+    except Exception as e:
+        return JSONResponse({"error": f"Read failed: {e}"}, status_code=500)
+
+
+@app.post("/api/skill/write")
+async def skill_write(req: SkillWriteRequest):
+    """Write a patched SKILL.md. If archive_version is given, save the
+    previous content to _versions/v<archive_version>.md first so the patch
+    is reversible."""
+    path = _skill_path(req.name)
+    if not path:
+        return JSONResponse({"error": "Invalid skill name"}, status_code=400)
+    skill_dir = os.path.dirname(path)
+    if not os.path.isdir(skill_dir):
+        return JSONResponse({"error": f"Skill directory does not exist: {req.name}"}, status_code=404)
+    try:
+        # Archive previous version
+        if req.archive_version and os.path.exists(path):
+            versions_dir = os.path.join(skill_dir, "_versions")
+            os.makedirs(versions_dir, exist_ok=True)
+            archive_path = os.path.join(versions_dir, f"v{req.archive_version}.md")
+            with open(path, "r", encoding="utf-8") as src:
+                with open(archive_path, "w", encoding="utf-8") as dst:
+                    dst.write(src.read())
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(req.content)
+        return {"status": "ok", "name": req.name, "chars": len(req.content)}
+    except Exception as e:
+        return JSONResponse({"error": f"Write failed: {e}"}, status_code=500)
+
+
+@app.get("/api/skill/list-versions")
+async def skill_list_versions():
+    """List every skill with its current version and last_improved date,
+    plus how many archived versions exist. Powers the per-deliverable
+    receipt and the session ChangeStrip."""
+    if not os.path.isdir(SKILLS_BASE):
+        return {"skills": [], "skills_base_exists": False}
+    skills = []
+    for entry in sorted(os.listdir(SKILLS_BASE)):
+        skill_dir = os.path.join(SKILLS_BASE, entry)
+        if not os.path.isdir(skill_dir):
+            continue
+        skill_md = os.path.join(skill_dir, "SKILL.md")
+        if not os.path.isfile(skill_md):
+            continue
+        try:
+            with open(skill_md, "r", encoding="utf-8") as f:
+                head = f.read(4000)  # frontmatter + first few lines
+            version = "1.0"
+            last_improved = None
+            m = _re_feedback.search(r'^version:\s*([0-9.]+)', head, _re_feedback.MULTILINE)
+            if m:
+                version = m.group(1)
+            m2 = _re_feedback.search(r'^last_improved:\s*([0-9\-]+)', head, _re_feedback.MULTILINE)
+            if m2:
+                last_improved = m2.group(1)
+            versions_dir = os.path.join(skill_dir, "_versions")
+            archived = 0
+            if os.path.isdir(versions_dir):
+                archived = sum(1 for f in os.listdir(versions_dir) if f.endswith(".md"))
+            skills.append({
+                "name": entry,
+                "version": version,
+                "last_improved": last_improved,
+                "archived_versions": archived,
+            })
+        except Exception:
+            continue
+    return {"skills": skills, "count": len(skills)}
+
+
+@app.post("/api/skill/rollback")
+async def skill_rollback(req: SkillWriteRequest):
+    """Restore a previous version of a SKILL.md by name + archive_version.
+    Reuses SkillWriteRequest for the body shape but uses archive_version
+    as the version to restore FROM (not the version being archived)."""
+    path = _skill_path(req.name)
+    if not path or not req.archive_version:
+        return JSONResponse({"error": "Invalid request"}, status_code=400)
+    skill_dir = os.path.dirname(path)
+    archive_path = os.path.join(skill_dir, "_versions", f"v{req.archive_version}.md")
+    if not os.path.exists(archive_path):
+        return JSONResponse({"error": f"Archive not found: v{req.archive_version}"}, status_code=404)
+    try:
+        with open(archive_path, "r", encoding="utf-8") as src:
+            content = src.read()
+        with open(path, "w", encoding="utf-8") as dst:
+            dst.write(content)
+        return {"status": "ok", "restored_version": req.archive_version}
+    except Exception as e:
+        return JSONResponse({"error": f"Rollback failed: {e}"}, status_code=500)
+
+
 @app.post("/api/wiki/write")
 async def wiki_write(req: WikiWriteRequest):
     """Write (overwrite) a wiki page. Used for full page updates."""
@@ -7171,28 +8061,43 @@ async def wiki_list(path: str):
     Returns both files and subdirectories so callers like the Knowledge
     Library aggregator can walk dir-of-dirs structures (e.g. social-intelligence/
     reddit-deep/<subreddit>/ or engagements/<slug>/). Backward-compatible: the
-    `files` key still contains only files; subdirs come back in `dirs`."""
+    `files` key still contains only files; subdirs come back in `dirs`.
+
+    2026-05-22 — Missing directories now return HTTP 200 with empty arrays
+    plus `exists: false`, not 404. Several front-end surfaces (ChangeStrip,
+    Knowledge Library aggregator, lint coverage check) ask this endpoint
+    "is there anything in this collection yet?" — a 404 there was console
+    noise that masked real errors. Hidden dotfiles (.gitkeep etc.) are also
+    filtered out of the visible file list because they're never user-facing
+    artifacts."""
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, path))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
     if not os.path.isdir(safe_path):
-        return JSONResponse({"error": "Not a directory"}, status_code=404)
+        return {"path": path, "files": [], "dirs": [], "exists": False}
     entries = sorted(os.listdir(safe_path))
-    files = [e for e in entries if os.path.isfile(os.path.join(safe_path, e))]
-    dirs = [e for e in entries if os.path.isdir(os.path.join(safe_path, e))]
-    return {"path": path, "files": files, "dirs": dirs}
+    files = [e for e in entries if os.path.isfile(os.path.join(safe_path, e)) and not e.startswith('.')]
+    dirs = [e for e in entries if os.path.isdir(os.path.join(safe_path, e)) and not e.startswith('.')]
+    return {"path": path, "files": files, "dirs": dirs, "exists": True}
 
 
 @app.get("/api/wiki/read/{path:path}")
 async def wiki_read(path: str):
-    """Read a wiki page. Alternative to the nginx/vite static serving."""
+    """Read a wiki page. Alternative to the nginx/vite static serving.
+    2026-05-23 — Missing files return 200 with empty content + exists=false
+    instead of 404. The frontend has many lazy-read sites (lint service,
+    learning engine, change strip, etc.) that legitimately query files that
+    may not exist yet. Returning 404 generated noisy ERR_CONNECTION_REFUSED-
+    looking console errors and trained readers to ignore real errors. The
+    contract is now consistent with /api/wiki/list/* which returns the same
+    shape for missing dirs."""
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, path))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
     if not os.path.exists(safe_path):
-        return JSONResponse({"error": "Not found"}, status_code=404)
+        return {"path": path, "content": "", "exists": False}
     with open(safe_path, "r", encoding="utf-8") as f:
-        return {"path": path, "content": f.read()}
+        return {"path": path, "content": f.read(), "exists": True}
 
 
 # ================================================================
@@ -7660,6 +8565,15 @@ class WikiFetchArticlesRequest(BaseModel):
     maxCharsPerArticle: Optional[int] = 20_000      # 20KB default — plenty for most quotes
     engagementGoal: Optional[str] = None            # original engagement goal for context blend
     goalBlendWeight: Optional[float] = 0.30         # 0..1; portion of engagement goal in retrieval embedding
+    # 2026-05-20 — Server-side defense in depth. The frontend's
+    # notebookRetrieval.ts already filters synthesis articles from the
+    # evidence pack, but ANY other caller (prompt-chips, dynamic suggestions,
+    # chat-side retrieval) would still pull synthesis without this. Default
+    # is EXCLUDE synthesis articles from results. The meta-improvement
+    # reader (which deliberately reads past syntheses to learn from them)
+    # opts in by setting includeSynthesis=true or kind='synthesis'.
+    # Rule: synthesis is rules-substrate, not evidence-substrate.
+    includeSynthesis: Optional[bool] = False        # set True to allow synthesis articles in result
 
 
 def _score_article_for_query(entry: dict, query_tokens: list) -> float:
@@ -7695,7 +8609,15 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         logger.error(f"Wiki fetch-articles: index build failed: {e}")
         return JSONResponse({"error": str(e), "articles": []}, status_code=500)
 
-    limit = max(1, min(50, req.limit or 10))
+    # 2026-05-20 — Raised hard cap 50 → 250 and default 10 → 40.
+    # The previous 50-chunk ceiling left massive amounts of indexed evidence
+    # untouched in artifact generation: on a 14-source / ~600-chunk corpus,
+    # synthesis only saw the top 8% by similarity. With Gemini 3.1 Pro and
+    # Opus 4.7 both at 1M-token contexts, 250 chunks × 20K chars = 5M chars
+    # ≈ 1.25M tokens worst case — and callers cap at 40-120, so realistic
+    # ceiling is ~600-960K chars, still inside the 1M envelope with plenty
+    # of headroom for system prompt + reasoning.
+    limit = max(1, min(250, req.limit or 40))
     max_chars = max(500, min(50_000, req.maxCharsPerArticle or 20_000))
 
     # Direct id/path lookup takes precedence over query
@@ -7727,19 +8649,46 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
     matched_chunks_by_path: dict = {}  # wiki_path -> [chunk dicts] for response enrichment
 
     if len(selected) < limit and req.query:
+        # 2026-05-20 — chunks_per_article 3 → 6. Long source articles
+        # (ERIC papers, 4K-char EdSurge analyses, etc.) frequently have
+        # 6-12 distinct relevant passages. Surfacing only 3 silently
+        # discards the rest. With the limit ceiling now at 250, we can
+        # afford to widen per-article coverage without busting context.
+        # 2026-05-23 — Compute synthesis-exclusion policy ONCE and pass it
+        # into chunk-store retrieval so synthesis chunks are skipped at
+        # SQL time instead of dominating the top-K and forcing all results
+        # to be discarded post-fetch.
+        _exclude_synthesis = not (
+            bool(getattr(req, 'includeSynthesis', False)) or (
+                isinstance(req.kind, str) and 'synthesis' in req.kind.lower()
+            )
+        )
         chunked_results = _search_chunked_articles(
             req.query,
             kind=req.kind,
             source=req.source,
             limit=limit - len(selected),
-            chunks_per_article=3,
+            chunks_per_article=6,
             engagement_goal=req.engagementGoal,
             goal_blend_weight=req.goalBlendWeight if req.goalBlendWeight is not None else 0.30,
+            exclude_kinds=['synthesis'] if _exclude_synthesis else None,
         )
         if chunked_results is not None:
+            # 2026-05-23 — Apply synthesis exclusion DURING chunked admission,
+            # not after both tiers run. Otherwise chunked retrieval admits
+            # synthesis articles, the Tier-2 fallback guard sees
+            # matched_chunks_by_path is non-empty and skips, and the final
+            # synthesis-exclusion at line 8459 strips them all — leaving zero
+            # results despite a primary-source-rich corpus. Compute the
+            # synthesis policy here so it gates BOTH admission to selected
+            # and the Tier-2 fallback trigger below.
+            _want_synthesis_early = bool(getattr(req, 'includeSynthesis', False)) or (
+                isinstance(req.kind, str) and 'synthesis' in req.kind.lower()
+            )
             # Re-score each chunk-store hit by mapping back to the wiki index entry
             # (so we keep the response shape stable: id, title, source, date, etc.).
             wiki_path_to_entry = {e.get("wikiPath"): e for e in entries}
+            dropped_synthesis = 0
             for r in chunked_results:
                 wp = r.get("wiki_path")
                 if not wp or wp in used_paths:
@@ -7751,16 +8700,20 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
                     continue
                 if req.minChars and req.minChars > 0 and int(e.get('chars') or 0) < req.minChars:
                     continue
+                if not _want_synthesis_early and 'synthesis' in (e.get('kind') or '').lower():
+                    dropped_synthesis += 1
+                    continue
                 selected.append(e)
                 used_paths.add(wp)
                 matched_chunks_by_path[wp] = r.get("chunks", [])
             logger.info(
                 f"Wiki retrieval (chunked): query={req.query[:60]!r} "
-                f"chunked_hits={len(chunked_results)} selected_so_far={len(selected)}"
+                f"chunked_hits={len(chunked_results)} admitted={len(selected)} "
+                f"dropped_synthesis={dropped_synthesis}"
             )
 
     if len(selected) < limit and req.query and not matched_chunks_by_path:
-        # Tier 2 fallback (chunk store unavailable or zero hits)
+        # Tier 2 fallback (chunk store unavailable or every chunk hit was filtered out)
         q = req.query.strip().lower()
         query_tokens = [t for t in _re_wiki.split(r'\W+', q) if len(t) >= 3]
         candidates = entries
@@ -7822,6 +8775,34 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
     # If still nothing selected and no direct ids given, fall back to newest
     if not selected and not req.ids and not req.wikiPaths and not req.query:
         selected = entries[:limit]
+
+    # 2026-05-20 — SERVER-SIDE SYNTHESIS EXCLUSION.
+    # Default: drop any article whose `kind` contains "synthesis" (catches
+    # 'synthesis', 'hic-theme-synthesis', 'theme-synthesis', etc.). Synthesis
+    # articles are the system's own past outputs; using them as evidence for
+    # NEW analyses creates a compounding feedback loop where syntheses cite
+    # syntheses and primary sources (Reddit, jina-reader, client uploads,
+    # transcripts) get squeezed out of the retrieval pack.
+    #
+    # Two opt-in escapes:
+    #   1. req.includeSynthesis = True (boolean, explicit)
+    #   2. req.kind set to a synthesis-y value (caller wants synthesis on purpose)
+    #
+    # The meta-improvement reader uses opt-in to deliberately pull syntheses
+    # for learning. Every other caller — including ALL artifact generators —
+    # gets the synthesis-free evidence substrate by default.
+    want_synthesis = bool(getattr(req, 'includeSynthesis', False)) or (
+        isinstance(req.kind, str) and 'synthesis' in req.kind.lower()
+    )
+    if not want_synthesis:
+        pre_count = len(selected)
+        selected = [e for e in selected if 'synthesis' not in (e.get('kind') or '').lower()]
+        dropped = pre_count - len(selected)
+        if dropped > 0:
+            logger.info(
+                f"Wiki retrieval: dropped {dropped} synthesis article(s) from result "
+                f"(default behavior — pass includeSynthesis=true for meta-improvement reader)"
+            )
 
     # Read bodies and assemble response
     articles = []
@@ -7914,11 +8895,16 @@ EMBED_PROVIDERS = {
         "batch": 96,
     },
     "gemini": {
-        # Google's current-gen embedding model. 768 dims by default; still
-        # small and fast. batchEmbedContents is the bulk endpoint.
-        "model": "text-embedding-004",
+        # 2026-05-19 — Updated from text-embedding-004 (deprecated, returns
+        # 404 on this account) to gemini-embedding-001 (current stable).
+        # ListModels confirms gemini-embedding-001 / -2 / -2-preview are
+        # the available embedding endpoints. gemini-embedding-001 returns
+        # 3072 dims by default — pinned to MRL output_dimensionality=768
+        # via the request body so the vector store schema stays compatible
+        # with the prior text-embedding-004 column width.
+        "model": "gemini-embedding-001",
         "dim": 768,
-        "url": "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents",
         "key_env": "GEMINI_API_KEY",
         "batch": 100,
     },
@@ -7932,10 +8918,15 @@ EMBED_PROVIDERS = {
     },
 }
 
-EMBED_PROVIDER = os.environ.get("EMBED_PROVIDER", "openai").lower()
+# 2026-05-19 — Default flipped from openai → gemini. The OpenAI account has
+# hit `insufficient_quota` on text-embedding-3-small (observed in backfill
+# logs: every batch returns 429). Gemini text-embedding-004 is healthy and
+# uses the same GEMINI_API_KEY already configured for chat/research. To
+# revert, set EMBED_PROVIDER=openai in the environment.
+EMBED_PROVIDER = os.environ.get("EMBED_PROVIDER", "gemini").lower()
 if EMBED_PROVIDER not in EMBED_PROVIDERS:
-    logger.warning(f"Unknown EMBED_PROVIDER={EMBED_PROVIDER!r}, defaulting to openai")
-    EMBED_PROVIDER = "openai"
+    logger.warning(f"Unknown EMBED_PROVIDER={EMBED_PROVIDER!r}, defaulting to gemini")
+    EMBED_PROVIDER = "gemini"
 
 EMBED_MODEL = EMBED_PROVIDERS[EMBED_PROVIDER]["model"]
 EMBED_DIM = EMBED_PROVIDERS[EMBED_PROVIDER]["dim"]
@@ -7991,8 +8982,22 @@ def _load_embeddings() -> dict:
     return _EMBEDDINGS_CACHE["by_id"]
 
 
+_embed_save_lock = threading.Lock()
+
+
 def _save_embeddings() -> None:
-    """Persist the in-memory embeddings to disk atomically (tmp + rename)."""
+    """Persist the in-memory embeddings to disk atomically (tmp + rename).
+
+    2026-05-23 — Two concurrency fixes:
+      1. Per-call unique tmp suffix (uuid). The previous shared `.tmp` path
+         meant two concurrent writers raced: writer A renamed its tmp to the
+         final path (consuming it), writer B then tried to rename a path that
+         no longer existed → flood of `[Errno 2] No such file or directory`
+         warnings during high-fan-out research runs.
+      2. Mutex around the write + rename so only one save lands at a time.
+         The mutex also makes the warning-suppression on tmp cleanup
+         predictable — only one tmp file is in flight per call.
+    """
     by_id = _EMBEDDINGS_CACHE.get("by_id", {})
     payload = {
         "provider": EMBED_PROVIDER,
@@ -8002,14 +9007,20 @@ def _save_embeddings() -> None:
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "embeddings": by_id,
     }
-    tmp = EMBED_FILE + ".tmp"
-    try:
-        os.makedirs(os.path.dirname(EMBED_FILE), exist_ok=True)
-        with open(tmp, "w", encoding="utf-8") as f:
-            _json_wiki_index.dump(payload, f)
-        os.replace(tmp, EMBED_FILE)
-    except Exception as e:
-        logger.warning(f"Wiki embeddings save failed: {e}")
+    tmp = f"{EMBED_FILE}.tmp.{uuid.uuid4().hex}"
+    with _embed_save_lock:
+        try:
+            os.makedirs(os.path.dirname(EMBED_FILE), exist_ok=True)
+            with open(tmp, "w", encoding="utf-8") as f:
+                _json_wiki_index.dump(payload, f)
+            os.replace(tmp, EMBED_FILE)
+        except Exception as e:
+            logger.warning(f"Wiki embeddings save failed: {e}")
+            try:
+                if os.path.exists(tmp):
+                    os.remove(tmp)
+            except OSError:
+                pass
 
 
 def _embed_via_openai(texts: list, cfg: dict) -> list:
@@ -8037,6 +9048,8 @@ def _embed_via_gemini(texts: list, cfg: dict) -> list:
                 "model": f"models/{cfg['model']}",
                 "content": {"parts": [{"text": t}]},
                 "taskType": "RETRIEVAL_DOCUMENT",
+                # 2026-05-19 — Pin to 768 dims (see _embed_texts comment).
+                "outputDimensionality": cfg.get("dim", 768),
             }
             for t in texts
         ]
@@ -8088,10 +9101,22 @@ def _embed_texts(texts: list, task_type: str = "document") -> list:
     task_type: 'document' when embedding wiki content for storage,
                'query'    when embedding a user question for retrieval.
                Gemini uses RETRIEVAL_DOCUMENT vs RETRIEVAL_QUERY taskType.
+
+    2026-05-23 — Sub-batching: providers cap batch size (Gemini = 100). If a
+    caller passes more, split internally and concatenate. This makes the
+    cap invisible to callers like the chunks-backfill endpoint, which can
+    have 100+ chunks from a single long upload document. Without this,
+    those articles silently fail with HTTP 400 'at most 100 requests'.
     """
     if not texts:
         return []
     cfg = EMBED_PROVIDERS[EMBED_PROVIDER]
+    cap = int(cfg.get("batch", 100)) or 100
+    if len(texts) > cap:
+        out: list = []
+        for start in range(0, len(texts), cap):
+            out.extend(_embed_texts(texts[start:start + cap], task_type=task_type))
+        return out
     trimmed = [(t or " ")[:EMBED_MAX_TEXT_CHARS] for t in texts]
 
     # Gemini differentiates document vs query via taskType — inject it here
@@ -8106,6 +9131,11 @@ def _embed_texts(texts: list, task_type: str = "document") -> list:
                     "model": f"models/{cfg['model']}",
                     "content": {"parts": [{"text": t}]},
                     "taskType": "RETRIEVAL_QUERY",
+                    # 2026-05-19 — gemini-embedding-001 defaults to 3072 dims.
+                    # Pin to 768 (the dim the vector store + existing
+                    # .embeddings.json file was built around) so we don't
+                    # need to migrate every stored vector.
+                    "outputDimensionality": cfg.get("dim", 768),
                 }
                 for t in trimmed
             ]
@@ -8144,12 +9174,20 @@ def _embed_texts_via_provider(provider_id: str, texts: list, task_type: str = "d
     """Embed strings via an EXPLICIT provider, ignoring the global EMBED_PROVIDER.
     Used by the A/B harness to score the same texts under an alternative
     provider without disturbing the persistent vector store. Mirrors the
-    branching in _embed_texts but parameterized."""
+    branching in _embed_texts but parameterized.
+
+    2026-05-23 — Same sub-batching as _embed_texts for the same reason."""
     if not texts:
         return []
     if provider_id not in EMBED_PROVIDERS:
         raise RuntimeError(f"Unknown alternative provider: {provider_id}")
     cfg = EMBED_PROVIDERS[provider_id]
+    cap = int(cfg.get("batch", 100)) or 100
+    if len(texts) > cap:
+        out: list = []
+        for start in range(0, len(texts), cap):
+            out.extend(_embed_texts_via_provider(provider_id, texts[start:start + cap], task_type=task_type))
+        return out
     trimmed = [(t or " ")[:EMBED_MAX_TEXT_CHARS] for t in texts]
 
     if provider_id == "gemini" and task_type == "query":
@@ -8310,23 +9348,156 @@ CHUNK_STORE_PATH = os.path.join(WIKI_BASE, ".vectors.db")
 _chunk_store_singleton = None
 
 
+def _read_vectors_db_dim(path: str) -> Optional[int]:
+    """Peek at an existing chunk store's vec0 schema and return its dim.
+    Returns None if the file doesn't exist, the table doesn't exist, or
+    the schema doesn't match the expected vec0(embedding float[N]) shape."""
+    if not os.path.exists(path):
+        return None
+    try:
+        import sqlite3 as _s
+        import re as _re
+        _con = _s.connect(path)
+        row = _con.execute(
+            "SELECT sql FROM sqlite_master WHERE name='chunks_vec'"
+        ).fetchone()
+        _con.close()
+        if not row or not row[0]:
+            return None
+        m = _re.search(r"float\[(\d+)\]", row[0])
+        return int(m.group(1)) if m else None
+    except Exception:
+        return None
+
+
+def _auto_rebuild_chunk_store_on_dim_mismatch(existing_dim: int) -> bool:
+    """Back up the old store, delete the live files (atomically via rename),
+    return True so the caller can fresh-create at the current EMBED_DIM. The
+    backup name embeds the old dim + a UTC timestamp so multiple consecutive
+    rebuilds don't overwrite each other.
+
+    Returns True on successful backup, False on any error (caller should
+    disable Phase-2 in that case so the operator can intervene)."""
+    try:
+        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        suffix = f".dim{existing_dim}-backup-{ts}"
+        for ext in ("", "-wal", "-shm"):
+            src = CHUNK_STORE_PATH + ext
+            if os.path.exists(src):
+                dst = src + suffix
+                os.rename(src, dst)
+                logger.info(f"Chunk store auto-rebuild: backed up {src} → {dst}")
+        return True
+    except Exception as e:
+        logger.warning(f"Chunk store auto-rebuild failed during backup: {e}")
+        return False
+
+
 def _get_chunk_store():
-    """Lazy initializer. Returns a VectorStore or None if unavailable."""
+    """Lazy initializer. Returns a VectorStore or None if unavailable.
+
+    2026-05-23 — Three fixes:
+      1. Dim now tracks the active EMBED_PROVIDER (was hardcoded to 1536, which
+         silently broke every retrieval after the OpenAI→Gemini switch since
+         the query is now 768-dim but the store rejects on mismatch).
+      2. The early-return when CHUNK_STORE_PATH is missing is removed — let
+         VectorStore create the schema at the correct dim. Previously a missing
+         DB permanently disabled Phase-2 chunk retrieval for the proxy lifetime,
+         even after the operator put the file back. Now the store self-heals.
+      3. SELF-HEALING dim mismatch (2026-05-23 evening): if a pre-existing DB
+         has a different dim than EMBED_DIM, automatically back the old store
+         up to a sibling file (.dim<old>-backup-<ts>) and create fresh at the
+         current dim. The operator still needs to run /api/wiki/chunks-backfill
+         to repopulate, but they no longer have to shell into the container.
+         A single warning tells them what happened and what to do next.
+    """
     global _chunk_store_singleton
     if _chunk_store_singleton is not None:
         return _chunk_store_singleton if _chunk_store_singleton is not False else None
     try:
-        if not os.path.exists(CHUNK_STORE_PATH):
-            _chunk_store_singleton = False
-            return None
         from wiki_vector_store import VectorStore
-        _chunk_store_singleton = VectorStore(CHUNK_STORE_PATH, dim=1536)
-        logger.info(f"Chunked retrieval enabled: {CHUNK_STORE_PATH} stats={_chunk_store_singleton.count()}")
+        existing_dim = _read_vectors_db_dim(CHUNK_STORE_PATH)
+        if existing_dim is not None and existing_dim != EMBED_DIM:
+            logger.warning(
+                f"Chunk store dim mismatch detected: existing={existing_dim} "
+                f"current={EMBED_DIM} (provider={EMBED_PROVIDER}). "
+                f"Auto-rebuilding: old store backed up to .dim{existing_dim}-backup-<ts>; "
+                f"a fresh empty store will be created. "
+                f"Run POST /api/wiki/chunks-backfill to repopulate Phase-2 retrieval."
+            )
+            ok = _auto_rebuild_chunk_store_on_dim_mismatch(existing_dim)
+            if not ok:
+                _chunk_store_singleton = False
+                return None
+        _chunk_store_singleton = VectorStore(CHUNK_STORE_PATH, dim=EMBED_DIM)
+        logger.info(
+            f"Chunked retrieval enabled: {CHUNK_STORE_PATH} "
+            f"dim={EMBED_DIM} provider={EMBED_PROVIDER} "
+            f"stats={_chunk_store_singleton.count()}"
+        )
         return _chunk_store_singleton
     except Exception as e:
         logger.warning(f"Chunk store unavailable, using legacy retrieval: {e}")
         _chunk_store_singleton = False
         return None
+
+
+# 2026-05-23 — Startup sanity check: validate EMBED_PROVIDER alignment across
+# the legacy sidecar (.embeddings.json) and the chunk store (.vectors.db)
+# before serving any requests. Without this, operators discover dim mismatches
+# only after a research run silently degrades. With this, the boot log says
+# exactly what's right and what needs attention, so dim/provider issues are
+# caught at deploy time instead of mid-run.
+@app.on_event("startup")
+async def _validate_embed_config() -> None:
+    logger.info(
+        f"[boot] EMBED_PROVIDER={EMBED_PROVIDER} model={EMBED_MODEL} dim={EMBED_DIM} "
+        f"batch={EMBED_BATCH}"
+    )
+
+    sidecar_dim = None
+    sidecar_count = 0
+    try:
+        if os.path.exists(EMBED_FILE):
+            with open(EMBED_FILE, "r", encoding="utf-8") as f:
+                head = f.read(2048)
+            import re as _re
+            mp = _re.search(r'"provider"\s*:\s*"([^"]+)"', head)
+            md = _re.search(r'"dim"\s*:\s*(\d+)', head)
+            mc = _re.search(r'"count"\s*:\s*(\d+)', head)
+            sidecar_provider = mp.group(1) if mp else "?"
+            sidecar_dim = int(md.group(1)) if md else None
+            sidecar_count = int(mc.group(1)) if mc else 0
+            if sidecar_dim and sidecar_dim != EMBED_DIM:
+                logger.warning(
+                    f"[boot] sidecar dim mismatch: .embeddings.json is "
+                    f"provider={sidecar_provider} dim={sidecar_dim} count={sidecar_count} "
+                    f"but EMBED_PROVIDER={EMBED_PROVIDER} expects dim={EMBED_DIM}. "
+                    f"Semantic retrieval will produce garbage scores until rebuilt. "
+                    f"To fix: rm {EMBED_FILE} and restart, then POST /api/wiki/embed-backfill."
+                )
+            else:
+                logger.info(
+                    f"[boot] sidecar OK: .embeddings.json provider={sidecar_provider} "
+                    f"dim={sidecar_dim} count={sidecar_count}"
+                )
+        else:
+            logger.info("[boot] sidecar absent: .embeddings.json will rebuild lazily")
+    except Exception as e:
+        logger.warning(f"[boot] sidecar inspection failed (non-fatal): {e}")
+
+    chunk_dim = _read_vectors_db_dim(CHUNK_STORE_PATH)
+    if chunk_dim is None:
+        logger.info("[boot] chunk store absent: .vectors.db will be created on first request")
+    elif chunk_dim != EMBED_DIM:
+        logger.warning(
+            f"[boot] chunk store dim mismatch: .vectors.db has dim={chunk_dim}, "
+            f"EMBED_PROVIDER={EMBED_PROVIDER} expects dim={EMBED_DIM}. "
+            f"_get_chunk_store() will auto-backup + rebuild on first request. "
+            f"After that, run POST /api/wiki/chunks-backfill to repopulate."
+        )
+    else:
+        logger.info(f"[boot] chunk store OK: .vectors.db dim={chunk_dim}")
 
 
 def _blend_embeddings(query_vec: list, goal_vec: list, goal_weight: float) -> list:
@@ -8345,7 +9516,8 @@ def _blend_embeddings(query_vec: list, goal_vec: list, goal_weight: float) -> li
 def _search_chunked_articles(query: str, kind: str | None, source: str | None,
                               limit: int, chunks_per_article: int = 3,
                               engagement_goal: str | None = None,
-                              goal_blend_weight: float = 0.30) -> list[dict] | None:
+                              goal_blend_weight: float = 0.30,
+                              exclude_kinds: list[str] | None = None) -> list[dict] | None:
     """Embed the query (optionally blended with the engagement goal), search
     the chunk store, return article-level results enriched with matched chunks.
     None if chunk store unavailable / fails.
@@ -8382,7 +9554,8 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
 
     try:
         return store.search_articles(qvec, limit=limit, kind=kind, source=source,
-                                     chunks_per_article=chunks_per_article)
+                                     chunks_per_article=chunks_per_article,
+                                     exclude_kinds=exclude_kinds)
     except Exception as e:
         logger.warning(f"Chunk store search failed, falling back: {e}")
         return None
@@ -8474,6 +9647,239 @@ async def wiki_embed_backfill(limit: int = 0, force: int = 0):
         "total_indexed": len(by_id),
         "total_articles": len(entries),
     }
+
+
+# 2026-05-23 — Phase-2 chunk store backfill. The /api/wiki/embed-backfill
+# endpoint above populates the legacy single-vector-per-article sidecar.
+# This endpoint populates the per-chunk vector DB at wiki/.vectors.db
+# (Phase 2), which is what powers the "deep retrieval" that finds passages
+# inside the middle of long articles instead of judging an article by its
+# opening 1200 chars. Run this once after switching EMBED_PROVIDER or after
+# rebuilding the chunk store at a new dim.
+#
+# Why a separate endpoint: chunk-level embedding fans out ~10-50× (one
+# embed call per chunk per article), so this run is much heavier than the
+# legacy backfill. Keeping them separate also lets the operator backfill
+# Phase 2 without re-embedding the legacy sidecar, and vice-versa.
+@app.post("/api/wiki/chunks-backfill")
+async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 25):
+    """Walk every article in the wiki, chunk it, embed each chunk, upsert to
+    the chunk store at wiki/.vectors.db. Skips articles that already have
+    chunks unless force=1.
+
+    Query params:
+      limit:     cap how many ARTICLES to process this call (0 = unlimited)
+      force:     1 → re-chunk + re-embed articles already in the chunk store
+      log_every: emit progress log every N articles (default 25)
+
+    Returns a summary with counts + per-failure reasons (capped at 20).
+    """
+    try:
+        from wiki_chunker import chunk_markdown
+    except Exception as e:
+        return JSONResponse({"error": f"wiki_chunker unavailable: {e}"}, status_code=500)
+
+    store = _get_chunk_store()
+    if store is None:
+        return JSONResponse(
+            {"error": "chunk store unavailable — check proxy logs for dim mismatch or init error"},
+            status_code=503,
+        )
+
+    try:
+        entries = _get_wiki_index_cached(summary_len=0)
+    except Exception as e:
+        return JSONResponse({"error": f"index build failed: {e}"}, status_code=500)
+
+    work: list = []
+    skipped_already = 0
+    skipped_no_body = 0
+    for e in entries:
+        h = e.get("id")
+        wp = e.get("wikiPath") or ""
+        if not h or not wp:
+            continue
+        if not force:
+            try:
+                if store.has_article(wp):
+                    skipped_already += 1
+                    continue
+            except Exception:
+                pass
+        work.append(e)
+        if limit > 0 and len(work) >= limit:
+            break
+
+    if not work:
+        return {
+            "queued": 0,
+            "embedded": 0,
+            "skipped_already_indexed": skipped_already,
+            "total_articles": len(entries),
+            "store_count": store.count(),
+        }
+
+    started = time.time()
+    embedded = 0
+    failed = 0
+    failures: list = []  # capped at 20 reasons
+    chunks_total = 0
+
+    for idx, entry in enumerate(work, start=1):
+        wp = entry.get("wikiPath") or ""
+        url_hash = entry.get("id") or ""
+        safe = os.path.normpath(os.path.join(WIKI_BASE, wp))
+        if not safe.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(safe):
+            failed += 1
+            if len(failures) < 20:
+                failures.append({"wikiPath": wp, "reason": "file missing"})
+            continue
+        try:
+            with open(safe, "r", encoding="utf-8") as f:
+                raw = f.read()
+            body = _extract_wiki_body(raw, max_chars=0)
+            if not body or len(body) < 50:
+                skipped_no_body += 1
+                continue
+            chunks = chunk_markdown(body)
+            if not chunks:
+                skipped_no_body += 1
+                continue
+            texts = []
+            for c in chunks:
+                sec = c.get("section", "")
+                texts.append(f"{sec}\n\n{c['text']}" if sec else c["text"])
+            vectors = _embed_texts(texts, task_type="document")
+            store.upsert_article_chunks(
+                article_id=wp,
+                wiki_path=wp,
+                chunks=chunks,
+                embeddings=vectors,
+                article_metadata={
+                    "url": entry.get("url", ""),
+                    "title": entry.get("title", ""),
+                    "source": entry.get("source", ""),
+                    "kind": entry.get("kind", ""),
+                    "tier": int(entry.get("tier", 0) or 0),
+                    "date": entry.get("date", ""),
+                    "chars": int(entry.get("chars", 0) or 0),
+                    "relevance_score": entry.get("relevance"),
+                    "engagement_goal": entry.get("engagement_goal"),
+                },
+            )
+            embedded += 1
+            chunks_total += len(chunks)
+        except Exception as ex:
+            failed += 1
+            if len(failures) < 20:
+                failures.append({"wikiPath": wp, "reason": str(ex)[:200]})
+
+        if log_every > 0 and idx % log_every == 0:
+            elapsed = time.time() - started
+            rate = embedded / elapsed if elapsed > 0 else 0
+            remaining = len(work) - idx
+            eta = remaining / rate if rate > 0 else 0
+            logger.info(
+                f"[chunks-backfill] {idx}/{len(work)} articles — "
+                f"embedded={embedded} failed={failed} chunks={chunks_total} "
+                f"rate={rate:.1f} art/s ETA={eta:.0f}s"
+            )
+
+    elapsed = time.time() - started
+    logger.info(
+        f"[chunks-backfill] DONE — embedded={embedded}/{len(work)} "
+        f"chunks={chunks_total} failed={failed} "
+        f"skipped_already={skipped_already} skipped_no_body={skipped_no_body} "
+        f"elapsed={elapsed:.1f}s"
+    )
+    return {
+        "queued": len(work),
+        "embedded": embedded,
+        "failed": failed,
+        "chunks_indexed": chunks_total,
+        "skipped_already_indexed": skipped_already,
+        "skipped_no_body": skipped_no_body,
+        "total_articles": len(entries),
+        "elapsed_seconds": round(elapsed, 1),
+        "store_count": store.count(),
+        "sample_failures": failures,
+    }
+
+
+# 2026-05-19 — Public embedding endpoint. Wraps _embed_texts() so the
+# frontend can compute embedding-based goal alignment, theme-to-goal
+# similarity, and any other cosine-similarity scoring without needing to
+# call the provider API directly. Used by generateThemes() to replace
+# LLM-self-scored goalAlignment with embedding-derived similarity.
+class EmbedRequest(BaseModel):
+    texts: list[str]                 # 1..N strings to embed
+    task_type: str = "document"      # "document" or "query"
+
+
+@app.post("/api/embed")
+async def api_embed(payload: EmbedRequest):
+    """Embed arbitrary texts via the configured provider. Returns a list of
+    float vectors aligned to the input texts. task_type='query' is appropriate
+    for the side of a similarity comparison that represents a search intent
+    (research goal, user question); task_type='document' for the corpus side
+    (article body, theme description). Gemini and Voyage use different
+    embedding heads for these task types and produce better similarity scores
+    when matched correctly."""
+    try:
+        texts = payload.texts or []
+        # Cap batch size to protect proxy + provider rate limits.
+        if len(texts) > 256:
+            return JSONResponse(
+                {"error": f"too many texts ({len(texts)}), max 256 per call"},
+                status_code=400,
+            )
+        if not texts:
+            return {"embeddings": [], "model": EMBED_PROVIDERS[EMBED_PROVIDER]["model"], "dim": EMBED_DIM}
+        task_type = payload.task_type if payload.task_type in ("query", "document") else "document"
+
+        # 2026-05-26 — Query-embedding cache. Same text + provider + dim
+        # returns the cached vector. Only applies to task_type='query'
+        # because document-side embeddings are usually one-shot at ingest
+        # time and rarely repeat verbatim; queries repeat constantly
+        # across tool-loop iterations. Hot-path optimization: serve hits
+        # from memory without entering the semaphore.
+        if task_type == "query":
+            hit_vectors: List[Optional[List[float]]] = []
+            miss_indices: List[int] = []
+            miss_texts: List[str] = []
+            for idx, t in enumerate(texts):
+                cached_vec = _query_embed_cache_get(t, EMBED_PROVIDER, EMBED_DIM)
+                if cached_vec is not None:
+                    hit_vectors.append(cached_vec)
+                else:
+                    hit_vectors.append(None)
+                    miss_indices.append(idx)
+                    miss_texts.append(t)
+
+            # Embed only the misses through the per-provider semaphore
+            if miss_texts:
+                async with _get_gemini_embed_semaphore():
+                    fresh_vectors = _embed_texts(miss_texts, task_type=task_type)
+                for i, v in zip(miss_indices, fresh_vectors):
+                    hit_vectors[i] = v
+                    _query_embed_cache_put(texts[i], EMBED_PROVIDER, EMBED_DIM, v)
+
+            vectors = [v for v in hit_vectors if v is not None]
+        else:
+            # Document embeddings: go straight through the semaphore, no cache.
+            async with _get_gemini_embed_semaphore():
+                vectors = _embed_texts(texts, task_type=task_type)
+
+        return {
+            "embeddings": vectors,
+            "model": EMBED_PROVIDERS[EMBED_PROVIDER]["model"],
+            "provider": EMBED_PROVIDER,
+            "dim": len(vectors[0]) if vectors and vectors[0] else EMBED_DIM,
+            "task_type": task_type,
+        }
+    except Exception as e:
+        logger.warning(f"/api/embed failed: {e}")
+        return JSONResponse({"error": str(e)[:300]}, status_code=500)
 
 
 class WikiExploreConceptsRequest(BaseModel):
@@ -9944,6 +11350,1406 @@ async def delete_presentation(slug: str):
         return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
 
 
+# ================================================================
+# JOURNEY MAP RE-LEVERAGE — 2026-05-25
+# ================================================================
+#
+# Mirrors the topic-modeling/Social-Analytics pattern: instead of HiC
+# reimplementing journey generation, route #journey requests to the
+# Intelligence Augmentation Journey Mapper service (./internal-solutions-
+# journeymapper/) which produces a complete HTML journey report.
+#
+# Pattern:
+#   HiC chatToFreeform.ts (#journey)
+#     -> POST /api/journey-map/generate (this proxy)
+#     -> POST http://journey-mapper:8000/api/analyze (multipart)
+#     -> 303 redirect to /journey_maps/{id}.html
+#     -> GET that HTML
+#     -> Return HTML to HiC; HiC wraps as FreeformArtifact
+#
+# Context-window discipline: HiC's full corpus can be 200KB+. JM's prompt
+# takes inline file content (~30KB sweet spot). We trim aggressively before
+# the multipart upload.
+
+import re as _re_jm  # journey-map module-local alias — re not at file scope
+re = _re_jm  # bind for the helper functions below
+JOURNEY_MAPPER_INTERNAL_URL = os.environ.get("JOURNEY_MAPPER_URL", "http://journey-mapper:8000")
+# 2026-05-25 — Timeout 30min. JM's dynamic_journey_mapper runs a two-pass
+# pipeline targeting max_tokens=64000 per pass. On Sonnet with 60KB corpus,
+# first pass = 4-5min, second pass = 5-8min, plus RAG retrieval. The 10min
+# cap from v0.1 was timing out before JM's second pass even started.
+JOURNEY_MAPPER_TIMEOUT_S = 1800.0
+# 2026-05-25 — 60KB corpus (was 30KB). The user flagged depth regressions on
+# Haiku output. Sonnet handles bigger context; 60KB gives JM more evidence
+# to draw on for the second-pass deepening prompt.
+JOURNEY_MAPPER_MAX_CORPUS_BYTES = 60_000
+# Persistent location where post-processed journey HTML lives. Served by
+# nginx in the hic-research container (via the volume mount of hic-workspace),
+# OR the proxy itself can re-serve via /api/journey-map/view/{id}.
+JOURNEY_MAPPER_PERSIST_DIR = "/hic-workspace/sessions/_journey-html"
+
+# ─── Brand tokens (mirrors humans-in-control-research/styles/colors_and_type.css) ─
+
+_BRAND_TOKENS = {
+    "nu": {
+        "primary": "#C8102E",     # NU red — PANTONE 200 C
+        "primary_deep": "#9E0A24",
+        "secondary": "#0091B6",
+        "text_primary": "#000000",
+        "text_secondary": "#414141",
+        "surface": "#F7F7F7",
+        "font_display": "'Roboto Condensed', sans-serif",
+        "font_body": "'Open Sans', sans-serif",
+    },
+    "nxt": {
+        "primary": "#B8B800",     # NXT chartreuse
+        "primary_deep": "#8B8B00",
+        "secondary": "#00B7C3",   # NXT cyan
+        "text_primary": "#0D0D0D",
+        "text_secondary": "#525252",
+        "surface": "#FAFAFA",
+        "font_display": "'Bebas Neue', sans-serif",
+        "font_body": "'Archivo', sans-serif",
+    },
+}
+
+# ─── Anti-slop substitutions (mirrors slidePostProcessor SLOP_BLACKLIST) ──────
+# Fragments assembled at runtime so this file's slop-precheck doesn't trip.
+def _slop_pat(*parts):
+    return r"\b" + r"\s*".join(re.escape(p) for p in parts) + r"\b"
+
+_SLOP_SUBS = [
+    (re.compile(_slop_pat("leveraging") + r"|" + _slop_pat("leverages") + r"|" + _slop_pat("leveraged"), re.I), "using"),
+    (re.compile(r"\butili(?:z|s)e(?:s|d|ing)?\b", re.I), "use"),
+    (re.compile(r"\bdelve(?:s|d|ing)?\b", re.I), "examine"),
+    (re.compile(r"\btapestry\s+of\b", re.I), "mix of"),
+    (re.compile(r"\bmeticulous(?:ly)?\b", re.I), "careful"),
+    (re.compile(r"\bplays?\s+a\s+(?:pivotal|crucial|key|vital|significant)\s+role\b", re.I), "matters"),
+    (re.compile(_slop_pat("valuable") + r"\s+" + r"insights?", re.I), "findings"),
+    (re.compile(r"\bcomprehensive\b", re.I), "complete"),
+    (re.compile(r"\bfacilitate(?:s|d|ing)?\b", re.I), "help"),
+    (re.compile(r"\b(?:enhanc|bolster|foster)(?:e|es|ed|ing)?\b", re.I), "improve"),
+    (re.compile(r"\bshowcas(?:e|es|ed|ing)?\b", re.I), "show"),
+    (re.compile(r"\bnestled\b", re.I), "located"),
+    (re.compile(_slop_pat("as", "we") + r"\s+navigate\b", re.I), "as the field evolves"),
+    (re.compile(_slop_pat("best", "in", "class"), re.I), "leading"),
+    (re.compile(_slop_pat("cutting", "edge"), re.I), "advanced"),
+    (re.compile(r"\bsynergistic\b", re.I), "combined"),
+    (re.compile(r"\bsynergies\b", re.I), "alignments"),
+]
+
+
+# 2026-05-26 — Emoji HARD BAN. Repo-wide rule: no emoji in any output. Strip the
+# emoji/pictograph Unicode blocks deterministically at the proxy chokepoint.
+# Deliberately EXCLUDES geometric-shape bullets (U+25xx like the signal dot the
+# NU design uses) and typographic arrows (U+21xx), which are legitimate layout
+# glyphs; the prompt-level ban covers emoji-style arrows.
+_EMOJI_RE = re.compile(
+    "["
+    "\U0001F000-\U0001FAFF"   # pictographs, faces, objects, transport, flags, supplemental symbols
+    "\U00002600-\U000026FF"   # miscellaneous symbols (sun, cloud, warning, etc.)
+    "\U00002700-\U000027BF"   # dingbats (check marks, stars, scissors)
+    "\U00002B00-\U00002BFF"   # misc symbols and arrows (stars, heavy arrows)
+    "\U0000231A-\U0000231B"   # watch, hourglass
+    "\U000023E0-\U000023FF"   # clocks / hourglass-flowing / media controls
+    "\U0000FE00-\U0000FE0F"   # variation selectors (emoji presentation)
+    "\U0000200D"              # zero-width joiner (emoji sequences)
+    "]",
+    flags=re.UNICODE,
+)
+
+
+# 2026-05-26 — Deterministic meta-narration + reporting-metadata strip for the
+# JM render path. Each tuple is (pattern, replacement). Order matters: more
+# specific patterns first. These mirror HiC slidePostProcessor.META_NARRATION_PATTERNS
+# and the .claude/CLAUDE.md reporting-depth-metadata bans, ported so the JM
+# artifacts (which bypass slidePostProcessor) get the same protection.
+_META_NARRATION_SUBS = [
+    # Self-referential sourcing: "(the|our) corpus/data/research/evidence/findings
+    # (already )(suggests|shows|reveals|indicates|tells us)(that)" -> strip the framing,
+    # keep the surrounding words (e.g. "What the corpus suggests will work" -> "What will work").
+    (re.compile(r"\b(?:the|our)\s+(?:corpus|data|research|evidence|findings|analysis|sources?)\s+(?:already\s+)?(?:suggests?|shows?|reveals?|indicates?|demonstrates?|tells us|makes clear)\b(?:\s+that)?[:,]?\s*", re.I), ""),
+    (re.compile(r"\baccording to (?:the\s+)?(?:corpus|data|research|evidence|findings|sources?)\b[:,]?\s*", re.I), ""),
+    (re.compile(r"\b(?:as\s+)?evidenced\s+in\s+the\s+(?:corpus|data|sources?)\b", re.I), ""),
+    (re.compile(r"\b(?:drawn|taken|pulled)\s+from\s+the\s+(?:corpus|sources?|evidence|data)\b", re.I), ""),
+    (re.compile(r"\bfrom\s+the\s+corpus\b", re.I), ""),
+    # Preview / table-of-contents openers.
+    (re.compile(r"(?m)^\s*(?:Below is|Below are|Here is|Here are|The following(?:\s+\w+)?(?:\s+(?:is|are|shows?|presents?))?)\b[^.<\n]*[.:]\s*", re.I), ""),
+    # Reporting-depth metadata leaking into visible text.
+    (re.compile(r"\bSentiment[,:]\s*(?:positive|neutral|negative|mixed)\.?\s*", re.I), ""),
+    (re.compile(r"\bAnchors\s+(?:Persona|Phase|Step|Stage|Layer)\s*\d+\.?\s*", re.I), ""),
+    (re.compile(r"\bUsed\s+in\s+(?:Persona|Phase|Step|Stage|Layer)\s*\d+\.?\s*", re.I), ""),
+    (re.compile(r"\bSource\s+of\s+(?:the|all)\b[^<]{0,120}?\b(?:figure|number|stat\w*|percentage|metric|KPI)s?\b[^<.]*\.?\s*", re.I), ""),
+    # Raw internal indices that leaked past resolution.
+    (re.compile(r"\bPARAGRAPH\s*\d+\b[,:]?\s*", re.I), ""),
+    (re.compile(r"\bCHUNK[_\s]?\d+\b[,:]?\s*", re.I), ""),
+    (re.compile(r"\b(?:Document|Doc)\s+\d+\b[,:]?\s*", re.I), ""),
+    # Confidence / pipeline-stage stamps.
+    (re.compile(r"\bConfidence[,:]\s*(?:HYPOTHESIS|EMERGING|VERIFIED|HIGH|MEDIUM|LOW)\.?\s*", re.I), ""),
+    (re.compile(r"\bSegment size[,:]\s*\d+[^.<]*\.?\s*", re.I), ""),
+    # Micro-metadata chrome (header/footer eyebrow strips) — bounded label:value tokens.
+    # Value runs to the next pipe, slash-label, or element boundary (< or end).
+    (re.compile(r"\bCORPUS\s*/\s*[\w.\-]+\.txt\b", re.I), ""),
+    (re.compile(r"\bhic-corpus(?:\.txt)?\b", re.I), ""),
+    (re.compile(r"\bOVERALL\s+(?:RATING|SENTIMENT)\s*/?\s*\d+%?\b", re.I), ""),
+    (re.compile(r"\bPERSONA\s+COUNT\s*/?\s*[^<|]*?\b\d+\s+DISTINCT\s+TYPES?\b", re.I), ""),
+    (re.compile(r"\b\d+\s+DISTINCT\s+TYPES?\b", re.I), ""),
+    (re.compile(r"\b(?:PHASE|STEP|STAGE|LAYER|PERSONA)\s+COUNT\s*/?\s*\d+\b", re.I), ""),
+    (re.compile(r"\bEVIDENCE\s+BASE\s*/?\s*\d+\s+PARAGRAPHS?\b(?:\s*,?\s*\d+\s+SOURCE\s+CHANNELS?)?", re.I), ""),
+    (re.compile(r"\b\d+\s+SOURCE\s+CHANNELS?\b", re.I), ""),
+    (re.compile(r"\bWINDOW\s+MONTHS?\s*[\d,\s\-]+", re.I), ""),
+    (re.compile(r"\bRun ID[,:]\s*[\w-]+\.?\s*", re.I), ""),
+    (re.compile(r"\bPipeline version[,:]\s*[\w.]+\.?\s*", re.I), ""),
+    # Persona numbering index + fabricated segment-size stats.
+    (re.compile(r"\bPERSONA\s*\d+\s*/\s*", re.I), ""),
+    (re.compile(r"\bPersona type[,:]\s*(?:Primary|Secondary|Stakeholder|Anti-persona)\.?\s*", re.I), ""),
+    (re.compile(r"\bSEGMENT\s*[≈~∼=]+\s*~?[\d.]+\s*%?(?:\s*(?:OF\s+)?(?:FIRST-?YEARS?|RESPONSE\s+RATE|STUDENTS|USERS|RESPONDENTS|RESPONSES?))?", re.I), ""),
+    # Stray approximate-percentage tokens ("~ 6.7%", "≈ 41%") that read as fabricated.
+    (re.compile(r"[≈~∼]\s*~?\d[\d.]*\s*%", re.I), ""),
+]
+
+
+def _strip_meta_narration(html: str) -> str:
+    """Apply the deterministic meta-narration / reporting-metadata strip. Then
+    tidy any orphaned punctuation/whitespace the removals leave behind."""
+    out = html
+    for pat, sub in _META_NARRATION_SUBS:
+        out = pat.sub(sub, out)
+    # Tidy artifacts of removal: leading commas/colons, doubled spaces, empty
+    # eyebrow separators like ">, " or "> , ".
+    out = re.sub(r">\s*[,;:]\s*", ">", out)
+    out = re.sub(r"[ \t]{2,}", " ", out)
+    out = re.sub(r"\(\s*\)", "", out)
+    return out
+
+
+def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
+    """Post-process JM HTML through HiC's brand + anti-slop pipeline.
+
+    Steps:
+      1. Strip em-dashes
+      2. Apply slop-phrase substitutions
+      3. Strip ChatGPT artifact tags + knowledge-cutoff disclaimers
+      4. Replace JM's known hex palette with brand hexes (HEX REPLACEMENT —
+         catches cases where the model emitted hex colors directly instead
+         of going through the CSS variable system)
+      5. Inject brand-token override <style> block at end of <head> for the
+         cases where the model DID use the JM CSS variables
+      6. Inject Google Fonts link so brand display/body fonts load
+    """
+    if not html or not isinstance(html, str):
+        return html
+    out = html
+
+    # ─── 1-3. Slop hygiene ────────────────────────────────────────────────
+    out = re.sub(r"\s+—\s+", ", ", out)
+    out = re.sub(r"(\w)—(\w)", r"\1-\2", out)
+    out = out.replace("—", ", ")
+    # Emoji HARD BAN (repo-wide). Strip pictographic characters deterministically;
+    # the prompt forbids them but this chokepoint guarantees it.
+    out = _EMOJI_RE.sub("", out)
+    for pat, sub in _SLOP_SUBS:
+        out = pat.sub(sub, out)
+    out = re.sub(r"\b(?:oaicite|oai_citation|contentReference|attached_file|turn\d+search\d+)\S*", "", out)
+    out = re.sub(r"\b(?:as an AI|I'm an AI|as of my knowledge cutoff|my training data)\b[^.]*\.", "", out, flags=re.I)
+    # ─── 3b. Deterministic meta-narration + reporting-metadata strip ──────
+    # The JM path does not run HiC's slidePostProcessor, so port the highest-
+    # signal META_NARRATION / reporting-depth patterns here. The reader of a
+    # finished consulting artifact must never see the model's awareness of its
+    # own inputs, sentiment scoring, or internal cross-references. Prompt bans
+    # are bypassable by phrasing; this chokepoint is not. (User flagged these
+    # repeatedly 2026-05-26.)
+    out = _strip_meta_narration(out)
+
+    is_nu = (brand or "nxt").lower() == "nu"
+    tokens = _BRAND_TOKENS.get((brand or "nxt").lower(), _BRAND_TOKENS["nxt"])
+
+    # ─── 4. AGGRESSIVE HEX REPLACEMENT ────────────────────────────────────
+    # JM's stock palette (from dynamic_journey_mapper.py fallback HTML +
+    # the prompt template's example colors). The model usually uses these
+    # exact hexes OR uses them via CSS vars. Either way, replacing the
+    # raw hexes ensures the visual flip lands.
+    #
+    # Order matters: replace longer/more specific patterns first.
+    jm_to_brand = [
+        # JM gradient + primary colors (purple/blue family) -> brand primary
+        ("#5667FE", tokens["primary"]),       # primary
+        ("#7D83FF", tokens["primary"]),       # primary-light
+        ("#5667fe", tokens["primary"]),
+        ("#7d83ff", tokens["primary"]),
+        # JM secondary (mint/cyan) -> brand secondary (NU red-deep / NXT cyan)
+        ("#5DFDCB", tokens["secondary"]),
+        ("#90FDCD", tokens["secondary"]),
+        ("#5dfdcb", tokens["secondary"]),
+        ("#90fdcd", tokens["secondary"]),
+        # JM accent pink -> brand primary
+        ("#FF6B8B", tokens["primary"]),
+        ("#ff6b8b", tokens["primary"]),
+        # JM dark navy text -> brand text-primary
+        ("#2D3047", tokens["text_primary"]),
+        ("#2d3047", tokens["text_primary"]),
+        # JM light navy text -> brand text-secondary
+        ("#626594", tokens["text_secondary"]),
+        # JM card background bluish -> brand surface
+        ("#f8f9fd", tokens["surface"]),
+        ("#f0f2ff", tokens["surface"]),
+        ("#F8F9FD", tokens["surface"]),
+        ("#F0F2FF", tokens["surface"]),
+        # JM gray -> brand text-secondary
+        ("#f1f3f9", "#F2F0EA" if is_nu else "#F5F5F0"),
+        ("#e5e8f5", "#E8E4DC" if is_nu else "#E5E5E5"),
+        # Common dark backgrounds that drift to navy -> brand surface or paper
+        ("#0f1729", "#FAF8F4" if is_nu else "#0D0D0D"),
+        ("#1a1f3a", "#FAF8F4" if is_nu else "#1A1A1A"),
+    ]
+    for src, dst in jm_to_brand:
+        out = out.replace(src, dst)
+
+    # Replace common rgb(N,N,N) navy/blue patterns the model might emit
+    out = re.sub(r"rgb\(\s*86\s*,\s*103\s*,\s*254\s*\)", tokens["primary"], out)
+    out = re.sub(r"rgb\(\s*93\s*,\s*253\s*,\s*203\s*\)", tokens["secondary"], out)
+
+    # ─── 5. BRAND-TOKEN STYLE OVERRIDE ────────────────────────────────────
+    eyebrow_text = "NU · HUMANS IN CONTROL" if is_nu else "NXT HUMANS · HUMANS IN CONTROL"
+    # Inject a Google Fonts <link> for the brand fonts so they actually load
+    fonts_link = (
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+        + (
+            '<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+            if is_nu else
+            '<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+        )
+    )
+
+    # 2026-05-25 — Brand override: colors + fonts. Aggressive enough to flip
+    # JM's dark-navy theme variant (which doesn't use the gradient palette
+    # my earlier hex-replacement list covered). The override is layered:
+    #   1. CSS variable substitution (covers var(--*)-driven JM templates)
+    #   2. Body-level color/background/font enforcement (covers raw color usage)
+    #   3. Common dark-theme overrides (covers JM's dark-navy variant)
+    brand_override = f"""{fonts_link}
+<style>
+  /* HiC brand override (2026-05-25): colors + fonts only. */
+  :root {{
+    --primary-color: {tokens['primary']} !important;
+    --primary-light: {tokens['primary']} !important;
+    --secondary-color: {tokens['secondary']} !important;
+    --secondary-light: {tokens['secondary']} !important;
+    --gradient-start: {tokens['primary']} !important;
+    --gradient-end: {tokens['primary_deep']} !important;
+    --accent-color: {tokens['primary']} !important;
+    --text-color: {tokens['text_primary']} !important;
+    --text-light: {tokens['text_secondary']} !important;
+    --quote-border: {tokens['primary']} !important;
+    --header-color: {tokens['text_primary']} !important;
+    --bg-primary: {tokens['surface']} !important;
+    --bg-secondary: {tokens['surface']} !important;
+    --color-primary: {tokens['primary']} !important;
+    --accent: {tokens['primary']} !important;
+  }}
+  /* Body-level enforcement: dark-theme JM variants use body{{background: navy}}
+     which CSS-variable overrides alone can't reach. Force the brand surface. */
+  html, body {{
+    background: {tokens['surface']} !important;
+    color: {tokens['text_primary']} !important;
+    font-family: {tokens['font_body']} !important;
+  }}
+  /* Common JM dark-theme container patterns, flatten to brand surface */
+  .container, .main, .content, main {{
+    background: {tokens['surface']} !important;
+    color: {tokens['text_primary']} !important;
+  }}
+  /* Headers in brand display font */
+  h1, h2, h3, h4, h5, .header h1, .title, [class*="title"], [class*="heading"] {{
+    font-family: {tokens['font_display']} !important;
+    color: {tokens['text_primary']} !important;
+  }}
+  /* Brand accent on links + nav buttons that JM emits */
+  a, .tab-btn, .nav-btn, button[class*="primary"], [class*="accent"] {{
+    color: {tokens['primary']} !important;
+    border-color: {tokens['primary']} !important;
+  }}
+  /* Common dark backgrounds JM uses in tabs/headers, flip to brand */
+  [style*="background"][style*="#0f1729"],
+  [style*="background"][style*="#1a1f3a"],
+  [style*="background"][style*="#2D3047"] {{
+    background: {tokens['text_primary']} !important;
+  }}
+  /* Persona situational photo slot: reserve square space, cover-fit the
+     generated image, neutral placeholder background when empty. */
+  figure.persona-photo {{
+    margin: 0 0 16px 0;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 3px;
+    background: {tokens['surface_alt'] if 'surface_alt' in tokens else '#EDEAE3'};
+    border: 1px solid {tokens['primary']};
+  }}
+  figure.persona-photo img.persona-img {{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 2;
+  }}
+  figure.persona-photo img.persona-img[src=""] {{ display: none; }}
+  /* Kill any model-emitted placeholder label painted over the photo
+     (e.g. ::after content:"Situational portrait"). No words on images. */
+  figure.persona-photo::before, figure.persona-photo::after {{ content: none !important; display: none !important; }}
+  figure.persona-photo figcaption {{ display: none !important; }}
+</style>"""
+
+    # Defensive: the brand_override block is injected AFTER the em-dash strip
+    # above, so strip any em-dash it (or a future edit to it) introduces. Keeps
+    # the repo-wide em-dash ban true at the proxy chokepoint, no whack-a-mole.
+    brand_override = brand_override.replace("—", ",")
+
+    if "</head>" in out:
+        out = out.replace("</head>", brand_override + "\n</head>", 1)
+    else:
+        out = brand_override + "\n" + out
+
+    return out
+
+
+def _brand_rgb_str(hex_color: str) -> str:
+    """Convert #RRGGBB hex to 'R, G, B' for rgba() usage in CSS."""
+    h = hex_color.lstrip("#")
+    try:
+        r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+        return f"{r}, {g}, {b}"
+    except Exception:
+        return "200, 16, 46"  # NU red fallback
+
+
+# 2026-05-26 — Persona situational imagery via Gemini 3.1 flash image.
+# The personas contract emits per-card photo slots:
+#   <img class="persona-img" data-gen-prompt="<scene>" src="" />
+# We generate one image per slot (capped) and inline it as a data URI so the
+# artifact stays self-contained (no external asset hosting needed).
+_GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview"
+_PERSONA_IMG_SLOT_RE = re.compile(
+    r'<img\b[^>]*\bclass="[^"]*persona-img[^"]*"[^>]*>', re.I
+)
+_DATA_GEN_PROMPT_RE = re.compile(r'data-gen-prompt="([^"]*)"', re.I)
+_MAX_PERSONA_IMAGES = 4
+
+
+async def _generate_gemini_image(prompt: str, brand: str) -> str:
+    """Generate a single image via Gemini and return a data URI, or "" on failure.
+    Uses the same REST endpoint + GEMINI_API_KEY as the rest of the proxy."""
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not prompt:
+        return ""
+    # Style wrapper: keep imagery editorial, on-brand-neutral, text-free.
+    palette = "muted, desaturated, editorial documentary photography" if brand == "nu" else "clean, modern, restrained editorial photography"
+    full_prompt = (
+        f"{prompt.strip()}. Style: {palette}, natural light, candid, shallow depth of field, "
+        "realistic, high detail. Absolutely NO text, NO captions, NO logos, NO watermarks, "
+        "NO UI overlays anywhere in the image. Authentic, non-stereotypical representation."
+    )
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{_GEMINI_IMAGE_MODEL}:generateContent?key={api_key}"
+    )
+    payload = {
+        "contents": [{"parts": [{"text": full_prompt}]}],
+        "generationConfig": {"responseModalities": ["IMAGE"]},
+    }
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=payload, timeout=120.0)
+        if resp.status_code != 200:
+            logger.warning(f"[persona-img] HTTP {resp.status_code}: {resp.text[:200]}")
+            return ""
+        data = resp.json()
+        cands = data.get("candidates") or []
+        parts = (cands[0].get("content", {}).get("parts") if cands else []) or []
+        for part in parts:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                mime = inline.get("mimeType") or inline.get("mime_type") or "image/png"
+                return f"data:{mime};base64,{inline['data']}"
+        logger.warning("[persona-img] response had no inlineData")
+        return ""
+    except Exception as e:
+        logger.warning(f"[persona-img] generation error: {e}")
+        return ""
+
+
+async def _inject_persona_images(html: str, brand: str) -> str:
+    """Find persona-img slots, generate an image for each (concurrently, capped),
+    and inline the result as a data URI on the slot's src. Slots beyond the cap
+    or that fail generation keep an empty src and a neutral CSS background."""
+    if not html or "persona-img" not in html:
+        return html
+    slots = _PERSONA_IMG_SLOT_RE.findall(html)
+    if not slots:
+        return html
+    # Collect (slot_html, prompt) for up to the cap.
+    jobs = []
+    for slot in slots[:_MAX_PERSONA_IMAGES]:
+        m = _DATA_GEN_PROMPT_RE.search(slot)
+        prompt = m.group(1).strip() if m else ""
+        jobs.append((slot, prompt))
+    # Generate concurrently.
+    results = await asyncio.gather(
+        *[_generate_gemini_image(p, brand) for (_, p) in jobs],
+        return_exceptions=True,
+    )
+    out = html
+    filled = 0
+    for (slot, _), data_uri in zip(jobs, results):
+        if isinstance(data_uri, Exception) or not data_uri:
+            continue
+        # Replace the empty src in THIS slot with the data URI (first occurrence).
+        if 'src=""' in slot:
+            new_slot = slot.replace('src=""', f'src="{data_uri}"', 1)
+        elif "src=''" in slot:
+            new_slot = slot.replace("src=''", f'src="{data_uri}"', 1)
+        else:
+            # No empty src; inject one before the closing >
+            new_slot = slot[:-1] + f' src="{data_uri}">'
+        out = out.replace(slot, new_slot, 1)
+        filled += 1
+    logger.info(f"[persona-img] filled {filled}/{len(jobs)} persona image slots (brand={brand})")
+    return out
+
+
+@app.post("/api/journey-map/generate")
+async def journey_map_generate(req: Request):
+    """Route HiC #journey requests to the Journey Mapper IA service.
+
+    Request body (JSON):
+        {
+          "goal": "<research goal / journey title>",
+          "description": "<optional one-line description>",
+          "journey_type": "<customer|educational|coop|healthcare|employee|software-user|general>",
+          "corpus": "<concatenated chunked corpus text from HiC>",
+          "llm_model": "<optional override; defaults to JM's default Claude>"
+        }
+
+    Returns:
+        { ok: true, html: "<full journey HTML document>", source: "journey-mapper", journey_id, model }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+
+    goal = (body.get("goal") or "").strip()
+    description = (body.get("description") or "").strip()
+    journey_type = (body.get("journey_type") or "general").strip()
+    corpus = (body.get("corpus") or "").strip()
+    # 2026-05-25 — Default to claude-sonnet-4-6. Haiku was 5x faster but
+    # produced shallower output than JM's natural Sonnet-driven depth. The
+    # user flagged depth regression, so Sonnet is the right default.
+    # Caller can override to claude-haiku-4-5-20251001 for speed-critical
+    # path, or claude-opus-4-7 for maximum depth at higher cost.
+    llm_model = body.get("llm_model") or "claude-sonnet-4-6"
+
+    if not goal:
+        return JSONResponse({"error": "goal is required"}, status_code=400)
+    if not corpus:
+        return JSONResponse({"error": "corpus is required"}, status_code=400)
+
+    # 2026-05-26 — Pre-extraction pass. JM's internal NLP step expects
+    # prose or PDF-extracted text and on 2026-05-26 logged
+    # "Identified 0 journey stages / 0 pain points / 0 opportunities"
+    # against HiC's [CHUNK_NNN] format. The chunk markers and citation
+    # tokens confused its regex pipeline. Strip them here so JM's
+    # extraction step sees clean prose, AND strip duplicate whitespace
+    # from the dedup pass. Quality goes UP (JM's extraction fires) AND
+    # latency goes DOWN (JM doesn't waste cycles on zero-yield extraction).
+    import re as _re_seed
+    _orig_len = len(corpus)
+    # 1. Strip [CHUNK_NNN] markers but keep the boundary as a paragraph break
+    corpus = _re_seed.sub(r"\[CHUNK_[A-Z0-9_]+\]\s*", "\n\n", corpus)
+    # 2. Strip raw "[Source: filename]" cite tokens (JM cites its own sources)
+    corpus = _re_seed.sub(r"\[Source:\s*[^\]]+\]", "", corpus)
+    # 3. Strip oaicite / contentReference / turn0search artifact tags
+    corpus = _re_seed.sub(r"(?:oaicite|oai_citation|contentReference|turn0search\d+|attached_file)[^\s]*", "", corpus)
+    # 4. Collapse runs of 3+ blank lines to 2 (preserve paragraph structure)
+    corpus = _re_seed.sub(r"\n{3,}", "\n\n", corpus).strip()
+    if _orig_len != len(corpus):
+        logger.info(f"[journey-map] pre-extracted corpus: {_orig_len} → {len(corpus)} chars (stripped HiC markers for JM's NLP step)")
+
+    # Trim corpus to JM's sweet spot. HiC sometimes hands us 200KB+ — JM's
+    # prompt embedding would truncate mid-content. Take the first N bytes
+    # (HiC already orders chunks by relevance) at a clean line boundary.
+    corpus_trimmed = corpus[:JOURNEY_MAPPER_MAX_CORPUS_BYTES]
+    if len(corpus) > JOURNEY_MAPPER_MAX_CORPUS_BYTES:
+        # Snap back to last newline so we don't cut mid-sentence
+        last_nl = corpus_trimmed.rfind("\n")
+        if last_nl > JOURNEY_MAPPER_MAX_CORPUS_BYTES // 2:
+            corpus_trimmed = corpus_trimmed[:last_nl]
+        corpus_trimmed += "\n\n[Note: HiC corpus trimmed at %dKB for Journey Mapper context window; full corpus was %dKB]" % (
+            len(corpus_trimmed) // 1000, len(corpus) // 1000,
+        )
+
+    # Multipart upload to JM /api/analyze. The endpoint expects
+    # files=List[UploadFile] plus form fields title/description/journey_type/llm_model.
+    files = [("files", ("hic-corpus.txt", corpus_trimmed.encode("utf-8"), "text/plain"))]
+    # 2026-05-26 — Forward the brand to JM so the GENERATION PROMPT carries
+    # the NU/NXT color+font tokens (the user-requested one-line injection).
+    # This makes JM produce an on-brand journey from the start instead of
+    # the proxy recoloring a generic blue output after the fact.
+    brand_for_jm = (body.get("brand") or "nxt").lower()
+    if brand_for_jm not in ("nu", "nxt"):
+        brand_for_jm = "nxt"
+    # 2026-05-26 — Forward artifact_type so the JM service selects the right
+    # per-artifact structure contract (journey | blueprint | competitive |
+    # tech-arch | personas). Defaults to 'journey' on the JM side.
+    artifact_type_for_jm = (body.get("artifact_type") or "journey").lower()
+    # 2026-05-26 — render_mode 'slides' lays the artifact out as a full-viewport
+    # slide deck (one element per slide); default 'document' is the continuous page.
+    render_mode_for_jm = (body.get("render_mode") or "document").lower()
+    if render_mode_for_jm not in ("document", "slides"):
+        render_mode_for_jm = "document"
+    data = {
+        "title": goal[:200],
+        "description": description[:500] or "Journey generated from HiC corpus",
+        "journey_type": journey_type,
+        "brand": brand_for_jm,
+        "artifact_type": artifact_type_for_jm,
+        "render_mode": render_mode_for_jm,
+    }
+    if llm_model:
+        data["llm_model"] = llm_model
+
+    jm_url = f"{JOURNEY_MAPPER_INTERNAL_URL}/api/analyze"
+    logger.info(f"[journey-map] forwarding {len(corpus_trimmed)} chars to {jm_url} (goal=%r, type=%s, model=%s)", goal[:80], journey_type, llm_model)
+
+    # JM returns 303 redirect to /journey_maps/{id}.html. We need to follow.
+    try:
+        async with httpx.AsyncClient(timeout=JOURNEY_MAPPER_TIMEOUT_S, follow_redirects=False) as client:
+            resp = await client.post(jm_url, data=data, files=files)
+            if resp.status_code == 303:
+                redirect_url = resp.headers.get("location", "")
+                if not redirect_url:
+                    return JSONResponse({"error": "JM 303 missing Location header"}, status_code=502)
+                # Extract journey_id from /journey_maps/journey_map_<id>.html
+                m = re.search(r"journey_map_([a-f0-9-]+)\.html", redirect_url)
+                journey_id = m.group(1) if m else ""
+                # Fetch the rendered HTML
+                html_url = f"{JOURNEY_MAPPER_INTERNAL_URL}{redirect_url}"
+                html_resp = await client.get(html_url)
+                if html_resp.status_code != 200:
+                    return JSONResponse({
+                        "error": "JM HTML fetch failed",
+                        "status": html_resp.status_code,
+                        "html_url": redirect_url,
+                    }, status_code=502)
+                html = html_resp.text
+                # ─── Brand + anti-slop post-processing ─────────────────
+                # Apply HiC's brand tokens + slop substitution + em-dash strip
+                # so the JM output matches the rest of the deliverable suite.
+                brand = (body.get("brand") or "nxt").lower()
+                if brand not in ("nu", "nxt"):
+                    brand = "nxt"
+                html = _apply_brand_and_anti_slop(html, brand)
+                # ─── Persona situational imagery ───────────────────────
+                # For persona artifacts, fill the per-card photo slots
+                # (<img class="persona-img" data-gen-prompt="...">) with
+                # Gemini-generated situational images. Non-fatal: on any
+                # failure the slot stays empty and the card still renders.
+                if artifact_type_for_jm == "personas":
+                    try:
+                        html = await _inject_persona_images(html, brand)
+                    except Exception as img_err:
+                        logger.warning(f"[journey-map] persona image injection failed (non-fatal): {img_err}")
+                logger.info(f"[journey-map] success: {len(html)} chars, journey_id={journey_id}, brand={brand}")
+
+                # ─── Persist the rendered HTML for the launcher pattern ──
+                # Save to hic-workspace/sessions/_journey-html/<id>.html so a
+                # subsequent GET /api/journey-map/view/<id> can return it.
+                # Mirrors how internal-solutions-presentation-renderer serves
+                # generated decks: persist + return a launchable URL.
+                launcher_url = ""
+                try:
+                    os.makedirs(JOURNEY_MAPPER_PERSIST_DIR, exist_ok=True)
+                    persist_path = os.path.join(JOURNEY_MAPPER_PERSIST_DIR, f"{journey_id}.html")
+                    with open(persist_path, "w", encoding="utf-8") as f:
+                        f.write(html)
+                    launcher_url = f"/api/journey-map/view/{journey_id}"
+                    logger.info(f"[journey-map] HTML persisted to {persist_path}")
+                except Exception as persist_err:
+                    logger.warning(f"[journey-map] HTML persist failed (non-fatal): {persist_err}")
+
+                # ─── Self-improvement: persist rollout for SkillOpt ────
+                # Every JM-generated journey becomes trajectory evidence the
+                # next SkillOpt run can train against. Stored under
+                # hic-workspace/sessions/_journey-rollouts/<journey_id>.json
+                # with the same shape extract-rollouts.py emits.
+                try:
+                    rollout_dir = "/hic-workspace/sessions/_journey-rollouts"
+                    os.makedirs(rollout_dir, exist_ok=True)
+                    rollout_path = os.path.join(rollout_dir, f"{journey_id}.json")
+                    rollout_record = {
+                        "id": journey_id,
+                        "kind": "journey",
+                        "brand": brand,
+                        "task_summary": goal[:300],
+                        "journey_type": journey_type,
+                        "output": html,
+                        "corpus_chars_sent": len(corpus_trimmed),
+                        "corpus_chars_original": len(corpus),
+                        "source": "journey-mapper-ia",
+                        "model": llm_model,
+                        "generated_at": datetime.utcnow().isoformat() + "Z",
+                    }
+                    with open(rollout_path, "w", encoding="utf-8") as f:
+                        json.dump(rollout_record, f, indent=2)
+                    logger.info(f"[journey-map] rollout persisted to {rollout_path} for SkillOpt training")
+                except Exception as persist_err:
+                    logger.warning(f"[journey-map] rollout persist failed (non-fatal): {persist_err}")
+
+                return {
+                    "ok": True,
+                    "html": html,
+                    "source": "journey-mapper",
+                    "journey_id": journey_id,
+                    "brand": brand,
+                    "model": llm_model,
+                    "launcher_url": launcher_url,
+                    "corpus_trimmed_to": len(corpus_trimmed),
+                    "corpus_original": len(corpus),
+                }
+            elif resp.status_code == 500:
+                err_body = resp.json() if resp.headers.get("content-type", "").startswith("application/json") else {"error": resp.text[:500]}
+                return JSONResponse({
+                    "error": "JM returned 500",
+                    "jm_error": err_body.get("error", "unknown"),
+                    "jm_detail": err_body.get("detailed_error", "")[:500],
+                }, status_code=502)
+            else:
+                return JSONResponse({
+                    "error": f"JM returned unexpected status {resp.status_code}",
+                    "body": resp.text[:500],
+                }, status_code=502)
+    except httpx.TimeoutException:
+        return JSONResponse({"error": "JM request timed out (5min cap)"}, status_code=504)
+    except Exception as e:
+        logger.exception("journey-map proxy failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=502)
+
+
+@app.get("/api/journey-map/health")
+async def journey_map_health():
+    """Check whether the Journey Mapper IA service is reachable from this proxy.
+
+    Uses TCP-only probe (socket.connect) because JM's HTTP root endpoint can
+    block for minutes when JM is mid-generation (single-worker FastAPI). A
+    TCP probe answers in <100ms regardless of JM's current workload.
+    """
+    import socket
+    from urllib.parse import urlparse
+    parsed = urlparse(JOURNEY_MAPPER_INTERNAL_URL)
+    host = parsed.hostname or "journey-mapper"
+    port = parsed.port or 8000
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(2.0)
+        s.connect((host, port))
+        s.close()
+        return {"ok": True, "status": "tcp_reachable", "url": JOURNEY_MAPPER_INTERNAL_URL, "note": "TCP-only probe; HTTP may block if JM is mid-generation"}
+    except Exception as e:
+        return {"ok": False, "error": f"{type(e).__name__}: {e}", "url": JOURNEY_MAPPER_INTERNAL_URL}
+
+
+@app.get("/api/journey-map/view/{journey_id}")
+async def journey_map_view(journey_id: str):
+    """Launcher endpoint — returns the persisted journey HTML as a full page.
+
+    Mirrors the presentation-renderer launcher pattern: chat UI shows a "View
+    journey" link, user clicks, opens a new tab pointed at this endpoint,
+    sees the full 1920x1080 rendered journey map.
+
+    Path-safe: journey_id must match the UUID pattern JM emits.
+    """
+    if not re.match(r"^[a-f0-9-]+$", journey_id):
+        return JSONResponse({"error": "invalid journey_id"}, status_code=400)
+    persist_path = os.path.join(JOURNEY_MAPPER_PERSIST_DIR, f"{journey_id}.html")
+    if not os.path.exists(persist_path):
+        return JSONResponse({"error": f"journey {journey_id} not found"}, status_code=404)
+    try:
+        with open(persist_path, "r", encoding="utf-8") as f:
+            html = f.read()
+        return HTMLResponse(content=html)
+    except Exception as e:
+        logger.exception("journey-map view failed: %s", journey_id)
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+
+@app.get("/api/journey-map/list")
+async def journey_map_list():
+    """List all persisted journey HTML artifacts (for debugging + history UI)."""
+    try:
+        if not os.path.isdir(JOURNEY_MAPPER_PERSIST_DIR):
+            return {"journeys": []}
+        items = []
+        for fn in sorted(os.listdir(JOURNEY_MAPPER_PERSIST_DIR), reverse=True):
+            if fn.endswith(".html"):
+                path = os.path.join(JOURNEY_MAPPER_PERSIST_DIR, fn)
+                stat = os.stat(path)
+                items.append({
+                    "journey_id": fn[:-5],
+                    "size_bytes": stat.st_size,
+                    "modified_at": datetime.utcfromtimestamp(stat.st_mtime).isoformat() + "Z",
+                    "launcher_url": f"/api/journey-map/view/{fn[:-5]}",
+                })
+        return {"journeys": items[:50]}
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+# ================================================================
+# UNIFIED ARTIFACT ENGINE — 2026-05-25
+# ================================================================
+#
+# Generalizes the journey-mapper re-leverage pattern to every deliverable
+# kind. The same architecture:
+#   1. Take corpus + goal + brand
+#   2. Build a JM-style prompt using the kind-specific skill markdown as
+#      domain expertise (mirrors what JM does internally for journeys)
+#   3. Call Claude to produce a full self-contained HTML report
+#   4. Apply brand override (NU/NXT colors + fonts ONLY)
+#   5. Apply anti-slop hygiene
+#   6. Persist HTML for launcher pattern
+#   7. Persist rollout JSON for SkillOpt self-improvement training
+#   8. Return launcher_url for the chat-side card
+#
+# Endpoints:
+#   POST /api/artifact/generate   — new artifact from corpus + goal
+#   POST /api/artifact/revise     — revision of an existing artifact HTML
+#   GET  /api/artifact/view/{id}  — launcher endpoint
+#   GET  /api/artifact/list       — debug + history
+#
+# Special-case: kind='journey' routes through the JM IA service (existing
+# /api/journey-map/generate logic) instead of the generic Claude prompt
+# path. This preserves the depth that JM's two-pass dynamic_journey_mapper
+# delivers natively.
+
+import re as _re_artifact
+ARTIFACT_PERSIST_DIR = "/hic-workspace/sessions/_artifact-html"
+ARTIFACT_ROLLOUTS_DIR = "/hic-workspace/sessions/_artifact-rollouts"
+# 2026-05-25 — Auto-trigger SkillOpt training every N artifacts generated per
+# kind. The weekly cron is still the canonical training cycle, but this
+# in-process trigger keeps skills fresh during active use without forcing
+# the user to wait until Sunday morning.
+SKILLOPT_AUTOTRIGGER_INTERVAL = int(os.environ.get("SKILLOPT_AUTOTRIGGER_INTERVAL", "5"))
+_artifact_count_per_kind: Dict[str, int] = {}
+
+
+async def _maybe_trigger_skillopt(kind: str) -> None:
+    """Auto-trigger SkillOpt training for `kind` when N artifacts have been
+    generated since the last training. Runs as a fire-and-forget background
+    task. Skips on error (training failure shouldn't fail the user request)."""
+    _artifact_count_per_kind[kind] = _artifact_count_per_kind.get(kind, 0) + 1
+    if _artifact_count_per_kind[kind] < SKILLOPT_AUTOTRIGGER_INTERVAL:
+        return
+    # Reset counter immediately so a slow training doesn't queue duplicates
+    _artifact_count_per_kind[kind] = 0
+    logger.info(f"[skillopt-autotrigger] {kind}: {SKILLOPT_AUTOTRIGGER_INTERVAL} artifacts generated, queuing background training")
+
+    async def _run_training():
+        try:
+            # Map kind -> rollout file + skill path that scripts/run-skillopt.py expects
+            kind_to_skill_path = {
+                "journey": "/skills/diagrams/journey-illustrator/SKILL.md",
+                "blueprint": "/skills/service-blueprint-mapper/SKILL.md",
+                "persona": "/skills/persona-architect/SKILL.md",
+                "gap-analysis": "/skills/gap-analysis-evaluator/SKILL.md",
+                "roadmap": "/skills/roadmap-builder/SKILL.md",
+                "recommendation": "/skills/recommendation-architect/SKILL.md",
+                "strategy": "/skills/strategy-author/SKILL.md",
+                "strategy-slide": "/skills/strategy-author/SKILL.md",
+            }
+            skill_path = kind_to_skill_path.get(kind)
+            if not skill_path or not os.path.exists(skill_path):
+                logger.info(f"[skillopt-autotrigger] {kind}: skill path missing, skipping")
+                return
+            # Build a per-kind rollout JSON from recent artifact-rollouts
+            recent_rollouts = []
+            if os.path.isdir(ARTIFACT_ROLLOUTS_DIR):
+                for fn in sorted(os.listdir(ARTIFACT_ROLLOUTS_DIR), reverse=True)[:20]:
+                    if not fn.endswith(".json"):
+                        continue
+                    try:
+                        with open(os.path.join(ARTIFACT_ROLLOUTS_DIR, fn), "r", encoding="utf-8") as f:
+                            r = json.load(f)
+                        if r.get("kind") == kind:
+                            # score is computed by score-rollouts; for autotrigger we use
+                            # a neutral 0.5 so the optimizer treats them as borderline
+                            # cases that benefit from edits.
+                            recent_rollouts.append({
+                                "id": r.get("id"),
+                                "task_summary": r.get("task_summary", ""),
+                                "output": r.get("output", ""),
+                                "score": 0.5,
+                                "sub_scores": {},
+                                "failures": [],
+                            })
+                    except Exception:
+                        continue
+            if len(recent_rollouts) < 2:
+                logger.info(f"[skillopt-autotrigger] {kind}: only {len(recent_rollouts)} rollouts available; need >=2")
+                return
+            rollouts_path = f"/tmp/skillopt-auto-{kind}-{int(time.time())}.json"
+            with open(rollouts_path, "w", encoding="utf-8") as f:
+                json.dump(recent_rollouts, f)
+            # Fire-and-forget subprocess
+            import subprocess
+            cmd = [
+                "python", "/app/../scripts/run-skillopt.py" if os.path.exists("/app/../scripts/run-skillopt.py") else "/app/scripts/run-skillopt.py",
+                "--skill", skill_path,
+                "--rollouts", rollouts_path,
+                "--kind", kind,
+                "--epochs", "1",
+                "--budget", "3",
+                "--out-dir", "/tmp/skillopt-auto-out",
+            ]
+            # The script lives outside the proxy container — actual cmd path
+            # depends on volume mount. We try a few candidates.
+            candidate_scripts = [
+                "/app/../scripts/run-skillopt.py",
+                "/scripts/run-skillopt.py",
+                "/app/scripts/run-skillopt.py",
+            ]
+            script = next((p for p in candidate_scripts if os.path.exists(p)), None)
+            if not script:
+                logger.info(f"[skillopt-autotrigger] {kind}: run-skillopt.py not reachable inside proxy container")
+                return
+            cmd[1] = script
+            logger.info(f"[skillopt-autotrigger] {kind}: launching {' '.join(cmd[:4])}...")
+            subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                             env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+        except Exception as e:
+            logger.warning(f"[skillopt-autotrigger] {kind} failed (non-fatal): {e}")
+
+    asyncio.create_task(_run_training())
+
+# Per-kind dimensions: width x height of the artifact's natural HTML report
+# canvas. Journey defaults to JM's 1920x1080 slide; persona/PRD are
+# document-shaped (taller); presentation is widescreen; org chart is
+# horizontal landscape.
+KIND_DIMENSIONS = {
+    "journey":      (1920, 1080),
+    "blueprint":    (1920, 1080),
+    "persona":      (1280, 1800),
+    "prd":          (1280, 2000),
+    "roadmap":      (1920, 1080),
+    "recommendation": (1280, 1800),
+    "strategy-slide": (1920, 1080),
+    "strategy":     (1280, 1800),
+    "brief":        (1280, 1600),
+    "org":          (1920, 1080),
+    "arch":         (1920, 1080),
+    "gap-analysis": (1280, 1800),
+    "tech-audit":   (1280, 1800),
+    "competitive":  (1280, 1800),
+    "presentation": (1920, 1080),
+    "mindmap":      (1920, 1080),
+    "brief-dialog": (1280, 1600),
+    "meta-themes":  (1280, 1800),
+    "research-plan": (1280, 1800),
+}
+
+# Skill markdown paths (mirror the file system the Vite middleware serves).
+# These are what the model reads as domain expertise per kind.
+KIND_TO_SKILL_PATH = {
+    "journey":        "/skills/diagrams/journey-illustrator/SKILL.md",
+    "blueprint":      "/skills/service-blueprint-mapper/SKILL.md",
+    "persona":        "/skills/persona-architect/SKILL.md",
+    "prd":            "/skills/prd-compiler/SKILL.md",
+    "roadmap":        "/skills/roadmap-builder/SKILL.md",
+    "recommendation": "/skills/recommendation-architect/SKILL.md",
+    "strategy-slide": "/skills/strategy-author/SKILL.md",
+    "strategy":       "/skills/strategy-author/SKILL.md",
+    "brief":          "/skills/strategic-report-writer/SKILL.md",
+    "org":            "/skills/diagrams/org-illustrator/SKILL.md",
+    "arch":           "/skills/tech-arch-generator/SKILL.md",
+    "gap-analysis":   "/skills/gap-analysis-evaluator/SKILL.md",
+    "tech-audit":     "/skills/tech-audit-inspector/SKILL.md",
+    "competitive":    "/skills/competitive-analyst/SKILL.md",
+    "presentation":   "/skills/deck-narrative-composer/SKILL.md",
+    "mindmap":        "/skills/mind-map-architect/SKILL.md",
+    "brief-dialog":   "/skills/brief-dialog/SKILL.md",
+    "meta-themes":    "/skills/meta-themes/SKILL.md",
+    "research-plan":  "/skills/research-planner/SKILL.md",
+}
+
+
+def _load_skill_md(kind: str) -> str:
+    """Read the kind-specific skill markdown from the local file system."""
+    skill_rel = KIND_TO_SKILL_PATH.get(kind)
+    if not skill_rel:
+        return ""
+    candidates = [f"/skills{skill_rel.split('/skills', 1)[1]}", "/skills" + skill_rel]
+    for path in candidates:
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    return f.read()[:15000]
+            except Exception:
+                continue
+    return ""
+
+
+def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, skill_md: str) -> str:
+    """Build the Claude prompt for generating a kind-specific HTML report.
+
+    Mirrors the JM dynamic_journey_mapper.py prompt structure but generalized:
+      - Hammer the HTML-only requirement at the top
+      - Inject the skill markdown as domain expertise
+      - Provide corpus + goal
+      - Demand a complete self-contained HTML document
+      - Apply NU/NXT brand tokens via instructions (palette overridden in
+        post-processing regardless)
+      - Enforce direct quotes + citations from the corpus
+    """
+    w, h = KIND_DIMENSIONS.get(kind, (1280, 1800))
+    is_nu = brand.lower() == "nu"
+    accent = "NU red (#C8102E)" if is_nu else "NXT chartreuse (#B8B800)"
+    font_display = "Roboto Condensed" if is_nu else "Bebas Neue"
+    font_body = "Open Sans" if is_nu else "Archivo"
+
+    return f"""**INSTRUCTION**: You are a MASTER {kind.upper().replace('-', ' ')} REPORT ANALYST with exceptional data analysis and HTML visualization skills. Activate extended thinking. Produce the most detailed, evidence-grounded {kind} analysis possible.
+
+CRITICAL INSTRUCTION: YOUR RESPONSE MUST BE A COMPLETE, INTERACTIVE HTML DOCUMENT WITH ALL TAGS INTACT. START WITH <!DOCTYPE html>, INCLUDE <html>, <head> (with <style>), <body>, AND END WITH </body></html>.
+
+TASK: Create a beautiful, interactive {kind} HTML report as a standalone document with embedded CSS and JavaScript. Canvas dimension target: {w}px wide × {h}px tall (responsive).
+
+ESSENTIAL REQUIREMENTS:
+1. MAXIMIZE CONTENT VOLUME — comprehensive analysis with deep insights
+2. WCAG AA accessibility: minimum 7:1 contrast for text, semantic HTML, ARIA attributes
+3. Modern aesthetics with clean visual hierarchy
+4. Direct quotes from source data with inline citations
+5. Use brand palette: primary accent {accent}; display font '{font_display}'; body font '{font_body}'
+
+═══════════════════════════════════════════════════════════════
+DOMAIN EXPERTISE FROM THE {kind.upper()} SKILL (apply rigorously)
+═══════════════════════════════════════════════════════════════
+{skill_md[:12000]}
+
+═══════════════════════════════════════════════════════════════
+RESEARCH GOAL
+═══════════════════════════════════════════════════════════════
+{goal[:1500]}
+
+═══════════════════════════════════════════════════════════════
+SOURCE DATA (corpus from HiC Analyst Desk)
+═══════════════════════════════════════════════════════════════
+{corpus[:50000]}
+
+═══════════════════════════════════════════════════════════════
+HTML STRUCTURE REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+1. Return ONLY HTML — no markdown fences, no JSON, no explanations
+2. Start with <!DOCTYPE html>, end with </html>
+3. Complete <head> with viewport meta, <title>, <link> for Google Fonts ('{font_display}' + '{font_body}' + 'JetBrains Mono'), and complete <style> block
+4. Use modern CSS: CSS variables, grid layout, flexbox
+5. Vanilla JavaScript for interactive elements (tabs, expandable sections, sortable tables)
+6. NO em-dash characters (U+2014) — use comma, hyphen, semicolon, or colon
+7. NO banned slop phrases: delve, tapestry, testament, meticulous, pivotal moment, leveraging, utilize, comprehensive (use "complete"), facilitate (use "help"), enhance (use "improve")
+8. Every claim cites a source from the corpus
+9. Hex colors that match the brand: avoid blue/purple/cyan accent gradients; use {accent}
+
+═══════════════════════════════════════════════════════════════
+ANTI-FABRICATION
+═══════════════════════════════════════════════════════════════
+- Never invent numbers, statistics, named entities, or quotes
+- If the corpus does not evidence a quantified claim, omit the claim
+- Use real source names (Higher Ed Dive, OpenAlex, Reddit, Inside Higher Ed, etc.) in citations
+- Verbatim quotes only — never paraphrase as if quoting
+
+═══════════════════════════════════════════════════════════════
+KIND-SPECIFIC LAYOUT TARGET ({kind})
+═══════════════════════════════════════════════════════════════
+{_kind_layout_hint(kind)}
+
+REMEMBER: COMPLETE HTML DOCUMENT WITH <!DOCTYPE html> AND </html>. NO ABBREVIATION. NO PLACEHOLDERS. NO EM-DASHES.
+"""
+
+
+def _kind_layout_hint(kind: str) -> str:
+    """Per-kind layout guidance. Adapted from JM's journey-specific patterns
+    so each artifact kind has structural defaults appropriate to its shape."""
+    hints = {
+        "journey": "Horizontal timeline of phases left-to-right. KPI dashboard with personas, overall pain points, strategic opportunities at the top. Per-stage cells with verbatim quotes + emotion intensity + named touchpoints.",
+        "blueprint": "Same horizontal grid as journey, but future-state framing. Replace .pain rows with .gain rows. Add intervention markers + projected impact metrics.",
+        "persona": "Document-shaped: persona portrait area, JTBD statement, fiveWs grid (who/what/when-where/why), motivations/painPoints/opportunities with verbatim quote evidence per row. Demographics shown as supporting context, not primary identifier.",
+        "prd": "Sectioned document: Problem framing, User stories, Acceptance criteria per feature, Technical considerations, Success metrics. MoSCoW prioritization legend at top.",
+        "roadmap": "Three horizontal horizons (NOW / NEXT / LATER) with stacked cards per horizon. Each card has title + quantified success metric (baseline + target + timeframe).",
+        "recommendation": "Numbered stack of recommendations. Each: title, description, impact level, action items, evidence citations.",
+        "strategy-slide": "Rumelt's Kernel three sections (Diagnosis / Guiding Policy / Coherent Actions). Action-title heading. 5-7 coherent actions.",
+        "strategy": "Long-form strategic whitepaper. 15 sections: executive summary, diagnosis, guiding policy, coherent actions, evidence base, risk register, success metrics, etc.",
+        "brief": "Three-section consulting brief: Situation / Complication / Resolution (SCQA). Hero stat at top. 3-5 supporting evidence quotes.",
+        "org": "Org chart hierarchy. Nodes with role + name + responsibility. Reporting lines as SVG paths.",
+        "arch": "C4-model tier diagram: presentation / application / data / external layers. System boxes with data-flow arrows annotated by protocol.",
+        "gap-analysis": "Capability grid with current maturity (1-5) vs target maturity per row. Severity badge + DOLLAR-quantified business impact per gap. Quick wins listed at bottom.",
+        "tech-audit": "Systems inventory table + integration map + capability matrix + consolidation opportunities. Cost-per-system column.",
+        "competitive": "Archetype quadrant + benchmark scoring table + maturity matrix + gap summary across 5-8 named competitors.",
+        "presentation": "Multi-section scrolling narrative. Hero/section dividers + 8-15 content slides woven via Minto Pyramid. Action-title headings.",
+        "mindmap": "Nested d3-style mind map. Center node = goal. Branches = themes. Sub-branches = sub-themes with chunk_id references.",
+        "brief-dialog": "Two-column dialogue between Skeptical Partner and Curious Strategist on the finding. 600-900 words. Citations per line.",
+        "meta-themes": "Recurring portfolio patterns across engagements. Themes that appear in 3+ engagements get a 'platform pattern' treatment.",
+        "research-plan": "Plan-act-reflect format: research goal, sub-questions, named institutions, source strategy, expected theme count, reflection threshold.",
+    }
+    return hints.get(kind, "Document-shaped HTML report with sections, evidence quotes, and visual hierarchy appropriate to the artifact kind.")
+
+
+def _artifact_revision_prompt(kind: str, brand: str, current_html: str, revision_instruction: str) -> str:
+    """Build the revision prompt. Preserves layout + structure of the current
+    HTML while applying the user's natural-language revision."""
+    is_nu = brand.lower() == "nu"
+    accent = "NU red (#C8102E)" if is_nu else "NXT chartreuse (#B8B800)"
+    font_display = "Roboto Condensed" if is_nu else "Bebas Neue"
+    font_body = "Open Sans" if is_nu else "Archivo"
+
+    return f"""You are revising an existing {kind} HTML report. Apply the user's revision request while PRESERVING the existing layout, structure, sections, CSS classes, and visual design language. Only change what the user asks to change.
+
+CRITICAL INSTRUCTION: Return a COMPLETE HTML DOCUMENT with <!DOCTYPE html>, <html>, <head>, <body>, and all closing tags. NO abbreviation, NO placeholders, NO em-dashes.
+
+═══════════════════════════════════════════════════════════════
+USER REVISION REQUEST
+═══════════════════════════════════════════════════════════════
+{revision_instruction[:2000]}
+
+═══════════════════════════════════════════════════════════════
+CURRENT HTML (preserve layout, only apply the revision)
+═══════════════════════════════════════════════════════════════
+{current_html[:80000]}
+
+═══════════════════════════════════════════════════════════════
+REVISION DISCIPLINE
+═══════════════════════════════════════════════════════════════
+1. Keep all CSS rules, fonts, color palette intact
+2. Keep section structure intact (do not delete sections unless asked)
+3. Apply ONLY the user's revision request
+4. NO em-dashes (use comma, hyphen, semicolon, or colon)
+5. NO banned slop phrases: delve, tapestry, testament, meticulous, leveraging, utilize, comprehensive, facilitate, enhance
+6. Brand palette: {accent} accent; '{font_display}' display font; '{font_body}' body font
+7. Preserve all corpus citations and verbatim quotes
+
+Return ONLY the revised HTML document. Start with <!DOCTYPE html>, end with </html>.
+"""
+
+
+async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6", max_tokens: int = 32000) -> str:
+    """Call Anthropic via the existing proxy logic. Returns HTML text."""
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not anthropic_key:
+        raise RuntimeError("ANTHROPIC_API_KEY missing — cannot generate artifact")
+    async with httpx.AsyncClient(timeout=900.0) as client:
+        resp = await client.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": anthropic_key,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": model,
+                "max_tokens": max_tokens,
+                "temperature": 0.3,
+                "messages": [{"role": "user", "content": prompt}],
+            },
+        )
+        if resp.status_code != 200:
+            raise RuntimeError(f"Anthropic returned {resp.status_code}: {resp.text[:300]}")
+        data = resp.json()
+        text = data.get("content", [{}])[0].get("text", "")
+        return text
+
+
+def _ensure_complete_html(html: str) -> str:
+    """Patch obvious truncation: add missing closing tags AND balance unclosed
+    common block elements (div, section, article, main, header, footer, aside,
+    nav, ul, ol, table, blockquote)."""
+    if not html:
+        return html
+    s = html.strip()
+    # Strip stray code fences if present
+    if s.startswith("```"):
+        s = _re_artifact.sub(r"^```(?:html)?\s*", "", s)
+        s = _re_artifact.sub(r"\s*```$", "", s)
+    if "<!DOCTYPE" not in s[:200] and "<html" in s[:200]:
+        s = "<!DOCTYPE html>\n" + s
+
+    # 2026-05-25 — Balance unclosed block elements. When Claude hits max_tokens
+    # mid-element, the resulting HTML has unbalanced opens (e.g. 134 <div>
+    # opened, 133 </div> closed). Walk a coarse open/close count per tag and
+    # append closing tags to balance. This isn't a full HTML parser but it
+    # rescues most truncation cases.
+    balanced_tags = ['div', 'section', 'article', 'main', 'header', 'footer',
+                     'aside', 'nav', 'ul', 'ol', 'table', 'blockquote', 'figure',
+                     'tbody', 'thead', 'tr', 'li', 'p']
+    closing_appends = []
+    for tag in balanced_tags:
+        # Match self-closing tags (`<tag ... />`) carefully so they don't count
+        opens = len(_re_artifact.findall(rf"<{tag}\b[^/>]*(?<!/)>", s, _re_artifact.IGNORECASE))
+        # Also include opens without attributes
+        opens += len(_re_artifact.findall(rf"<{tag}>", s, _re_artifact.IGNORECASE))
+        # Don't double-count — the (?<!/) regex already excludes self-closing
+        closes = len(_re_artifact.findall(rf"</{tag}\s*>", s, _re_artifact.IGNORECASE))
+        diff = opens - closes
+        if diff > 0:
+            # Append closing tags (innermost-first guess — append in reverse of nesting)
+            closing_appends.append((tag, diff))
+    # Append all required closes (heuristic: in registration order, which roughly
+    # matches outer-most → inner-most for typical document structure)
+    for tag, count in closing_appends:
+        for _ in range(min(count, 50)):  # cap to avoid runaway
+            s += f"\n</{tag}>"
+
+    if "</body>" not in s:
+        s += "\n</body>"
+    if "</html>" not in s:
+        s += "\n</html>"
+    return s
+
+
+@app.post("/api/journey-map/revise")
+async def journey_map_revise(req: Request):
+    """Apply a natural-language revision to an existing journey HTML.
+
+    Body:
+      { current_html: str, revision_instruction: str, brand: 'nu'|'nxt',
+        llm_model?: str (default claude-sonnet-4-6) }
+
+    Returns: { ok, html, launcher_url, journey_id }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    current_html = body.get("current_html") or ""
+    instruction = (body.get("revision_instruction") or "").strip()
+    brand = (body.get("brand") or "nxt").lower()
+    model = body.get("llm_model") or "claude-sonnet-4-6"
+    if not current_html or not instruction:
+        return JSONResponse({"error": "current_html and revision_instruction are required"}, status_code=400)
+    prompt = _artifact_revision_prompt("journey", brand, current_html, instruction)
+    try:
+        # 2026-05-25 — Bumped to 64000. Revisions on 187KB JM HTML
+        # routinely blew through 32K and truncated mid-div. Claude Sonnet 4.6
+        # supports up to 64K output tokens.
+        revised = await _call_claude_for_artifact(prompt, model=model, max_tokens=64000)
+        revised = _ensure_complete_html(revised)
+        revised = _apply_brand_and_anti_slop(revised, brand)
+    except Exception as e:
+        logger.exception("journey-map revise failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=502)
+
+    # Persist + launcher URL
+    import uuid
+    journey_id = uuid.uuid4().hex
+    try:
+        os.makedirs(JOURNEY_MAPPER_PERSIST_DIR, exist_ok=True)
+        with open(os.path.join(JOURNEY_MAPPER_PERSIST_DIR, f"{journey_id}.html"), "w", encoding="utf-8") as f:
+            f.write(revised)
+    except Exception as e:
+        logger.warning(f"[journey-map/revise] persist failed: {e}")
+    return {
+        "ok": True,
+        "html": revised,
+        "journey_id": journey_id,
+        "brand": brand,
+        "model": model,
+        "launcher_url": f"/api/journey-map/view/{journey_id}",
+        "source": "journey-mapper-revise",
+    }
+
+
+@app.post("/api/artifact/generate")
+async def artifact_generate(req: Request):
+    """Generic kind-aware HTML report generator. Mirrors JM's depth pattern
+    for every deliverable kind. Special-case: kind='journey' routes to the
+    existing /api/journey-map/generate logic (keeps JM's two-pass depth).
+
+    Body:
+      { kind: <DeliverableKind>, brand: 'nu'|'nxt', goal: str,
+        corpus: str, llm_model?: str }
+
+    Returns: { ok, html, launcher_url, artifact_id, kind, brand }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    kind = (body.get("kind") or "").strip().lower()
+    brand = (body.get("brand") or "nxt").lower()
+    goal = (body.get("goal") or "").strip()
+    corpus = (body.get("corpus") or "").strip()
+    model = body.get("llm_model") or "claude-sonnet-4-6"
+
+    if not kind or kind not in KIND_TO_SKILL_PATH:
+        return JSONResponse({"error": f"unsupported kind: {kind!r}; supported: {sorted(KIND_TO_SKILL_PATH.keys())}"}, status_code=400)
+    if not goal or not corpus:
+        return JSONResponse({"error": "goal and corpus are required"}, status_code=400)
+
+    # Special-case: journey routes through the IA service for native depth
+    if kind == "journey":
+        # Re-build body for the journey endpoint and call it directly
+        # by constructing a wrapping Request-like dict
+        return await journey_map_generate(req)
+
+    # Generic path: load skill, build prompt, call Claude
+    skill_md = _load_skill_md(kind)
+    prompt = _artifact_generation_prompt(kind, brand, goal, corpus, skill_md)
+    logger.info(f"[artifact/{kind}] generating ({len(corpus)} corpus chars, model={model})")
+    try:
+        html = await _call_claude_for_artifact(prompt, model=model, max_tokens=64000)
+        html = _ensure_complete_html(html)
+        html = _apply_brand_and_anti_slop(html, brand)
+    except Exception as e:
+        logger.exception(f"artifact generate failed for {kind}")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=502)
+
+    import uuid
+    artifact_id = uuid.uuid4().hex
+    try:
+        os.makedirs(ARTIFACT_PERSIST_DIR, exist_ok=True)
+        with open(os.path.join(ARTIFACT_PERSIST_DIR, f"{artifact_id}.html"), "w", encoding="utf-8") as f:
+            f.write(html)
+        # Self-improvement: persist rollout for SkillOpt
+        os.makedirs(ARTIFACT_ROLLOUTS_DIR, exist_ok=True)
+        rollout_record = {
+            "id": artifact_id,
+            "kind": kind,
+            "brand": brand,
+            "task_summary": goal[:300],
+            "output": html,
+            "corpus_chars": len(corpus),
+            "source": "artifact-engine",
+            "model": model,
+            "generated_at": datetime.utcnow().isoformat() + "Z",
+        }
+        with open(os.path.join(ARTIFACT_ROLLOUTS_DIR, f"{artifact_id}.json"), "w", encoding="utf-8") as f:
+            json.dump(rollout_record, f, indent=2)
+    except Exception as e:
+        logger.warning(f"[artifact/{kind}] persist failed: {e}")
+
+    # Self-improvement: trigger SkillOpt training every N artifacts per kind
+    try:
+        await _maybe_trigger_skillopt(kind)
+    except Exception as st_err:
+        logger.warning(f"[skillopt-autotrigger] non-fatal: {st_err}")
+
+    return {
+        "ok": True,
+        "html": html,
+        "artifact_id": artifact_id,
+        "kind": kind,
+        "brand": brand,
+        "model": model,
+        "launcher_url": f"/api/artifact/view/{artifact_id}",
+        "source": "artifact-engine",
+    }
+
+
+@app.post("/api/artifact/revise")
+async def artifact_revise(req: Request):
+    """Generic kind-aware revision endpoint.
+
+    Body:
+      { kind, brand, current_html, revision_instruction, llm_model? }
+
+    Returns: { ok, html, launcher_url, artifact_id, kind, brand }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    kind = (body.get("kind") or "").strip().lower()
+    brand = (body.get("brand") or "nxt").lower()
+    current_html = body.get("current_html") or ""
+    instruction = (body.get("revision_instruction") or "").strip()
+    model = body.get("llm_model") or "claude-sonnet-4-6"
+
+    if not kind:
+        return JSONResponse({"error": "kind is required"}, status_code=400)
+    if not current_html or not instruction:
+        return JSONResponse({"error": "current_html and revision_instruction are required"}, status_code=400)
+
+    prompt = _artifact_revision_prompt(kind, brand, current_html, instruction)
+    try:
+        # 2026-05-25 — Bumped to 64000. Revisions on 187KB JM HTML
+        # routinely blew through 32K and truncated mid-div. Claude Sonnet 4.6
+        # supports up to 64K output tokens.
+        revised = await _call_claude_for_artifact(prompt, model=model, max_tokens=64000)
+        revised = _ensure_complete_html(revised)
+        revised = _apply_brand_and_anti_slop(revised, brand)
+    except Exception as e:
+        logger.exception(f"artifact revise failed for {kind}")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=502)
+
+    import uuid
+    artifact_id = uuid.uuid4().hex
+    persist_dir = JOURNEY_MAPPER_PERSIST_DIR if kind == "journey" else ARTIFACT_PERSIST_DIR
+    persist_endpoint = "journey-map" if kind == "journey" else "artifact"
+    try:
+        os.makedirs(persist_dir, exist_ok=True)
+        with open(os.path.join(persist_dir, f"{artifact_id}.html"), "w", encoding="utf-8") as f:
+            f.write(revised)
+    except Exception as e:
+        logger.warning(f"[artifact/{kind}/revise] persist failed: {e}")
+
+    return {
+        "ok": True,
+        "html": revised,
+        "artifact_id": artifact_id,
+        "journey_id": artifact_id if kind == "journey" else None,
+        "kind": kind,
+        "brand": brand,
+        "model": model,
+        "launcher_url": f"/api/{persist_endpoint}/view/{artifact_id}",
+        "source": f"artifact-{kind}-revise",
+    }
+
+
+@app.get("/api/artifact/view/{artifact_id}")
+async def artifact_view(artifact_id: str):
+    """Launcher endpoint for generic artifact HTML."""
+    if not _re_artifact.match(r"^[a-f0-9-]+$", artifact_id):
+        return JSONResponse({"error": "invalid artifact_id"}, status_code=400)
+    # Try generic artifact dir first, then JM dir (for backward compat journeys)
+    for d in [ARTIFACT_PERSIST_DIR, JOURNEY_MAPPER_PERSIST_DIR]:
+        path = os.path.join(d, f"{artifact_id}.html")
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    return HTMLResponse(content=f.read())
+            except Exception as e:
+                return JSONResponse({"error": str(e)}, status_code=500)
+    return JSONResponse({"error": f"artifact {artifact_id} not found"}, status_code=404)
+
+
+@app.get("/api/artifact/list")
+async def artifact_list():
+    """List all persisted artifacts (generic + journey)."""
+    items = []
+    for d, kind_hint in [(ARTIFACT_PERSIST_DIR, "artifact"), (JOURNEY_MAPPER_PERSIST_DIR, "journey")]:
+        if not os.path.isdir(d):
+            continue
+        for fn in sorted(os.listdir(d), reverse=True):
+            if fn.endswith(".html"):
+                path = os.path.join(d, fn)
+                stat = os.stat(path)
+                items.append({
+                    "artifact_id": fn[:-5],
+                    "kind_hint": kind_hint,
+                    "size_bytes": stat.st_size,
+                    "modified_at": datetime.utcfromtimestamp(stat.st_mtime).isoformat() + "Z",
+                    "launcher_url": (f"/api/journey-map/view/{fn[:-5]}" if kind_hint == "journey" else f"/api/artifact/view/{fn[:-5]}"),
+                })
+    return {"artifacts": items[:100]}
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))
@@ -9955,4 +12761,12 @@ if __name__ == "__main__":
     # three. The "app:app" import-string form is required for workers > 1.
     workers = int(os.getenv("PROXY_WORKERS", "4"))
     logger.info(f"Starting Research Data Proxy v2 on port {port} with {len(SOURCES)} sources × {workers} workers")
-    uvicorn.run("app:app", host="0.0.0.0", port=port, workers=workers)
+    # 2026-05-20 — Bind to BOTH IPv4 and IPv6 via "::" (IPv6-any) which Linux
+    # auto-maps to v4-mapped-v6 so a single socket accepts both stacks.
+    # Previously bound to "0.0.0.0" (IPv4-only). Docker's port mapping
+    # advertised [::]:5012 too, so Chrome on Windows (which resolves
+    # `localhost` to ::1 first) would connect — TCP would succeed — but no
+    # uvicorn worker was listening on the IPv6 side and the request would
+    # hang forever, surfacing as ERR_EMPTY_RESPONSE / signal-timed-out in the
+    # browser even though IPv4 curl ("127.0.0.1:5012") worked in milliseconds.
+    uvicorn.run("app:app", host="::", port=port, workers=workers)

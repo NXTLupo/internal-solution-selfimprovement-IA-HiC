@@ -8,7 +8,7 @@ author: ""
 date: "2026-03-13T23:09:26.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-12T17:15:03.303846+00:00"
+extracted_at: "2026-05-19T15:13:44.300418+00:00"
 chars: 1780
 ---
 
@@ -32,5 +32,5 @@ I’ve know lawyers with all types of undergrad degrees that at first glance see
 I’m going to say something else here. Your degree does not guarantee job security. Of course something like art history isn’t the best option at NEU, but really it’s the type of co-ops you land that influence the jobs you get post grad.
 
 If you pic something you’re actually interested in it will make it easier to study and grow your knowledge in that area. Don’t switch to political science for example just because it’s an easier A.
-[5↑ ballzmeep] You'll have a leg up on your classmates and future colleagues if you can write well.
+[4↑ ballzmeep] You'll have a leg up on your classmates and future colleagues if you can write well.
 [3↑ fatkitty72] it doesn't matter - study something you would enjoy and excel in academically.  Grades, LSAT, and letters of recommendation are the things you need

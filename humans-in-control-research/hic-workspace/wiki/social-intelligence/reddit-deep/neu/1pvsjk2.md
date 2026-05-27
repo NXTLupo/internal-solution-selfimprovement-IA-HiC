@@ -7,12 +7,12 @@ title: "Should I back out of my co-op?"
 author: "Shot-Equal1148"
 date: "2025-12-26T01:53:06.000Z"
 score: 0
-upvote_ratio: 0.27
+upvote_ratio: 0.31
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T20:58:42.349Z"
+extracted_at: "2026-05-19T15:08:27.149Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
 ---
 
 # Should I back out of my co-op?
@@ -33,17 +33,17 @@ I would like to hear what others have tosay/past experiences. Did anyone have to
 - **Bubbly_Following7930** (32↑): You need to talk to your advisor. Backing out of a coop is against policy and could jeopardize your ability to go on coop in the future.
   - **Shot-Equal1148** (-10↑): Yes I did talk to my advisor. He said I would be banned from Nu works but not the co op program entirely.
     - **twilight_sparkle7511** (8↑): Bro wtf does that even mean, so u can still do a co-op but you have to get it outside of Nuworks?? So literally the same as every other school, literally eliminating the entire point of the program. The reason the co-op program is good is bc of nuworks, that’s a specifed pool of jobs with companies northeastern has partnered with and sets aside openings for neu students. Ur basically elimating Northeasterns biggest selling point.
-- **NameNumber7** (15↑): How is a coop / job for 6 months going to be so atrocious that you will have a mental breakdown. If this is your first co-op, take it. You get some money and just learn how to be an adult. My first coop was totally irrelevant to anything I wanted to do, but the pay was decent so I just pretended I was interested - this was actuarial work… lol.
+- **NameNumber7** (16↑): How is a coop / job for 6 months going to be so atrocious that you will have a mental breakdown. If this is your first co-op, take it. You get some money and just learn how to be an adult. My first coop was totally irrelevant to anything I wanted to do, but the pay was decent so I just pretended I was interested - this was actuarial work… lol.
 
 Truly, just try it, unless you are working at a slaughterhouse, I would go for the coop.
-  - **Shot-Equal1148** (-7↑): Realistically, it won’t cause a metal breakdown. I’m more worried about it aligning with my future goals. The industry is not what I’m interested in and the skills are not really that important. I want to make money and everything but it just seems like I’m falsely backed into this decision which is honestly not the best for my future. I wish I could convince myself to just “suck it up” but I don’t know if that’s worth it.
-    - **babygrinchsmother** (9↑): it’s definitely still worth it. the point of co-op is experiential learning which mean learning from practice instead of theory. even if the co-op doesn’t align with your career goals, you will learn so much about the softer skills and lessons that accompany co-op like what it’s like to commute everyday and navigating full time work. it’s honestly not worth getting banned from nuworks because you don’t think it aligns with your longterm goals. my first coop didn’t align with mine but it was the launching pad for my second coop which helped me get my dream job post grad. suck it up.
-    - **NameNumber7** (3↑): You are worried about a future that may happen and you favor that over the present reality?
+  - **Shot-Equal1148** (-5↑): Realistically, it won’t cause a metal breakdown. I’m more worried about it aligning with my future goals. The industry is not what I’m interested in and the skills are not really that important. I want to make money and everything but it just seems like I’m falsely backed into this decision which is honestly not the best for my future. I wish I could convince myself to just “suck it up” but I don’t know if that’s worth it.
+    - **babygrinchsmother** (8↑): it’s definitely still worth it. the point of co-op is experiential learning which mean learning from practice instead of theory. even if the co-op doesn’t align with your career goals, you will learn so much about the softer skills and lessons that accompany co-op like what it’s like to commute everyday and navigating full time work. it’s honestly not worth getting banned from nuworks because you don’t think it aligns with your longterm goals. my first coop didn’t align with mine but it was the launching pad for my second coop which helped me get my dream job post grad. suck it up.
+    - **NameNumber7** (5↑): You are worried about a future that may happen and you favor that over the present reality?
 
 You need to just dive in, it sounds like you are anxious to do coop. “Aligning with future goals”, what if that employer who would enable that just doesn’t see an impressive coop resume since you backed out of it.
 
 What are your “future goals” that are so violently different than going through the “experiential learning process” as another person posted.
-- **Difficult-Review283** (7↑): Is the coop in completely different field from your current career aspirations? It’s possible that if you do the coop, you might discover more about yourself as you will learn a lot. It could still be a useful learning experience. Then you can be much more targeted for your following coop. Talk to your advisor.
+- **Difficult-Review283** (6↑): Is the coop in completely different field from your current career aspirations? It’s possible that if you do the coop, you might discover more about yourself as you will learn a lot. It could still be a useful learning experience. Then you can be much more targeted for your following coop. Talk to your advisor.
   - **Shot-Equal1148** (-2↑): I have talked to my advisor and they said the same things. It is a completely different field. The skills are transferable, maybe, but I feel like that’s pretty arbitrary
 - **_nikolasha** (8↑): Yes I did a co-op that didn’t perfectly align with what I wanted to pursue. I worked for a large multinational hardware manufacturing company when I really wanted to focus on consumer software startups. I went through with it and generally hated the work experience. However, I did get paid, made great friendships with the other co-ops, and traveled a lot of California when I was there. I didn’t get the professional experience I wanted but I got so much from everything around it.  
 

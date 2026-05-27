@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Fall 2026 MS ECE at Northeastern (Boston) – how is the program and co-op?"
 author: "1ballbuster1"
 date: "2026-02-18T03:27:10.000Z"
-score: 3
-upvote_ratio: 0.8
+score: 4
+upvote_ratio: 0.83
 num_comments: 2
 flair: "Advice & Experiences"
-extracted_at: "2026-05-13T18:45:41.305Z"
+extracted_at: "2026-05-26T14:30:23.763Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Fall 2026 MS ECE at Northeastern (Boston) – how is the program and co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1r7rzvy/fall_2026_ms_ece_at_northeastern_boston_how_is/)
-Posted by **1ballbuster1** · **3↑** · **2 comments**
+Posted by **1ballbuster1** · **4↑** · **2 comments**
 
 Hi everyone,  
 

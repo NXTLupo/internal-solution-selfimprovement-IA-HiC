@@ -1,0 +1,72 @@
+---
+url: "https://www.reddit.com/r/cscareerquestions/comments/1lxyj9p/yet_to_be_cs_postgrad_breadth_vs_depth_should_i/"
+kind: "social-post"
+source: "reddit-deep: r/cscareerquestions"
+subreddit: "cscareerquestions"
+title: "Yet to be CS postgrad. Breadth vs depth? Should I deepen my knowledge of Data Engineering or focus on building full-stack skills? Looking to maximise employability after I graduate."
+author: "godz_ares"
+date: "2025-07-12T11:48:51.000Z"
+score: 7
+upvote_ratio: 0.82
+num_comments: 6
+flair: "Student"
+extracted_at: "2026-05-19T17:57:56.728Z"
+extraction_method: "praw-deep"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+---
+
+# Yet to be CS postgrad. Breadth vs depth? Should I deepen my knowledge of Data Engineering or focus on building full-stack skills? Looking to maximise employability after I graduate.
+
+Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lxyj9p/yet_to_be_cs_postgrad_breadth_vs_depth_should_i/)
+Posted by **godz_ares** · **7↑** · **6 comments**
+
+Hi Everyone - 
+
+I've been teaching myself programming, Python and SQL, for almost a year now. I have created Data Engineering projects where data is extracted, loaded and transformed. I chose data engineering because it was a topic that interested me, it was my introduction to programming in general and my workplace had data engineers. 
+
+However, in order to bring life to my project and take it out of the database I have been teaching myself Flask in order to create a basic website. 
+
+Right now I am kind of at a crossroads. I can either finish my basic webpage and focus my energy on deepening my data engineering skills and knowledge (e.g. learning Spark, NoSQL, Kafka, Snowflake, practicing SQL more etc.) or expand my frontend skills and knowledge (e.g. learning Javascript, Typescript, and frontend framework such as React).
+
+I ask because I am starting a graduate program (Msc Computer Science conversion) but I will still likely need to build these skills in my own time, but I'll definitely have limited time and won't be able to do both.
+
+I also ask because while I find DE very interesting and engaging, I understand that DE isn't something people do right after graduating as it is quite niche and it takes a few years experience either being an analyst or a SWE.
+
+My goal is to develop the skills to maximize my chances of employability.
+
+Help me help myself 
+
+Thanks!
+
+## Comments
+
+- **blenescobar** (5↑): Actually interesting question I am currently in a somewhat simillar situation I hope you get some good answers.
+- **wardrox** (3↑): Some good advice is to aim to be "T shaped" with your skill set:
+
+Enough breadth to your knowledge you can follow something end to end, and if needed you know where to start digging deeper. Then have a deep knowledge of the things which are directly relevant, and this will change over your career.
+
+Some people go super specialist, some stay super broad. The right balance is personal and situational.
+  - **godz_ares** (1↑): Hey - 
+
+Thanks for the advice.
+
+Do you think learning Flask will be enough breadth to for frontend or do I have to learn more (e.g. learn  JS, TS and Django?)
+    - **wardrox** (1↑): To be honest I don't think it matters what framework you start with, but you'll unnecessarily struggle if you don't know the language and it's quirks.
+
+There are Devs who learn specific frameworks and then have a hard time switching to new tech, and there's Devs who learn the broader ideas, so a new framework is essentially just learning new syntax.
+
+Practice building something really simple in JS, then the same in TS, then Django, etc, and see what happens. They've fallen out of fashion, but "coding katas" are nice for this. Or, ask your favourite AI buddy for a 30 minute project idea.
+
+Also, learning stuff sucks, our brains hate it, so do whatever you can to keep it fun and interesting!
+- **abmarnie** (2↑): Build a basic frontend to show off your data engineering project, otherwise it won't be easily appreciable by clueless gatekeepers at non-tech companies. 
+
+If you find yourself hating frontend, just turn your data engineering project into something "easily consumable" -- like a blog/article or something. If it's up on GitHub, having a very good README might suffice. 
+
+Whatever your project is, remember that the purpose of it is to market yourself. Having a hyperlink to it on your resume is good. 
+
+If your plan is to go "deeper", establishing a reputation by being useful to others (blogs, articles, helping at meetups, contributing to open source) is a good way to fast track a job.
+- **WeastBeast69** (2↑): As someone with two masters degrees my education in CS was more of a breadth, but I had deep Operations Research/ML/AI knowledge from my other degree. In my career so far I think having a depth and breadth are important but I think depth has been far more important. 
+
+I think you should focus on the data engineering side of things. I’m not sure if building the front end stuff would really help you distinguish yourself as much as being able to build and maintain the infrastructure for data processing/data engineering and making that infrastructure efficient and cost effective. 
+
+From what I’ve seen being able to build the data infrastructure is a highly in demand skill and will get you paid the big bucks

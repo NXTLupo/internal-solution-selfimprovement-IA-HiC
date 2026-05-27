@@ -4,7 +4,7 @@
 // Fires an async job, polls until done, returns a TopicResult ready for
 // the AnalystDesk Topic Modeling tab.
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface TopicTerm {
     term: string;

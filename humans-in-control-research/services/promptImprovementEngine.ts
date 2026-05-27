@@ -39,6 +39,19 @@ export interface PromptImprovement {
     constraint: string;
     appliedAt: number;
     improvementScore: number;   // -1 (worse) to 1 (better), 0 = no change
+    /**
+     * 2026-05-20 — Artifact kind this rule applies to. Examples:
+     *   'journey'    — only injects when regenerating a journey
+     *   'blueprint'  — only injects when regenerating a service blueprint
+     *   'persona'    — only when regenerating a persona
+     *   'theme'      — only when regenerating themes
+     *   'all' (or undefined) — universal rule, injects for every artifact
+     * Density preferences ("3 activities per phase") belong to journey/blueprint.
+     * Tone preferences ("no claims in titles") are usually 'all'.
+     * Scoping prevents journey-specific rules from polluting persona/theme
+     * generation and vice versa.
+     */
+    artifactKind?: string;
 }
 
 // --- STORAGE KEYS ---
@@ -135,7 +148,11 @@ export function detectPatterns(): EditPattern[] {
         if (maxCount / edits.length < 0.6) continue;
 
         const avgDelta = Math.round(totalDelta / edits.length);
-        const constraint = generateConstraint(field, dominantType, avgDelta, edits);
+        // 2026-05-19: chat-stage signals carry an LLM-extracted rule that is
+        // far more actionable than generateConstraint's character-delta
+        // boilerplate. Use the chat rule when available.
+        const chatRule = stage.startsWith('chat:') ? lookupChatRule(stage, field) : null;
+        const constraint = chatRule || generateConstraint(field, dominantType, avgDelta, edits);
 
         patterns.push({
             field,
@@ -248,13 +265,30 @@ export function dismissConstraint(patternIndex: number): void {
 /**
  * Get all approved constraints as a prompt injection string.
  * This is appended to system prompts to enforce learned constraints.
+ *
+ * 2026-05-20 — Added optional artifactKind filter. When `kind` is provided,
+ * returns ONLY constraints tagged for that artifact (plus universal rules
+ * with artifactKind 'all' or undefined). Without `kind`, returns ALL
+ * constraints (legacy behavior — used by the Analyst chat path that handles
+ * many artifact types in one session).
  */
-export function getActiveConstraints(): string {
+export function getActiveConstraints(kind?: string): string {
     const improvements = getImprovements();
     if (improvements.length === 0) return '';
 
-    const constraints = improvements.map(imp => `- ${imp.constraint}`).join('\n');
-    return `\n\nLEARNED CONSTRAINTS (from user feedback patterns):\n${constraints}`;
+    let filtered = improvements;
+    if (kind) {
+        filtered = improvements.filter(imp => {
+            const tag = imp.artifactKind;
+            if (!tag || tag === 'all') return true; // universal rule
+            return tag === kind;
+        });
+    }
+    if (filtered.length === 0) return '';
+
+    const constraints = filtered.map(imp => `- ${imp.constraint}`).join('\n');
+    const scope = kind ? `for "${kind}" artifacts` : 'across all artifacts';
+    return `\n\nLEARNED CONSTRAINTS (from user feedback patterns, ${scope}):\n${constraints}`;
 }
 
 // --- DATA ACCESS ---
@@ -331,14 +365,16 @@ export function resetAll(): void {
  */
 export async function loadWikiConstraints(): Promise<number> {
     try {
-        const resp = await fetch('http://localhost:5012/api/wiki/read/synthesis/learned-constraints.md');
+        const resp = await fetch('http://127.0.0.1:5012/api/wiki/read/synthesis/learned-constraints.md');
         if (!resp.ok) return 0;
         const data = await resp.json();
         const content = data.content || '';
 
-        // Parse constraint entries from the wiki page
-        // Format: "- CONSTRAINT: {text}" lines
-        const constraintLines = content.match(/^- CONSTRAINT: .+$/gm) || [];
+        // Parse constraint entries from the wiki page.
+        // Formats supported:
+        //   - CONSTRAINT: <text>                          (legacy, kind=undefined)
+        //   - CONSTRAINT [<deliverable>/<section>]: <text> (2026-05-22 scoped form)
+        const constraintLines = content.match(/^- CONSTRAINT[^:]*:\s*.+$/gm) || [];
         if (constraintLines.length === 0) return 0;
 
         const existing = getImprovements();
@@ -346,19 +382,25 @@ export async function loadWikiConstraints(): Promise<number> {
         let added = 0;
 
         for (const line of constraintLines) {
-            const text = line.replace(/^- CONSTRAINT: /, '').trim();
-            if (text && !existingTexts.has(text)) {
-                existing.push({
-                    id: `wiki_${Date.now()}_${added}`,
-                    field: 'wiki-imported',
-                    stage: 'cross-session',
-                    constraint: text,
-                    appliedAt: Date.now(),
-                    improvementScore: 0,
-                });
-                existingTexts.add(text);
-                added++;
-            }
+            // Capture optional [scope] tag and the constraint text.
+            const m = line.match(/^- CONSTRAINT(?:\s*\[([^\]]+)\])?:\s*(.+)$/);
+            if (!m) continue;
+            const scopeRaw = m[1] || '';
+            const text = m[2].trim();
+            if (!text || existingTexts.has(text)) continue;
+            // scope is "<deliverableType>/<section>" — split into artifactKind
+            const artifactKind = scopeRaw ? scopeRaw.split('/')[0].trim() || 'all' : 'all';
+            existing.push({
+                id: `wiki_${Date.now()}_${added}`,
+                field: scopeRaw || 'wiki-imported',
+                stage: 'cross-session',
+                constraint: text,
+                appliedAt: Date.now(),
+                improvementScore: 0,
+                artifactKind,
+            });
+            existingTexts.add(text);
+            added++;
         }
 
         if (added > 0) {
@@ -372,6 +414,136 @@ export async function loadWikiConstraints(): Promise<number> {
     }
 }
 
+// --- CHAT FEEDBACK BRIDGE (2026-05-19) ---
+// The original capture surface (AnalysisCheckpoint logEdit) is no longer
+// rendered to the user in the chat-first UX. logChatFeedback() takes its
+// place as the upstream signal source. Feedback signals are produced by
+// services/chatFeedbackExtractor.ts.
+
+// Keyed by stage::field so the existing pattern detector can group them.
+const CORRECTION_RULES_KEY = 'hic_correction_rules';
+
+interface StashedCorrectionRule {
+    stage: string;
+    field: string;
+    rule: string;
+    timestamp: number;
+}
+
+function getCorrectionRules(): StashedCorrectionRule[] {
+    try {
+        return JSON.parse(localStorage.getItem(CORRECTION_RULES_KEY) || '[]');
+    } catch { return []; }
+}
+
+interface ChatFeedbackInput {
+    type: 'correction' | 'rejection' | 'rule';
+    userText: string;
+    aiText: string;
+    extractedRule: string;
+    confidence: number;
+    chatSurface: 'analyst' | 'designer';
+    timestamp: number;
+    /**
+     * 2026-05-20 — Artifact kind the feedback applies to. Captured at the
+     * call site by inspecting the active artifact at the moment the user
+     * typed the message. Passed through to PromptImprovement.artifactKind so
+     * the scoped getter (getActiveConstraints(kind)) returns only the rules
+     * relevant to the current generation target. Pass undefined or 'all' for
+     * universal rules (the classifier's default when the message looks
+     * artifact-agnostic).
+     */
+    artifactKind?: string;
+}
+
+/**
+ * Bridge a classified chat feedback signal into the constraint pipeline.
+ *
+ * - 'rule' signals (confidence >= 0.75) bypass the 5-edit threshold and create
+ *   an improvement immediately. These are explicit user commands ("never use
+ *   X", "always Y") and accumulating them across multiple repetitions would
+ *   discard the high-value signal.
+ * - 'correction' signals (and weaker rules) go through the existing edit-log
+ *   pipeline so detectPatterns() picks them up after 5+ occurrences.
+ * - 'rejection' signals log only; without an extracted rule they cannot
+ *   produce an actionable constraint, but the count is still useful telemetry.
+ */
+export function logChatFeedback(signal: ChatFeedbackInput): void {
+    const stage = `chat:${signal.chatSurface}`;
+    const field = signal.type;
+
+    // Always log to the main edit log so detectPatterns sees the volume.
+    const editSignal: EditSignal = {
+        timestamp: signal.timestamp,
+        stage,
+        field,
+        originalValue: signal.aiText.substring(0, 200),
+        editedValue: signal.userText.substring(0, 200),
+        editType: signal.type === 'rejection' ? 'deleted' : 'corrected',
+        originalLength: signal.aiText.length,
+        editedLength: signal.userText.length,
+    };
+
+    const log = getEditLog();
+    log.push(editSignal);
+    if (log.length > 500) log.splice(0, log.length - 500);
+    localStorage.setItem(EDIT_LOG_KEY, JSON.stringify(log));
+
+    // Stash the LLM-extracted rule for use by detectPatterns. Without this,
+    // generateConstraint() would only see character deltas and produce its
+    // boilerplate "needs attention" output. The rule is the meaningful signal.
+    if (signal.extractedRule) {
+        const rules = getCorrectionRules();
+        rules.push({ stage, field, rule: signal.extractedRule, timestamp: signal.timestamp });
+        if (rules.length > 200) rules.splice(0, rules.length - 200);
+        localStorage.setItem(CORRECTION_RULES_KEY, JSON.stringify(rules));
+    }
+
+    // High-confidence rules bypass the threshold and write an improvement
+    // immediately. These are explicit user commands -- accumulating them
+    // across repetitions would discard the high-value signal.
+    if (signal.type === 'rule' && signal.confidence >= 0.75 && signal.extractedRule) {
+        const improvements = getImprovements();
+        const existingTexts = new Set(improvements.map(i => i.constraint));
+        if (!existingTexts.has(signal.extractedRule)) {
+            improvements.push({
+                id: `chatrule_${Date.now()}`,
+                field,
+                stage,
+                constraint: signal.extractedRule,
+                appliedAt: Date.now(),
+                improvementScore: 0,
+                artifactKind: signal.artifactKind || 'all',
+            });
+            localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(improvements));
+            console.log(`[PromptImprovement] Chat rule (direct, kind=${signal.artifactKind || 'all'}): ${signal.extractedRule}`);
+
+            // For 'rule' signals only -- export to wiki immediately so cross-session
+            // compounding works without waiting for an end-of-run trigger.
+            // (Many chat-first sessions never reach the old end-of-run handler.)
+            void exportConstraintsToWiki().catch(() => { /* non-blocking */ });
+        }
+    }
+
+    // Auto-detect patterns periodically (same cadence as logEdit)
+    if (log.length % 5 === 0) {
+        detectPatterns();
+    }
+}
+
+/**
+ * Look up the most recent extracted rule for a given stage+field. Called by
+ * detectPatterns when the stage starts with "chat:" so we use the
+ * LLM-extracted rule instead of generateConstraint's boilerplate.
+ */
+export function lookupChatRule(stage: string, field: string): string | null {
+    const rules = getCorrectionRules();
+    for (let i = rules.length - 1; i >= 0; i--) {
+        if (rules[i].stage === stage && rules[i].field === field) return rules[i].rule;
+    }
+    return null;
+}
+
 /**
  * P6-06: Export current localStorage constraints to wiki for cross-session persistence.
  */
@@ -383,7 +555,7 @@ export async function exportConstraintsToWiki(): Promise<boolean> {
     const content = `---\ntitle: Learned Constraints\ntype: synthesis\nupdated: ${new Date().toISOString().split('T')[0]}\n---\n\n# Learned Constraints\n\nAuto-generated from user edit patterns across research sessions.\n\n${lines}\n`;
 
     try {
-        const resp = await fetch('http://localhost:5012/api/wiki/write', {
+        const resp = await fetch('http://127.0.0.1:5012/api/wiki/write', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ path: 'synthesis/learned-constraints.md', content }),

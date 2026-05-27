@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Strategic roadmap — Co-Op Prep × Advancement FY27</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .vision-band {
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+    padding: 22px 32px;
+    display: grid;
+    grid-template-columns: 200px 1fr 400px;
+    gap: 48px;
+    align-items: center;
+  }
+  .vision-band h3 {
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--nu-red-100);
+    margin-bottom: 6px;
+  }
+  .vision-band__statement {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .vision-band__horizons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .vision-band__horizons > div {
+    background: var(--ink-900);
+    padding: 8px 14px;
+    text-align: center;
+  }
+  .vision-band__horizons b {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--white);
+    letter-spacing: .04em;
+  }
+  .vision-band__horizons span {
+    font-size: 9.5px;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  /* Theme legend */
+  .theme-legend {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 12px 32px 0;
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+  .theme-legend > div { display: flex; align-items: center; gap: 6px; }
+  .theme-legend .swatch { width: 12px; height: 12px; border-radius: 2px; }
+
+  /* Three-column roadmap */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .horizon {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .horizon__head {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-default);
+    background: var(--slate-50);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .horizon__title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .horizon__sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .horizon__conf {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .horizon__conf.high { color: var(--success-fg); }
+  .horizon__conf.med { color: var(--warning-fg); }
+  .horizon__conf.low { color: var(--special-fg); }
+  .horizon__list { padding: 4px; }
+
+  /* Initiative card */
+  .init {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: grid;
+    gap: 8px;
+  }
+  .init:last-child { border-bottom: 0; }
+  .init__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .init__theme {
+    width: 4px;
+    align-self: stretch;
+    border-radius: 2px;
+    background: var(--slate-300);
+    flex-shrink: 0;
+  }
+  .init__theme.t-data { background: var(--nu-red-600); }
+  .init__theme.t-ai { background: var(--special-solid); }
+  .init__theme.t-peer { background: var(--success-solid); }
+  .init__theme.t-sunset { background: var(--ink-800); }
+  .init__main {
+    flex: 1;
+    display: grid;
+    gap: 6px;
+  }
+  .init__id {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    display: flex; justify-content: space-between;
+  }
+  .init__title {
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .init__desc {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--fg-muted);
+  }
+  .init__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 12px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .02em;
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 8px;
+  }
+  .init__meta dt {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--fg-subtle);
+  }
+  .init__meta dd {
+    margin: 0;
+    color: var(--fg-default);
+    font-weight: 500;
+    font-size: 10.5px;
+  }
+  .init__meta dd.mono { font-family: var(--font-mono); font-weight: 500; }
+  .init__dep {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    background: var(--slate-50);
+    padding: 6px 8px;
+    border-radius: 4px;
+    line-height: 1.4;
+  }
+  .init__dep::before {
+    content: "↳";
+    color: var(--fg-subtle);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+  .init__dep b { color: var(--fg-default); font-weight: 500; }
+
+  .init-wrap {
+    display: flex;
+    gap: 10px;
+  }
+  .init.priority .init__title { color: var(--nu-red-700); }
+
+  /* Below-roadmap section: dependency graph + theme distribution */
+  .below {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .theme-dist {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  .theme-dist > h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 16px;
+  }
+  .theme-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 50px;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .theme-row:last-child { border-bottom: 0; }
+  .theme-row__name {
+    font-size: 12px;
+    color: var(--fg-default);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .theme-row__bars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    height: 20px;
+  }
+  .theme-row__bars > div {
+    background: var(--slate-100);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    border-radius: 2px;
+  }
+  .theme-row__bars > div.has { background: var(--ink-800); color: var(--white); }
+  .theme-row__bars > div.has.priority { background: var(--nu-red-600); }
+  .theme-row__total {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-default);
+    font-weight: 500;
+  }
+  .theme-row__head {
+    display: grid;
+    grid-template-columns: 200px 1fr 50px;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  .theme-row__head .horizons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    text-align: center;
+  }
+
+  /* Capacity check */
+  .capacity {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  .capacity h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 4px;
+  }
+  .capacity p.sub { font-size: 11px; color: var(--fg-muted); margin-bottom: 16px; }
+  .cap-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 60px;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 12px;
+  }
+  .cap-row:last-child { border-bottom: 0; }
+  .cap-row__owner { color: var(--fg-default); font-weight: 500; }
+  .cap-row__count {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-default);
+    font-weight: 500;
+  }
+  .cap-row__bar {
+    position: relative;
+    height: 6px;
+    background: var(--slate-100);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .cap-row__bar i {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: var(--ink-800);
+    border-radius: 999px;
+  }
+  .cap-row__bar i.over { background: var(--nu-red-600); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Strategic roadmap · FY27</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Strategic roadmap · Now / Next / Later</div>
+    <h1 class="art-masthead__title">Twelve initiatives across three horizons, balanced across four themes — every Now item ships before the September co-op cycle freeze.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Initiatives</dt><dd>12 of 7 recs</dd></div>
+    <div class="art-masthead__meta-block"><dt>Now / Next / Later</dt><dd>4 / 5 / 3</dd></div>
+    <div class="art-masthead__meta-block"><dt>Quick wins</dt><dd>3 in Now</dd></div>
+  </dl>
+</header>
+
+<!-- Vision band -->
+<div class="vision-band">
+  <div>
+    <h3>FY27 Vision</h3>
+    <p style="font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: .04em;">12–18 month state</p>
+  </div>
+  <div class="vision-band__statement">
+    Co-op outcomes reach donor stewardship in under 72 hours. Coordinators triage at day five, not retrospect at day thirty. Peer-mentor scaffolding is funded, instrumented, and producing measurable cohort lift.
+  </div>
+  <div class="vision-band__horizons">
+    <div><b>0–3 mo</b><span>NOW</span></div>
+    <div><b>3–9 mo</b><span>NEXT</span></div>
+    <div><b>9–18 mo</b><span>LATER</span></div>
+  </div>
+</div>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="theme-legend">
+    <div><span class="swatch" style="background: var(--nu-red-600);"></span>Connective tissue</div>
+    <div><span class="swatch" style="background: var(--special-solid);"></span>Triage / AI surface</div>
+    <div><span class="swatch" style="background: var(--success-solid);"></span>Peer-mentor scaffolding</div>
+    <div><span class="swatch" style="background: var(--ink-800);"></span>Sunset / consolidation</div>
+    <div style="margin-left: auto; font-family: var(--font-mono); font-size: 10.5px;">freeze: 4 weeks pre-cycle · Aug 1 / Feb 1</div>
+  </div>
+
+  <!-- Roadmap horizons -->
+  <section class="art-section" style="margin-top: 16px;">
+    <div class="roadmap">
+
+      <!-- NOW -->
+      <div class="horizon">
+        <div class="horizon__head">
+          <div>
+            <div class="horizon__title">Now</div>
+            <div class="horizon__sub">0–3 months · ship by Aug 1</div>
+          </div>
+          <div class="horizon__conf high">confidence: high</div>
+        </div>
+        <div class="horizon__list">
+
+          <article class="init priority">
+            <div class="init-wrap">
+              <div class="init__theme t-ai"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-01</span><span class="pill pill--lg pill--success">quick win</span></div>
+                <div class="init__title">Officers can no longer use a prospect score without seeing why it scored that way.</div>
+                <div class="init__desc">SHAP-style feature attribution + plain-English overlay on the existing model. No new model deploys until this ships.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Data Sci</dd>
+                  <dt>Success metric</dt><dd class="mono">+30 pts cite-rate</dd>
+                  <dt>Theme</dt><dd>Triage / AI</dd>
+                  <dt>Effort</dt><dd>Low · 3 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="init priority">
+            <div class="init-wrap">
+              <div class="init__theme t-ai"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-02</span><span class="pill pill--lg pill--success">quick win</span></div>
+                <div class="init__title">Stalled-applicant queue replaces the day-7 template email.</div>
+                <div class="init__desc">Day-5 silence trigger via Handshake webhook routes to a ranked coordinator triage queue with an explain view.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Co-op Ops</dd>
+                  <dt>Success metric</dt><dd class="mono">attrition 38 → 22%</dd>
+                  <dt>Theme</dt><dd>Triage / AI</dd>
+                  <dt>Effort</dt><dd>Med · 8 wks</dd>
+                </dl>
+                <div class="init__dep"><span><b>Depends on</b> I-01 explain view (parallel ship)</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-peer"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-03</span><span class="pill pill--lg pill--success">quick win</span></div>
+                <div class="init__title">Peer-mentor pilot expands to six dorms and pays the mentors.</div>
+                <div class="init__desc">Codifies the trio of Boston pilots. Pay rate, touchpoint instrumentation, cohort outcome target, scale-or-retire criteria pre-registered.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Student Aff</dd>
+                  <dt>Success metric</dt><dd class="mono">+12 pts vs. ctrl</dd>
+                  <dt>Theme</dt><dd>Peer-mentor</dd>
+                  <dt>Effort</dt><dd>Low · 8 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-data"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-04</span></div>
+                <div class="init__title">Daily placement digest bridges the 11-day donor lag while the integration lands.</div>
+                <div class="init__desc">MGOs receive a daily digest of placement events tagged with donor-affinity bridges, generated from existing data warehouse views.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Adv Ops</dd>
+                  <dt>Success metric</dt><dd class="mono">lag 11 → 1 d</dd>
+                  <dt>Theme</dt><dd>Connective</dd>
+                  <dt>Effort</dt><dd>Low · 3 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- NEXT -->
+      <div class="horizon">
+        <div class="horizon__head">
+          <div>
+            <div class="horizon__title">Next</div>
+            <div class="horizon__sub">3–9 months · land by Feb 1</div>
+          </div>
+          <div class="horizon__conf med">confidence: medium</div>
+        </div>
+        <div class="horizon__list">
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-data"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-05</span></div>
+                <div class="init__title">Cross-record identity layer between Raiser's Edge, Salesforce EDU, and student-success warehouse.</div>
+                <div class="init__desc">Canonical constituent ID with privacy-bridged aggregated signals. Foundation for everything in the data-spine theme.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Data Arch</dd>
+                  <dt>Success metric</dt><dd class="mono">prep 40 → 10 min</dd>
+                  <dt>Theme</dt><dd>Connective</dd>
+                  <dt>Effort</dt><dd>High · 24 wks</dd>
+                </dl>
+                <div class="init__dep"><span><b>Depends on</b> I-06 GC sign-off</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-data"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-06</span></div>
+                <div class="init__title">FERPA-bridged data model signed off by General Counsel.</div>
+                <div class="init__desc">Written guardrails replace gray-zone defaults. Aggregated relationship-health signals only across the bridge; never individual academic records.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>General Counsel</dd>
+                  <dt>Success metric</dt><dd class="mono">model approved</dd>
+                  <dt>Theme</dt><dd>Connective</dd>
+                  <dt>Effort</dt><dd>Med · 8 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-data"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-07</span></div>
+                <div class="init__title">Stewardship trigger in Raiser's Edge for donor-tagged placement events.</div>
+                <div class="init__desc">Compresses placement-to-donor handoff from 11 days to under 72 hours. Verbatim-quote approval path so donor narratives feel like students.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Adv Ops</dd>
+                  <dt>Success metric</dt><dd class="mono">11 d → &lt; 3 d</dd>
+                  <dt>Theme</dt><dd>Connective</dd>
+                  <dt>Effort</dt><dd>Med · 16 wks</dd>
+                </dl>
+                <div class="init__dep"><span><b>Depends on</b> I-05 identity layer, I-06 GC sign-off</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-sunset"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-08</span></div>
+                <div class="init__title">Two satellite CRMs and the legacy events platform are retired on fiscal boundary.</div>
+                <div class="init__desc">Final-use audit, migration of two non-duplicative features, contract non-renewal sequenced to FY27 close. $1.8M re-allocates.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Finance + IT</dd>
+                  <dt>Success metric</dt><dd class="mono">$1.8M re-alloc</dd>
+                  <dt>Theme</dt><dd>Sunset</dd>
+                  <dt>Effort</dt><dd>Med · 24 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-peer"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-09</span></div>
+                <div class="init__title">Twelve highest-traffic surfaces reach mobile-web parity.</div>
+                <div class="init__desc">Push-notification path via existing NU mobile app. Native build decision gated on Q3 mobile-web KPIs, not assumed.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Co-op Eng</dd>
+                  <dt>Success metric</dt><dd class="mono">+22 pts on-task</dd>
+                  <dt>Theme</dt><dd>Peer-mentor</dd>
+                  <dt>Effort</dt><dd>Med · 16 wks</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- LATER -->
+      <div class="horizon">
+        <div class="horizon__head">
+          <div>
+            <div class="horizon__title">Later</div>
+            <div class="horizon__sub">9–18 months · FY28 candidates</div>
+          </div>
+          <div class="horizon__conf low">confidence: exploratory</div>
+        </div>
+        <div class="horizon__list">
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-ai"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-10</span></div>
+                <div class="init__title">In-house recommender for co-op fit ranks roles by major signal.</div>
+                <div class="init__desc">Waterloo benchmark: 87% major-fit accuracy. Build only after explain-view discipline (I-01) is embedded across model deploys.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Data Sci</dd>
+                  <dt>Success metric</dt><dd class="mono">major-fit 70 → 85%</dd>
+                  <dt>Theme</dt><dd>Triage / AI</dd>
+                  <dt>Effort</dt><dd>High · 36 wks</dd>
+                </dl>
+                <div class="init__dep"><span><b>Depends on</b> I-01 explain view, I-05 identity layer</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-peer"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-11</span></div>
+                <div class="init__title">Cohort-percentile pace dashboard for first-years.</div>
+                <div class="init__desc">Anonymized percentile signals ("you're in the top 30% on readiness") replace absolute counts. Mobile-first. Pilot scope: one major.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Co-op Ops</dd>
+                  <dt>Success metric</dt><dd class="mono">+14 pts apply vol</dd>
+                  <dt>Theme</dt><dd>Peer-mentor</dd>
+                  <dt>Effort</dt><dd>Med · 20 wks</dd>
+                </dl>
+                <div class="init__dep"><span><b>Depends on</b> I-09 mobile parity, I-05 identity layer</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="init">
+            <div class="init-wrap">
+              <div class="init__theme t-data"></div>
+              <div class="init__main">
+                <div class="init__id"><span>I-12</span></div>
+                <div class="init__title">Cohort-anonymous peer benchmarking for gift officers.</div>
+                <div class="init__desc">Address recognition / attribution gap surfaced in MGO interviews — make stewardship moves visible alongside closing activity.</div>
+                <dl class="init__meta">
+                  <dt>Owner</dt><dd>Adv Ops</dd>
+                  <dt>Success metric</dt><dd class="mono">tbd · baseline</dd>
+                  <dt>Theme</dt><dd>Connective</dd>
+                  <dt>Effort</dt><dd>Med · pending</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Theme distribution + capacity -->
+  <div class="below">
+
+    <div class="theme-dist">
+      <h3>Theme balance across horizons</h3>
+      <div class="theme-row__head">
+        <div>Theme</div>
+        <div class="horizons"><div>Now</div><div>Next</div><div>Later</div></div>
+        <div style="text-align: right;">Σ</div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-row__name"><span class="swatch" style="background: var(--nu-red-600); width: 8px; height: 8px; border-radius:50%;"></span>Connective tissue</div>
+        <div class="theme-row__bars">
+          <div class="has priority">1</div>
+          <div class="has priority">3</div>
+          <div class="has priority">1</div>
+        </div>
+        <div class="theme-row__total">5</div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-row__name"><span class="swatch" style="background: var(--special-solid); width: 8px; height: 8px; border-radius:50%;"></span>Triage / AI surface</div>
+        <div class="theme-row__bars">
+          <div class="has">2</div>
+          <div></div>
+          <div class="has">1</div>
+        </div>
+        <div class="theme-row__total">3</div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-row__name"><span class="swatch" style="background: var(--success-solid); width: 8px; height: 8px; border-radius:50%;"></span>Peer-mentor</div>
+        <div class="theme-row__bars">
+          <div class="has">1</div>
+          <div class="has">1</div>
+          <div class="has">1</div>
+        </div>
+        <div class="theme-row__total">3</div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-row__name"><span class="swatch" style="background: var(--ink-800); width: 8px; height: 8px; border-radius:50%;"></span>Sunset / consolidation</div>
+        <div class="theme-row__bars">
+          <div></div>
+          <div class="has">1</div>
+          <div></div>
+        </div>
+        <div class="theme-row__total">1</div>
+      </div>
+      <p style="font-size: 11px; color: var(--fg-muted); margin-top: 14px; line-height: 1.45;">Every theme appears in at least two horizons — coverage requirement met. Red cells = priority initiatives (3 of 12).</p>
+    </div>
+
+    <div class="capacity">
+      <h3>Capacity check by owner</h3>
+      <p class="sub">Now-horizon load — initiatives per owning function, indicative of FY27 H1 burden.</p>
+      <div class="cap-row">
+        <div class="cap-row__owner">Adv Ops</div>
+        <div class="cap-row__bar"><i style="width: 60%;"></i></div>
+        <div class="cap-row__count">3 / 5</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-row__owner">Co-op Ops</div>
+        <div class="cap-row__bar"><i style="width: 80%;"></i></div>
+        <div class="cap-row__count">4 / 5</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-row__owner">Data Sci / Eng</div>
+        <div class="cap-row__bar"><i class="over" style="width: 100%;"></i></div>
+        <div class="cap-row__count">5 / 5</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-row__owner">Student Affairs</div>
+        <div class="cap-row__bar"><i style="width: 20%;"></i></div>
+        <div class="cap-row__count">1 / 5</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-row__owner">Finance + IT</div>
+        <div class="cap-row__bar"><i style="width: 40%;"></i></div>
+        <div class="cap-row__count">2 / 5</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-row__owner">General Counsel</div>
+        <div class="cap-row__bar"><i style="width: 30%;"></i></div>
+        <div class="cap-row__count">1 / 5</div>
+      </div>
+      <p style="font-size: 11px; color: var(--nu-red-700); margin-top: 14px; line-height: 1.45;">Data Sci / Eng is loaded at capacity in the Now horizon — sequence I-01 and I-02 if a hire isn't approved by July.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>VP-OPS-09 memo</b> · D. Chen, 2026-01-22</li>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>UC Co-op annual report</b> · 2025 (day-5 triage benchmark)</li>
+      <li><b>Drexel Co-op CASE study</b> · 2024 (5-day loop benchmark)</li>
+      <li><b>NU Handshake funnel analytics</b> · 2025–26 cycle</li>
+      <li><b>HiEd Dive</b> · prospect scoring trust, 2025-09</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">ROADMAP · v1 · FY27</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>roadmap-builder</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

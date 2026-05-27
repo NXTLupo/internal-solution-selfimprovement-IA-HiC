@@ -7,12 +7,12 @@ title: "Northeastern MS Cybersecurity Admit (Fall 2026) – Do Most Students Get
 author: "Realistic_Net_2869"
 date: "2026-04-09T06:06:27.000Z"
 score: 0
-upvote_ratio: 0.44
+upvote_ratio: 0.5
 num_comments: 2
 flair: "Advice & Experiences"
-extracted_at: "2026-05-13T23:02:38.917Z"
+extracted_at: "2026-05-26T14:30:23.762Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # Northeastern MS Cybersecurity Admit (Fall 2026) – Do Most Students Get Co-ops

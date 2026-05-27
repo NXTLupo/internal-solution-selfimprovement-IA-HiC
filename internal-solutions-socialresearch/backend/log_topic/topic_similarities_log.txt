@@ -1,0 +1,6 @@
+Calculating topic similarities...
+Topic 0 top words: ['op', 'ops', 'accounting', 'gpa', 'spring', 'business', 'big', 'school', 'year', 'fall']
+Topic 1 top words: ['models', 'local', 'claude', 'finance', 'mahoraga', 'cs', 'run', 'able', 'resume', 'work']
+Topic 2 top words: ['op', 'im', 'linkedin', 'cooked', 'interviews', 'op search', 'email', 'applications', 'coop']
+Topic 3 top words: ['op', 'fall', 'fenway health', 'walk', 'start', 'end', 'applying', 'june', 'date']
+Found 6 topic similarity pairs

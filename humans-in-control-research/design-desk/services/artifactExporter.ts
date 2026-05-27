@@ -168,7 +168,7 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
     // bug we fought (empty <a:ln></a:ln>, charSpacing units, malformed
     // custGeom, theme drop shadows, font substitution to Arial) is gone.
     // The walker stays — only the backend emit changes.
-    const PROXY_BASE = 'http://localhost:5012';
+    const PROXY_BASE = 'http://127.0.0.1:5012';
     const filename = `${(artifact as any).kind ?? 'freeform'}-${artifact.id}.pptx`;
 
     if ((window as any).__NXT_PPTX_DEBUG__) {

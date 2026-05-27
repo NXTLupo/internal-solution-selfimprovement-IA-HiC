@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Accepted into the NU.in Program!!!"
 author: "11hyunjin"
 date: "2026-01-29T16:10:28.000Z"
-score: 32
-upvote_ratio: 0.87
+score: 35
+upvote_ratio: 0.9
 num_comments: 20
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-13T23:02:38.867Z"
+extracted_at: "2026-05-20T06:39:39.934Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
 ---
 
 # Accepted into the NU.in Program!!!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qqcs4v/accepted_into_the_nuin_program/)
-Posted by **11hyunjin** · **32↑** · **20 comments**
+Posted by **11hyunjin** · **35↑** · **20 comments**
 
 EEEEEEK Northeastern has been my first choice and I got accepted into their first semester abroad! It sounds super exciting but my parents have been a little concerned with me as an international student to be starting off not in boston. 
 
@@ -37,11 +37,11 @@ Someone please help a girl out!!!
   - **11hyunjin** (3↑): AHHH okay thanks this relieved some of my anxiety abt it
 - **sunflowerplanting** (8↑): i got in too! i’m heavily thinking of going it’s a once in a life experience 😁
   - **Cold_Collection_6077** (1↑): Can you pls share cost of the program? My daughter got in London program but price is very high. Is it worth spending so much?
-- **This_Impress7889** (6↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
+- **This_Impress7889** (7↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
   - **11hyunjin** (1↑): can i ask if you were an international student or a US citizen? bc I had some confusions abt the F1 visa stuff
   - **paigu-fan** (1↑): I know the location is first come first serve. Did you have to reserve your spot the moment the website on the portal opened?
     - **11hyunjin** (1↑): they said the locations will be announced in the spring so still waiting
-- **Apple_Pie_Nutt69** (9↑): I did it it’s so worth it I got a full ride scholarship too from Nu that paid for it
+- **Apple_Pie_Nutt69** (7↑): I did it it’s so worth it I got a full ride scholarship too from Nu that paid for it
 
 Make sure you select a location ASAP because a lot fill up as soon as letters release
   - **11hyunjin** (3↑): that’s so cool! they said that locations for fall26 will be available in the spring

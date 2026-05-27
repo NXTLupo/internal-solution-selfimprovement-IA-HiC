@@ -1,0 +1,14 @@
+:root {
+  --bg: #FFFFFF;
+  --text: #0D0D0D;
+  --accent: #B8B800;
+  --accent-2: #115054;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}

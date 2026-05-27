@@ -64,3 +64,18 @@ Scale phase count and milestone density to the corpus. Replicate the structural 
 - ANY text overlapping ANY phase divider, workstream row line, or today-marker.
 - ANY workstream row compressed below 32px tall.
 - Inheriting the exemplar's exact coordinate values when YOUR phase count differs. RECOMPUTE column widths.
+
+---
+
+## Self-check BEFORE emitting (2026-05-20)
+
+1. Any milestone diamond overlapping a bar or label? Reject.
+2. Any bar label positioned outside its bar that overlaps the next bar's content? Reject.
+3. Any phase status pill (committed/planned/aspirational) where the visual treatment doesn't match the corpus-stated status? Reject — committed = solid fill, planned = outlined, aspirational = dashed.
+4. Any workstream row with mixed-height bars in the same row? Reject — all bars in a row must use the same vertical center and the same height.
+5. Today-marker missing OR rendered without a label OR rendered without dashed pattern? Reject (Gantt idiom only).
+6. Any phase content overflowing its column? Reject — either truncate or grow the column.
+7. Two phases visually emphasized (focal styling)? Reject — exactly one or zero focal phases.
+8. Any element outside the 1920×1080 frame OR crossing the bottom-band boundary? Reject.
+
+If any check fails, regenerate with corrected geometry — do not ship.

@@ -10,9 +10,9 @@ score: 3
 upvote_ratio: 1
 num_comments: 1
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T18:45:41.306Z"
+extracted_at: "2026-05-26T14:30:23.764Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # MS in AI (CV) at NEU Boston — worth accepting if my goal is Data Engineering?

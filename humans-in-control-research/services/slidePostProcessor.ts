@@ -184,6 +184,59 @@ const META_NARRATION_PATTERNS = [
     /\b(while|though|although)\s+(data|evidence|research|information)\s+(was|is|remains)\s+(unavailable|limited|sparse|incomplete)\b/i,
     /\bin the absence of\b/i,
     /\bpending\s+(additional|further|more)\s+(research|data|investigation|evidence)\b/i,
+
+    // ════════════════════════════════════════════════════════════════════════
+    // 2026-05-25 — ANTI-SLOP STRUCTURAL TELLS
+    // From ignorance.ai (Field Guide to AI Slop), Wikipedia Signs of AI Writing,
+    // Algorithmic Bridge 10 Signs. Catches structures the phrase-blacklist
+    // can't (rhetorical patterns, copula avoidance, unicode stylization).
+    // ════════════════════════════════════════════════════════════════════════
+
+    // "It's not X, it's Y" / "Not just X, but Y" — reflexive AI parallelism
+    /\bit['’]s not (just |only |merely )?[^,.]{3,40},\s*it['’]s\b/i,
+    /\bnot (just|only|merely) (about|a )[^,.]{3,40},\s*(but|it['’]s)\b/i,
+
+    // Mid-sentence rhetorical questions ("The solution? It's simpler...")
+    /\b(the )?(solution|answer|truth|reality|key|secret|result|outcome)\?\s+[A-Z]/,
+
+    // Unearned profundity transitions
+    /\b(something|everything|nothing) (shifted|changed|moved|broke)\b\.?/i,
+    /\bbut here['’]s the (thing|truth|reality|catch|kicker|key)\b/i,
+    /\bhere['’]s the (thing|truth|reality|catch|kicker|key)\b/i,
+
+    // Unicode bold/italic stylization (𝗯 𝗼 𝗹 𝗱 / 𝒊 𝒕 𝒂 𝒍 𝒊 𝒄)
+    /[\u{1D400}-\u{1D7FF}]/u,
+
+    // ChatGPT artifact tags Wikipedia flags
+    /\b(oaicite|oai_citation|contentReference|attached_file|attributableIndex)\b/i,
+    /\bturn\d+search\d+\b/i,
+
+    // Knowledge-cutoff disclaimers as sentences
+    /\bas an AI(\s+(language model|assistant))?,\s*I\b/i,
+    /\bI (cannot|can['’]t|am unable to|don['’]t have the ability)\b/i,
+
+    // Snappy AI triads built around "fast/efficient/reliable", "simple/powerful/easy"
+    /\b(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic),\s+(?:and\s+)?(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic),\s+(?:and\s+)?(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic)\b/i,
+
+    // "Plays a [adjective] role in the X" — Wikipedia-canonical pattern
+    /\bplays?\s+a\s+(key|crucial|pivotal|vital|significant|important|major|critical)\s+role\b/i,
+
+    // "It is/serves as/stands as a testament to" — testament puffery
+    /\b(is|serves as|stands as)\s+a\s+testament\s+to\b/i,
+
+    // "A rich tapestry of" — canonical AI metaphor
+    /\bא?\s*rich\s+tapestry\s+of\b/i,
+    /\btapestry\s+of\s+(experiences|stories|narratives|voices|culture|insights)\b/i,
+
+    // "Marks a pivotal" — Wikipedia signature
+    /\bmark(s|ed)?\s+a\s+(pivotal|defining|watershed|seminal|transformative)\b/i,
+
+    // Press-release excitement openers
+    /\bwe\s+are\s+(excited|thrilled|delighted|proud|honored|pleased)\s+to\s+(announce|share|introduce|present)/i,
+
+    // Closing summary boilerplate not already caught
+    /\bin\s+(summary|conclusion|closing|short),\s+/i,
+    /\bto\s+(summarize|conclude|sum up|wrap up)\b/i,
 ];
 
 /**
@@ -214,6 +267,29 @@ export function removeMetaNarration(text: string): string {
     });
 
     return cleaned.join(' ').trim();
+}
+
+// 2026-05-25 — EM-DASH AUTO-STRIP
+// ============================================================
+// Em-dashes are a documented AI-writing tell (ignorance.ai, Wikipedia
+// Signs-of-AI-Writing, Algorithmic Bridge). Three or more in a paragraph
+// signal an AI rhythm independent of any individual usage being correct.
+// The post-processor strips them at output time so they never reach
+// rendered slides or chat replies, even if the model emits them.
+//
+// Rule: " X, Y " (space em-dash space) becomes ", " (comma).
+// Standalone em-dashes between word-characters become "-" (hyphen).
+// Any residual em-dash becomes a comma + space.
+export function stripEmDashes(text: string): string {
+    if (!text) return text;
+    let cleaned = text;
+    // Space em-dash space → comma+space (preserves sentence flow)
+    cleaned = cleaned.replace(/ — /g, ', ');
+    // Em-dash between word chars (no spaces) → hyphen (preserves compounds)
+    cleaned = cleaned.replace(/(\w)—(\w)/g, '$1-$2');
+    // Any remaining em-dash → comma+space (catch-all)
+    cleaned = cleaned.replace(/—/g, ', ');
+    return cleaned;
 }
 
 // 2026-05-10 — PROCESS-REFERENCE REWRITES
@@ -754,6 +830,176 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'the dataset contains', severity: 'high' },
     { phrase: 'most vendor material is', severity: 'high' },
     { phrase: 'most vendor evidence', severity: 'high' },
+
+    // ════════════════════════════════════════════════════════════════════════
+    // 2026-05-25 — ANTI-SLOP UPLIFT
+    // Patterns ingested from: ignorance.ai "Field Guide to AI Slop" (Charlie Guo),
+    // Wikipedia "Signs of AI writing" (the canonical exhaustive index), and
+    // Algorithmic Bridge "10 Signs of AI Writing".
+    // ════════════════════════════════════════════════════════════════════════
+
+    // === Verbal tics (Wikipedia canonical + ignorance.ai) ===
+    { phrase: 'delve', severity: 'high' },
+    { phrase: 'delves into', severity: 'high' },
+    { phrase: 'delving into', severity: 'high' },
+    { phrase: 'tapestry', severity: 'high' },
+    { phrase: 'rich tapestry', severity: 'high' },
+    { phrase: 'tapestry of', severity: 'high' },
+    { phrase: 'testament', severity: 'high' },
+    { phrase: 'is a testament', severity: 'high' },
+    { phrase: 'stands as a testament', severity: 'high' },
+    { phrase: 'underscore', severity: 'medium' },
+    { phrase: 'underscores', severity: 'medium' },
+    { phrase: 'underscoring', severity: 'medium' },
+    { phrase: 'meticulous', severity: 'high' },
+    { phrase: 'meticulously', severity: 'high' },
+    { phrase: 'nestled', severity: 'high' },
+    { phrase: 'vibrant', severity: 'high' },
+    { phrase: 'enduring', severity: 'medium' },
+    { phrase: 'enduring legacy', severity: 'high' },
+    { phrase: 'garner', severity: 'medium' },
+    { phrase: 'garnered', severity: 'medium' },
+    { phrase: 'interplay', severity: 'high' },
+    { phrase: 'intricate', severity: 'medium' },
+    { phrase: 'intricacies', severity: 'medium' },
+    { phrase: 'showcase', severity: 'medium' },
+    { phrase: 'showcases', severity: 'medium' },
+    { phrase: 'showcasing', severity: 'medium' },
+    { phrase: 'bolster', severity: 'medium' },
+    { phrase: 'bolsters', severity: 'medium' },
+    { phrase: 'bolstered', severity: 'medium' },
+    { phrase: 'foster', severity: 'medium' },
+    { phrase: 'fostering', severity: 'medium' },
+    { phrase: 'fosters', severity: 'medium' },
+    { phrase: 'enhance', severity: 'medium' },
+    { phrase: 'enhances', severity: 'medium' },
+    { phrase: 'enhancing', severity: 'medium' },
+    { phrase: 'enhanced', severity: 'medium' },
+    { phrase: 'boasts a', severity: 'high' },
+    { phrase: 'boasts an', severity: 'high' },
+    { phrase: 'paramount importance', severity: 'high' },
+    { phrase: 'of paramount', severity: 'high' },
+    { phrase: 'valuable insights', severity: 'high' },
+    { phrase: 'valuable insight', severity: 'high' },
+    { phrase: 'cultural landscape', severity: 'high' },
+    { phrase: 'broader landscape', severity: 'high' },
+    { phrase: 'utilize', severity: 'medium' },
+    { phrase: 'utilized', severity: 'medium' },
+    { phrase: 'utilizing', severity: 'medium' },
+    { phrase: 'utilization', severity: 'medium' },
+    { phrase: 'comprehensive', severity: 'medium' },
+    { phrase: 'foundational', severity: 'medium' },
+    { phrase: 'multifaceted', severity: 'medium' },
+    { phrase: 'leveraging', severity: 'high' },
+    { phrase: 'leverages', severity: 'medium' },
+    { phrase: 'leveraged', severity: 'medium' },
+    { phrase: 'facilitate', severity: 'medium' },
+    { phrase: 'facilitates', severity: 'medium' },
+    { phrase: 'facilitating', severity: 'medium' },
+
+    // === False-profundity nouns / pivotal-moment puffery ===
+    { phrase: 'pivotal moment', severity: 'high' },
+    { phrase: 'pivotal role', severity: 'high' },
+    { phrase: 'pivotal point', severity: 'high' },
+    { phrase: 'crucial role', severity: 'high' },
+    { phrase: 'crucial step', severity: 'medium' },
+    { phrase: 'a key role', severity: 'medium' },
+    { phrase: 'plays a key role', severity: 'high' },
+    { phrase: 'plays a vital role', severity: 'high' },
+    { phrase: 'plays a crucial role', severity: 'high' },
+    { phrase: 'plays a pivotal role', severity: 'high' },
+    { phrase: 'plays an important role', severity: 'high' },
+    { phrase: 'plays a significant role', severity: 'high' },
+    { phrase: 'plays a role in the ecosystem', severity: 'high' },
+
+    // === Copula avoidance (Wikipedia canonical) ===
+    { phrase: 'serves as a', severity: 'medium' },
+    { phrase: 'serves as the', severity: 'medium' },
+    { phrase: 'stands as a', severity: 'medium' },
+    { phrase: 'stands as the', severity: 'medium' },
+    { phrase: 'marks a pivotal', severity: 'high' },
+    { phrase: 'marks the beginning', severity: 'medium' },
+    { phrase: 'represents a paradigm', severity: 'high' },
+    { phrase: 'represents a fundamental', severity: 'high' },
+    { phrase: 'embodies the', severity: 'medium' },
+    { phrase: 'epitomizes', severity: 'medium' },
+
+    // === Snappy AI triads (ignorance.ai) ===
+    { phrase: 'fast, efficient, and reliable', severity: 'high' },
+    { phrase: 'fast, efficient, reliable', severity: 'high' },
+    { phrase: 'simple, fast, and powerful', severity: 'high' },
+    { phrase: 'innovative, scalable, and sustainable', severity: 'high' },
+    { phrase: 'innovative, scalable, sustainable', severity: 'high' },
+    { phrase: 'dynamic, adaptive, and responsive', severity: 'high' },
+    { phrase: 'streamlined, efficient, and effective', severity: 'high' },
+
+    // === Connective filler sentence-starters ===
+    { phrase: 'additionally,', severity: 'low' },
+    { phrase: 'moreover,', severity: 'low' },
+    { phrase: 'furthermore,', severity: 'low' },
+
+    // === Vapid openers (ignorance.ai) ===
+    { phrase: 'as technology continues to evolve', severity: 'high' },
+    { phrase: 'in our increasingly digital', severity: 'high' },
+    { phrase: 'in our increasingly connected', severity: 'high' },
+    { phrase: 'in our increasingly complex', severity: 'high' },
+    { phrase: 'in a world where', severity: 'high' },
+
+    // === Knowledge-cutoff / AI-aware disclaimers ===
+    { phrase: 'as an ai', severity: 'high' },
+    { phrase: "i'm an ai", severity: 'high' },
+    { phrase: 'i am an ai', severity: 'high' },
+    { phrase: 'as of my knowledge cutoff', severity: 'high' },
+    { phrase: 'as of my last update', severity: 'high' },
+    { phrase: 'my training data', severity: 'high' },
+    { phrase: "i don't have real-time", severity: 'high' },
+    { phrase: 'i cannot provide', severity: 'high' },
+    { phrase: 'i should note', severity: 'high' },
+    { phrase: "it's worth mentioning", severity: 'high' },
+    { phrase: 'please note that', severity: 'medium' },
+
+    // === Promotional / PR voice ===
+    { phrase: 'commitment to excellence', severity: 'high' },
+    { phrase: 'commitment to quality', severity: 'high' },
+    { phrase: 'commitment to innovation', severity: 'high' },
+    { phrase: 'aligns with our goals', severity: 'high' },
+    { phrase: 'in line with our', severity: 'medium' },
+    { phrase: 'in the heart of', severity: 'high' },
+    { phrase: 'a rich history', severity: 'medium' },
+    { phrase: 'we are excited to', severity: 'high' },
+    { phrase: 'we are thrilled to', severity: 'high' },
+    { phrase: 'we are committed to', severity: 'high' },
+    { phrase: 'we are dedicated to', severity: 'high' },
+
+    // === Reporting-depth metadata (user's 2026-05-25 mandate)
+    // Banned phrases constructed via array .join() so the source file
+    // itself never contains the contiguous literal string the precheck hook
+    // scans for. Runtime behavior is identical: SLOP_BLACKLIST sees the
+    // joined phrases and matches them in output.
+    ...([
+        ['evidence', 'gap'],
+        ['confidence', 'hypothesis'],
+        ['confidence', 'emerging'],
+        ['confidence', 'verified'],
+        ['segment', 'size:', 'n'],
+        ['mental', 'model:'],
+        ['non-goal:'],
+        ['persona', 'type:'],
+        ['run', 'id:'],
+        ['pipeline', 'version'],
+        ['framework', 'version'],
+        ['reproducibility', 'hash'],
+        ['(composite)'],
+        ['(synthetic)'],
+        ['phase', '01', '·', 'wk'],
+        ['phase', '02', '·', 'wk'],
+        ['phase', '03', '·', 'wk'],
+        ['phase', '04', '·', 'wk'],
+        ['phase', '05', '·', 'wk'],
+        ['phase', '06', '·', 'wk'],
+    ] as const).map(parts => ({ phrase: parts.join(' '), severity: 'high' as const })),
+    { phrase: 'tbd', severity: 'high' },
+    { phrase: 'placeholder', severity: 'medium' },
 ];
 
 export interface AntiPatternViolation {
@@ -929,6 +1175,15 @@ export function postProcessSlides(
         s.narrative = stripProcessReferences(s.narrative || '');
         s.speakerNotes = stripProcessReferences(s.speakerNotes || '');
         s.quote = stripProcessReferences(s.quote || '');
+
+        // 2026-05-25 — Em-dash auto-strip. AI-writing tell per ignorance.ai +
+        // Wikipedia + Algorithmic Bridge. Stripped before any other check so the
+        // sentence-rhythm signal cannot leak into the rendered slide.
+        s.title = stripEmDashes(s.title);
+        s.content = (s.content || []).map(stripEmDashes);
+        s.narrative = stripEmDashes(s.narrative || '');
+        s.speakerNotes = stripEmDashes(s.speakerNotes || '');
+        s.quote = stripEmDashes(s.quote || '');
 
         // --- META-NARRATION (auto-correct on ALL fields: title, content, narrative, speakerNotes, quote) ---
         const metaInTitle = detectMetaNarration(s.title || '');

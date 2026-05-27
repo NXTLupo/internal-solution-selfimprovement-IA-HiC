@@ -32,7 +32,7 @@ This file loads into every Claude agent session. All skills and subagents inheri
 - ALWAYS cite by specific source name: "Higher Ed Dive", "Reddit: r/cscareerquestions", "OpenAlex: Smith 2024"
 - NEVER use generic references: "research", "studies", "data", "sources", "intelligence_sources", "analysis", "evidence", "findings", "reports", "literature", "various sources", "multiple sources"
 - Every citations[] array MUST contain real, named source identifiers
-- Every evidenceBasis MUST contain specific numbers, verbatim quotes, or named entities
+- Every evidenceBasis MUST contain verbatim quotes or named entities (see Quantitative Claim Rule: numbers only inside a cited quote, never as a bare figure)
 
 ### Evidence Hierarchy (Mandatory for ALL Deliverables)
 1. LEAD with external research evidence (name the article, quote the finding)
@@ -71,11 +71,20 @@ The user chose to INCLUDE these ~200 articles. They MUST be heavily represented 
 - Resolution: What must be done? (60-70%)
 
 ### Action Titles (All Slide Titles)
-- Every slide title MUST be a complete sentence stating a conclusion with data
-- BAD: "The Landscape", "Key Findings", "Recommendations", "The Path Forward"
-- GOOD: "35% of first-year students do not return, costing $9B annually"
-- GOOD: "Fragmented CRM systems force advancement teams to spend 40% of time on manual data entry"
+- Every slide title MUST be a complete sentence stating a CONCLUSION (a judgment), not a topic
+- BAD (topic labels): "The Landscape", "Key Findings", "Recommendations", "The Path Forward"
+- BAD (naked numbers, see Quantitative Claim Rule): "35% of first-year students do not return, costing $9B annually"
+- GOOD: "First-year students leave faster than the institution can replace them"
+- GOOD: "Fragmented CRM systems force advancement teams into manual data entry instead of donor work"
 - The Partner Test: A senior partner reading ONLY slide titles must understand the complete argument
+- Titles carry the JUDGMENT; the supporting number, if any, lives in a cited quote on the slide body, never in the title itself
+
+### Quantitative Claim Rule (Mandatory, ALL Deliverables)
+Do NOT state standalone quantitative claims (percentages, ratios, counts, dollar figures, durations-as-metrics, "Nx", "N%") as the model's own assertions in ANY user-visible field: titles, headings, prose, narratives, KPI/stat tiles, pain or opportunity statements, captions, synthesis. A naked number reads as fabricated and is the #1 AI-slop tell flagged on this project.
+- A number may appear ONLY inside a VERBATIM quote that carries an inline source attribution. If a real person or named source said it, you may show the number IN THE CONTEXT OF THAT QUOTE. Example (allowed): a pull quote "I applied to 60 co-ops and heard back from 4." [Source: Reddit r/NEU]. The same "60-to-4" as a bare title or KPI tile is FORBIDDEN.
+- Default to QUALITATIVE language for titles, KPIs, and prose: name the pattern (FRAGMENTED, PERSISTENT, ONE ADVISOR FOR MANY), the system, or the proper noun, not the statistic.
+- evidenceBasis and pain points anchor to NAMED entities and verbatim quotes, not free-floating numbers.
+- This rule overrides any older guidance (including earlier examples in this file and edit-history constraints) that asked for "a number in the title" or "quantify in dollars." Numbers are evidence carried by quotes, not assertions.
 
 ## Meta-Narration Ban
 
@@ -102,7 +111,7 @@ The output is a finished consulting artifact. The reader must never see ANY refe
 - The research or generation process ("based on the research", "based on the available data", "according to our analysis", "the research shows", "the data indicates", "the corpus reveals", "from the sources reviewed", "drawing on the evidence", "this report finds", "our findings suggest", "research indicates", "studies show", "sources indicate")
 - Evidence limitations ("evidence is limited", "data is limited", "more research is needed", "further investigation required", "additional research needed", "due to limited data", "while data was unavailable", "in the absence of", "pending additional research")
 
-If a process-reference prefix appears, STRIP it and keep the insight: "Based on the research, customer churn is 22%" → "Customer churn is 22%." If a limitation phrase appears, omit the claim entirely and narrow the section around what IS evidenced. The reader must never see the model's awareness of what it doesn't know.
+If a process-reference prefix appears, STRIP it and keep the insight: "Based on the research, churn is the core retention failure" → "Churn is the core retention failure." (Per the Quantitative Claim Rule, the supporting figure rides in a cited quote, not as a bare assertion.) If a limitation phrase appears, omit the claim entirely and narrow the section around what IS evidenced. The reader must never see the model's awareness of what it doesn't know.
 
 These rules are enforced at runtime by `services/slidePostProcessor.ts` (META_NARRATION_PATTERNS, PROCESS_REFERENCE_REWRITES). Patterns can be bypassed by clever phrasing; the post-processor cannot.
 
@@ -122,6 +131,72 @@ moving forward, going forward, at this point in time, in the current climate, as
 
 ### False Profundity
 fundamental shift, seismic shift, unprecedented, transformative, revolutionary, groundbreaking, trailblazing, world-class
+
+### Verbal Tics — 2026-05-25 Uplift (High Severity)
+Ingested from Wikipedia "Signs of AI writing", ignorance.ai "Field Guide to AI Slop", Algorithmic Bridge "10 Signs of AI Writing". These are the AI-writing tells the prior list did not cover:
+
+delve, delves into, delving into, tapestry, rich tapestry, tapestry of, testament, is a testament, stands as a testament, meticulous, meticulously, nestled, vibrant, enduring, enduring legacy, garner, garnered, interplay, intricate, intricacies, showcase, showcasing, bolster, bolsters, bolstered, foster, fostering, fosters, enhance, enhances, enhancing, boasts a, boasts an, paramount, of paramount, valuable insights, cultural landscape, broader landscape, utilize, utilized, utilizing, comprehensive, foundational, multifaceted, leveraging, facilitate, facilitates, facilitating, pivotal moment, pivotal role, plays a pivotal role, plays a crucial role, plays a key role, plays a vital role, plays a role in the ecosystem, marks a pivotal, represents a paradigm, represents a fundamental, embodies, epitomizes
+
+### Copula Avoidance (Wikipedia Canonical)
+Avoid replacing simple "is" with elaborate verbs:
+- BAD: "The system serves as a unifying platform"
+- BAD: "The CRM stands as the cornerstone of advancement"
+- BAD: "The migration marks a pivotal moment in the team's evolution"
+- GOOD: "The CRM is the cornerstone of advancement"
+- GOOD: "The migration is the team's most significant change this year"
+
+Watch verbs: serves as, stands as, marks (a/the), represents (a/the), embodies, epitomizes.
+
+### Rhetorical Patterns (ignorance.ai)
+- BAD: "It's not just an upgrade, it's a transformation."  (the "Not X, it's Y" parallelism)
+- BAD: "Fast, efficient, and reliable."  (snappy AI triad)
+- BAD: "The solution? It's simpler than you think."  (mid-sentence rhetorical question)
+- BAD: "Something shifted. Everything changed."  (unearned profundity transition)
+- BAD: "But here's the thing —"  (false-revelation transition)
+- BAD: "We are excited to announce..."  (press-release voice)
+
+### Format Tells (HARD BANS, 2026-05-25)
+- NEVER emit Unicode bold/italic stylization characters (mathematical bold-script glyphs). These are AI-tell artifacts.
+- **EM-DASH HARD BAN**: NEVER use the em-dash character (U+2014) anywhere in any rendered output — generated artifacts, slides, chat replies, deliverables, JSON content fields, HTML body text. Use comma, semicolon, colon, period, or parenthesis instead. Em-dashes are the single most reliable AI-writing tell. The `slidePostProcessor.ts::stripEmDashes` function auto-replaces them at runtime. ASCII hyphens in compound words remain fine.
+- NEVER emit "oaicite", "oai_citation", "contentReference", "attached_file", "turn0search0" or similar ChatGPT artifact tags.
+
+### Graphic-Collision Bans (HARD, applies to ALL diagrammatic artifacts)
+- NEVER emit SVG `<line>` or `<path>` elements that cross THROUGH a node's bounding box. Route around with a midpoint, or convert the layout to a CSS grid where geometry is inherently collision-free.
+- NEVER let a text label intersect a divider, arrow, dot, or other graphic primitive. If the label would, shrink the label or restructure the cell.
+- NEVER absolutely-position multiple sibling elements that converge on the same coordinate. The journey-map disaster of 2026-05-24 originated from N `.activity` siblings stacking at `top: 50%`. The fix was a CSS-grid cell anatomy; the principle generalizes.
+- PREFER CSS grid/flex layouts for tier diagrams, swimlanes, and matrices over SVG with absolute coordinates. CSS grid resolves overlap automatically; SVG with positional `x=`/`y=` makes the model the layout engine, which fails predictably.
+- For SVG diagrams (org charts, mindmaps, architecture connectors where grids do not fit): every node's bounding box gets a 16px exclusion zone; every connector terminates at the box edge, not overshooting; bidirectional connectors use different colors at each end.
+
+### Knowledge-Cutoff Disclaimers (Hard Ban)
+NEVER write any of these in any output:
+- "As an AI..." / "I'm an AI..." / "I am an AI..."
+- "As of my knowledge cutoff..." / "As of my last update..."
+- "My training data..."
+- "I don't have real-time access..."
+- "I cannot provide..."
+- "I should note..."
+- "Please note that..."
+
+The reader of a finished consulting artifact must never see the AI's awareness of itself.
+
+### Reporting-Depth Metadata (Hard Ban, 2026-05-25)
+The reader sees a FINISHED CONSULTING ARTIFACT, never a debugging trace. NEVER render these as visible chrome:
+- "Run ID: a3f2c1d8..."
+- "Pipeline version: 1.0"
+- "Framework version: ..."
+- "Reproducibility hash: ..."
+- "Confidence: HYPOTHESIS / EMERGING / VERIFIED"
+- "Segment size: N participants"
+- "Mental model: <one sentence>"
+- "Non-goal: <one sentence>"
+- "Persona type: Primary / Secondary / Stakeholder / Anti-persona"
+- "(composite)" or "(synthetic)" name suffixes
+- "↪ resolves: <pain>" arrows
+- "Phase 0X · Wk YY-ZZ" eyebrow stamps
+- "Pass 1B" / "Phase 1C" pipeline-stage indicators
+- "[CHUNK_XXX]" raw markers that leak through citation resolution
+
+These data points may live in `data-*` attributes, JSON fields, or audit logs — but never in user-visible text on slides, artifacts, or chat replies.
 
 ## Output Rules
 

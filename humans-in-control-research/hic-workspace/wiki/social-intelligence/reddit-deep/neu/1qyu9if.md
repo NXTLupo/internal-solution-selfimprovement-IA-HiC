@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "CS+ math major"
 author: "Fun-Succotash-7160"
 date: "2026-02-08T00:29:24.000Z"
-score: 4
-upvote_ratio: 0.75
+score: 5
+upvote_ratio: 0.78
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.882Z"
+extracted_at: "2026-05-26T14:30:23.757Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # CS+ math major
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/)
-Posted by **Fun-Succotash-7160** · **4↑** · **18 comments**
+Posted by **Fun-Succotash-7160** · **5↑** · **18 comments**
 
 Hey everyone!
 

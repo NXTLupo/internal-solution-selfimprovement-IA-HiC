@@ -45,7 +45,7 @@ interface WikiArticle {
     body: string;
 }
 
-const PROXY = 'http://localhost:5012';
+const PROXY = 'http://127.0.0.1:5012';
 
 function parseArticleFromRawContent(raw: string, wikiPath: string): WikiArticle {
     const article: WikiArticle = { wikiPath, body: '' };

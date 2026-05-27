@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Org chart — Northeastern Advancement &amp; Co-Op Operations</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .org-strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; margin-bottom: 28px; }
+
+  /* Org tree — three tiers stacked, SVG connector lines */
+  .org-canvas {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 36px 32px 28px;
+    overflow-x: auto;
+  }
+  .tier {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+  .tier:last-child { margin-bottom: 8px; }
+  .tier--exec { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; margin-bottom: 64px; }
+  .tier--vp { grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin-left: auto; margin-right: auto; }
+  .tier--lead { grid-template-columns: repeat(6, 1fr); }
+
+  /* Connector lines */
+  .tier::before, .tier::after {
+    content: ""; position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--border-default);
+    pointer-events: none;
+  }
+  .tier::before {
+    /* vertical line up from this tier */
+    width: 1px;
+    height: 28px;
+    top: -28px;
+  }
+  .tier--exec::before { display: none; }
+
+  /* Horizontal connector under each tier (for tiers that have children) */
+  .tier-bar {
+    height: 1px;
+    background: var(--border-default);
+    position: absolute;
+    left: 12.5%;
+    right: 12.5%;
+    bottom: -28px;
+  }
+  .tier--vp .tier-bar { left: 16.66%; right: 16.66%; }
+  .tier-bar::before, .tier-bar::after {
+    /* vertical drops to children */
+    content: "";
+    position: absolute;
+    top: 0; bottom: -28px;
+    width: 1px;
+    background: var(--border-default);
+  }
+
+  /* Node = role card */
+  .role {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    transition: all var(--duration-base) var(--ease-standard);
+    position: relative;
+  }
+  .role:hover {
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-sm);
+  }
+  .role--vp { border-left: 3px solid var(--ink-800); padding: 16px 18px; }
+  .role--exec {
+    background: var(--ink-900);
+    color: var(--white);
+    border-color: var(--ink-900);
+    grid-template-columns: 44px 1fr auto;
+  }
+  .role__avatar {
+    width: 36px; height: 36px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--slate-500), var(--slate-600));
+    color: var(--white);
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .role--exec .role__avatar {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--nu-red-600), var(--nu-red-700));
+    font-size: 16px;
+  }
+  .role__name {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 13.5px;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    margin-bottom: 2px;
+  }
+  .role--exec .role__name { color: var(--white); font-size: 16px; font-family: var(--font-display); font-weight: 500; }
+  .role__title {
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    letter-spacing: .02em;
+    line-height: 1.4;
+  }
+  .role--exec .role__title { color: rgba(255,255,255,.6); }
+  .role__meta {
+    margin-top: 8px;
+    display: flex; gap: 8px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .role__meta b { color: var(--fg-default); font-family: var(--font-mono); font-weight: 500; }
+  .role--exec .role__meta b { color: var(--white); }
+  .role--vacant {
+    background: repeating-linear-gradient(45deg, var(--bg-surface), var(--bg-surface) 8px, var(--slate-50) 8px, var(--slate-50) 16px);
+    border-style: dashed;
+  }
+  .role--vacant .role__avatar {
+    background: var(--slate-100);
+    color: var(--fg-subtle);
+    border: 1.5px dashed var(--slate-300);
+  }
+  .role--vacant .role__name { color: var(--fg-muted); font-style: italic; }
+
+  /* Load bar inside the role card */
+  .role__load {
+    margin-top: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .role__load .lbar {
+    flex: 1;
+    height: 4px;
+    background: var(--slate-100);
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+  }
+  .role__load .lbar i {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: var(--ink-800);
+    border-radius: 999px;
+  }
+  .role__load .lbar i.over { background: var(--nu-red-600); }
+  .role__load .lnum {
+    font-size: 9.5px;
+    font-family: var(--font-mono);
+    color: var(--fg-muted);
+    min-width: 32px;
+    text-align: right;
+  }
+  .role--exec .role__load .lbar { background: rgba(255,255,255,.1); }
+  .role--exec .role__load .lbar i { background: var(--white); }
+  .role--exec .role__load .lnum { color: rgba(255,255,255,.6); }
+
+  /* Exec-tier reports count */
+  .role__reports {
+    display: flex; flex-direction: column; align-items: flex-end;
+    gap: 2px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.15);
+  }
+  .role__reports b {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -.02em;
+  }
+  .role__reports span {
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+  }
+
+  /* Tier label */
+  .tier-label {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .tier-label b {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .tier-label .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border-subtle);
+  }
+  .tier-label .count {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+
+  /* Dotted-line collaborators table */
+  .collab-table {
+    margin-top: 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .collab-table thead th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  .collab-table tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 12px;
+    color: var(--fg-default);
+    line-height: 1.45;
+  }
+  .collab-table tbody tr:last-child td { border-bottom: 0; }
+  .collab-table .role-cell { font-weight: 500; color: var(--fg-strong); }
+  .collab-table .relation {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    letter-spacing: .02em;
+  }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Advancement &amp; Co-Op Operations · org chart · FY27</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Organizational chart · 3 tiers</div>
+    <h1 class="art-masthead__title">Three layers, twenty-two reporting roles, four open positions — and one dotted line that explains the cross-flywheel work.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Headcount</dt><dd>18 filled · 4 open</dd></div>
+    <div class="art-masthead__meta-block"><dt>Tiers</dt><dd>3</dd></div>
+    <div class="art-masthead__meta-block"><dt>Dotted lines</dt><dd>5 named</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="stat-strip org-strip">
+    <div class="stat">
+      <div class="stat__label">Reporting unit</div>
+      <div class="stat__value" style="font-size: 14px; font-family: var(--font-sans); font-weight: 400; line-height: 1.45; color: var(--fg-default);">Advancement Operations + Co-Op Operations, in scope for the FY27 Co-Op Triage program.</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Filled / open</div>
+      <div class="stat__value">18<span class="u"> / 22</span></div>
+      <div class="stat__delta stat__delta--down">4 open · 2 in offer · 2 pending re-approval</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Avg capacity</div>
+      <div class="stat__value">82<span class="u">%</span></div>
+      <div class="stat__delta">Data Sci / Eng at 100% — bottleneck</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Tenure (median)</div>
+      <div class="stat__value">5.4<span class="u"> yrs</span></div>
+      <div class="stat__delta stat__delta--up">+0.8 vs. CASE benchmark</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Cross-org dotted</div>
+      <div class="stat__value">5</div>
+      <div class="stat__delta">to GC · Mktg Ops · IT · Finance · Stud. Aff.</div>
+    </div>
+  </div>
+
+  <!-- Org canvas -->
+  <section class="art-section" style="margin-top: 0;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Reporting hierarchy</h2>
+      <span class="art-section__counter">solid lines = reporting · dotted-line collaborators below</span>
+    </div>
+
+    <div class="org-canvas">
+
+      <!-- TIER 1: EXEC -->
+      <div class="tier tier--exec">
+        <div class="tier-label">
+          <b>Tier 01 · Executive</b><div class="rule"></div><span class="count">1 of 1 filled</span>
+        </div>
+        <div class="role role--exec">
+          <div class="role__avatar">DC</div>
+          <div>
+            <div class="role__name">David Chen</div>
+            <div class="role__title">VP, Advancement Operations · sponsor</div>
+            <div class="role__load">
+              <div class="lbar"><i style="width: 70%;"></i></div>
+              <span class="lnum">70%</span>
+            </div>
+          </div>
+          <div class="role__reports">
+            <b>22</b>
+            <span>reports</span>
+          </div>
+        </div>
+        <div class="tier-bar"></div>
+      </div>
+
+      <!-- TIER 2: VP LEADS -->
+      <div class="tier tier--vp">
+        <div class="tier-label">
+          <b>Tier 02 · Function leads</b><div class="rule"></div><span class="count">3 of 3 filled</span>
+        </div>
+
+        <div class="role role--vp">
+          <div class="role__avatar">JL</div>
+          <div>
+            <div class="role__name">Jordan Liu</div>
+            <div class="role__title">Director, Co-Op Operations</div>
+            <div class="role__meta"><span>Team: <b>9</b></span><span>Tenure: <b>4y</b></span></div>
+            <div class="role__load"><div class="lbar"><i style="width: 85%;"></i></div><span class="lnum">85%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vp">
+          <div class="role__avatar">MR</div>
+          <div>
+            <div class="role__name">Maya Rodríguez</div>
+            <div class="role__title">Director, Major Gifts</div>
+            <div class="role__meta"><span>Team: <b>7</b></span><span>Tenure: <b>7y</b></span></div>
+            <div class="role__load"><div class="lbar"><i style="width: 75%;"></i></div><span class="lnum">75%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vp">
+          <div class="role__avatar">EV</div>
+          <div>
+            <div class="role__name">Elena Volkova</div>
+            <div class="role__title">Director, Data &amp; Analytics</div>
+            <div class="role__meta"><span>Team: <b>6</b></span><span>Tenure: <b>3y</b></span></div>
+            <div class="role__load"><div class="lbar"><i class="over" style="width: 100%;"></i></div><span class="lnum">100%</span></div>
+          </div>
+        </div>
+
+        <div class="tier-bar"></div>
+      </div>
+
+      <!-- TIER 3: INDIVIDUAL CONTRIBUTORS / LEADS -->
+      <div class="tier tier--lead">
+        <div class="tier-label">
+          <b>Tier 03 · Team leads &amp; ICs (sample)</b><div class="rule"></div><span class="count">14 of 18 filled · 4 open</span>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">RT</div>
+          <div>
+            <div class="role__name">Ravi Tanaka</div>
+            <div class="role__title">Coordinator Lead, Co-op</div>
+            <div class="role__load"><div class="lbar"><i style="width: 90%;"></i></div><span class="lnum">90%</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">PM</div>
+          <div>
+            <div class="role__name">Priya Mehta</div>
+            <div class="role__title">Sr. Engineer, Co-op Ops</div>
+            <div class="role__load"><div class="lbar"><i style="width: 95%;"></i></div><span class="lnum">95%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vacant">
+          <div class="role__avatar">+</div>
+          <div>
+            <div class="role__name">Engineer · Co-op Ops</div>
+            <div class="role__title">REQ-4421 · open · in offer</div>
+            <div class="role__load"><div class="lbar"></div><span class="lnum">—</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">SK</div>
+          <div>
+            <div class="role__name">Samira Khan</div>
+            <div class="role__title">Sr. MGO · Boston region</div>
+            <div class="role__load"><div class="lbar"><i style="width: 80%;"></i></div><span class="lnum">80%</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">TN</div>
+          <div>
+            <div class="role__name">Thomas Nguyen</div>
+            <div class="role__title">MGO · West coast region</div>
+            <div class="role__load"><div class="lbar"><i style="width: 70%;"></i></div><span class="lnum">70%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vacant">
+          <div class="role__avatar">+</div>
+          <div>
+            <div class="role__name">MGO · Mid-Atlantic</div>
+            <div class="role__title">REQ-4380 · open · screening</div>
+            <div class="role__load"><div class="lbar"></div><span class="lnum">—</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">AO</div>
+          <div>
+            <div class="role__name">Aaron Okonkwo</div>
+            <div class="role__title">Data Engineer · pipelines</div>
+            <div class="role__load"><div class="lbar"><i class="over" style="width: 100%;"></i></div><span class="lnum">100%</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">FL</div>
+          <div>
+            <div class="role__name">Fern Larson</div>
+            <div class="role__title">Sr. Data Scientist · models</div>
+            <div class="role__load"><div class="lbar"><i style="width: 95%;"></i></div><span class="lnum">95%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vacant">
+          <div class="role__avatar">+</div>
+          <div>
+            <div class="role__name">Data Engineer · bridge</div>
+            <div class="role__title">REQ-4502 · open · pending re-approval</div>
+            <div class="role__load"><div class="lbar"></div><span class="lnum">—</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">YK</div>
+          <div>
+            <div class="role__name">Yuki Kato</div>
+            <div class="role__title">Analytics Lead</div>
+            <div class="role__load"><div class="lbar"><i style="width: 85%;"></i></div><span class="lnum">85%</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role__avatar">CB</div>
+          <div>
+            <div class="role__name">Charlie Brun</div>
+            <div class="role__title">Stewardship Lead</div>
+            <div class="role__load"><div class="lbar"><i style="width: 70%;"></i></div><span class="lnum">70%</span></div>
+          </div>
+        </div>
+
+        <div class="role role--vacant">
+          <div class="role__avatar">+</div>
+          <div>
+            <div class="role__name">Stewardship Coord.</div>
+            <div class="role__title">REQ-4495 · open · pending re-approval</div>
+            <div class="role__load"><div class="lbar"></div><span class="lnum">—</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dotted line collaborators -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Cross-org dotted lines · five named</h2>
+      <span class="art-section__counter">collaborative relationships outside the reporting tree</span>
+    </div>
+    <table class="collab-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">From</th>
+          <th style="width: 22%;">To</th>
+          <th style="width: 14%;">Relationship</th>
+          <th>Purpose · what this dotted line carries</th>
+          <th style="width: 12%;">Cadence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="role-cell">VP, Advancement Operations</td>
+          <td class="role-cell">General Counsel</td>
+          <td class="relation">⤐ advisory</td>
+          <td>FERPA-bridged data model sign-off; aggregated-signal contract review; privacy guardrail policy.</td>
+          <td class="relation">monthly</td>
+        </tr>
+        <tr>
+          <td class="role-cell">Director, Co-Op Operations</td>
+          <td class="role-cell">Dean of Students Office</td>
+          <td class="relation">⤐ partnership</td>
+          <td>Peer-mentor pilot scope; payroll for student mentors; Student Affairs sign-off on nudge content.</td>
+          <td class="relation">bi-weekly</td>
+        </tr>
+        <tr>
+          <td class="role-cell">Director, Data &amp; Analytics</td>
+          <td class="role-cell">IT (central)</td>
+          <td class="relation">⤐ joint exec</td>
+          <td>Snowflake architecture; identity-bridge service; Okta SSO; SOC 2 audit log retention.</td>
+          <td class="relation">weekly</td>
+        </tr>
+        <tr>
+          <td class="role-cell">Director, Major Gifts</td>
+          <td class="role-cell">Marketing Operations</td>
+          <td class="relation">⤐ partnership</td>
+          <td>Verbatim-quote approval path; alumni-magazine story workflow; donor narrative loop.</td>
+          <td class="relation">bi-weekly</td>
+        </tr>
+        <tr>
+          <td class="role-cell">VP, Advancement Operations</td>
+          <td class="role-cell">Finance &amp; Procurement</td>
+          <td class="relation">⤐ joint accountable</td>
+          <td>Sunset re-allocation of $1.8M from 3 retiring systems; contract non-renewal sequencing.</td>
+          <td class="relation">quarterly</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>NU Workday HCM</b> · 2026-04 directory snapshot</li>
+      <li><b>NU OFR</b> · open requisitions registry FY27</li>
+      <li><b>FY27 program charter</b> · D. Chen, 2026-03</li>
+      <li><b>CASE Benchmarks</b> · advancement workforce structure, 2025</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">ORG CHART · v1 · FY27</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>org-chart-renderer</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

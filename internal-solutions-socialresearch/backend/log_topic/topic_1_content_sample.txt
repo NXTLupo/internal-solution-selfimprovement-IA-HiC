@@ -1,0 +1,13 @@
+Topic 1 - Content Sample
+Number of content items: 12
+Top words: models, local, claude, finance, mahoraga, cs, run
+
+Content 1 (length: 312 chars):
+Running out of Claude credits? Mahoraga is here. Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!)
+
+Content 2 (length: 347 chars):
+I built **Mahoraga**, which routes simple tasks using contextual bandits (LinUCB) to local models to cut costs, as well as increase speed. Most work you do consists of bash, edit, etc. honestly pretty quick and light commands that claude really shouldn't have to run. All local inference, all free. Cloud escalation exists but only fires on retry.
+
+Content 3 (length: 304 chars):
+However tokens are getting more expensive, models are heavier, and i know a bunch of kids that run out before the end of the month. they wait for northeastern, but there are a million students here, and they just can't give us more and more. I personally use claude in my co-op as well, which eats usage.
+

@@ -228,7 +228,7 @@ async function openaiWebSearch(config: ResearchConfig): Promise<ResearchResult> 
     }
 
     // Route through proxy to bypass CORS in browser
-    const proxyUrl = typeof window !== 'undefined' ? 'http://localhost:5012/api/ai/openai' : 'https://api.openai.com/v1/responses';
+    const proxyUrl = typeof window !== 'undefined' ? 'http://127.0.0.1:5012/api/ai/openai' : 'https://api.openai.com/v1/responses';
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
     if (proxyUrl.includes('openai.com')) {
         headers['Authorization'] = `Bearer ${apiKey}`;

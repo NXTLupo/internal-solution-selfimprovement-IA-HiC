@@ -1,0 +1,117 @@
+---
+url: "https://www.reddit.com/r/investing/comments/1n32vqy/hi_freshly_starting_investing_into_stocks_i_need/"
+kind: "social-post"
+source: "reddit-deep: r/investing"
+subreddit: "investing"
+title: "Hi, freshly starting investing into stocks. I need advice on the following potential portfolios. I am torn between multiple different versions."
+author: "Da_Bomba75"
+date: "2025-08-29T09:37:07.000Z"
+score: 0
+upvote_ratio: 0.5
+num_comments: 15
+flair: ""
+extracted_at: "2026-05-17T01:13:31.196Z"
+extraction_method: "praw-deep"
+research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+---
+
+# Hi, freshly starting investing into stocks. I need advice on the following potential portfolios. I am torn between multiple different versions.
+
+Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1n32vqy/hi_freshly_starting_investing_into_stocks_i_need/)
+Posted by **Da_Bomba75** · **0↑** · **15 comments**
+
+Hello, I am a 21-year-old male investor from Australia using Pearler as my broker platform of choice. My primary goals are:
+
+Long-term wealth accumulation (15-25+ year time horizon).
+High growth, prioritizing capital appreciation.
+A well-diversified portfolio to mitigate risk.
+Financial Independence / Retire Early (FIRE), with an ambition to eventually have my portfolio generate enough passive income to cover at least some of my living expenses (e.g., rent or groceries).
+
+I am looking for a second opinion on three potential portfolio allocations. My current portfolio looks really solid, but I've been considering multiple alternative drafts.
+Please provide a detailed analysis of each portfolio, including an assessment of its strengths, weaknesses, and suitability for my stated goals. Pay close attention to how each portfolio's asset choices affect the trade-off between capital growth and passive income. 
+
+I would also appreciate a final verdict on which portfolio is best for a young investor with these specific goals, as well as any general advice on rebalancing or asset management.
+
+Here are the portfolios:
+Portfolio 1 (Current)
+VAF (Vanguard Australian Fixed Interest Index ETF): 10%
+VAS (Vanguard Australian Shares Index ETF): 15%
+VGE (Vanguard FTSE Emerging Markets Shares ETF): 10%
+VGS (Vanguard MSCI Index International Shares ETF): 25%
+VOO (S&P 500 Vanguard ETF): 35%
+AMZN (Amazon.com Inc.): 1%
+MSFT (Microsoft Corporation): 2%
+NVDA (NVIDIA Corporation): 2%
+
+Portfolio 2 (Income-Focused Draft)
+VAF: 5%
+VAS: 10%
+VGE: 5%
+VGS: 10%
+VOO: 25%
+JEPQ (JPMorgan Nasdaq Equity Premium Income ETF): 10%
+SCHD (US Dividend Equity ETF Schwab): 20%
+AMZN: 5%
+MSFT: 5%
+NVDA: 5%
+
+Portfolio 3 (High-Risk Tech Draft)
+VAF: 3%
+VAS: 15%
+VGS: 20%
+VOO: 23%
+JEPI (JPMorgan Equity Premium Income ETF): 10%
+SCHD: 10%
+QQQ (Invesco QQQ Trust) or VGT (Vanguard Information Technology ETF): 5%
+SMH (VanEck Vectors Semiconductor ETF): 5%
+AAPL (Apple, Inc.): 3%
+MSFT: 3%
+NVDA: 3%
+
+Portfolio 4 (Revised Draft)
+VOO: 25%
+VGS: 15%
+VEA: 10%
+VGE: 7.5%
+VIG: 10%
+VNQ: 7.5%
+VAF: 5%
+VTIP: 5%
+JEPI: 5%
+SCHD: 5%
+
+## Comments
+
+- **leaning_on_a_wheel** (4↑): Just go 100% VOO, friend
+  - **[deleted]** (3↑): They're from Australia. They would find it easier to stick to Australian domiciled ETFs. They'll be able to get similar exposure/ETF that achieves what you suggest.
+- **NoSpeed6264** (2↑): I’d get away from individual stocks. I also think you are making this more complicated for yourself than you need to. VOO is all you need here. Maybe set aside 5% to play with individual stocks you like. Or use it to invest in crypto, or even LETFs with alphaAI Capital.
+- **close14** (1↑): I was you many years ago. Don’t do this. Allocating each investment will ultimately stress you out with trying to rebalance. 
+
+What I would do in your shoes:
+
+1. Buy 1 broad market index (F500/F1000/R2000 equivalent) (45%-50%)
+2. Buy 1 Growth market index  (45%-50%)
+(You can stop here! Or…)
+3. Buy 2 high conviction company stocks that make up no more than 10% aggregate of any cash you put in. 
+
+No 3 is simply further indexing on #2. 
+
+You do not need income producing stocks unless you are interested in pursuing a dividend strategy long-term. I would not pursue such a strategy currently. 
+
+It may be generally true for different eras but we seem to be at the starting line of an epoch that could change all business and many human trajectories. Invest in that notion rather than stacking cash flow . Good luck!
+  - **[deleted]** (1↑): They're from Australia. They would find it easier to stick to Australian domiciled ETFs. They'll be able to get similar exposure/ETF that achieves what you suggest.
+- **lmini-meklina** (1↑): I am using public to manage my investments, basically buy S&P 500 by VOO and forget about it.
+- **Abject_Swan1351** (-7↑): You are doing way too much and these are not high growth portfolio's at all. If you want high growth in ETF's just stick to JEPQ & QQQ. for the rest of your allocation:
+
+1. follow some high quality growth stock analytical youtube channels
+2. pick what you like
+3. diversify among them.
+
+You are way too young to be in all these ETFs; you can affort to take risk. learn how to stockpick and beat the market its a skill that will help you all your life and its not even timeconsuming these days anymore.  
+I am 23 and I beat the market by 20% a year just by keeping my ear to the ground, portfolio on my profile.
+  - **[deleted]** (1↑): Huge red flag that you're only quoting 12 months returns. But hey, it's probably because you don't have that much of a track record anyway.
+
+Anyone can get lucky stockpicking over the short term.
+
+Stock picking is a great way to have an inefficient portfolio, where you've taken on more risk without actually achieving anything greater.
+    - **Abject_Swan1351** (0↑): where am I quoting 12 month returns? i beat the market by 20% on average. this year I did it by 43% percent. also I have been investing since I was 18. you are spewing absolute nonsense

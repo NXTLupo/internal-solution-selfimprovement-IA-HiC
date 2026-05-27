@@ -8,7 +8,7 @@ author: ""
 date: "2026-05-04T21:36:50.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-12T15:08:24.318640+00:00"
+extracted_at: "2026-05-19T18:01:57.058824+00:00"
 chars: 3237
 ---
 

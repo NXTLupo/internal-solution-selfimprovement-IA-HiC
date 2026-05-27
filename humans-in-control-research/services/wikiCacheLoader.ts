@@ -18,7 +18,7 @@
  *     themes/personas/journey/etc. from cache.
  */
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 
 // =============================================================================
 // Reddit-deep cache loader

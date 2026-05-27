@@ -7,7 +7,7 @@
 import type { ProviderAdapter, ProviderCapabilities, AnalysisRequest, AnalysisResponse, StructuredRequest, StructuredResponse, GroundedSearchRequest } from './ProviderAdapter';
 import { tryRepairJson } from '../aiRouter';
 
-const PROXY_URL = 'http://localhost:5012/api/ai/openai';
+const PROXY_URL = 'http://127.0.0.1:5012/api/ai/openai';
 const MODEL = 'gpt-5.4-mini';
 const MODEL_HEAVY = 'gpt-5.4';
 
@@ -204,7 +204,7 @@ export const openaiAdapter: ProviderAdapter = {
 
     async isAvailable(): Promise<boolean> {
         try {
-            const resp = await fetch('http://localhost:5012/api/ai/status');
+            const resp = await fetch('http://127.0.0.1:5012/api/ai/status');
             const data = await resp.json();
             return !!data.openai;
         } catch { return false; }

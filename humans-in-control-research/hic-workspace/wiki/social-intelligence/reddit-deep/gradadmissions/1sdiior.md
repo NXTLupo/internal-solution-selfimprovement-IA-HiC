@@ -1,0 +1,31 @@
+---
+url: "https://www.reddit.com/r/gradadmissions/comments/1sdiior/grad_school_admission_advice_request/"
+kind: "social-post"
+source: "reddit-deep: r/gradadmissions"
+subreddit: "gradadmissions"
+title: "Grad School Admission Advice Request"
+author: "Working_Study2337"
+date: "2026-04-05T23:29:17.000Z"
+score: 0
+upvote_ratio: 0.5
+num_comments: 1
+flair: "Physical Sciences"
+extracted_at: "2026-05-24T14:10:06.603Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# Grad School Admission Advice Request
+
+Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sdiior/grad_school_admission_advice_request/)
+Posted by **Working_Study2337** · **0↑** · **1 comments**
+
+Hello as the title says I am going to be looking to apply for chemistry PhD programs in the fall (I am currently a third year chem BS major doing a physics minor). I was wondering when I should start actively contacting advisors and how I would go about doing that, whether that involves cold emailing them based on reading publications or what. Additionally how important is it to have undergraduate research in the specific field I am looking to do my graduate work in? I am currently in an inorganic lab working on hybrid materials and am looking to shift my focus to purely inorganic materials with a stronger focus on physical chem and if possible nuclear/radiochem. Any advice would be greatly appreciated!!
+
+## Comments
+
+- **Advanced-Section-177** (2↑): Current fourth year chem major, accepted into 3 public R1 universities (middle ranked). I sent a few emails to faculty I was interested in last fall (a few months before I applied). I expressed interest in their work, mentioned specific things (I read a couple of papers per PI) and asked if they would be taking students in the upcoming season. It was pretty helpful to get an idea where I should apply, and what the university was looking for.  
+If you're lucky, you'll get a chance to chat with a potential advisor in a lower stress environment than an interview and see if you're a good fit for their lab. That's a vital part of the application process in some places. That being said, don't stress out too much if they don't respond. Send a follow up email if you get radio silence for weeks, but if you don't get a response it isn't personal.  
+And for the love of god, don't use AI to write any email. They can all tell. My current advisor complains about it constantly. Write your own emails, keep it professional, and you'll be fine.   
+As for specificity of your research, I haven't found it mattered that much. I'm a dual major, and I did molecular bio research for most of my undergrad. Granted, I'm going into biochem, but the jump you're talking about isn't any more extreme than the jump I'm making. It's more important that you can talk about your work, and how it's taught you how to do research. It might be different if you're only interested in super prestigious labs, but in general it's more about proving you're prepared for graduate level research. Being able to explain why you're interesting in shifting your focus helps too, but that should be no problem for you :)   
+Good luck!

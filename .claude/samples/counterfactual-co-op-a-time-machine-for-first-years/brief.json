@@ -1,0 +1,59 @@
+{
+  "concept_title": "Counterfactual Co-op: A Time-Machine for First-Years",
+  "one_line_thesis": "Show first-years their own probable sophomore year twice — brand-only vs balanced — using anonymized NUworks alumni trajectories, delivered as a Power BI story in Teams.",
+  "primary_persona": {
+    "name": "Sam Chen",
+    "context": "Six weeks into fall semester. Has submitted 12 applications — all to Google, Tesla, SpaceX, Apple, and Goldman. Zero applications to SMEs. Spends evenings refreshing application portals and lurking in r/cscareerquestions. Has never heard of any of the 340 SMEs hiring through NUworks this cycle.",
+    "emotional_state": "Outwardly confident, privately anxious. Believes anything below a FAANG offer would embarrass his family. Hasn't told his advisor he's been ghosted 4x already."
+  },
+  "secondary_actors": [
+    {
+      "role": "Strategic Co-op Director (Liz's team)",
+      "involvement": "Defines what counts as a 'successful sophomore outcome' in the forecast model; reviews anonymization thresholds before launch."
+    },
+    {
+      "role": "Co-op Advisor",
+      "involvement": "Receives shared forecasts from students; uses them as the opening artifact in 1:1 meetings instead of a blank-page conversation."
+    },
+    {
+      "role": "Data Systems Admin",
+      "involvement": "Owns the NUworks → Power BI dataflow; enforces k-anonymity (k≥15) before any cohort is rendered."
+    },
+    {
+      "role": "FERPA Compliance Officer",
+      "involvement": "Approves the anonymization disclosure copy and audits the dataflow quarterly."
+    }
+  ],
+  "demonstrated_moment": "Sam opens a Teams notification titled 'Two versions of your sophomore year, Sam.' He taps in. A cinematic split-screen Power BI story renders: 200 anonymized alumni who started his exact major, GPA band, and first-week application pattern — half went brand-only, half went balanced. He slides a portfolio mix dial from 100/0 to 60/40 and watches his projected sophomore-fall placement probability climb from 31% to 78%, with a real anonymized alum's trajectory animating alongside.",
+  "jobs_to_be_done": [
+    "When I'm deciding which co-ops to apply to, I want to see what actually happens to students who chose like me, so I can make a bet I won't regret in 18 months.",
+    "See Your Two Probable Futures",
+    "Explore the Brand-Only Cohort Outcome",
+    "Explore the Balanced-Portfolio Cohort Outcome",
+    "Read Three Anonymized Alumni Vignettes",
+    "Adjust Your Search Mix in Real Time"
+  ],
+  "success_criteria": [
+    "Sam, the demo persona, can move from 100/0 to a locked 60/40 commitment in under 6 minutes of interaction, with the headline forecast lift visibly animated.",
+    "All cohort renderings enforce k≥15 anonymization; the FERPA disclosure screen is reachable in ≤2 taps from any screen and the underlying NUworks data mapping is fully visible to the user.",
+    "At least 2 live AI fetches occur via multi-provider fallback (Claude + Gemini); the Counterfactual Narrative uses Verbalized Sampling with k=3 displayed variants and probabilities.",
+    "Primary entities are seeded at 30 / 28 / 26 records respectively, with realistic distributions skewed to reflect the actual diagnostic problem (brand-only majority at week 6).",
+    "The prototype visually inhabits Microsoft Teams, Power Automate, Power BI, and SharePoint chrome at appropriate moments; Liz and Jen's names appear verbatim in admin/sender chrome.",
+    "Zero verbatim research quotes appear anywhere in the rendered UI; the Theme 5 insight is distilled into product behavior, not displayed as a testimonial.",
+    "The Advisor Caseload Dashboard demonstrates cohort-level intervention triage, fulfilling the 'broaden aperture proactively' thesis without a new standalone platform."
+  ],
+  "hard_constraints": {
+    "brand": "Northeastern University visual marks present but understated; Microsoft Teams / Power BI / Power Automate chrome visible at integration moments.",
+    "platform": "web",
+    "accessibility": "WCAG AA",
+    "other": [
+      "No standalone job board UI — all delivery surfaces are Teams cards or embedded web views launched from Teams",
+      "FERPA: k≥15 anonymization on every cohort rendering; anonymization gate visible in the dataflow screen",
+      "No verbatim research quotes in product UI; Theme 5 insight distilled into product behavior only",
+      "Liz's and Jen's names appear verbatim in stakeholder chrome (sender labels, approval badges)",
+      "NUworks remains the system of record; this experience is read-only against it",
+      "Tone calibration: encouraging never punitive; no red alarm coloring; celebrations are restrained"
+    ]
+  },
+  "open_questions": []
+}

@@ -1,0 +1,46 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1piwfsz/should_i_wait_for_boeing_offernot_yet_come_or/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Should I wait for Boeing offer(not yet come) or accept data center offer for summer 2026?"
+author: "Quick-Future9677"
+date: "2025-12-10T07:23:17.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 4
+flair: "Advice"
+extracted_at: "2026-05-23T20:15:29.962Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Should I wait for Boeing offer(not yet come) or accept data center offer for summer 2026?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1piwfsz/should_i_wait_for_boeing_offernot_yet_come_or/)
+Posted by **Quick-Future9677** · **1↑** · **4 comments**
+
+HI everyone, I’m an Information Systems & Supply Chain student trying to figure out my internship path, and need some advice ASAP.
+
+\-I interviewed with Boeing Global Services in early November. Aviation is my #1 industry, and I’d love to start my career with Boeing (likely in Arizona) and eventually move to Seattle. I have yet to receive an offer. I followed up with the recruiter yesterday, and they told me to be patient. I’m debating whether it’s appropriate to reach out directly to the interviewers since the recruiters are not being helpful. **Since it’s already been a month, is my chance of getting an offer low?** I know these companies move very slowly. Aviation is my dream.
+
+\- I got an offer with a data center company in Northern Virginia. Pay is $25/hr plus housing stipend. The interviewer ask if I’m willing to travel to other cities for audits. I’d love to travel. But I’m not sure if I want to build a career in data centers long-term. I know that data center is growing massively in the near future and will have a lot of opportunities. Also, Loudoun County is one of the most expensive areas in the country, so I’m worried about the cost of living. I could use this experience to potentially apply to Microsoft's SCORE program.
+
+\-I got a co-op in South Carolina this spring with a car company. If I do well, I MIGHT get a return offer for summer. But I’d rather explore other industries, since aviation is my top industry.
+
+**Should I accept the data center offer now and pull out later if Boeing comes through? Would that be a really bad look? Or should I reject the offer and risk not having anything if Boeing doesn’t pan out?**
+
+I love hiking, nature, and the western US, so Boeing feels like the right place. But the data center role has travel opportunity. I’m just stuck between playing it safe with data center offer or chasing my dream industry.
+
+Any advice would be hugely appreciated!
+
+## Comments
+
+- **Old_Cry1308** (1↑): accept the data center offer, never sit around waiting on a maybe from a big name they will ghost you for months and not even blink if they pass on you if boeing comes through later, just eat the awkward call and switch, happens all the time, esp now when finding anything decent is a pain
+- **newuser2111** (1↑): When is the deadline by which you need to let the data center in VA know of your decision?  Find out if there is some flexibility and if you can let them know by one or two weeks later.  While that is going on, hopefully you’ll hear from Boeing.  
+
+If you hear back, accept Boeing.  If you don’t hear back, take the data center job.  I know it’s not your ideal job, but it’s still valuable experience and you might discover new things and places you like.  Some things happen for a reason.
+  - **Quick-Future9677** (1↑): Recruiter called and offer letter will be out on Friday. 3 business day to accept it.
+- **newuser2111** (1↑): In that case, plan it so that next week, on Day #1 or #2 you accept that offer for Data center.  Call and email to make sure they receive it before the deadline.  
+
+But during this week (by Friday at the latest), immediately follow up with Boeing and politely inquire about the status of the application (and give them the date when you applied).  Express your interest in the position.  If they don’t give you a firm status, then say that you were hoping to gain clarity on this, as you have a competing offer elsewhere.  Say it in a more subtle way.

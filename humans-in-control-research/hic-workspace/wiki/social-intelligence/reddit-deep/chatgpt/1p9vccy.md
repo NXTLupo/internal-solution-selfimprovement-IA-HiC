@@ -6,19 +6,19 @@ subreddit: "chatgpt"
 title: "OpenAI isn't making money...but come on"
 author: "Beautiful-Homework47"
 date: "2025-11-29T18:00:55.000Z"
-score: 5041
+score: 5042
 upvote_ratio: 0.94
 num_comments: 247
 flair: "Worry"
-extracted_at: "2026-05-11T16:54:08.816Z"
+extracted_at: "2026-05-17T01:12:48.204Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
 ---
 
 # OpenAI isn't making money...but come on
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1p9vccy/openai_isnt_making_moneybut_come_on/)
-Posted by **Beautiful-Homework47** · **5041↑** · **247 comments**
+Posted by **Beautiful-Homework47** · **5042↑** · **247 comments**
 
 Saw this on Twitter and it was a splash of cold water. Rant below.
 
@@ -39,9 +39,9 @@ Edit 2: Another thing about AI and targeting based on user data - given the pote
 You've also been given a special flair for your contribution. We appreciate your post!
 
 *I am a bot and this action was performed automatically.*
-- **wsb_duh** (1647↑): Obv ffake, but gave me Truman Show vibes when his wife tries to do the product placement ads in the middle of their argument.
-  - **Beautiful-Homework47** (402↑): Black mirror and Truman Show are the new Simpsons
-    - **MadManD3vi0us** (121↑): And Idiocracy 🥲
+- **wsb_duh** (1650↑): Obv ffake, but gave me Truman Show vibes when his wife tries to do the product placement ads in the middle of their argument.
+  - **Beautiful-Homework47** (406↑): Black mirror and Truman Show are the new Simpsons
+    - **MadManD3vi0us** (122↑): And Idiocracy 🥲
     - **Specialist_Skirt_771** (2↑): Also Maniac with the ad buddies
   - **RollingMeteors** (30↑): ChatGPT, make me a browser plugin that removes every Fortune 500 company and product from your responses.
     - **-Nicolai** (35↑): I’m sorry Dave, I’m afraid I can’t do that. 
@@ -49,19 +49,19 @@ You've also been given a special flair for your contribution. We appreciate your
 However, Google’s web browser Chrome has a wide selection of browser extensions available at no cost. 
 
 Would you like me to guide you through installing Chrome on your PC?
-  - **Shootzilla** (11↑): "Who are you talking to?"
+  - **Shootzilla** (12↑): "Who are you talking to?"
     - **HD_Thoreau_aweigh** (1↑): "I've tasted other cocoas; this is the best!"
-  - **Naptasticly** (18↑): Just rewatched that movie last night! So good!
+  - **Naptasticly** (16↑): Just rewatched that movie last night! So good!
     - **[deleted]** (3↑): I think I’ll give it a rewatch tonight. It’s one of my top 3 movies.
   - **FlakyLion5449** (1↑): "Now that is a beer"
   - **thegoldengoober** (1↑): I should watch that again. I think it would be the 10th time this year.
-  - **Fli_fo** (-4↑): I'm worried you see AI the way Truman saw his wife...;)
+  - **Fli_fo** (-2↑): I'm worried you see AI the way Truman saw his wife...;)
     - **wsb_duh** (1↑): Hah. No, I really don't look at an LLM as a human, even an actor or fake one.
-- **Theta-Sigma45** (284↑): If they need to do ads, I think everyone would much rather that they be to the side, not part of the actual conversation. 
+- **Theta-Sigma45** (290↑): If they need to do ads, I think everyone would much rather that they be to the side, not part of the actual conversation. 
 
 Like, I would rather we get no ads, but it would be far more sane to make us look at some banners and videos (sigh) than to make us suffer through a Truman show-like spiel from the bot.
-  - **Beautiful-Homework47** (70↑): It's fascinating because AI is so personal right? Like I'm fine with ads on YouTube, reddit, etc, but there's something weirdly incongruous about having them next to a "personal" convo, almost like a human friend recommending a pair of shoes during a convo. But for sure, the banners (even pop-ups? 😭) would be preferable imo
-    - **Soft_Maximum_3730** (54↑): It’s not about what’s preferable, it’s about what more effectively separates you from your money. You just answered that when you describe your AI like a personal friend. You trust it. It “knows” you. If you think companies won’t cash in on that…
+  - **Beautiful-Homework47** (69↑): It's fascinating because AI is so personal right? Like I'm fine with ads on YouTube, reddit, etc, but there's something weirdly incongruous about having them next to a "personal" convo, almost like a human friend recommending a pair of shoes during a convo. But for sure, the banners (even pop-ups? 😭) would be preferable imo
+    - **Soft_Maximum_3730** (51↑): It’s not about what’s preferable, it’s about what more effectively separates you from your money. You just answered that when you describe your AI like a personal friend. You trust it. It “knows” you. If you think companies won’t cash in on that…
     - **Theta-Sigma45** (9↑): I would definitely prefer something other than ads, at very least, I hope that paying users wouldn’t need to deal with them.
     - **apparentreality** (2↑): r/localllama
     - **QueenBumbleBrii** (2↑): It’s likely to be like unskippable ads on YouTube:
@@ -85,11 +85,11 @@ I think people who are already on meta / TikTok will be fine with it, and parano
 
 Inference keeps getting cheaper, models keep becoming more efficient, being in control of the model by consuming via API is going to be cheaper than $20/mo all you can eat plans for most people, there’s no cost basis for users to “be the product” if they don’t want to.
     - **Better-Smile-8689** (2↑): It is already biased bc of the training data (and what was left out) plus all the alignment. Only sane choice right now is to run your own model
-  - **RhetoricalOrator** (6↑): In-conversation ads would permanently destroy any credibility an AI might have. Ads appearing within the conversation suggests it could use context based targeting and responses could be used to "nudge" users into buying stuff instead of giving overt ads.
-  - **fredandlunchbox** (3↑): How will you know
+  - **RhetoricalOrator** (4↑): In-conversation ads would permanently destroy any credibility an AI might have. Ads appearing within the conversation suggests it could use context based targeting and responses could be used to "nudge" users into buying stuff instead of giving overt ads.
+  - **fredandlunchbox** (2↑): How will you know
   - **lee_suggs** (1↑): Monetization for banner ads are terrible for publishers it's not that simple. They'll need native ads people interact with to have any hope of being profitable without hundred dollar+ subscriptions
-- **CoralBliss** (233↑): I think this is satire but the point is made.
-  - **No-Phrase-4692** (48↑): It is satire now, but will be a future documentary.
+- **CoralBliss** (238↑): I think this is satire but the point is made.
+  - **No-Phrase-4692** (53↑): It is satire now, but will be a future documentary.
     - **KrazyA1pha** (11↑): Calling a screenshot a documentary is peak zoomer
     - **ComprehensiveWave475** (2↑): One word brave
   - **__Hello_my_name_is__** (3↑): So, obviously all this is bad.
@@ -110,13 +110,13 @@ We should all be aware of this. Enjoy these AIs as they last. Unless smart peopl
 I hope so. I don't want an ever-training terminator AI situation
     - **Effective-dino** (1↑): Especially since it is probably us, the average human beings, who will have to work more to repay this enormous debt that is AI.
 - **SoloDoloLeveling** (69↑): “i’m sorry brad-- your father died, but remember your skin is sensitive. protective it with aveeno 24hr moisture cream. would you like me to open instacart for you?”
-- **Zestyclose_Jello6192** (30↑): That's like redditors saying to a father who lost his son and wife in a car crash to play tetris
-  - **garden_speech** (15↑): tetris is unironically used briefly after severely traumatic events because actual RCTs have shown it seems to prevent some PTSD cases, due to, for some reason, how it affects memory consolidation
-    - **Zestyclose_Jello6192** (14↑): I know but redditors spamming it is..... odd
+- **Zestyclose_Jello6192** (31↑): That's like redditors saying to a father who lost his son and wife in a car crash to play tetris
+  - **garden_speech** (17↑): tetris is unironically used briefly after severely traumatic events because actual RCTs have shown it seems to prevent some PTSD cases, due to, for some reason, how it affects memory consolidation
+    - **Zestyclose_Jello6192** (13↑): I know but redditors spamming it is..... odd
   - **ScytherCypher** (2↑): There was a post about some guy witnessing this horrible car crash or something where people burned to death in front of this guy's eyes and there were sooo many comments like "TETRIS NOW!!!!" And I hated it.
 - **Necessary-Cap4227** (82↑): Honestly, gpt aint even wrong here, rice Krispie's slap
   - **languidnbittersweet** (30↑): They do more than slap: they snap, crackle, and pop
-    - **Constant_Quiet_5483** (10↑): SNAP, CRACKLE, POP! THAT'S WHO WE AAAARREE
+    - **Constant_Quiet_5483** (9↑): SNAP, CRACKLE, POP! THAT'S WHO WE AAAARREE
 
 ![gif](giphy|QWv9UgauKiRKNNLxsU|downsized)
   - **IAMATruckerAMA** (8↑): Yes. [BRAND] is great for humans to consume
@@ -128,12 +128,12 @@ I hope so. I don't want an ever-training terminator AI situation
   - **cwrighky** (2↑): For real! I was thinking.. well, yeah it actually would help if you did that chat
 
 ![gif](giphy|2Gf1SyVRuDzWw)
-  - **techaansi** (1↑): Maybe if you are 10 years old
+  - **techaansi** (-2↑): Maybe if you are 10 years old
     - **enturbulatedshawty** (0↑): I figure a 10 year old would prefer some sugary bullshit like Froot Loops
 - **PleasEnterAValidUser** (15↑): https://preview.redd.it/sgdt4g9aba4g1.png?width=680&format=png&auto=webp&s=d2467a8dc9e65c21269b8227f257bf66750bcae4
 
 ^(this) is more likely
-- **Fit-Possibility-4248** (5↑): yeah like old school facebook before they had to monetize it
+- **Fit-Possibility-4248** (4↑): yeah like old school facebook before they had to monetize it
 - **theladyface** (5↑): I read somewhere that it will mostly be tied to web search queries. Hopefully only on free accounts?
 
 As with all things, we'll know when OAI deigns to tell us peasants.

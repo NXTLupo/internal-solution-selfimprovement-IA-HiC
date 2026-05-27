@@ -1,7 +1,15 @@
 import { z } from 'zod';
 import { BrandSchema, type ValidationResult } from './personaArtifact';
 
-export const FreeformKindSchema = z.enum(['org', 'journey', 'arch', 'roadmap', 'blueprint']);
+export const FreeformKindSchema = z.enum([
+    'org', 'journey', 'arch', 'roadmap', 'blueprint',
+    // 2026-05-24 — NotebookLM uplift Phase 4-6 deliverables
+    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
+    // 2026-05-25 — Artifact-engine unified kinds (every deliverable now flows
+    // through the JM-style HTML report pipeline)
+    'persona', 'prd', 'recommendation', 'strategy-slide', 'strategy', 'brief',
+    'gap-analysis', 'tech-audit', 'competitive', 'presentation',
+]);
 export type FreeformKind = z.infer<typeof FreeformKindSchema>;
 
 export const FreeformArtifactSchema = z.object({

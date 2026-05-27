@@ -1,5 +1,6 @@
 ---
 name: wiki-reranker
+version: 1.0
 description: After fetch_wiki_articles returns a candidate set, Claude re-reads the user's actual question and scores each article 1-5 on direct intent relevance — then cites ONLY articles scoring >=4. Turns Claude into a cross-encoder reranker, which is what retrieval pipelines normally buy from Cohere's rerank API. Works because Claude attends to the full question + full article together (unlike bi-encoder embedding, which scored them independently). Essential when the raw retrieval returns near-duplicates, off-topic siblings, or surface-semantic-match-but-wrong-intent results.
 thinking: high
 category: retrieval-enhancer

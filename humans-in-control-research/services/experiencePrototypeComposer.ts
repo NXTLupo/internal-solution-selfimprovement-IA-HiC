@@ -18,7 +18,7 @@
  * named patterns from the catalog."
  */
 
-const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://localhost:5012';
+const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://127.0.0.1:5012';
 const CATALOG_URL = `${PROXY_BASE}/hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json`;
 
 export type ComposerBrand = 'nxt' | 'nu';

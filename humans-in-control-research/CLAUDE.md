@@ -155,6 +155,25 @@ Note: Claude Opus supports assistant-message prefill; Sonnet does not. Anything 
 6. Wire post-processing in [services/slidePostProcessor.ts](services/slidePostProcessor.ts) if the output has slides/citations.
 7. Update `types.ts` `OutputOption` union and the relevant `AnalysisResult` fields.
 
+## NU Design Gallery (handoff bundle, 2026-05-23)
+
+`public/nu-design-gallery/` is a complete artifact-template set handed off from claude.ai/design. It contains 13 polished single-canvas HTML exemplars — one for each HiC deliverable type plus org-chart and a 7-archetype strategy-deck — all built from a shared `colors_and_type.css` (NU brand tokens, Spectral + Roboto + Roboto Mono) and `artifacts.css` (component layer: masthead, stat strip, citation chips, signal dots, maturity bars, dense tables, cards, footer source index).
+
+Served at:
+- Dev: `http://localhost:3000/nu-design-gallery/index.html`
+- Prod (Docker, port 5011): `http://localhost:5011/nu-design-gallery/index.html`
+
+Useful entry points:
+- [`index.html`](public/nu-design-gallery/index.html) — gallery linking to every template
+- [`style-guide.html`](public/nu-design-gallery/style-guide.html) — visual reference with anatomy of every primitive
+- [`GUIDE.md`](public/nu-design-gallery/GUIDE.md) — full spec: principles, token map, density rules, element catalog, per-artifact anatomy, modification recipes, the "thirteen don'ts", and the Tweaks integration protocol
+- [`README.md`](public/nu-design-gallery/README.md) — claude.ai/design handoff notes
+- [`HANDOFF-CHAT.md`](public/nu-design-gallery/HANDOFF-CHAT.md) — the conversation that produced the bundle (intent + decisions)
+
+**Use the gallery as the visual reference** when implementing or modifying HiC artifact renderers (`components/slideTemplates/web.tsx`, `services/slidePostProcessor.ts` brand handling, exported HTML deliverables). Inherit tokens from the shared CSS rather than redefining values inline; the editorial layer (voice + anti-patterns) lives in `.claude/skills/brands/nu-style/SKILL.md` and `.claude/CLAUDE.md`.
+
+**The thirteen don'ts** in `GUIDE.md` §9 are the enforced anti-patterns — no methodology blurbs, no per-slide source strips, no "EVIDENCE GAP" / "TBD" annotations, no micro-labels above headings, no catastrophizing verbs, no hype language, no AI-generated decorative illustrations. These align with `.claude/CLAUDE.md` banned-phrase rules.
+
 ## Related docs in this directory
 
 - [HUMANS_IN_CONTROL_QA_DOCUMENTATION.md](HUMANS_IN_CONTROL_QA_DOCUMENTATION.md) — end-to-end QA scenarios
@@ -163,3 +182,4 @@ Note: Claude Opus supports assistant-message prefill; Sonnet does not. Anything 
 - [REARCHITECTURE_DEVELOPMENT_PLAN.md](REARCHITECTURE_DEVELOPMENT_PLAN.md), [V3_DEVELOPMENT_PLAN.md](V3_DEVELOPMENT_PLAN.md) — historical and forward-looking roadmaps
 - [changelog.md](changelog.md) — chronological system-enhancement log
 - [hic-workspace/AGENTS.md](hic-workspace/AGENTS.md) — **the wiki schema; read before any wiki operation**
+- [public/nu-design-gallery/](public/nu-design-gallery/) — **NU design-system handoff bundle** (13 artifact templates + style guide + GUIDE.md + Spectral fonts; see NU Design Gallery section above)

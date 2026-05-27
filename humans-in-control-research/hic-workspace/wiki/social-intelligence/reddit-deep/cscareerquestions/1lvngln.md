@@ -1,0 +1,80 @@
+---
+url: "https://www.reddit.com/r/cscareerquestions/comments/1lvngln/torn_between_two_job_paths_looking_for_career/"
+kind: "social-post"
+source: "reddit-deep: r/cscareerquestions"
+subreddit: "cscareerquestions"
+title: "Torn Between Two Job Paths – Looking for Career Advice"
+author: "Usual-Chef1734"
+date: "2025-07-09T16:37:05.000Z"
+score: 3
+upvote_ratio: 1
+num_comments: 6
+flair: "Experienced"
+extracted_at: "2026-05-23T19:45:00.919Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Torn Between Two Job Paths – Looking for Career Advice
+
+Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lvngln/torn_between_two_job_paths_looking_for_career/)
+Posted by **Usual-Chef1734** · **3↑** · **6 comments**
+
+Hey all, I’m looking for some grounded advice on two very different career opportunities I’m considering. I’ve been in tech for 25+ years, and while I usually trust my gut, this one feels like a fork in the road I want to be intentional about.
+
+**Current Role:**  
+I’m a senior systems engineer with wide-reaching access across Azure, AWS, and M365. I also own GitHub and other platform automation efforts. I lead the ops side of our compliance initiatives and genuinely enjoy the pace and technical depth of my work.
+
+The catch? The team culture feels shady. In just 7 months, 5 people have left. That kind of turnover makes me nervous, even though I’m thriving technically.
+
+**Option 1 – Internal Lateral Move:**  
+I’ve been offered an internal lateral move into a DevOps Tech Lead role. This would shift me into a more client-facing, consultative position where I’d build and solution for external customers. The role is fully remote (big plus), and I’d stay within the same company—but I haven’t yet negotiated for a raise.
+
+Pros:
+
+* Fully remote
+* Leverages my existing reputation and platform knowledge
+* Expands into client-facing/consulting experience
+* I will get out from under the 'bad VP' that Is causing the turnover in the current org.
+
+Cons:
+
+* No raise yet discussed. If I got a raise it would really make this a no brainer.
+
+**Option 2 – Startup Leadership Role:**  
+I’ve also been offered a role at a small but promising IoT startup. I’d be managing a small team of engineers (3 to start), and I’ve already spoken with the CTO, founder, and team. The tech is solid, and I can definitely succeed here. Remote for now, but will go hybrid (3 days in office) after about a year.
+
+Benefits include PPO health and possible profit sharing (my first time seeing this), but there’s no formal bonus structure.
+
+Pros:
+
+* Leadership opportunity with real influence
+* Startup energy and vision feels exciting
+* Room to grow with equity/profit potential
+
+Cons:
+
+* Less stability than my current gig
+* Hybrid in a year
+* No bonus structure
+
+**What would you do in my shoes?**  
+Have you made a similar jump—from enterprise to startup or internal to client-facing?  
+What questions would you ask yourself in this situation?
+
+Thanks in advance for any perspective you can offer.
+
+## Comments
+
+- **thesteadyparent** (3↑): Looking at these options, I'd focus on two key factors: (1) what environment helps you thrive, and (2) runway security.
+
+For Option 1, the fully remote opportunity with no toxic VP is already a win, regardless of the raise. You could take it and negotiate the raise later from a position of already doing the job well. Being in a consultative role also develops valuable skills that can be applied anywhere.
+
+For Option 2, I'd be direct about asking the startup some hard questions: What's their runway looking like? How many months of operating capital do they have without additional funding? Profit sharing sounds nice, but startups often don't reach profitability for years. With 80% of startups failing, you want to know if you'd be joining during a stable period or right before a cash crunch.
+
+The hybrid requirement after a year is also worth digging into. Is this flexible if you're performing well? Often, these policies are more flexible than initially stated.
+
+If stability is a priority right now, Option 1 with your existing company offers that while still providing growth opportunities. If you're willing to take on more risk for potentially higher rewards, Option 2 could be a great choice. Just make sure to verify their financial stability first.
+  - **Usual-Chef1734** (1↑): Thank you! These are all things I had not considered, especially about the startup.
+- **GoodMenAll** (1↑): Rule number one avoid random start ups!
+- **Dependent_Gur1387** (1↑): I’d weigh team culture and growth heavily—startup risk vs. internal familiarity is a classic tradeoff. If you lean startup, or prep for a negotiation, check out real interview Qs on prepare.sh

@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Companion CLAUDE.md files (load on demand)
+
+This file is the platform-wide overview. Two deeper guides cover the surfaces you'll actually be editing — read them when the task touches their scope:
+
+- **[.claude/CLAUDE.md](.claude/CLAUDE.md)** — *always loaded.* NXT design system, citation protocol, evidence hierarchy, 350+ banned phrases, consulting frameworks (Minto / Rumelt / SCQA), content budgets, action-title rules. Applies to every generated artifact in the repo.
+- **[humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md)** — read FIRST for any work under `humans-in-control-research/` (the most actively developed service). Covers the three-tier proxy/SPA/wiki architecture, the 18-template slide system, the `aiRouter.ts` provider routing, the `slidePostProcessor.ts` defense-in-depth layer, the `loadGenerationContext()` wiki-first retrieval contract, and the seven-step protocol for adding a new deliverable type.
+- Service-local `CLAUDE.md` files exist in `internal-solutions-journeymapper/`, `internal-solutions-claude4-journey-mapper-v2/`, and `internal-solutions-socialresearch/` — read them when working in those services.
+
 ## Architecture Overview
 
 NXT Humans Intelligence Augmentation Suite — a Docker-orchestrated microservices platform with an AI agent that controls specialized services via Model Context Protocol (MCP).
@@ -25,6 +33,11 @@ Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). **`d
 - `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
 - `launchpad/app.py` — WebSocket proxy hub (1,310 lines)
 - `docker-compose-all.yml` — Full platform config (487 lines). **Always use this file**, never `docker-compose.yml` alone
+
+### Branch & Commit Discipline
+- **Never merge to main.** Main is owner-controlled and runs months behind feature branches. Branch FROM the latest feature branch (e.g., `HiC-*`) to inherit recent work — never from main.
+- **Never commit without explicit user approval.** During multi-task work, stage changes and wait for the user to test each task's output before committing.
+- **Build, then test, then commit** — in that order. HTTP 200 alone is not sufficient validation; verify the app actually renders / behaves before handing off.
 
 ### Dormant MCP Services
 These exist in the filesystem but are **not** in `docker-compose-all.yml` or `tool_services`:
@@ -155,7 +168,7 @@ Several services have their own `CLAUDE.md` with local dev commands:
 - `internal-solutions-socialresearch/CLAUDE.md` — full local setup (frontend, backend, DB migrations with Alembic). **Python 3.11 required** (3.12 not supported).
 
 ### Custom Agent Skills (`.claude/skills/`)
-28 prompt engineering and consulting skills available to Claude Code sessions. Used by HiC Research for deliverable generation (deck narrative, persona architecture, strategy authoring, etc.). The Vite dev server serves these at `/skills/` for runtime access. Key skills: `deck-narrative-composer`, `strategy-author`, `persona-architect`, `competitive-analyst`, `theme-analyst`, `preflight`, `qa-gate`.
+40+ custom skills available to Claude Code sessions, spanning prompt engineering, consulting frameworks, and HiC pipeline stages. Used by HiC Research for deliverable generation (deck narrative, persona architecture, strategy authoring, etc.). The Vite dev server serves these at `/skills/` for runtime access. Key skills: `deck-narrative-composer`, `strategy-author`, `persona-architect`, `competitive-analyst`, `theme-analyst`, `preflight`, `qa-gate`, `verbalized-sampling`, `experience-prototype-composer`, `design-exemplar-curator`, `reinforcement-inference`.
 
 ### Service Code Conventions
 ```python
@@ -189,32 +202,45 @@ Changes to this service require working in its respective repo. Only `docker-com
 
 The most actively developed service. A React 19 + TypeScript + Vite 6 + Tailwind SPA that generates consulting-grade research deliverables (strategy decks, persona sets, service blueprints, competitive analyses) using multi-model AI (Gemini, Claude, OpenAI).
 
-**Flat project structure** — no `src/` directory. Components and services are at the root:
+**Flat project structure** — no `src/` directory. Components and services live at the root:
 ```
 humans-in-control-research/
 ├── App.tsx, index.tsx, types.ts  — app entry, type definitions
-├── components/                   — 8 React components (FileUpload, ResultsView, KnowledgeGraph, etc.)
-├── services/                     — 23 TypeScript service modules (~14K lines total)
-│   ├── aiRouter.ts               — model selection + provider routing
-│   ├── geminiService.ts          — primary AI provider (largest file)
+├── components/                   — React components (FileUpload, ResultsView, KnowledgeGraph,
+│                                   LiveProcessingIndicator, prototype viewer, etc.)
+├── services/                     — TypeScript service modules — the application's brain:
+│   ├── aiRouter.ts               — model selection + provider routing (Gemini-primary on
+│   │                                Stage 2/5, Opus default on brief deepen)
+│   ├── geminiService.ts          — primary AI provider
 │   ├── anthropicService.ts       — Claude API integration
-│   ├── openaiService.ts          — OpenAI fallback
-│   ├── slidePostProcessor.ts     — defense-in-depth output sanitization (slop phrases, meta-narration, citations)
+│   ├── openaiService.ts          — OpenAI / GPT-5.5 fallback (with DeepSeek auto-fallback)
+│   ├── slidePostProcessor.ts     — defense-in-depth output sanitization (350+ slop phrases,
+│   │                                meta-narration, process references, citations)
 │   ├── wikiService.ts            — wiki knowledge base read/write
 │   ├── knowledgeGraphBuilder.ts  — citation graph + knowledge visualization
 │   ├── researchFabricOrchestrator.ts — multi-source data aggregation
 │   ├── deliverableFrameworks.ts  — schema definitions for all deliverable types
+│   ├── hashtagParser.ts          — composer hashtag routing (#proto, #presentations, etc.)
 │   └── exportService.ts          — PPTX (pptxgenjs) + PDF (jspdf) export
-├── proxy/                        — Python CORS proxy (FastAPI, 1,125 lines)
-│   └── app.py                    — 200+ data sources, 8 connector types (REST, RSS, CKAN, arXiv, etc.)
-│                                   Also proxies AI API calls and provides wiki write endpoints
+├── proxy/                        — Python CORS proxy (FastAPI, ~1,100 lines)
+│   └── app.py                    — 200+ data sources, 8 connector types (REST, RSS, CKAN,
+│                                   arXiv, etc.). Also proxies AI API calls + wiki writes
 ├── hic-workspace/                — persistent knowledge base
-│   ├── wiki/                     — 15 topic directories (benchmarks, frameworks, evidence, synthesis, etc.)
-│   └── sources/                  — client uploads + research articles
+│   ├── wiki/                     — topic directories (benchmarks, frameworks, evidence,
+│   │                                synthesis, inspiration-hub/ai-patterns, etc.)
+│   ├── sources/                  — client uploads + research articles
+│   └── sessions/                 — per-run state (chat, corpus, knowledge graph, etc.)
+├── exemplar-skills/              — load-bearing reference library for Stage 3/4 prototypes
+├── hooks/                        — runtime hooks (e.g., constraint injection)
+├── plans/                        — active multi-item uplift plans (HTML-as-default,
+│                                   verbalized-sampling, reinforcement-inference, …)
+├── design-desk/                  — design notes + deferred UX items
 ├── styles/                       — NXT design system CSS
 └── vite.config.ts                — custom plugins serve wiki markdown at /hic-workspace/wiki/
                                     and agent skill files at /skills/ from ../.claude/skills/
 ```
+
+**Prototype pipeline (`#proto (experience name)` in the composer):** A multi-stage flow — Stage 1 brief, Stage 2 research, Stage 3 visual direction, Stage 3.5 catalog injection, Stage 4 prototype coder, Stage 5 deepen — composes prototypes exclusively from the AI Experience Patterns catalog at `hic-workspace/wiki/inspiration-hub/ai-patterns/` (92+ patterns). The `design-exemplar-curator` skill picks named Behance exemplars; the `experience-prototype-composer` skill enforces "no invented UI shapes, no generic Copilot shells." Skipping the catalog at Stage 3/3.5/4 is a known anti-pattern.
 
 **Local development:**
 ```bash
@@ -226,6 +252,10 @@ pip install -r requirements.txt && python app.py   # Port 5012
 ```
 
 **Docker**: `research-generator` (container: `hic-research`, port 5011) + `research-proxy` (port 5012). The proxy volume-mounts `hic-workspace/wiki/` so wiki writes from the container persist to the host.
+
+**Rebuild required on every frontend change** — the HiC container is nginx serving a static Vite dist with **no HMR**. After editing anything under `humans-in-control-research/`, run `docker compose -f docker-compose-all.yml up -d --build research-generator` and hard-refresh the browser. Port `3000` belongs to **Social Research**, not HiC — never suggest `npm run dev` on `:3000` for HiC work.
+
+**Active work plans** live in `humans-in-control-research/plans/` (e.g., `html-as-default-output-uplift.md`, `verbalized-sampling-uplift.md`, `reinforcement-inference-uplift.md`). Check there before starting non-trivial HiC work — there may already be a plan to extend rather than duplicate.
 
 **Output quality rules** live in `.claude/CLAUDE.md` — brand colors, citation protocol, banned phrases (350+), consulting frameworks (Minto, Rumelt, SCQA), content budgets. These load into every Claude Code session and apply to all deliverable generation.
 

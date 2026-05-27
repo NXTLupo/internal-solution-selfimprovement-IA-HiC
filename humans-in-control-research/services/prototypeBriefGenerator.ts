@@ -25,7 +25,7 @@
 
 import type { ExperienceBrief } from './prototypeBuilder';
 
-const PROXY_BASE = 'http://localhost:5012';
+const PROXY_BASE = 'http://127.0.0.1:5012';
 // 2026-05-13 — Switched from Gemini 3.1 Pro to Claude Opus 4.7 for brief
 // generation. Opus is more creative on divergent framings (pass 1) AND more
 // exhaustive on per-brief enumeration (pass 2). Each pass uses the shared

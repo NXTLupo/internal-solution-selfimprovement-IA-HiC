@@ -6,19 +6,19 @@ subreddit: "neu"
 title: "Lonliness and socializing"
 author: "deagolmylov"
 date: "2026-01-18T22:17:12.000Z"
-score: 22
-upvote_ratio: 1
+score: 20
+upvote_ratio: 0.96
 num_comments: 17
 flair: "Campus Life"
-extracted_at: "2026-05-11T20:48:46.979Z"
+extracted_at: "2026-05-20T06:39:39.935Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
 ---
 
 # Lonliness and socializing
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qgm14t/lonliness_and_socializing/)
-Posted by **deagolmylov** · **22↑** · **17 comments**
+Posted by **deagolmylov** · **20↑** · **17 comments**
 
 Hi everyone, I have found my last year at NEU as a grad student to be quite lonely despite attending a bunch of events and clubs. It seems that there's very few people who want to continue engaging with you outside of class and even when you do engagement with them they seem disconnected. As an introvert socializing has been particularly hard and mostly unsuccessful. 
 
@@ -27,12 +27,12 @@ I am curious if someone else has had that experience, especially as in introvert
 
 ## Comments
 
-- **Bright_Golf_6349** (6↑): I had the same experience tbh. But I myself isolated myself from others as I focused on job hunt and applications (international students) and my classmates did the same. Eventually everyone moved out of Boston after graduation.
+- **Bright_Golf_6349** (7↑): I had the same experience tbh. But I myself isolated myself from others as I focused on job hunt and applications (international students) and my classmates did the same. Eventually everyone moved out of Boston after graduation.
 
 
 Adult friendships are hard(fellow Grad student). Try joining E-board of a club or hangout with your project mates, housemates. This helped me!
-  - **deagolmylov** (3↑): Thanks for your reply! I haven't self isolated, though I get tempted to do so sometimes. The issue is that I do try to hangout with project mates and stuff but they often do not follow though with plans or never invite me to one.
-- **No_Dinner6795** (4↑): I think it’s quite a common thing among the college kids these days. Especially after COVID. Don’t worry, after you graduate or during your co-op, you’ll find a ton of friends at work. You’ll kinda have to because you’ll see the same people on a daily basis EVERY SINGLE DAY. Plus, you can always get a pet like a dog. 
+  - **deagolmylov** (5↑): Thanks for your reply! I haven't self isolated, though I get tempted to do so sometimes. The issue is that I do try to hangout with project mates and stuff but they often do not follow though with plans or never invite me to one.
+- **No_Dinner6795** (5↑): I think it’s quite a common thing among the college kids these days. Especially after COVID. Don’t worry, after you graduate or during your co-op, you’ll find a ton of friends at work. You’ll kinda have to because you’ll see the same people on a daily basis EVERY SINGLE DAY. Plus, you can always get a pet like a dog. 
 
 For now through, classes might be stressful for your peers. I highly suggest you seek friends outside of NEU. Try concerts, festivals, cinemas, and events like that. Also, highly recommend joining your local cultural/religious/political groups! Nothing bonds people better than the shared interests and hate for the other side XD
   - **deagolmylov** (3↑): I have a book club that I (almost) regularly attend outside of university. Idk if joining political groups would be any less stressful for me haha. 

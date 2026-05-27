@@ -1,0 +1,418 @@
+{
+  "total_documents": 19,
+  "total_topics": 4,
+  "topics": {
+    "positive": {
+      "count": 2,
+      "topics": [
+        {
+          "id": 0,
+          "count": 7,
+          "score": 0.24890242304120744,
+          "engagement": {
+            "post_count": 7,
+            "total_comments": 7,
+            "total_score": 67,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 9.571428571428571
+          },
+          "terms": [
+            {
+              "term": "op",
+              "weight": 0.028290783346396457
+            },
+            {
+              "term": "ops",
+              "weight": 0.025110320719499906
+            },
+            {
+              "term": "accounting",
+              "weight": 0.02506717429473492
+            },
+            {
+              "term": "gpa",
+              "weight": 0.023944298300937538
+            },
+            {
+              "term": "spring",
+              "weight": 0.02228193270643104
+            },
+            {
+              "term": "business",
+              "weight": 0.021757549542649902
+            },
+            {
+              "term": "big",
+              "weight": 0.02059338888345251
+            },
+            {
+              "term": "school",
+              "weight": 0.02059338888345251
+            },
+            {
+              "term": "year",
+              "weight": 0.020010312226950766
+            },
+            {
+              "term": "fall",
+              "weight": 0.017898241188039142
+            }
+          ],
+          "post_ids": [
+            "1tcjfq9",
+            "1t7ju94",
+            "1t6x3he",
+            "1t77et0",
+            "1t2lqx4",
+            "1t5fimv",
+            "1t0x9dz"
+          ],
+          "post_sentiments": {
+            "1tcjfq9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6838489174842834
+            },
+            "1t7ju94": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7088562250137329
+            },
+            "1t6x3he": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6602125763893127
+            },
+            "1t77et0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5649698376655579
+            },
+            "1t2lqx4": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4921272397041321
+            },
+            "1t5fimv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1t0x9dz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about cooperative education program experiences and challenges in business-related fields, particularly focusing on accounting majors and their pursuit of opportunities at major professional services firms. Students share concerns about academic performance requirements, timing of different co-op cycles, and the competitive nature of securing positions at prestigious companies. The conversations reveal broader systemic issues with university co-op programs, including limited availability of positions relative to student demand, difficulties in the application and recruitment process, and frustrations with program administration. Students discuss strategic decisions about when to participate in co-op cycles, with spring cycles often preferred for accounting due to alignment with busy seasons at audit firms. The discussions highlight the importance of networking, maintaining strong GPAs, and building relevant extracurricular experience to compete for coveted positions at Big 4 accounting firms and other major employers.",
+          "short_summary": "Business co-op challenges",
+          "one_sentence_summary": "Students discuss challenges and strategies related to securing competitive cooperative education positions in business fields, particularly accounting roles at major firms."
+        },
+        {
+          "id": 1,
+          "count": 4,
+          "score": 0.3199808821082115,
+          "engagement": {
+            "post_count": 4,
+            "total_comments": 4,
+            "total_score": 21,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 5.25
+          },
+          "terms": [
+            {
+              "term": "models",
+              "weight": 0.030324683956927702
+            },
+            {
+              "term": "local",
+              "weight": 0.026219093932908763
+            },
+            {
+              "term": "claude",
+              "weight": 0.026219093932908763
+            },
+            {
+              "term": "finance",
+              "weight": 0.02190524814925731
+            },
+            {
+              "term": "mahoraga",
+              "weight": 0.02190524814925731
+            },
+            {
+              "term": "cs",
+              "weight": 0.02190524814925731
+            },
+            {
+              "term": "run",
+              "weight": 0.02097527514632701
+            },
+            {
+              "term": "able",
+              "weight": 0.02097527514632701
+            },
+            {
+              "term": "resume",
+              "weight": 0.01853324276997173
+            },
+            {
+              "term": "work",
+              "weight": 0.01809708130198396
+            }
+          ],
+          "post_ids": [
+            "1tbd60d",
+            "1t7pytb",
+            "1t6crmm",
+            "1t3dfr3"
+          ],
+          "post_sentiments": {
+            "1tbd60d": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1t7pytb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9744960069656372
+            },
+            "1t6crmm": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.30542752146720886
+            },
+            "1t3dfr3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about academic technology integration and resource optimization in university settings, particularly focusing on AI model usage, cost management, and technical solutions for students. The conversations center around balancing expensive cloud-based AI services with local computing alternatives, developing hybrid systems that route tasks efficiently between different computational resources, and managing limited institutional credits or subscriptions. Students explore open-source solutions and technical implementations to extend their access to AI tools while maintaining quality output. The topic also encompasses broader academic concerns including co-op program experiences, scholarship allocation processes, and the intersection of technology with practical career preparation in technical fields.",
+          "short_summary": "Academic AI optimization",
+          "one_sentence_summary": "Students discuss optimizing AI model usage and computational resources in academic settings while navigating institutional limitations and developing cost-effective technical solutions."
+        }
+      ]
+    },
+    "negative": {
+      "count": 0,
+      "topics": []
+    },
+    "neutral": {
+      "count": 2,
+      "topics": [
+        {
+          "id": 2,
+          "count": 3,
+          "score": -0.030911048253377277,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 3,
+            "total_score": 43,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 14.333333333333334
+          },
+          "terms": [
+            {
+              "term": "op",
+              "weight": 0.04100225860340746
+            },
+            {
+              "term": "im",
+              "weight": 0.031807620600291436
+            },
+            {
+              "term": "linkedin",
+              "weight": 0.03045724884261182
+            },
+            {
+              "term": "cooked",
+              "weight": 0.03045724884261182
+            },
+            {
+              "term": "interviews",
+              "weight": 0.029355401821318138
+            },
+            {
+              "term": "op search",
+              "weight": 0.02842505601916863
+            },
+            {
+              "term": "email",
+              "weight": 0.025163182440635937
+            },
+            {
+              "term": "applications",
+              "weight": 0.023855715450218577
+            },
+            {
+              "term": "coop",
+              "weight": 0.0207151764541232
+            }
+          ],
+          "post_ids": [
+            "1tcdfqv",
+            "1t7jhpm",
+            "1t7thch"
+          ],
+          "post_sentiments": {
+            "1tcdfqv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5295166969299316
+            },
+            "1t7jhpm": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1t7thch": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4367835521697998
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about cooperative education job search challenges and difficulties faced by students seeking internship placements. Students express anxiety and stress about their co-op application processes, sharing concerns about lack of responses from employers, unsuccessful interviews, and the competitive nature of finding positions. The conversations reveal common struggles including high numbers of applications with few interview opportunities, rejection experiences, and feelings of being overwhelmed or 'cooked' during the search process. Students discuss various strategies such as using LinkedIn and Indeed for applications, sending follow-up emails after interviews, and seeking career services support. The discussions often include comparisons with peers who have successfully secured positions, creating additional pressure and self-doubt about qualifications and prospects.",
+          "short_summary": "Co-op search struggles",
+          "one_sentence_summary": "Students discuss the stressful challenges and difficulties of searching for cooperative education positions, sharing concerns about rejections, lack of responses, and competitive application processes."
+        },
+        {
+          "id": 3,
+          "count": 3,
+          "score": -0.1538136104742686,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 3,
+            "total_score": 6,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 2.0
+          },
+          "terms": [
+            {
+              "term": "op",
+              "weight": 0.07740943650126064
+            },
+            {
+              "term": "fall",
+              "weight": 0.034980922124899165
+            },
+            {
+              "term": "fenway health",
+              "weight": 0.033993410601931846
+            },
+            {
+              "term": "walk",
+              "weight": 0.033993410601931846
+            },
+            {
+              "term": "start",
+              "weight": 0.033993410601931846
+            },
+            {
+              "term": "end",
+              "weight": 0.03167090203735213
+            },
+            {
+              "term": "applying",
+              "weight": 0.030025297032171657
+            },
+            {
+              "term": "june",
+              "weight": 0.030025297032171657
+            },
+            {
+              "term": "date",
+              "weight": 0.030025297032171657
+            }
+          ],
+          "post_ids": [
+            "1t6vatk",
+            "1t5m6pf",
+            "1t41q7m"
+          ],
+          "post_sentiments": {
+            "1t6vatk": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5278772115707397
+            },
+            "1t5m6pf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4815548360347748
+            },
+            "1t41q7m": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5479912161827087
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about cooperative education program logistics and administrative challenges at universities, focusing on timing concerns, scheduling conflicts, and procedural issues. Students share experiences with co-op start and end dates, application deadlines, and program requirements. The conversations reveal common concerns about securing placements, managing timeline changes, and navigating administrative processes. Topics include duration adjustments, clearance delays, semester scheduling conflicts, and deadline pressures. Students seek advice about program flexibility, particularly regarding fall semester timing and application processes. Healthcare access during co-op periods also emerges as a practical concern, with specific mentions of services like walk-in appointments at Fenway Health illustrating the broader challenge of managing personal needs while participating in cooperative education programs.",
+          "short_summary": "Co-op program logistics",
+          "one_sentence_summary": "Students discuss cooperative education program logistics including timing challenges, application processes, scheduling conflicts, and administrative requirements."
+        }
+      ]
+    }
+  },
+  "topic_similarities": [
+    {
+      "source": 0,
+      "target": 1,
+      "weight": 0.3547106087207794,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "weight": 0.41009968042373657,
+      "overlapping_words": [
+        "op"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "weight": 0.44656147599220275,
+      "overlapping_words": [
+        "op",
+        "fall"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.3413000702857971,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "weight": 0.1091575175523758,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "weight": 0.3109937262535095,
+      "overlapping_words": [
+        "op"
+      ],
+      "overlap_count": 1
+    }
+  ],
+  "topic_ids": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

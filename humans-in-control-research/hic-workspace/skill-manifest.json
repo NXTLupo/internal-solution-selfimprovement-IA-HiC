@@ -17,7 +17,7 @@
   },
   {
     "id": "html-deliverable-composer",
-    "name": "HTML Deliverable Composer (Sprint H1 — pending)",
+    "name": "HTML Deliverable Composer",
     "description": "Generates NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the 'Copy as prompt' round-trip helper. COMPOSES WITH verbalized-sampling (mandatory) at five generation layers: visual layout, information architecture, diagram type per SVG, interaction pattern, iconography vocabulary. Loads `verbalized-sampling/SKILL.md` first then prepends its own content. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts (library). Supports a --variants k modifier (k=1-6) that emits the article's 'show me k' grid-picker pattern inline. PENDING: skill file to be created in Sprint H1 of the HTML-as-default uplift rollout. Plan at humans-in-control-research/plans/html-as-default-output-uplift.md.",
     "category": "research-deliverable",
     "triggers": ["#brief", "#explainer", "#report", "#playground", "#approaches", "#artifacts", "html artifact", "html deliverable", "share as html", "export as html"],
@@ -30,7 +30,24 @@
     "thinkingEffort": "max",
     "executionContext": "primary",
     "path": "/skills/html-deliverable-composer/SKILL.md",
-    "status": "pending-sprint-H1"
+    "status": "active"
+  },
+  {
+    "id": "reinforcement-inference",
+    "name": "Reinforcement Inference",
+    "description": "Anchored re-ask pattern: when a generation's selfAssessment.overallConfidence is LOW/MEDIUM or validation fails, the regen pins the prior answer into the prompt and only revises the flagged claims, instead of starting from scratch. Closes the R3 gap from plans/reinforcement-inference-uplift.md. The wrapper lives in services/reinforcementInference.ts and is invoked at 10 regen sites in geminiService.ts plus the uncertainty ledger at wiki/synthesis/uncertainty-ledger.md.",
+    "category": "self-improvement",
+    "triggers": ["#reinforce", "low confidence", "reinforcement inference", "anchored re-ask", "verbalized confidence trigger"],
+    "wikiCompanions": ["synthesis/uncertainty-ledger.md"],
+    "benchmarks": [],
+    "skillReferences": [],
+    "outputTypes": [],
+    "composes_with": ["verbalized-sampling"],
+    "bestModel": "claude-opus-4-6",
+    "thinkingEffort": "max",
+    "executionContext": "wrapper",
+    "path": "/skills/reinforcement-inference/SKILL.md",
+    "status": "active"
   },
   {
     "id": "recommendation-architect",
@@ -42,7 +59,7 @@
     "benchmarks": [],
     "skillReferences": ["verbalized-sampling"],
     "outputTypes": ["recommendationTiles"],
-    "composes_with": ["verbalized-sampling"],
+    "composes_with": ["verbalized-sampling", "source-ranker", "second-order-thinker"],
     "bestModel": "gemini-3.1-pro-preview",
     "thinkingEffort": "max",
     "executionContext": "primary",
@@ -120,6 +137,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker"],
     "path": "/skills/persona-architect/SKILL.md"
   },
   {
@@ -134,6 +152,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "max",
     "executionContext": "primary",
+    "composes_with": ["source-ranker", "contradiction-finder", "second-order-thinker"],
     "path": "/skills/strategy-author/SKILL.md"
   },
   {
@@ -148,6 +167,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker", "contradiction-finder"],
     "path": "/skills/competitive-analyst/SKILL.md"
   },
   {
@@ -162,6 +182,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker"],
     "path": "/skills/service-blueprint-mapper/SKILL.md"
   },
   {
@@ -176,6 +197,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker"],
     "path": "/skills/tech-arch-generator/SKILL.md"
   },
   {
@@ -190,6 +212,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker"],
     "path": "/skills/prd-compiler/SKILL.md"
   },
   {
@@ -204,6 +227,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker", "second-order-thinker"],
     "path": "/skills/roadmap-builder/SKILL.md"
   },
   {
@@ -218,6 +242,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker", "contradiction-finder"],
     "path": "/skills/gap-analysis-evaluator/SKILL.md"
   },
   {
@@ -232,6 +257,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker"],
     "path": "/skills/tech-audit-inspector/SKILL.md"
   },
   {
@@ -246,6 +272,7 @@
     "bestModel": "gemini-2.5-flash",
     "thinkingEffort": "high",
     "executionContext": "subagent",
+    "composes_with": ["source-ranker", "contradiction-finder"],
     "path": "/skills/theme-analyst/SKILL.md"
   },
   {
@@ -260,6 +287,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "max",
     "executionContext": "primary",
+    "composes_with": ["source-ranker", "contradiction-finder", "second-order-thinker", "slide-title-lab"],
     "path": "/skills/strategic-report-writer/SKILL.md"
   },
   {
@@ -316,6 +344,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "max",
     "executionContext": "primary",
+    "composes_with": ["slide-title-lab", "second-order-thinker"],
     "path": "/skills/deck-narrative-composer/SKILL.md"
   },
   {
@@ -366,5 +395,65 @@
     "thinkingEffort": "high",
     "executionContext": "primary",
     "path": "inline://DELIVERABLE_PROTOCOL"
+  },
+  {
+    "id": "source-ranker",
+    "name": "Source Ranker",
+    "description": "Ranks any candidate source set by four orthogonal dimensions wiki-reranker doesn't cover — credibility (peer-review / publication editorial standards), recency (current/dated/outdated tuned to topic volatility), argument-relevance (direct/tangential/weak — distinct from intent-relevance), and the binding citation-protocol classification external/client/synthetic. Emits per-source Use/Verify/Cut verdicts, the top 3 to build the argument on, the one to cut, the missing source type that would make the argument stronger, and a final external-ratio diagnostic that gates the deliverable against the 60%-external floor. Auto-loads via composes_with on every research-deliverable skill — the user never has to ask for citation-quality enforcement.",
+    "category": "quality-enhancer",
+    "triggers": ["source rank", "rank sources", "which sources to trust", "credibility check", "external sources", "citation diversity", "source quality", "#source-rank"],
+    "wikiCompanions": [],
+    "benchmarks": [],
+    "skillReferences": [],
+    "outputTypes": [],
+    "bestModel": "claude-opus-4-7",
+    "thinkingEffort": "high",
+    "executionContext": "primary",
+    "path": "/skills/source-ranker/SKILL.md"
+  },
+  {
+    "id": "contradiction-finder",
+    "name": "Contradiction Finder",
+    "description": "Surfaces where sources in the retrieval set actively disagree on a specific claim, theme, or finding — instead of flattening contradictions into smoothed consensus. Returns the surface consensus, 3 specific contradictions with both sides quoted verbatim (paraphrase is forbidden), the single weakest claim in the material, the field's real unresolved debate, and a calibrated confidence verdict (High/Medium/Low) that drives whether the deliverable should cite forward, narrow the claim, or re-retrieve. Directly raises the Evidence Hierarchy dimension of the hic-output-qa rubric. Auto-loaded via composes_with on heavy-synthesis deliverables (theme-analyst, strategy-author, competitive-analyst, gap-analysis-evaluator, strategic-report-writer).",
+    "category": "quality-enhancer",
+    "triggers": ["find contradictions", "where do sources disagree", "source disagreement", "real debate", "weakest claim", "counter-evidence", "is the consensus real", "#contradict"],
+    "wikiCompanions": [],
+    "benchmarks": [],
+    "skillReferences": [],
+    "outputTypes": [],
+    "bestModel": "claude-opus-4-7",
+    "thinkingEffort": "high",
+    "executionContext": "primary",
+    "path": "/skills/contradiction-finder/SKILL.md"
+  },
+  {
+    "id": "second-order-thinker",
+    "name": "Second Order Thinker",
+    "description": "Maps the second-order, third-order, unintended, and feedback-loop consequences of any strategic recommendation or decision. First-order effects are the obvious 'if we do X then Y'. Second-order is what happens after that. Third-order is where unintended consequences emerge. Feedback loops are where the system either amplifies the original move or quietly undoes it. Forces three moves ahead per recommendation. Names one unintended consequence. Surfaces the amplifying-or-undermining loop. Distinguishes a competent recommendation from a partner-grade one. Auto-loaded via composes_with on strategy-author, recommendation-architect, roadmap-builder, and strategic-report-writer — anywhere the deliverable produces ACTIONS (not diagnoses).",
+    "category": "quality-enhancer",
+    "triggers": ["second order", "second-order", "consequences of consequences", "what happens after", "unintended consequences", "feedback loop", "downstream effects", "#second-order", "#consequences"],
+    "wikiCompanions": [],
+    "benchmarks": [],
+    "skillReferences": [],
+    "outputTypes": [],
+    "bestModel": "claude-opus-4-7",
+    "thinkingEffort": "high",
+    "executionContext": "primary",
+    "path": "/skills/second-order-thinker/SKILL.md"
+  },
+  {
+    "id": "slide-title-lab",
+    "name": "Slide Title Lab",
+    "description": "Generates 15 candidate action-titles for every body slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data point AND action verb, no topic labels, no banned slop, complete sentence, under 120 chars), and returns the top 3 plus the weakest pattern across all 15. Replaces one-shot slide-title generation with a generate-many + rank pattern that lifts action-title compliance directly. Auto-loaded via composes_with on deck-narrative-composer and strategic-report-writer — every slide title goes through this gate before the deck renders. Section dividers, cover slides, and persona cards are exempt (they follow their own naming convention).",
+    "category": "quality-enhancer",
+    "triggers": ["slide title", "title variants", "title lab", "action title", "rewrite this title", "score this title", "#title-lab"],
+    "wikiCompanions": [],
+    "benchmarks": [],
+    "skillReferences": [],
+    "outputTypes": [],
+    "bestModel": "claude-opus-4-7",
+    "thinkingEffort": "high",
+    "executionContext": "primary",
+    "path": "/skills/slide-title-lab/SKILL.md"
   }
 ]

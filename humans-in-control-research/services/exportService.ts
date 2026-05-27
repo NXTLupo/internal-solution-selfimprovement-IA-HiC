@@ -48,6 +48,37 @@ const BRAND = {
 /** Accent color rotation for metric cards in PPTX */
 const PPTX_ACCENT_ROTATION = [BRAND.negative, BRAND.chartreuse, BRAND.cyan];
 
+// --- PPTX TEXT-FIT HELPERS (BUG-FIX 2026-05-20) ---
+/**
+ * Cut a string at a max length, snapping back to the last word boundary so we
+ * never end mid-word. Appends an ellipsis when content is dropped.
+ */
+function wordSafeCut(input: string, maxChars: number): string {
+    const s = (input || '').trim();
+    if (s.length <= maxChars) return s;
+    const slice = s.slice(0, maxChars);
+    const lastSpace = slice.lastIndexOf(' ');
+    const cut = lastSpace > Math.floor(maxChars * 0.6) ? slice.slice(0, lastSpace) : slice;
+    return cut.replace(/[,;:.\-\s]+$/, '') + '…';
+}
+
+/**
+ * Approximate PPTX text-box height in inches for the given character count,
+ * point size, and rendered width (inches). Conservative — errors on the side
+ * of allocating MORE vertical space so we never overlap the next element.
+ *
+ * Empirical: ~1.7 chars per em at standard pptx body weight, em ≈ pt / 72 inches.
+ */
+function estimateTextHeight(chars: number, pt: number, widthInches: number, lineSpacing = 1.25): number {
+    if (chars <= 0) return 0;
+    const emInches = pt / 72;
+    const charsPerInch = 1.7 / emInches;
+    const charsPerLine = Math.max(8, Math.floor(widthInches * charsPerInch));
+    const lines = Math.max(1, Math.ceil(chars / charsPerLine));
+    const lineHeight = emInches * lineSpacing;
+    return lines * lineHeight + 0.05; // 0.05" padding for descenders
+}
+
 // --- DOWNLOAD HELPER ---
 function downloadBlob(blob: Blob, filename: string) {
     const url = URL.createObjectURL(blob);
@@ -125,10 +156,13 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
         x: PX, y: SH * 0.55 + 0.3, w: SW * 0.4, h: 0,
         line: { color: BRAND.borderPrimary, width: 0.75 },
     });
-    const titleText = slides?.[0] ? cleanText(slides[0].title) : 'NXT Humans Research';
+    // BUG #1 FIX: clamp title to fit the 1.2" box (3 lines @ 32pt across 8" width ≈ 160 chars)
+    const rawTitleText = slides?.[0] ? cleanText(slides[0].title) : 'NXT Humans Research';
+    const titleText = wordSafeCut(rawTitleText, 160);
     titleSlide.addText(titleText, {
         x: PX, y: SH * 0.55 + 0.45, w: SW * 0.6, h: 1.2,
         fontSize: 32, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+        valign: 'top',
     });
     titleSlide.addText(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }), {
         x: PX, y: SH * 0.55 + 1.75, w: 4, h: 0.4,
@@ -180,27 +214,32 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                 // --- LEFT SIDE ---
                 let leftY = PY;
 
-                // Section label (from rationale, small uppercase muted text)
-                const sectionLabel = slide.rationale ? cleanText(slide.rationale).substring(0, 50) : '';
+                // BUG #4 FIX: word-safe cut for section label (substring cut mid-word)
+                const sectionLabel = slide.rationale ? wordSafeCut(cleanText(slide.rationale), 50) : '';
                 if (sectionLabel) {
                     s.addText(sectionLabel, {
                         x: PX, y: leftY, w: leftW, h: 0.22,
                         fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
                         letterSpacing: 2.5 as any,
                     });
-                    leftY += 0.35;
+                    leftY += 0.32;
                 }
 
-                // Title (22pt bold)
-                s.addText(cleanText(slide.title), {
-                    x: PX, y: leftY, w: leftW, h: 0.8,
+                // BUG #2 FIX: title — clamp + measure, accumulate by actual height
+                const titleClamped = wordSafeCut(cleanText(slide.title), 140);
+                const titleH = Math.max(0.55, Math.min(1.4, estimateTextHeight(titleClamped.length, 22, leftW)));
+                s.addText(titleClamped, {
+                    x: PX, y: leftY, w: leftW, h: titleH,
                     fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
                     valign: 'top',
                 });
-                leftY += 0.95;
+                leftY += titleH + 0.15;
 
-                // Content bullets (12pt with accent dots, unconstrained count)
-                const bullets = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
+                // BUG #3 FIX: truncate each bullet to its content budget (200 chars per .claude/CLAUDE.md)
+                // BUG #2 FIX: measure rendered height instead of fixed 0.55 per bullet
+                // Cap at 6 visible bullets — partner-test decks never need more on a single slide.
+                const rawBullets = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
+                const bullets = rawBullets.slice(0, 6).map(b => wordSafeCut(b, 200));
                 if (bullets.length > 0) {
                     const bulletItems = bullets.map((b, bi) => ({
                         text: b,
@@ -211,93 +250,118 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                             paraSpaceAfter: 8,
                         },
                     }));
-                    const bulletH = Math.min(bullets.length * 0.55, 3.0);
+                    // Estimate per-bullet height @ 12pt across leftW, then sum.
+                    const bulletH = bullets.reduce((acc, b) => {
+                        const h = estimateTextHeight(b.length, 12, leftW - 0.3, 1.3);
+                        return acc + Math.max(0.32, h) + 0.08; // 0.08" paraSpaceAfter
+                    }, 0);
+                    const clampedBulletH = Math.min(bulletH, 3.2);
                     s.addText(bulletItems as any, {
-                        x: PX, y: leftY, w: leftW, h: bulletH,
+                        x: PX, y: leftY, w: leftW, h: clampedBulletH,
                         fontFace: BRAND.fallbackFont, valign: 'top',
                     });
-                    leftY += bulletH + 0.15;
+                    leftY += clampedBulletH + 0.18;
                 }
 
-                // Problem stat (red accent card, if present)
+                // BUG #2 FIX: problemStat card height now reflects description length
                 if (slide.problemStat) {
+                    const psDescRaw = cleanText(slide.problemStat.description || '');
+                    const psDesc = wordSafeCut(psDescRaw, 180);
+                    const psDescH = Math.max(0.3, estimateTextHeight(psDesc.length, 10, leftW - 0.4, 1.3));
+                    const cardH = Math.max(0.85, 0.5 + psDescH);
                     s.addShape(pptx.ShapeType.rect, {
-                        x: PX, y: leftY, w: leftW, h: 0.85,
+                        x: PX, y: leftY, w: leftW, h: cardH,
                         fill: { color: 'FFF5F5' },
                         rectRadius: 0.04,
                     });
-                    // Left accent strip
                     s.addShape(pptx.ShapeType.rect, {
-                        x: PX, y: leftY, w: 0.04, h: 0.85,
+                        x: PX, y: leftY, w: 0.04, h: cardH,
                         fill: { color: BRAND.negative },
                     });
                     s.addText(`${slide.problemStat.value}${slide.problemStat.unit ? ' ' + slide.problemStat.unit : ''}`, {
-                        x: PX + 0.2, y: leftY + 0.08, w: leftW - 0.4, h: 0.35,
+                        x: PX + 0.2, y: leftY + 0.08, w: leftW - 0.4, h: 0.4,
                         fontSize: 24, fontFace: BRAND.fallbackFont, color: BRAND.negative,
                         fontWeight: 200 as any,
+                        valign: 'top',
                     });
-                    s.addText(cleanText(slide.problemStat.description), {
-                        x: PX + 0.2, y: leftY + 0.45, w: leftW - 0.4, h: 0.3,
+                    s.addText(psDesc, {
+                        x: PX + 0.2, y: leftY + 0.48, w: leftW - 0.4, h: psDescH,
                         fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                        valign: 'top',
                     });
-                    leftY += 1.0;
+                    leftY += cardH + 0.15;
                 }
 
-                // Solution points (accent bars, if present)
+                // BUG #2 FIX: solution-point stack accumulates by measured description height
                 const solPts = slide.solutionPoints || [];
                 if (solPts.length > 0) {
                     for (let si = 0; si < Math.min(solPts.length, 3); si++) {
                         const spAccent = PPTX_ACCENT_ROTATION[si % 3];
-                        // Accent bar
+                        const spTitle = wordSafeCut(cleanText(solPts[si].title || ''), 80);
+                        const spDesc = wordSafeCut(cleanText(solPts[si].description || ''), 200);
+                        const descH = Math.max(0.35, estimateTextHeight(spDesc.length, 10, leftW, 1.3));
                         s.addShape(pptx.ShapeType.rect, {
                             x: PX, y: leftY, w: 0.4, h: 0.03,
                             fill: { color: spAccent },
                         });
-                        s.addText(cleanText(solPts[si].title), {
-                            x: PX, y: leftY + 0.12, w: leftW, h: 0.25,
+                        s.addText(spTitle, {
+                            x: PX, y: leftY + 0.12, w: leftW, h: 0.28,
                             fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                            valign: 'top',
                         });
-                        s.addText(cleanText(solPts[si].description), {
-                            x: PX, y: leftY + 0.4, w: leftW, h: 0.4,
+                        s.addText(spDesc, {
+                            x: PX, y: leftY + 0.42, w: leftW, h: descH,
                             fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
                             valign: 'top',
                         });
-                        leftY += 0.95;
+                        leftY += 0.42 + descH + 0.18;
                     }
                 }
 
-                // Quote on left side (only when no metrics — otherwise quote goes to right panel)
+                // BUG #2 FIX: left-side quote — height from measured content (cap at 250 chars per CLAUDE.md budget)
                 if (slide.quote && !metrics.length) {
-                    // Left accent border via thin rect
+                    const qText = wordSafeCut(cleanText(slide.quote), 250);
+                    const qH = Math.max(0.6, Math.min(1.6, estimateTextHeight(qText.length + 2, 12, leftW - 0.3, 1.35)));
                     s.addShape(pptx.ShapeType.rect, {
-                        x: PX, y: leftY + 0.05, w: 0.04, h: 0.7,
+                        x: PX, y: leftY + 0.05, w: 0.04, h: qH - 0.1,
                         fill: { color: BRAND.cyan },
                     });
-                    s.addText(`"${cleanText(slide.quote)}"`, {
-                        x: PX + 0.2, y: leftY, w: leftW - 0.3, h: 0.8,
+                    s.addText(`"${qText}"`, {
+                        x: PX + 0.2, y: leftY, w: leftW - 0.3, h: qH,
                         fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary, italic: true,
                         valign: 'top',
                     });
-                    leftY += 0.9;
+                    leftY += qH + 0.15;
                 }
 
-                // Persona card (if personaName exists — small card with name/role)
+                // BUG #2 FIX: persona card — fixed footprint + truncated text fields so the card never overflows below the slide boundary
                 if (slide.personaName) {
+                    const pCardW = Math.min(leftW, 4);
+                    const pQuoteRaw = slide.personaQuote ? cleanText(slide.personaQuote) : '';
+                    const pQuote = pQuoteRaw ? wordSafeCut(pQuoteRaw, 140) : '';
+                    const pQuoteH = pQuote ? Math.max(0.25, estimateTextHeight(pQuote.length + 2, 9, pCardW - 0.4, 1.3)) : 0;
+                    const pCardH = 0.4 + pQuoteH;
+                    // Clamp: never extend past the 7.5" bottom (leave 0.3" gutter)
+                    const slideBottom = SH - 0.3;
+                    const drawH = Math.min(pCardH, Math.max(0.5, slideBottom - leftY));
                     s.addShape(pptx.ShapeType.rect, {
-                        x: PX, y: leftY, w: Math.min(leftW, 4), h: 0.6,
+                        x: PX, y: leftY, w: pCardW, h: drawH,
                         fill: { color: BRAND.bgSecondary },
                         rectRadius: 0.04,
                     });
                     let personaText = slide.personaName;
                     if (slide.personaRole) personaText += `  |  ${slide.personaRole}`;
+                    personaText = wordSafeCut(personaText, 80);
                     s.addText(personaText, {
-                        x: PX + 0.2, y: leftY + 0.08, w: Math.min(leftW, 4) - 0.4, h: 0.2,
+                        x: PX + 0.2, y: leftY + 0.08, w: pCardW - 0.4, h: 0.25,
                         fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                        valign: 'top',
                     });
-                    if (slide.personaQuote) {
-                        s.addText(`"${cleanText(slide.personaQuote)}"`, {
-                            x: PX + 0.2, y: leftY + 0.3, w: Math.min(leftW, 4) - 0.4, h: 0.2,
+                    if (pQuote && drawH > 0.55) {
+                        s.addText(`"${pQuote}"`, {
+                            x: PX + 0.2, y: leftY + 0.36, w: pCardW - 0.4, h: drawH - 0.4,
                             fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary, italic: true,
+                            valign: 'top',
                         });
                     }
                 }

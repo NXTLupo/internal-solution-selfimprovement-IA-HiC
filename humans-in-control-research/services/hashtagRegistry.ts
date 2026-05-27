@@ -348,6 +348,27 @@ export const DIRECTIVES: HashtagDirective[] = [
         outputType: 'slide_template',
     },
     {
+        id: '#case-study',
+        name: 'Case Study Set',
+        category: 'consulting-deliverable',
+        summary: 'Generate named, evidence-grounded case studies (5W + outcome + applicability) from the corpus.',
+        description:
+            'Loads the case-study-analyst skill. Produces named, evidence-grounded case studies sourced from the corpus: subject (named institution / company), context, intervention, outcome with quantified delta, applicability-to-your-situation. Each case study cites verbatim quotes and named external sources. Combined with #slide or #slides, renders one case-study slide per study using the case-study slide template. The default count is 5; override with #count=N (1-12).',
+        aliases: ['#case-studies', '#casestudy', '#casestudies'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        modifiers: [
+            { token: '#count=N', description: 'Override default case-study count (1-12)', values: '1-12' },
+        ],
+        examples: [
+            '#case-study Named higher-ed AI-readiness programs that improved first-year retention #slides #NU',
+            '#case-study 5 SME co-op match programs across mid-major institutions #count=5',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-05-26',
+        outputType: 'slide_template',
+    },
+    {
         id: '#strategy',
         name: 'Strategy Recommendations (Rumelt Kernel)',
         category: 'consulting-deliverable',
@@ -562,6 +583,75 @@ export const DIRECTIVES: HashtagDirective[] = [
         requiresContext: false,
         usesVerbalizedSampling: false,
         introduced: '2026-05-11',
+    },
+
+    // ────────────────────────────────────────────────────────────────────
+    // 2026-05-24 — NotebookLM uplift Phase 4-6 deliverables
+    // ────────────────────────────────────────────────────────────────────
+    {
+        id: '#mindmap',
+        name: 'Mind Map',
+        category: 'consulting-deliverable',
+        summary: 'Build a navigable mind-map from the corpus themes, with click-to-chat drill-down.',
+        description: 'Takes the BERTopic v2 cluster output + research goal and emits a nested mind-map artifact (max depth 4, max 7 children per node). Each node carries chunk_ids for click-to-chat drill-down. Convergent-evidence clusters (themes that appeared across ≥2 source types) get a visual ring treatment. Rendered in the Designer Window with d3 force-directed layout; exports to PNG via paint-sync. Differentiated from NotebookLM\'s Mind Map by the source-stratification flag — NotebookLM doesn\'t categorize sources.',
+        aliases: ['#mind-map', '#mindmaps'],
+        combinesWith: ['#NXT', '#NU'],
+        examples: ['#mindmap', '#mindmap #NU'],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-05-24',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#deep-research',
+        name: 'HiC Deep Research',
+        category: 'experience-builder',
+        summary: 'Plan-act-reflect research loop with a Human-in-Control plan-edit gate BEFORE collection.',
+        description: 'The "Humans in Control" feature. Steps: (1) planner emits a research_plan.json with sub-questions, source strategy, named institutions, budget cap, reflection threshold — using Opus 4.7 + extended thinking. (2) UI renders the plan as an editable form. User edits, removes, or approves. (3) After approval, the data fabric runs in an iteration loop with Sonnet 4.6 reflector deciding "covered / gap_remains / new_question" after each batch. (4) All reflection traces persist to engagements/<slug>/research_log.json for audit. Hard cap N iterations + budget cap. NotebookLM has Deep Research; only HiC has it with a deliberate user checkpoint at the planning stage.',
+        aliases: ['#deep-research', '#research-deep', '#research-plan'],
+        combinesWith: ['#NU', '#NXT'],
+        modifiers: [
+            { token: '--budget', description: 'Hard USD cap on the research loop', values: 'number (default 5)' },
+            { token: '--iterations', description: 'Max reflector loop iterations', values: 'integer (default 6)' },
+        ],
+        examples: [
+            '#deep-research northeastern co-op strategy',
+            '#deep-research mid-market B2B SaaS retention --budget 10 --iterations 8',
+        ],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-05-24',
+        outputType: 'chat_response',
+    },
+    {
+        id: '#brief-dialog',
+        name: 'Brief Dialog',
+        category: 'consulting-deliverable',
+        summary: 'Two-persona text dialogue (Skeptical Partner + Curious Strategist) pressure-testing a finding.',
+        description: '~600-900 word transcript of two voices in conversation about a research finding or recommendation set. The Skeptical Partner names prior failures and quotes counter-numbers; the Curious Strategist defends with named source citations. ONE concession is mandatory from the Partner. Final stance is one of: stronger / qualified / rejected. Text-first (sidesteps voice IP risk + Audio Overview TTS gap + aligns with the consulting use case where partners READ briefs in meetings). Optional v2: send transcript to ElevenLabs for two-voice audio rendering (gated on legal review).',
+        aliases: ['#dialog', '#brief-dialogue'],
+        combinesWith: ['#NU', '#NXT'],
+        examples: [
+            '#brief-dialog Why first-year preparedness drives co-op outcomes',
+            '#brief-dialog #NU pressure-test the CLR-skill-gap coach recommendation',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-05-24',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#meta-themes',
+        name: 'Portfolio Patterns (Meta-Themes)',
+        category: 'consulting-deliverable',
+        summary: 'Themes that recur across ≥3 engagements in the HiC engagement portfolio. Platform-level patterns.',
+        description: 'Reads every engagements/<slug>/themes.json + wiki/synthesis/cross-engagement-patterns.md. Surfaces themes that recur across ≥3 engagements as portfolio patterns; themes in ≥5 engagements get a "platform pattern" treatment. The differentiation NotebookLM categorically cannot do because they have no concept of an engagement portfolio. Surfaced in the Knowledge Library as "Portfolio Patterns". Themes are clustered by name + summary similarity; canonical names picked by Sonnet 4.6 at temp=0 from variant set.',
+        aliases: ['#meta-theme', '#portfolio-themes', '#platform-patterns'],
+        examples: ['#meta-themes', '#meta-themes higher-ed'],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-05-24',
+        outputType: 'chat_response',
     },
 ];
 

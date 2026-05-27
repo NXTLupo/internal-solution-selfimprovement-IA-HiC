@@ -1,0 +1,91 @@
+---
+url: "https://www.reddit.com/r/waterloo/comments/1sh3xx5/local_events_this_weekend/"
+kind: "social-post"
+source: "reddit-deep: r/waterloo"
+subreddit: "waterloo"
+title: "Local events this weekend!"
+author: "Fragrant-Divide240"
+date: "2026-04-09T22:08:22.000Z"
+score: 20
+upvote_ratio: 0.92
+num_comments: 0
+flair: ""
+extracted_at: "2026-05-23T20:15:08.132Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Local events this weekend!
+
+Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1sh3xx5/local_events_this_weekend/)
+Posted by **Fragrant-Divide240** · **20↑** · **0 comments**
+
+Hello! Hope everyone's having an awesome week so far. Anyone going to the Elmira Maple Syrup Festival?! It's gonna be excellent this year and the weather looks quite decent too.
+
+As per usual, I've put together a list of some popular upcoming events for my newsletter (Grand River Buzz - [https://grandriverbuzz.ca/signup](https://grandriverbuzz.ca/signup)) - and wanted to share them here too.
+
+Please comment below something I might've missed so everyone can see!
+
+\_\_\_\_\_\_\_\_\_\_
+
+**General**
+
+[​KW Wine & Food Show​](https://www.kwwineandfoodshow.com/) | The Aud, Kitchener | Fri, Apr. 10th from 5-10pm & Sat, Apr. 11th from Noon-10:30pm | *"You’ll not only indulge in fantastic vino and sumptuous eats, the KW Wine & Food Show also brings you craft beer, cocktails, live cooking demonstrations, music from local artists and more."*
+
+[​Fibre Arts Festival​](https://weftfest.ca/) | Hampton Inn, Waterloo | Sat, Apr. 11th from 9-5pm & Sun, Apr. 12th from 10-5pm | *"Community quilt edition: auctions, high tea, wine tastings, demos & more. If you can't make the show in person, you can still bid online!"*
+
+**Thursday, April 9th**
+
+​[​Intro To Printmaking Workshop​](https://calendar.kitchener.ca/default/Detail/2026-04-09-1730-Intro-to-Printmaking-Workshop-Series) | KW Art Gallery, Kitchener | 5:30pm | *"Guided by an experienced art instructor, young artists will explore one of the world’s oldest and most exciting art forms: printmaking! From linocut to Gelli-prints, explore the versatility of the medium through hands-on projects and playful experimentation."*
+
+​[​Salsa & Bachata Latin Night​](https://underdogdance.com/salsanight) | Rare Nightclub, Waterloo | 6pm | *"We’ll start the evening with a 30-minute beginner dance lesson, designed especially for first-timers. Our instructors break things down in a clear, supportive way so you can feel comfortable and confident stepping onto the dance floor right away. After the lesson, enjoy social dancing with great salsa and bachata music until 10:00 PM."*
+
+​[​Mandala Coaster Workshop​](https://zendala.ca/events/recjncDcOHL0GGyie/book?fbclid=IwY2xjawQmagRleHRuA2FlbQIxMABicmlkETFuR2x0d1pHQXpvVFlabnF5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkWyHYNUO6Lsch_8jX24rJJu59uwhb2W9nHjUSgl_npMXtREVEr_3BBVq_M5_aem_ph56LBZ8GeWEp8EFwf-Kiw) | Smile Tiger Coffee Roasters, Kitchener | 6:30pm | *"Create a cohesive set of four mandala coasters using one beautifully curated colour palette and a single guided design. Perfect for beginners and experienced dot artists alike, you’ll leave with a beautifully coordinated set you’ll be proud to display"*
+
+​[​Musical Bingo: I Love the 90's​](https://www.evokitchen.com/eventer/musical-bingo-i-love-the-90s-vol-1-6/edate/2026-04-09/) | E.V.O. Kitchen, Cambridge | 7pm | "Amazing music, delicious food, and our Craft Cocktail menu that’s a hit every time."
+
+​[​LMT Connection​](https://www.kwjazzroom.com/event/lmt-connection-thursday-soul-series/?instance_id=4882) | The Jazz Room, Waterloo | 8pm | *"A soul/funk trio established in 1989 who are true masters of their craft, having recorded seven albums, played over 7,000 shows including 15 tours of Europe (2003-2025) and 6 tours of China (2013-2018). At home in Canada they remarkably held a weekly residency at Toronto’s legendary Orbit Room for over 20 years."*
+
+​[​Nick Bordman: Live​](https://www.eventbrite.ca/e/nick-bordman-live-at-the-lancaster-smokehouse-tickets-1985112022497) | Lancaster Smokehouse, Kitchener | 8pm | *"Spice up your Thursday with a night of blues-infused country, served with a side of rock. The Nick Bordman Band's blend of song will surely catch your ears. Special guest, Johanna Daze."*
+
+**Friday, April 10th**
+
+[​Empowered Learners: Bone Health 101​](https://events.waterloo.ca/default/Detail/2026-04-10-1330-Empowered-Learners-Bone-Health-101-FREE) | Waterloo Memorial Recreation Complex | 1:30pm | *"Calling all curious minds! Join us for an informative presentation and lecture series on a wide range of themes and topics, including health resources and general interest."*
+
+[​Soup Dumpling Making Class​](https://www.eventbrite.ca/e/soup-dumpling-xiao-long-bao-making-class-tickets-1980435420655) | Wave Maker Craft Brewery, Cambridge | 7pm | *"You will learn how to make soup dumplings (Xiao Long Bao) from scratch. We will make the dough and filling, and fold them. You will take the dumplings home to freeze or cook."*
+
+[​Hops & High Notes: Opera at the Brewery​](https://www.twbbrewing.com/) | TWB Brewing, Kitchener | 7pm | *"Drop by for a very special edition of Hops & High Notes with Grand River Opera, where they'll explore the operatic favourites hiding in popular media. From cartoon classics to adventure films, sci-fi, and even social media trends - opera pops up in more places than you think!"*
+
+[​Sip & Stretch: Rosé & Reset​](https://www.eventbrite.ca/e/sip-stretch-rose-reset-tickets-1984639650620) | Puddicombe House, New Hamburg | 7pm | *"1 hour of gentle yoga followed by a 45-minute guided wine tasting and pairings."*
+
+[​Let's Take It Back​](https://www.eventbrite.com/e/lets-take-it-back-tickets-1982858897339) | Room 47, Waterloo | 7:30pm | *"A nostalgic, feel-good live journey through the golden era of ’90s and 2000s R&B and Hip Hop."*
+
+[​Rusty Nail Comedy​](https://www.rustynailcomedy.com/Events.htm) | TWH Social, Kitchener | 8pm | *"Headliner: Jesse Singh"*
+
+[​Two Asians, One Mic​](https://www.eventbrite.ca/e/two-asians-one-mic-stand-up-comedy-tour-2026-tickets-1979642787869) | KW Little Theatre, Waterloo | 8pm | *"Bonggun Kim & Robert Peng bring hilarious, unfiltered Asian comedy! Smart, silly & must-see."*
+
+[​The Jazz Collective: Chris Alcantara​](https://www.kwjazzroom.com/event/chris-alcantara-clark-terry-bob-brookmeyer-tribute/?instance_id=4897) | The Jazz Room, Waterloo | 8pm | *"Inspired by the warmth, humour, and masterful interplay of Clark Terry and Bob Brookmeyer, the group brings lyrical improvisation and hard-swinging energy to this classic repertoire."*
+
+[​Foreign Journey: The Best of Foreigner & Journey​](https://centreinthesquare.com/event/foreign-journey-the-best-of-foreigner-and-journey/) | Centre in the Square, Kitchener | 8pm | *"Prepare to be transported back to the golden age of arena rock with this phenomenal group of world-class musicians."*
+
+[​Friday Night Dance Party​](https://www.evokitchen.com/eventer/friday-night-dance-party-at-evo-2/edate/2026-04-10/) | E.V.O. Kitchen, Cambridge | 9pm | *"Join us for a Friday Night Dance Party where the music goes wherever the vibe takes us - from throwbacks to club favourites and everything in between. If it gets people moving, it’s getting played!"*
+
+**Saturday, April 11th**
+
+[​Elmira Maple Syrup Festival​](https://www.elmiramaplesyrupfestival.com/) | 7am-4pm | If you've ever been to the festival, you know it's a "can't-miss" event... and if you haven't - come check out what everyone's raving about.
+
+Pancake breakfasts, food stalls, a wide variety of vendors, live music, family fun areas & more! And of course... a ton of delicious maple treats (don't worry, if you're not wild about maple syrup there's a TON of other options)
+
+[Signs of Spring: Guided Nature Walk​](https://calendar.kitchener.ca/default/Detail/2026-04-11-1000-Signs-of-Spring-Guided-Nature-Walk-at-Huron-Natura) | Huron Natural Area, Kitchener | 10am | *"Explore the beauty and wonders of nature on this guided walk. This will be a casual to moderate paced walk with stops along the way to observe and learn about the changes in nature that occur during the early stages of the spring season."*
+
+[​Pruning Trees and Shrubs Workshop​](https://www.eventbrite.ca/e/pruning-trees-and-shrubs-workshop-tickets-1983206840045) | Ken Seiling Waterloo Region Museum, Kitchener | 10am | *"Under the instruction of Bob Wildfong, our Heritage Gardener, you will prune young trees, shrubs and vines. Learn how to shape and train woody plants, repair damaged branches, revitalize thin growth, and stimulate foliage, flower and fruit development."*
+
+[​2026 Uptown Egg Hunt​](https://uptownwaterloobia.com/uptown-egg-hunt-2025/) | Uptown Waterloo | 11am | *"Come on up and get: a map of the event, free caricature sketches, and enjoy live music as you tour Uptown and collect treats. The first 100 people at our Uptown BIA tent will receive a free tote to help collect treats along the way."*
+
+[​Ponytail Academy Workshop: Beers & Braids​](https://www.eventbrite.ca/e/the-ponytail-academy-workshop-beers-braids-tickets-1983633804106) | Wave Maker Craft Brewery, Cambridge | 1pm | "Ponytail Academy is a fun, hands-on workshop designed especially for dads who want to feel more confident doing their child’s hair. Whether it’s for school mornings, dance class, sports, or just everyday life - this class gives you practical skills you’ll actually use."
+
+[​Claytime: Beginner Clay Workshop​​](https://www.eventbrite.ca/e/claytime-tickets-1979743521165) | Canadian Clay & Glass Gallery, Waterloo | 2pm | *"Our instructor will demonstrate basic handbuilding techniques and show you how to combine simple forms with sculptural elements to create fun and functional pieces for your home! Items are foodsafe, dishwasher safe, and microwave safe."*
+
+[​Tri-City Roller Derby Double Header​](https://tri-city-roller-derby.bloomtickets.ca/event/810?APRIL11th-Tri-CitySpringDoubleHeader&fbclid=IwY2xjawQqWJxleHRuA2FlbQIxMABicmlkETFjZ1p3T0dNUTQ4ZUJJNHpyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqz2Q2VooY5LemeI3I-XieH1JHTeyZ4dQxQZGyOnraGIIJYABVZVNKLtmgqW_aem_xCLGgenVbepYqg85bh3F6w) | Queensmount Arena, Kitchener | 5pm | *"Bring your friends and family and experience the speed, strategy, and intensity of live roller derby."*
+
+[​Naughty Trivia​](https://www.evokitchen.com/eventer/evo-kitchen-bar-presents-naughty-trivia-3/edate/2026-04-11/) | E.V.O. Kitchen, Cambridge | 7pm | *"This is 19+ trivia with zero filters and absolutely no shame. Dirty questions, questionable answers, adult humour, and a crowd that knows exactly what they’re wal

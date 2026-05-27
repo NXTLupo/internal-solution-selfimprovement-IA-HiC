@@ -46,8 +46,32 @@ const SKILL_DIRECTORY_MAP: Record<string, string> = {
  * Load a SKILL.md file content for a given deliverable type.
  * Skills provide domain-specific expertise that augments the generation prompt.
  * Returns the skill content (stripping YAML frontmatter) or empty string if unavailable.
+ *
+ * 2026-05-19 — AUTO-COMPOSITION: When the primary skill loads successfully,
+ * the function ALSO loads the deliverable's composed quality enhancers
+ * (source-ranker, contradiction-finder, second-order-thinker, slide-title-lab)
+ * per QUALITY_SKILL_COMPOSITION and appends them to the returned string.
+ * This means every existing call site in geminiService.ts inherits the
+ * quality stack with zero per-method changes. The chat path
+ * (corpusChatService.ts) gets the same skills via its own composes_with
+ * loop. Two paths, one quality contract.
  */
 export async function loadSkillPrompt(deliverableType: string): Promise<string> {
+    const primarySkill = await _loadPrimarySkillPrompt(deliverableType);
+    if (!primarySkill) return '';
+    // Append composed quality skills. Failure here is non-fatal — the primary
+    // skill still ships.
+    let qualityBlock = '';
+    try {
+        qualityBlock = await loadComposedQualitySkills(deliverableType);
+    } catch (e) {
+        console.warn('[Skills] Quality composition failed for', deliverableType, e);
+    }
+    return qualityBlock ? `${primarySkill}\n${qualityBlock}` : primarySkill;
+}
+
+/** Internal: load just the primary SKILL.md (no quality composition). */
+async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string> {
     const skillDir = SKILL_DIRECTORY_MAP[deliverableType];
     if (!skillDir) return '';
 
@@ -83,7 +107,7 @@ export async function loadSkillPrompt(deliverableType: string): Promise<string> 
 
         // Fallback: try reading via the proxy endpoint
         try {
-            const proxyResp = await fetch(`http://localhost:5012/api/file?path=.claude/skills/${skillDir}/SKILL.md`);
+            const proxyResp = await fetch(`http://127.0.0.1:5012/api/file?path=.claude/skills/${skillDir}/SKILL.md`);
             if (proxyResp.ok) {
                 const raw = await proxyResp.text();
                 if (!/^\s*<!DOCTYPE|^\s*<html/i.test(raw) && (/^---\s*\n/.test(raw) || /^\s*#\s/.test(raw))) {
@@ -100,6 +124,97 @@ export async function loadSkillPrompt(deliverableType: string): Promise<string> 
         console.warn(`[Skills] Error loading ${skillDir}:`, e);
         return '';
     }
+}
+
+/**
+ * 2026-05-19 — Quality-skill composition map.
+ *
+ * For each deliverable type, which quality-enhancer skills must auto-load
+ * alongside the primary skill? This mirrors the `composes_with` arrays in
+ * humans-in-control-research/hic-workspace/skill-manifest.json so the
+ * chat-driven path (corpusChatService.ts) and the legacy GenAISession
+ * path (geminiService.ts) apply the SAME quality rules.
+ *
+ * Why this exists: the chat path got composes_with wiring in 2026-05-19.
+ * The GenAISession path (themes, personas, recs, journey, gap, roadmap,
+ * tech-arch, competitive, audit) is the actual analysis pipeline that
+ * produced the off-topic "Pervasive Campus Safety" theme at 40/100
+ * goal-alignment — because none of the quality skills (source-ranker,
+ * contradiction-finder, second-order-thinker, slide-title-lab) were
+ * loaded into that path's system prompts. This map closes the gap.
+ */
+const QUALITY_SKILL_COMPOSITION: Record<string, string[]> = {
+    'THEMES':              ['source-ranker', 'contradiction-finder'],
+    'PERSONAS':            ['source-ranker'],
+    'STRATEGIC_RECS':      ['source-ranker', 'second-order-thinker'],
+    'STRATEGY_DECK':       ['slide-title-lab', 'second-order-thinker'],
+    'JOURNEY_MAP':         ['source-ranker'],
+    'GAP_ANALYSIS':        ['source-ranker', 'contradiction-finder'],
+    'ROADMAP':             ['source-ranker', 'second-order-thinker'],
+    'TECH_ARCH':           ['source-ranker'],
+    'TECH_AUDIT':          ['source-ranker'],
+    'COMPETITIVE_ANALYSIS':['source-ranker', 'contradiction-finder'],
+    'STRATEGIC_REPORT':    ['source-ranker', 'contradiction-finder', 'second-order-thinker', 'slide-title-lab'],
+    'PRD':                 ['source-ranker'],
+};
+
+/** In-session cache so repeated generate*() calls don't re-fetch the same SKILL.md files. */
+const _qualitySkillCache = new Map<string, string>();
+
+async function _fetchQualitySkillMd(skillName: string): Promise<string> {
+    const cached = _qualitySkillCache.get(skillName);
+    if (cached !== undefined) return cached;
+    const paths = [
+        `/skills/${skillName}/SKILL.md`,
+        `/.claude/skills/${skillName}/SKILL.md`,
+        `../.claude/skills/${skillName}/SKILL.md`,
+    ];
+    for (const path of paths) {
+        try {
+            const resp = await fetch(path);
+            if (!resp.ok) continue;
+            const raw = await resp.text();
+            if (/^\s*<!DOCTYPE|^\s*<html/i.test(raw)) continue;
+            if (!/^---\s*\n/.test(raw) && !/^\s*#\s/.test(raw)) continue;
+            const content = raw.replace(/^---[\s\S]*?---\s*/, '');
+            _qualitySkillCache.set(skillName, content);
+            return content;
+        } catch { /* try next */ }
+    }
+    _qualitySkillCache.set(skillName, '');
+    return '';
+}
+
+/**
+ * Load the composed quality-skill prompts for a deliverable type. Returns a
+ * single concatenated string ready to append to the system prompt. Empty
+ * string when no composition is defined or all loads fail (degrades gracefully).
+ *
+ * Use from any generate*() method in geminiService.ts:
+ *
+ *     const qualitySkills = await loadComposedQualitySkills('THEMES');
+ *     const systemPrompt = `${baseSystemPrompt}${qualitySkills}`;
+ */
+export async function loadComposedQualitySkills(deliverableType: string): Promise<string> {
+    const skills = QUALITY_SKILL_COMPOSITION[deliverableType];
+    if (!skills || skills.length === 0) return '';
+
+    const loaded = await Promise.all(skills.map(name => _fetchQualitySkillMd(name).then(content => ({ name, content }))));
+    const present = loaded.filter(s => s.content.length > 0);
+    if (present.length === 0) return '';
+
+    const blocks = present.map(({ name, content }) => `
+=== QUALITY ENHANCER (auto-composed): ${name} ===
+The deliverable you are generating MUST internalize and apply the rules below.
+These are not optional — they are quality gates enforced post-hoc by the
+slidePostProcessor + hic-output-qa pipelines. Applying them inline is cheaper
+than having your output rejected and regenerated.
+${content}
+=== END QUALITY ENHANCER ===
+`).join('\n');
+
+    console.log(`[QualitySkills] Composed for ${deliverableType}: ${present.map(s => s.name).join(', ')}`);
+    return `\n${blocks}\n`;
 }
 
 /**

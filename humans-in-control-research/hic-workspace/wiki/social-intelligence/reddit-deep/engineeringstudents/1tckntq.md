@@ -1,0 +1,72 @@
+---
+url: "https://www.reddit.com/r/EngineeringStudents/comments/1tckntq/struggling_engineering_student_needs_advice/"
+kind: "social-post"
+source: "reddit-deep: r/engineeringstudents"
+subreddit: "engineeringstudents"
+title: "Struggling Engineering student needs advice"
+author: "Far_Document4711"
+date: "2026-05-14T02:20:58.000Z"
+score: 1
+upvote_ratio: 0.67
+num_comments: 2
+flair: "Academic Advice"
+extracted_at: "2026-05-23T20:15:19.038Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Struggling Engineering student needs advice
+
+Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tckntq/struggling_engineering_student_needs_advice/)
+Posted by **Far_Document4711** · **1↑** · **2 comments**
+
+To give some context, I’m currently a Computer Engineering student at UF, I was an EE but I switched to CPE. Currently a rising senior, but I’m doing an extra year so that makes me a rising junior in terms of my degree. 
+
+Lowkey kinda fucked around and found out in what should’ve been my junior year, and tbh my transcript isn’t good at all. 
+
+I have an F on Signals, a D+ from Physics 2.   
+The rest are a mix of As, Bs, and Cs.   
+I got Bs & As in Calc 1, digital Logic, intro to ECE, discrete math and prog 1 & 2 and some easy gen Ed’s. 
+
+And got Cs in Calc 2 & 3 and Physics 1, microeconomics (which was fucking stupid because I had micro credit from dual enrollment with a B+ and all it’s doing is just dragging my GPA down) and a class called Data Science for ECE, a class that I could’ve finished with a B if I didn’t botch the final. 
+
+There is also a series of medial drops(5 Ws), one is from a semester where I faced a hospitalization from a deadly allergic reaction were I had to complete the rest of the semester part time due to the hospitalization as I had to be back home and not on campus. 
+
+I also faced some shitty mental health problems that got exacerbated from the hospitalization.  
+
+I’ve made it past freshman and sophomore year without failing a single class, with a transcript that showcased a mixture of As, Bs, and at least one C from a hard course.   
+However, I don’t know wtf happened my junior year. 
+
+I’m looking at my transcript, and it’s not good at all. Like wtf did I do that year, just jerk off and eat shit. I feel so ashamed of myself looking at my GPA which is around a 2.6-2.7 when it was before a 3.1. 
+
+I’m kinda worried because I don’t think grad school, which was something I’ve always wanted to do, would be an option. Granted I still have 67 credits left to complete, so there is still a chance. 
+
+With the job market being so competitive, I don’t think I can ever find a job. Even if I improve, it feels like I’m just cooked. Like life wise. Like in this job market perfection is so important that even one flaw is counted against you. 
+
+Although my resume is strong with several embedded systems projects I have done with  research under several professors, and one I’m seeking to publish a paper on. Presented at a research symposium. 
+
+I mean just looking at my transcript alone, I wouldn’t hire myself. I’m remember studying like a fucking dog that semester, just to end with that. All those late nights, sleep deprived, just to end with this shit. 
+
+It doesn’t help that my parents think I’m incompetent. I mean I would too just looking at my grades. Fucking hell. 
+
+I hurts because I know I can do better, I’m just not executing. 
+
+I mean what do I do at this point, should I just give up?    
+Is it come back able. Would love some advice on how to bounce back if it is possible. Currently in the summer taking DSA& Comp Org. Which honestly hasn’t been too bad.
+
+## Comments
+
+- **AutoModerator** (1↑): Hello /u/Far_Document4711! Thank you for posting in r/EngineeringStudents. This is a custom Automoderator message based on your flair, "Academic Advice". While our wiki is under construction, please be mindful of the users you are asking advice from, and make sure your question is phrased neatly and describes your problem. ***Please be sure that your post is short and succinct.*** Long-winded posts generally do not get responded to. 
+
+Please remember to;
+
+Read our [Rules](https://www.reddit.com/r/EngineeringStudents/wiki/rules)
+
+Read our [Wiki](https://www.reddit.com/r/EngineeringStudents/wiki/index)
+
+Read our [F.A.Q](https://www.reddit.com/r/EngineeringStudents/wiki/index/faq)
+
+Check our [Resources Landing Page](https://reddit.com/r/EngineeringStudents/wiki/resources)
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/EngineeringStudents) if you have any questions or concerns.*
+- **CivilChaos** (1↑): Given all you've been through you're actually doing fine. Just pick the slack up and everything will get better. CPE should also be easier than EE

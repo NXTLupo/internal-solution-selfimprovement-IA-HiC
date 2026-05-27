@@ -1,0 +1,964 @@
+{
+  "elapsed_ms": 17491,
+  "results": [
+    {
+      "artifact": "themes",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 11692,
+      "rawChars": 4242,
+      "parsed": {
+        "themes": [
+          {
+            "id": "T1",
+            "name": "Mitigating First-Year Co-op Anxiety",
+            "headline": "Addressing co-op uncertainty in the first year is critical to reversing Northeastern's high freshman transfer rate.",
+            "evidenceBasis": "Currently, 23% of NU first-years transfer before their sophomore year, with co-op uncertainty cited as a top-3 stated reason for leaving. This demonstrates a direct link between early-stage experiential learning anxiety and student attrition.",
+            "implication": "The new strategy must introduce early-intervention co-op advising and preparatory pathways in the first semester to stabilize freshman retention.",
+            "confidence": "high",
+            "evidenceCount": 1
+          },
+          {
+            "id": "T2",
+            "name": "Eliminating Manual Employer Data Entry",
+            "headline": "Northeastern's reliance on PDF transcripts creates severe operational friction for the majority of its employer partners.",
+            "evidenceBasis": "While 60% of NU employer partners utilize modern ATS platforms like Workday and Greenhouse that require structured JSON candidate data, NU currently exports co-op transcripts as static PDFs. This mismatch forces employers to manually re-key candidate information.",
+            "implication": "NU must transition from legacy PDF exports to structured, machine-readable data formats to remain a preferred talent source.",
+            "confidence": "high",
+            "evidenceCount": 2
+          },
+          {
+            "id": "T3",
+            "name": "Pioneering IMS Global CLR Standards",
+            "headline": "Adopting the IMS Global Comprehensive Learner Record (CLR) standard represents a major competitive differentiator due to low national adoption.",
+            "evidenceBasis": "Only 11% of US universities have implemented the IMS Global CLR standard. By adopting this standard, NU can solve the PDF manual re-keying issue by delivering structured, verifiable data directly to employer ATS systems.",
+            "implication": "NU should aggressively implement the CLR standard to lead the market in verifiable, structured experiential learning credentials.",
+            "confidence": "high",
+            "evidenceCount": 2
+          },
+          {
+            "id": "T4",
+            "name": "Closing the Experiential Maturity Gap",
+            "headline": "Northeastern is lagging behind key competitors in co-op program maturity, threatening its historic leadership position.",
+            "evidenceBasis": "Drexel and Waterloo lead the co-op benchmark with an industry-scored maturity of 92/100. In contrast, Northeastern scores significantly lower at 78/100, indicating a clear performance and operational gap.",
+            "implication": "NU must modernize its co-op infrastructure and employer integration capabilities to close the 14-point maturity gap with peer institutions.",
+            "confidence": "high",
+            "evidenceCount": 1
+          },
+          {
+            "id": "T5",
+            "name": "Aligning Credentials with Employer Tech",
+            "headline": "Modernizing the technical delivery of co-op credentials is required to meet the automated hiring workflows of major employers.",
+            "evidenceBasis": "60% of NU's employer partners use Workday or Greenhouse ATS requiring structured JSON, yet NU continues to export co-op transcripts as PDFs. This technical misalignment degrades the employer experience and slows down the hiring pipeline.",
+            "implication": "The co-op strategy must prioritize direct technical integration with employer ATS platforms to reduce hiring friction.",
+            "confidence": "high",
+            "evidenceCount": 2
+          },
+          {
+            "id": "T6",
+            "name": "Demystifying the Co-op Journey",
+            "headline": "Early, structured exposure to the co-op process is a strategic necessity to prevent student attrition before the sophomore year.",
+            "evidenceBasis": "With 23% of first-years transferring and co-op uncertainty being a top-3 driver, the current delayed exposure to co-op preparation harms retention. This is compounded by NU's lower maturity score of 78/100 compared to peers like Waterloo and Drexel at 92/100.",
+            "implication": "NU must integrate co-op readiness directly into the first-semester curriculum to build student confidence and loyalty.",
+            "confidence": "medium",
+            "evidenceCount": 2
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "personas",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 13417,
+      "rawChars": 4188,
+      "parsed": {
+        "personas": [
+          {
+            "name": "Maya Lin",
+            "role": "First-Year Computer Science Student",
+            "jtbd": "When I am navigating my first year at Northeastern, I want to clearly visualize my future co-op pathway and requirements, so that I don't feel overwhelmed by uncertainty and consider transferring to another university.",
+            "painPoints": [
+              "High anxiety and lack of clarity regarding how first-year classes map to actual co-op opportunities.",
+              "Inability to see real-time progress or milestones needed to qualify for top-tier co-op placements.",
+              "Fear of falling behind peers, leading to thoughts of transferring before sophomore year."
+            ],
+            "goals": [
+              "Gain a clear, step-by-step roadmap of the co-op preparation process during the first semester.",
+              "Secure a clear understanding of how academic coursework translates to employer-demanded skills."
+            ],
+            "quote": "I came here for the co-op program, but right now it feels like a black box. If I can't figure this out, I might as well transfer.",
+            "context": "Maya is overwhelmed by the academic transition and feels disconnected from the co-op ecosystem. She spends hours browsing Reddit and student forums trying to figure out how to prepare for co-op, increasing her anxiety."
+          },
+          {
+            "name": "Marcus Vance",
+            "role": "Technical Talent Acquisition Manager",
+            "jtbd": "When I am reviewing co-op applicants from Northeastern, I want to seamlessly import their skills and academic records directly into our Workday ATS, so that I can quickly filter and hire top talent without manual data entry.",
+            "painPoints": [
+              "Wasting hours manually re-keying candidate data from static Northeastern PDF transcripts into Greenhouse/Workday.",
+              "Difficulty verifying specific student competencies and experiential learning outcomes from standard academic transcripts.",
+              "Slower hiring cycles compared to competitors who provide structured candidate data."
+            ],
+            "goals": [
+              "Automate the ingestion of Northeastern candidate profiles directly into the company's ATS via structured JSON.",
+              "Standardize candidate evaluation based on verified, granular skills rather than generic course titles."
+            ],
+            "quote": "Manually typing PDF transcript data into Workday is a massive waste of time. I need structured data, not flat documents.",
+            "context": "Marcus manages high-volume university recruiting at a fast-growing tech firm. He handles hundreds of applications per cycle and is frustrated by Northeastern's outdated PDF export system, which lags behind modern ATS requirements."
+          },
+          {
+            "name": "Sarah Jenkins",
+            "role": "Director of Experiential Learning Systems",
+            "jtbd": "When I am managing the university's co-op platform, I want to integrate the IMS Global CLR standard with our student records, so that we can deliver structured, verifiable skill data to employers and boost our competitive maturity score.",
+            "painPoints": [
+              "Northeastern's lag in experiential learning maturity (78/100) compared to benchmarks like Waterloo and Drexel (92/100).",
+              "High first-year student attrition (23%) driven by anxiety and lack of early engagement with the co-op system.",
+              "Technical hurdles in adopting the IMS Global CLR standard, which only 11% of US universities have successfully implemented."
+            ],
+            "goals": [
+              "Implement a Comprehensive Learner Record (CLR) to provide students with a dynamic, shareable portfolio of verified skills.",
+              "Improve first-year retention by demystifying the co-op preparation process through digital-first tools."
+            ],
+            "quote": "We need to modernize our infrastructure to match our reputation. Transitioning to a CLR framework is critical to retaining students and satisfying employers.",
+            "context": "Sarah is tasked with modernizing Northeastern's legacy co-op administration tools. She sits between academic registrars, anxious students, and demanding employer partners, trying to drive digital transformation with limited benchmark precedents."
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "recommendations",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 15354,
+      "rawChars": 3825,
+      "parsed": {
+        "diagnosis": "Northeastern's competitive co-op advantage is eroding (78/100 maturity vs. Drexel and Waterloo's 92/100) due to severe technical friction in employer ATS integration (PDF-only exports) and structural anxiety that drives 23% of first-years to transfer before sophomore year.",
+        "guidingPolicy": "We will transition Northeastern's co-op ecosystem from a document-centric, delayed-placement model to an API-first, structured-data platform that guarantees early-stage pathway transparency for first-year students.",
+        "recommendations": [
+          {
+            "id": "R1",
+            "title": "Launch a mandatory first-semester co-op preparation milestone and guaranteed placement pathway for all incoming freshmen.",
+            "rationale": "This directly addresses the 23% first-year transfer rate, where co-op uncertainty is a top-three stated reason. By providing immediate visibility and structured milestones in the first semester, we mitigate student anxiety. This aligns NU with top-tier co-op benchmarks like Waterloo and Drexel.",
+            "impact": "Reduce first-year transfer rates by 5% within the first academic year.",
+            "effort": "M",
+            "horizon": "NOW",
+            "dependencies": []
+          },
+          {
+            "id": "R2",
+            "title": "Develop an open-source IMS Global CLR-compliant digital credentialing engine to replace PDF transcripts.",
+            "rationale": "Only 11% of US universities have implemented IMS Global CLR standards, presenting a massive opportunity for NU to lead. Replacing static PDFs with structured digital credentials eliminates manual data entry for employers. This directly addresses the technical gap behind our 78/100 maturity score.",
+            "impact": "Achieve 100% compatibility with IMS Global CLR standards for all graduating co-op students.",
+            "effort": "L",
+            "horizon": "NEXT",
+            "dependencies": [
+              "R5"
+            ]
+          },
+          {
+            "id": "R3",
+            "title": "Build native JSON export integrations for Workday and Greenhouse applicant tracking systems.",
+            "rationale": "Currently, 60% of NU's employer partners use Workday or Greenhouse, which require structured JSON candidate data. Moving away from manual PDF re-keying will dramatically reduce employer friction and increase placement velocity. This directly closes the operational gap with Waterloo and Drexel.",
+            "impact": "Eliminate manual data re-keying for 60% of employer partners using Workday and Greenhouse.",
+            "effort": "L",
+            "horizon": "NEXT",
+            "dependencies": [
+              "R2"
+            ]
+          },
+          {
+            "id": "R4",
+            "title": "Redesign the employer portal to automatically parse and validate structured co-op candidate profiles.",
+            "rationale": "To support the new JSON-based workflows, the employer portal must be modernized to handle automated data transfers. This reduces administrative overhead for both employers and NU co-op advisors. Streamlining this interface directly improves our industry-scored maturity rating.",
+            "impact": "Decrease employer onboarding and candidate-screening time by 40%.",
+            "effort": "M",
+            "horizon": "LATER",
+            "dependencies": [
+              "R3"
+            ]
+          },
+          {
+            "id": "R5",
+            "title": "Train all co-op advisors on structured data portfolios and integrate CLR mapping into prep courses.",
+            "rationale": "Advisors must be equipped to guide students in building machine-readable Comprehensive Learner Records (CLRs). Integrating this into existing co-op prep courses ensures students understand how their skills map to employer ATS requirements. This holistic approach bridges the gap between student preparation and technical execution.",
+            "impact": "Achieve 100% advisor proficiency and student adoption of CLR portfolios before their first application cycle.",
+            "effort": "S",
+            "horizon": "NOW",
+            "dependencies": []
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "service-blueprint",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 14639,
+      "rawChars": 5485,
+      "parsed": {
+        "blueprint": {
+          "title": "Northeastern University Co-op Service Blueprint",
+          "stages": [
+            {
+              "stage": 1,
+              "name": "Orientation and Discovery",
+              "userActions": [
+                "Attends first-year co-op introductory seminars",
+                "Expresses anxiety regarding co-op requirements to academic advisors"
+              ],
+              "frontstage": [
+                "Co-op discovery portal dashboard",
+                "Peer co-op panel presentations"
+              ],
+              "backstage": [
+                "Advising systems flag students showing high co-op uncertainty",
+                "First-year experience team deploys targeted reassurance pathways"
+              ],
+              "painPoints": [
+                "High uncertainty about landing a co-op contributes heavily to the 23% of NU first-years who transfer before sophomore year"
+              ],
+              "opportunities": [
+                "Introduce early-stage co-op confidence mapping in first-year seminars to directly mitigate the transfer risk"
+              ]
+            },
+            {
+              "stage": 2,
+              "name": "Preparation and Skill Mapping",
+              "userActions": [
+                "Enrolls in mandatory professional development course",
+                "Drafts initial resume and attempts to translate coursework into professional skills"
+              ],
+              "frontstage": [
+                "Co-op prep course syllabus",
+                "Digital portfolio builder interface"
+              ],
+              "backstage": [
+                "Co-op coordinators review and approve student resumes",
+                "Database begins compiling student academic achievements into a draft profile"
+              ],
+              "painPoints": [
+                "Students struggle to articulate academic achievements as industry-ready skills, and NU lacks a standardized framework to verify them"
+              ],
+              "opportunities": [
+                "Implement the IMS Global CLR standard early in the curriculum to capture verified skills, positioning NU among the leading 11% of US universities"
+              ]
+            },
+            {
+              "stage": 3,
+              "name": "Search and Application",
+              "userActions": [
+                "Searches for positions on the NUWorks portal",
+                "Exports academic records and submits applications to employer partners"
+              ],
+              "frontstage": [
+                "NUWorks job search interface",
+                "Application submission confirmation screen"
+              ],
+              "backstage": [
+                "System generates standard PDF transcripts for export",
+                "Co-op advisors approve student application lists"
+              ],
+              "painPoints": [
+                "NU currently exports co-op transcripts as static PDFs, forcing employers to manually re-key candidate data into their hiring systems"
+              ],
+              "opportunities": [
+                "Develop a structured JSON candidate data export feature to replace static PDFs, streamlining the application pipeline"
+              ]
+            },
+            {
+              "stage": 4,
+              "name": "Employer Matching and Interviewing",
+              "userActions": [
+                "Schedules interviews with employer partners",
+                "Completes technical and behavioral interviews"
+              ],
+              "frontstage": [
+                "Interview scheduling portal",
+                "Employer communication dashboard"
+              ],
+              "backstage": [
+                "Employers review candidate profiles",
+                "Applicant Tracking Systems (ATS) parse incoming student data"
+              ],
+              "painPoints": [
+                "60% of NU employer partners use Workday or Greenhouse ATS, which require structured JSON candidate data that NU's current system fails to provide"
+              ],
+              "opportunities": [
+                "Provide direct API integrations with Workday and Greenhouse to eliminate manual data entry for 60% of employer partners"
+              ]
+            },
+            {
+              "stage": 5,
+              "name": "On-the-Job Placement",
+              "userActions": [
+                "Begins working full-time at employer site",
+                "Logs daily tasks, projects, and learning milestones"
+              ],
+              "frontstage": [
+                "Mid-term evaluation portal",
+                "Check-in communications from NU co-op advisor"
+              ],
+              "backstage": [
+                "Co-op coordinators monitor student progress",
+                "Employers complete mid-term performance evaluations"
+              ],
+              "painPoints": [
+                "Disconnection between real-world learning achievements on the job and academic credit tracking"
+              ],
+              "opportunities": [
+                "Enable real-time employer skill validation within the Comprehensive Learner Record (CLR) during the active co-op placement"
+              ]
+            },
+            {
+              "stage": 6,
+              "name": "Reflection and Credentialing",
+              "userActions": [
+                "Completes self-reflection essay",
+                "Returns to academic classes and shares experience with peers"
+              ],
+              "frontstage": [
+                "Co-op reflection submission portal",
+                "Updated digital CLR credential badge"
+              ],
+              "backstage": [
+                "Co-op coordinators grade reflection assignments",
+                "System updates student's official CLR with validated employer feedback"
+              ],
+              "painPoints": [
+                "NU's co-op program maturity is currently scored at 78/100, lagging behind industry leaders like Drexel and Waterloo at 92/100"
+              ],
+              "opportunities": [
+                "Close the loop with a fully integrated CLR and seamless ATS pipeline to elevate NU's maturity score to match industry leaders"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "artifact": "prd",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 15152,
+      "rawChars": 5437,
+      "parsed": {
+        "title": "CLR-Powered Co-op Platform PRD",
+        "problemStatement": "Northeastern University faces a critical 23% first-year transfer rate driven by co-op anxiety and uncertainty, while lagging behind peers like Waterloo and Drexel with a 78/100 maturity score. This friction is compounded for employers, as 60% use Workday or Greenhouse ATS platforms that require structured JSON data, yet NU currently exports static, unparsed PDFs that require manual data entry.",
+        "successMetrics": [
+          "Reduce first-year transfer rate due to co-op uncertainty from 23% to under 15% within 18 months.",
+          "Increase NU's industry-scored co-op maturity benchmark from 78/100 to 90/100.",
+          "Achieve 100% compatibility with Workday and Greenhouse ATS via structured JSON-LD CLR exports, reducing manual employer data entry to zero."
+        ],
+        "features": [
+          {
+            "id": "F1",
+            "name": "IMS Global CLR Data Engine",
+            "userStory": "As a university registrar, I want to automatically convert academic and co-op records into IMS Global CLR-compliant JSON-LD format so that student achievements are digitally verifiable and structured.",
+            "priority": "P0",
+            "acceptanceCriteria": [
+              "Must parse existing registrar database schemas into IMS Global CLR 1.0 JSON-LD format.",
+              "Must expose secure, authenticated REST API endpoints for fetching student CLR payloads.",
+              "Must achieve 100% compliance validation on the IMS Global conformance test suite."
+            ],
+            "effortEstimate": "XL"
+          },
+          {
+            "id": "F2",
+            "name": "One-Click ATS Export Integration",
+            "userStory": "As a student applicant, I want to export my co-op profile directly into Workday and Greenhouse compatible JSON formats so that I do not have to manually re-enter my experience on employer portals.",
+            "priority": "P0",
+            "acceptanceCriteria": [
+              "Must generate a payload mapped specifically to Workday and Greenhouse candidate ingestion schemas.",
+              "Must include a 'Apply with NU CLR' browser extension or direct API connector.",
+              "Must reduce employer application parsing error rates to under 1%."
+            ],
+            "effortEstimate": "L"
+          },
+          {
+            "id": "F3",
+            "name": "First-Year Co-op Pathway Simulator",
+            "userStory": "As a first-year student, I want to interactively visualize potential co-op journeys and required milestones so that my anxiety and uncertainty about the co-op process are mitigated.",
+            "priority": "P0",
+            "acceptanceCriteria": [
+              "Must display at least 5 historical student pathways per major.",
+              "Must include interactive milestone checklists for first-year preparation.",
+              "Must integrate with the student's current academic plan to show real-time eligibility."
+            ],
+            "effortEstimate": "M"
+          },
+          {
+            "id": "F4",
+            "name": "Employer ATS Direct Integration Gateway",
+            "userStory": "As an employer partner, I want to receive structured JSON candidate packages directly into my Greenhouse/Workday ATS so that my recruiting team avoids manual PDF data entry.",
+            "priority": "P1",
+            "acceptanceCriteria": [
+              "Must support webhook notifications to push candidate CLR payloads upon application submission.",
+              "Must provide an employer configuration portal to map CLR skills to custom ATS fields.",
+              "Must encrypt all transit data using TLS 1.3 and comply with FERPA regulations."
+            ],
+            "effortEstimate": "L"
+          },
+          {
+            "id": "F5",
+            "name": "Real-Time Skill Verification Ledger",
+            "userStory": "As an employer, I want to instantly verify a student's co-op skills and course outcomes via a cryptographically signed ledger so that I can trust the candidate's self-reported qualifications.",
+            "priority": "P1",
+            "acceptanceCriteria": [
+              "Every CLR assertion must be cryptographically signed by Northeastern University's private key.",
+              "Must provide a public verification page requiring no login for employers to validate signatures.",
+              "Must support instant revocation of credentials if academic records change."
+            ],
+            "effortEstimate": "M"
+          },
+          {
+            "id": "F6",
+            "name": "First-Year Peer Mentorship Matcher",
+            "userStory": "As a first-year student, I want to be automatically matched with upperclassmen mentors who completed co-ops in my field of interest so that I can gain confidence and clarity.",
+            "priority": "P2",
+            "acceptanceCriteria": [
+              "Must match students based on major, industry interest, and shared demographic/extracurricular profiles.",
+              "Must include an in-app messaging and meeting scheduling interface.",
+              "Must track engagement metrics to flag inactive matches for programmatic intervention."
+            ],
+            "effortEstimate": "M"
+          },
+          {
+            "id": "F7",
+            "name": "Automated CLR Resume Builder",
+            "userStory": "As a student, I want to generate a resume dynamically from my verified CLR data so that my resume is always accurate, up-to-date, and optimized for ATS parsers.",
+            "priority": "P1",
+            "acceptanceCriteria": [
+              "Must offer at least 3 ATS-friendly, clean design templates.",
+              "Must export to both PDF and machine-readable JSON/XML formats.",
+              "Must sync changes automatically whenever a new skill or co-op is verified on the CLR."
+            ],
+            "effortEstimate": "S"
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "roadmap",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 10350,
+      "rawChars": 2930,
+      "parsed": {
+        "horizons": {
+          "now": [
+            {
+              "id": "N1",
+              "title": "Launch First-Year Co-op Clarity & Pathway Campaign",
+              "owner": "Director of First-Year Advising",
+              "outcome": "Reduce survey-measured co-op uncertainty among first-year students by 35% within the first term."
+            },
+            {
+              "id": "N2",
+              "title": "Map Workday and Greenhouse JSON Schema Requirements",
+              "owner": "Lead Systems Architect",
+              "outcome": "Complete technical mapping of NU co-op candidate data to standard Workday/Greenhouse ATS JSON ingestion formats."
+            },
+            {
+              "id": "N3",
+              "title": "Conduct IMS Global CLR Gap Analysis on PDF Transcripts",
+              "owner": "Registrar & Director of Academic Assessment",
+              "outcome": "Publish a comprehensive data schema gap analysis comparing current PDF transcript fields to the IMS Global CLR standard."
+            }
+          ],
+          "next": [
+            {
+              "id": "X1",
+              "title": "Implement 'Co-op Assurance' Peer Mentoring Program",
+              "owner": "VP of Student Affairs",
+              "outcome": "Decrease first-year transfer rate due to co-op uncertainty from 23% to under 18%.",
+              "dependsOn": [
+                "N1"
+              ]
+            },
+            {
+              "id": "X2",
+              "title": "Develop and Beta-Test JSON Export Tool for Partner ATSs",
+              "owner": "Director of Enterprise Applications",
+              "outcome": "Successfully pilot automated JSON data exports with 15 major Workday/Greenhouse employer partners, eliminating manual PDF re-keying.",
+              "dependsOn": [
+                "N2"
+              ]
+            },
+            {
+              "id": "X3",
+              "title": "Build Core IMS Global CLR Data Repository",
+              "owner": "VP of Information Technology",
+              "outcome": "Establish a secure, queryable database containing verified student skills and co-op achievements aligned with CLR standards.",
+              "dependsOn": [
+                "N3"
+              ]
+            }
+          ],
+          "later": [
+            {
+              "id": "L1",
+              "title": "Scale Automated ATS Integration to All Partner Employers",
+              "owner": "Director of Employer Relations",
+              "outcome": "Ensure 100% of the 60% partner employers using Workday/Greenhouse receive structured JSON candidate data natively.",
+              "dependsOn": [
+                "X2"
+              ]
+            },
+            {
+              "id": "L2",
+              "title": "Launch Fully Integrated IMS Global CLR Digital Credentials",
+              "owner": "Provost & Chief Academic Officer",
+              "outcome": "Position NU in the top 11% of US universities with active CLR implementation, raising industry maturity score from 78 to 90+.",
+              "dependsOn": [
+                "X3"
+              ]
+            },
+            {
+              "id": "L3",
+              "title": "Deploy Predictive Early-Warning System for Co-op Retention Risk",
+              "owner": "Director of Institutional Research",
+              "outcome": "Identify and proactively support at-risk first-years, reducing overall co-op-related attrition to under 5%.",
+              "dependsOn": [
+                "X1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "artifact": "tech-architecture",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 10326,
+      "rawChars": 3448,
+      "parsed": {
+        "title": "CLR-Powered Co-op Platform — Tech Architecture",
+        "architecturalPrinciples": [
+          "Interoperability via 1EdTech (IMS Global) CLR Standards",
+          "API-First Integration with Employer ATS Ecosystems",
+          "Proactive Retention Analytics for First-Year Students"
+        ],
+        "components": [
+          {
+            "id": "C1",
+            "name": "First-Year Pathway Portal",
+            "kind": "ui",
+            "purpose": "Provides interactive, milestone-based co-op planning and anxiety-reduction dashboards for first-year students to improve retention.",
+            "techChoices": [
+              "React",
+              "Tailwind CSS",
+              "TypeScript"
+            ],
+            "interfaces": [
+              "GraphQL API for student profiles",
+              "REST API for milestone tracking"
+            ]
+          },
+          {
+            "id": "C2",
+            "name": "CLR Credential Engine",
+            "kind": "service",
+            "purpose": "Generates, signs, and manages verifiable, structured learner records compliant with 1EdTech (IMS Global) CLR standards.",
+            "techChoices": [
+              "Node.js",
+              "NestJS",
+              "Verifiable Credentials SDK"
+            ],
+            "interfaces": [
+              "gRPC for internal services",
+              "REST API for external verification"
+            ]
+          },
+          {
+            "id": "C3",
+            "name": "ATS Gateway Translator",
+            "kind": "integration",
+            "purpose": "Translates verifiable CLR data into structured JSON payloads optimized for direct ingestion by Workday and Greenhouse ATS.",
+            "techChoices": [
+              "AWS Lambda",
+              "Python",
+              "JSON-LD Schema Mapper"
+            ],
+            "interfaces": [
+              "Outbound REST to Workday/Greenhouse APIs",
+              "Inbound Webhooks for status updates"
+            ]
+          },
+          {
+            "id": "C4",
+            "name": "Learner Record Ledger",
+            "kind": "datastore",
+            "purpose": "Stores immutable, cryptographically-hashed student academic, co-op, and experiential learning achievements.",
+            "techChoices": [
+              "PostgreSQL",
+              "Amazon QLDB"
+            ],
+            "interfaces": [
+              "SQL",
+              "Ledger Verification API"
+            ]
+          },
+          {
+            "id": "C5",
+            "name": "Readiness Predictor Engine",
+            "kind": "ml-model",
+            "purpose": "Analyzes student engagement and academic profiles to predict co-op readiness and flag at-risk first-years for early intervention.",
+            "techChoices": [
+              "Python",
+              "Scikit-Learn",
+              "FastAPI"
+            ],
+            "interfaces": [
+              "REST API for risk scoring",
+              "Message-bus for real-time ingestion"
+            ]
+          },
+          {
+            "id": "C6",
+            "name": "Employer Partner Portal",
+            "kind": "ui",
+            "purpose": "Enables employers to search verified student portfolios, manage job postings, and trigger direct ATS data exports.",
+            "techChoices": [
+              "Next.js",
+              "React"
+            ],
+            "interfaces": [
+              "GraphQL API for candidate search",
+              "REST API for ATS export triggers"
+            ]
+          },
+          {
+            "id": "C7",
+            "name": "Event Messaging Hub",
+            "kind": "service",
+            "purpose": "Orchestrates real-time events across the co-op lifecycle, including milestone completions and application status changes.",
+            "techChoices": [
+              "Apache Kafka",
+              "AWS EventBridge"
+            ],
+            "interfaces": [
+              "AMQP",
+              "Kafka Protocol"
+            ]
+          }
+        ],
+        "integrations": [
+          {
+            "from": "ATS Gateway Translator",
+            "to": "Workday ATS",
+            "protocol": "REST"
+          },
+          {
+            "from": "ATS Gateway Translator",
+            "to": "Greenhouse ATS",
+            "protocol": "REST"
+          },
+          {
+            "from": "First-Year Pathway Portal",
+            "to": "Banner Student Information System",
+            "protocol": "GraphQL"
+          },
+          {
+            "from": "Event Messaging Hub",
+            "to": "Readiness Predictor Engine",
+            "protocol": "message-bus"
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "gap-analysis",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 9967,
+      "rawChars": 2906,
+      "parsed": {
+        "dimensions": [
+          {
+            "id": "D1",
+            "dimension": "First-Year Retention Strategy",
+            "currentScore": 77,
+            "bestInClassScore": 92,
+            "gap": 15,
+            "severity": "high",
+            "evidence": "Twenty-three percent of NU first-years transfer before sophomore year, with co-op uncertainty cited as a top-three reason.",
+            "remediation": "Implement early-intervention co-op advising and structured planning modules in the first semester to mitigate student uncertainty."
+          },
+          {
+            "id": "D2",
+            "dimension": "Employer ATS Compatibility",
+            "currentScore": 40,
+            "bestInClassScore": 92,
+            "gap": 52,
+            "severity": "critical",
+            "evidence": "Sixty percent of NU employer partners use Workday or Greenhouse ATS platforms that require structured JSON candidate data.",
+            "remediation": "Develop an automated API-driven export pipeline that translates candidate profiles into structured JSON formats compatible with major ATS platforms."
+          },
+          {
+            "id": "D3",
+            "dimension": "Digital Credential Standardization",
+            "currentScore": 11,
+            "bestInClassScore": 92,
+            "gap": 81,
+            "severity": "high",
+            "evidence": "Only 11% of US universities have implemented the IMS Global CLR standard, leaving NU behind modern digital credentialing benchmarks.",
+            "remediation": "Adopt and integrate the IMS Global Comprehensive Learner Record standard to replace static credentials with verifiable digital records."
+          },
+          {
+            "id": "D4",
+            "dimension": "Transcript Data Portability",
+            "currentScore": 30,
+            "bestInClassScore": 92,
+            "gap": 62,
+            "severity": "high",
+            "evidence": "NU currently exports co-op transcripts as static PDFs that employers must manually re-key into their internal systems.",
+            "remediation": "Transition from legacy PDF exports to dynamic, machine-readable digital transcripts that ingest directly into employer databases."
+          },
+          {
+            "id": "D5",
+            "dimension": "Co-op Program Maturity",
+            "currentScore": 78,
+            "bestInClassScore": 92,
+            "gap": 14,
+            "severity": "medium",
+            "evidence": "Drexel and Waterloo lead the co-op benchmark with 92/100 industry-scored maturity compared to NU at 78/100.",
+            "remediation": "Align NU's co-op operational framework with peer benchmarks by modernizing digital touchpoints and reducing administrative friction."
+          },
+          {
+            "id": "D6",
+            "dimension": "Employer Experience Friction",
+            "currentScore": 40,
+            "bestInClassScore": 92,
+            "gap": 52,
+            "severity": "high",
+            "evidence": "Employers face high administrative friction due to manual re-keying of PDF transcripts into Workday and Greenhouse ATS.",
+            "remediation": "Eliminate manual data entry for employers by deploying a self-service portal with direct-to-ATS data parsing capabilities."
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "tech-audit",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 17473,
+      "rawChars": 5976,
+      "parsed": {
+        "inventory": [
+          {
+            "id": "S1",
+            "system": "NUWorks (Symplicity)",
+            "owner": "Employer Engagement & Career Design",
+            "purpose": "Acts as the primary job board and application portal for students seeking co-op placements.",
+            "maturity": "mature",
+            "risk": "high",
+            "debtNotes": "The platform currently exports student applications as flat PDFs, which fails to support the 60% of employer partners using Workday or Greenhouse. This lack of structured JSON data export creates massive administrative friction for employers. It directly contributes to Northeastern's lower industry-scored maturity rating of 78/100 compared to Waterloo's 92/100.",
+            "recommendation": "Modernize NUWorks by implementing structured JSON data export capabilities to directly feed employer ATS pipelines."
+          },
+          {
+            "id": "S2",
+            "system": "Banner Student SIS (Ellucian)",
+            "owner": "Office of the Registrar",
+            "purpose": "Serves as the core student information system hosting academic records and co-op registration status.",
+            "maturity": "legacy",
+            "risk": "high",
+            "debtNotes": "Banner operates on a rigid, legacy database model that does not natively support modern interoperability standards. Co-op records are siloed from academic transcripts, preventing a unified view of student achievements. This architectural debt makes real-time data sharing with external employer systems extremely difficult.",
+            "recommendation": "Integrate Banner with an open-standard API layer to expose real-time co-op registration and academic data."
+          },
+          {
+            "id": "S3",
+            "system": "NU Navigate (EAB)",
+            "owner": "Undergraduate Advising",
+            "purpose": "Tracks undergraduate advising interactions, early alerts, and student retention metrics.",
+            "maturity": "mature",
+            "risk": "medium",
+            "debtNotes": "Advising workflows in NU Navigate are completely disconnected from the co-op preparation pipeline. This silo prevents advisors from identifying first-year students experiencing co-op anxiety early in their lifecycle. Addressing this gap is critical to mitigating the 23% first-year transfer rate driven by co-op uncertainty.",
+            "recommendation": "Integrate NU Navigate with co-op preparation tracking systems to flag at-risk first-year students."
+          },
+          {
+            "id": "S4",
+            "system": "Canvas LMS (COOP 1000)",
+            "owner": "Academic Technology",
+            "purpose": "Delivers the mandatory first-year co-op preparation curriculum and assessments.",
+            "maturity": "mature",
+            "risk": "low",
+            "debtNotes": "While Canvas successfully hosts the prep course, student performance and milestones are locked within the LMS gradebook. These competencies are not translated into portable, verifiable achievements. Consequently, students cannot showcase their co-op readiness to employers in a structured format.",
+            "recommendation": "Modernize Canvas course outcomes to align with and export to IMS Global CLR standards."
+          },
+          {
+            "id": "S5",
+            "system": "Salesforce CRM",
+            "owner": "Employer Relations Team",
+            "purpose": "Manages relationships, communications, and engagement history with co-op employer partners.",
+            "maturity": "emerging",
+            "risk": "medium",
+            "debtNotes": "Salesforce is not integrated with NUWorks, leading to fragmented data on employer hiring preferences. Staff must manually track which employers use Workday or Greenhouse ATS. This lack of automation prevents proactive technical onboarding of key employer partners.",
+            "recommendation": "Integrate Salesforce with NUWorks to automate the profiling and mapping of employer ATS requirements."
+          },
+          {
+            "id": "S6",
+            "system": "Legacy PDF Transcript Generator",
+            "owner": "ITS Enterprise Applications",
+            "purpose": "Generates official academic and co-op transcripts as flat, static PDF files.",
+            "maturity": "legacy",
+            "risk": "critical",
+            "debtNotes": "This system forces employers to manually re-key student transcript data into their internal systems, causing severe operational friction. It completely ignores the IMS Global CLR standard, which has only been adopted by 11% of US universities. This technical debt keeps NU far behind benchmark leaders like Waterloo and Drexel.",
+            "recommendation": "Replace the legacy PDF generator with a digital credential platform that outputs verifiable IMS Global CLR data."
+          },
+          {
+            "id": "S7",
+            "system": "Co-op Evaluation Database",
+            "owner": "Co-op Education Department",
+            "purpose": "Stores employer evaluations of students and student self-assessments post-co-op.",
+            "maturity": "legacy",
+            "risk": "high",
+            "debtNotes": "The database is a custom, on-premise legacy system with no external API access. Valuable skills and competency data generated during co-ops are trapped in unstructured text fields. This prevents the university from aggregating and showcasing student growth to future employers.",
+            "recommendation": "Deprecate the custom evaluation database and migrate its functions to a modern, skills-mapped evaluation module."
+          },
+          {
+            "id": "S8",
+            "system": "IMS Global CLR Gateway",
+            "owner": "ITS & Registrar Joint Taskforce",
+            "purpose": "A proposed integration layer to compile and publish Comprehensive Learner Records.",
+            "maturity": "new",
+            "risk": "medium",
+            "debtNotes": "This is a newly proposed system designed to bridge the gap between academic achievements and employer ATS systems. Because only 11% of US universities have implemented this standard, there is a lack of pre-built vendor templates. Successful deployment requires significant custom development and cross-departmental alignment.",
+            "recommendation": "Integrate the new CLR Gateway with Banner, Canvas, and NUWorks to establish a unified student credential pipeline."
+          }
+        ]
+      }
+    },
+    {
+      "artifact": "competitive-analysis",
+      "ok": true,
+      "parsePath": "JSON.parse (clean)",
+      "finishReason": "STOP",
+      "elapsedMs": 9090,
+      "rawChars": 3068,
+      "parsed": {
+        "peers": [
+          "Northeastern",
+          "Drexel",
+          "Waterloo",
+          "Cincinnati"
+        ],
+        "dimensions": [
+          {
+            "dimension": "First-Year Retention Integration",
+            "scores": {
+              "Northeastern": 92,
+              "Drexel": 85,
+              "Waterloo": 80,
+              "Cincinnati": 88
+            },
+            "winner": "Northeastern",
+            "rationale": "Northeastern's integrated first-year seminar and experiential prep courses yield superior early retention compared to peers."
+          },
+          {
+            "dimension": "ATS Friction Reduction",
+            "scores": {
+              "Northeastern": 75,
+              "Drexel": 78,
+              "Waterloo": 95,
+              "Cincinnati": 70
+            },
+            "winner": "Waterloo",
+            "rationale": "Waterloo's proprietary WaterlooWorks platform features advanced API integrations that directly bypass traditional ATS friction for employers."
+          },
+          {
+            "dimension": "CLR Digital Integration",
+            "scores": {
+              "Northeastern": 90,
+              "Drexel": 70,
+              "Waterloo": 65,
+              "Cincinnati": 60
+            },
+            "winner": "Northeastern",
+            "rationale": "Northeastern leads with its robust, IMS Global-compliant Comprehensive Learner Record that dynamically maps co-op achievements to verified skills."
+          },
+          {
+            "dimension": "Global Employer Network",
+            "scores": {
+              "Northeastern": 95,
+              "Drexel": 80,
+              "Waterloo": 98,
+              "Cincinnati": 75
+            },
+            "winner": "Waterloo",
+            "rationale": "Waterloo's massive global tech and engineering network slightly edges out Northeastern's highly diversified global footprint."
+          },
+          {
+            "dimension": "Co-op Prep Curriculum",
+            "scores": {
+              "Northeastern": 88,
+              "Drexel": 90,
+              "Waterloo": 82,
+              "Cincinnati": 85
+            },
+            "winner": "Drexel",
+            "rationale": "Drexel's mandatory COOP 101 course provides a highly structured, high-touch preparation curriculum that slightly outperforms peers."
+          },
+          {
+            "dimension": "Skills-Gap Analytics",
+            "scores": {
+              "Northeastern": 85,
+              "Drexel": 75,
+              "Waterloo": 92,
+              "Cincinnati": 80
+            },
+            "winner": "Waterloo",
+            "rationale": "Waterloo excels at systematically feeding employer performance data back into engineering and computer science curricula."
+          }
+        ],
+        "gapSummary": [
+          {
+            "dimension": "First-Year Retention Integration",
+            "ourScore": 92,
+            "bestInClass": 92,
+            "gap": 0
+          },
+          {
+            "dimension": "ATS Friction Reduction",
+            "ourScore": 75,
+            "bestInClass": 95,
+            "gap": 20
+          },
+          {
+            "dimension": "CLR Digital Integration",
+            "ourScore": 90,
+            "bestInClass": 90,
+            "gap": 0
+          },
+          {
+            "dimension": "Global Employer Network",
+            "ourScore": 95,
+            "bestInClass": 98,
+            "gap": 3
+          },
+          {
+            "dimension": "Co-op Prep Curriculum",
+            "ourScore": 88,
+            "bestInClass": 90,
+            "gap": 2
+          },
+          {
+            "dimension": "Skills-Gap Analytics",
+            "ourScore": 85,
+            "bestInClass": 92,
+            "gap": 7
+          }
+        ]
+      }
+    }
+  ]
+}

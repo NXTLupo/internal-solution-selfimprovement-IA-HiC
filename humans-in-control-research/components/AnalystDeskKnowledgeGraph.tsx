@@ -25,6 +25,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { KGNode, KnowledgeGraph } from '../services/knowledgeGraphBuilder';
 import WikiArticleViewer from './WikiArticleViewer';
 import TopicModelingPanel from './TopicModelingPanel';
+import { useSemanticSearch } from '../services/semanticUiSearch';
 
 declare const d3: any;
 
@@ -542,24 +543,43 @@ interface TreemapTile {
     weight: number;
 }
 
+// 2026-05-19 — Treemap weight = evidenceCount × goalAlignment (0-1).
+// Previously the treemap sized + sorted tiles purely by evidenceCount, so
+// an off-topic theme with the most evidence could dominate the headline
+// tile despite the model's own self-scored goalAlignment of 40/100.
+// Multiplying by goalAlignment turns the layout into a relevance-aware
+// importance map: a 16-evidence theme at goalAlignment 40 (weight 6.4)
+// sorts below an 8-evidence theme at goalAlignment 90 (weight 7.2).
+// When goalAlignment is missing (legacy nodes), we treat it as 100 to
+// avoid regressing the layout for sessions that pre-date the field.
+function _treemapWeight(t: KGNode): number {
+    const evidence = Math.max(1, t.evidenceCount || 1);
+    const alignment = (t as any)?.metadata?.goalAlignment;
+    const alignmentFactor = typeof alignment === 'number' ? Math.max(0, Math.min(100, alignment)) / 100 : 1;
+    return Math.max(0.1, evidence * alignmentFactor);
+}
+
 function computeTreemap(themes: KGNode[], width: number, height: number): TreemapTile[] {
     if (!themes.length || width <= 0 || height <= 0) return [];
     if (typeof d3 === 'undefined') {
-        // Simple row fallback if d3 isn't available for some reason
-        const cols = Math.ceil(Math.sqrt(themes.length));
-        const rows = Math.ceil(themes.length / cols);
+        // Simple row fallback if d3 isn't available for some reason. Sort by
+        // the same weight so the most-important tile lands top-left even in
+        // the fallback layout.
+        const sorted = [...themes].sort((a, b) => _treemapWeight(b) - _treemapWeight(a));
+        const cols = Math.ceil(Math.sqrt(sorted.length));
+        const rows = Math.ceil(sorted.length / cols);
         const tw = width / cols;
         const th = height / rows;
-        return themes.map((t, i) => ({
+        return sorted.map((t, i) => ({
             node: t,
             x: (i % cols) * tw,
             y: Math.floor(i / cols) * th,
             w: tw - 2,
             h: th - 2,
-            weight: t.evidenceCount || 1,
+            weight: _treemapWeight(t),
         }));
     }
-    const root = d3.hierarchy({ children: themes.map(t => ({ node: t, value: Math.max(1, t.evidenceCount || 1) })) })
+    const root = d3.hierarchy({ children: themes.map(t => ({ node: t, value: _treemapWeight(t) })) })
         .sum((d: any) => d.value)
         .sort((a: any, b: any) => b.value - a.value);
     const tm = d3.treemap().size([width, height]).paddingInner(3).round(true);
@@ -1519,13 +1539,122 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
     const stageLabel = activity?.activeStage ? (STAGE_LABEL[activity.activeStage] || activity.activeStage) : '';
     const isRunning = !!activity?.isRunning || (activity?.activeStage && activity.activeStage !== 'IDLE');
 
-    const themes = useMemo(() => graph.nodes.filter(n => n.type === 'theme'), [graph]);
-    const personas = useMemo(() => graph.nodes.filter(n => n.type === 'persona'), [graph]);
-    const sources = useMemo(() => graph.nodes.filter(n => n.type === 'source'), [graph]);
-    const evidence = useMemo(() => graph.nodes.filter(n => n.type === 'evidence'), [graph]);
-    const recs = useMemo(() => graph.nodes.filter(n => n.type === 'recommendation'), [graph]);
-    const barriers = useMemo(() => graph.nodes.filter(n => n.type === 'gap'), [graph]);
-    const journeys = useMemo(() => graph.nodes.filter(n => n.type === 'journey_stage'), [graph]);
+    // 2026-05-19 — Themes are partitioned by goalAlignment so off-topic
+    // themes cannot dominate the headline tile. The threshold (60) matches
+    // the goalAlignment rubric in geminiService.ts — 60 = "essential context
+    // but not the headline", 40 = "adjacent / triangulation".
+    //
+    // 2026-05-19b — CRITICAL FIX: the original logic emptied the main pane
+    // entirely when ALL themes scored < 60 (observed in the wild: 19 themes
+    // generated, every one scored < 60, headline pane showed 0 themes).
+    // New behavior:
+    //   • If at least 1 theme scores >= 60: split (>=60 main, <60 adjacent)
+    //   • If ZERO themes score >= 60: show ALL themes in main pane, sorted
+    //     by goalAlignment desc, and surface a banner warning the user that
+    //     no theme cleared the alignment floor (= corpus alignment is weak).
+    // The display layer must NEVER hide all themes. A weak-alignment corpus
+    // is a problem the user must SEE, not a reason to render blank.
+    const GOAL_ALIGNMENT_FLOOR = 60;
+    const _allThemes = useMemo(() => graph.nodes.filter(n => n.type === 'theme'), [graph]);
+    const _themeAlignment = (n: KGNode): number => {
+        const v = (n as any)?.metadata?.goalAlignment;
+        // Missing alignment is treated as "ungated" (100) — never hide
+        // legacy themes that pre-date the field.
+        return typeof v === 'number' ? v : 100;
+    };
+    const _aboveFloor = useMemo(
+        () => _allThemes.filter(n => _themeAlignment(n) >= GOAL_ALIGNMENT_FLOOR),
+        [_allThemes]
+    );
+    const _weakAlignmentFallback = _allThemes.length > 0 && _aboveFloor.length === 0;
+    // 2026-05-20 — Semantic cross-type search via /api/embed. Single input
+    // that ranks every node category by cosine similarity to the user's query
+    // (Gemini gemini-embedding-001, debounced 300ms). Typing "co-op problems"
+    // surfaces themes about internship friction, sources about experiential
+    // learning gripes, etc. — anything semantically close, not just literal
+    // matches. Substring matches still rank highest (proper-noun safety).
+    const [searchQuery, setSearchQuery] = useState('');
+    const _nodeSearchText = (n: KGNode): string => {
+        const meta = (n as any).metadata || {};
+        return [
+            n.label,
+            (n as any).name,
+            (n as any).description,
+            (n as any).quote,
+            (n as any).source,
+            (n as any).sourceName,
+            (n as any).title,
+            meta.evidenceText,
+            meta.summary,
+            Array.isArray((n as any).tags) ? ((n as any).tags as any[]).join(' ') : '',
+            Array.isArray((n as any).citations) ? ((n as any).citations as any[]).map((c: any) => `${c?.sourceName || ''} ${c?.text || ''}`).join(' ') : '',
+        ].filter(Boolean).join(' — ').slice(0, 1500);
+    };
+    const _nodeId = (n: KGNode): string => `kg_${n.type}_${n.id}`;
+
+    // Run semantic search once over ALL nodes, then partition by type.
+    // Single embedding round-trip covers every panel.
+    const _allFilterableNodes = useMemo(() => graph.nodes, [graph]);
+    // 2026-05-20 — Defaults: minSimilarity 0.55 (was 0.30, too loose for
+    // Gemini gemini-embedding-001 baseline). Cap to top 60 across panels.
+    // Fallback top-5 keeps the UI from going blank when nothing crosses
+    // the floor — UI labels those as weak matches.
+    const semantic = useSemanticSearch<KGNode>(
+        _allFilterableNodes,
+        _nodeId,
+        _nodeSearchText,
+        searchQuery,
+        { minSimilarity: 0.55, topN: 60, fallbackTopN: 5 },
+    );
+    const _allowedNodeIds = useMemo<Set<string> | null>(() => {
+        if (!searchQuery.trim()) return null;       // empty query → no filter
+        return new Set(semantic.filtered.map(_nodeId));
+    }, [searchQuery, semantic.filtered]);
+    const _passesSearch = (n: KGNode): boolean => !_allowedNodeIds || _allowedNodeIds.has(_nodeId(n));
+
+    const themes = useMemo(() => {
+        const base = _weakAlignmentFallback
+            ? [..._allThemes].sort((a, b) => _themeAlignment(b) - _themeAlignment(a))
+            : _aboveFloor;
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [_allThemes, _aboveFloor, _weakAlignmentFallback, _allowedNodeIds]);
+    const adjacentThemes = useMemo(() => {
+        const base = _weakAlignmentFallback
+            ? []
+            : _allThemes
+                .filter(n => _themeAlignment(n) < GOAL_ALIGNMENT_FLOOR)
+                .sort((a, b) => _themeAlignment(b) - _themeAlignment(a));
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [_allThemes, _weakAlignmentFallback, _allowedNodeIds]);
+    const [showAdjacent, setShowAdjacent] = useState(false);
+    const personas = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'persona');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+    const sources = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'source');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+    const evidence = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'evidence');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+    const recs = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'recommendation');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+    const barriers = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'gap');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+    const journeys = useMemo(() => {
+        const base = graph.nodes.filter(n => n.type === 'journey_stage');
+        return _allowedNodeIds ? base.filter(_passesSearch) : base;
+    }, [graph, _allowedNodeIds]);
+
+    const _searchTotalHits = _allowedNodeIds
+        ? themes.length + personas.length + sources.length + evidence.length + recs.length + barriers.length + journeys.length
+        : 0;
 
     // Reset selection if the graph changes wholesale
     useEffect(() => {
@@ -1799,6 +1928,79 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                     parent passes `onSizeChange`. */}
             </div>
 
+            {/* 2026-05-20 — Semantic search row. Filters every metric tile
+                + every panel below by cosine similarity to the query (Gemini
+                embeddings via /api/embed, debounced 300ms). Empty query →
+                no filtering. Indicator on the right shows whether the
+                current filter is semantic (embeddings ready) or literal
+                (substring fallback while embeddings compute). */}
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                padding: '10px 22px',
+                borderBottom: `1px solid ${t.line}`,
+                background: t.theme === 'light' ? t.panel : t.bg,
+            }}>
+                <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search themes, sources, personas, recs… (semantic)"
+                    style={{
+                        flex: 1,
+                        padding: '8px 12px',
+                        fontSize: 12,
+                        border: `1px solid ${t.line}`,
+                        borderRadius: 2,
+                        background: t.bg,
+                        outline: 'none',
+                        color: t.text,
+                        fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: 0.3,
+                    }}
+                />
+                {searchQuery.trim() && (
+                    <span style={{
+                        fontSize: 9,
+                        letterSpacing: 1.5,
+                        textTransform: 'uppercase',
+                        color: semantic.usedSemantic ? t.lime : t.muted,
+                        fontWeight: 600,
+                        fontFamily: 'Archivo, sans-serif',
+                        minWidth: 140,
+                        textAlign: 'right',
+                    }}>
+                        {semantic.isComputing
+                            ? 'embedding…'
+                            : semantic.usedSemantic
+                                ? `semantic · ${_searchTotalHits} hit(s)`
+                                : `literal · ${_searchTotalHits} hit(s)`}
+                    </span>
+                )}
+                {searchQuery.trim() && (
+                    <button
+                        type="button"
+                        onClick={() => setSearchQuery('')}
+                        title="Clear search"
+                        style={{
+                            background: 'transparent',
+                            border: `1px solid ${t.line}`,
+                            padding: '6px 10px',
+                            fontSize: 10,
+                            letterSpacing: 1.5,
+                            textTransform: 'uppercase',
+                            color: t.muted,
+                            cursor: 'pointer',
+                            fontFamily: 'Archivo, sans-serif',
+                            fontWeight: 600,
+                        }}
+                    >
+                        Clear
+                    </button>
+                )}
+            </div>
+
             {/* Row 2 — metric tiles. S3.6: grid auto-fits so SNUG mode can
                 break to two rows without CSS changes; tiles downsize via
                 their own internal breakpoint. */}
@@ -1826,6 +2028,33 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 reads very differently from "188 headlines". Only renders when
                 there's actual evidence in the graph. */}
             {evidence.length > 0 && <CorpusCompositionBar evidence={evidence} />}
+
+            {/* 2026-05-19 — WEAK ALIGNMENT BANNER. Fires when zero themes
+                cleared the goalAlignment floor. The previous behavior was
+                to hide all themes (empty treemap), which was worse than
+                useless — the user had no signal that themes existed at all.
+                Now we show all themes in the main pane AND surface this
+                banner so the user sees the alignment concern. Action:
+                regenerate themes (corpus may have pulled in off-topic
+                material) or accept the current set with the caveat. */}
+            {_weakAlignmentFallback && (
+                <div style={{
+                    background: t.panel, borderLeft: `3px solid ${t.rust}`,
+                    padding: '10px 14px', margin: '0 0 8px 0',
+                    fontFamily: 'Archivo, sans-serif', fontSize: 11,
+                    letterSpacing: 0.3, color: t.text,
+                    display: 'flex', alignItems: 'center', gap: 10,
+                }}>
+                    <span style={{ color: t.rust, fontWeight: 700, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase' }}>
+                        WEAK ALIGNMENT
+                    </span>
+                    <span>
+                        All {_allThemes.length} theme{_allThemes.length === 1 ? '' : 's'} scored below the {GOAL_ALIGNMENT_FLOOR}/100 goal-alignment floor.
+                        Showing them anyway, sorted by alignment. The corpus may have pulled in off-topic material —
+                        consider regenerating themes or narrowing the research goal.
+                    </span>
+                </div>
+            )}
 
             {/* Row 3 — treemap + detail panel */}
             <div style={{
@@ -1865,6 +2094,57 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                             selectedId={selected?.type === 'theme' ? selected.id : null}
                             onSelect={handleSelect}
                         />
+                    )}
+                    {/* 2026-05-19 — Adjacent Findings drawer. Surfaces themes
+                        the model scored < 60 on goalAlignment so they aren't
+                        silently lost (the user might still want to inspect a
+                        tangent), but keeps them out of the headline treemap. */}
+                    {typeFilter !== 'source' && (!typeFilter || typeFilter === 'theme') && adjacentThemes.length > 0 && (
+                        <div style={{
+                            position: 'absolute', left: 0, right: 0, bottom: 0,
+                            background: t.panel, borderTop: `1px solid ${t.line}`,
+                            padding: '8px 14px', maxHeight: showAdjacent ? '40%' : 32,
+                            overflowY: showAdjacent ? 'auto' : 'hidden',
+                            transition: 'max-height 180ms ease',
+                            zIndex: 2,
+                        }}>
+                            <button type="button"
+                                onClick={() => setShowAdjacent(v => !v)}
+                                title={`${adjacentThemes.length} themes scored below the ${GOAL_ALIGNMENT_FLOOR}/100 goal-alignment floor and were dropped from the main treemap. Click to inspect.`}
+                                style={{
+                                    background: 'transparent', color: t.muted, border: 'none',
+                                    cursor: 'pointer', fontSize: 10, letterSpacing: 1.5,
+                                    textTransform: 'uppercase', fontWeight: 600,
+                                    display: 'flex', alignItems: 'center', gap: 8, padding: 0,
+                                }}>
+                                <span style={{ color: t.rust }}>●</span>
+                                {showAdjacent ? '▾' : '▸'} {adjacentThemes.length} adjacent finding{adjacentThemes.length === 1 ? '' : 's'} (goal-alignment &lt; {GOAL_ALIGNMENT_FLOOR})
+                            </button>
+                            {showAdjacent && (
+                                <div style={{ marginTop: 8, display: 'grid', gap: 4 }}>
+                                    {adjacentThemes.map(n => (
+                                        <button key={n.id} type="button"
+                                            onClick={() => handleSelect(n)}
+                                            style={{
+                                                textAlign: 'left', background: 'transparent', border: `1px solid ${t.line}`,
+                                                padding: '6px 10px', cursor: 'pointer', color: t.text,
+                                                fontFamily: 'Archivo, sans-serif', fontSize: 11,
+                                                display: 'grid', gridTemplateColumns: '1fr auto', gap: 12, alignItems: 'center',
+                                            }}>
+                                            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                {n.label || (n as any).name || n.id}
+                                            </span>
+                                            <span style={{
+                                                fontSize: 9, letterSpacing: 1.5, color: t.muted, fontWeight: 600,
+                                                fontFamily: "'JetBrains Mono', monospace",
+                                            }}>
+                                                {Math.round(_themeAlignment(n))}/100 · {n.evidenceCount || 0} evidence
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     )}
                 </div>
                 <DetailPanel

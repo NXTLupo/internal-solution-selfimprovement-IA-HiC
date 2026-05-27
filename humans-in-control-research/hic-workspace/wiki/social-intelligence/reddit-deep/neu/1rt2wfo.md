@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 3
 flair: "Co-op & Career"
-extracted_at: "2026-05-12T17:09:38.648Z"
+extracted_at: "2026-05-19T15:08:27.152Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
 ---
 
 # Best major for law school (PLEASEEEE HELPPP)
@@ -37,5 +37,5 @@ I’ve know lawyers with all types of undergrad degrees that at first glance see
 I’m going to say something else here. Your degree does not guarantee job security. Of course something like art history isn’t the best option at NEU, but really it’s the type of co-ops you land that influence the jobs you get post grad.
 
 If you pic something you’re actually interested in it will make it easier to study and grow your knowledge in that area. Don’t switch to political science for example just because it’s an easier A.
-- **ballzmeep** (5↑): You'll have a leg up on your classmates and future colleagues if you can write well.
+- **ballzmeep** (4↑): You'll have a leg up on your classmates and future colleagues if you can write well.
 - **fatkitty72** (3↑): it doesn't matter - study something you would enjoy and excel in academically.  Grades, LSAT, and letters of recommendation are the things you need

@@ -1,0 +1,285 @@
+/* =========================================================================
+   Northeastern Advancement Design System — Foundations
+   Tokens distilled from "DS - Foundation.fig" + "DS - Components.fig".
+   Body: Roboto. Display/Editorial: Spectral. UI labels: Roboto/Lato.
+   ========================================================================= */
+
+/* ---------- Webfonts ---------------------------------------------------
+   Spectral ships from local /fonts (uploaded brand cuts).
+   Roboto + Roboto Mono come from Google Fonts (no brand-licensed cuts
+   provided yet — drop .ttf/.woff2 into /fonts and add @font-face here
+   when those become available).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap");
+
+/* Spectral — local brand cuts. All 7 weights × roman + italic. */
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 200; font-display: swap; src: url("fonts/Spectral-ExtraLight.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 200; font-display: swap; src: url("fonts/Spectral-ExtraLightItalic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 300; font-display: swap; src: url("fonts/Spectral-Light.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 300; font-display: swap; src: url("fonts/Spectral-LightItalic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/Spectral-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/Spectral-Italic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/Spectral-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 500; font-display: swap; src: url("fonts/Spectral-MediumItalic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/Spectral-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 600; font-display: swap; src: url("fonts/Spectral-SemiBoldItalic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/Spectral-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 700; font-display: swap; src: url("fonts/Spectral-BoldItalic.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/Spectral-ExtraBold.ttf") format("truetype"); }
+@font-face { font-family: "Spectral"; font-style: italic; font-weight: 800; font-display: swap; src: url("fonts/Spectral-ExtraBoldItalic.ttf") format("truetype"); }
+
+:root {
+  /* =====================================================================
+     COLOR — Brand
+     Northeastern's institutional red is the single brand accent. Use it
+     sparingly: primary CTAs (sometimes), key data accents, brand seals.
+     The everyday "primary" UI color is the deep ink navy, not red.
+     ===================================================================== */
+  --nu-red-700: rgb(170, 29, 37);   /* deep red for text on light tint */
+  --nu-red-600: rgb(200, 16, 46);   /* NU primary red — official */
+  --nu-red-500: rgb(216, 19, 45);   /* danger / destructive button */
+  --nu-red-100: rgb(252, 202, 210); /* error tint background */
+
+  /* ---------- Ink (text + dark backgrounds) ---------- */
+  --ink-900: rgb(11, 19, 38);   /* darkest — page bg in dark mode, headings */
+  --ink-800: rgb(20, 29, 48);   /* primary text on light, primary button bg */
+  --ink-700: rgb(26, 35, 51);   /* hover state for primary, dark surfaces */
+  --ink-600: rgb(38, 49, 64);   /* dark surface elevated */
+
+  /* ---------- Slate (neutral scale) ---------- */
+  --slate-50:  rgb(248, 250, 252); /* page background */
+  --slate-100: rgb(241, 245, 249); /* subtle surface, table stripe */
+  --slate-200: rgb(226, 232, 240); /* tertiary button, divider */
+  --slate-300: rgb(203, 213, 225); /* input border, default stroke */
+  --slate-400: rgb(148, 163, 184); /* muted icons, disabled text */
+  --slate-500: rgb(100, 116, 139); /* secondary text, placeholder */
+  --slate-600: rgb(71,  85,  105); /* tertiary text */
+  --white:     rgb(255, 255, 255);
+
+  /* =====================================================================
+     COLOR — Semantic / Status
+     Lozenges + status chips. Each pair = bg tint + label color.
+     ===================================================================== */
+  --success-bg:    rgb(215, 251, 227);
+  --success-fg:    rgb(39, 103, 73);
+  --success-solid: rgb(56, 161, 105);
+
+  --warning-bg:    rgb(255, 235, 208);
+  --warning-fg:    rgb(122, 68, 16);
+  --warning-solid: rgb(250, 136, 52);
+
+  --error-bg:      rgb(252, 202, 210);
+  --error-fg:      rgb(170, 29, 37);
+  --error-solid:   rgb(216, 19, 45);
+
+  --progress-bg:   rgb(217, 242, 255);
+  --progress-fg:   rgb(34, 84, 124);
+  --progress-solid:rgb(59, 130, 246);
+
+  --special-bg:    rgb(221, 227, 255);
+  --special-fg:    rgb(59, 49, 195);
+  --special-solid: rgb(70, 61, 225);
+
+  --info-bg:       rgb(254, 248, 187);
+  --info-fg:       rgb(122, 68, 16);
+
+  /* =====================================================================
+     SEMANTIC — Surfaces / Foregrounds
+     Use these in components instead of raw scales when possible.
+     ===================================================================== */
+  --bg-canvas:    var(--slate-50);
+  --bg-surface:   var(--white);
+  --bg-subtle:    var(--slate-100);
+  --bg-muted:     var(--slate-200);
+  --bg-inverse:   var(--ink-900);
+
+  --fg-default:   var(--ink-800);
+  --fg-strong:    var(--ink-900);
+  --fg-muted:     var(--slate-500);
+  --fg-subtle:    var(--slate-400);
+  --fg-inverse:   var(--white);
+  --fg-brand:     var(--nu-red-600);
+
+  --border-default: var(--slate-300);
+  --border-subtle:  var(--slate-200);
+  --border-strong:  var(--ink-800);
+  --border-focus:   var(--ink-800);
+
+  /* =====================================================================
+     TYPE — Family stacks
+     ===================================================================== */
+  --font-sans:    "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Spectral", "Source Serif Pro", Georgia, serif;
+  --font-mono:    "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-numeric: "Roboto", system-ui, sans-serif; /* tabular figures via font-feature-settings: 'tnum' */
+
+  /* ---------- Type scale (UI) ----------
+     Roboto is the dominant face. Sizes map to the inventory in the .fig
+     metadata: 10, 12, 14, 16, 18, 24 + display sizes 32/44/48/80.
+  */
+  --fs-overline:   10px;
+  --fs-caption:    12px;
+  --fs-body-sm:    14px;
+  --fs-body:       16px;
+  --fs-body-lg:    18px;
+  --fs-h4:         20px;
+  --fs-h3:         24px;
+  --fs-h2:         32px;
+  --fs-h1:         44px;
+  --fs-display:    80px;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --lh-tight:    1.1;
+  --lh-snug:     1.25;
+  --lh-normal:   1.5;
+  --lh-loose:    1.65;
+
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.04em;
+  --tracking-overline: 0.08em;
+
+  /* =====================================================================
+     SPACING — 4px grid
+     ===================================================================== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* =====================================================================
+     RADII
+     Components: 4 (lozenge), 8 (card/input), 999 (button/tag/avatar).
+     ===================================================================== */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-pill: 999px;
+
+  /* =====================================================================
+     SHADOWS — soft, institutional. No glow, no neon.
+     ===================================================================== */
+  --shadow-xs: 0 1px 2px rgba(11, 19, 38, 0.04);
+  --shadow-sm: 0 1px 3px rgba(11, 19, 38, 0.06), 0 1px 2px rgba(11, 19, 38, 0.04);
+  --shadow-md: 0 4px 12px rgba(11, 19, 38, 0.08), 0 1px 3px rgba(11, 19, 38, 0.04);
+  --shadow-lg: 0 12px 32px rgba(11, 19, 38, 0.12), 0 2px 6px rgba(11, 19, 38, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(20, 29, 48, 0.12);
+  --shadow-focus-danger: 0 0 0 3px rgba(216, 19, 45, 0.18);
+
+  /* =====================================================================
+     MOTION — restrained
+     ===================================================================== */
+  --ease-standard: cubic-bezier(0.2, 0.0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.0, 0, 1.2);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
+}
+
+/* =========================================================================
+   SEMANTIC TYPE — usable as classes
+   ========================================================================= */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-default);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.t-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-strong);
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-strong);
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  color: var(--fg-strong);
+}
+.t-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg-strong);
+}
+.t-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg-strong);
+}
+.t-body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-default);
+}
+.t-body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-default);
+}
+.t-body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-default);
+}
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-normal);
+  color: var(--fg-muted);
+}
+.t-overline {
+  font-family: var(--font-sans);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.t-label {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  line-height: 1.3;
+  color: var(--fg-strong);
+}
+.t-num {
+  font-family: var(--font-numeric);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}

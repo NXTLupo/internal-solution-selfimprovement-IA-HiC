@@ -1,5 +1,6 @@
 ---
 name: diagnose-prompt
+version: 1.0
 description: Diagnose failure patterns in any prompt and map each failure to a structural fix. Use when a prompt is producing inconsistent, incorrect, or incomplete outputs.
 allowed-tools: Read, Grep, Glob
 argument-hint: [file-path-or-paste]

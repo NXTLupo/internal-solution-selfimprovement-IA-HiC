@@ -12,6 +12,38 @@
  */
 
 // --- JSON REPAIR UTILITY (shared across all services) ---
+// 2026-05-24 NotebookLM uplift Wire 1: delegate-on-failure to the 9-rung
+// ladder in aiOutputRepair.ts. tryRepairJson still returns a string for
+// backward compat with the 22 existing call sites; if its repair still
+// can't parse, parseJSONWithRepair is invoked as a deeper fallback and
+// the repaired output is returned. Net: every JSON.parse(tryRepairJson(...))
+// site in the codebase now has the 9-rung ladder underneath it.
+import { repairAIOutput } from './aiOutputRepair';
+
+function tryRepairJsonDeep(cleaned: string): string {
+    // After bracket-balance, if it still won't parse, try the ladder.
+    try {
+        JSON.parse(cleaned);
+        return cleaned;
+    } catch {
+        const report = repairAIOutput(cleaned, 'json', {
+            calling_context: 'tryRepairJson:deep_fallback',
+        });
+        if (report.ok && report.output) {
+            if (typeof console !== 'undefined' && report.degradation) {
+                console.warn(`[tryRepairJson] deep-ladder repair via "${report.repaired_via}" (degradation=${report.degradation})`);
+            }
+            return report.output;
+        }
+        // Final fallback: error envelope so downstream JSON.parse doesn't throw
+        return JSON.stringify({
+            _error: 'AI output unrepairable via tryRepairJson + 9-rung ladder',
+            _unrepairable_reason: report.unrepairable_reason ?? 'unknown',
+            _raw_preview: cleaned.substring(0, 200),
+        });
+    }
+}
+
 export function tryRepairJson(jsonString: string): string {
     // Strip \r (carriage return) globally — Gemini sometimes returns \r\n on Windows
     // JSON.parse chokes on \r at position 1 in some runtimes
@@ -93,6 +125,7 @@ export function tryRepairJson(jsonString: string): string {
 
     // Validation: try to parse. If bracket-balanced version fails,
     // progressively trim from the end to find a parseable prefix.
+    // 2026-05-24: also try the 9-rung ladder via tryRepairJsonDeep at end
     try {
         JSON.parse(cleaned);
     } catch {
@@ -123,9 +156,170 @@ export function tryRepairJson(jsonString: string): string {
                 return attempt;
             } catch { /* keep trimming */ }
         }
+        // 2026-05-24 NotebookLM uplift Wire 1: 9-rung ladder as final fallback
+        return tryRepairJsonDeep(cleaned);
     }
 
     return cleaned;
+}
+
+/**
+ * Best-effort recovery of a JSON ARRAY response when the whole-blob parser
+ * has already failed. Gemini Flash occasionally truncates mid-object on
+ * batched scoring/grading prompts, producing things like:
+ *   [{"i":0,"s":85,"r":"..."}, ..., {"i":24,"s":}]
+ *                                          ^ half-typed value
+ *
+ * tryRepairJson can balance brackets but cannot complete a half-typed value,
+ * so JSON.parse still throws and the caller loses the ENTIRE batch — even
+ * though 24 of 25 objects are well-formed.
+ *
+ * This helper scans the text for top-level {...} objects (depth-aware,
+ * string-aware) and attempts to JSON.parse each one independently, returning
+ * only the objects that parse cleanly. Items that fail are skipped silently.
+ *
+ * Returns [] if the text contains no recoverable objects (e.g., pure prose).
+ * NEVER throws.
+ */
+export function salvageJsonArray<T = unknown>(rawText: string): T[] {
+    if (!rawText || typeof rawText !== 'string') return [];
+
+    // Strip markdown fences + leading prose (same prelude as tryRepairJson).
+    let text = rawText.replace(/\r/g, '').trim();
+    if (text.includes('```json')) {
+        text = text.split('```json')[1].split('```')[0].trim();
+    } else if (text.includes('```')) {
+        text = text.split('```')[1].split('```')[0].trim();
+    }
+    const arrStart = text.indexOf('[');
+    if (arrStart < 0) return [];
+    text = text.substring(arrStart);
+
+    const out: T[] = [];
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+    let objStart = -1;
+
+    // Iterate character-by-character to find top-level objects inside the
+    // outer array. We only care about depth-1 { ... } spans — anything
+    // inside nested objects rides along inside its parent.
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (ch === '"') { inString = !inString; continue; }
+        if (inString) continue;
+
+        if (ch === '{') {
+            if (depth === 0) objStart = i;
+            depth++;
+        } else if (ch === '}') {
+            depth--;
+            if (depth === 0 && objStart >= 0) {
+                const candidate = text.substring(objStart, i + 1);
+                objStart = -1;
+                try {
+                    const parsed = JSON.parse(candidate) as T;
+                    out.push(parsed);
+                } catch { /* skip — partial / malformed object */ }
+            }
+            if (depth < 0) depth = 0; // defensive
+        }
+    }
+
+    // Truncation case: outermost object never closed. Try to salvage it by
+    // running tryRepairJson on the dangling tail (handles "s":} style cuts
+    // by repeatedly trimming the last partial property).
+    if (depth > 0 && objStart >= 0) {
+        const dangling = text.substring(objStart);
+        // Progressive trim: strip the last property + trailing comma until
+        // JSON.parse succeeds, or we run out of characters.
+        let attempt = dangling;
+        for (let trim = 0; trim < 8; trim++) {
+            // Strip trailing partial value (everything after the last balanced "key":value pair)
+            attempt = attempt.replace(/,\s*"[^"]*"\s*:\s*[^,}\]]*$/, '');
+            attempt = attempt.replace(/,\s*$/, '');
+            // Re-balance brackets on the trimmed candidate
+            const repaired = tryRepairJson(attempt);
+            try {
+                const parsed = JSON.parse(repaired) as T;
+                out.push(parsed);
+                break;
+            } catch { /* keep trimming */ }
+        }
+    }
+
+    return out;
+}
+
+/**
+ * Best-effort recovery of a flat JSON OBJECT response when the whole-blob
+ * parser has failed. Used for endpoints that return Record<string, V> shapes
+ * like queryFabric.refineSearchQueries:
+ *   {"GDELT": "remote work 2026", ..., "AI News":}
+ *                                              ^ truncated value
+ *
+ * Strategy: progressively trim trailing partial "key": (no value) chunks
+ * until JSON.parse succeeds. Same idea as the trim loop in tryRepairJson,
+ * but more aggressive and bounded. Returns {} if nothing can be recovered.
+ *
+ * NEVER throws.
+ */
+export function salvageJsonObject<V = unknown>(rawText: string): Record<string, V> {
+    if (!rawText || typeof rawText !== 'string') return {};
+
+    let text = rawText.replace(/\r/g, '').trim();
+    if (text.includes('```json')) {
+        text = text.split('```json')[1].split('```')[0].trim();
+    } else if (text.includes('```')) {
+        text = text.split('```')[1].split('```')[0].trim();
+    }
+    const objStart = text.indexOf('{');
+    if (objStart < 0) return {};
+    text = text.substring(objStart);
+
+    // Fast path — try the bracket-balanced repair first.
+    try {
+        const parsed = JSON.parse(tryRepairJson(text)) as Record<string, V>;
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+    } catch { /* fall through to progressive trim */ }
+
+    // Slow path — trim a partial trailing entry, then rebalance & retry.
+    //
+    // IMPORTANT: Gemini sometimes emits the malformed key BEFORE the outermost
+    // closer (e.g. `..., "AI News":}` — the } at the end is the object
+    // closer, not part of the entry's value). To make the trim regexes anchor
+    // on the partial entry instead of the closer, we strip ALL trailing
+    // closers/whitespace first; tryRepairJson re-adds them via bracket
+    // balancing at the end of each iteration.
+    //
+    // Patterns we strip, in increasing aggressiveness:
+    //   1. ", \"key\" :"                      bare key + colon, no value
+    //   2. ", \"key\" : \"unterminated"       string value with no closing quote
+    //   3. ", \"key\" : <partial-token>"      number/bool/null value cut mid-token
+    //   4. ", \"key\""                        bare key, no colon at all
+    let attempt = text;
+    for (let trim = 0; trim < 12; trim++) {
+        // Strip any trailing closers/whitespace so the partial entry sits at $
+        attempt = attempt.replace(/[\s\]}]+$/, '');
+        // Now anchor the trim regexes on the partial trailing entry
+        const before = attempt;
+        attempt = attempt.replace(/,\s*"[^"]*"\s*:\s*"[^"]*$/, '');   // unterminated string value
+        attempt = attempt.replace(/,\s*"[^"]*"\s*:\s*[^,}\]]*$/, ''); // partial non-string value (incl. bare colon)
+        attempt = attempt.replace(/,\s*"[^"]*"?\s*$/, '');            // bare key (with or without closing quote)
+        attempt = attempt.replace(/,\s*$/, '');
+        // Re-run tryRepairJson which closes the object via bracket balance.
+        const repaired = tryRepairJson(attempt);
+        try {
+            const parsed = JSON.parse(repaired) as Record<string, V>;
+            if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+        } catch { /* keep trimming */ }
+        // Bail if this iteration made no progress to avoid infinite loops.
+        if (attempt === before) break;
+    }
+
+    return {};
 }
 
 // --- MODEL REGISTRY ---
@@ -187,6 +381,17 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'gemini-3.1-pro-preview', provider: 'google', displayName: 'Gemini 3.1 Pro',
         vision: true, maxContext: 1_000_000, maxOutput: 65_536, costTier: 'premium'
     },
+    // 2026-05-22 — Gemini 3.5 Flash registered for HiC's agentic loops
+    // (learning engine, verifier, wiki compiler, "Apply now" regeneration).
+    // Pricing per Google's posted card: $1.50/M input, $9/M output (vs Opus
+    // $15/M input, $75/M output). Designed for multi-step tasks and coding
+    // pipelines — a strict superset of what HiC's self-improvement layer
+    // needs. Tier set to "budget" because it is below the Anthropic
+    // premium-tier baseline at every dimension.
+    'gemini-3.5-flash': {
+        id: 'gemini-3.5-flash', provider: 'google', displayName: 'Gemini 3.5 Flash',
+        vision: true, maxContext: 1_000_000, maxOutput: 65_536, costTier: 'budget'
+    },
 };
 
 // --- TASK CATEGORIES ---
@@ -196,31 +401,47 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 // coverage, theme breadth, or deliverable structure (those live in code, not
 // in the model). Anthropic is fully removed from this branch — all stages
 // route to Google or OpenAI exclusively.
-export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition';
+// 2026-05-22 — `fast_agentic` category added for HiC's self-improvement
+// loops (lint contradiction detection, learning-engine payload generation,
+// verifier checks, wiki recompile, "Apply now" regeneration). Default is
+// gemini-3.5-flash because it is Google's most-capable model in the agentic
+// + structured-output band at roughly 10% of Opus cost.
+export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition' | 'fast_agentic';
 
 // 2026-05-07 — Defaults migrated from DeepSeek V4 Flash to Gemini 3.1 Pro
 // across every reasoning category. DeepSeek narratives were jargon-heavy,
 // hyperbolic, and read as AI-slop; Gemini 3.1 Pro produces descriptive,
 // professional prose at 1M-token context with reliable instruction-following.
+//
+// 2026-05-26 — Tiered. Pro stays for `research` (cold-start analysis,
+// partner-grade deliverables) and `narrative_composition` (deck/PPTX export,
+// the highest-quality surface). Everything else moves to Flash:
+//   - `fast_generation` is the chat/interactive path; Pro was 3-5x too slow
+//   - `vision` rarely needs Pro's reasoning depth; Flash is sufficient
+//   - `fast_agentic` was already Flash
+// Quality is preserved on the export path; speed is recovered on the
+// interactive path. Users can override per-task via preferences.
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'gemini-3.1-pro-preview',
-    fast_generation: 'gemini-3.1-pro-preview',
-    vision: 'gemini-3.1-pro-preview',
+    fast_generation: 'gemini-3.5-flash',
+    vision: 'gemini-3.5-flash',
     image: 'gemini-2.5-flash',
     video: 'gemini-2.5-flash',
     narrative_composition: 'gemini-3.1-pro-preview',
+    fast_agentic: 'gemini-3.5-flash',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
-    fast_generation: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
-    vision: ['gemini-3.1-pro-preview', 'gemini-2.5-flash'],
+    research: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    fast_generation: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    vision: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash'],
     image: ['gemini-2.5-flash'],
     video: ['gemini-2.5-flash'],
-    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    fast_agentic: ['gemini-3.5-flash', 'gemini-3.1-pro-preview'],
 };
 
 // --- API KEY AVAILABILITY ---

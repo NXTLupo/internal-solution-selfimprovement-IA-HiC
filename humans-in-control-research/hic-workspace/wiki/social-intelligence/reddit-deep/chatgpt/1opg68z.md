@@ -1,0 +1,50 @@
+---
+url: "https://www.reddit.com/r/ChatGPT/comments/1opg68z/if_chatgpt_costs_nearly_a_million_per_day_to_run/"
+kind: "social-post"
+source: "reddit-deep: r/chatgpt"
+subreddit: "chatgpt"
+title: "\"If chatgpt costs nearly a million per DAY to run, how do they not run out of money?\" Answer: investment. How can they have a multibillion dollar market cap but no grasp on becoming profitable? Sure, it's a bubble, but what are they going to resort to? I think it's going to be data selling."
+author: "Rude_Collection_8983"
+date: "2025-11-05T21:41:03.000Z"
+score: 0
+upvote_ratio: 0.44
+num_comments: 3
+flair: "Other "
+extracted_at: "2026-05-17T01:12:48.212Z"
+extraction_method: "praw-deep"
+research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+---
+
+# "If chatgpt costs nearly a million per DAY to run, how do they not run out of money?" Answer: investment. How can they have a multibillion dollar market cap but no grasp on becoming profitable? Sure, it's a bubble, but what are they going to resort to? I think it's going to be data selling.
+
+Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1opg68z/if_chatgpt_costs_nearly_a_million_per_day_to_run/)
+Posted by **Rude_Collection_8983** · **0↑** · **3 comments**
+
+This is like the literal PERFECT solution (not for us, for them) to the problem, which is why I think we'll have more targeted ads, sure, but also an LLM generated rundown of everything about you.
+
+  
+Go to ChatGPT and ask it 'what do you know about me'. It'll start with timezone and stuff, but keep pressuring it. It will eventually know your personality type, hobbies, age, location, etc. 
+
+  
+This thing has the most tabs on ANYBODY, and I think that's what OpenAI is going to wind up selling this data as sora doesn't make them any money, 'Plus' is barely a drop in the bucket, and when you run out of images you can just go to gemini anyways. 
+
+  
+I'm going to stop giving it any info about me, or at least, only do so on private mode, and while purchasing a VPN. This is like a guarantee the way I see it, and I wanna pump the breaks while I still can.
+
+## Comments
+
+- **AutoModerator** (1↑): Hey /u/Rude_Collection_8983!
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*
+- **Golden_Apple_23** (1↑): if you think they're going to sell our data, then why do you think that 'private' mode actually means anything? If we already have the illusion of privacy, what's one more layer to ignore?

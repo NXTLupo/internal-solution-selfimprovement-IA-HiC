@@ -903,19 +903,30 @@
                 }
             }
             
+            // Build a structured export payload. The /transcript/{job_id} response
+            // now includes a sidecar-loaded {source, transcription, completed_at,
+            // format_version} when available — preserve all of it. The legacy
+            // "transcript" string (formatted .txt content) is kept so any existing
+            // downstream consumer that depended on it still works.
+            function buildTranscriptExport(data, jobId) {
+                const payload = {
+                    job_id: jobId,
+                    format: 'json',
+                    format_version: data.format_version || '1.0',
+                    exported_at: new Date().toISOString()
+                };
+                if (data.completed_at) payload.completed_at = data.completed_at;
+                if (data.source) payload.source = data.source;
+                if (data.transcription) payload.transcription = data.transcription;
+                payload.transcript = data.transcript || '';
+                return payload;
+            }
+
             // Download transcript as JSON
             downloadJsonBtn.addEventListener('click', () => {
                 if (!currentTranscriptData) return;
-                
-                // Create a JSON object with transcript data
-                const jsonData = {
-                    transcript: currentTranscriptData.transcript,
-                    job_id: currentJobId,
-                    timestamp: new Date().toISOString(),
-                    format: 'json'
-                };
-                
-                // Convert to JSON string
+
+                const jsonData = buildTranscriptExport(currentTranscriptData, currentJobId);
                 const jsonString = JSON.stringify(jsonData, null, 2);
                 
                 // Create blob and download link
@@ -947,15 +958,7 @@
                     const data = await response.json();
                     
                     if (response.ok) {
-                        // Create a JSON object with transcript data
-                        const jsonData = {
-                            transcript: data.transcript,
-                            job_id: jobId,
-                            timestamp: new Date().toISOString(),
-                            format: 'json'
-                        };
-                        
-                        // Convert to JSON string
+                        const jsonData = buildTranscriptExport(data, jobId);
                         const jsonString = JSON.stringify(jsonData, null, 2);
                         
                         // Create blob and download link

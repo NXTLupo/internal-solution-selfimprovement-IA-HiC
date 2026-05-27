@@ -10,9 +10,9 @@ score: 12
 upvote_ratio: 0.75
 num_comments: 6
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.896Z"
+extracted_at: "2026-05-26T14:30:23.761Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # NEU Boston's Co-op Program
@@ -42,7 +42,7 @@ Thanks a lot!
 
 ## Comments
 
-- **jaqenhghar99** (6↑): No “most people” don’t. Talking about 2024 here
+- **jaqenhghar99** (5↑): No “most people” don’t. Talking about 2024 here
 
 
 You’ll never know. I tried to find out about this and i have many friends that went to Northeastern. In their network… them, their roommates, friends only 1 person got a co-op and that did not convert (company stopped sponsoring visas)

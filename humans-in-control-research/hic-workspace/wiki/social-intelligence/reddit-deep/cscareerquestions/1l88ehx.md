@@ -1,0 +1,64 @@
+---
+url: "https://www.reddit.com/r/cscareerquestions/comments/1l88ehx/need_help_finding_a_career_path_for_my_future_cs/"
+kind: "social-post"
+source: "reddit-deep: r/cscareerquestions"
+subreddit: "cscareerquestions"
+title: "Need help finding a career path for my future CS degree. I like coding, but I don't want a career where I sit and build business/web apps."
+author: "torrentialsnow"
+date: "2025-06-10T19:47:50.000Z"
+score: 0
+upvote_ratio: 0.43
+num_comments: 12
+flair: ""
+extracted_at: "2026-05-25T18:32:49.826Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+---
+
+# Need help finding a career path for my future CS degree. I like coding, but I don't want a career where I sit and build business/web apps.
+
+Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l88ehx/need_help_finding_a_career_path_for_my_future_cs/)
+Posted by **torrentialsnow** · **0↑** · **12 comments**
+
+I really don't like making business/web apps and that whole side of the SWE career path is not appealing to me. Neither is cloud computing, security etc. I like the software side of things but I also like tinkering. I like aesthetics like cassette futurism, or stuff from fallout, something that's a blend of tech and hardware you can "touch". I like the mechanics of cars and airplanes. I like playing around with hardware components and the idea of it doing something tangible in the real world through the help of software. I am looking for a career path that combines software that will power mechanical, tangible things. A career path where I can "tinker".
+
+I still have about 2 years left in my CS degree but I want to start building the foundation now so when I graduate I can launch my self into this career more smoothly.
+
+But I am struggling to pinpoint that career path and in turn struggling to find a starting point to build the required skills.
+
+I am also 32 btw, I don't know if this plays a factor into my future prospects to the career I am looking for. Is it better to just stick to the typical SWE role? is the above career path a pipe dream?
+
+## Comments
+
+- **gardening-gnome** (12↑): This is my opinion, and it's led me to have a happy, fulfilling life so far with several different types of jobs at several different companies. Take from it what you will.
+
+  
+Work for money, focus on your work/life balance, and pursue passion projects as your hobby. Don't tie up your self worth and your job, or you're going to be in for a bad time.
+
+  
+If you put your whole identity and happiness into the bucket of a job, what happens when the company lays you off/goes bankrupt/you get a toxic manager/you have a kid and need a different job with more money/who knows what?
+
+  
+Focus on a job that pays well enough for you, gives you enough time to do the things you want, and that you can stand to go to every day.
+  - **torrentialsnow** (1↑): Could you give me some suggestions of what to pursue? I just feel kinda lost tbh. 
+
+Mind if I ask what you did?
+    - **69mpe2** (1↑): Not op but I ended up in a boring web/business app job. There are times where I hate it and wish I chose a more interesting path. But I’m not ready to leave yet because boring work can be done well quickly once you learn enough and then you have spare time to learn what you’re passionate about on the clock. A good chunk of my personal projects I do during work hours when it’s quiet and I frame it to my manager as keeping my skills fresh so I can continue to do a good job in my role, which they support.
+    - **gardening-gnome** (1↑): Personally - I took up a musical instrument (25 years ago when I started working) and it has been probably the best thing I ever did.
+
+  
+I have a regular pick-up game I play in and run if it's rained out. So I keep fit.
+
+  
+I have a wife and kid, so we do family stuff
+
+  
+I get broken stuff and fix it (cars, lawn mowers, whatever) for fun.
+
+  
+The thing is, find something \*you\* like. If you don't know, try lots of stuff.
+- **Illustrious-Pound266** (8↑): Embedded? If you had computer engineering degree, I would have recommended hardware engineering but seems like you do not.
+- **nsxwolf** (7↑): When I was a kid I wanted to be Iron Man
+- **Loosh_03062** (3↑): Another vote for "embedded." Off the top of my head I can think of my old company, which among other things makes software which controls the air handling units on top of buildings, plumbing valves, actuators, etc. A friend works on software which controls medical devices like ventilators. The automotive software field is growing by leaps and bounds (drive-by-wire among other things).
+- **zninjamonkey** (1↑): Sounds like you gonna end up in Anduril or something
+- **MegaCockInhaler** (1↑): Embedded, game dev, scientific computing, graphics programming, compilers, operating systems, network security are some non web dev options

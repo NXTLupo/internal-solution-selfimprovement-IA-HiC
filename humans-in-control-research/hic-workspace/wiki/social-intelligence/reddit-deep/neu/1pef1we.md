@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 1
 num_comments: 17
 flair: "Co-op & Career"
-extracted_at: "2026-05-11T20:48:46.981Z"
+extracted_at: "2026-05-20T06:39:39.940Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
 ---
 
 # Roast my Resume: Applying for new grad roles but not getting any calls
@@ -37,7 +37,7 @@ It looks neat and clean
     - **fatkitty72** (1↑): Some of the statements read that way to me
 - **beetroot747** (1↑): Experience above technical skills
 - **Jumpy-Arachnid9293** (1↑): In this market,NG roles require 2 years of full time experience🙂
-- **Impossible-Medium204** (-1↑): Put the technical skills section at the bottom
+- **Impossible-Medium204** (0↑): Put the technical skills section at the bottom
   - **androidslash** (2↑): anything else? what do you think about my work ex bulletpoints? are they good enough?
   - **[deleted]** (1↑): no
     - **androidslash** (1↑): suggest smth then?

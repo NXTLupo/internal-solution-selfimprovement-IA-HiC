@@ -10,9 +10,9 @@ score: 15
 upvote_ratio: 0.94
 num_comments: 2
 flair: "Academics"
-extracted_at: "2026-05-13T14:57:39.790Z"
+extracted_at: "2026-05-26T14:30:23.765Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
 ---
 
 # DO NOT TAKE GLOBAL LEARNING EXPERIENCE COURSE (GBST 1012) ~ 2025 Opinion

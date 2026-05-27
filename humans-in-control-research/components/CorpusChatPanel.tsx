@@ -26,13 +26,35 @@ import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
 import { validateSlide } from '../services/slideValidator';
 import DynamicPromptChips from './DynamicPromptChips';
+// --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
+import FeedbackWidget from './FeedbackWidget';
+// 2026-05-23 — P2.5: FeedbackReceipt was imported but never rendered. The
+// FeedbackWidget now renders its own inline evidence panel (post-feedback
+// LearningEvidence display) which supersedes the standalone receipt. The
+// import is kept commented as documentation of the prior wiring, not active
+// code, so future readers don't re-add the unused import.
+// import FeedbackReceipt from './FeedbackReceipt';
+import GenerationReceipt from './GenerationReceipt';
+import { regenerateWithFeedback, type TextDiff } from '../services/feedbackRegeneration';
+// --- Chunked slide-deck generation (2026-05-23, chunking + output-quality plan, Phase 2) ---
+import { generateChunkedSlideDeck, shouldChunkSlideRequest } from '../services/slideDeckChunker';
 // --- Design Desk artifact delivery (hashtag interception) ---
 import { parseHashtags } from '../design-desk/services/hashtagParser';
 import { useDesignDeskStore } from '../design-desk/store/designDeskStore';
 import { loadDesignMd, type DesignTokens } from '../design-desk/services/designMdLoader';
 import { generateArtifact } from '../design-desk/services/chatToArtifact';
 import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
-import type { FreeformKind } from '../design-desk/schemas/freeformArtifact';
+import type { FreeformKind, FreeformArtifact } from '../design-desk/schemas/freeformArtifact';
+// 2026-05-24 — NotebookLM uplift Phase 4-6 backing services + renderers.
+import { buildMindMap, type BertTopicCluster } from '../services/mindMapArchitect';
+import { renderMindMapHtml } from '../services/mindMapRenderer';
+import { generateBriefDialog, renderBriefDialogHtml } from '../services/briefDialogService';
+import { buildMetaThemes, renderMetaThemesHtml } from '../services/metaThemesService';
+import { buildResearchPlan } from '../services/researchPlanner';
+import { renderResearchPlanHtml } from '../services/researchPlanRenderer';
+// 2026-05-25 — Expert-panel pre-emit system. Every freeform artifact passes
+// through the domain-expert critique panel before reaching the design desk.
+import { runExpertPanel, type ArtifactKind, stripEmDashesInPlace } from '../services/artifactExpertPanel';
 // --- Presentation Pipeline (#presentation #NXT/#NU narrative composer) ---
 import {
     parsePresentationDirective,
@@ -40,6 +62,7 @@ import {
     parseBriefDirective,
     parseExplainerDirective,
     parseReportDirective,
+    parseWhitepaperDirective,
     parsePlaygroundDirective,
     parseApproachesDirective,
     parseHelpDirective,
@@ -70,7 +93,33 @@ import {
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
 // structured pipeline.
-const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set(['org', 'journey', 'arch', 'roadmap', 'blueprint']);
+//
+// 2026-05-26 — `journey` and `blueprint` were REMOVED from this set. Those
+// two kinds now route through `/api/journey-map/generate` to the dedicated
+// `internal-solutions-journeymapper` service (Docker container `journey-mapper`,
+// port 8080), preserving JM's two-pass Claude Sonnet depth. The inline
+// chatToFreeform path was a 2026-05-25 port of JM's depth that created
+// drift risk. The new branch sits ABOVE the FREEFORM_KINDS check below.
+// See: memory/feedback_journey_must_route_to_journey_mapper.md
+const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
+    'org', 'arch', 'roadmap',
+    // 2026-05-24 — NotebookLM uplift Phase 4-6 deliverables. These don't use
+    // the exemplar-driven generateFreeformArtifact() path; they're produced
+    // by dedicated services + renderers. The set membership keeps them in
+    // the freeform artifact ecosystem (IDB persistence, ArtifactViewer
+    // dispatch on type === 'freeform').
+    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
+    // 2026-05-25 — Unified artifact-engine kinds. Every kind now flows through
+    // /api/artifact/generate (and /api/artifact/revise on revisions) which
+    // produces a JM-style HTML report with brand override + anti-slop +
+    // launcher card. Persona stays on the legacy structured pipeline by
+    // default but #persona on a freeform-engine path is supported.
+    'persona', 'prd', 'recommendation', 'strategy-slide', 'strategy', 'brief',
+    'gap-analysis', 'tech-audit', 'competitive', 'presentation',
+] as FreeformKind[]);
+const UPLIFT_KINDS: ReadonlySet<FreeformKind> = new Set([
+    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
+]);
 import { exportPdf, exportPng, exportPptx } from '../design-desk/services/artifactExporter';
 import { toPng } from 'html-to-image';
 import { jsPDF } from 'jspdf';
@@ -110,6 +159,14 @@ interface Props {
         sourceSlug: string;
         mode: 't4-build-only' | 't3-briefs';
     };
+    /** 2026-05-26 — Main-pipeline contention gate. When true, the chat Send
+     *  button is disabled with an inline warning so the user can't fire a
+     *  chat directive on top of an in-flight themes/personas/recs run —
+     *  prevents the 23-min contention scenario from 2026-05-26 where the
+     *  chat and the pipeline fought for the same 4 proxy workers and the
+     *  same Gemini quota. Parent passes `appState !== AppState.SUCCESS`
+     *  while data collection / synthesis is still running. */
+    pipelineActive?: boolean;
 }
 
 /**
@@ -523,6 +580,103 @@ const SlideProjection: React.FC<{
 };
 
 /**
+ * DeliverableLaunchCard (unified — replaces JourneyLaunchCard 2026-05-25)
+ *
+ * Renders an explicit "Launch" button + summary card for any deliverable
+ * produced by the unified /api/artifact/* engine. Set on ChatMessage via
+ * `artifactLaunchUrl` + `artifactLaunchMeta`. Works for journey, persona,
+ * blueprint, gap-analysis, roadmap, recommendation, strategy, brief, org,
+ * arch, prd, tech-audit, competitive, presentation, mindmap, brief-dialog,
+ * meta-themes, research-plan.
+ *
+ * NOTE: The name is "Deliverable" (not "Artifact") because an
+ * `ArtifactLaunchCard` already exists for the older #brief/#explainer/etc.
+ * HTML-artifact family. The two systems are parallel: ArtifactLaunchCard
+ * for the #report / #brief HTML family, DeliverableLaunchCard for the
+ * journey/persona/blueprint/etc. artifact-engine family.
+ *
+ * Click -> window.open in a separate tab so interactive scripts inside the
+ * artifact HTML can actually fire (the chat preview iframe sandbox blocks
+ * scripts so interactive widgets are non-functional inside Design Desk).
+ */
+const DeliverableLaunchCard: React.FC<{
+    url: string;
+    meta?: ChatMessage['artifactLaunchMeta'];
+}> = ({ url, meta }) => {
+    const brand = meta?.brand || 'NXT';
+    const accentColor = brand === 'NU' ? '#C8102E' : '#B8B800';
+    const kindLabel = (meta?.kind || 'artifact').replace(/-/g, ' ');
+    const handleLaunch = () => {
+        // 2026-05-26 — Guard: a relative "/api/..." URL would resolve against
+        // the SPA origin (:5011) and SPA-fall-back to the landing page. All
+        // proxy-served artifact views live on :5012. Absolute-ize defensively
+        // so a missed prefix upstream can't reopen the landing page.
+        let target = url;
+        if (target && target.startsWith('/api/')) {
+            target = `http://127.0.0.1:5012${target}`;
+        }
+        if (!target) {
+            console.warn('[LaunchCard] empty launcher URL — nothing to open');
+            return;
+        }
+        window.open(target, '_blank', 'noopener,noreferrer');
+    };
+    return (
+        <div style={{
+            marginTop: 10,
+            border: `1px solid ${accentColor}`,
+            background: '#FFFFFF',
+            padding: '14px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+        }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: accentColor, marginBottom: 4 }}>
+                    Interactive {kindLabel} report · {brand}
+                </div>
+                {meta?.title && (
+                    <div style={{ fontSize: 12, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3, marginBottom: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {meta.title}
+                    </div>
+                )}
+                <div style={{ fontSize: 9, color: '#666', fontFamily: 'JetBrains Mono, monospace' }}>
+                    {meta?.source || 'artifact-engine'}
+                    {meta?.model && ` · ${meta.model}`}
+                    {meta?.artifact_id && ` · ${meta.artifact_id.slice(0, 8)}`}
+                </div>
+                <div style={{ fontSize: 9, color: '#999', marginTop: 4 }}>
+                    Click Launch to open interactive widgets in a new window (chat preview blocks scripts).
+                </div>
+            </div>
+            <button
+                onClick={handleLaunch}
+                style={{
+                    padding: '10px 18px',
+                    background: accentColor,
+                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    border: 'none',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    flexShrink: 0,
+                }}
+                aria-label={`Launch ${kindLabel} report in new window`}
+            >
+                Launch ↗
+            </button>
+        </div>
+    );
+};
+
+// Backward-compat alias for existing render sites
+const JourneyLaunchCard = DeliverableLaunchCard;
+
+
+/**
  * PresentationLaunchCard
  *
  * Renders an explicit "Launch" button + summary card for a completed
@@ -541,7 +695,19 @@ const PresentationLaunchCard: React.FC<{
     const brand = meta?.brand || 'NXT';
     const accentColor = brand === 'NU' ? '#CC0000' : '#B8B800';
     const handleLaunch = () => {
-        window.open(url, '_blank', 'noopener,noreferrer');
+        // 2026-05-26 — Guard: a relative "/api/..." URL would resolve against
+        // the SPA origin (:5011) and SPA-fall-back to the landing page. All
+        // proxy-served artifact views live on :5012. Absolute-ize defensively
+        // so a missed prefix upstream can't reopen the landing page.
+        let target = url;
+        if (target && target.startsWith('/api/')) {
+            target = `http://127.0.0.1:5012${target}`;
+        }
+        if (!target) {
+            console.warn('[LaunchCard] empty launcher URL — nothing to open');
+            return;
+        }
+        window.open(target, '_blank', 'noopener,noreferrer');
     };
     return (
         <div style={{
@@ -1458,7 +1624,7 @@ const ArtifactLibraryGrid: React.FC<ArtifactLibraryGridProps> = ({ items, onItem
                         ) : (
                             <div style={{ display: 'flex', gap: 4 }}>
                                 <button
-                                    onClick={() => window.open(`http://localhost:5012${a.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                    onClick={() => window.open(`http://127.0.0.1:5012${a.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
                                     style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: accent, border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
                                 >
                                     Launch ↗
@@ -1588,7 +1754,7 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                     ) : (
                         <div style={{ display: 'flex', gap: 4 }}>
                             <button
-                                onClick={() => window.open(`http://localhost:5012${p.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                onClick={() => window.open(`http://127.0.0.1:5012${p.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
                                 style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: '#B8B800', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
                             >
                                 Launch ↗
@@ -1694,6 +1860,10 @@ interface RecommendationTilesGridProps {
     // was in the original query.
     brand?: BrandId;
     autoExport?: 'deck' | 'single' | null;
+    // 2026-05-23 — P1.3: Threaded down to RecommendationTileCard so per-tile
+    // FeedbackWidget can scope feedback to the specific tile slug.
+    engagementSlug?: string;
+    deliverableId?: string;
 }
 // Helper: derive dynamic section labels from the engagement context.
 // Falls back to neutral labels when fields are missing so the UI never
@@ -2424,7 +2594,7 @@ const ProductBriefsGrid: React.FC<{
 
 // Single tile renderer extracted so the grid can render groups (e.g.,
 // initiative-dependent vs. independent) with the same template.
-const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext; onExportSlide?: (tile: RecommendationTile) => void; isExporting?: boolean; brand?: BrandId }> = ({ tile, idx, onPickCommand, context, onExportSlide, isExporting, brand }) => {
+const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext; onExportSlide?: (tile: RecommendationTile) => void; isExporting?: boolean; brand?: BrandId; engagementSlug?: string; deliverableId?: string }> = ({ tile, idx, onPickCommand, context, onExportSlide, isExporting, brand, engagementSlug, deliverableId }) => {
     const labels = labelsFromContext(context);
     const [expanded, setExpanded] = useState(false);
     const riskColor = tile.risk_level === 'high' ? '#CC6644'
@@ -2788,6 +2958,57 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                     </div>
                 )}
             </div>
+            {/* 2026-05-23 — P2.3 (Sprint H5): Copy-as-prompt button. Lifts the
+                tile's full content into a structured chat prompt the user can
+                paste into ChatGPT/Claude/Gemini elsewhere, or back into this
+                chat for refinement. Promised in plans/html-as-default-output-
+                uplift.md Sprint H5 but only ever shipped on the artifact /view
+                wrapper — finally landing on recommendation tiles per the
+                honest audit. */}
+            <div style={{ marginTop: 6, paddingTop: 6, borderTop: '1px dashed #E5E5E5', display: 'flex', gap: 6, alignItems: 'center' }}>
+                <button
+                    onClick={async () => {
+                        const prompt = `Refine the following AI tool recommendation. Keep the core idea but strengthen the implementation depth, add specific named technologies, and ground every claim in named evidence.\n\n` +
+                            `Title: ${tile.title}\n` +
+                            `Slug: ${tile.slug || ''}\n` +
+                            `Frame: ${tile.frame || 'mainstream'}\n` +
+                            `Risk level: ${tile.risk_level || 'medium'}\n` +
+                            (tile.overview ? `Overview: ${tile.overview}\n` : '') +
+                            (Array.isArray((tile as any).why_it_matters) ? `Why it matters: ${(tile as any).why_it_matters.join('; ')}\n` : '') +
+                            (Array.isArray((tile as any).execution_steps) ? `Execution steps: ${(tile as any).execution_steps.join('; ')}\n` : '');
+                        try {
+                            await navigator.clipboard.writeText(prompt);
+                        } catch {
+                            // clipboard unavailable — render fallback prompt in alert
+                            alert(prompt);
+                        }
+                    }}
+                    style={{
+                        fontSize: 8, padding: '3px 8px', background: 'transparent',
+                        color: '#525252', border: '1px solid #DDD', cursor: 'pointer',
+                        textTransform: 'uppercase', letterSpacing: 1, fontFamily: "'JetBrains Mono', monospace",
+                    }}
+                    title="Copy this tile as a structured prompt — paste into another chat or refine here."
+                >
+                    ↗ Copy as prompt
+                </button>
+            </div>
+            {/* 2026-05-23 — P1.3: Per-tile FeedbackWidget. The audit caught that
+                FeedbackWidget was rendered only at the chat-bubble level and
+                no sectionScope was passed from per-deliverable renderers. Now
+                every recommendation tile has its own targeted feedback widget
+                that scopes to the specific tile slug, so user feedback like
+                "this concept is generic" lands as a constraint on THIS tile,
+                not the whole deliverable. */}
+            {engagementSlug && deliverableId && tile.slug && (
+                <FeedbackWidget
+                    engagement_slug={engagementSlug}
+                    deliverable_id={deliverableId}
+                    deliverable_type="recommendations"
+                    section_scope={tile.slug}
+                    compact
+                />
+            )}
         </div>
     );
 };
@@ -3011,7 +3232,7 @@ const RecommendationNextStepsBlock: React.FC<{ steps: string[] }> = ({ steps }) 
     </div>
 );
 
-const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context, brand, autoExport }) => {
+const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context, brand, autoExport, engagementSlug, deliverableId }) => {
     // 2026-05-12 — Slide export plumbing for #recommendations tiles.
     //
     // Affordances:
@@ -3301,7 +3522,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
                 gap: 14,
             }}>
                 {safeTiles.map((tile, idx) => (
-                    <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} brand={resolvedBrandId} onExportSlide={exportTile} isExporting={exportingId === (tile.slug || tile.title)} />
+                    <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} brand={resolvedBrandId} onExportSlide={exportTile} isExporting={exportingId === (tile.slug || tile.title)} engagementSlug={engagementSlug} deliverableId={deliverableId} />
                 ))}
             </div>
         );
@@ -3321,7 +3542,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     const renderRow = (group: RecommendationTile[]) => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14 }}>
             {group.map((tile, idx) => (
-                <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+                <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} engagementSlug={engagementSlug} deliverableId={deliverableId} />
             ))}
         </div>
     );
@@ -3360,7 +3581,16 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
 // Why a self-contained component: the elapsed-time tick uses its own
 // useEffect, so parent re-renders (caused by other messages arriving)
 // don't reset the counter. Driven by msg.timestamp as the start anchor.
-const LiveProcessingIndicator: React.FC<{ startedAt: number; status: string; modelName?: string }> = ({ startedAt, status, modelName }) => {
+const LiveProcessingIndicator: React.FC<{
+    startedAt: number;
+    status: string;
+    modelName?: string;
+    // 2026-05-26 — Optional abort handler. When provided, renders an X
+    // button on the right of the indicator. Click signals the abort
+    // controller in the parent, which propagates through sendChatMessage's
+    // signal param and the chat tool-loop iteration checks.
+    onAbort?: () => void;
+}> = ({ startedAt, status, modelName, onAbort }) => {
     const [now, setNow] = React.useState(Date.now());
     React.useEffect(() => {
         const t = setInterval(() => setNow(Date.now()), 1000);
@@ -3387,6 +3617,34 @@ const LiveProcessingIndicator: React.FC<{ startedAt: number; status: string; mod
             <span style={{ color: '#fff', flex: 1, lineHeight: 1.4 }}>{status}</span>
             {modelName && (
                 <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: 9, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{modelName}</span>
+            )}
+            {onAbort && (
+                <button
+                    onClick={onAbort}
+                    aria-label="Abort in-flight request"
+                    title="Cancel this request (kills any in-flight LLM/tool calls and frees the proxy workers)"
+                    style={{
+                        marginLeft: 4,
+                        width: 22,
+                        height: 22,
+                        background: 'transparent',
+                        border: '1px solid rgba(255,255,255,0.25)',
+                        borderRadius: 2,
+                        cursor: 'pointer',
+                        color: '#fff',
+                        fontFamily: 'JetBrains Mono, monospace',
+                        fontSize: 12,
+                        lineHeight: '20px',
+                        textAlign: 'center',
+                        padding: 0,
+                        flexShrink: 0,
+                        transition: 'background 120ms, border-color 120ms, color 120ms',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#CC3333'; e.currentTarget.style.borderColor = '#CC3333'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; }}
+                >
+                    {String.fromCharCode(0x00D7)}
+                </button>
             )}
             <style>{`@keyframes lpi-pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(1.35); } }`}</style>
         </div>
@@ -3415,7 +3673,7 @@ function isProcessingPlaceholder(content: string): boolean {
     );
 }
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs }) => {
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 — Mirror messages up to the App so a session-save can
     // serialize the conversation. Effect-based callback (not inline)
@@ -3481,6 +3739,44 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [skillManifest, setSkillManifest] = useState<SkillManifestEntry[]>([]);
     const [deliverables, setDeliverables] = useState<DeliverableItem[]>([]);
     const [slides, setSlides] = useState<SlideData[]>([]);
+    // 2026-05-23 — Universal safety net for artifact lifting. Tracks which
+    // assistant message IDs have already had their fence content extracted
+    // into the slide + deliverable canvases. Defense-in-depth against the
+    // render disconnect bug the user just caught in the chunked slide path:
+    // any handler that updates a message's content with :::slide or
+    // :::deliverable: fence blocks gets auto-lifted into canvas state
+    // here, regardless of whether the handler explicitly called the parsers.
+    // No more silent "content shown as text, never rendered" failures.
+    const liftedArtifactMsgIdsRef = useRef<Set<string>>(new Set());
+    // 2026-05-26 — Abort controller for the in-flight chat send. The X
+    // button on LiveProcessingIndicator calls abort(); the chat tool-loop
+    // checks the signal at each iteration boundary and throws AbortError.
+    // Single-call-at-a-time UX: handleSend already short-circuits on
+    // isLoading=true, so storing a single ref (not a Map) is sufficient.
+    const currentAbortRef = useRef<AbortController | null>(null);
+
+    // 2026-05-26 — Mind-map drill-down listener. When the user clicks a
+    // node in the mind-map iframe, the iframe posts a message with the
+    // node label + chunk ids. We pre-populate the chat input with a
+    // drill-into query targeting those chunks. The user can refine and
+    // hit Send to fire the standard chat tool loop against the focused
+    // evidence subset.
+    useEffect(() => {
+        function onMessage(evt: MessageEvent) {
+            const data = evt.data as { type?: string; label?: string; chunkIds?: string[]; nodeType?: string } | undefined;
+            if (!data || data.type !== 'hic.mindmap.nodeClick') return;
+            if (!data.label) return;
+            const chunkBlock = (data.chunkIds && data.chunkIds.length > 0)
+                ? ` Targeting chunks: ${data.chunkIds.slice(0, 8).join(', ')}.`
+                : '';
+            const drillQuery = `Drill into the "${data.label}" cluster — what does the evidence say, who is affected, and what is the strongest finding?${chunkBlock}`;
+            setInput(drillQuery);
+            // Focus the chat input so the user can refine + send
+            setTimeout(() => inputRef.current?.focus(), 50);
+        }
+        window.addEventListener('message', onMessage);
+        return () => window.removeEventListener('message', onMessage);
+    }, []);
     const [generatingVisualId, setGeneratingVisualId] = useState<string | null>(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [wikiSourceArchive, setWikiSourceArchive] = useState('');
@@ -3504,6 +3800,65 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         loadSkillManifest().then(m => { if (m.length > 0) setSkillManifest(m); });
     }, []);
 
+    // 2026-05-23 — Universal artifact-lifting safety net. Watches every
+    // assistant message; whenever a NEW assistant message has fence content
+    // (:::slide or :::deliverable:) that hasn't been lifted yet, parse and
+    // lift it into the slide + deliverable canvas state. This catches ANY
+    // handler — present or future, chunked or single-shot, hashtag-driven
+    // or organic — that emits parseable fences without explicitly calling
+    // the parsers. The Set ref guarantees idempotency: each message is
+    // lifted exactly once even if content changes (e.g., during streaming).
+    useEffect(() => {
+        for (const m of messages) {
+            if (m.role !== 'assistant') continue;
+            if (!m.content || typeof m.content !== 'string') continue;
+            if (liftedArtifactMsgIdsRef.current.has(m.id)) continue;
+            const hasSlides = m.content.includes(':::slide');
+            const hasDeliverables = m.content.includes(':::deliverable:');
+            if (!hasSlides && !hasDeliverables) continue;
+            // Skip placeholder/processing messages — content is still streaming
+            if (isProcessingPlaceholder(m.content)) continue;
+            try {
+                // CRITICAL: Override timestamp + model on every lifted artifact
+                // to match the source message. The renderer's per-message
+                // association filter requires both fields to match within
+                // 5s and exact-model — without this override, lifted artifacts
+                // never render as cards.
+                if (hasDeliverables || hasSlides) {
+                    const newDels = parseDeliverableBlocks(m.content, m.model || 'unknown');
+                    if (newDels.length > 0) {
+                        const stamped = newDels.map(d => ({ ...d, model: m.model || d.model, timestamp: m.timestamp }));
+                        setDeliverables(prev => {
+                            const existingIds = new Set(prev.map(d => d.id));
+                            const merged = [...prev];
+                            for (const d of stamped) if (!existingIds.has(d.id)) merged.push(d);
+                            return merged;
+                        });
+                    }
+                }
+                if (hasSlides) {
+                    const originatingQuery = ((m as any).originatingQuery as string) || '';
+                    const newSlides = parseSlideBlocks(m.content, m.model || 'unknown', originatingQuery);
+                    if (newSlides.length > 0) {
+                        const stamped = newSlides.map(s => ({ ...s, model: m.model || s.model, timestamp: m.timestamp }));
+                        setSlides(prev => {
+                            const existingIds = new Set(prev.map(s => s.id));
+                            const merged = [...prev];
+                            for (const s of stamped) if (!existingIds.has(s.id)) merged.push(s);
+                            return merged;
+                        });
+                        try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
+                    }
+                }
+                liftedArtifactMsgIdsRef.current.add(m.id);
+            } catch (err) {
+                console.warn(`[artifact-lifter] failed to lift fences from msg ${m.id}:`, err);
+                // Mark as lifted anyway so we don't retry forever
+                liftedArtifactMsgIdsRef.current.add(m.id);
+            }
+        }
+    }, [messages]);
+
     // Load the latest wiki source archive (verified URLs from actual data collection)
     useEffect(() => {
         (async () => {
@@ -3517,7 +3872,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         : '/hic-workspace/wiki/sources/';
                     try {
                         // Try to fetch a directory listing or known archive patterns
-                        const resp = await fetch(`http://localhost:5012/api/wiki/list/sources`).catch(() => null);
+                        const resp = await fetch(`http://127.0.0.1:5012/api/wiki/list/sources`).catch(() => null);
                         if (resp?.ok) {
                             const files = await resp.json();
                             // Find the latest source-archive file (not curation files)
@@ -3526,7 +3881,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                 .sort()
                                 .reverse();
                             if (archives.length > 0) {
-                                const archiveResp = await fetch(`http://localhost:5012/api/wiki/read/sources/${archives[0]}`);
+                                const archiveResp = await fetch(`http://127.0.0.1:5012/api/wiki/read/sources/${archives[0]}`);
                                 if (archiveResp.ok) {
                                     const data = await archiveResp.json();
                                     if (data.content && data.content.length > 100) {
@@ -3947,7 +4302,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             setMessages(prev => prev.map(m => m.id === editMsgId ? {
                 ...m,
                 content: `Revised "${artifact.title}" (${Math.round(artifact.code.length / 1024)}KB). Launch button below opens the updated version.`,
-                prototypeUrl: `http://localhost:5012${saved.view_url}`,
+                prototypeUrl: `http://127.0.0.1:5012${saved.view_url}`,
                 prototypeMeta: {
                     slug: saved.slug,
                     title: artifact.title,
@@ -4232,7 +4587,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                 ...m,
                 content: `Your prototype is ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB) · built in ${totalMin}.\n\n${qualityLine} Click LAUNCH to open it in a new window.${costLine}\n\n${stageLog.join('\n')}`,
-                prototypeUrl: `http://localhost:5012${saved.view_url}`,
+                prototypeUrl: `http://127.0.0.1:5012${saved.view_url}`,
                 prototypeMeta: {
                     slug: saved.slug,
                     title: artifact.title,
@@ -4275,10 +4630,23 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 : ''),
             timestamp: Date.now(),
         };
+        // 2026-05-19 — Chat feedback capture. The AnalysisCheckpoint logEdit
+        // path is no longer the user's interaction surface, so we intercept
+        // here instead. Fire-and-forget; non-blocking. See
+        // services/chatFeedbackExtractor.ts for the classifier.
+        const _lastAiForFeedback = [...messages].reverse().find(m => m.role !== 'user')?.content;
         setMessages(prev => [...prev, userMsg]);
         setInput('');
         setIsLoading(true);
         setShowSuggestions(false);
+        import('../services/chatFeedbackExtractor').then(({ classifyMessage }) => {
+            return classifyMessage(query, _lastAiForFeedback, 'analyst');
+        }).then(signal => {
+            if (!signal) return;
+            return import('../services/promptImprovementEngine').then(({ logChatFeedback }) => {
+                logChatFeedback(signal);
+            });
+        }).catch(() => { /* feedback capture must never break a chat send */ });
 
         // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
         // BEFORE the chat dispatch. Fire-and-forget so latency doesn't gate
@@ -4899,7 +5267,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 setMessages(prev => prev.map(m => m.id === helpMsgId ? {
                     ...m,
                     content: `HiC chat directive reference is ready. Click LAUNCH to open the guide in a new window. Every hashtag, every modifier, every combination is listed — bookmark this URL to share with new team members.`,
-                    artifactUrl: `http://localhost:5012${saved.view_url}`,
+                    artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,
                         title: saved.title,
@@ -4955,6 +5323,12 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             { parser: parseReportDirective, label: 'strategic report' },
             { parser: parsePlaygroundDirective, label: 'interactive playground' },
             { parser: parseApproachesDirective, label: 'approaches picker' },
+            // 2026-05-23 — P1.5 (Sprint H3): #whitepaper produces a consulting-grade
+            // HTML whitepaper from the strategic-report pipeline output. Sprint H3
+            // promised this would ship as a #html modifier on strategic reports;
+            // implementation is a separate directive instead because that keeps the
+            // route deterministic (modifier-on-modifier is brittle).
+            { parser: parseWhitepaperDirective, label: 'consulting whitepaper' },
         ];
         let firstHit: { directive: ReturnType<typeof parseBriefDirective>; label: string } | null = null;
         for (const ap of artifactParsers) {
@@ -5061,7 +5435,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
                     content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Footer has Copy-as-prompt + Save-as-PDF buttons. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.`,
-                    artifactUrl: `http://localhost:5012${saved.view_url}`,
+                    artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,
                         title,
@@ -5637,7 +6011,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 });
 
                 // Persist payload via proxy
-                const persistRes = await fetch('http://localhost:5012/api/presentations', {
+                const persistRes = await fetch('http://127.0.0.1:5012/api/presentations', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(composeResult.payload),
@@ -5708,9 +6082,22 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 }
             } catch (e: unknown) {
                 const errMsg = e instanceof Error ? e.message : String(e);
+                const errStack = e instanceof Error ? (e.stack || '').split('\n').slice(0, 6).join('\n') : '';
+                // 2026-05-20 — Surface enough detail to disambiguate compose
+                // vs persist failures next time. Browser "Failed to fetch"
+                // alone is useless; the console gets the full stack + tool log.
+                console.error('[presentation-composer] failure:', {
+                    message: errMsg,
+                    stack: errStack,
+                    toolCallLog,
+                    isFailedToFetch: /Failed to fetch|NetworkError|AbortError/i.test(errMsg),
+                });
+                const hint = /Failed to fetch|NetworkError|AbortError/i.test(errMsg)
+                    ? ' (network/timeout — check proxy logs at :5012 for the upstream Gemini timeout)'
+                    : '';
                 setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                     ...m,
-                    content: `Could not compose presentation: ${errMsg}\n\n` +
+                    content: `Could not compose presentation: ${errMsg}${hint}\n\n` +
                              `Tool calls completed: ${toolCallLog.length}`,
                 } : m));
             } finally {
@@ -5829,9 +6216,297 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     useDesignDeskStore.getState().setActiveArtifact(picked.id);
                 } else {
                     // 2) No pre-made artifact → generate on demand inline.
-                    //    Diagram kinds (org, journey, arch, roadmap, blueprint) go through
-                    //    the freeform-HTML pipeline using the user's NU/NXT exemplars.
-                    //    Persona stays on the legacy structured pipeline.
+                    //    2a) NotebookLM-uplift Phase 4-6 kinds (#mindmap, #brief-dialog,
+                    //        #meta-themes, #deep-research/#research-plan) go through
+                    //        dedicated backing services + renderers — NOT the
+                    //        exemplar-driven generateFreeformArtifact pipeline.
+                    if (UPLIFT_KINDS.has(tag as FreeformKind)) {
+                        try {
+                            const upliftStart = Date.now();
+                            let upliftHtml = '';
+                            let upliftTitle = '';
+                            const upliftCitations: Array<{ label: string; source: string }> = [];
+
+                            if (tag === 'mindmap') {
+                                // Convert ChatContext themes → BertTopicCluster shape that
+                                // mindMapArchitect understands. Real BERTopic output has
+                                // numeric ids + post_ids + top_terms; ChatContext themes
+                                // carry name/summary/citations only, so we synthesize the
+                                // missing fields.
+                                const themesIn = Array.isArray((context as any).themes) ? (context as any).themes : [];
+                                if (themesIn.length < 3) {
+                                    throw new Error('Mind map needs at least 3 themes — run analysis first or load a session with theme output.');
+                                }
+                                const clusters: BertTopicCluster[] = themesIn.map((t: any, idx: number) => ({
+                                    id: idx,
+                                    name: String(t.name || t.title || `Theme ${idx + 1}`).slice(0, 80),
+                                    summary: String(t.summary || t.description || '').slice(0, 400),
+                                    post_count: Array.isArray(t.citations) ? t.citations.length : (t.post_count ?? 1),
+                                    top_terms: Array.isArray(t.top_terms) ? t.top_terms : [],
+                                    post_ids: Array.isArray(t.citations) ? t.citations : (t.post_ids || []),
+                                    centroid: [0, 0],
+                                    convergent_evidence: !!t.convergent_evidence,
+                                    source_types: Array.isArray(t.source_types) ? t.source_types : [],
+                                    distinct_source_count: t.distinct_source_count ?? (Array.isArray(t.source_types) ? t.source_types.length : 1),
+                                }));
+                                const mm = await buildMindMap({
+                                    topics: clusters,
+                                    research_goal: context.researchGoal || parsed.cleanPrompt || 'Research',
+                                    proxy_base: 'http://127.0.0.1:5012',
+                                });
+                                upliftTitle = `Mind Map · ${(context.researchGoal || 'Research').slice(0, 60)}`;
+                                upliftHtml = renderMindMapHtml({
+                                    output: mm,
+                                    brand,
+                                    researchGoal: context.researchGoal || parsed.cleanPrompt || 'Research',
+                                });
+                            } else if (tag === 'brief-dialog') {
+                                const transcript = await generateBriefDialog({
+                                    topic: parsed.cleanPrompt || context.researchGoal || 'Research finding',
+                                    corpus: corpusText.slice(0, 24000),
+                                    proxy_base: 'http://127.0.0.1:5012',
+                                });
+                                upliftTitle = `Brief Dialog · ${transcript.topic.slice(0, 60)}`;
+                                upliftHtml = renderBriefDialogHtml({ transcript, brand });
+                                // Collect citation chunks for the artifact metadata
+                                const allCites = transcript.turns.flatMap(t => t.citations || []);
+                                for (const c of Array.from(new Set(allCites)).slice(0, 12)) {
+                                    upliftCitations.push({ label: c, source: c });
+                                }
+                            } else if (tag === 'meta-themes') {
+                                const mt = await buildMetaThemes({ proxy_base: 'http://127.0.0.1:5012' });
+                                upliftTitle = `Portfolio Patterns · ${mt.portfolio_pattern_count} recurring themes`;
+                                upliftHtml = renderMetaThemesHtml({
+                                    output: mt,
+                                    brand,
+                                    title: parsed.cleanPrompt
+                                        ? `Portfolio Patterns · ${parsed.cleanPrompt}`
+                                        : 'Portfolio Patterns',
+                                });
+                            } else if (tag === 'research-plan') {
+                                const plan = await buildResearchPlan({
+                                    research_goal: parsed.cleanPrompt || context.researchGoal || 'Research',
+                                    proxy_base: 'http://127.0.0.1:5012',
+                                });
+                                upliftTitle = `Research Plan · ${plan.goal.slice(0, 60)}`;
+                                upliftHtml = renderResearchPlanHtml({ plan, brand });
+                            }
+
+                            let artifact: FreeformArtifact = {
+                                id: `uplift_${tag}_${Date.now()}`,
+                                type: 'freeform',
+                                kind: tag as FreeformKind,
+                                brand,
+                                title: upliftTitle,
+                                html: upliftHtml,
+                                citations: upliftCitations,
+                                createdAt: Date.now(),
+                                updatedAt: Date.now(),
+                            };
+
+                            // 2026-05-25 — Run the expert panel BEFORE the
+                            // artifact lands in the design desk. The panel
+                            // routes to the appropriate domain expert(s) for
+                            // this kind plus runs the universal anti-slop +
+                            // structural hygiene critics. Em-dash auto-strip,
+                            // debug-bracket removal, persona-name suffix
+                            // strip, all fire here deterministically. Failure
+                            // is non-fatal: the artifact still ships with a
+                            // warning so the user is not blocked on critic
+                            // pipeline issues.
+                            try {
+                                const panelKind: ArtifactKind = (tag === 'mindmap' ? 'mindmap'
+                                    : tag === 'brief-dialog' ? 'brief-dialog'
+                                    : tag === 'meta-themes' ? 'meta-themes'
+                                    : tag === 'research-plan' ? 'research-plan'
+                                    : 'mindmap') as ArtifactKind;
+                                const panelResult = await runExpertPanel({
+                                    deliverable: artifact,
+                                    kind: panelKind,
+                                    proxy_base: 'http://127.0.0.1:5012',
+                                });
+                                artifact = panelResult.result as FreeformArtifact;
+                                console.log(`[ExpertPanel/${tag}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits, $${panelResult.total_cost_usd.toFixed(3)} spend`);
+                            } catch (panelErr: any) {
+                                console.warn(`[ExpertPanel/${tag}] failed (non-fatal):`, panelErr?.message || panelErr);
+                                // Fall back to a minimum-viable em-dash strip
+                                artifact = stripEmDashesInPlace(artifact);
+                            }
+
+                            useDesignDeskStore.getState().addArtifact(artifact);
+                            useDesignDeskStore.getState().setActiveArtifact(artifact.id);
+                            const elapsedMs = Date.now() - upliftStart;
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_gen`,
+                                role: 'assistant',
+                                content: asSlide
+                                    ? `Generated #${tag}${slideTag}: "${artifact.title}". Rendered as a 1920x1080 slide in the Design Desk (${(elapsedMs / 1000).toFixed(1)}s).`
+                                    : `Generated #${tag}: "${artifact.title}". Open the Design Desk to view (${(elapsedMs / 1000).toFixed(1)}s).`,
+                                timestamp: Date.now(),
+                                deliveredArtifactId: artifact.id,
+                                deliveredArtifactType: tag as any,
+                                deliveredAsSlide: asSlide,
+                            });
+                        } catch (e: any) {
+                            console.warn(`[Uplift/${tag}] generation failed:`, e?.message || e);
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_err`,
+                                role: 'assistant',
+                                content: `#${tag} generation failed: ${e?.message || e}`,
+                                timestamp: Date.now(),
+                            });
+                        }
+                        continue; // skip the legacy chatToArtifact / freeform path
+                    }
+
+                    // 2026-05-26 — Journey + Blueprint route to the dedicated
+                    // Journey Mapper service (internal-solutions-journeymapper,
+                    // container `journey-mapper` :8080) via proxy
+                    // /api/journey-map/generate. The inline chatToFreeform path
+                    // was a 2026-05-25 depth-port of JM into HiC that created
+                    // drift risk. Bypassed permanently. See
+                    // memory/feedback_journey_must_route_to_journey_mapper.md.
+                    if (tag === 'journey' || tag === 'blueprint') {
+                        const jmStart = Date.now();
+                        // 2026-05-26 — Immediate "in-flight" message so the user
+                        // knows the (multi-minute) Journey Mapper IA service
+                        // is running and the chat hasn't silently failed. The
+                        // service does a two-pass Claude generation that can
+                        // run 30-180 seconds even on haiku. Without this notice
+                        // the user assumed "Failed to fetch" meant total
+                        // failure when the service was actually still working.
+                        deliveryMessages.push({
+                            id: `msg_${Date.now()}_${tag}_inflight`,
+                            role: 'assistant',
+                            content: `Generating #${tag} via Journey Mapper IA service (Claude Opus 4.7, single deep pass)... typically 2-4 min for a rich journey. The artifact lands in the Design Desk when ready.`,
+                            timestamp: Date.now(),
+                        });
+                        try {
+                            // Heuristic journey_type detection from the corpus + cleanPrompt.
+                            // JM's prompt branches on type (coop / educational / customer / etc.).
+                            const promptForType = `${parsed.cleanPrompt} ${context.researchGoal || ''} ${corpusText.slice(0, 4000)}`.toLowerCase();
+                            let journeyType = 'general';
+                            if (/co.?op|internship|placement/.test(promptForType)) journeyType = 'coop';
+                            else if (/student|enrollment|education|advisor|academic/.test(promptForType)) journeyType = 'educational';
+                            else if (/patient|clinical|treatment|healthcare/.test(promptForType)) journeyType = 'healthcare';
+                            else if (/employee|onboarding|retention|hire/.test(promptForType)) journeyType = 'employee';
+                            else if (/subscriber|feature.adoption|saas|software user/.test(promptForType)) journeyType = 'software-user';
+                            else if (/donor|purchase|cultivation|customer|buyer/.test(promptForType)) journeyType = 'customer';
+
+                            // 2026-05-26 — Opus 4.7, SINGLE pass. The user
+                            // assessed the Flash single-pass as too minimal.
+                            // Opus 4.7 produces the depth (many phases,
+                            // activities, pains, verbatim evidence quotes) the
+                            // DEPTH CONTRACT in the JM prompt now demands, in
+                            // ONE pass (JOURNEY_TWO_PASS stays off so there is
+                            // no second full-generation latency hit). Opus
+                            // single-pass runs ~2-4 min on a 60KB corpus, so
+                            // the fetch ceiling is 6 min.
+                            const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    goal: parsed.cleanPrompt || context.researchGoal || 'Journey',
+                                    description: parsed.cleanPrompt || '',
+                                    journey_type: tag === 'blueprint' ? 'general' : journeyType,
+                                    corpus: corpusText,
+                                    brand: brand === 'nu' ? 'nu' : 'nxt',
+                                    framing: tag === 'blueprint' ? 'future-state' : 'current-state',
+                                    // 2026-05-26 — artifact_type selects the JM per-artifact
+                                    // structure contract: 'blueprint' -> service-blueprint
+                                    // swimlane grid; 'journey' -> phased journey. The JM
+                                    // service is now a universal branded renderer.
+                                    artifact_type: tag === 'blueprint' ? 'blueprint' : 'journey',
+                                    // 2026-05-26 — #slides modifier -> JM slide-deck layout
+                                    // (one element per full-viewport slide), same quality bar.
+                                    render_mode: asSlide ? 'slides' : 'document',
+                                    llm_model: 'claude-opus-4-7',
+                                }),
+                                // 6-min fetch ceiling — Opus single-pass on a
+                                // large corpus runs 2-4 min; bounded so a wedged
+                                // service can't tie up the browser.
+                                signal: AbortSignal.timeout(360000),
+                            });
+                            if (!resp.ok) {
+                                const errText = await resp.text().catch(() => '');
+                                throw new Error(`journey-map service ${resp.status}: ${errText.slice(0, 200)}`);
+                            }
+                            const data = await resp.json();
+                            // Build a FreeformArtifact wrapper so the design-desk
+                            // store + viewer + launcher card all work unchanged.
+                            const jmArtifact: FreeformArtifact = {
+                                id: `journey_${data.journey_id || Date.now()}`,
+                                type: 'freeform',
+                                kind: tag as FreeformKind,
+                                brand,
+                                title: (parsed.cleanPrompt || context.researchGoal || 'Journey').slice(0, 200),
+                                html: data.html || '',
+                                citations: data.launcher_url
+                                    ? [{ label: 'Launcher', source: data.launcher_url }]
+                                    : [],
+                                createdAt: Date.now(),
+                                updatedAt: Date.now(),
+                            };
+                            // Em-dash strip + post-processing — JM service applies
+                            // brand+anti-slop already (proxy line ~11518), but we
+                            // still pass through the in-HiC normalizer for parity.
+                            let finalJm = stripEmDashesInPlace(jmArtifact);
+                            try {
+                                const panelResult = await runExpertPanel({
+                                    deliverable: finalJm,
+                                    kind: (tag === 'blueprint' ? 'blueprint' : 'journey') as ArtifactKind,
+                                    proxy_base: 'http://127.0.0.1:5012',
+                                });
+                                finalJm = panelResult.result as FreeformArtifact;
+                            } catch (pErr: any) {
+                                console.warn(`[ExpertPanel/${tag}-jm] failed (non-fatal):`, pErr?.message || pErr);
+                            }
+                            useDesignDeskStore.getState().addArtifact(finalJm);
+                            useDesignDeskStore.getState().setActiveArtifact(finalJm.id);
+                            const elapsedMs = Date.now() - jmStart;
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_jm`,
+                                role: 'assistant',
+                                content: `Generated #${tag} via Journey Mapper IA service (${data.model || 'sonnet'}): "${finalJm.title}". Rendered below (${(elapsedMs / 1000).toFixed(1)}s).`,
+                                model: `journey-mapper-ia/${data.model || 'sonnet'}`,
+                                timestamp: Date.now(),
+                                deliveredArtifactId: finalJm.id,
+                                deliveredArtifactType: tag as any,
+                                deliveredAsSlide: asSlide,
+                                // 2026-05-26 — Absolute-ize the launcher URL.
+                                // data.launcher_url is "/api/journey-map/view/{id}"
+                                // (relative). window.open() resolves a relative
+                                // path against the SPA origin (:5011), which
+                                // SPA-falls-back to index.html = the LANDING PAGE.
+                                // The view endpoint lives on the proxy at :5012,
+                                // so prefix the proxy origin.
+                                artifactLaunchUrl: data.launcher_url
+                                    ? (data.launcher_url.startsWith('http') ? data.launcher_url : `http://127.0.0.1:5012${data.launcher_url}`)
+                                    : undefined,
+                                artifactLaunchMeta: data.launcher_url ? {
+                                    title: finalJm.title,
+                                    brand: (finalJm.brand as any) === 'nu' ? 'NU' : 'NXT',
+                                    kind: tag,
+                                    source: 'Journey Mapper IA service',
+                                    model: String(data.model || 'sonnet'),
+                                } : undefined,
+                            });
+                        } catch (e: any) {
+                            console.error(`[journey-map/${tag}] generation failed:`, e?.message || e);
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_err`,
+                                role: 'assistant',
+                                content: `#${tag} generation failed via Journey Mapper IA service: ${e?.message || e}`,
+                                timestamp: Date.now(),
+                            });
+                        }
+                        continue; // bypass the freeform/chatToArtifact paths entirely
+                    }
+
+                    //    Diagram kinds (org, arch, roadmap) go through the freeform-HTML
+                    //    pipeline using the user's NU/NXT exemplars. Journey + blueprint
+                    //    were removed 2026-05-26 — they now route to the Journey Mapper
+                    //    service above. Persona stays on the legacy structured pipeline.
                     if (FREEFORM_KINDS.has(tag as FreeformKind)) {
                         const ff = await generateFreeformArtifact({
                             kind: tag as FreeformKind,
@@ -5845,23 +6520,69 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             model: 'gemini-3.1-pro-preview',
                         });
                         if (ff.ok) {
-                            useDesignDeskStore.getState().addArtifact(ff.artifact);
-                            useDesignDeskStore.getState().setActiveArtifact(ff.artifact.id);
+                            // 2026-05-25 — Expert panel: domain critic + universal
+                            // anti-slop + structural hygiene BEFORE the artifact reaches
+                            // the design desk. Em-dashes auto-stripped, debug brackets
+                            // removed, name-suffix slop cleaned. Non-fatal on failure.
+                            let finalArtifact = ff.artifact;
+                            try {
+                                const kindMap: Record<string, ArtifactKind> = {
+                                    journey: 'journey', blueprint: 'blueprint',
+                                    org: 'org', arch: 'arch', roadmap: 'roadmap',
+                                };
+                                const panelKind = kindMap[tag as string];
+                                if (panelKind) {
+                                    const panelResult = await runExpertPanel({
+                                        deliverable: ff.artifact,
+                                        kind: panelKind,
+                                        proxy_base: 'http://127.0.0.1:5012',
+                                    });
+                                    finalArtifact = panelResult.result as typeof ff.artifact;
+                                    console.log(`[ExpertPanel/${tag}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits, $${panelResult.total_cost_usd.toFixed(3)}`);
+                                }
+                            } catch (panelErr: any) {
+                                console.warn(`[ExpertPanel/${tag}] failed (non-fatal):`, panelErr?.message || panelErr);
+                                finalArtifact = stripEmDashesInPlace(ff.artifact);
+                            }
+
+                            useDesignDeskStore.getState().addArtifact(finalArtifact);
+                            useDesignDeskStore.getState().setActiveArtifact(finalArtifact.id);
                             const _afterAdd = useDesignDeskStore.getState();
-                            console.info(`[Freeform/store] added ${(ff.artifact as any).kind}/${ff.artifact.brand} id=${ff.artifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
-                                _afterAdd.artifacts.find(a => a.id === ff.artifact.id) ? 'YES' : 'NO',
+                            console.info(`[Freeform/store] added ${(finalArtifact as any).kind}/${finalArtifact.brand} id=${finalArtifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
+                                _afterAdd.artifacts.find(a => a.id === finalArtifact.id) ? 'YES' : 'NO',
                                 'Active id:', _afterAdd.activeArtifactId);
+                            // 2026-05-25 — Every artifact-engine-routed kind gets a
+                            // launcher card. The artifact-engine sets citations[0].source
+                            // to the launcher URL when the proxy returned one. Surface
+                            // it on the chat message so the user can open the interactive
+                            // HTML in a new browser window (the chat-side iframe sandbox
+                            // blocks scripts so interactive widgets are non-functional in
+                            // the Design Desk preview).
+                            const isArtifactEngineRoute = typeof ff.modelUsed === 'string' && (ff.modelUsed.includes('artifact-engine') || ff.modelUsed.includes('journey-mapper-ia'));
+                            const launcherUrl = isArtifactEngineRoute
+                                ? (ff.artifact.citations?.[0]?.source || '')
+                                : '';
                             deliveryMessages.push({
                                 id: `msg_${Date.now()}_${tag}_gen`,
                                 role: 'assistant',
                                 content: asSlide
                                     ? `Generated #${tag}${slideTag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered as a 1920x1080 slide below using the ${brand.toUpperCase()} exemplar.`
-                                    : `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered below. Open the Design Desk to edit it on the canvas.`,
+                                    : launcherUrl
+                                        ? `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Open the launcher below for the full interactive experience.`
+                                        : `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered below. Open the Design Desk to edit it on the canvas.`,
                                 model: ff.modelUsed,
                                 timestamp: Date.now(),
                                 deliveredArtifactId: ff.artifact.id,
                                 deliveredArtifactType: tag as any,
                                 deliveredAsSlide: asSlide,
+                                artifactLaunchUrl: launcherUrl || undefined,
+                                artifactLaunchMeta: launcherUrl ? {
+                                    title: ff.artifact.title,
+                                    brand: (ff.artifact.brand as any) === 'nu' ? 'NU' : 'NXT',
+                                    kind: tag,
+                                    source: String(ff.modelUsed).includes('journey-mapper-ia') ? 'Journey Mapper IA service' : 'Artifact engine',
+                                    model: String(ff.modelUsed),
+                                } : undefined,
                             });
                         } else {
                             const ffErr = ff as { ok: false; error: string; rawResponse?: string; modelUsed?: any };
@@ -5892,12 +6613,33 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         // chatToArtifact normalized + validated each — we just iterate and add all.
                         const all = (genResult as any).artifacts as any[] | undefined;
                         const list = (all && all.length > 0) ? all : [genResult.artifact];
-                        list.forEach((created: any, idx: number) => {
+                        // 2026-05-25 — Run the expert panel on EVERY persona before
+                        // it lands in the store. The persona panel catches debug
+                        // tier-brackets, "(composite)" name suffixes, em-dashes,
+                        // and any synthesized quotes that should have been omitted.
+                        const reviewedList = await Promise.all(list.map(async (created: any) => {
+                            if (tag === 'persona') {
+                                try {
+                                    const panelResult = await runExpertPanel({
+                                        deliverable: created,
+                                        kind: 'persona',
+                                        proxy_base: 'http://127.0.0.1:5012',
+                                    });
+                                    console.log(`[ExpertPanel/persona ${created.name || created.id}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits`);
+                                    return panelResult.result;
+                                } catch (panelErr: any) {
+                                    console.warn(`[ExpertPanel/persona] failed (non-fatal):`, panelErr?.message || panelErr);
+                                    return stripEmDashesInPlace(created);
+                                }
+                            }
+                            return created;
+                        }));
+                        reviewedList.forEach((created: any, idx: number) => {
                             useDesignDeskStore.getState().addArtifact(created);
                             // Last one becomes active so the canvas opens to it
-                            if (idx === list.length - 1) useDesignDeskStore.getState().setActiveArtifact(created.id);
+                            if (idx === reviewedList.length - 1) useDesignDeskStore.getState().setActiveArtifact(created.id);
                             const label = created.title ?? created.name ?? 'Untitled';
-                            const countLabel = list.length > 1 ? ` (${idx + 1} of ${list.length})` : '';
+                            const countLabel = reviewedList.length > 1 ? ` (${idx + 1} of ${reviewedList.length})` : '';
                             deliveryMessages.push({
                                 id: `msg_${Date.now()}_${tag}_gen_${idx}`,
                                 role: 'assistant',
@@ -5986,22 +6728,153 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             enrichedQuery = `${query}\n\n=== CURRENT DELIVERABLES IN THIS SESSION (reference these when asked to "put these on a slide" or "combine these") ===\n${delSummary}\n\nFull deliverable data:\n${JSON.stringify(deliverables.filter(d => d.status !== 'rejected').map(d => ({ type: d.type, ...d.data })), null, 2).substring(0, 8000)}\n=== END DELIVERABLES ===`;
         }
 
-        const response = await sendChatMessage(selectedModel, enrichedQuery, messages, liveContext);
+        // 2026-05-23 — Chunked slide-deck interception. When the user asks for
+        // a multi-theme slide deck (e.g., "5 case study slides per theme × 4
+        // themes"), the single-shot chat path silently truncates around slide
+        // 4-5. The chunker fans out to one parallel call per theme, validates
+        // every theme produces N slides, and merges into a deterministic deck.
+        // No fallback to the truncating path — if the chunker fails, the user
+        // gets a structured diagnostic, not a half-deliverable.
+        if (shouldChunkSlideRequest(query)) {
+            const chunkMsgId = `msg_${Date.now()}_chunk`;
+            setMessages(prev => [...prev, {
+                id: chunkMsgId,
+                role: 'assistant',
+                content: 'Generating slide deck via per-theme parallel chunks…',
+                timestamp: Date.now(),
+                model: 'gemini-3.5-flash',
+                skillUsed: 'slide-deck-chunker',
+            } as ChatMessage]);
+            try {
+                const t0 = Date.now();
+                // Pass any feedback signals already in localStorage for this
+                // artifact type — set by the feedback widget on prior runs.
+                let feedbackSignals: { incomplete?: boolean; tooShort?: boolean } | undefined;
+                try {
+                    const raw = localStorage.getItem('hic_chunk_feedback_slides');
+                    if (raw) feedbackSignals = JSON.parse(raw);
+                } catch { /* no signals yet */ }
+                const liveCtx = getContext ? getContext() : context;
+                const result = await generateChunkedSlideDeck({
+                    prompt: query,
+                    brand: /#NU\b/i.test(query) ? 'NU' : 'NXT',
+                    template: 'case-study',
+                    engagementSlug: (liveCtx?.researchGoal || 'default-engagement').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80),
+                    corpusContext: (liveCtx?.corpusText || '').slice(0, 100000),
+                    feedbackSignals,
+                });
+                const elapsedMs = Date.now() - t0;
+                const successCount = result.perThemeStatus.filter(t => t.ok).length;
+                const summary = `${result.totalSlides}-slide deck across ${result.perThemeStatus.length} themes (${successCount}/${result.perThemeStatus.length} themes complete, ${(elapsedMs / 1000).toFixed(1)}s parallel).`;
+                setMessages(prev => prev.map(m => m.id === chunkMsgId ? {
+                    ...m,
+                    content: `${summary}\n\n${result.deckMarkdown}`,
+                    durationMs: elapsedMs,
+                } : m));
+                // 2026-05-23 — Explicit lift for the chunked-slide path.
+                // CRITICAL: the chat renderer filters slides+deliverables by
+                // `Math.abs(slide.timestamp - msg.timestamp) < 5000ms` AND
+                // `slide.model === msg.model`. Chunked slides arrive 50+
+                // seconds after the message was created, so without
+                // overriding the lifted artifacts' timestamps the slides
+                // PARSE but NEVER RENDER as cards (filter excludes them).
+                // This was the second-layer bug behind the user's "FAIL to
+                // generate slides" report.
+                if (result.deckMarkdown.includes(':::slide')) {
+                    const msgForLift = (messages.find(mm => mm.id === chunkMsgId)) || { timestamp: Date.now(), model: 'gemini-3.5-flash' };
+                    const newDels = parseDeliverableBlocks(result.deckMarkdown, msgForLift.model);
+                    if (newDels.length > 0) {
+                        // Override timestamp so renderer filter associates these with the chunk message
+                        const stamped = newDels.map(d => ({ ...d, model: msgForLift.model, timestamp: msgForLift.timestamp }));
+                        setDeliverables(prev => [...prev, ...stamped]);
+                    }
+                    const newSlides = parseSlideBlocks(result.deckMarkdown, msgForLift.model, query);
+                    if (newSlides.length > 0) {
+                        const stamped = newSlides.map(s => ({ ...s, model: msgForLift.model, timestamp: msgForLift.timestamp }));
+                        setSlides(prev => [...prev, ...stamped]);
+                        try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
+                    }
+                }
+                liftedArtifactMsgIdsRef.current.add(chunkMsgId);
+            } catch (chunkErr: any) {
+                setMessages(prev => prev.map(m => m.id === chunkMsgId ? {
+                    ...m,
+                    content: `Slide deck chunker failed: ${chunkErr?.message || 'unknown error'}. The original single-shot path would silently truncate — surfaced this diagnostic instead. You can retry, revise the prompt, or click "Apply now" with feedback.`,
+                } : m));
+            } finally {
+                setIsLoading(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
+            }
+            return;
+        }
+
+        // 2026-05-26 — Per-send AbortController so the user can cancel
+        // long-running chat requests (the case-study 23-min wait that
+        // surfaced during pipeline contention). The controller is stored
+        // on the component ref so LiveProcessingIndicator's X button can
+        // call abort() from its onAbort prop.
+        const sendAbort = new AbortController();
+        currentAbortRef.current = sendAbort;
+        // 2026-05-26 — Find the in-flight placeholder so onProgress can
+        // update its content. The most recent assistant placeholder is
+        // the one created right before this call; we use a marker id.
+        const progressMsgId = `msg_${Date.now()}_inflight_progress`;
+        setMessages(prev => [...prev, {
+            id: progressMsgId,
+            role: 'assistant',
+            content: 'Reasoning... starting',
+            model: selectedModel,
+            timestamp: Date.now(),
+        }]);
+        let response: ChatMessage;
+        try {
+            response = await sendChatMessage(selectedModel, enrichedQuery, messages, liveContext, {
+                signal: sendAbort.signal,
+                onProgress: (status: string) => {
+                    setMessages(prev => prev.map(m => m.id === progressMsgId ? { ...m, content: status } : m));
+                },
+            });
+            // Remove the progress placeholder once the real response arrives
+            setMessages(prev => prev.filter(m => m.id !== progressMsgId));
+        } catch (sendErr: any) {
+            // Clean up progress placeholder on error
+            setMessages(prev => prev.filter(m => m.id !== progressMsgId));
+            if (sendErr?.name === 'AbortError') {
+                response = {
+                    id: `msg_${Date.now()}_aborted`,
+                    role: 'assistant',
+                    content: 'Cancelled by user. In-flight LLM and tool calls aborted; proxy workers freed for other work.',
+                    model: selectedModel,
+                    timestamp: Date.now(),
+                };
+            } else {
+                throw sendErr;
+            }
+        } finally {
+            // Clear so a stale signal from this send can't abort the next one
+            if (currentAbortRef.current === sendAbort) currentAbortRef.current = null;
+        }
         setMessages(prev => [...prev, response]);
 
         // Parse deliverables/slides only when skill activated or explicit delimiters present
         if (response.skillUsed || response.content.includes(':::deliverable:') || response.content.includes(':::slide')) {
             const newDels = parseDeliverableBlocks(response.content, response.model);
             if (newDels.length > 0) {
-                setDeliverables(prev => [...prev, ...newDels]);
-                // Auto-generate portraits for personas
-                generatePersonaPortraits(newDels);
+                // 2026-05-23 — Override timestamp/model to match response so
+                // the renderer's per-message association filter (±5s) lets
+                // these cards render even if parsing takes a moment.
+                const stamped = newDels.map(d => ({ ...d, model: response.model || d.model, timestamp: response.timestamp }));
+                setDeliverables(prev => [...prev, ...stamped]);
+                generatePersonaPortraits(stamped);
             }
             const newSlides = parseSlideBlocks(response.content, response.model, query);
+            // 2026-05-23 — Mark this message as lifted so the universal
+            // safety-net useEffect doesn't double-lift on the next render.
+            liftedArtifactMsgIdsRef.current.add(response.id);
             if (newSlides.length > 0) {
-                setSlides(prev => [...prev, ...newSlides]);
-                // Auto-generate portraits for persona slides
-                generatePersonaSlidePortraits(newSlides);
+                const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp }));
+                setSlides(prev => [...prev, ...stampedSlides]);
+                generatePersonaSlidePortraits(stampedSlides);
                 // Phase 1-retrofit (2026-04-20) — WIKI-BACKED QUOTE BACKFILL.
                 // Walks every theme across the new slides; wherever the AI
                 // emitted a title-shaped evidence string (instead of a real
@@ -6012,8 +6885,8 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 // a second later. Failures leave slides untouched.
                 (async () => {
                     try {
-                        const backfilled = await backfillSlidesFromWiki(newSlides, query);
-                        if (backfilled !== newSlides) {
+                        const backfilled = await backfillSlidesFromWiki(stampedSlides, query);
+                        if (backfilled !== stampedSlides) {
                             setSlides(prev => prev.map(s => {
                                 const match = backfilled.find(b => b.id === s.id);
                                 return match || s;
@@ -6194,6 +7067,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                         startedAt={msg.timestamp || Date.now()}
                                         status={msg.content}
                                         modelName={(AVAILABLE_MODELS.find(m => m.id === msg.model)?.name) || modelConfig?.name}
+                                        onAbort={currentAbortRef.current ? () => {
+                                            currentAbortRef.current?.abort();
+                                            // Optimistic UI: replace placeholder immediately so the user sees the cancel land
+                                            setMessages(prev => prev.map(mm => mm.id === msg.id ? {
+                                                ...mm,
+                                                content: 'Cancelling... (waiting for current iteration to release proxy workers)',
+                                            } : mm));
+                                        } : undefined}
                                     />
                                 )}
                                 {msg.role === 'assistant' && !isProcessingPlaceholder(msg.content) ? (() => {
@@ -6253,6 +7134,21 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     <PresentationLaunchCard
                                         url={msg.presentationUrl}
                                         meta={msg.presentationMeta}
+                                    />
+                                )}
+
+                                {/* 2026-05-25 — Unified deliverable launcher card (every kind via artifact engine) */}
+                                {msg.artifactLaunchUrl && (
+                                    <DeliverableLaunchCard
+                                        url={msg.artifactLaunchUrl}
+                                        meta={msg.artifactLaunchMeta}
+                                    />
+                                )}
+                                {/* Backward-compat: legacy journey launcher (pre-unification artifacts) */}
+                                {!msg.artifactLaunchUrl && msg.journeyMapUrl && (
+                                    <JourneyLaunchCard
+                                        url={msg.journeyMapUrl}
+                                        meta={msg.journeyMapMeta as any}
                                     />
                                 )}
 
@@ -6331,6 +7227,8 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                         context={(msg as any).engagementContext as EngagementContext | undefined}
                                         brand={(msg as any).recommendationBrand as BrandId | undefined}
                                         autoExport={(msg as any).recommendationAutoExport as 'deck' | 'single' | null | undefined}
+                                        engagementSlug={(context?.researchGoal || 'default-engagement').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'default-engagement'}
+                                        deliverableId={msg.id}
                                     />
                                 )}
 
@@ -6441,6 +7339,113 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     <button onClick={() => navigator.clipboard.writeText(msg.content)}
                                         style={{ fontSize: 7, color: '#888', background: 'none', border: '1px solid #DDD', padding: '2px 6px', cursor: 'pointer', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700 }}>Copy</button>
                                 </div>
+                            )}
+
+                            {/* Feedback widget (self-improvement loop input — 2026-05-22).
+                                Renders under every assistant message so the user can
+                                vote, rate, or write feedback. "Apply now" triggers
+                                section-targeted regeneration via regenerateWithFeedback.
+                                Followed by a GenerationReceipt that shows which skill
+                                version and constraints informed this output. */}
+                            {msg.role === 'assistant' && !isProcessingPlaceholder(msg.content) && (
+                                (() => {
+                                    const deliverableType = msgSlides.length > 0
+                                        ? 'presentations'
+                                        : msgDels.length > 0
+                                            ? msgDels[0].type
+                                            : msg.skillUsed || 'chat-reply';
+                                    const engagementSlug = (
+                                        context?.researchGoal || 'default-engagement'
+                                    )
+                                        .toLowerCase()
+                                        .replace(/[^a-z0-9]+/g, '-')
+                                        .replace(/^-+|-+$/g, '')
+                                        .slice(0, 80) || 'default-engagement';
+                                    return (
+                                        <>
+                                        <FeedbackWidget
+                                            engagement_slug={engagementSlug}
+                                            deliverable_id={msg.id}
+                                            deliverable_type={deliverableType}
+                                            skill_version_active={msg.skillUsed || null}
+                                            compact
+                                            onApplyNow={async ({ feedbackId, text, sectionScope }) => {
+                                                try {
+                                                    // 2026-05-23 — Apply-now must re-fire the ORIGINAL USER PROMPT
+                                                    // through the normal chat-send path (handleSend), not call
+                                                    // regenerateWithFeedback on the truncated assistant output.
+                                                    //
+                                                    // Why: the chat-send path is the only one that:
+                                                    //   - Re-runs hashtag detection (#proto / #slides / #NU etc.)
+                                                    //   - Reloads the right skill manifest for the deliverable type
+                                                    //   - Hits the full corpus context loader
+                                                    //   - Uses the chat-tier maxOutputTokens (65K on Flash)
+                                                    //
+                                                    // The previous implementation handed the model the truncated
+                                                    // 4-of-20-slides output and asked it to "revise" — which
+                                                    // produced the same 4 slides with cosmetic tweaks, never the
+                                                    // missing 16.
+                                                    //
+                                                    // Implementation: walk the messages array backwards from `msg`
+                                                    // to find the most-recent user message that triggered it,
+                                                    // append the feedback as a postscript, and call handleSend
+                                                    // with the augmented prompt. handleSend handles routing,
+                                                    // skill matching, and producing a new assistant message.
+                                                    const myIndex = messages.findIndex(m => m.id === msg.id);
+                                                    let originatingPrompt = '';
+                                                    if (myIndex >= 0) {
+                                                        for (let i = myIndex - 1; i >= 0; i -= 1) {
+                                                            if (messages[i].role === 'user') {
+                                                                originatingPrompt = messages[i].content;
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+                                                    if (!originatingPrompt) {
+                                                        // Defensive fallback — extremely unlikely (every assistant
+                                                        // message has an originating user message), but if we hit
+                                                        // it we still want to do something useful. Fall back to a
+                                                        // generic re-ask that includes the feedback.
+                                                        console.warn('[FeedbackWidget.onApplyNow] could not locate originating user message; using feedback-only prompt.');
+                                                        originatingPrompt = `Re-attempt the previous deliverable.`;
+                                                    }
+                                                    // Track regen count so the user can see "Nth attempt" in the
+                                                    // GenerationReceipt later. Also so any future heuristic that
+                                                    // wants to escalate provider after N attempts has the signal.
+                                                    const regenKey = `hic_regen_count_${msg.id}`;
+                                                    const priorRegens = parseInt(localStorage.getItem(regenKey) || '0', 10);
+                                                    localStorage.setItem(regenKey, String(priorRegens + 1));
+                                                    const scopeNote = sectionScope ? ` (specifically the "${sectionScope}" section)` : '';
+                                                    const escalationNote = priorRegens >= 1
+                                                        ? '\n\nNOTE: This is the user\'s second attempt to refine this output. The previous regeneration did not fully satisfy them. Bias toward MORE completeness, MORE depth, and STRICTER adherence to every requested element.'
+                                                        : '';
+                                                    const augmentedPrompt = `${originatingPrompt}
+
+FEEDBACK FROM LAST ATTEMPT${scopeNote} — APPLY ON THIS RUN:
+${text}
+
+Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE deliverable — not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
+                                                    // Fire through the normal chat-send path. handleSend appends
+                                                    // a user message, calls sendChatMessage, and renders the
+                                                    // assistant reply with its FeedbackWidget + GenerationReceipt
+                                                    // — exactly like a fresh send.
+                                                    await handleSend(augmentedPrompt);
+                                                } catch (err) {
+                                                    console.warn('[FeedbackWidget.onApplyNow] threw:', err);
+                                                }
+                                            }}
+                                        />
+                                        <GenerationReceipt
+                                            deliverableType={deliverableType}
+                                            deliverableId={msg.id}
+                                            engagementSlug={engagementSlug}
+                                            skillName={msg.skillUsed || undefined}
+                                            priorRunsOfThisType={messages.filter(m => m.role === 'assistant' && (m.skillUsed === msg.skillUsed)).length - 1}
+                                            modelUsed={msg.model || null}
+                                        />
+                                        </>
+                                    );
+                                })()
                             )}
                         </div>
                     );
@@ -6553,10 +7558,35 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         />
                     </div>
                     <EnhanceButton handle={enhancer} accentColor="#00B7C3" disabled={isLoading} />
-                    <button onClick={() => handleSend()} disabled={(!input.trim() && pendingAttachments.length === 0) || isLoading} style={{
-                        padding: '0 14px', background: isLoading ? '#CCC' : '#B8B800', color: '#0D0D0D', border: 'none',
-                        fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: isLoading ? 'default' : 'pointer',
-                    }}>Send</button>
+                    <button
+                        onClick={() => handleSend()}
+                        disabled={(!input.trim() && pendingAttachments.length === 0) || isLoading || !!pipelineActive}
+                        title={pipelineActive ? 'Main pipeline is still running. Wait for themes/personas/recs to finish before firing a chat directive (prevents proxy worker contention).' : undefined}
+                        style={{
+                            padding: '0 14px',
+                            background: (isLoading || pipelineActive) ? '#CCC' : '#B8B800',
+                            color: '#0D0D0D',
+                            border: 'none',
+                            fontWeight: 700,
+                            fontSize: 10,
+                            letterSpacing: '1px',
+                            textTransform: 'uppercase',
+                            cursor: (isLoading || pipelineActive) ? 'default' : 'pointer',
+                        }}
+                    >Send</button>
+                    {pipelineActive && (
+                        <div style={{
+                            position: 'absolute',
+                            bottom: -22,
+                            right: 0,
+                            fontSize: 9,
+                            color: '#CC6644',
+                            fontFamily: "'JetBrains Mono', monospace",
+                            letterSpacing: 0.3,
+                        }}>
+                            PIPELINE ACTIVE {String.fromCharCode(0x00B7)} CHAT DISABLED UNTIL SYNTHESIS COMPLETES
+                        </div>
+                    )}
                 </div>
                 <div style={{ fontSize: 8, color: '#AAA', marginTop: 4 }}>
                     Shift+Enter for new line | Enhance rewrites your prompt via Gemini Flash | {modelConfig?.name} ({modelConfig?.contextWindow})

@@ -1,0 +1,51 @@
+---
+url: "https://www.reddit.com/r/gradadmissions/comments/1rrt0p6/conditional_grad_school_offer_requires_35_gpa_but/"
+kind: "social-post"
+source: "reddit-deep: r/gradadmissions"
+subreddit: "gradadmissions"
+title: "Conditional grad school offer requires 3.5 GPA but I’ll likely finish with ~3.48 — how should I approach admissions?"
+author: "Zookjaeger"
+date: "2026-03-12T14:58:07.000Z"
+score: 4
+upvote_ratio: 1
+num_comments: 1
+flair: "General Advice"
+extracted_at: "2026-05-24T14:10:06.603Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+---
+
+# Conditional grad school offer requires 3.5 GPA but I’ll likely finish with ~3.48 — how should I approach admissions?
+
+Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rrt0p6/conditional_grad_school_offer_requires_35_gpa_but/)
+Posted by **Zookjaeger** · **4↑** · **1 comments**
+
+I recently received a conditional offer to a graduate program I applied to. The condition in the offer letter says my admission is:
+
+“conditional upon the successful completion of your BA degree, with the equivalent of at least a good Upper Second Class Honours degree (considered to be an overall average of 65% or above). This is normally equivalent to a GPA of 3.5.”
+
+Right now my GPA is 3.4, and even if I finish this semester with all As, the highest I could realistically end with is about 3.48. I’m definitely working toward that, but I’m worried about the risk involved.
+
+To accept the offer, I have to pay a non-refundable £3,000 deposit by next month. My concern is: if I ended up getting even one B this semester and my GPA stayed around \~3.4–3.48, could they rescind my offer after I’ve already paid the deposit?
+
+I want to ask the admissions office about how strictly they interpret this requirement, but I’m not sure how to phrase it without making it sound like I don’t expect to do well this semester.
+
+Some additional context:
+
+When I first checked the program website in November 2025, the GPA requirement listed was 3.5.
+
+When I checked again in January, it had changed to 3.3, which is when I decided to apply.
+
+However, the conditional offer email still references 3.5 as the “normal equivalent.”
+
+So now I’m wondering if this might just be standard/automated wording that hasn’t been updated, or if they really do expect a strict 3.5.
+
+Has anyone dealt with something like this before?
+
+Are these GPA conditions usually interpreted flexibly (e.g., 3.4–3.48 being close enough)?
+
+How would you email admissions to ask about this without sounding like you’re already expecting to miss the requirement?
+
+## Comments
+
+- **Enough_Amount_9529** (3↑): follow up with adcom. this is crazy

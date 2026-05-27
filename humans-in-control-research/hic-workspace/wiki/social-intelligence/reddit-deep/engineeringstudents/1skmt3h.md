@@ -1,0 +1,45 @@
+---
+url: "https://www.reddit.com/r/EngineeringStudents/comments/1skmt3h/will_field_experience_help_or_hinder_my_chances/"
+kind: "social-post"
+source: "reddit-deep: r/engineeringstudents"
+subreddit: "engineeringstudents"
+title: "Will field experience help or hinder my chances of becoming an engineer?"
+author: "Dr_Didurmom"
+date: "2026-04-13T20:22:41.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 8
+flair: "Career Advice"
+extracted_at: "2026-05-22T23:33:47.032Z"
+extraction_method: "praw-deep"
+research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+---
+
+# Will field experience help or hinder my chances of becoming an engineer?
+
+Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1skmt3h/will_field_experience_help_or_hinder_my_chances/)
+Posted by **Dr_Didurmom** · **1↑** · **8 comments**
+
+I am currently pursuing a degree in mechanical engineering with the goal of becoming a drilling engineer. I began my career as a floor hand and progressed to driller before transitioning to the directional side of operations. Since then, I have gained experience as both a directional driller and an MWD, and I am currently working as an MWD. Given this background, I am interested in understanding whether my field experience will enhance or limit my ability to achieve my goal of becoming a drilling engineer.
+
+## Comments
+
+- **Kalex8876** (5↑): Field experience won’t hinder your chances at engineer roles. After all, your degree is to become an engineer
+  - **Dr_Didurmom** (1↑): I agree that the degree is ultimately what qualifies me for an engineering role. I think where my concern comes in is whether my field experience will actually give me an advantage, or if it’s just neutral in the eyes of employers. But I’m not sure how much weight companies actually place on that compared to someone coming in with just the degree. I guess I’m trying to figure out if this experience will truly set me apart, or if it just puts me on the same level as everyone else once I graduate.
+    - **Kalex8876** (2↑): It will likely be an advantage
+- **my_peen_is_clean** (1↑): that experience is a straight up plus, not a minus, as long as you actually finish the degree. companies love folks who know rig life. only problem is still just getting hired since everything is so damn picky now and finding any decent engineering job is stupid hard
+  - **Dr_Didurmom** (1↑): I appreciate that, and that’s honestly reassuring to hear. My goal is to stack every advantage I can, and I’m hoping that finishing my degree combined with hands on experience will set me apart from other entry level candidates rather than just putting me on the same level. 
+
+  
+Companies are getting ridiculous, I was looking for job postings the other day they were saying stuff like "Looking for an entry level engineer with 10 years of experience." Like what?
+- **bonebuttonborscht** (1↑): Getting work no, it's an asset. 
+
+In class you'll need to forget your experience and try to look at everything with fresh eyes. When you're learning basic theory there will be simplifying assumptions that will make no sense to someone with field experience. If you're not aware of the assumptions and you try to look at a textbook problem like a real world problem you'll confuse yourself.
+  - **Dr_Didurmom** (1↑): That’s actually a really solid point, and I hadn’t thought about it like that. I can definitely see how trying to apply real world experience to simplified textbook problems could end up making things more confusing instead of helping. On the rig, nothing is ever ideal or clean, so I’m used to thinking in terms of variables, unknowns, and workarounds not perfect conditions.
+
+I think the key for me will be learning how to separate the two. In class, focus on understanding the theory the way it’s taught, including the assumptions, even if they don’t match reality. Then later, I can bridge that gap and apply it back to real world situations where those assumptions break down.
+
+If anything, I’m hoping that once I get through the fundamentals, that field experience will actually help me understand why those assumptions exist and where they fail. But I can see how, early on, it could trip me up if I don’t keep that mindset in check.
+    - **bonebuttonborscht** (1↑): There aren't actually that many projects so you'll mostly be grinding textbook problems; good study habits are king. 
+
+Just knowing which end of a wrench to hold will be a big leg up in projects where you're actually expected to build something.

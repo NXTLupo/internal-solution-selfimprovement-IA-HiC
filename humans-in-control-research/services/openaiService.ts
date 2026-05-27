@@ -40,7 +40,7 @@ interface OpenAIResponse {
 
 // --- CONSTANTS ---
 // Route through local proxy to bypass CORS (keys stay server-side)
-const PROXY_URL = 'http://localhost:5012/api/ai/openai';
+const PROXY_URL = 'http://127.0.0.1:5012/api/ai/openai';
 const DIRECT_URL = 'https://api.openai.com/v1/chat/completions';
 
 function getApiUrl(): string {

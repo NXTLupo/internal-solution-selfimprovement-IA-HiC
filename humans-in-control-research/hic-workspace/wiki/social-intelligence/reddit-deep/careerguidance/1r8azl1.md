@@ -1,0 +1,65 @@
+---
+url: "https://www.reddit.com/r/careerguidance/comments/1r8azl1/only_future_breadwinner_soon_low_pay_toxic_job/"
+kind: "social-post"
+source: "reddit-deep: r/careerguidance"
+subreddit: "careerguidance"
+title: "Only future breadwinner soon, low pay, toxic job — need career guidance badly, how to proceed?"
+author: "tarunbedi1098"
+date: "2026-02-18T18:26:41.000Z"
+score: 1
+upvote_ratio: 1
+num_comments: 3
+flair: ""
+extracted_at: "2026-05-23T14:54:05.581Z"
+extraction_method: "praw-deep"
+research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+---
+
+# Only future breadwinner soon, low pay, toxic job — need career guidance badly, how to proceed?
+
+Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r8azl1/only_future_breadwinner_soon_low_pay_toxic_job/)
+Posted by **tarunbedi1098** · **1↑** · **3 comments**
+
+Main currently WITCH mein GET hoon (4.25 LPA) aur ek FAANG client ke project par testing role mein kaam kar raha hoon. Kaam mostly manual test cases execute karna hota hai aur R&D team ke saath collaboration hota hai jo automation pe kaam kar rahi hai. 6 months pehle join kiya tha, aur 1-year bond bhi hai.
+
+Honestly bolun toh main mentally aur physically dono taraf se thak chuka hoon. Work culture kaafi toxic hai, work-from-home ka option nahi hai, aur daily burnout feel hota hai. Main developer role mein switch karna chahta hoon, as soon as possible.
+
+Family situation bhi kaafi serious hai. Mere parents pichhle 11 saalon se depression se suffer kar rahe hain. Abhi meri sister hi ghar ki main breadwinner hai, but uski shaadi soon hone wali hai. Uske baad ghar ki responsibility poori meri ho jaayegi. Monthly expenses ₹60k+ hain, mainly parents ke medicines aur treatment ki wajah se.
+
+COVID ke baad hamari almost saari savings khatam ho gayi, aur maine sister ki marriage ke liye bhi financially contribute kiya hai. Is stage pe main khud ko bahut lost aur helpless feel kar raha hoon.
+
+Maine TCS Prime (9 LPA) ka written test clear kiya tha, but interview clear nahi ho paaya. Tech-wise mujhe experience hai:
+Python
+Django
+Django REST Framework (DRF)
+FastAPI
+Flask
+React
+Next.js
+
+Mujhe high-paying developer job mein switch karna hai, but honestly koi proper roadmap nahi pata. Daily office + travel milake 11–12 hours nikal jaate hain, toh upskilling ke liye energy aur time dono kam bachta hai.
+
+Sach mein guidance chahiye. Kisi se baat karne ke liye bhi koi nahi hai, aur akela hi sab handle karte karte mentally exhaust ho gaya hoon.
+Agar kisi ne aisa phase dekha ho ya koi realistic guidance de sakta ho (tech stack, job switch strategy, learning plan, interview prep, timeline), toh please help. 🙏
+
+Sympathy nahi chahiye — bas direction chahiye
+
+## Comments
+
+- **Equal_Role2996** (1↑): Bhai your tech stack is actually quite solid for getting better opportunities. Since you have Django + React experience, try focusing in full stack roles rather than pure backend - many companies pay more for full stack developers
+
+  
+For interview prep, since time is limited, I'd suggest focusing in DSA basics (arrays, strings, basic algorithms) and building 2-3 solid projects using your existing tech stack. Don't try learning new technologies right now when you're already stretched thin
+
+  
+About the bond - check your contract carefully. Many companies have clauses where if you get terminated or if company doesn't provide proper work environment, bond becomes void. Document the toxic culture incidents if possible
+
+  
+One immediate thing you can do is start applying for remote opportunities. With your tech stack, there are many startups offering 8-12 LPA for remote full stack roles. Remote work will save you those 3-4 hours of commute time which you can use for prep
+
+  
+Also consider freelancing on weekends initially - even small Django/React projects can bring 15-20k extra monthly which will help with family expenses while you prepare for switch
+  - **tarunbedi1098** (1↑): Thanks for your reply, It helps a lot. But yeh Django and React maine sirf personal projects build karne kai liye use kri hai and iska koi real corporate level project mai use nhi kiya hai. Toh mai isse bluff kr skta hu interview mai?
+
+And ek cheez maai aur guid krdo ols ki freelancing kai liye kaise start kr skte hai, Kyunki isse Bhaut help ho jayegi.
+  - **tarunbedi1098** (1↑): Aap thoda guide kr skte ho ki mai iss project se release kaise le skta hu kyunki mujhse aur nhi hk pa raha, physiologist ne bhi thoda rest lene kai liye suggest kra hai meko.
