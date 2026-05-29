@@ -127,16 +127,36 @@ async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
 
 async function callGemini(prompt: string, modelId: string): Promise<string> {
     const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
-    const response = await ai.models.generateContent({
-        model: modelId,
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        config: {
-            systemInstruction: SYSTEM_PROMPT,
-            maxOutputTokens: MAX_TOKENS,
-            temperature: TEMPERATURE,
-        },
-    });
-    return (response as any)?.text ?? '';
+    // Retry-with-backoff (2026-05-29). A single transient Gemini failure (429
+    // RESOURCE_EXHAUSTED when a bulk job saturates the shared quota, a 503, or a
+    // network blip) previously killed the whole artifact with "Failed to fetch".
+    // Retry transient errors a few times before surfacing the failure so an
+    // interactive #org/#proto/etc. generation survives a quota spike.
+    const attempts = 4;
+    let lastErr: any = null;
+    for (let i = 0; i < attempts; i++) {
+        try {
+            const response = await ai.models.generateContent({
+                model: modelId,
+                contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                config: {
+                    systemInstruction: SYSTEM_PROMPT,
+                    maxOutputTokens: MAX_TOKENS,
+                    temperature: TEMPERATURE,
+                },
+            });
+            return (response as any)?.text ?? '';
+        } catch (e: any) {
+            lastErr = e;
+            const msg = String(e?.message || e || '');
+            const transient = /429|RESOURCE_EXHAUSTED|rate.?limit|quota|503|UNAVAILABLE|overloaded|fetch failed|Failed to fetch|network|ECONNRESET|timeout|deadline/i.test(msg);
+            if (!transient || i === attempts - 1) throw e;
+            const backoff = 800 * Math.pow(2, i); // 0.8s, 1.6s, 3.2s
+            console.warn(`[chatToFreeform] Gemini transient failure (attempt ${i + 1}/${attempts}, retry in ${backoff}ms): ${msg.slice(0, 140)}`);
+            await new Promise(r => setTimeout(r, backoff));
+        }
+    }
+    throw lastErr;
 }
 
 async function callForModel(prompt: string, model: FreeformGenerationModel): Promise<string> {
@@ -1011,7 +1031,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
         } catch (engineErr: any) {
             return {
                 ok: false,
-                error: `Artifact engine error for #${args.kind}: ${engineErr?.message || engineErr}. Verify the proxy + Anthropic key.`,
+                error: `Artifact engine error for #${args.kind} (model: ${args.model}): ${engineErr?.message || engineErr}. If this is a rate-limit/"Failed to fetch", the provider quota was likely briefly exhausted (e.g. a bulk job) — retry in a moment; the engine now retries transient failures automatically.`,
                 modelUsed: 'artifact-engine-failed' as any,
             };
         }
@@ -1044,7 +1064,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
     if (completenessError) {
         return {
             ok: false,
-            error: `Model produced INCOMPLETE BODY CONTENT: ${completenessError}. Re-run with a more capable model (Opus 4.7) or simpler request.`,
+            error: `Model produced INCOMPLETE BODY CONTENT: ${completenessError}. Re-run with a more capable model (Opus 4.8) or simpler request.`,
             rawResponse: raw,
             modelUsed: args.model,
         };

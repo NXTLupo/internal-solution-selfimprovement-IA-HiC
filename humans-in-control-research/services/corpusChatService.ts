@@ -1397,6 +1397,16 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
     const modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
     const maxCorpus = modelConfig?.maxCorpusChars || 500000;
 
+    // 2026-05-27 — TURN SCOPING (fixes prior-deliverable bleed). The full
+    // conversation history is fed to the model for continuity, but earlier
+    // turns sometimes contained large deliverables (e.g. a 25-row "Issue / How
+    // Might We" table). Without this guard the model led a NEW answer by
+    // restating the PRIOR turn's table, burying the actual answer. Scope it
+    // hard to the latest message.
+    parts.push(`=== ANSWER SCOPE (CRITICAL) ===`);
+    parts.push(`Respond ONLY to the user's MOST RECENT message. Earlier turns are background context for continuity, NOT a to-do list. NEVER repeat, continue, or re-emit a previous turn's table, list, or deliverable. If the latest message asks a new question, answer THAT question directly and lead with the answer; do not restate or append prior outputs.`);
+    parts.push('');
+
     parts.push(`=== RESEARCH CONTEXT ===`);
     parts.push(`Research Goal: ${ctx.researchGoal}`);
     parts.push(`Data Sources: ${ctx.sourceCount} sources, ${ctx.articleCount} articles collected`);
@@ -2209,6 +2219,185 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     return ctx;
 }
 
+// --- Deliverable-JSON → prose transform (2026-05-27) -------------------------
+// Skill-path deliverables (#prd, #gap, #persona, #audit, #compete, #strategy,
+// #case-study) emit a structured JSON object per their Output Contract
+// (.claude/skills/<skill>/SKILL.md). In CHAT, with no #slide and no card-approval
+// phrasing, there is NO card renderer, so that JSON was dumping raw
+// ({ "sectionNumber": 7, "title": ... }) and leaking [CHUNK_XXX] markers the
+// prd-compiler prompt explicitly tells the model to embed in descriptions. This
+// deterministic transform detects a bare deliverable-JSON reply and renders it
+// to clean, readable markdown prose, stripping chunk markers. It is a NO-OP for
+// prose, markdown tables, and :::deliverable/:::slide/:::nxt fenced blocks
+// (those have their own renderers). No extra LLM call.
+
+function stripChunkMarkers(s: string): string {
+    if (!s) return s;
+    return s
+        // "CHUNK_011: \"CHUNK_011\"" self-referential leak → drop entirely
+        .replace(/\s*CHUNK_\d+\s*:\s*"?CHUNK_\d+"?\.?/gi, '')
+        // bracketed [CHUNK_003] or [CHUNK_003, CHUNK_017] → drop
+        .replace(/\[\s*CHUNK_\d+(?:\s*,\s*CHUNK_\d+)*\s*\]/gi, '')
+        // bare CHUNK_003 token → drop
+        .replace(/\bCHUNK_\d+\b/gi, '')
+        // tidy leftover "()", doubled spaces, space-before-punctuation
+        .replace(/\(\s*\)/g, '')
+        .replace(/[ \t]+([.,;:])/g, '$1')
+        .replace(/[ \t]{2,}/g, ' ')
+        .trim();
+}
+
+const _DLV_NOISE_KEYS = new Set([
+    'methodology', 'sectionNumber', 'evidenceGap', 'id', 'runId',
+    'reproducibilityHash', 'pipelineVersion', 'frameworkVersion', 'confidence',
+    'personaType', 'segmentSize', 'mentalModel', 'nonGoal', 'isCrossDocument',
+]);
+
+const _DLV_LABELS: Record<string, string> = {
+    purposeAndObjectives: 'Purpose and Objectives', successMetrics: 'Success Metrics',
+    sections: 'Sections', features: 'Features', acceptanceCriteria: 'Acceptance Criteria',
+    citations: 'Sources', evidenceBasis: 'Evidence', gaps: 'Capability Gaps',
+    personas: 'Personas', peers: 'Competitive Set', competitors: 'Competitive Set',
+    systems: 'Systems Inventory', nodes: 'Architecture Nodes',
+    recommendations: 'Recommendations', coherentActions: 'Coherent Actions',
+    guidingPolicy: 'Guiding Policy', diagnosis: 'Diagnosis', painPoints: 'Pain Points',
+    motivations: 'Motivations', strengths: 'Strengths', weaknesses: 'Weaknesses',
+    dependencies: 'Dependencies', constraints: 'Constraints', jtbd: 'Jobs To Be Done',
+    userStory: 'User Story',
+};
+
+const _DLV_HEADING_KEYS = ['title', 'name', 'capability', 'phase', 'label', 'system', 'node'];
+const _DLV_BADGE_KEYS = ['priority', 'severity', 'horizon', 'position', 'status', 'impactLevel'];
+
+function _humanizeKey(k: string): string {
+    if (_DLV_LABELS[k]) return _DLV_LABELS[k];
+    return k.replace(/_/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/^./, c => c.toUpperCase());
+}
+
+function _dlvEmpty(v: any): boolean {
+    return v == null || v === '' || (Array.isArray(v) && v.length === 0);
+}
+
+function _dlvScalar(v: any): string { return stripChunkMarkers(String(v)); }
+
+function _dlvScalarArray(arr: any[]): boolean {
+    return arr.every(x => typeof x === 'string' || typeof x === 'number' || typeof x === 'boolean');
+}
+
+function _dlvRecordHeading(o: any): string | null {
+    for (const k of _DLV_HEADING_KEYS) {
+        if (typeof o[k] === 'string' && o[k].trim()) return o[k].trim();
+    }
+    return null;
+}
+
+// One record (a feature, gap, persona, section, peer, system) → markdown block.
+function _dlvRenderRecord(o: any): string {
+    const lines: string[] = [];
+    const heading = _dlvRecordHeading(o);
+    let badge = '';
+    for (const bk of _DLV_BADGE_KEYS) {
+        if (typeof o[bk] === 'string' && o[bk].trim()) { badge = ` (${_dlvScalar(o[bk])})`; break; }
+    }
+    if (heading) lines.push(`**${_dlvScalar(heading)}**${badge}`);
+    for (const [k, v] of Object.entries(o)) {
+        if (_DLV_NOISE_KEYS.has(k)) continue;
+        if (_DLV_HEADING_KEYS.includes(k) || _DLV_BADGE_KEYS.includes(k)) continue;
+        if (_dlvEmpty(v)) continue;
+        if (Array.isArray(v)) {
+            if (_dlvScalarArray(v)) {
+                lines.push(`${_humanizeKey(k)}: ${v.map(_dlvScalar).join('; ')}`);
+            } else {
+                const inner = (v as any[]).map(x =>
+                    x && typeof x === 'object' ? _dlvScalar(_dlvRecordHeading(x) || Object.values(x).filter(Boolean).map(String).join(' ')) : _dlvScalar(x)
+                ).join('; ');
+                lines.push(`${_humanizeKey(k)}: ${inner}`);
+            }
+        } else if (v && typeof v === 'object') {
+            const sub = Object.entries(v).filter(([, vv]) => !_dlvEmpty(vv))
+                .map(([kk, vv]) => `${_humanizeKey(kk)}: ${_dlvScalar(Array.isArray(vv) ? (vv as any[]).join('; ') : vv)}`).join('; ');
+            if (sub) lines.push(`${_humanizeKey(k)}: ${sub}`);
+        } else if (k === 'content') {
+            // A record's body text reads as a bare paragraph, not "Content: ...".
+            lines.push(_dlvScalar(v));
+        } else {
+            lines.push(`${_humanizeKey(k)}: ${_dlvScalar(v)}`);
+        }
+    }
+    return lines.join('\n');
+}
+
+function _deliverableJsonToMarkdown(root: any): string {
+    // Unwrap single-key container wrappers like { prd: {...} } or { result: {...} }.
+    let obj = root;
+    const wrapperKeys = ['prd', 'gapAnalysis', 'competitiveAnalysis', 'techAudit',
+        'techArchitecture', 'strategy', 'roadmap', 'blueprint', 'personaSet', 'result', 'data'];
+    let guard = 0;
+    while (obj && typeof obj === 'object' && !Array.isArray(obj) && guard++ < 4) {
+        const keys = Object.keys(obj).filter(k => !_DLV_NOISE_KEYS.has(k));
+        if (keys.length === 1 && wrapperKeys.includes(keys[0]) && obj[keys[0]] && typeof obj[keys[0]] === 'object') {
+            obj = obj[keys[0]];
+        } else break;
+    }
+    if (Array.isArray(obj)) {
+        return obj.map(o => o && typeof o === 'object' ? _dlvRenderRecord(o) : `- ${_dlvScalar(o)}`).join('\n\n');
+    }
+    const out: string[] = [];
+    if (typeof obj.title === 'string' && obj.title.trim()) out.push(`## ${_dlvScalar(obj.title)}`);
+    const leadKeys = ['purposeAndObjectives', 'diagnosis', 'guidingPolicy', 'summary', 'overview'];
+    for (const k of leadKeys) {
+        if (typeof obj[k] === 'string' && obj[k].trim()) out.push(`**${_humanizeKey(k)}**\n\n${_dlvScalar(obj[k])}`);
+    }
+    for (const [k, v] of Object.entries(obj)) {
+        if (_DLV_NOISE_KEYS.has(k) || k === 'title' || leadKeys.includes(k)) continue;
+        if (_dlvEmpty(v)) continue;
+        if (Array.isArray(v)) {
+            out.push(`### ${_humanizeKey(k)}`);
+            if (_dlvScalarArray(v)) out.push(v.map(x => `- ${_dlvScalar(x)}`).join('\n'));
+            else out.push((v as any[]).map(o => o && typeof o === 'object' ? _dlvRenderRecord(o) : `- ${_dlvScalar(o)}`).join('\n\n'));
+        } else if (v && typeof v === 'object') {
+            out.push(`### ${_humanizeKey(k)}`);
+            out.push(_dlvRenderRecord(v));
+        } else {
+            out.push(`**${_humanizeKey(k)}:** ${_dlvScalar(v)}`);
+        }
+    }
+    return out.join('\n\n');
+}
+
+export function renderDeliverableJsonReply(text: string): string {
+    if (!text) return text;
+    // Never touch fenced structured output — those have dedicated renderers.
+    if (/:::(deliverable|slide|nxt)/.test(text)) return text;
+    const trimmed = text.trim();
+    let candidate: string | null = null;
+    let pre = '', post = '';
+    const fence = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
+    if (fence && fence[1].trim().startsWith('{')) {
+        candidate = fence[1].trim();
+        pre = trimmed.slice(0, fence.index).trim();
+        post = trimmed.slice((fence.index || 0) + fence[0].length).trim();
+    } else {
+        const fb = trimmed.indexOf('{');
+        const lb = trimmed.lastIndexOf('}');
+        if (fb >= 0 && lb > fb) {
+            candidate = trimmed.slice(fb, lb + 1);
+            pre = trimmed.slice(0, fb).trim();
+            post = trimmed.slice(lb + 1).trim();
+        }
+    }
+    if (!candidate) return text;
+    // Must contain deliverable-shaped keys to qualify (conservative guard).
+    if (!/"(sections|features|prd|gaps|gapAnalysis|personas|personaSet|peers|competitors|competitiveAnalysis|systems|techAudit|techArchitecture|nodes|recommendations|coherentActions|guidingPolicy|diagnosis|roadmap|blueprint|stages)"\s*:/.test(candidate)) return text;
+    let parsed: any;
+    try { parsed = JSON.parse(candidate); } catch { return text; }
+    if (!parsed || typeof parsed !== 'object') return text;
+    let md = '';
+    try { md = _deliverableJsonToMarkdown(parsed); } catch { return text; }
+    if (!md.trim()) return text;
+    return [pre, md, post].map(s => s && s.trim()).filter(Boolean).join('\n\n');
+}
+
 // --- Main Send Function ---
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
@@ -2643,8 +2832,6 @@ You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by 
   - Building a case study slide? Call fetch_wiki_articles(query: "<subject> <vendor> <outcome>", kind: "article") to get the case study body, then write from it.
   - Never call more than 2-3 times per turn. Be specific in your queries.
 
-KNOWLEDGE-GRAPH RETRIEVAL (NEW 2026-05-11):
-You also have the query_knowledge_graph tool. The KG was already built by the synthesis pipeline and contains explicit relationships between themes, evidence, sources, personas, recommendations, and gaps. When the user asks about a SPECIFIC entity already in the engagement (e.g., a named theme, a named source like "Reddit r/CareerAdvice", or a named gap), query_knowledge_graph(seed: <name>, hops: 2) is faster and more accurate than fetch_wiki_articles — it walks the relationship graph directly.
 
 TOPIC-MODELING RETRIEVAL (NEW 2026-05-11):
 If a TOPIC CLUSTERS section appears in this system prompt, the engagement also ran a BERTopic-style clustering pass over the deep-Reddit corpus. Treat those clusters as FIRST-CLASS sources of insight: they represent coherent conversation patterns the embedding+clustering pipeline discovered, then a frontier LLM (Claude Opus) named and summarized. They are complementary to the manually-synthesized themes in the knowledge graph — the KG themes capture cross-source patterns; the topic clusters capture pure social-conversation patterns.
@@ -2657,7 +2844,6 @@ When building deliverables, ACTIVELY weave topic-cluster insights in alongside K
 
 Decision rule for which tool to call:
   - User asks about a specific TOPIC CLUSTER (named or numbered in the prompt above) → query_topic_clusters(topic_id_or_name) — pulls representative posts with scores, comment counts, subreddits
-  - User asks about a specific KG entity (theme, source, persona, gap) → query_knowledge_graph(seed)
   - User asks an open-ended research question → fetch_wiki_articles (semantic search)
   - User asks for framework / anti-pattern / benchmark / brand standard → fetch_wiki_resource
 
@@ -2863,14 +3049,19 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // the chat reply before it's rendered. Prompts forbid these tokens;
         // this layer guarantees they never reach the user.
         try {
-            const { stripQAAnnotations, stripEmDashes } = await import('./slidePostProcessor');
+            const { stripQAAnnotations, stripFormatTells } = await import('./slidePostProcessor');
+            // 2026-05-27 — Render bare deliverable-JSON replies (#prd / #gap /
+            // #persona / #audit / #compete / #strategy / #case-study skill
+            // outputs) into clean markdown prose and strip leaked [CHUNK_XXX]
+            // markers. No-op for prose, tables, and fenced structured output.
+            responseText = renderDeliverableJsonReply(responseText);
             responseText = stripQAAnnotations(responseText);
             // 2026-05-26 — Em-dash hard-ban per .claude/CLAUDE.md ("Format
-            // Tells"). slidePostProcessor.stripEmDashes was being applied to
-            // slide content but NOT to chat replies, letting "data—including"
-            // and "outcomes—necessary" reach users in the design-desk chat.
-            // Applied here unconditionally; ASCII hyphens are untouched.
-            responseText = stripEmDashes(responseText);
+            // Tells"). 2026-05-27 — extended to a HARD emoji ban too via
+            // stripFormatTells (em-dash + emoji). Chat replies were letting
+            // "data—including" and model emoji ("Pong! 👋") reach users.
+            // Applied unconditionally; ASCII hyphens + layout glyphs untouched.
+            responseText = stripFormatTells(responseText);
         } catch (e) { /* non-blocking */ }
 
         // 2026-05-26 — Surface unknown / fuzzy-promoted hashtag notices to the
@@ -3256,10 +3447,140 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
 }
 
 // 2026-05-03 — callAnthropic / Anthropic chat path removed on this branch
-// (HiC-Gemini-Primary). All chat traffic dispatches to callOpenAI or
-// callGemini via sendChatMessage. Restoring Anthropic requires re-adding
-// the function, the /api/ai/anthropic proxy route, the model registry
-// entries, and the dispatch branch.
+// (HiC-Gemini-Primary). The primary dispatch is still callGemini / callOpenAI
+// / callDeepSeek through sendChatMessage; Anthropic is NOT a primary chat
+// option in the UI. But see the 2026-05-27 escape below — Claude is the
+// FUNDED cross-provider finalize when any primary exhausts.
+
+// =================================================================
+// 2026-05-27 — Cross-provider Claude finalize escape (Issue 10 fix)
+// =================================================================
+// Architectural rule (per the user's directive): NO chat helper should die
+// from a single-provider failure. When the primary provider's retry budget
+// is exhausted (insufficient_quota / 429-after-retries / Azure content_filter
+// / persistent 5xx), the chat helper hands the current conversation + any
+// tool results gathered so far to Claude Sonnet 4.6 for a final synthesis
+// (no further tool calls).
+//
+// Claude is the ONLY funded cross-provider escape on this platform. The
+// ANTHROPIC_API_KEY is the platform's primary required key (journey-mapper
+// runs claude-opus-4-8 on it); GPT is registered as a chain alternative but
+// is currently dry (insufficient_quota). DeepSeek is Azure content-filter-
+// prone on this corpus and unreliable as a backup.
+//
+// Composes with deliverableModelRouter (deliverable path) + multiModelResilience
+// (provider health tracker). Mirrors that pattern for the chat path.
+
+function _isExhaustionError(e: unknown): boolean {
+    const msg = String((e as any)?.message || e || '');
+    // Match the friendly strings callAIWithRetry emits on exhaustion + raw
+    // provider errors that propagate through. Covers OpenAI/Azure quota,
+    // Gemini "Resource exhausted", DeepSeek/Azure content_filter, persistent
+    // 5xx after retries, and the model-router "all models exhausted".
+    return /insufficient[_ ]?quota|HTTP 429|rate.?limit|resource exhausted|quota exhausted|content[_ ]?filter|ResponsibleAI|block action|HTTP 50[234]|gateway error|temporarily overloaded|after \d+ attempts|all models exhausted|DeepSeek fallback \d{3}/i.test(msg);
+}
+
+interface _ChatMsgLike {
+    role: 'system' | 'user' | 'assistant' | 'tool';
+    content: string | null;
+    tool_calls?: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }>;
+    tool_call_id?: string;
+    name?: string;
+}
+
+async function _finalizeChatViaClaude(
+    system: string,
+    messagesSoFar: _ChatMsgLike[],
+    primaryProviderLabel: string,
+): Promise<string> {
+    const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+    _prog?.(`${primaryProviderLabel} exhausted - switching to Claude Sonnet 4.6...`);
+    console.warn(`[chat.failover] ${primaryProviderLabel} exhausted; finalizing via Claude Sonnet 4.6 with ${messagesSoFar.length} accumulated messages`);
+
+    // Translate OpenAI-shape messages -> Anthropic Messages API shape.
+    // System goes in the top-level `system` field (NOT a role). Tool calls +
+    // results collapse into synthetic user/assistant text turns so Claude
+    // has the evidence without needing to invoke tools itself.
+    type _AnthMsg = { role: 'user' | 'assistant'; content: string };
+    const anthMessages: _AnthMsg[] = [];
+    const toolNameById = new Map<string, string>();
+
+    for (const m of messagesSoFar) {
+        if (m.role === 'system') continue; // top-level field
+        if (m.role === 'user') {
+            anthMessages.push({ role: 'user', content: m.content || '' });
+            continue;
+        }
+        if (m.role === 'assistant') {
+            const parts: string[] = [];
+            if (typeof m.content === 'string' && m.content.trim()) parts.push(m.content.trim());
+            if (Array.isArray(m.tool_calls) && m.tool_calls.length) {
+                for (const tc of m.tool_calls) {
+                    toolNameById.set(tc.id, tc.function.name);
+                    parts.push(`[Called tool ${tc.function.name}(${(tc.function.arguments || '').slice(0, 200)})]`);
+                }
+            }
+            anthMessages.push({ role: 'assistant', content: parts.join('\n') || '(thinking)' });
+            continue;
+        }
+        if (m.role === 'tool') {
+            const toolName = m.name || (m.tool_call_id && toolNameById.get(m.tool_call_id)) || 'tool';
+            const body = typeof m.content === 'string' ? m.content : JSON.stringify(m.content);
+            // Tool results are conveyed as a user turn carrying the retrieved data.
+            anthMessages.push({
+                role: 'user',
+                content: `[Result from ${toolName}]\n${body.slice(0, 12000)}`,
+            });
+            continue;
+        }
+    }
+
+    // Final instruction so Claude synthesizes rather than asks for more data.
+    anthMessages.push({
+        role: 'user',
+        content: 'All data gathering is complete. Provide your final answer now, using the evidence above. Do not request additional tools or data.',
+    });
+
+    // Anthropic requires alternating user/assistant. Merge consecutive same-role
+    // turns by concatenating their content (the tool-result + final-instruction
+    // case produces consecutive user turns).
+    const merged: _AnthMsg[] = [];
+    for (const am of anthMessages) {
+        const prev = merged[merged.length - 1];
+        if (prev && prev.role === am.role) {
+            prev.content = `${prev.content}\n\n${am.content}`;
+        } else {
+            merged.push({ role: am.role, content: am.content });
+        }
+    }
+    if (merged.length === 0 || merged[0].role !== 'user') {
+        // Anthropic requires the first message to be 'user'.
+        merged.unshift({ role: 'user', content: 'Please answer using the evidence already retrieved above.' });
+    }
+
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const data: any = await callAIWithRetry('anthropic', {
+        model: 'claude-sonnet-4-6',
+        max_tokens: 8192,
+        system,
+        messages: merged,
+        temperature: 0.2,
+    }, {
+        label: `Chat (Claude finalize after ${primaryProviderLabel})`,
+        maxAttempts: 2,
+    });
+
+    const blocks = Array.isArray(data?.content) ? data.content : [];
+    const text = blocks
+        .map((b: any) => (typeof b?.text === 'string' ? b.text : ''))
+        .join('')
+        .trim();
+    if (!text) {
+        throw new Error(`Claude finalize returned empty content after ${primaryProviderLabel} exhausted (stop_reason=${data?.stop_reason || 'unknown'})`);
+    }
+    _prog?.(`Claude Sonnet 4.6 finalized.`);
+    return text;
+}
 
 // 2026-05-04 — Both call paths now respect the user's model selection AND
 // implement a fetch_wiki_articles tool-loop. The previous versions hardcoded
@@ -3315,14 +3636,6 @@ async function callDeepSeek(
         {
             type: 'function' as const,
             function: {
-                name: QUERY_KG_TOOL.name,
-                description: QUERY_KG_TOOL.description,
-                parameters: QUERY_KG_TOOL.input_schema,
-            },
-        },
-        {
-            type: 'function' as const,
-            function: {
                 name: QUERY_TOPIC_CLUSTERS_TOOL.name,
                 description: QUERY_TOPIC_CLUSTERS_TOOL.description,
                 parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
@@ -3332,6 +3645,7 @@ async function callDeepSeek(
 
     let lastText = '';
     const _deepseekLoopStart = Date.now();
+    try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
         // 2026-05-26 — Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
@@ -3425,6 +3739,12 @@ async function callDeepSeek(
     }
     console.warn(`[chat.tools] DeepSeek iteration cap ${MAX_TOOL_ITER} reached`);
     return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    } catch (e) {
+        if (_isExhaustionError(e)) {
+            return _finalizeChatViaClaude(system, messages as _ChatMsgLike[], 'DeepSeek');
+        }
+        throw e;
+    }
 }
 
 async function callOpenAI(
@@ -3469,14 +3789,6 @@ async function callOpenAI(
         {
             type: 'function' as const,
             function: {
-                name: QUERY_KG_TOOL.name,
-                description: QUERY_KG_TOOL.description,
-                parameters: QUERY_KG_TOOL.input_schema,
-            },
-        },
-        {
-            type: 'function' as const,
-            function: {
                 name: QUERY_TOPIC_CLUSTERS_TOOL.name,
                 description: QUERY_TOPIC_CLUSTERS_TOOL.description,
                 parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
@@ -3486,6 +3798,7 @@ async function callOpenAI(
 
     let lastText = '';
     const _gptLoopStart = Date.now();
+    try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
         // 2026-05-26 — Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
@@ -3577,6 +3890,12 @@ async function callOpenAI(
     }
     console.warn(`[chat.tools] OpenAI iteration cap ${MAX_TOOL_ITER} reached`);
     return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    } catch (e) {
+        if (_isExhaustionError(e)) {
+            return _finalizeChatViaClaude(system, messages as _ChatMsgLike[], 'OpenAI / GPT');
+        }
+        throw e;
+    }
 }
 
 async function callGemini(
@@ -3619,11 +3938,6 @@ async function callGemini(
                 parameters: FETCH_WIKI_RESOURCE_TOOL.input_schema,
             },
             {
-                name: QUERY_KG_TOOL.name,
-                description: QUERY_KG_TOOL.description,
-                parameters: QUERY_KG_TOOL.input_schema,
-            },
-            {
                 name: QUERY_TOPIC_CLUSTERS_TOOL.name,
                 description: QUERY_TOPIC_CLUSTERS_TOOL.description,
                 parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
@@ -3633,6 +3947,7 @@ async function callGemini(
 
     let lastText = '';
     const _geminiLoopStart = Date.now();
+    try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
         // 2026-05-26 — Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
@@ -3804,6 +4119,39 @@ async function callGemini(
     }
     console.warn(`[chat.tools] Gemini iteration cap ${MAX_TOOL_ITER} reached`);
     return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    } catch (e) {
+        if (_isExhaustionError(e)) {
+            // Translate Gemini contents -> OpenAI-shape for the Claude finalizer.
+            // Tool turns (role:'function' with functionResponse parts) become
+            // user turns carrying the retrieved data so Claude has the evidence.
+            const openAIShape: _ChatMsgLike[] = [{ role: 'system', content: system }];
+            for (const turn of contents) {
+                const turnRole = (turn as any).role;
+                if (turnRole === 'function') {
+                    const fr = ((turn as any).parts || []).find((p: any) => p?.functionResponse);
+                    const name = fr?.functionResponse?.name || 'tool';
+                    const result = fr?.functionResponse?.response?.result;
+                    const content = typeof result === 'string' ? result : (result == null ? '' : JSON.stringify(result));
+                    openAIShape.push({ role: 'tool', content, name });
+                    continue;
+                }
+                const partsText = ((turn as any).parts || [])
+                    .map((p: any) => {
+                        if (typeof p?.text === 'string') return p.text;
+                        if (p?.functionCall) return `[Called tool ${p.functionCall.name}(${JSON.stringify(p.functionCall.args || {}).slice(0, 200)})]`;
+                        return '';
+                    })
+                    .filter((s: string) => s.length)
+                    .join('\n');
+                openAIShape.push({
+                    role: turnRole === 'model' ? 'assistant' : 'user',
+                    content: partsText,
+                });
+            }
+            return _finalizeChatViaClaude(system, openAIShape, 'Gemini');
+        }
+        throw e;
+    }
 }
 
 // --- Citation Parsing (unchanged) ---

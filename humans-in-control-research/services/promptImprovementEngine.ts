@@ -54,10 +54,36 @@ export interface PromptImprovement {
     artifactKind?: string;
 }
 
+import {
+    isAcceptableConstraint,
+    evaluateConstraint,
+    gateConstraints,
+    normalizeConstraintKey,
+} from './constraintQualityGate';
+
 // --- STORAGE KEYS ---
 const EDIT_LOG_KEY = 'hic_prompt_edit_log';
 const PATTERNS_KEY = 'hic_prompt_patterns';
 const IMPROVEMENTS_KEY = 'hic_prompt_improvements';
+// Written by improvementDiscriminator (DISMISSED_KEY). Read here so a
+// constraint auto-dismissed for consistently-negative quality impact is NOT
+// resurrected from the wiki at the next boot. Read directly from localStorage
+// to avoid an import cycle with improvementDiscriminator.
+const DISMISSED_KEY = 'hic_dismissed_constraints';
+
+/** Normalized keys of constraints the discriminator has dismissed. */
+function getDismissedConstraintKeys(): Set<string> {
+    try {
+        const raw = JSON.parse(localStorage.getItem(DISMISSED_KEY) || '[]');
+        return new Set(
+            (Array.isArray(raw) ? raw : [])
+                .map((d: any) => (d && typeof d.constraint === 'string' ? normalizeConstraintKey(d.constraint) : ''))
+                .filter(Boolean)
+        );
+    } catch {
+        return new Set();
+    }
+}
 
 // --- EDIT LOGGING ---
 
@@ -175,7 +201,17 @@ export function detectPatterns(): EditPattern[] {
     for (let i = 0; i < patterns.length; i++) {
         const p = patterns[i];
         const key = `${p.stage}:${p.field}`;
+        // QUALITY GATE (Phase 1, 2026-05-29): never auto-approve a constraint
+        // that contradicts the master rules or is a generic stub. This is the
+        // primary point where generateConstraint's boilerplate and dollar-
+        // quantification rules used to enter the store.
         if (p.status === 'pending' && p.occurrences >= 5 && !existingFields.has(key)) {
+            const verdict = evaluateConstraint(p.suggestedConstraint);
+            if (!verdict.accept) {
+                p.status = 'dismissed';
+                console.log(`[PromptImprovement] Rejected constraint (${verdict.reason}): ${p.suggestedConstraint}`);
+                continue;
+            }
             p.status = 'approved';
             improvements.push({
                 id: `auto_${Date.now()}_${i}`,
@@ -286,7 +322,20 @@ export function getActiveConstraints(kind?: string): string {
     }
     if (filtered.length === 0) return '';
 
-    const constraints = filtered.map(imp => `- ${imp.constraint}`).join('\n');
+    // QUALITY GATE (Phase 1, 2026-05-29) — final defense at the injection point.
+    // Even if a bad constraint slipped into the store via a legacy path or a
+    // stale wiki import, it is filtered here before it ever reaches a prompt:
+    //   (a) drop any constraint the discriminator has dismissed,
+    //   (b) reject master-rule violations + generic stubs,
+    //   (c) dedupe near-identical variants (keep the richest).
+    const dismissed = getDismissedConstraintKeys();
+    const candidateLines = filtered
+        .filter(imp => !dismissed.has(normalizeConstraintKey(imp.constraint)))
+        .map(imp => imp.constraint);
+    const kept = gateConstraints(candidateLines).kept;
+    if (kept.length === 0) return '';
+
+    const constraints = kept.map(c => `- ${c}`).join('\n');
     const scope = kind ? `for "${kind}" artifacts` : 'across all artifacts';
     return `\n\nLEARNED CONSTRAINTS (from user feedback patterns, ${scope}):\n${constraints}`;
 }
@@ -379,7 +428,10 @@ export async function loadWikiConstraints(): Promise<number> {
 
         const existing = getImprovements();
         const existingTexts = new Set(existing.map(i => i.constraint));
+        const existingKeys = new Set(existing.map(i => normalizeConstraintKey(i.constraint)));
+        const dismissed = getDismissedConstraintKeys();
         let added = 0;
+        let rejected = 0;
 
         for (const line of constraintLines) {
             // Capture optional [scope] tag and the constraint text.
@@ -388,6 +440,15 @@ export async function loadWikiConstraints(): Promise<number> {
             const scopeRaw = m[1] || '';
             const text = m[2].trim();
             if (!text || existingTexts.has(text)) continue;
+            const normKey = normalizeConstraintKey(text);
+            // QUALITY GATE (Phase 1): do not import constraints that are
+            // dismissed, contradict the master rules, are generic stubs, or
+            // duplicate one already loaded (normalized). This stops a stale or
+            // externally-written wiki file from re-poisoning the prompt.
+            if (dismissed.has(normKey)) { rejected++; continue; }
+            if (existingKeys.has(normKey)) { rejected++; continue; }
+            if (!isAcceptableConstraint(text)) { rejected++; continue; }
+            existingKeys.add(normKey);
             // scope is "<deliverableType>/<section>" — split into artifactKind
             const artifactKind = scopeRaw ? scopeRaw.split('/')[0].trim() || 'all' : 'all';
             existing.push({
@@ -405,7 +466,9 @@ export async function loadWikiConstraints(): Promise<number> {
 
         if (added > 0) {
             localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(existing));
-            console.log(`[PromptImprovement] Loaded ${added} constraints from wiki (cross-session compounding)`);
+            console.log(`[PromptImprovement] Loaded ${added} constraints from wiki (cross-session compounding)${rejected ? `; gate rejected ${rejected}` : ''}`);
+        } else if (rejected > 0) {
+            console.log(`[PromptImprovement] Wiki constraints all filtered by quality gate (${rejected} rejected)`);
         }
         return added;
     } catch (e) {
@@ -503,6 +566,12 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
     // immediately. These are explicit user commands -- accumulating them
     // across repetitions would discard the high-value signal.
     if (signal.type === 'rule' && signal.confidence >= 0.75 && signal.extractedRule) {
+        // QUALITY GATE (Phase 1): a high-confidence chat rule still must not
+        // contradict the master rules or be a generic stub.
+        const verdict = evaluateConstraint(signal.extractedRule);
+        if (!verdict.accept) {
+            console.log(`[PromptImprovement] Rejected chat rule (${verdict.reason}): ${signal.extractedRule}`);
+        } else {
         const improvements = getImprovements();
         const existingTexts = new Set(improvements.map(i => i.constraint));
         if (!existingTexts.has(signal.extractedRule)) {
@@ -522,6 +591,7 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
             // compounding works without waiting for an end-of-run trigger.
             // (Many chat-first sessions never reach the old end-of-run handler.)
             void exportConstraintsToWiki().catch(() => { /* non-blocking */ });
+        }
         }
     }
 
@@ -551,7 +621,19 @@ export async function exportConstraintsToWiki(): Promise<boolean> {
     const improvements = getImprovements();
     if (improvements.length === 0) return false;
 
-    const lines = improvements.map(i => `- CONSTRAINT: ${i.constraint}`).join('\n');
+    // QUALITY GATE (Phase 1): never write back master-rule violations, generic
+    // stubs, or near-duplicates. This keeps the persisted wiki file clean so it
+    // does not have to be hand-purged again, and so the Python agent-session
+    // injector and the SPA see the same compliant set.
+    const dismissed = getDismissedConstraintKeys();
+    const kept = gateConstraints(
+        improvements
+            .filter(i => !dismissed.has(normalizeConstraintKey(i.constraint)))
+            .map(i => i.constraint)
+    ).kept;
+    if (kept.length === 0) return false;
+
+    const lines = kept.map(c => `- CONSTRAINT: ${c}`).join('\n');
     const content = `---\ntitle: Learned Constraints\ntype: synthesis\nupdated: ${new Date().toISOString().split('T')[0]}\n---\n\n# Learned Constraints\n\nAuto-generated from user edit patterns across research sessions.\n\n${lines}\n`;
 
     try {

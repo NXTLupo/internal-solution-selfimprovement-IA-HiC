@@ -292,6 +292,29 @@ export function stripEmDashes(text: string): string {
     return cleaned;
 }
 
+// 2026-05-27 — HARD emoji ban (repo-wide rule). Strip emoji / pictographic
+// codepoints from ANY model-produced text before it reaches the user. Mirrors
+// the proxy's _EMOJI_RE so every surface (chat replies, deliverables, router
+// output) is covered regardless of which provider answered. Deliberately
+// PRESERVES geometric-shape bullets (U+25xx, e.g. the NU signal dot) and
+// typographic arrows (U+21xx) which are legitimate layout glyphs. Also strips
+// trailing whitespace the removal can leave (e.g. "Pong! 👋" → "Pong!").
+const EMOJI_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
+
+export function stripEmoji(text: string): string {
+    if (!text) return text;
+    let cleaned = text.replace(EMOJI_RE, '');
+    // Collapse the orphaned double-spaces / dangling space-before-punctuation
+    // that emoji removal leaves behind, without touching newlines.
+    cleaned = cleaned.replace(/[ \t]{2,}/g, ' ').replace(/ +([.,;:!?])/g, '$1');
+    return cleaned;
+}
+
+/** Combined hygiene: strip em-dashes AND emoji. Use at every text chokepoint. */
+export function stripFormatTells(text: string): string {
+    return stripEmoji(stripEmDashes(text));
+}
+
 // 2026-05-10 — PROCESS-REFERENCE REWRITES
 // ============================================================
 // Unlike META_NARRATION which drops the whole sentence, these patterns

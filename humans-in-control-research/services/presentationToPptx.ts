@@ -37,18 +37,23 @@ const NXT = {
     TEAL: '115054',
 };
 
+// 2026-05-29 — Corrected to the canonical NU design-system tokens (see
+// components/slideTemplates/brands.ts nuBrand + the official colors_and_type.css).
+// The prior values were WRONG: cream paper + violet secondary + pure-black ink
+// do not exist in the NU system. NU = ink navy primary, Huskies red ACCENT
+// (sparingly), slate neutrals, white surface. No cream, no violet.
 const NU = {
-    INK: '0D0D0D',
-    PAPER: 'FAF8F4',           // cream
-    PALE: 'F2EFE7',
-    BODY: '2A2A2A',
-    BODY_SOFT: '4A4A4A',
-    MUTED: '888888',
-    RULE: 'D8D2C4',
-    ACCENT: 'C8102E',          // NU red — primary brand accent
-    SECONDARY: '6E54E0',       // violet
-    NEGATIVE: 'CC6644',
-    TEAL: '115054',
+    INK: '141D30',             // ink-800 navy — NU primary dark (NOT black)
+    PAPER: 'FFFFFF',           // white surface (cards white on slate)
+    PALE: 'F8FAFC',            // slate-50 — page background tint
+    BODY: '475569',            // slate-600 — paragraph body
+    BODY_SOFT: '64748B',       // slate-500 — secondary text
+    MUTED: '94A3B8',           // slate-400 — muted/disabled
+    RULE: 'CBD5E1',            // slate-300 — default stroke
+    ACCENT: 'C8102E',          // nu-red-600 — primary brand accent (sparing)
+    SECONDARY: '64748B',       // slate-500 (NU has no violet secondary)
+    NEGATIVE: 'D8132D',        // nu error-solid
+    TEAL: '141D30',            // dark-surface slot = ink navy
 };
 
 function palette(brand: BrandVariant) {

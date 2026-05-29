@@ -16,6 +16,7 @@ export type ModelId =
     | 'gemini-3.1-pro-preview'
     | 'gemini-3.1-pro'
     | 'gemini-2.5-flash'
+    | 'claude-opus-4-8'
     | 'claude-opus-4-7'
     | 'claude-opus-4-6'
     | 'claude-sonnet-4-6'
@@ -34,6 +35,7 @@ const PRICING: Record<ModelId, { in: number; out: number }> = {
     'gemini-3.1-pro-preview': { in: 3.50, out: 10.50 },
     'gemini-3.1-pro':         { in: 3.50, out: 10.50 },
     'gemini-2.5-flash':       { in: 0.30, out: 1.20 },
+    'claude-opus-4-8':        { in: 5.00, out: 25.0 },
     'claude-opus-4-7':        { in: 15.0, out: 75.0 },
     'claude-opus-4-6':        { in: 15.0, out: 75.0 },
     'claude-sonnet-4-6':      { in: 3.00, out: 15.0 },
@@ -116,8 +118,9 @@ export function subscribeRunTotals(fn: Subscriber): () => void {
 export function normalizeModel(raw: string | undefined): ModelId {
     if (!raw) return 'unknown';
     const s = String(raw).toLowerCase().trim();
+    if (s.includes('opus-4-8') || s === 'claude-opus') return 'claude-opus-4-8';
     if (s.includes('opus-4-7')) return 'claude-opus-4-7';
-    if (s.includes('opus-4-6') || s === 'claude-opus') return 'claude-opus-4-6';
+    if (s.includes('opus-4-6')) return 'claude-opus-4-6';
     if (s.includes('sonnet-4-6') || s === 'claude-sonnet') return 'claude-sonnet-4-6';
     if (s.includes('haiku-4-5') || s.includes('haiku')) return 'claude-haiku-4-5';
     if (s.includes('gpt-5.5') || s === 'gpt5.5') return 'gpt-5.5';
@@ -225,6 +228,7 @@ export function formatUSD(usd: number): string {
 /** User-facing display names for each model id. Surfaces wherever costs are shown
  *  so the user knows WHICH model their money went to, not just how much. */
 export const MODEL_DISPLAY_NAMES: Record<ModelId, string> = {
+    'claude-opus-4-8':         'Claude Opus 4.8',
     'claude-opus-4-7':         'Claude Opus 4.7',
     'claude-opus-4-6':         'Claude Opus 4.6',
     'claude-sonnet-4-6':       'Claude Sonnet 4.6',

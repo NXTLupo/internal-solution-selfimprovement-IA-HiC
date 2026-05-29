@@ -118,7 +118,7 @@ export async function buildResearchPlan(input: ResearchPlannerInput): Promise<Re
             const endpoint = provider === 'anthropic' ? '/api/ai/anthropic' : '/api/ai/gemini';
             const body = provider === 'anthropic'
                 ? {
-                    model: 'claude-opus-4-7',
+                    model: 'claude-opus-4-8',
                     max_tokens: 8000,
                     temperature: 0.1,  // planning is exploration; not strictly identity-class
                     thinking: { type: 'enabled', budget_tokens: 4000 },  // extended thinking for plan quality

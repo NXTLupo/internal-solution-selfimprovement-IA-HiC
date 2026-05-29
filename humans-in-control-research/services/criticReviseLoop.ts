@@ -31,7 +31,7 @@ export type CriticVerdict = {
 export type CriticConfig = {
     skill_name: string;
     max_iterations: number;
-    invocation_model: 'sonnet-4.6' | 'opus-4.7' | 'haiku-4.5';
+    invocation_model: 'sonnet-4.6' | 'opus-4.8' | 'haiku-4.5';
 };
 
 export type RevisorModel = 'sonnet-4.6' | 'haiku-4.5';
@@ -288,20 +288,22 @@ Apply the {{SKILL_NAME}} discipline. If the deliverable already satisfies it, re
 
 const PROVIDER_FOR_MODEL: Record<string, Provider> = {
     'sonnet-4.6': 'anthropic',
-    'opus-4.7': 'anthropic',
+    'opus-4.8': 'anthropic',
     'haiku-4.5': 'anthropic',
 };
 
 const MODEL_ID: Record<string, string> = {
     'sonnet-4.6': 'claude-sonnet-4-6',
-    'opus-4.7': 'claude-opus-4-7',
+    'opus-4.8': 'claude-opus-4-8',
     'haiku-4.5': 'claude-haiku-4-5-20251001',
 };
 
-// Rough cost-per-call estimates (USD); will be refined when we have real telemetry
+// Rough cost-per-call estimates (USD); will be refined when we have real telemetry.
+// Opus 4.8 standard pricing is $5/$25 per 1M tokens (3x cheaper than 4.7's $15/$75),
+// so the per-call estimate drops to ~$0.025.
 const ESTIMATED_CALL_COST: Record<string, number> = {
     'sonnet-4.6': 0.015,
-    'opus-4.7': 0.075,
+    'opus-4.8': 0.025,
     'haiku-4.5': 0.003,
 };
 
@@ -507,7 +509,7 @@ export const PERSONAS_LOOP: Omit<CriticReviseLoopOpts<any>, 'deliverable'> = {
 
 export const STRATEGY_LOOP: Omit<CriticReviseLoopOpts<any>, 'deliverable'> = {
     critics: [
-        { skill_name: 'second-order-thinker', max_iterations: 2, invocation_model: 'opus-4.7' },
+        { skill_name: 'second-order-thinker', max_iterations: 2, invocation_model: 'opus-4.8' },
         { skill_name: 'pre-mortem', max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
     revisor_model: 'sonnet-4.6',

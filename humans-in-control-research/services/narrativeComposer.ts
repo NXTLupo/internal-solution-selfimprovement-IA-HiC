@@ -22,6 +22,7 @@ import type { ComposerModelChoice } from './hashtagParser';
 import {
   NARRATIVE_TOOLS,
   createCitationTracker,
+  sanitizeSchemaForGemini,
   type ToolExecutor,
   type CitationTracker,
 } from './narrativeComposerTools';
@@ -121,7 +122,27 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
   // The wire format is identical for both, so the same loop logic drives
   // both providers. To restore Anthropic, re-add the runAnthropicLoop branch.
   const loopArgs: LoopArgs = { systemPrompt, narrativeRequest, executor: trackedExecutor, onTool, isPackageMode, model };
-  const rawPayload = await runOpenAILoop(loopArgs);
+
+  // 2026-05-27 — Cross-provider Claude fallback (Issue 10 fix). When the
+  // current provider (Gemini-compat / OpenAI / DeepSeek) exhausts after its
+  // in-chain retries, hand the same systemPrompt + narrativeRequest to Claude
+  // Sonnet 4.6 in ONE single-shot call. Claude has no tools on this path —
+  // it composes the PresentationPayload from training + the conversation
+  // context + the systemPrompt's brand/schema/voice rules. Graceful
+  // degradation: a deck (less evidence-grounded) instead of an error.
+  let rawPayload: unknown;
+  try {
+    rawPayload = await runOpenAILoop(loopArgs);
+  } catch (loopErr) {
+    if (_isComposerExhaustionError(loopErr)) {
+      const msg = String((loopErr as any)?.message || loopErr).slice(0, 200);
+      onProgress?.(`${model} exhausted - falling over to Claude Sonnet 4.6 (single-shot, no corpus search)...`);
+      console.warn(`[composer.failover] ${model} exhausted; falling over to Claude Sonnet 4.6: ${msg}`);
+      rawPayload = await composeViaClaudeSingleShot(loopArgs);
+    } else {
+      throw loopErr;
+    }
+  }
 
   onProgress?.('Validating schema and finalizing...');
   const validated = validateAndFinalize(rawPayload, request, tracker, toolCallCount);
@@ -131,6 +152,92 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
     toolCallCount,
     durationMs: Date.now() - startedAt,
   };
+}
+
+// ============================================================================
+// 2026-05-27 — CROSS-PROVIDER CLAUDE FALLBACK (Issue 10 fix)
+// ============================================================================
+// Detection + single-shot Claude composition for when the primary provider
+// exhausts. Mirrors the pattern in corpusChatService._finalizeChatViaClaude
+// for the deliverable path. Claude is the ONLY funded escape on this
+// platform (ANTHROPIC_API_KEY is the platform's primary required key);
+// GPT is currently dry (insufficient_quota). The composer's normal tool
+// loop is not ported to Claude here — this is graceful degradation that
+// produces a coherent deck instead of an outright error.
+
+function _isComposerExhaustionError(e: unknown): boolean {
+  const msg = String((e as any)?.message || e || '');
+  return /insufficient[_ ]?quota|HTTP 429|rate.?limit|resource exhausted|quota exhausted|content[_ ]?filter|ResponsibleAI|block action|HTTP 50[234]|gateway error|temporarily overloaded|after \d+ attempts|all models exhausted/i.test(msg);
+}
+
+async function composeViaClaudeSingleShot(args: LoopArgs): Promise<unknown> {
+  const { callAIWithRetry } = await import('./aiRetryClient');
+
+  // Append an output-format directive to the system prompt. We do NOT modify
+  // the brand / voice / schema rules already baked in — we just tell Claude
+  // it's on the fallback path and how to emit the payload without tools.
+  const fallbackSystem = `${args.systemPrompt}
+
+================================================================
+ANTHROPIC FALLBACK PATH (2026-05-27)
+================================================================
+You are operating as the cross-provider fallback. Corpus-search tools are
+NOT available here. Compose the PresentationPayload using:
+1. The narrative request and any prior conversation context.
+2. Your own knowledge — but ONLY where it is defensible. Where you would
+   normally cite the corpus, prefer naming the institution or framework
+   directly without inventing a chunk id.
+3. All brand, schema, voice, and banned-phrase rules from the system
+   prompt above — they remain in force.
+
+OUTPUT FORMAT:
+Return EXACTLY one JSON object inside a single \`\`\`json code fence. No
+prose before or after the fence. The JSON must validate against the
+PresentationPayload schema (\`meta\` + \`sections\` with 6 to 16 items;
+each section is \`{ kind, data }\`; \`kind\` is one of the documented
+section kinds; \`data\` follows the per-kind shape described above).`;
+
+  const messages = [
+    { role: 'user' as const, content: args.narrativeRequest },
+  ];
+
+  const data: any = await callAIWithRetry('anthropic', {
+    model: 'claude-sonnet-4-6',
+    max_tokens: 16000,
+    system: fallbackSystem,
+    messages,
+    temperature: 0.3,
+  }, {
+    label: 'Composer (Claude fallback)',
+    maxAttempts: 2,
+    requestTimeoutMs: 300_000,
+  });
+
+  const blocks = Array.isArray(data?.content) ? data.content : [];
+  const text = blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
+  if (!text) {
+    throw new Error(`Claude composer fallback returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
+  }
+
+  // Strip code fence if present; otherwise extract the outermost {...}.
+  let body = text;
+  const fence = body.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fence) {
+    body = fence[1].trim();
+  } else {
+    const fb = body.indexOf('{');
+    const lb = body.lastIndexOf('}');
+    if (fb >= 0 && lb > fb) body = body.slice(fb, lb + 1);
+  }
+  const repaired = tryRepairJson(body);
+  try {
+    return JSON.parse(repaired);
+  } catch (parseErr: any) {
+    throw new Error(
+      `Claude composer fallback produced unparseable JSON: ${parseErr?.message || parseErr}. ` +
+      `Head: ${repaired.slice(0, 200)}`
+    );
+  }
 }
 
 // ============================================================================
@@ -592,12 +699,16 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     { role: 'user', content: args.narrativeRequest },
   ];
 
+  // 2026-05-27 — For Gemini models, strip JSON-Schema keywords Gemini's
+  // function-declaration parser rejects (proven root cause of the submit_
+  // presentation 400 INVALID_ARGUMENT). DeepSeek/GPT get the full schema.
+  const isGeminiComposer = (args.model || 'gemini-3.5-flash').startsWith('gemini-');
   const tools = NARRATIVE_TOOLS.map(t => ({
     type: 'function' as const,
     function: {
       name: t.name,
       description: t.description,
-      parameters: t.input_schema,
+      parameters: isGeminiComposer ? sanitizeSchemaForGemini(t.input_schema) : t.input_schema,
     },
   }));
 
@@ -622,18 +733,31 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     let toolChoice: unknown;
     let availableTools = tools;
 
+    // 2026-05-27 — Gemini's OpenAI-compat layer 400s (INVALID_ARGUMENT) on
+    // tool_choice:"required" once the conversation has multi-turn tool history
+    // (proven by the composer e2e test: round 0 forced-function worked, the
+    // next "required" round failed). It handles "auto" reliably. The
+    // retrieval-floor guard + the forced-function rounds (0 and submit) still
+    // drive tool usage, so "auto" on the middle rounds is safe. DeepSeek/GPT
+    // keep "required" (works there).
+    const isGeminiLoop = (args.model || 'gemini-3.5-flash').startsWith('gemini-');
+    const anyToolChoice = isGeminiLoop ? 'auto' : 'required';
+
     if (!args.isPackageMode && iter === 0) {
       toolChoice = { type: 'function', function: { name: 'search_corpus' } };
     } else if (iter >= forceAt) {
       toolChoice = { type: 'function', function: { name: 'submit_presentation' } };
     } else if (!args.isPackageMode && retrievalCount < MIN_RETRIEVALS_RESEARCH) {
-      toolChoice = 'required';
+      toolChoice = anyToolChoice;
       availableTools = tools.filter(t => t.function.name !== 'submit_presentation');
     } else {
-      toolChoice = 'required';
+      toolChoice = anyToolChoice;
     }
 
-    const loopModel = args.model || 'gpt-5.5';
+    // 2026-05-27 — Default loop model is funded Gemini 3.5 Flash (was gpt-5.5,
+    // now out of quota). The section schema was flattened so Gemini-compat
+    // accepts it. callers pass args.model from parseModel (defaults to gemini).
+    const loopModel = args.model || 'gemini-3.5-flash';
     // 2026-05-04 — GPT-5 family deprecated `max_tokens` and requires
     // `max_completion_tokens`. Gemini's OpenAI-compat endpoint still
     // accepts `max_tokens` natively. Branch by model prefix.
@@ -649,7 +773,18 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     const choice = response.choices[0];
     if (!choice) throw new Error('OpenAI returned no choices');
 
-    messages.push(choice.message);
+    // 2026-05-27 — Re-append the assistant message, preserving Gemini's
+    // provider fields (extra_content.google.thought_signature is REQUIRED on
+    // re-send, proven by the composer e2e test) but coercing a NULL content to
+    // an empty string. Gemini's OpenAI-compat layer rejects an assistant
+    // message with `content: null` + tool_calls in multi-turn history with a
+    // generic 400 INVALID_ARGUMENT (round 0 forced-function worked; the next
+    // `tool_choice:"required"` round failed once null-content history existed).
+    const assistantMsg: any = choice.message;
+    if (assistantMsg && assistantMsg.content == null && Array.isArray(assistantMsg.tool_calls) && assistantMsg.tool_calls.length) {
+      assistantMsg.content = '';
+    }
+    messages.push(assistantMsg);
 
     if (choice.finish_reason === 'tool_calls' && choice.message.tool_calls?.length) {
       // Silent-mode short-circuit: if model called submit_presentation, parse
@@ -757,11 +892,13 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
   const modelStr = String(body.model || '').toLowerCase();
 
   // Sticky fallback: route subsequent deepseek-* calls in this session to
-  // GPT-5.5 once the Microsoft content filter has tripped, rather than
-  // wasting another withRetry budget (3x backoff) on the same prompt.
+  // funded Gemini once Azure's Microsoft content filter has tripped, rather
+  // than wasting another withRetry budget on the same blocked prompt.
+  // 2026-05-27 — target changed gpt-5.5 → gemini-3.5-flash (GPT is out of
+  // quota; Gemini is funded, healthy, and not Azure-content-filtered).
   if (modelStr.startsWith('deepseek-') && _composerDeepSeekContentFilterTripped) {
-    body.model = 'gpt-5.5';
-    return callOpenAI(body); // recurse — dispatches to OpenAI branch below
+    body.model = 'gemini-3.5-flash';
+    return callOpenAI(body); // recurse — dispatches to Gemini-compat branch below
   }
 
   let url: string;
@@ -791,13 +928,40 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
       }, COMPOSER_REQUEST_TIMEOUT_MS);
       if (!res.ok) {
         const errText = await res.text().catch(() => '');
+        // 2026-05-27 — DIAGNOSTIC: on a 400, dump a STRUCTURAL summary of the
+        // request so we can pinpoint which argument Gemini-compat rejects
+        // (Google returns a generic "invalid argument" with no field).
+        if (res.status === 400 && (process.env as any).COMPOSER_DEBUG) {
+          try {
+            const msgs: any[] = (body as any).messages || [];
+            const summary = msgs.map((m, i) => ({
+              i, role: m.role,
+              contentType: m.content == null ? 'NULL' : typeof m.content,
+              contentLen: typeof m.content === 'string' ? m.content.length : (m.content == null ? 0 : -1),
+              hasToolCalls: Array.isArray(m.tool_calls) ? m.tool_calls.length : 0,
+              toolCallExtraKeys: Array.isArray(m.tool_calls) ? m.tool_calls.map((tc: any) => Object.keys(tc)).flat() : [],
+              tool_call_id: m.tool_call_id || undefined,
+              extraTopKeys: Object.keys(m).filter(k => !['role', 'content', 'tool_calls', 'tool_call_id', 'name'].includes(k)),
+            }));
+            console.error('[composer.diag] 400 request structure:', JSON.stringify({
+              model: (body as any).model,
+              tool_choice: (body as any).tool_choice,
+              toolCount: ((body as any).tools || []).length,
+              messages: summary,
+            }, null, 2));
+          } catch (diagErr) { console.error('[composer.diag] dump failed', diagErr); }
+        }
         const err: RetriableHttpError = new Error(`${providerLabel} API ${res.status}: ${errText.slice(0, 300)}`);
         err.status = res.status;
-        // 422 with content_filter is non-retryable — the same prompt will
-        // trigger the same filter on every retry. Mark it so withRetry
-        // surfaces immediately and the outer try/catch can fall back.
-        if (res.status === 422 && /content_filter/i.test(errText)) {
+        // content_filter is non-retryable — the same prompt will trigger the
+        // same filter on every retry. Mark it so withRetry surfaces immediately
+        // and the outer try/catch can fall back. 2026-05-27 — Azure returns
+        // this as BOTH 400 and 422 depending on path; match either.
+        if ((res.status === 422 || res.status === 400) && /content_filter|ResponsibleAI|block action/i.test(errText)) {
           err.isTransient = false;
+          // Trip the sticky flag so the next deepseek-* dispatch this session
+          // auto-routes to Gemini instead of re-hitting the filtered provider.
+          if (modelStr.startsWith('deepseek-')) _composerDeepSeekContentFilterTripped = true;
         }
         throw err;
       }
@@ -1074,6 +1238,25 @@ function validateAndFinalize(
     team: ['members'],
     competitive: ['layers'],
   };
+  // 2026-05-27 — Salvage the hero (title slide) before validation. The model
+  // sometimes emits {kind:'hero', data:{...no title...}} while still providing
+  // p.meta.title; dropping the hero loses the deck's title slide entirely.
+  // Backfill the hero title from meta.title (or the narrative request) so the
+  // title slide survives instead of being dropped for an empty `title` field.
+  try {
+    const heroSec = (p.sections as Array<{ kind: string; data: any }>).find(s => s?.kind === 'hero');
+    if (heroSec && heroSec.data && typeof heroSec.data === 'object') {
+      const t = heroSec.data.title;
+      if (typeof t !== 'string' || t.trim().length === 0) {
+        const fallback = (p.meta?.title && String(p.meta.title).trim())
+          || (request.narrativeRequest && String(request.narrativeRequest).trim())
+          || (request.engagementContext?.engagementGoal && String(request.engagementContext.engagementGoal).trim())
+          || '';
+        if (fallback) heroSec.data.title = fallback;
+      }
+    }
+  } catch { /* non-blocking salvage */ }
+
   const validatedSections = (p.sections as Array<{ kind: string; data: unknown }>).filter((s, i) => {
     const kind = s?.kind;
     const data = s?.data;

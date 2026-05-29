@@ -392,6 +392,25 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'gemini-3.5-flash', provider: 'google', displayName: 'Gemini 3.5 Flash',
         vision: true, maxContext: 1_000_000, maxOutput: 65_536, costTier: 'budget'
     },
+    // 2026-05-27 — Claude re-registered as the FUNDED cross-provider escape for
+    // the deliverableModelRouter. ANTHROPIC_API_KEY is the platform's primary
+    // required key (the journey-mapper now runs claude-opus-4-8 on it), so this is
+    // the real "survive even if Gemini is fully down" fallback now that the
+    // OpenAI account is insufficient_quota. Sonnet 4.6 balances quality + speed
+    // for an escape path. NOTE: Sonnet 4.6 does NOT support assistant prefill;
+    // do not use a prefilled-continuation pattern with it.
+    'claude-sonnet-4-6': {
+        id: 'claude-sonnet-4-6', provider: 'anthropic', displayName: 'Claude Sonnet 4.6',
+        vision: true, maxContext: 200_000, maxOutput: 64_000, costTier: 'premium'
+    },
+    // 2026-05-29 — Opus 4.8 (released 2026-05-28) registered as the deep-reasoning
+    // upgrade over 4.7. Standard $5/$25 per 1M tokens, adaptive thinking by default,
+    // 1M context window on the Anthropic API. Used by the journey-mapper service and
+    // by anything that wants Opus-class reasoning at the new cheaper standard price.
+    'claude-opus-4-8': {
+        id: 'claude-opus-4-8', provider: 'anthropic', displayName: 'Claude Opus 4.8',
+        vision: true, maxContext: 1_000_000, maxOutput: 64_000, costTier: 'premium'
+    },
 };
 
 // --- TASK CATEGORIES ---
@@ -449,6 +468,10 @@ export function getAvailableProviders(): Set<string> {
     const providers = new Set<string>();
     if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) providers.add('google');
     if ((process.env as any).OPENAI_API_KEY) providers.add('openai');
+    // 2026-05-27 — Anthropic is the funded cross-provider escape. vite.config
+    // exposes ANTHROPIC_API_KEY to the client (line 89), and the proxy attaches
+    // it server-side at /api/ai/anthropic.
+    if ((process.env as any).ANTHROPIC_API_KEY) providers.add('anthropic');
     return providers;
 }
 

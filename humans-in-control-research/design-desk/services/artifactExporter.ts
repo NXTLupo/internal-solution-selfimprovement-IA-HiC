@@ -36,6 +36,20 @@ import {
     type PathPoint,
 } from './domToPptx';
 
+// 1:1 EXPORT FONT FIX (2026-05-29): fetch the brand fonts as same-origin
+// base64 @font-face CSS from the proxy and feed them to html-to-image via
+// . This replaces  (which rasterized fallback
+// fonts, breaking preview-vs-export parity). Cached after first fetch.
+let _brandFontCss: string | null = null;
+async function _getBrandFontEmbedCSS(): Promise<string> {
+    if (_brandFontCss !== null) return _brandFontCss;
+    try {
+        const r = await fetch('http://127.0.0.1:5012/api/fonts/embed-css');
+        _brandFontCss = r.ok ? await r.text() : '';
+    } catch { _brandFontCss = ''; }
+    return _brandFontCss;
+}
+
 // ============================================================
 // FREEFORM EXPORT PATH
 // Freeform artifacts are FULL 1920x1080 HTML documents (their own slide chrome
@@ -79,7 +93,8 @@ async function captureFreeformAtNative(artifactId: string): Promise<string> {
         pixelRatio: 2,
         backgroundColor: '#FFFFFF',
         cacheBust: true,
-        skipFonts: true,
+        skipFonts: false,
+        fontEmbedCSS: await _getBrandFontEmbedCSS(),
         filter: (node: Node) => {
             if (node instanceof HTMLLinkElement && node.rel === 'stylesheet') return false;
             return true;
@@ -153,7 +168,8 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
                     pixelRatio: 2,
                     backgroundColor: undefined,
                     cacheBust: true,
-                    skipFonts: true,
+                    skipFonts: false,
+                    fontEmbedCSS: await _getBrandFontEmbedCSS(),
                 });
             } catch (err) {
                 console.warn('[exportFreeformPptx] rasterizeElement failed', err);
@@ -609,7 +625,8 @@ async function captureArtifactBodyAtNative(
             canvasHeight: height,
             pixelRatio: 1,
             cacheBust: true,
-            skipFonts: true,
+            skipFonts: false,
+            fontEmbedCSS: await _getBrandFontEmbedCSS(),
             filter: (node: Node) => {
                 // Belt-and-suspenders: drop any <link>/<style> the lib still tries to embed
                 if (node instanceof HTMLLinkElement && node.rel === 'stylesheet') return false;
@@ -761,7 +778,8 @@ async function exportSlideSpecPng(artifact: any): Promise<void> {
         pixelRatio: 2,
         backgroundColor: '#FFFFFF',
         cacheBust: true,
-        skipFonts: true,
+        skipFonts: false,
+        fontEmbedCSS: await _getBrandFontEmbedCSS(),
         style: { transform: 'none' },
     });
     const a = document.createElement('a');
@@ -781,7 +799,8 @@ async function exportSlideSpecPdf(artifact: any): Promise<void> {
         pixelRatio: 2,
         backgroundColor: '#FFFFFF',
         cacheBust: true,
-        skipFonts: true,
+        skipFonts: false,
+        fontEmbedCSS: await _getBrandFontEmbedCSS(),
         style: { transform: 'none' },
     });
     const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [13.333, 7.5] });

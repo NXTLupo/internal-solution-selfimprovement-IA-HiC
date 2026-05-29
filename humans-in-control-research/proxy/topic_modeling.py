@@ -174,6 +174,56 @@ def _record_provider_success(provider: str) -> None:
     h["total_calls"] += 1
 
 
+_GEMINI_LABEL_MODEL = "gemini-2.5-flash"
+
+
+async def _label_clusters_via_gemini(prompt: str) -> list | None:
+    """Cross-provider fallback for cluster labeling when Anthropic fails
+    (e.g. 429/quota/overload). Returns the parsed JSON array of
+    {name, summary, sentiment} or None. Recovering here instead of degrading is
+    what prevents an Anthropic outage from poisoning every topic with
+    keyword-salad names + uniform 'neutral' sentiment (bug fixed 2026-05-29)."""
+    if not _GEMINI_API_KEY or not _provider_is_healthy("gemini"):
+        return None
+    url = (f"https://generativelanguage.googleapis.com/v1beta/models/"
+           f"{_GEMINI_LABEL_MODEL}:generateContent?key={_GEMINI_API_KEY}")
+    try:
+        async with httpx.AsyncClient(timeout=90.0) as client:
+            resp = await client.post(url, json={
+                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "temperature": 0,  # determinism per feedback_determinism_first_for_cached_runs
+                    "maxOutputTokens": 4000,
+                    "responseMimeType": "application/json",
+                },
+            })
+        if resp.status_code != 200:
+            if resp.status_code == 429:
+                _record_provider_429("gemini")
+            log.warning(f"[topic_model] Gemini label fallback failed {resp.status_code}: {resp.text[:200]}")
+            return None
+        data = resp.json()
+        parts = (((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+        text = "".join(p.get("text", "") for p in parts).strip()
+        if text.startswith("```"):
+            text = text.split("```", 2)[1]
+            if text.startswith("json"):
+                text = text[4:]
+            text = text.strip()
+        try:
+            parsed = json.loads(text)
+        except Exception:
+            s, e = text.find("["), text.rfind("]")
+            parsed = json.loads(text[s:e + 1]) if (s >= 0 and e > s) else None
+        if isinstance(parsed, list):
+            _record_provider_success("gemini")
+            return parsed
+        return None
+    except Exception as ex:
+        log.warning(f"[topic_model] Gemini label fallback exception: {ex}")
+        return None
+
+
 async def _embed_via_openai(texts: list[str], batch_size: int = 32) -> list[list[float]]:
     out: list[list[float]] = []
     async with httpx.AsyncClient(timeout=60.0) as client:
@@ -523,56 +573,68 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
                 "Content-Type": "application/json",
             },
             json={
-                "model": "claude-opus-4-6",
+                "model": "claude-opus-4-8",
                 "max_tokens": 4000,
                 "temperature": 0,  # 2026-05-24 — was unspecified (default 1.0); identity-class call must be deterministic per feedback_determinism_first_for_cached_runs
                 "messages": [{"role": "user", "content": prompt}],
             },
         )
+        parsed = None
         if resp.status_code != 200:
             log.warning(f"Anthropic label call failed {resp.status_code}: {resp.text[:300]}")
             # Track 429 for provider-health gating on future runs
             if resp.status_code == 429:
                 _record_provider_429("anthropic")
-            # Fall back to top-terms heuristic naming for uncached clusters.
-            # Cached clusters keep their cached names.
-            fallback_results: list[dict] = []
-            for i, c in enumerate(cluster_payloads):
-                if cached_results[i] is not None:
-                    fallback_results.append(cached_results[i])  # type: ignore
-                else:
-                    top_terms = [t for t, _ in c.get("top_terms", [])][:3]
-                    fallback_name = " ".join(top_terms).title()[:60] or f"Cluster {i}"
-                    record = {"name": fallback_name, "summary": "", "sentiment": "neutral"}
-                    _save_cached_name(signatures[i], record)
-                    fallback_results.append(record)
-            return fallback_results
-        data = resp.json()
-        text = data.get("content", [{}])[0].get("text", "")
-        # Strip code fences if present
-        text = text.strip()
-        if text.startswith("```"):
-            text = text.split("```", 2)[1]
-            if text.startswith("json"):
-                text = text[4:]
+            # CROSS-PROVIDER FALLBACK (2026-05-29): try Gemini BEFORE degrading.
+            # Previously an Anthropic 429 (e.g. from a bulk job exhausting quota)
+            # fell every cluster back to keyword-salad names + "neutral" sentiment
+            # AND CACHED those degraded records — poisoning the topic list so all
+            # topics showed neutral forever. Now we recover on Gemini, and degraded
+            # records are NEVER cached.
+            parsed = await _label_clusters_via_gemini(prompt)
+            if parsed is None:
+                log.warning("[topic_model] both Anthropic and Gemini labeling failed; "
+                            "returning heuristic names WITHOUT caching (no cache poisoning)")
+                degraded: list[dict] = []
+                for i, c in enumerate(cluster_payloads):
+                    if cached_results[i] is not None:
+                        degraded.append(cached_results[i])  # type: ignore
+                    else:
+                        top_terms = [t for t, _ in c.get("top_terms", [])][:3]
+                        fallback_name = " ".join(top_terms).title()[:60] or f"Cluster {i}"
+                        # NOTE: intentionally NOT cached — see comment above.
+                        degraded.append({"name": fallback_name, "summary": "", "sentiment": "neutral"})
+                return degraded
+            log.info("[topic_model] recovered cluster labeling via Gemini fallback")
+        else:
+            data = resp.json()
+            text = data.get("content", [{}])[0].get("text", "")
+            # Strip code fences if present
             text = text.strip()
-        try:
-            parsed = json.loads(text)
-        except Exception:
-            # Best-effort: try to find the first JSON array in the response
-            start = text.find("[")
-            end = text.rfind("]")
-            if start >= 0 and end > start:
-                try:
-                    parsed = json.loads(text[start:end + 1])
-                except Exception:
+            if text.startswith("```"):
+                text = text.split("```", 2)[1]
+                if text.startswith("json"):
+                    text = text[4:]
+                text = text.strip()
+            try:
+                parsed = json.loads(text)
+            except Exception:
+                # Best-effort: try to find the first JSON array in the response
+                start = text.find("[")
+                end = text.rfind("]")
+                if start >= 0 and end > start:
+                    try:
+                        parsed = json.loads(text[start:end + 1])
+                    except Exception:
+                        parsed = []
+                else:
                     parsed = []
-            else:
-                parsed = []
-        _record_provider_success("anthropic")
-        # Normalize length to match cluster count.
-        # Cached clusters keep cached results; fresh clusters get parsed
-        # results and are written to cache for next session.
+            _record_provider_success("anthropic")
+        # Normalize length to match cluster count. Cached clusters keep cached
+        # results; fresh clusters get parsed (Anthropic OR Gemini) results. ONLY
+        # well-formed LLM results are cached — a missing/garbled entry yields a
+        # neutral placeholder that is deliberately NOT cached so it regenerates.
+        parsed = parsed or []
         out: list[dict] = []
         for i, c in enumerate(cluster_payloads):
             if cached_results[i] is not None:
@@ -585,13 +647,13 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
                     "summary": str(p.get("summary", "")).strip(),
                     "sentiment": str(p.get("sentiment", "neutral")).strip().lower(),
                 }
+                _save_cached_name(signatures[i], record)  # cache GOOD results only
             else:
                 record = {
                     "name": f"Cluster {i}",
                     "summary": "",
                     "sentiment": "neutral",
-                }
-            _save_cached_name(signatures[i], record)
+                }  # NOT cached — regenerates next run
             out.append(record)
         return out
 

@@ -180,7 +180,7 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
 
     // Strategy slide (Rumelt + Minto)
     'strategy-slide': [
-        { skill_name: 'strategy-author',           max_iterations: 1, invocation_model: 'opus-4.7' },
+        { skill_name: 'strategy-author',           max_iterations: 1, invocation_model: 'opus-4.8' },
         { skill_name: 'pre-mortem',                max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
 
@@ -494,15 +494,20 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /** Walk every string-valued field in an object/array tree and strip em-dashes
- * using the same rules as slidePostProcessor.stripEmDashes. Pure function;
- * returns a new structure with em-dashes replaced. */
+ * AND emoji (2026-05-27 — repo-wide hard emoji ban). Pure function; returns a
+ * new structure with banned glyphs removed. Layout glyphs (U+25xx bullets,
+ * U+21xx arrows) are preserved. */
+const _EMOJI_RE_INPLACE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
 export function stripEmDashesInPlace<T>(obj: T): T {
     if (obj === null || obj === undefined) return obj;
     if (typeof obj === 'string') {
         return (obj as string)
             .replace(/ — /g, ', ')
             .replace(/(\w)—(\w)/g, '$1-$2')
-            .replace(/—/g, ', ') as unknown as T;
+            .replace(/—/g, ', ')
+            .replace(_EMOJI_RE_INPLACE, '')
+            .replace(/[ \t]{2,}/g, ' ')
+            .replace(/ +([.,;:!?])/g, '$1') as unknown as T;
     }
     if (Array.isArray(obj)) {
         return obj.map(item => stripEmDashesInPlace(item)) as unknown as T;

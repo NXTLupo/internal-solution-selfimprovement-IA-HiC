@@ -305,6 +305,48 @@ function addDismissedConstraints(items: { constraint: string; reason: string; ru
     try { localStorage.setItem(DISMISSED_KEY, JSON.stringify(existing)); } catch {}
 }
 
+/**
+ * Append dismissed constraints to wiki/synthesis/dismissed-constraints.md so the
+ * dismissal is durable beyond a single browser's localStorage. Best-effort:
+ * the proxy may be down (local-only dev), in which case the localStorage ledger
+ * still protects the current browser. Reads-then-writes the whole file to keep
+ * it deduped by constraint text.
+ */
+async function persistDismissedToWiki(
+    items: { constraint: string; runningScore: number; sampleCount: number }[],
+): Promise<void> {
+    if (items.length === 0) return;
+    try {
+        let existingBody = '';
+        try {
+            const r = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/dismissed-constraints.md`);
+            if (r.ok) existingBody = (await r.json())?.content || '';
+        } catch { /* file may not exist yet */ }
+
+        const seen = new Set<string>();
+        const lineRe = /^- DISMISSED:\s*(.+?)\s*\|\|/gm;
+        let m: RegExpExecArray | null;
+        while ((m = lineRe.exec(existingBody)) !== null) seen.add(m[1].trim());
+
+        const today = new Date().toISOString().split('T')[0];
+        const newLines = items
+            .filter(i => !seen.has(i.constraint.trim()))
+            .map(i => `- DISMISSED: ${i.constraint.trim()} || score ${i.runningScore.toFixed(2)} after ${i.sampleCount} samples (${today})`);
+        if (newLines.length === 0) return;
+
+        const header = existingBody.trim()
+            ? ''
+            : `---\ntitle: Dismissed Constraints\ntype: synthesis\nupdated: ${today}\n---\n\n# Dismissed Constraints\n\nConstraints auto-retired by improvementDiscriminator for consistently-negative quality impact. Do not re-import these into the active constraint set.\n\n`;
+        const content = header + (existingBody.trim() ? existingBody.trimEnd() + '\n' : '') + newLines.join('\n') + '\n';
+
+        await fetch(`${PROXY_BASE}/api/wiki/write`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: 'synthesis/dismissed-constraints.md', content }),
+        });
+    } catch { /* non-blocking */ }
+}
+
 interface ConstraintHistoryEntry { totalDelta: number; sampleCount: number; }
 
 function getConstraintHistory(): Record<string, ConstraintHistoryEntry> {
@@ -359,6 +401,13 @@ function autoDismissBadConstraints(attributions: ConstraintAttribution[]): strin
         runningScore: a.runningScore,
         sampleCount: a.sampleCount,
     })));
+
+    // DURABLE DISMISSAL (Phase 1, 2026-05-29): also record dismissals to the
+    // wiki so they survive a localStorage clear and are visible cross-session.
+    // The localStorage ledger (above) is what promptImprovementEngine consults
+    // at boot to stop loadWikiConstraints from resurrecting a dismissed rule;
+    // this wiki record is the durable, human-auditable copy. Fire-and-forget.
+    void persistDismissedToWiki(toDismiss);
 
     try {
         const raw = localStorage.getItem('hic_prompt_improvements');

@@ -37,6 +37,8 @@ import ChatWorkbench from './components/ChatWorkbench';
 import { DesignDesk } from './design-desk';
 import { saveDesignContext } from './design-desk/services/designContext';
 import { SourceCoverage } from './components/SourceCoverage';
+import { SourcePackSelector } from './components/SourcePackSelector';
+import { getActiveConstraints } from './services/promptImprovementEngine';
 import type { ChatContext, ChatMessage } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
 import './styles/nxt-design-system.css';
@@ -469,6 +471,15 @@ const LiveResearchBoard = ({
                     techArchitecture: techArch?.architecture || (techResult as any)?.architecture,
                     strategicReport: (strategicReportResult as any)?.report,
                     researchGoal: researchGoal,
+                    // 2026-05-29 — Close the self-improvement loop for the
+                    // analyst chat. Previously this context omitted
+                    // wikiLearnedConstraints, so the chat captured feedback but
+                    // NEVER injected the persisted/active constraints back into
+                    // its own prompt ("CONSTRAINTS ACTIVE: none active for this
+                    // scope"). getActiveConstraints() carries chat-captured
+                    // rules immediately (localStorage) + cross-session wiki
+                    // constraints (loaded at boot), deduped + quality-gated.
+                    wikiLearnedConstraints: getActiveConstraints() || undefined,
                     sourceCount: (liveSourceResults || []).length,
                     articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                     sourceReferences: buildSourceReferences(liveSourceResults || []),
@@ -1255,6 +1266,10 @@ const App = () => {
     const selectedMethod = 'general_synthesis';
 
     // --- DATA SOURCING STATE ---
+    // Pack-based source selection (2026-05-29). Industry + cross-cutting theme
+    // packs resolve to source IDs at run time (see services/sourcePackResolver).
+    // The individual toggles below remain as an "advanced" fallback.
+    const [selectedPackIds, setSelectedPackIds] = useState<string[]>([]);
     const [enableDeepResearch, setEnableDeepResearch] = useState(false);
     const [deepResearchMode, setDeepResearchMode] = useState<'quick' | 'focused' | 'deep'>('focused');
     const [enableNews, setEnableNews] = useState(false);
@@ -1477,7 +1492,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || enableRetailCompetitiveSet || enableHomeFurnitureTrade || enableRetailTechVendors || enablePaymentsAndCheckout || enableRetailAnalysts || enableSupplyChain || enableSpecialtyVerticals || enableInternationalRetail || enableStrategyConsultancies || enableRetailDealIntelligence || enableSocialListeningPro || enableBrandReddit || enableRetailOperatorReddit || enableOpenDataApis || enableHigherEdCareerCoop || enableCareerPlatforms || enableWorkforceLabor || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || enableRetailCompetitiveSet || enableHomeFurnitureTrade || enableRetailTechVendors || enablePaymentsAndCheckout || enableRetailAnalysts || enableSupplyChain || enableSpecialtyVerticals || enableInternationalRetail || enableStrategyConsultancies || enableRetailDealIntelligence || enableSocialListeningPro || enableBrandReddit || enableRetailOperatorReddit || enableOpenDataApis || enableHigherEdCareerCoop || enableCareerPlatforms || enableWorkforceLabor || selectedPackIds.length > 0 || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -2923,6 +2938,17 @@ const App = () => {
                 // Build list of source IDs to query based on enabled toggles + auto-recommended sources
                 // (React state updates are async, so we check BOTH the existing state AND recommendedSources)
                 const sourceIds: string[] = [];
+                // Pack-based selection (2026-05-29): resolve selected packs to
+                // their source IDs server-side and seed the run. The individual
+                // enable* toggles below union on top (de-duped at the end).
+                if (selectedPackIds.length > 0) {
+                    try {
+                        const { resolvePacksToSourceIds } = await import('./services/sourcePackResolver');
+                        const packSourceIds = await resolvePacksToSourceIds(selectedPackIds);
+                        for (const sid of packSourceIds) sourceIds.push(sid);
+                        console.log(`[SourcePacks] ${selectedPackIds.length} pack(s) -> ${packSourceIds.length} source IDs`);
+                    } catch (e) { console.warn('[SourcePacks] resolve failed:', e); }
+                }
                 if (enableHigherEdNews || recommendedSources.enableHigherEdNews) sourceIds.push(
                     'higher_ed_dive', 'inside_higher_ed', 'edsurge', 'hechinger', 'the_conversation_edu',
                     'campus_tech', 'ecampus', 'university_world_news', 'pie_news', 'open_campus',
@@ -3328,6 +3354,16 @@ const App = () => {
                     'reddit_financialindependence', 'reddit_careeradvice', 'reddit_negotiation',
                     'reddit_salary'
                 );
+
+                // De-dup source IDs (selected packs + individual toggles may
+                // overlap). Mutate in place since sourceIds is const.
+                {
+                    const _unique = [...new Set(sourceIds)];
+                    if (_unique.length !== sourceIds.length) {
+                        sourceIds.length = 0;
+                        sourceIds.push(..._unique);
+                    }
+                }
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
                 const { refineSearchQueries } = await import('./services/researchFabricOrchestrator');
@@ -5348,7 +5384,22 @@ ${synthesisParts.join('\n')}
                                          <label className="block text-xs font-bold uppercase text-[var(--nxt-teal)] tracking-widest mb-4">
                                              <i className="fas fa-satellite-dish mr-2"></i>Intelligence Data Sources (Optional)
                                          </label>
-                                         <p className="text-xs text-[var(--text-tertiary)] mb-4">Enrich your uploaded documents with live data from AI deep research, news, academic papers, social platforms, and more.</p>
+                                         <p className="text-xs text-[var(--text-tertiary)] mb-4">Pick one or more <strong>packs</strong> to compose your run, e.g. "Higher Ed" + "AI Trends". Packs bundle vetted sources by industry and cross-cutting theme; overlap is de-duped automatically.</p>
+
+                                         {/* Pack-based selection (2026-05-29) — primary source-selection UX */}
+                                         <div className="mb-5">
+                                             <SourcePackSelector
+                                                 selectedPackIds={selectedPackIds}
+                                                 onChange={setSelectedPackIds}
+                                             />
+                                         </div>
+
+                                         {/* Advanced: individual source toggles (legacy, still fully functional).
+                                             Kept always-visible below the packs as a fine-grained fallback;
+                                             selections here union with the chosen packs (de-duped at run time). */}
+                                         <div className="border-t border-[var(--border-primary)] pt-4 mt-2">
+                                             <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] mb-3">Advanced: individual sources (optional, unions with packs)</p>
+                                         </div>
 
                                          {/* AI Deep Research */}
                                          <div className="mb-4">

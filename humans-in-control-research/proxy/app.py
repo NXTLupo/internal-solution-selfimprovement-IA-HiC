@@ -26,7 +26,7 @@ import httpx
 from datetime import datetime, timezone
 from fastapi import FastAPI, Query, Path, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.responses import JSONResponse, HTMLResponse, Response
 from typing import Optional, Dict, Any, List, Tuple
 import asyncio
 # 2026-05-23 — Knowledge-gap endpoints use BaseModel. The legacy code imports
@@ -5713,15 +5713,195 @@ async def topic_model_health():
     except ImportError as e:
         return {"ok": False, "error": f"ML stack import failed: {e}"}
 
+# ============================================================
+# SOURCE PACKS (2026-05-29) — industry + cross-cutting theme bundles.
+# Replaces the ~30-toggle category sprawl on the landing page with a small set
+# of selectable "packs" (e.g. "Higher Ed" + "AI Trends"). Packs resolve
+# DYNAMICALLY over SOURCES by category membership or pack tag, so any newly
+# added source (or the Creative AI registry merge below) is auto-recognized
+# into its pack with no static list to maintain (ENHANCEMENT 3).
+# ============================================================
+
+# Merge the Creative AI 200-source pack (ENHANCEMENT 2). Sources carry
+# pack='creative_ai' + industry tags; tier coerced to int already.
+try:
+    from creative_ai_sources import CREATIVE_AI_SOURCES
+    _new = {k: v for k, v in CREATIVE_AI_SOURCES.items() if k not in SOURCES}
+    SOURCES.update(_new)
+    logger.info(f"[source-packs] merged {len(_new)} Creative AI sources (total SOURCES={len(SOURCES)})")
+except Exception as _e:
+    logger.warning(f"[source-packs] Creative AI merge skipped: {_e}")
+
+# Each pack: display metadata + the category names it claims. `kind` is
+# 'industry' or 'theme' (cross-cutting). A source joins a pack if its category
+# is listed OR its `pack` field equals `pack_match`. Categories may appear in
+# more than one pack (cross-over is expected and desired).
+SOURCE_PACKS = {
+    # ---- Industry packs ----
+    "higher_ed": {"name": "Higher Ed", "kind": "industry", "industries": ["higher_ed"],
+        "description": "Higher-education news, education data, co-op/career services, alumni.",
+        "categories": ["Higher-Ed News", "Education Data", "Higher Ed Career Services & Co-op",
+                        "Alumni Engagement", "Alumni Magazines"]},
+    "fundraising": {"name": "Advancement & Fundraising", "kind": "industry", "industries": ["fundraising", "nonprofit"],
+        "description": "University advancement, philanthropy, donor/cause-commerce tech.",
+        "categories": ["University Advancement", "Advancement", "Philanthropy", "Philanthropy News",
+                        "Philanthropy Press", "Donation Tech Platforms", "Cause-Brand Impact",
+                        "Cause-Commerce Tech", "Cause Reddit", "Sustainability-at-Checkout", "Consumer/CSR Research"]},
+    "workforce": {"name": "Workforce & Careers", "kind": "industry", "industries": ["workforce"],
+        "description": "Labor market, career platforms, job boards, co-op/internship.",
+        "categories": ["Workforce, Labor Market & Career Strategy", "Career Platforms & Job Boards",
+                        "Higher Ed Career Services & Co-op"]},
+    "retail": {"name": "Retail & Commerce", "kind": "industry", "industries": ["retail", "dtc", "cpg"],
+        "description": "Retail competitive set, ecommerce, payments, supply chain, consumer insights.",
+        "categories": ["Retail Competitive Set", "Retail News", "Home/Furniture Trade", "Retail Tech Vendors",
+                        "Retail Analysts", "Ecommerce", "International Retail", "Retail Deal Intelligence",
+                        "Retail Operator Reddit", "Reddit Retail", "Retail Tech", "Retail Economic Data",
+                        "Payments & Checkout", "Supply Chain", "Specialty Verticals", "Consumer Insights",
+                        "Digital Marketing", "Social Marketing", "Brand Reddit"]},
+    "government": {"name": "Government & Policy", "kind": "industry", "industries": ["government", "policy"],
+        "description": "Government data, open-data APIs and portals.",
+        "categories": ["Government Data", "Open Data APIs", "Open Data Portals"]},
+    "financial_services": {"name": "Financial Services", "kind": "industry", "industries": ["financial_services"],
+        "description": "Payments, checkout, and economic/market data relevant to financial services.",
+        "categories": ["Payments & Checkout", "Economic Data", "Retail Economic Data"]},
+    # ---- Cross-cutting theme packs ----
+    "ai_trends": {"name": "AI Trends", "kind": "theme", "industries": ["ai_research"],
+        "description": "AI lab blogs, AI news, models/datasets, conferences, policy & ethics.",
+        "categories": ["AI Lab Blogs", "AI News", "AI Models & Datasets", "AI Conferences", "AI Research",
+                        "AI Policy & Ethics", "AI Communities", "AI Code"]},
+    "creative_ai": {"name": "Creative AI", "kind": "theme", "industries": ["ai_research", "media"],
+        "description": "Design/brand tool vendors, generative-model labs, creative trade press, YouTube, Reddit (200 sources).",
+        "pack_match": "creative_ai",
+        "categories": ["Design & Brand Tool Vendors", "Generative AI Model Labs & Platforms",
+                        "Creative Trade Press, Newsletters & Blogs", "Free Ebooks, Reports, Research & Whitepapers"]},
+    "social_listening": {"name": "Social Listening", "kind": "theme", "industries": [],
+        "description": "Reddit communities, social sentiment, search trends, video.",
+        "categories": ["Reddit Communities", "Social Listening Pro", "Social Sentiment", "Search Trends", "Video"]},
+    "academic": {"name": "Academic & Analyst", "kind": "theme", "industries": [],
+        "description": "Academic literature, think tanks, strategy consultancies.",
+        "categories": ["Academic Literature", "Trade Press & Think Tanks", "Strategy Consultancies"]},
+}
+
+
+def _pack_source_ids(pack_id: str) -> list:
+    """Resolve a pack to its current source IDs, dynamically over SOURCES."""
+    p = SOURCE_PACKS.get(pack_id)
+    if not p:
+        return []
+    cats = set(p.get("categories", []))
+    match = p.get("pack_match")
+    out = []
+    for sid, src in SOURCES.items():
+        if (src.get("category") in cats) or (match and src.get("pack") == match):
+            out.append(sid)
+    return out
+
+
+def resolve_packs_to_source_ids(pack_ids: list) -> list:
+    """Union of source IDs across the given packs (de-duped, stable order)."""
+    seen, out = set(), []
+    for pid in pack_ids or []:
+        for sid in _pack_source_ids(pid):
+            if sid not in seen:
+                seen.add(sid); out.append(sid)
+    return out
+
+
+_FONT_EMBED_CSS_CACHE: str | None = None
+
+
+@app.get("/api/fonts/embed-css")
+async def fonts_embed_css():
+    """Serve @font-face CSS with the brand fonts inlined as base64 data-URIs.
+
+    1:1 EXPORT FIX (2026-05-29): html-to-image (Design Desk PNG/PDF export)
+    previously set skipFonts:true + stripped all <link> stylesheets to dodge a
+    cross-origin cssRules SecurityError on Google Fonts — which rasterized the
+    WRONG (fallback) fonts, breaking preview-vs-export parity. By serving the
+    brand fonts as SAME-ORIGIN data-URI @font-face here, the exporter can embed
+    them via the `fontEmbedCSS` option with no cross-origin access at all."""
+    global _FONT_EMBED_CSS_CACHE
+    if _FONT_EMBED_CSS_CACHE is not None:
+        return Response(content=_FONT_EMBED_CSS_CACHE, media_type="text/css")
+    import base64 as _b64
+    # (family, weight, style, file) — files live in proxy/fonts/static/.
+    faces = [
+        ("Bebas Neue", 400, "normal", "BebasNeue-Regular.ttf"),
+        ("Archivo", 400, "normal", "Archivo-Regular.ttf"),
+        ("Archivo", 700, "normal", "Archivo-Bold.ttf"),
+        ("Archivo", 400, "italic", "Archivo-Italic.ttf"),
+        ("Spectral", 400, "normal", "Spectral-Regular.ttf"),
+        ("Spectral", 700, "normal", "Spectral-Bold.ttf"),
+        ("JetBrains Mono", 400, "normal", "JetBrainsMono-Regular.ttf"),
+        ("JetBrains Mono", 500, "normal", "JetBrainsMono-Medium.ttf"),
+    ]
+    fonts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "static")
+    rules = []
+    for family, weight, style, fn in faces:
+        p = os.path.join(fonts_dir, fn)
+        if not os.path.exists(p):
+            continue
+        try:
+            with open(p, "rb") as f:
+                b64 = _b64.b64encode(f.read()).decode("ascii")
+        except Exception:
+            continue
+        rules.append(
+            f"@font-face{{font-family:'{family}';font-weight:{weight};"
+            f"font-style:{style};font-display:swap;"
+            f"src:url(data:font/ttf;base64,{b64}) format('truetype');}}"
+        )
+    css = "\n".join(rules)
+    _FONT_EMBED_CSS_CACHE = css
+    return Response(content=css, media_type="text/css")
+
+
+@app.get("/api/source-packs")
+async def list_source_packs():
+    """Pack registry for the landing-page selector. Counts resolve live over
+    SOURCES, so newly added sources/packs are auto-reflected."""
+    packs = []
+    for pid, p in SOURCE_PACKS.items():
+        ids = _pack_source_ids(pid)
+        packs.append({
+            "id": pid, "name": p["name"], "kind": p["kind"],
+            "industries": p.get("industries", []),
+            "description": p.get("description", ""),
+            "sourceCount": len(ids),
+        })
+    packs.sort(key=lambda x: (x["kind"] != "industry", x["name"]))  # industry first
+    return {"packs": packs, "totalSources": len(SOURCES)}
+
+
+@app.get("/api/source-packs/{pack_id}")
+async def get_source_pack(pack_id: str = Path(...)):
+    """Resolve one pack to its source IDs (for selection -> collection)."""
+    if pack_id not in SOURCE_PACKS:
+        return JSONResponse({"error": "unknown pack"}, status_code=404)
+    ids = _pack_source_ids(pack_id)
+    return {"id": pack_id, "name": SOURCE_PACKS[pack_id]["name"],
+            "sourceIds": ids, "sourceCount": len(ids)}
+
+
 @app.get("/api/sources")
 async def list_sources():
-    """List all available data sources grouped by category."""
+    """List all available data sources grouped by category. Now also tags each
+    source with the packs it belongs to (for the pack-aware landing UX)."""
+    # Precompute category -> packs for tagging.
+    cat_to_packs = {}
+    for pid, p in SOURCE_PACKS.items():
+        for c in p.get("categories", []):
+            cat_to_packs.setdefault(c, []).append(pid)
     categories = {}
     for sid, src in SOURCES.items():
         cat = src.get("category", "Other")
         if cat not in categories:
             categories[cat] = []
-        categories[cat].append({"id": sid, "name": src["name"], "type": src["type"]})
+        entry_packs = list(cat_to_packs.get(cat, []))
+        if src.get("pack") == "creative_ai" and "creative_ai" not in entry_packs:
+            entry_packs.append("creative_ai")
+        categories[cat].append({"id": sid, "name": src["name"], "type": src["type"],
+                                 "packs": entry_packs, "industries": src.get("industries", [])})
     return {"total": len(SOURCES), "categories": categories}
 
 @app.get("/api/search/{source_id}")
@@ -7141,7 +7321,7 @@ async def proxy_anthropic(request: Request):
 
     try:
         body = await request.json()
-        model = body.get("model", "claude-opus-4-7")
+        model = body.get("model", "claude-opus-4-8")
         content_size = len(json.dumps(body))
         logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars")
 
@@ -8713,64 +8893,19 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             )
 
     if len(selected) < limit and req.query and not matched_chunks_by_path:
-        # Tier 2 fallback (chunk store unavailable or every chunk hit was filtered out)
-        q = req.query.strip().lower()
-        query_tokens = [t for t in _re_wiki.split(r'\W+', q) if len(t) >= 3]
-        candidates = entries
-        if req.kind:
-            candidates = [e for e in candidates if e.get('kind') == req.kind]
-        if req.source:
-            s = req.source.lower()
-            candidates = [e for e in candidates if s in (e.get('source') or '').lower()]
-        if req.minChars and req.minChars > 0:
-            candidates = [e for e in candidates if int(e.get('chars') or 0) >= req.minChars]
-
-        # Semantic pass (optional, non-blocking on failure)
-        sem_scores = _semantic_scores_for_query(
-            req.query,
-            [c.get("id") for c in candidates if c.get("id")],
+        # Tier-2 fallback REMOVED (Phase 3, 2026-05-29). The legacy
+        # `.embeddings.json` keyword+sem blend held one weak vector per
+        # article over a smaller, drifted article set, and fired ONLY when
+        # Tier-1 admitted zero. A 20/20-query parity benchmark confirmed it
+        # never fired and surfaced nothing Tier-1 missed. One retrieval
+        # mechanism now: the chunked .vectors.db. Fail loud rather than
+        # silently serving a stale partial corpus.
+        logger.warning(
+            f"Wiki retrieval: chunk store returned no admitted results for "
+            f"query={req.query[:60]!r} (kind={req.kind}, source={req.source}). "
+            f"No Tier-2 fallback; returning empty. If this recurs, the chunk "
+            f"store needs a backfill: POST /api/wiki/embed-backfill."
         )
-
-        scored: list = []
-        for e in candidates:
-            if e.get('wikiPath') in used_paths:
-                continue
-            kw = _score_article_for_query(e, query_tokens)
-            sem = sem_scores.get(e.get("id") or "", 0.0)
-            total = kw + (sem * 10.0)
-            # 2026-05-07 (P5) — Tightened retrieval gate.
-            #
-            # Old:  kw > 0 OR sem > 0.3
-            # The OR plus low semantic threshold let loose-match items
-            # through. Cosine 0.3 against text-embedding-3-small puts
-            # marginally-related content (e.g., "remote work" vs "career
-            # development") above the gate, and a single source-name
-            # keyword hit (now scored at 0 thanks to P2) used to satisfy
-            # kw>0 alone.
-            #
-            # New gate:
-            #   - Strong semantic hit (sem >= 0.45) → admit
-            #   - Strong keyword hit (kw >= 3.0, i.e. one title token match
-            #     or three summary token matches) → admit
-            #   - Both signals present, even if individually weak
-            #     (kw > 0 AND sem > 0.3) → admit
-            # Items that fail all three are excluded.
-            STRONG_SEM = 0.45
-            STRONG_KW = 3.0
-            if sem >= STRONG_SEM:
-                scored.append((e, total, kw, sem))
-            elif kw >= STRONG_KW:
-                scored.append((e, total, kw, sem))
-            elif kw > 0 and sem > 0.3:
-                scored.append((e, total, kw, sem))
-        scored.sort(key=lambda t: t[1], reverse=True)
-        logger.info(
-            f"Wiki retrieval: query={req.query[:60]!r} candidates={len(candidates)} "
-            f"scored={len(scored)} semantic_hits={len(sem_scores)}"
-        )
-        for e, _total, _kw, _sem in scored[: limit - len(selected)]:
-            selected.append(e)
-            used_paths.add(e.get('wikiPath'))
 
     # If still nothing selected and no direct ids given, fall back to newest
     if not selected and not req.ids and not req.wikiPaths and not req.query:
@@ -8847,7 +8982,7 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         'total_matched': len(selected),
         'returned': len(articles),
         'articles': articles,
-        'retrieval_mode': 'chunked' if matched_chunks_by_path else ('legacy' if req.query else 'direct'),
+        'retrieval_mode': 'chunked' if matched_chunks_by_path else ('none' if req.query else 'direct'),
     }
 
 
@@ -9277,17 +9412,14 @@ def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool
     if not url_hash:
         return False
 
-    legacy_ok = False
-    try:
-        vec = _embed_texts([_build_embed_text(entry, body)], task_type="document")[0]
-        by_id = _load_embeddings()
-        by_id[url_hash] = vec
-        _save_embeddings()
-        legacy_ok = True
-    except Exception as e:
-        logger.warning(f"Legacy embed failed for {url_hash[:10]}: {e}")
+    # Legacy `.embeddings.json` dual-write REMOVED (Phase 3, 2026-05-29).
+    # The single-vector-per-article sidecar served only the now-deleted
+    # Tier-2 fallback; writing it on every ingest was write-amplification
+    # (a second embed call per article). The chunked .vectors.db below is
+    # the single source of truth for semantic retrieval.
+    chunk_ok = False
 
-    # Phase 2: also chunk + embed for the new store. Skipped silently if
+    # Chunk + embed for the vector store. Skipped silently if
     # wiki_chunker / wiki_vector_store aren't importable (back-compat).
     try:
         store = _get_chunk_store()
@@ -9321,10 +9453,11 @@ def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool
                         "engagement_goal": entry.get("engagement_goal"),
                     },
                 )
+                chunk_ok = True
     except Exception as e:
         logger.warning(f"Chunk store embed failed for {url_hash[:10]}: {e}")
 
-    return legacy_ok
+    return chunk_ok
 
 
 # ================================================================
@@ -9513,6 +9646,35 @@ def _blend_embeddings(query_vec: list, goal_vec: list, goal_weight: float) -> li
     return [x / norm for x in blended]
 
 
+def _embed_query_with_retry(text: str, attempts: int = 4) -> list:
+    """Embed a single QUERY string with backoff on transient failures.
+
+    Resilience fix (2026-05-29): query embedding is the single point of failure
+    for semantic retrieval since Phase 3 removed the Tier-2 fallback. The most
+    common transient failure is HTTP 429 (rate limit) — observed when a bulk
+    job (e.g. the industry backfill) saturates the shared Gemini quota. A short
+    exponential backoff clears virtually all of these. We do NOT fail over to a
+    different provider: the chunk store is built at a fixed provider+dim
+    (gemini-768), so a vector from another provider/dim is not comparable.
+    Raises after the last attempt; callers catch and fail loud (return empty).
+    """
+    last_exc = None
+    for i in range(attempts):
+        try:
+            return _embed_texts([text], task_type="query")[0]
+        except Exception as e:
+            last_exc = e
+            msg = str(e)
+            transient = ("429" in msg or "HTTP 5" in msg or "timeout" in msg.lower()
+                         or "timed out" in msg.lower() or "503" in msg or "502" in msg)
+            if not transient or i == attempts - 1:
+                raise
+            backoff = 0.6 * (2 ** i)  # 0.6s, 1.2s, 2.4s
+            logger.warning(f"Query embed transient failure (attempt {i+1}/{attempts}, retrying in {backoff:.1f}s): {msg[:120]}")
+            time.sleep(backoff)
+    raise last_exc  # pragma: no cover
+
+
 def _search_chunked_articles(query: str, kind: str | None, source: str | None,
                               limit: int, chunks_per_article: int = 3,
                               engagement_goal: str | None = None,
@@ -9535,15 +9697,15 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
     if not q:
         return None
     try:
-        qvec = _embed_texts([q], task_type="query")[0]
+        qvec = _embed_query_with_retry(q)
     except Exception as e:
-        logger.warning(f"Query embed failed for chunked retrieval, falling back: {e}")
+        logger.warning(f"Query embed failed for chunked retrieval after retries, falling back: {e}")
         return None
 
     # Optional engagement-goal blend
     if engagement_goal and goal_blend_weight and goal_blend_weight > 0.001:
         try:
-            gvec = _embed_texts([engagement_goal.strip()], task_type="query")[0]
+            gvec = _embed_query_with_retry(engagement_goal.strip())
             qvec = _blend_embeddings(qvec, gvec, goal_blend_weight)
             logger.info(
                 f"[chunked retrieval] blended embedding: query={q[:60]!r} "
@@ -9561,28 +9723,8 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
         return None
 
 
-def _semantic_scores_for_query(query: str, candidate_ids: list) -> dict:
-    """Embed a single query and return a dict {url_hash: cosine_similarity}
-    over the given candidate ids. Empty dict on any failure — keyword
-    scoring then carries retrieval alone."""
-    q = (query or "").strip()
-    if not q or not candidate_ids:
-        return {}
-    by_id = _load_embeddings()
-    if not by_id:
-        return {}
-    try:
-        qvec = _embed_texts([q], task_type="query")[0]
-    except Exception as e:
-        logger.warning(f"Query embed failed, semantic scoring disabled this turn: {e}")
-        return {}
-    scores: dict = {}
-    for cid in candidate_ids:
-        vec = by_id.get(cid)
-        if not vec:
-            continue
-        scores[cid] = _cosine(qvec, vec)
-    return scores
+# _semantic_scores_for_query REMOVED (Phase 3, 2026-05-29): only caller was
+# the deleted Tier-2 retrieval fallback.
 
 
 @app.post("/api/wiki/embed-backfill")
@@ -10395,7 +10537,7 @@ async def wiki_rerank(payload: dict):
     goal = (payload.get("goal") or "").strip()
     question = (payload.get("question") or "").strip()
     candidates = payload.get("candidates") or []
-    # 2026-05-03 — Default rerank model swapped from claude-opus-4-7 to
+    # 2026-05-03 — Default rerank model swapped from claude-opus to
     # gemini-2.5-flash. Reranking 6 chunks 0-1 doesn't need Opus reasoning
     # depth; Flash handles it correctly at ~3% of the cost. Callers can
     # still override via the `model` field in the request body.
@@ -11848,13 +11990,19 @@ async def journey_map_generate(req: Request):
     # produced shallower output than JM's natural Sonnet-driven depth. The
     # user flagged depth regression, so Sonnet is the right default.
     # Caller can override to claude-haiku-4-5-20251001 for speed-critical
-    # path, or claude-opus-4-7 for maximum depth at higher cost.
+    # path, or claude-opus-4-8 for maximum depth at higher cost.
     llm_model = body.get("llm_model") or "claude-sonnet-4-6"
 
     if not goal:
         return JSONResponse({"error": "goal is required"}, status_code=400)
     if not corpus:
-        return JSONResponse({"error": "corpus is required"}, status_code=400)
+        # 2026-05-29 — Do NOT hard-fail on empty corpus. Per product spec, any
+        # hashtag deliverable must generate from whatever data is selected/cached
+        # or newly collected, COMPLETE OR NOT. Fall back to the goal as a minimal
+        # corpus so generation proceeds (root cause of the "corpus is required"
+        # 400 when #journey was fired mid-collection).
+        corpus = goal
+        logger.info("[journey-map] empty corpus -> falling back to goal as minimal corpus (generate-with-whatever-is-available)")
 
     # 2026-05-26 — Pre-extraction pass. JM's internal NLP step expects
     # prose or PDF-extracted text and on 2026-05-26 logged
@@ -12439,6 +12587,136 @@ Return ONLY the revised HTML document. Start with <!DOCTYPE html>, end with </ht
 """
 
 
+# ── Server-side cross-provider artifact model router (2026-05-29) ───────────
+# The artifact engine previously called ONE Anthropic model and hard-failed on
+# a 429/529/timeout with no recovery. This router (a) picks the OPTIMAL model
+# per deliverable kind and (b) falls back ACROSS providers (Anthropic <-> Gemini)
+# so a provider-wide rate limit can never kill a deliverable. Both providers are
+# funded/healthy on this platform; OpenAI is billing-dry so it is omitted.
+#
+# Per-kind chains (the pre-determined "best model for each hashtag deliverable"):
+#   PREMIUM (deep reasoning): Opus 4.8 -> Gemini 3.1 Pro -> Sonnet 4.6
+#   STRUCTURED (HTML/diagram/visual): Sonnet 4.6 -> Gemini 3.1 Pro -> Opus 4.8
+_ARTIFACT_PREMIUM_CHAIN = ["claude-opus-4-8", "gemini-3.1-pro-preview", "claude-sonnet-4-6"]
+_ARTIFACT_STRUCTURED_CHAIN = ["claude-sonnet-4-6", "gemini-3.1-pro-preview", "claude-opus-4-8"]
+_ARTIFACT_MODEL_CHAINS = {
+    # Premium reasoning
+    "strategy": _ARTIFACT_PREMIUM_CHAIN, "strategy-slide": _ARTIFACT_PREMIUM_CHAIN,
+    "recommendation": _ARTIFACT_PREMIUM_CHAIN, "gap-analysis": _ARTIFACT_PREMIUM_CHAIN,
+    "competitive": _ARTIFACT_PREMIUM_CHAIN, "prd": _ARTIFACT_PREMIUM_CHAIN,
+    "tech-audit": _ARTIFACT_PREMIUM_CHAIN, "meta-themes": _ARTIFACT_PREMIUM_CHAIN,
+    "brief": _ARTIFACT_PREMIUM_CHAIN, "research-plan": _ARTIFACT_PREMIUM_CHAIN,
+    # Structured HTML / diagram / visual
+    "org": _ARTIFACT_STRUCTURED_CHAIN, "arch": _ARTIFACT_STRUCTURED_CHAIN,
+    "roadmap": _ARTIFACT_STRUCTURED_CHAIN, "blueprint": _ARTIFACT_STRUCTURED_CHAIN,
+    "persona": _ARTIFACT_STRUCTURED_CHAIN, "presentation": _ARTIFACT_STRUCTURED_CHAIN,
+    "mindmap": _ARTIFACT_STRUCTURED_CHAIN, "brief-dialog": _ARTIFACT_STRUCTURED_CHAIN,
+}
+_ARTIFACT_PROVIDER_COOLDOWN: Dict[str, float] = {}   # provider -> epoch until cooled down
+_ARTIFACT_COOLDOWN_SECS = 60.0
+
+
+def _artifact_model_provider(model_id: str) -> str:
+    if model_id.startswith("claude"):
+        return "anthropic"
+    if model_id.startswith("gemini"):
+        return "google"
+    if model_id.startswith("gpt"):
+        return "openai"
+    return "anthropic"
+
+
+def _artifact_provider_reachable(provider: str) -> bool:
+    if provider == "anthropic":
+        return bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
+    if provider == "google":
+        return bool(os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("API_KEY", "").strip())
+    if provider == "openai":
+        return bool(os.environ.get("OPENAI_API_KEY", "").strip())
+    return False
+
+
+def _resolve_artifact_chain(kind: str, preferred: str | None = None) -> list:
+    """Per-kind model chain, optimal-first, preferred model promoted to head,
+    unreachable providers dropped, cooling-down providers pushed to the back."""
+    base = list(_ARTIFACT_MODEL_CHAINS.get(kind, _ARTIFACT_STRUCTURED_CHAIN))
+    if preferred:
+        base = [preferred] + [m for m in base if m != preferred]
+    chain = [m for m in base if _artifact_provider_reachable(_artifact_model_provider(m))]
+    now = time.time()
+    healthy = [m for m in chain if _ARTIFACT_PROVIDER_COOLDOWN.get(_artifact_model_provider(m), 0) <= now]
+    cooling = [m for m in chain if _ARTIFACT_PROVIDER_COOLDOWN.get(_artifact_model_provider(m), 0) > now]
+    ordered, seen = [], set()
+    for m in healthy + cooling:
+        if m not in seen:
+            seen.add(m)
+            ordered.append(m)
+    return ordered
+
+
+async def _call_gemini_for_artifact(prompt: str, model: str, max_tokens: int) -> str:
+    """Gemini generateContent for the artifact engine (cross-provider fallback)."""
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY missing")
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+    async with httpx.AsyncClient(timeout=900.0) as client:
+        resp = await client.post(url, json={
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0.3, "maxOutputTokens": max_tokens},
+        })
+    if resp.status_code != 200:
+        raise RuntimeError(f"Gemini returned {resp.status_code}: {resp.text[:300]}")
+    data = resp.json()
+    parts = (((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+    return "".join(p.get("text", "") for p in parts)
+
+
+def _is_transient_artifact_err(msg: str) -> bool:
+    m = (msg or "").lower()
+    return any(s in m for s in (
+        "429", "529", "500", "502", "503", "504", "resource_exhausted",
+        "overloaded", "rate limit", "rate-limit", "timeout", "timed out",
+        "connecterror", "readtimeout", "failed to fetch", "unavailable",
+    ))
+
+
+async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: int = 64000,
+                                           preferred: str | None = None):
+    """Walk the per-kind cross-provider model chain until one model returns.
+    Records provider cooldown on transient (429/529/5xx/timeout) failures so the
+    NEXT call routes around the throttled provider. Returns (html, model_used).
+    Raises only if EVERY model in the chain fails."""
+    chain = _resolve_artifact_chain(kind, preferred)
+    if not chain:
+        raise RuntimeError("no reachable artifact models (check ANTHROPIC_API_KEY / GEMINI_API_KEY)")
+    last_err = None
+    for i, model in enumerate(chain):
+        provider = _artifact_model_provider(model)
+        try:
+            if provider == "anthropic":
+                html = await _call_claude_for_artifact(prompt, model=model, max_tokens=max_tokens)
+            elif provider == "google":
+                html = await _call_gemini_for_artifact(prompt, model, max_tokens)
+            else:
+                continue
+            if not (html or "").strip():
+                raise RuntimeError("empty response")
+            if i > 0:
+                logger.info(f"[artifact/{kind}] recovered on fallback model {model} (chain position {i})")
+            return html, model
+        except Exception as e:
+            last_err = e
+            msg = str(e)
+            if _is_transient_artifact_err(msg):
+                _ARTIFACT_PROVIDER_COOLDOWN[provider] = time.time() + _ARTIFACT_COOLDOWN_SECS
+                logger.warning(f"[artifact/{kind}] {model} ({provider}) transient failure, advancing to next model: {msg[:160]}")
+            else:
+                logger.warning(f"[artifact/{kind}] {model} failed (non-transient), advancing: {msg[:160]}")
+            continue
+    raise RuntimeError(f"all artifact models exhausted for {kind}: {last_err}")
+
+
 async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6", max_tokens: int = 32000) -> str:
     """Call Anthropic via the existing proxy logic. Returns HTML text."""
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -12589,8 +12867,14 @@ async def artifact_generate(req: Request):
 
     if not kind or kind not in KIND_TO_SKILL_PATH:
         return JSONResponse({"error": f"unsupported kind: {kind!r}; supported: {sorted(KIND_TO_SKILL_PATH.keys())}"}, status_code=400)
-    if not goal or not corpus:
-        return JSONResponse({"error": "goal and corpus are required"}, status_code=400)
+    if not goal:
+        return JSONResponse({"error": "goal is required"}, status_code=400)
+    if not corpus:
+        # 2026-05-29 — generate from whatever is selected/collected, complete or
+        # not. Empty corpus falls back to the goal rather than a 400, so every
+        # hashtag deliverable is invocable during/after collection.
+        corpus = goal
+        logger.info(f"[artifact/{kind}] empty corpus -> falling back to goal as minimal corpus")
 
     # Special-case: journey routes through the IA service for native depth
     if kind == "journey":
@@ -12601,9 +12885,13 @@ async def artifact_generate(req: Request):
     # Generic path: load skill, build prompt, call Claude
     skill_md = _load_skill_md(kind)
     prompt = _artifact_generation_prompt(kind, brand, goal, corpus, skill_md)
-    logger.info(f"[artifact/{kind}] generating ({len(corpus)} corpus chars, model={model})")
+    logger.info(f"[artifact/{kind}] generating ({len(corpus)} corpus chars, preferred={body.get('llm_model') or 'auto'})")
     try:
-        html = await _call_claude_for_artifact(prompt, model=model, max_tokens=64000)
+        # Cross-provider, per-kind optimal model with automatic 429/timeout
+        # fallback (Anthropic <-> Gemini). `model` is reassigned to whichever
+        # model actually answered so the rollout + response report it truthfully.
+        html, model = await _generate_artifact_with_fallback(
+            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"))
         html = _ensure_complete_html(html)
         html = _apply_brand_and_anti_slop(html, brand)
     except Exception as e:
@@ -12678,10 +12966,10 @@ async def artifact_revise(req: Request):
 
     prompt = _artifact_revision_prompt(kind, brand, current_html, instruction)
     try:
-        # 2026-05-25 — Bumped to 64000. Revisions on 187KB JM HTML
-        # routinely blew through 32K and truncated mid-div. Claude Sonnet 4.6
-        # supports up to 64K output tokens.
-        revised = await _call_claude_for_artifact(prompt, model=model, max_tokens=64000)
+        # 2026-05-25 — Bumped to 64000. Revisions on 187KB JM HTML routinely
+        # blew through 32K. 2026-05-29 — cross-provider fallback router.
+        revised, model = await _generate_artifact_with_fallback(
+            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"))
         revised = _ensure_complete_html(revised)
         revised = _apply_brand_and_anti_slop(revised, brand)
     except Exception as e:

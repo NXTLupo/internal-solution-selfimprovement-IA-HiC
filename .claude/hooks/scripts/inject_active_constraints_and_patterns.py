@@ -53,15 +53,66 @@ def read_or_empty(path):
         return ''
 
 
+# Constraints that contradict the master Quantitative Claim Rule in
+# .claude/CLAUDE.md (numbers ride inside cited quotes, never as mandated dollar
+# assertions). Mirrors services/constraintQualityGate.ts so the agent session
+# and the SPA enforce the SAME bar. A deduped duplicate is still a violation;
+# dedup alone was letting "quantify in dollars" reach the prompt.
+_MASTER_RULE_PATTERNS = [
+    re.compile(r'quantif\w*.{0,60}(dollar|financial|monetary|\$)', re.I),
+    re.compile(r'\b(in|with|using|provide|state|give|express)\s+(precise\s+|concrete\s+|specific\s+)?(dollar|financial|monetary)\b', re.I),
+    re.compile(r'(concrete|precise|specific|hard)\s+financial\s+metric', re.I),
+    re.compile(r'\bdollar\s+(figure|amount|value|impact|metric)', re.I),
+    re.compile(r'(include|add|put|place|state|use|insert|lead with).{0,40}(percentage|percent|statistic|number|figure|metric|dollar).{0,40}(title|heading|headline|kpi|tile|label)', re.I),
+]
+
+# Low-signal boilerplate (generateConstraint output + vague user mutterings).
+_GENERIC_STUB_PATTERNS = [
+    re.compile(r'needs attention', re.I),
+    re.compile(r'user edits detected', re.I),
+    re.compile(r'requires more accuracy', re.I),
+    re.compile(r'review factual claims and specificity', re.I),
+    re.compile(r'\badd more detail', re.I),
+    re.compile(r'clean up the output', re.I),
+    re.compile(r'\bmake it clear(er)?\b', re.I),
+    re.compile(r'free of jargon', re.I),
+    re.compile(r'structure needs revision', re.I),
+]
+
+
+def _rule_body(line):
+    """Strip the '- CONSTRAINT [scope]:' prefix and trailing '(source: ...)'."""
+    s = re.sub(r'^[-*]\s*', '', line.strip())
+    s = re.sub(r'^CONSTRAINT\s*(\[[^\]]*\])?\s*:\s*', '', s, flags=re.I)
+    s = re.sub(r'\(source:.*?\)\s*$', '', s, flags=re.I)
+    return s.strip()
+
+
+def _is_acceptable(line):
+    body = _rule_body(line)
+    if len(body) < 40:
+        return False
+    for rx in _MASTER_RULE_PATTERNS:
+        if rx.search(body):
+            return False
+    for rx in _GENERIC_STUB_PATTERNS:
+        if rx.search(body):
+            return False
+    return True
+
+
 def dedupe_constraints(raw_text):
     """The current learned-constraints.md is dominated by duplicates of the
-    persona-quote and gap-impact constraints. Group by the normalized rule
-    head and keep the longest variant per group."""
+    persona-quote and gap-impact constraints. First REJECT master-rule
+    violations and generic stubs, then group by the normalized rule head and
+    keep the longest variant per group."""
     if not raw_text:
         return []
 
     # Constraint lines start with "- CONSTRAINT" (with optional bracket tag)
     lines = [l.rstrip() for l in raw_text.splitlines() if l.strip().startswith('- CONSTRAINT')]
+    # QUALITY GATE: drop violations + stubs before dedup.
+    lines = [l for l in lines if _is_acceptable(l)]
 
     groups = {}
     for line in lines:

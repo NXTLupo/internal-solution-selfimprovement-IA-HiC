@@ -96,7 +96,7 @@ Return the JSON now.`;
 interface AnthropicCallOpts {
     skill: string;
     deliverable: unknown;
-    model: 'claude-sonnet-4-6' | 'claude-opus-4-7' | 'claude-haiku-4-5';
+    model: 'claude-sonnet-4-6' | 'claude-opus-4-8' | 'claude-haiku-4-5';
     proxyBase: string;
 }
 
@@ -151,13 +151,15 @@ async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict
 
 
 // ─── Cost estimation ─────────────────────────────────────────────────────────
-// Rough Anthropic Sonnet 4.6 pricing: $3/M input + $15/M output tokens.
+// Anthropic standard pricing per 1M tokens (2026-05-29):
+//   Opus 4.8:   $5 input / $25 output
+//   Sonnet 4.6: $3 input / $15 output
 // Sample size approximation: 4 chars per token.
 function estimateCost(model: string, outputChars: number): number {
     const inputTokens = 14000 / 4; // skill md + prompt + deliverable
     const outputTokens = outputChars / 4;
-    const inputCostPerM = model === 'claude-opus-4-7' ? 15 : 3;
-    const outputCostPerM = model === 'claude-opus-4-7' ? 75 : 15;
+    const inputCostPerM = model === 'claude-opus-4-8' ? 5 : 3;
+    const outputCostPerM = model === 'claude-opus-4-8' ? 25 : 15;
     return (inputTokens * inputCostPerM + outputTokens * outputCostPerM) / 1_000_000;
 }
 
@@ -167,9 +169,9 @@ function estimateCost(model: string, outputChars: number): number {
 // critics (pre-mortem, persona-architect, etc.) will actually fire.
 
 export const dispatchCritic: CriticInvoker = async (opts) => {
-    const modelMap: Record<CriticConfig['invocation_model'], 'claude-sonnet-4-6' | 'claude-opus-4-7' | 'claude-haiku-4-5'> = {
+    const modelMap: Record<CriticConfig['invocation_model'], 'claude-sonnet-4-6' | 'claude-opus-4-8' | 'claude-haiku-4-5'> = {
         'sonnet-4.6': 'claude-sonnet-4-6',
-        'opus-4.7':   'claude-opus-4-7',
+        'opus-4.8':   'claude-opus-4-8',
         'haiku-4.5':  'claude-haiku-4-5',
     };
 

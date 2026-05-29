@@ -25,7 +25,7 @@ installChunkLoadGuard();
 // bundle and need a hard-refresh.
 // ================================================================
 const HIC_BUNDLE_VERSION = 'v4.0';
-const HIC_CODENAME = 'Vertical-Slice + 30-Session Coverage + Opus 4.7 Briefs';
+const HIC_CODENAME = 'Vertical-Slice + 30-Session Coverage + Opus 4.8 Briefs';
 const HIC_BUILD_STAMP = '2026-05-13';
 // Feature flags — codename reflects the cumulative v3.8 + v3.9 shipped work:
 //   v3.8 (HiC-VS-HTML-Hashtag-UX branch, prior session):
@@ -96,7 +96,7 @@ const HIC_FEATURES = {
     // v3.9 features (2026-05-12) — HiC-Active-Loop-Improvements
     reinforcementInferenceR1Themes: true,             // generateThemes Pass 1 emits per-theme confidence + selfAssessment envelope; calibration gate logs distribution to console
     // v4.0 features (2026-05-13) — Prototype Pipeline Deepening
-    prototypeOpusFourSevenBriefs: true,               // brief generator switched from Gemini 3.1 Pro to Claude Opus 4.7
+    prototypeOpusFourSevenBriefs: true,               // brief generator switched from Gemini 3.1 Pro to Claude Opus 4.8
     prototypeTwoPassBriefs: true,                     // pass 1 = 5 skeleton framings (single call), pass 2 = 5 parallel deepenings (16K tokens each)
     prototypeBriefSchemaV2: true,                     // feature_roadmap + narrative_arc + interaction_choreography + data_examples (5+ anchor records per entity)
     prototypeDedicatedBriefWindow: true,              // "Open brief in new window" launches popup with rich brand-aware HTML rendering
@@ -118,7 +118,7 @@ console.log(
     'color:#B8B800;background:#0D0D0D;padding:6px 12px;font-weight:700;letter-spacing:0.5px;font-family:ui-monospace,Menlo,Consolas,monospace;',
 );
 console.log(
-    `%c  Pipeline: Opus 4.7 briefs (2-pass) · Stage 2.5 30-session VS · Stage 3.5 Build Recipe · Stage 4 vertical slice · Stage 5 coverage audit`,
+    `%c  Pipeline: Opus 4.8 briefs (2-pass) · Stage 2.5 30-session VS · Stage 3.5 Build Recipe · Stage 4 vertical slice · Stage 5 coverage audit`,
     'color:#999999;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;',
 );
 console.log('[NXT HiC] Feature flags:', HIC_FEATURES);

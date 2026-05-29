@@ -857,7 +857,7 @@ DO NOT call a single endpoint directly. Wrap every AI invocation in this helper 
         url: '/api/ai/anthropic',
         headers: { 'Content-Type': 'application/json' },
         body: {
-          model: 'claude-opus-4-6',
+          model: 'claude-opus-4-8',
           max_tokens: opts.maxTokens ?? 1200,
           system: systemPrompt,
           messages: [{ role: 'user', content: userPrompt }],

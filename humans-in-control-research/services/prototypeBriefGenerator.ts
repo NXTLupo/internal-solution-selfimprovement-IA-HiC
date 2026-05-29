@@ -26,11 +26,14 @@
 import type { ExperienceBrief } from './prototypeBuilder';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
-// 2026-05-13 — Switched from Gemini 3.1 Pro to Claude Opus 4.7 for brief
+// 2026-05-13 — Switched from Gemini 3.1 Pro to Claude Opus for brief
 // generation. Opus is more creative on divergent framings (pass 1) AND more
 // exhaustive on per-brief enumeration (pass 2). Each pass uses the shared
 // aiRetryClient for fetch-level retry + 5-min timeout protection.
-const BRIEF_MODEL = 'claude-opus-4-7';
+// 2026-05-29 — Upgraded to Opus 4.8 (released 2026-05-28). Standard pricing
+// dropped 3x ($5/$25 per 1M vs 4.7's $15/$75) and adaptive thinking by default
+// reduces unnecessary token consumption.
+const BRIEF_MODEL = 'claude-opus-4-8';
 // 2026-05-14 — Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
 // structured deepening tasks; we keep Opus for Pass 1 (divergent framing)
 // and a narrative-only fallback for thin briefs (see assessNarrativeQuality

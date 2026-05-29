@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This file is the platform-wide overview. Two deeper guides cover the surfaces you'll actually be editing — read them when the task touches their scope:
 
-- **[.claude/CLAUDE.md](.claude/CLAUDE.md)** — *always loaded.* NXT design system, citation protocol, evidence hierarchy, 350+ banned phrases, consulting frameworks (Minto / Rumelt / SCQA), content budgets, action-title rules. Applies to every generated artifact in the repo.
+- **[.claude/CLAUDE.md](.claude/CLAUDE.md)** — *always loaded.* NXT design system, citation protocol, evidence hierarchy, 350+ banned phrases, consulting frameworks (Minto / Rumelt / SCQA), content budgets, action-title rules. Applies to every generated artifact in the repo. **Note:** the em-dash hard ban and other format rules apply to *generated output* (slides, deliverables, chat replies, JSON content fields, HTML body text) — not to this file or to other repo documentation. Do not rewrite CLAUDE.md prose to strip em-dashes.
 - **[humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md)** — read FIRST for any work under `humans-in-control-research/` (the most actively developed service). Covers the three-tier proxy/SPA/wiki architecture, the 18-template slide system, the `aiRouter.ts` provider routing, the `slidePostProcessor.ts` defense-in-depth layer, the `loadGenerationContext()` wiki-first retrieval contract, and the seven-step protocol for adding a new deliverable type.
 - Service-local `CLAUDE.md` files exist in `internal-solutions-journeymapper/`, `internal-solutions-claude4-journey-mapper-v2/`, and `internal-solutions-socialresearch/` — read them when working in those services.
 
@@ -143,6 +143,7 @@ docker compose -f docker-compose-all.yml exec launchpad curl -s http://localhost
 | Research Generator | 5011 | hic-research | React 19, Vite, Gemini AI, human-in-loop |
 | Research Proxy | 5012 | research-proxy | Python proxy for HiC Research AI calls |
 | Copilot Recipe Generator | 5013 | copilot-recipe-generator | FastAPI + Vite React frontend, Claude Opus 4.6 |
+| Presentation Renderer | 5014 | presentation-renderer | React 19, Vite 6, framer-motion (scroll-driven render of HiC narrativeComposer payloads) |
 | Journey Mapper | 8080 | journey-mapper | FastAPI, Claude Opus 4.5 |
 | NXT Agency Launchpad | 5050 | nxt-agency-launchpad | Nginx serving pre-built Vite dist |
 | NXT Agency Backend | 8201 | nxt-agency-backend | FastAPI, computer use, noVNC (6080) |
@@ -241,6 +242,8 @@ humans-in-control-research/
 ```
 
 **Prototype pipeline (`#proto (experience name)` in the composer):** A multi-stage flow — Stage 1 brief, Stage 2 research, Stage 3 visual direction, Stage 3.5 catalog injection, Stage 4 prototype coder, Stage 5 deepen — composes prototypes exclusively from the AI Experience Patterns catalog at `hic-workspace/wiki/inspiration-hub/ai-patterns/` (92+ patterns). The `design-exemplar-curator` skill picks named Behance exemplars; the `experience-prototype-composer` skill enforces "no invented UI shapes, no generic Copilot shells." Skipping the catalog at Stage 3/3.5/4 is a known anti-pattern.
+
+**Presentation render target (`#presentation #NXT` / `#presentation #NU`):** Unlike `#proto` (rendered inside the HiC SPA), the `#presentation` directive emits a `PresentationPayload` from `services/narrativeComposer.ts` and hands it to a **separate** service — `internal-solutions-presentation-renderer/` (container `presentation-renderer`, port 5014, React 19 + Vite 6 + framer-motion, scroll-driven; forked from Inner Focus). Brand resolution swaps NXT (chartreuse + teal) ↔ NU (Huskies red + near-black) via CSS variables. As of this writing the renderer is **scaffolding only** (payload contract + brand tokens; section components are a later iteration) — do not assume a slide type renders until verified.
 
 **Local development:**
 ```bash

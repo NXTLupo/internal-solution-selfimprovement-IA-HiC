@@ -209,10 +209,7 @@ export const SlideCanvas: React.FC<Props> = ({
         </div>
     );
 
-    const handleExportPPTX = async () => {
-        setExporting(true);
-        try {
-            await exportSlideToPPTX({
+    const legacyPptxArgs = () => ({
                 template: slide.template,
                 title: slide.title,
                 sources: slide.sources,
@@ -233,9 +230,65 @@ export const SlideCanvas: React.FC<Props> = ({
                 architectureMap: slide.architectureMap,
                 prdFeature: slide.prdFeature,
                 systemsInventory: slide.systemsInventory,
-            });
+    });
+
+    // 1:1 EXPORT (2026-05-29): PRIMARY path walks the ACTUAL rendered slide DOM
+    // (the same web.tsx render the user previews) via the shared DOM-walker and
+    // emits EDITABLE PPTX — so preview and export are produced from one engine
+    // reading one geometry. The legacy template renderer (pptx.ts) is kept as an
+    // error-only FALLBACK, so if the walker ever fails the behavior is unchanged
+    // (no regression). Clone off-screen at natural 960x540 with NO transform
+    // because the preview applies CSS scale() that would skew captured rects.
+    const handleExportPPTX = async () => {
+        setExporting(true);
+        try {
+            const el = slideRef.current;
+            if (!el) throw new Error('slideRef missing');
+            const clone = el.cloneNode(true) as HTMLElement;
+            Object.assign(clone.style, {
+                position: 'fixed', left: '-99999px', top: '0',
+                width: SLIDE_W + 'px', height: SLIDE_H + 'px',
+                transform: 'none', transformOrigin: 'top left',
+                zoom: '1', zIndex: '-1', margin: '0',
+            } as Partial<CSSStyleDeclaration>);
+            document.body.appendChild(clone);
+            try {
+                await (document as any).fonts?.ready;
+                await new Promise<void>(r => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+                const rect = clone.getBoundingClientRect();
+                const { walkDocumentToSpecs } = await import('../design-desk/services/domToPptx');
+                const { toPng } = await import('html-to-image');
+                const specs = await walkDocumentToSpecs(clone, {
+                    entrypoint: clone,
+                    originX: rect.left,
+                    originY: rect.top,
+                    sourceWidthPx: rect.width || SLIDE_W,
+                    rasterizeElement: async (node: HTMLElement) => {
+                        try { return await toPng(node, { pixelRatio: 2, cacheBust: true, skipFonts: false }); }
+                        catch { return null; }
+                    },
+                });
+                if (!specs.length) throw new Error('DOM-walker produced 0 specs');
+                const resp = await fetch('http://127.0.0.1:5012/api/export-pptx', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ specs, filename: `${slide.template}.pptx` }),
+                    signal: AbortSignal.timeout(60_000),
+                });
+                if (!resp.ok) throw new Error(`export-pptx HTTP ${resp.status}`);
+                const blob = await resp.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = `${slide.template}.pptx`;
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } finally {
+                clone.remove();
+            }
         } catch (e) {
-            console.error('PPTX export failed:', e);
+            console.warn('[SlideCanvas] DOM-walker PPTX failed; using legacy template renderer (no regression):', e);
+            try { await exportSlideToPPTX(legacyPptxArgs() as any); }
+            catch (e2) { console.error('PPTX export failed (both paths):', e2); }
         }
         setExporting(false);
     };

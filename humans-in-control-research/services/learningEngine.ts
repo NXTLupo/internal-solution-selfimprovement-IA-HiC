@@ -19,6 +19,7 @@
 
 import { readFeedbackIndex, type FeedbackSummary, type FeedbackIndex } from './feedbackService';
 import { persistChunkOverride, type ArtifactType } from './chunkBudgetCalculator';
+import { evaluateConstraint } from './constraintQualityGate';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -323,6 +324,16 @@ function fallbackPayload(cluster: FeedbackCluster, target: ImprovementTarget): s
 // --- APPLICATION ---
 
 async function applyConstraint(candidate: ImprovementCandidate): Promise<boolean> {
+    // QUALITY GATE (Phase 1, 2026-05-29): the LLM that synthesizes the payload
+    // can re-emit a master-rule violation (e.g. "quantify in dollars") or a
+    // generic stub. Never append one to the constraint store — that is exactly
+    // how learned-constraints.md accreted 21 duplicate dollar-quantification
+    // rules that contradict the master Quantitative Claim Rule.
+    const verdict = evaluateConstraint(candidate.payload);
+    if (!verdict.accept) {
+        console.log(`[LearningEngine] Constraint rejected by quality gate (${verdict.reason}): ${candidate.payload}`);
+        return false;
+    }
     const entry = `- CONSTRAINT [${candidate.cluster.deliverableType}/${candidate.cluster.sectionScope || 'overall'}]: ${candidate.payload} (source: ${candidate.cluster.count} feedback signals, confidence ${candidate.confidence.toFixed(2)})`;
     return appendToPage('synthesis/learned-constraints.md', entry);
 }

@@ -103,11 +103,11 @@ export async function generateJourneyBrief(input: JourneyBriefInput): Promise<Jo
 
     const userPrompt = `RESEARCH GOAL:\n${input.researchGoal}\n\nBRAND: ${input.brand.toUpperCase()}\n\nJOURNEY SOURCE CONTENT (distill this into the brief):\n${signalText}`;
 
-    // Reasoning model first. Opus 4.7 for the judgment task; Sonnet 4.6
+    // Reasoning model first. Opus 4.8 for the judgment task; Sonnet 4.6
     // fallback; never Flash for distillation. Routed through the proxy's
     // Anthropic endpoint (which now has its own per-provider semaphore +
     // the 429 fallback added 2026-05-26).
-    const model = input.model || 'claude-opus-4-7';
+    const model = input.model || 'claude-opus-4-8';
 
     async function callReasoning(useModel: string): Promise<string> {
         const resp = await fetch(`${proxyBase}/api/ai/anthropic`, {

@@ -440,6 +440,45 @@ const SECTION_ONE_OF = SECTION_KIND_ENUM.map((k) => ({
   },
 }));
 
+// 2026-05-27 — Gemini-compatible flattened section schema.
+// Google's OpenAI-compat layer (the funded, non-content-filtered provider the
+// composer must use now that Azure DeepSeek content-filters this corpus and
+// the OpenAI account is out of quota) rejects `oneOf` discriminated unions
+// with INVALID_ARGUMENT. We replace the per-kind oneOf with ONE permissive
+// `data` object whose properties are the UNION of every per-kind shape's
+// properties (all optional). This keeps every field NAME + description visible
+// to the model (the reason oneOf replaced the old bare `{type:'object'}`, which
+// produced empty `data:{}` and field drift), while removing the construct
+// Gemini can't parse. Per-kind REQUIRED-field enforcement still happens at
+// runtime via SECTION_DATA_SHAPES_EXPORT in narrativeComposer.validateAndFinalize.
+const MERGED_SECTION_DATA_PROPERTIES: Record<string, unknown> = (() => {
+  const merged: Record<string, unknown> = {};
+  for (const k of SECTION_KIND_ENUM) {
+    const shape: any = (SECTION_DATA_SHAPES as any)[k];
+    if (shape && shape.properties) {
+      for (const [propName, propSchema] of Object.entries(shape.properties)) {
+        // First definition wins; per-kind shapes share field names (e.g.
+        // `convergentInsight`, `citations`) with compatible types.
+        if (!(propName in merged)) merged[propName] = propSchema;
+      }
+    }
+  }
+  return merged;
+})();
+
+const SECTION_ITEM_SCHEMA_FLAT = {
+  type: 'object',
+  required: ['kind', 'data'],
+  properties: {
+    kind: { type: 'string', enum: SECTION_KIND_ENUM },
+    data: {
+      type: 'object',
+      description: 'Section payload. Fill ONLY the fields relevant to `kind` (see SECTION_DATA_SHAPES). Leave the rest absent.',
+      properties: MERGED_SECTION_DATA_PROPERTIES,
+    },
+  },
+};
+
 // Exposed for runtime validation in narrativeComposer.validateAndFinalize.
 export const SECTION_DATA_SHAPES_EXPORT: Readonly<Record<string, { required: readonly string[]; arrayFields: readonly string[] }>> = {
   hero: { required: ['title'], arrayFields: [] },
@@ -522,18 +561,46 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
       minItems: 6,
       maxItems: 16,
       description: '6-16 sections defending the strategic thesis. Each section is a discriminated union: the `kind` field picks the data shape. See SECTION_DATA_SHAPES.',
-      items: {
-        // 2026-05-04 — Discriminated union per `kind`. Each branch fixes
-        // kind to a const value and constrains data to the corresponding
-        // per-kind shape. Replaces the prior loose `data: { type: 'object' }`
-        // schema that produced empty `data: {}` from Gemini-via-OpenAI-compat
-        // and field-name drift from GPT-5.5 (recommendations vs items,
-        // horizons[].initiatives vs horizons[].items, etc.).
-        oneOf: SECTION_ONE_OF,
-      },
+      // 2026-05-27 — Flattened from `oneOf: SECTION_ONE_OF` to a single
+      // permissive section object so Google's OpenAI-compat layer accepts the
+      // schema (it rejects oneOf with INVALID_ARGUMENT). All per-kind field
+      // names remain visible to the model via MERGED_SECTION_DATA_PROPERTIES,
+      // so this does NOT regress to the old empty-`data:{}` failure. Per-kind
+      // required-field validation still runs at runtime. SECTION_ONE_OF is kept
+      // (exported usage / future strict-provider path) but no longer in-schema.
+      items: SECTION_ITEM_SCHEMA_FLAT,
     },
   },
 } as const;
+
+// 2026-05-27 — Gemini's function-declaration parser is an OpenAPI 3.0 SUBSET
+// and rejects several JSON-Schema validation keywords with a generic 400
+// INVALID_ARGUMENT (proven by the composer e2e schema-isolation test: the real
+// submit_presentation schema 400s alone). Strip those keywords for Gemini.
+// They are validation HINTS only — the model still follows the property
+// descriptions, and runtime validation (SECTION_DATA_SHAPES_EXPORT) still
+// enforces required fields. NOT stripped: type, properties, items, required,
+// enum, description (all supported + load-bearing). The stripped keys never
+// collide with this schema's property names, so recursion is safe.
+const GEMINI_UNSUPPORTED_SCHEMA_KEYS = new Set([
+  'const', 'maxLength', 'minLength', 'pattern', 'minItems', 'maxItems',
+  'minimum', 'maximum', 'additionalProperties', 'examples', 'default', '$schema',
+]);
+
+export function sanitizeSchemaForGemini(node: any): any {
+  if (Array.isArray(node)) return node.map(sanitizeSchemaForGemini);
+  if (node && typeof node === 'object') {
+    const out: any = {};
+    for (const [k, v] of Object.entries(node)) {
+      if (GEMINI_UNSUPPORTED_SCHEMA_KEYS.has(k)) continue;
+      // Recurse, but do NOT descend into `properties` values' KEYS (they are
+      // property names, not keywords) — recursing their VALUES is correct.
+      out[k] = sanitizeSchemaForGemini(v);
+    }
+    return out;
+  }
+  return node;
+}
 
 export const NARRATIVE_TOOLS: ToolDefinition[] = [
   {

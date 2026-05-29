@@ -32,15 +32,17 @@ export const SLIDE_H_IN = 7.5;
 
 const SOURCE_W_IN_AT_96DPI = FREEFORM_NATIVE_W / 96; // 20"
 export const SOURCE_TO_SLIDE_SCALE = SLIDE_W_IN / SOURCE_W_IN_AT_96DPI; // ~0.6667
+// Per-walk source width (px) — default 1920 freeform iframe; SlideCanvas passes its own.
+let _walkSourceW = FREEFORM_NATIVE_W;
 
 /** px in iframe → inches on slide (uniform scale because 16:9 aspect matches). */
 export function pxToSlideIn(px: number): number {
-    return Math.round((px / FREEFORM_NATIVE_W) * SLIDE_W_IN * 1000) / 1000;
+    return Math.round((px / _walkSourceW) * SLIDE_W_IN * 1000) / 1000;
 }
 
 /** px font size → slide pt (px → pt × source-to-slide downscale). */
 export function pxToSlidePt(px: number): number {
-    return Math.round(px * 0.75 * SOURCE_TO_SLIDE_SCALE * 100) / 100;
+    return Math.round(px * 0.75 * (SLIDE_W_IN / (_walkSourceW / 96)) * 100) / 100;
 }
 
 // ============================================================================
@@ -874,7 +876,7 @@ function parseSvgLetterSpacing(v: string): number | undefined {
     // 150pt of letter spacing, which made every glyph break to its own line
     // in PowerPoint. Convert: SVG letter-spacing in px → points = px × 0.75.
     // Apply source→slide downscale so the spacing tracks the box dimensions.
-    return Math.round(px * 0.75 * SOURCE_TO_SLIDE_SCALE * 100) / 100;
+    return Math.round(px * 0.75 * (SLIDE_W_IN / (_walkSourceW / 96)) * 100) / 100;
 }
 
 // ============================================================================
@@ -1041,6 +1043,8 @@ function parseGradient(s: string, isRadial: boolean): { kind: 'radial' | 'linear
 // ============================================================================
 
 export interface WalkOptions {
+    /** Source width in px of the captured root (px->slide scaling). Defaults to the 1920px freeform iframe; SlideCanvas passes its own. */
+    sourceWidthPx?: number;
     /** Skip elements matching this selector (e.g., the rasterized atmospheric grain). */
     skipSelectors?: string[];
     /** Async rasterizer used for filter-fallback elements (blur, drop-shadow, backdrop-filter, mix-blend-mode). */
@@ -1100,8 +1104,9 @@ function needsRasterFallback(cs: CSSStyleDeclaration): boolean {
     return false;
 }
 
-export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkOptions = {}): Promise<RenderSpec[]> {
-    const doc = iframe.contentDocument;
+export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElement, opts: WalkOptions = {}): Promise<RenderSpec[]> {
+    const _isIframe = (target as any)?.tagName === "IFRAME";
+    const doc = _isIframe ? (target as HTMLIFrameElement).contentDocument : (target as HTMLElement).ownerDocument;
     if (!doc) return [];
     const out: RenderSpec[] = [];
     const skipSelectors = opts.skipSelectors ?? [];
@@ -1113,6 +1118,7 @@ export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkO
     // entrypoint's top-left lands at slide (0, 0). Reset in finally.
     _walkOriginX = opts.originX ?? 0;
     _walkOriginY = opts.originY ?? 0;
+    _walkSourceW = opts.sourceWidthPx ?? FREEFORM_NATIVE_W;
 
     function shouldSkip(el: Element): boolean {
         for (const sel of skipSelectors) {
@@ -1250,7 +1256,7 @@ export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkO
     }
 
     try {
-        walk(opts.entrypoint || doc.body);
+        walk(opts.entrypoint || (_isIframe ? doc.body : (target as HTMLElement)));
         if (rasterTasks.length > 0) await Promise.allSettled(rasterTasks);
         return out;
     } finally {
@@ -1258,5 +1264,6 @@ export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkO
         // the per-section offsets from an earlier per-section walk.
         _walkOriginX = 0;
         _walkOriginY = 0;
+        _walkSourceW = FREEFORM_NATIVE_W;
     }
 }

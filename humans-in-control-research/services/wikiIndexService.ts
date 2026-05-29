@@ -158,11 +158,15 @@ export async function fetchWikiArticles(params: WikiFetchArticlesParams): Promis
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(params),
-            // 45s accommodates proxy-saturation windows during active
-            // collection (up to 10 parallel wiki write + embed calls can
-            // queue the semantic search behind them). Previously 20s,
-            // which timed out on user clicks mid-collection.
-            signal: AbortSignal.timeout(45_000),
+            // 120s accommodates large-corpus semantic search (700+ articles)
+            // queued behind proxy-saturation windows (parallel wiki embed /
+            // regrade-relevance / explore-concepts calls). The proxy itself
+            // allows 300s server-side; the prior 45s client cap aborted
+            // mid-flight on big corpora, so search_corpus returned 0 chunks and
+            // the narrative composer looped endlessly re-retrieving with no
+            // grounding (2026-05-27). A successful first retrieval SHORTENS the
+            // overall flow because the model stops re-calling search_corpus.
+            signal: AbortSignal.timeout(120_000),
         });
         if (!resp.ok) {
             console.warn(`[wikiIndex] fetch-articles failed: HTTP ${resp.status}`);

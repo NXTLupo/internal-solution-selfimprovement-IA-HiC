@@ -56,6 +56,25 @@ FONT_REL_TYPE = "http://schemas.openxmlformats.org/officeDocument/2006/relations
 FONTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "static")
 
 FONT_FAMILIES = [
+    # 2026-05-29 — Added the BRAND DISPLAY faces that were missing (the visible
+    # "brand break" on font-less machines): Bebas Neue (NXT display) + Spectral
+    # (NU display). Text stays EDITABLE (this is font embedding, not raster) per
+    # feedback_pptx_must_stay_editable. NU body (Roboto) embedding still pending
+    # (static TTF sourcing); body falls back to a sans face, far less jarring
+    # than display drift.
+    {
+        "typeface": "Bebas Neue",
+        "pitchFamily": 34,  # swiss display
+        "charset": 0,
+        "regular": "BebasNeue-Regular.ttf",
+    },
+    {
+        "typeface": "Spectral",
+        "pitchFamily": 18,  # roman serif (NU display)
+        "charset": 0,
+        "regular": "Spectral-Regular.ttf",
+        "bold":    "Spectral-Bold.ttf",
+    },
     {
         "typeface": "Archivo",
         "pitchFamily": 34,  # swiss + variable

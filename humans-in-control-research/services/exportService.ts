@@ -40,9 +40,13 @@ const BRAND = {
     gray: '525252',
     lightGray: 'E5E5E5',
     bgGray: 'FAFAFA',
-    // Typography
-    fontFamily: 'Helvetica Neue',
-    fallbackFont: 'Arial',
+    // Typography — 2026-05-29: was Helvetica Neue/Arial (the audit's #1 preview-
+    // vs-export divergence — the deck preview uses Archivo/Bebas, the PPTX used
+    // Arial). Now the brand faces. Text stays editable; on a machine with the
+    // fonts it matches the preview, and the DOM-walker export path embeds them.
+    fontFamily: 'Archivo',
+    fallbackFont: 'Archivo',
+    fontDisplay: 'Bebas Neue',   // display/headline face (titles, hero numbers)
 };
 
 /** Accent color rotation for metric cards in PPTX */

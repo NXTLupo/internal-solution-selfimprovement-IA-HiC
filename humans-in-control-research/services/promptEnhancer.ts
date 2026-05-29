@@ -18,6 +18,7 @@
  */
 
 import { callAIWithRetry } from './aiRetryClient';
+import { parseJSONWithRepair } from './aiOutputRepair';
 
 export interface EnhancePromptResult {
     enhanced: string;
@@ -155,12 +156,14 @@ ${modelRubric}
 </hard_rules>
 
 <output_format>
-Return a single JSON object — no prose before or after, no code fence:
+Return EXACTLY this delimited format, nothing before or after, no code fence, no JSON:
 
-{
-  "enhanced": "<the rewritten prompt, plain text, hashtag placeholders preserved>",
-  "rationale": "<one sentence, ≤ 25 words, naming what you sharpened>"
-}
+<<<ENHANCED>>>
+the rewritten prompt here, plain text, hashtag placeholders preserved, quotes and brackets kept verbatim
+<<<RATIONALE>>>
+one sentence, 25 words or fewer, naming what you sharpened
+
+Do NOT wrap the output in JSON or quotes. The text between the markers is read literally, so you never need to escape quotation marks, brackets, or any other character. Emit the two markers on their own lines exactly as shown.
 </output_format>`;
 }
 
@@ -170,22 +173,48 @@ function buildUserPrompt(strippedInput: string, context?: string): string {
 }
 
 /**
- * Try to parse a JSON object out of the model response. Gemini Flash with
- * responseMimeType=application/json is usually clean, but defensive parsing
- * costs little.
+ * Parse the enhancer response. PRIMARY path is the delimiter format
+ * (<<<ENHANCED>>> ... <<<RATIONALE>>> ...), which sidesteps JSON escaping
+ * entirely — the enhanced prompt is arbitrary user prose full of quotes and
+ * brackets, and wrapping that in JSON is the exact failure mode this replaces
+ * ("Expected ',' or '}' ... in JSON"). Falls back to repair-tolerant JSON
+ * parsing for older/strays responses, then throws so the caller can soft-fail.
  */
+const ENHANCED_MARK = '<<<ENHANCED>>>';
+const RATIONALE_MARK = '<<<RATIONALE>>>';
+
 function parseEnhancerResponse(text: string): { enhanced: string; rationale: string } {
     let cleaned = text.trim();
+    // Strip an accidental code fence if the model added one.
     if (cleaned.startsWith('```')) {
-        cleaned = cleaned.split('```', 3)[1] || cleaned;
-        if (cleaned.startsWith('json')) cleaned = cleaned.slice(4);
-        cleaned = cleaned.trim();
+        const fenceBody = cleaned.split('```').filter(Boolean);
+        cleaned = (fenceBody.length ? fenceBody[fenceBody.length - 1] : cleaned).trim();
+        if (cleaned.toLowerCase().startsWith('json')) cleaned = cleaned.slice(4).trim();
     }
-    const obj = JSON.parse(cleaned);
-    const enhanced = typeof obj?.enhanced === 'string' ? obj.enhanced.trim() : '';
-    const rationale = typeof obj?.rationale === 'string' ? obj.rationale.trim() : '';
-    if (!enhanced) throw new Error('enhancer returned empty "enhanced" field');
-    return { enhanced, rationale };
+
+    // PRIMARY: delimiter format. No escaping, so quote-heavy prompts can't break it.
+    const eIdx = cleaned.indexOf(ENHANCED_MARK);
+    if (eIdx !== -1) {
+        const afterEnhanced = cleaned.slice(eIdx + ENHANCED_MARK.length);
+        const rIdx = afterEnhanced.indexOf(RATIONALE_MARK);
+        const enhanced = (rIdx === -1 ? afterEnhanced : afterEnhanced.slice(0, rIdx)).trim();
+        const rationale = rIdx === -1 ? '' : afterEnhanced.slice(rIdx + RATIONALE_MARK.length).trim();
+        if (enhanced) return { enhanced, rationale };
+    }
+
+    // FALLBACK: repair-tolerant JSON (matches the layer the rest of the pipeline uses).
+    try {
+        const obj = parseJSONWithRepair<{ enhanced?: string; rationale?: string }>(cleaned, {
+            calling_context: 'promptEnhancer',
+        });
+        const enhanced = typeof obj?.enhanced === 'string' ? obj.enhanced.trim() : '';
+        const rationale = typeof obj?.rationale === 'string' ? obj.rationale.trim() : '';
+        if (enhanced) return { enhanced, rationale };
+    } catch {
+        /* fall through to throw below */
+    }
+
+    throw new Error('enhancer response had no parseable enhanced prompt');
 }
 
 export async function enhancePrompt(
@@ -206,37 +235,54 @@ export async function enhancePrompt(
         systemInstruction: { parts: [{ text: systemPrompt }] },
         contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
         config: {
+            // 2026-05-27 — Delimiter output (not JSON), so NO responseMimeType.
+            // The enhanced prompt is arbitrary quote-heavy prose; JSON mode left
+            // inner quotes unescaped and broke parsing ("Expected ',' or '}'").
             temperature: 0.3,
             maxOutputTokens: 2048,
             thinkingBudget: 'low',
-            responseMimeType: 'application/json',
         },
     };
 
-    const data = await callAIWithRetry('gemini', body, { label: 'Prompt Enhancer' });
-    const candidate = (data as any)?.candidates?.[0];
-    const parts = candidate?.content?.parts || [];
-    const text = parts.map((p: any) => p?.text || '').join('').trim();
-    if (!text) {
-        const finishReason = candidate?.finishReason || 'unknown';
-        throw new Error(`Enhancer returned empty content (finishReason=${finishReason})`);
-    }
+    // Enhance is a NICETY, never load-bearing. Any failure (timeout, empty
+    // content, unparseable response) must degrade to the original prompt
+    // unchanged rather than surfacing a scary "Enhance failed" error.
+    try {
+        const data = await callAIWithRetry('gemini', body, { label: 'Prompt Enhancer', maxAttempts: 2 });
+        const candidate = (data as any)?.candidates?.[0];
+        const parts = candidate?.content?.parts || [];
+        const text = parts.map((p: any) => p?.text || '').join('').trim();
+        if (!text) {
+            const finishReason = candidate?.finishReason || 'unknown';
+            throw new Error(`Enhancer returned empty content (finishReason=${finishReason})`);
+        }
 
-    const { enhanced, rationale } = parseEnhancerResponse(text);
-    const restored = restoreHashtags(enhanced, tokens);
+        const { enhanced, rationale } = parseEnhancerResponse(text);
+        const restored = restoreHashtags(enhanced, tokens);
 
-    // Sanity check — every hashtag from the original must appear in the result.
-    const missing = tokens.filter(tok => !restored.includes(tok));
-    if (missing.length > 0) {
-        console.warn('[promptEnhancer] hashtags lost in rewrite, appending:', missing);
-        // Append any lost hashtags rather than discarding them
+        // Sanity check — every hashtag from the original must appear in the result.
+        const missing = tokens.filter(tok => !restored.includes(tok));
+        if (missing.length > 0) {
+            console.warn('[promptEnhancer] hashtags lost in rewrite, appending:', missing);
+            // Append any lost hashtags rather than discarding them
+            return {
+                enhanced: `${restored} ${missing.join(' ')}`.trim(),
+                rationale: `${rationale} (recovered ${missing.length} hashtag${missing.length > 1 ? 's' : ''})`,
+                model: ENHANCER_MODEL,
+                elapsed_ms: Date.now() - t0,
+            };
+        }
+
+        return { enhanced: restored, rationale, model: ENHANCER_MODEL, elapsed_ms: Date.now() - t0 };
+    } catch (err: any) {
+        // Soft-fail: return the original prompt unchanged. Enhance is optional;
+        // a failed rewrite must never block the user or show a red error box.
+        console.warn('[promptEnhancer] enhance failed, returning original unchanged:', err?.message || err);
         return {
-            enhanced: `${restored} ${missing.join(' ')}`.trim(),
-            rationale: `${rationale} (recovered ${missing.length} hashtag${missing.length > 1 ? 's' : ''})`,
+            enhanced: trimmed,
+            rationale: 'Kept your prompt as-is (enhancer unavailable).',
             model: ENHANCER_MODEL,
             elapsed_ms: Date.now() - t0,
         };
     }
-
-    return { enhanced: restored, rationale, model: ENHANCER_MODEL, elapsed_ms: Date.now() - t0 };
 }
