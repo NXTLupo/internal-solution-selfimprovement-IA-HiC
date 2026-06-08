@@ -175,7 +175,7 @@ This block is applied identically across every artifact-expert skill. Where a sk
 ### Action-title floor (HARD)
 - Every top-level title/heading is a **complete sentence stating a finding with data** — not a topic label.
 - BAD: "The Landscape", "Key Findings", "Recommendations", "Our Strategy", "Market Overview"
-- GOOD: "First-year attrition costs Northeastern $9.2M annually and concentrates in three majors"
+- GOOD: "Disconnected systems force staff into manual rework instead of the work that creates value"
 - Title test: a partner reading ONLY the titles of every record in the artifact must understand the complete argument. If they can't, REJECT and rewrite.
 
 ### Specificity floor (HARD)
@@ -209,3 +209,134 @@ This block is applied identically across every artifact-expert skill. Where a sk
 6. Density floor for this artifact type met? If no, REJECT and expand.
 
 If any check fails, regenerate — do not ship the artifact.
+
+
+## Dimensional Extensibility Contract
+
+The hand-authored exemplar for this deliverable is a FLOOR, not a ceiling. It shows the
+minimum viable shape; a real engagement should grow the artifact to the depth the data
+and the client conversation justify. Treat every dimension below as an axis to populate
+when there is evidence, and to expand on request.
+
+### Dimensions this artifact can carry
+- theme name (human language)
+- thesis
+- prevalence across the corpus
+- sentiment (weighted)
+- evidence excerpts (verbatim + named source)
+- contradictions / tensions
+- sub-themes
+- temporal arc (how it has shifted)
+- affected segments / stakeholders
+- interpretation (what it means)
+- convergent vs divergent sources
+- citations
+
+### When to add or deepen a dimension
+1. EVIDENCE-DRIVEN (default). For each dimension above, populate it when the corpus /
+   manifest contains supporting evidence (a named source plus a verbatim quote or named
+   entity). More evidence means more dimensions populated and more items per dimension:
+   volume of insight is proportional to volume of data (see the yield ledger). Never pad
+   to fill a dimension; if the evidence is not there, omit the dimension rather than
+   fabricate (No-Fabrication rule), and record it as available-on-future-data.
+2. REQUEST-DRIVEN. When the user asks for changes or additions in the AI Analyst Desk
+   chat or the Designer Chat, treat the request as authoritative. Add or expand the named
+   dimension, re-grounding it in corpus evidence. If the user asks for a dimension the
+   corpus cannot support, say so plainly and offer to ingest sources that would; do not
+   invent content to satisfy the request.
+3. SURGICAL RE-GENERATION. A chat-driven update is additive and anchored: preserve the
+   approved content the user has not asked to change, modify only the named dimension
+   (the reinforcement-inference anchored re-ask pattern). Do not silently rewrite the
+   whole artifact on a scoped request.
+
+### Invariants every added dimension must still satisfy
+- Citation protocol: named sources, verbatim quotes; numbers only inside cited quotes
+  (Quantitative Claim Rule).
+- No slop, no meta-narration, no reporting-depth chrome.
+- Purposeful color (red = pain, teal = need/fix, neutral = structure), block anchoring,
+  AA contrast: the house style holds at any depth.
+- The deliverable stays on-objective; added dimensions serve the engagement goal.
+
+This is what makes the exemplars elegantly extensible: the same skill renders a thin
+first pass on sparse data and a deep, multi-dimensional artifact on a rich corpus or an
+engaged analyst, without a different code path.
+
+
+## Representative-Content Firewall (exemplar vs real artifact)
+
+A gold-standard EXEMPLAR for this deliverable lives in `hic-workspace/wiki/eval/exemplars/`. It uses
+REPRESENTATIVE content to demonstrate the artifact's full dimensional depth, layout, and house style.
+The exemplar's specific values (names, quotes, ratings, numbers, peer entities) are ILLUSTRATIVE
+samples, NOT facts to reuse.
+
+When generating a REAL artifact:
+- Query the MANIFEST first to know what the corpus actually holds; populate every dimension ONLY from
+  corpus-evidenced material (named source + verbatim quote or named entity).
+- NEVER copy the exemplar's sample values, and NEVER invent data to match the exemplar's depth. If the
+  corpus does not support a dimension, OMIT it or mark it explicitly (e.g. the competitive matrix marks
+  a silent cell "No signal") -- do not hallucinate to fill the shape (No-Fabrication rule).
+- Match the exemplar's STRUCTURE, dimensional coverage, and house style; do not match its CONTENT.
+- Depth is proportional to evidence: a thin corpus yields a smaller (still honest) artifact; a rich
+  corpus fills more dimensions and more items. Representative depth in the exemplar is the ceiling of
+  FORM, never a quota to fabricate toward.
+
+## Visual Output (GOLD design language)
+
+Render to the canonical GOLD visual language. Full spec: `hic-workspace/wiki/design-system/gold-visual-language.md`.
+Your reference twin(s): `themes-nu.html` / `themes-nxt.html` in `hic-workspace/wiki/design-system/gold/`.
+
+Layout: Column per theme: num + name + thesis + prevalence (DOMINANT/RECURRING) + sentiment + sub-themes + verbatim quote with SOURCE. Tension line per theme. Six-lens scan note.
+
+Invariants (from the spec): 1920x1080 stage, brand rail + 3x3 dot mark, IBM Plex Mono kicker,
+serif(NU)/Archivo(NXT) action-title h1, dark takeaway band with exactly one accent-bold phrase.
+Color is meaning (accent = pain/critical/diagnosis; cool = need/target/fix/source; neutral = structure).
+NO eyebrow microlabels that color/position already convey (WHAT FRUSTRATES THEM, WHAT THEY NEED,
+DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent; the language is fixed.
+
+---
+
+## §N — Cached-selection contract (2026-06-06, MANDATORY)
+
+When the engagement manifest carries `cached_selection.theme_cluster_ids[]` (the
+user explicitly selected prior themes via the Knowledge Library), the
+`assembleEnhancedPrompt()` function injects a `PRIOR CACHED SELECTION` block
+into your system prompt. You MUST honor it:
+
+1. For each theme in your emitted `themes[]` array, set a `source` field:
+   - `"cached"`   — carried forward unchanged from the user's selection (same
+     cluster_id, same name, same evidence; you reviewed it and confirmed it
+     applies to the current corpus).
+   - `"extended"` — carried forward with refinement (same cluster_id; the
+     insight or evidence has been deepened with new corpus passages).
+   - `"new"`      — entirely from the new corpus, not in the selected set.
+
+2. **NO FLOORS, NO OMISSIONS — 100% coverage required.** EVERY one of
+   the user's selected items below MUST appear in your emission tagged
+   `source: cached` or `source: extended`. The user explicitly curated
+   them via the Knowledge Library; the manifest is the binding contract;
+   silent omission of any selected id is rejected by the Stop hook
+   `validate_cached_selection_honored.py` (coverage threshold raised
+   from 60% to 100% on 2026-06-06). New corpus discoveries go in IN
+   ADDITION to the cached set as `source: new`.
+
+
+3. **Net-new items are additive, no floor or ceiling.** New themes /
+   personas / recs / etc. discovered in the current corpus go in as
+   `source: new` IN ADDITION to (never in place of) the carried-
+   forward cached set. There is no minimum on net-new; whatever the
+   evidence supports.
+
+
+4. **Why this matters.** The user spent time curating the Knowledge Library
+   selection. Regenerating themes from scratch — even higher-quality ones —
+   ignores their curation work and breaks the recursive self-improvement loop
+   (cached themes are how prior runs compound; ignoring them = each run starts
+   from zero). The four-tuple {cached + extended + new + KPI evidence} is the
+   product.
+
+5. **What appears in the trace.** The themes-deliverable-auditor reads
+   `themes[].source` and computes `cached_selection_coverage_pct =
+   (count(source IN ['cached','extended']) / total_selected_theme_ids) * 100`.
+   This becomes a qualityFrontier dim (`cached_selection_coverage_pct`,
+   direction: maximize, floor: 100). The epoch proposer mines low-coverage
+   patterns as candidate skill-edit interventions.

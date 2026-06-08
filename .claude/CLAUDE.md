@@ -41,6 +41,17 @@ This file loads into every Claude agent session. All skills and subagents inheri
 4. At least 60% of cited sources must be external (not client uploads)
 5. FORBIDDEN: Opening any section with "The CLR Project Charter states..." without prior external evidence
 
+### Evidence-Label Rule (Mandatory)
+Whenever an artifact LABELS something "Evidence" (a heading, a tile, a section, a field), that
+label MUST be immediately followed by a VERBATIM quote drawn from the corpus, an article snippet
+or a social post, with its source attribution. The quote does NOT have to be from a named human
+speaker; a verbatim sentence lifted from an article is fine. A paraphrase, a summary, or the model's
+own description under an "Evidence" label is FORBIDDEN. If no verbatim corpus quote is available,
+do not use the word "Evidence" as the label.
+- Do NOT use "Evidence" as a label for things that are not research evidence. The service-blueprint
+  "physical/digital evidence" lane is touchpoints, not corpus evidence; label it "Touchpoints" (or
+  "Channels") to avoid the collision.
+
 ### CRITICAL: External Intelligence Diversity
 The research corpus contains TWO categories:
 - **UPLOADED CLIENT DOCUMENTS** (3-10 PDFs the user uploaded): Organizational context

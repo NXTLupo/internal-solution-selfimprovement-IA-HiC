@@ -212,6 +212,15 @@
             "timeout": 15
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/dispatch_validators.py"
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -222,6 +231,18 @@
             "type": "command",
             "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/inject_active_constraints_and_patterns.py",
             "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/session_start_context.py",
+            "timeout": 10
           }
         ]
       }

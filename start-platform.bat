@@ -62,10 +62,10 @@ if %errorlevel% equ 0 (
     )
 )
 
-REM Use the correct docker-compose file
+REM Use the correct docker-compose file (always --build so local Dockerfile changes ship)
 echo.
-echo Starting all services using docker-compose-all.yml...
-docker compose -f docker-compose-all.yml up -d
+echo Starting all services using docker-compose-all.yml (with --build)...
+docker compose -f docker-compose-all.yml up -d --build
 
 if %errorlevel% equ 0 (
     echo.

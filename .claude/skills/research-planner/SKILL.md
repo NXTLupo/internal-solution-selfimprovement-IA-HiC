@@ -89,3 +89,50 @@ max_iterations: 6
 - **After approval:** `services/researchFabricOrchestrator.ts` wraps the existing collection in an iteration loop with the reflector
 - **Reflector:** uses `critic-revise-loop` primitive — reflector is the critic, planner is the revisor
 - **Persistence:** approved plan + reflection trace persist to `engagements/<slug>/research_log.json` for audit
+
+## Visual Output (GOLD design language)
+
+Render to the canonical GOLD visual language. Full spec: `hic-workspace/wiki/design-system/gold-visual-language.md`.
+Your reference twin(s): `research-plan-nu.html` / `research-plan-nxt.html` in `hic-workspace/wiki/design-system/gold/`.
+
+Layout: Plan meta row (budget cap, max iterations, reflection, human gate). Sub-question rows: big numeral + question (serif) + source strategy. Takeaway states the human-in-control plan-edit gate.
+
+Invariants (from the spec): 1920x1080 stage, brand rail + 3x3 dot mark, IBM Plex Mono kicker,
+serif(NU)/Archivo(NXT) action-title h1, dark takeaway band with exactly one accent-bold phrase.
+Color is meaning (accent = pain/critical/diagnosis; cool = need/target/fix/source; neutral = structure).
+NO eyebrow microlabels that color/position already convey (WHAT FRUSTRATES THEM, WHAT THEY NEED,
+DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent; the language is fixed.
+
+---
+
+## Cached-selection contract (2026-06-06, MANDATORY)
+
+When the engagement manifest carries `cached_selection.theme_cluster_ids[]` or
+`cached_selection.engagement_slugs[]` (the user explicitly selected prior
+artifacts via the Knowledge Library), the `assembleEnhancedPrompt()` function
+injects a `PRIOR CACHED SELECTION` block into your system prompt.
+
+1. For each emitted item, set a `source` field:
+   - `"cached"`   — carried forward unchanged from the user's selection
+   - `"extended"` — carried forward with refinement on the new corpus
+   - `"new"`      — from the new corpus, not in the selection
+
+2. **NO FLOORS, NO OMISSIONS — 100% coverage required.** EVERY one of
+   the user's selected items below MUST appear in your emission tagged
+   `source: cached` or `source: extended`. The user explicitly curated
+   them via the Knowledge Library; the manifest is the binding contract;
+   silent omission of any selected id is rejected by the Stop hook
+   `validate_cached_selection_honored.py` (coverage threshold raised
+   from 60% to 100% on 2026-06-06). New corpus discoveries go in IN
+   ADDITION to the cached set as `source: new`.
+
+
+3. **Why this matters.** The user curated the Knowledge Library selection
+   deliberately. Regenerating from scratch ignores their curation and breaks
+   the recursive self-improvement loop. The product is
+   `{cached + extended + new}`, not `{new alone}`.
+
+4. **Trace + frontier.** The per-deliverable auditor reads `items[].source`
+   and computes `cached_selection_coverage_pct` as a qualityFrontier dim
+   (direction: maximize, floor: 100). Epoch proposer mines low-coverage
+   patterns as candidate skill-edit interventions.

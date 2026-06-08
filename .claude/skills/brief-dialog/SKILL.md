@@ -113,3 +113,50 @@ Same `(topic, corpus_hash, brand)` → same dialogue. Uses Sonnet 4.6 at tempera
 - **Export:** PDF via existing `export-paint-sync` path
 - **Optional v2:** Send transcript to ElevenLabs v3 with two distinctly non-celebrity voices; persist MP3 to artifact library. DEFER this until legal review on synthetic-voice precedent.
 - **Pairs with:** `critic-revise-loop` if user runs `#brief-dialog-refine` — `contradiction-finder` critic verifies no internal contradictions in the dialogue
+
+## Visual Output (GOLD design language)
+
+Render to the canonical GOLD visual language. Full spec: `hic-workspace/wiki/design-system/gold-visual-language.md`.
+Your reference twin(s): `brief-dialog-nu.html` / `brief-dialog-nxt.html` in `hic-workspace/wiki/design-system/gold/`.
+
+Layout: Two-voice transcript: SKEPTICAL PARTNER (accent) vs CURIOUS STRATEGIST (cool), turns on hairline rows, embedded verbatim quote in mono. Takeaway states the concession + final stance.
+
+Invariants (from the spec): 1920x1080 stage, brand rail + 3x3 dot mark, IBM Plex Mono kicker,
+serif(NU)/Archivo(NXT) action-title h1, dark takeaway band with exactly one accent-bold phrase.
+Color is meaning (accent = pain/critical/diagnosis; cool = need/target/fix/source; neutral = structure).
+NO eyebrow microlabels that color/position already convey (WHAT FRUSTRATES THEM, WHAT THEY NEED,
+DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent; the language is fixed.
+
+---
+
+## Cached-selection contract (2026-06-06, MANDATORY)
+
+When the engagement manifest carries `cached_selection.theme_cluster_ids[]` or
+`cached_selection.engagement_slugs[]` (the user explicitly selected prior
+artifacts via the Knowledge Library), the `assembleEnhancedPrompt()` function
+injects a `PRIOR CACHED SELECTION` block into your system prompt.
+
+1. For each emitted item, set a `source` field:
+   - `"cached"`   — carried forward unchanged from the user's selection
+   - `"extended"` — carried forward with refinement on the new corpus
+   - `"new"`      — from the new corpus, not in the selection
+
+2. **NO FLOORS, NO OMISSIONS — 100% coverage required.** EVERY one of
+   the user's selected items below MUST appear in your emission tagged
+   `source: cached` or `source: extended`. The user explicitly curated
+   them via the Knowledge Library; the manifest is the binding contract;
+   silent omission of any selected id is rejected by the Stop hook
+   `validate_cached_selection_honored.py` (coverage threshold raised
+   from 60% to 100% on 2026-06-06). New corpus discoveries go in IN
+   ADDITION to the cached set as `source: new`.
+
+
+3. **Why this matters.** The user curated the Knowledge Library selection
+   deliberately. Regenerating from scratch ignores their curation and breaks
+   the recursive self-improvement loop. The product is
+   `{cached + extended + new}`, not `{new alone}`.
+
+4. **Trace + frontier.** The per-deliverable auditor reads `items[].source`
+   and computes `cached_selection_coverage_pct` as a qualityFrontier dim
+   (direction: maximize, floor: 100). Epoch proposer mines low-coverage
+   patterns as candidate skill-edit interventions.

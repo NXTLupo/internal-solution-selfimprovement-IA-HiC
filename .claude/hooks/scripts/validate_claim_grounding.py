@@ -285,9 +285,35 @@ def main():
     report = score_deliverable(data)
     append_shadow_log(report)
 
-    # SHADOW MODE: never block. Once shadow comparison validates the approach,
-    # change `sys.exit(0)` below to `sys.exit(2 if report['score'] < 0.85 else 0)`
-    # and update validate_evidence_tier_distribution alongside.
+    # 2026-06-06 — Promoted from SHADOW to soft-BLOCK mode for themes /
+    # personas / recommendations per the architecture audit Bug 3
+    # (observed 82% fabrication rate on themes). The block threshold is
+    # intentionally conservative (0.50, not 0.85) so we don't over-reject
+    # while the corpus retrieval is being tuned. Only rejects when the
+    # deliverable is a research deliverable AND its score is below 0.50.
+    # For non-research deliverables OR when score >= 0.50, exit 0.
+    deliverable_kind = (report.get("deliverable_kind") or "").lower()
+    score = report.get("score", 1.0)
+    is_research_deliverable = deliverable_kind in (
+        "themes", "personas", "recommendations", "strategy", "report",
+        "explainer", "case-study", "gap", "competitive"
+    )
+    if is_research_deliverable and isinstance(score, (int, float)) and score < 0.50:
+        rejection = {
+            "ok": False,
+            "block": True,
+            "reason": (
+                f"Citation grounding score {score:.2f} below floor 0.50 for "
+                f"{deliverable_kind} deliverable. Significant share of emitted "
+                f"quotes could not be matched against the corpus (likely "
+                f"fabrication). Re-generate with explicit instruction to cite "
+                f"only quotes that appear verbatim in retrieved [CHUNK_XXX] "
+                f"passages; if a claim has no corpus quote, paraphrase + cite "
+                f"the source by name, do not invent a quote."
+            ),
+        }
+        print(json.dumps(rejection))
+        sys.exit(2)
     sys.exit(0)
 
 

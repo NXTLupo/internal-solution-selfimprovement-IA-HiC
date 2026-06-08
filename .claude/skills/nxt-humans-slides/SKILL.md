@@ -72,3 +72,58 @@ After generating, always convert to images and inspect. View each slide. Check f
 - `references/anti-slop-checklist.md` — 15-item pre-delivery quality gate
 - `assets/nxt-tokens.js` — importable JS module with every color, font, size, spacing value
 - `scripts/generate-deck.js` — reference generator implementing all 15 templates as functions
+
+---
+
+## #NU brand variant (added 2026-06-06)
+
+The Northeastern (NU) brand uses the same 15-template structure but different tokens. Apply these substitutions globally when the user invokes `#NU` (alone or as a modifier on `#presentation`):
+
+| Token | NXT | NU |
+|-------|-----|-----|
+| Display font | Bebas Neue | Roboto Condensed |
+| Body font | Archivo | Open Sans |
+| Quote font | JetBrains Mono | Spectral (editorial italic) |
+| Primary accent | Chartreuse `B8B800` | Huskies Red `C8102E` |
+| Secondary accent | Cyan `00B7C3` | Near-black `1A1A1A` |
+| Negative/error | Rust `CC6644` | Rust `CC6644` (shared) |
+| Background | White `FFFFFF` | White `FFFFFF` |
+| Primary text | Black `0D0D0D` | Black `000000` |
+| Corner radius | 2px | 2px (shared sharp geometry) |
+
+Hard rules 1-10 above apply identically to NU; only the token values change. The geometry, the 70/20/10 color dominance rule, the chart conventions, and the anti-slop checklist transfer wholesale.
+
+---
+
+## #presentation hashtag routing (added 2026-06-06)
+
+The `#presentation` hashtag (alone or with `#NU` / `#NXT` brand modifiers) emits a `PresentationPayload` from `services/narrativeComposer.ts` and ships it to the `presentation-renderer:5014` container (NOT to the inline SPA SlideCanvas). The renderer is a separate scroll-driven React 19 + framer-motion service, forked from the Inner Focus codebase, that produces a polished standalone presentation.
+
+When `#presentation` is invoked:
+
+1. The narrative composer assembles a `PresentationPayload` (see `services/presentationTypes.ts` for the shape) — title, sections, per-section content blocks.
+2. The payload is POSTed to `presentation-renderer:5014`.
+3. The renderer applies brand tokens (NXT or NU per the modifier) via CSS variables and renders.
+4. PPTX export from the renderer goes through `services/presentationToPptx.ts` (NOT the gold pipeline) since the renderer's layout primitives differ from the 1920×1080 #stage shell.
+
+**The 15 templates in §1-§15 of this skill do NOT apply directly to `#presentation`.** They apply to:
+- Inline `:::slide template=X` JSON blocks in chat replies
+- `#brief #slides #NXT` / `#strategy #slides #NXT` deck composition (which use the slideTemplates/web.tsx renderer + the gold PPTX pipeline)
+- `#NXT` brand-locked slide generation outside the chat
+
+For `#presentation`, defer to the presentation-renderer's section components (`Hero`, `KeyMetrics`, `EvidenceQuote`, `Recommendation`, `Closing`). The brand-token swap rules above (NXT vs NU) still apply.
+
+**Current status (2026-06-06):** the presentation-renderer container exists with the brand token CSS variable swap working; section components are scaffolding. Until section components are filled in, `#presentation` outputs may render as styled-but-empty sections. Track in `humans-in-control-research/CLAUDE.md` "Presentation render target" section.
+
+---
+
+## Anti-slop discipline specific to NXT/NU slide decks
+
+Beyond the 10 hard rules above:
+
+1. **No reading-instruction kickers** (per 2026-06-06 user report): banned patterns include "HOW TO READ THIS", "One frame per phase", "Each row represents", "The chart below shows". Lead with the conclusion, not with instructions on how to consume it.
+2. **No metaphor titles** (per 2026-06-06): banned families include clock/time ("until the clock is running"), journey-as-metaphor ("the road ahead", "long road"), construction ("building blocks", "lay the foundation"), war/sports ("battlefield", "playbook"), anthropomorphism ("prep feels abstract", "the system wants"). Plain descriptive titles only.
+3. **No standalone numbers in titles** (Quantitative Claim Rule). A KPI tile may show a number when accompanied by a verbatim quote with attribution. A title with "35%" in it without an inline cited quote = banned.
+4. **Action titles, not topic labels.** "Students apply to 100+ co-ops in the first cycle" not "The Application Phase".
+
+These rules are also enforced at runtime by `services/slidePostProcessor.ts` (METAPHOR_PATTERNS + META_NARRATION_PATTERNS, added 2026-06-06) and by the Hook Bus dispatcher (`.claude/hooks/scripts/dispatch_validators.py`) routing to `validate_titles.py`, `validate_no_em_dashes.py`, `validate_slide_variety.py` for the `#presentation` deliverable per `.claude/ARCHITECTURE.md`.

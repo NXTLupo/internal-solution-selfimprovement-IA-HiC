@@ -41,33 +41,33 @@ The canvas is 960×540 (16:9). The renderer DOES truncate overflow, but truncati
 ```
 :::slide template=theme-spotlight
 {
-  "title": "Trust erosion before contact dominates the dataset — 3 corroborating signals follow",
-  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","r/highereducation"],
+  "title": "Trust erosion before first contact dominates the dataset, with 3 corroborating signals",
+  "sources": ["G2 Reviews","Industry Analyst Brief","Customer Forum","Support Tickets"],
   "themeCluster": {
     "themes": [
       {
-        "name":"Co-op scarcity is breaking the experiential promise",
-        "insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition. This signal recurs in 47 of 312 sampled posts (15%) and is the single most-cited grievance across r/NEU threads in the last 12 months.",
-        "evidence":"Two years. No TA. No RA. No co-ops. No internships. The whole reason I picked Northeastern is gone and nobody will answer me on what's happening.",
-        "source":"r/NEU",
-        "implication":"Advancement can't ask the cohort for donations in 10 years if the experiential promise breaks during enrollment."
+        "name":"Onboarding friction breaks the early-value promise",
+        "insight":"Reviewers repeatedly cite slow, manual setup as the top complaint, undercutting the value proposition that justifies the price. It recurs as the single most-cited grievance across sampled reviews in the last 12 months.",
+        "evidence":"Three weeks to get set up. No guided import, no template, no answer from support. The whole reason we bought this is gone.",
+        "source":"Customer Forum",
+        "implication":"Renewal conversations fail later if the product never delivers value during onboarding."
       },
       {
-        "name":"Tuition skepticism is eroding the future donor base",
-        "insight":"The cohort Advancement must convert enters alumni status already disillusioned with ROI. Gen Z cohort data shows 54% of graduates skeptical of degree value vs 22% for Millennials at the same career stage.",
-        "evidence":"Most Gen Z graduates now think college was a waste of money.",
-        "source":"r/highereducation",
-        "signal":"54% Gen Z ROI skepticism (vs 22% Millennial)"
+        "name":"Price skepticism is eroding the renewal base",
+        "insight":"The accounts the team must renew enter the cycle already doubting ROI, putting every expansion conversation on the defensive.",
+        "evidence":"Most of my team thinks the seats we bought were a waste of money.",
+        "source":"Support Tickets",
+        "signal":"ROI skepticism concentrated in accounts up for renewal"
       },
       {
-        "name":"Political posture is now a giving variable",
-        "insight":"Public university statements directly shape whether alumni open or close their wallets. CASE 2024 tracked a 12-point swing in giving intent tied to institutional political statements across 14 surveyed schools.",
-        "evidence":"President Aoun joins more than 320 university leaders in a joint statement — I'm canceling my monthly pledge until I see what this means.",
-        "source":"r/NEU",
-        "signal":"12-pt giving-intent swing per political statement"
+        "name":"Vendor posture is now a buying variable",
+        "insight":"Public vendor positioning directly shapes whether buyers advance or stall a deal.",
+        "evidence":"We're pausing the contract until we understand what this policy change means for us.",
+        "source":"Industry Analyst Brief",
+        "signal":"Deal stalls tied to vendor positioning changes"
       }
     ],
-    "patternSignal":"Three independent signals converge on one mechanism: trust leaks during enrollment, compounds through graduation, and Advancement never sees it because the data layer can't assemble a unified donor view."
+    "patternSignal":"Three independent signals converge on one mechanism: trust leaks during onboarding, compounds through the contract term, and the vendor never sees it because the data layer can't assemble a unified account view."
   }
 }
 :::

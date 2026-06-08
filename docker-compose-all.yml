@@ -172,7 +172,10 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - PORT=8000
-      - ANTHROPIC_MODEL=claude-opus-4-5-20251101
+      # 2026-06-03 — standalone Journey Mapper upgraded to Opus 4.8 (1M context).
+      # Opus 4.8 rejects sampling params; claude_api_wrapper strips temperature
+      # for opus-4-8 (see _model_deprecates_temperature) so calls don't 400.
+      - ANTHROPIC_MODEL=claude-opus-4-8
     volumes:
       - ./internal-solutions-journeymapper/static:/app/static
       - ./internal-solutions-journeymapper/journey_maps:/app/journey_maps
@@ -292,6 +295,7 @@ services:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
       - USE_WHISPER_API=true
       - PORT=5000
     volumes:
@@ -441,7 +445,10 @@ services:
       # restored if you want to switch back. Other valid values:
       # `openai-large` (text-embedding-3-large, 3072 dims) or `voyage`
       # (voyage-3, 1024 dims, requires VOYAGE_API_KEY).
-      - EMBED_PROVIDER=${EMBED_PROVIDER:-gemini}
+      # 2026-06-03 — default local (quota-free sentence-transformer on the
+      # social-research-backend) so retrieval never starves on Gemini 429s.
+      # Override to gemini/openai/voyage via the EMBED_PROVIDER env if desired.
+      - EMBED_PROVIDER=${EMBED_PROVIDER:-local}
     volumes:
       - ./humans-in-control-research/proxy:/app
       # S8: mount full hic-workspace so the scheduler can read youtube-channels.json

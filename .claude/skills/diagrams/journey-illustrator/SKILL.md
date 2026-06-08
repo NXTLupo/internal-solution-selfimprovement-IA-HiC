@@ -118,7 +118,7 @@ If the corpus does not evidence a quantified headline finding, surface the stron
 - Persona names must reuse the names from any persona deliverable already generated for this engagement. If none exist, derive 2-3 personas from the corpus.
 
 ### Overall pain points / opportunities
-- 3-5 entries each. JOURNEY-level patterns, not phase-level (those live in cells). Each entry carries an inline source citation in parentheses, e.g. "Students discover co-op timing conflicts mid-semester, after committing to courses (Reddit: r/cscareerquestions; OpenAlex: Chen 2024)."
+- 3-5 entries each. JOURNEY-level patterns, not phase-level (those live in cells). Each entry carries an inline source citation in parentheses, e.g. "Buyers discover integration gaps late, after committing to the platform (G2 Reviews; Industry Analyst Brief 2024)."
 - Opportunities live HERE in the dashboard. They do NOT live inside body cells - the cells describe today's friction, the dashboard summarizes where the recommendations could intervene.
 
 ### KPI tiles
@@ -146,7 +146,7 @@ If the corpus does not evidence a quantified headline finding, surface the stron
       <div class="ctext">One complete sentence: subject + verb + outcome.</div>
       <div class="tp"><span class="ch">CHANNEL</span> Named touchpoint, importance N/10</div>
       <div class="emo" data-intensity="62">Anxious - reason in one clause</div>
-      <blockquote class="vq">"Verbatim quote pulled from the corpus."<cite>Source: r/cscareerquestions, 2024-09</cite></blockquote>
+      <blockquote class="vq">"Verbatim quote pulled from the corpus."<cite>Source: Customer Forum, 2024-09</cite></blockquote>
       <div class="pain">One short clause naming a specific friction with a number, system, or proper noun</div>
     </div>
     <div class="cell">...</div>
@@ -166,7 +166,7 @@ If the corpus does not evidence a quantified headline finding, surface the stron
 - `.pname` - concrete behavioral event (NOT a gerund category). Examples: `Submission`, `Interview cycle`, `Decision`, `Skill triage`.
   - BAD: `Application`, `Assessment`, `Preparation` - gerund categories.
   - BAD: `Phase 0X · Wk YY-ZZ` - reporting-depth metadata, banned 2026-05-25.
-- `.psys` - optional system callouts (`NUworks · Handshake`).
+- `.psys` - optional system callouts (the named systems the corpus references for this phase).
 
 ### Focal phase
 - Exactly ONE `.phase-head.focal` per journey. Do not mark multiple phases as focal. The `.cell.focal` for that column also gets the tinted background, creating a vertical "spotlight" through the grid.
@@ -178,7 +178,7 @@ Each cell carries up to five internal elements, vertically stacked. To prevent l
 
 1. **`.ctext` (REQUIRED)** - ONE complete sentence describing what the actor does in this phase. Subject + verb + outcome. Max ~110 chars. Never a gerund fragment.
 
-2. **`.tp` (RECOMMENDED)** - ONE named touchpoint with channel and importance. Format: `<span class="ch">CHANNEL</span> Touchpoint name (importance N/10)`. CHANNEL is one of `DIGITAL`, `IN-PERSON`, `PHONE`, `MAIL`, `SOCIAL`, `PORTAL`, `EMAIL`, etc. Touchpoint name is the specific system or interaction (e.g., "NUworks job board", "Career Center walk-in", "Slack #internships channel"). Importance is corpus-evidenced where possible; if not evidenced, omit the number.
+2. **`.tp` (RECOMMENDED)** - ONE named touchpoint with channel and importance. Format: `<span class="ch">CHANNEL</span> Touchpoint name (importance N/10)`. CHANNEL is one of `DIGITAL`, `IN-PERSON`, `PHONE`, `MAIL`, `SOCIAL`, `PORTAL`, `EMAIL`, etc. Touchpoint name is the specific system or interaction the corpus names (e.g., a named portal or job board, an in-person desk, a Slack channel). Importance is corpus-evidenced where possible; if not evidenced, omit the number.
 
 3. **`.emo` (RECOMMENDED)** - ONE emotion + intensity for the actor at this phase. Format: emotion name + ` - ` + one-clause reason. The intensity (0-100) goes in `data-intensity="N"` on the element; the CSS renders it as a width bar OR color gradient. Emotions: `Frustrated`, `Anxious`, `Skeptical`, `Determined`, `Neutral`, `Hopeful`, `Engaged`, `Delighted`. Intensity scale: 0-20 (very low), 21-40 (low), 41-60 (medium), 61-80 (high), 81-100 (very high).
 
@@ -327,3 +327,70 @@ The renderer ships both brand variants from the same data JSON. The model emits 
 - `.claude/hooks/scripts/validate_freeform_structure.py` and the validators it dispatches enforce structural rules at Stop. The §5 depth contract maps to validator gates.
 
 The skill markdown alone is not the contract - the contract is the skill + the schema + the validators + the rendering layer agreeing on the same cell anatomy. Updating any one of those requires updating all four.
+
+---
+
+## 13. #slides emission contract (2026-06-06, MANDATORY)
+
+When the user invokes `#journey` together with `#slides` (any brand), the
+output is a slide DECK, not a single-page artifact. The deck has a
+mandatory composition. Skipping any rule fails the Stop hook
+`validate_journey_overview_slide.py` and the deliverable is rejected.
+
+### 13.1 Mandatory slide sequence
+
+| # | Slide kind | Mandatory? | Content contract |
+|---|------------|------------|------------------|
+| 1 | Title / cover | Yes | The diagnostic action-title (a judgment, not a topic) plus the persona/standfirst line. No metadata strip, no corpus counts. |
+| 2 | **JOURNEY OVERVIEW DIAGRAM** | **YES — STOP HOOK REJECTS DECKS THAT SKIP THIS** | A SINGLE slide showing ALL phases at once as a horizontal phase strip (one column per phase, left-to-right). Each column carries: phase number + phase name, a one-line phase summary, the dominant pain label, and the qualitative emotion label (one word, never a curve). This is the reader's MAP of the whole journey before drilling into individual phases. Class hooks: `.nxt-process` for ≤5 phases, `.nxt-grid` of `.nxt-card` for >5 phases. NO emotion curve. NO chart. |
+| 3 | KPI dashboard | Yes | 3-4 KPI tiles, large. Drawn from the journey-level dashboard contract in §3. |
+| 4..N | Per-phase deep-dive | One per phase | Each carries that phase's activities, named pains (with severity + frequency), 2-3 VERBATIM quotes with source attribution, the touchpoint, and the qualitative emotion label. |
+| N+1 | Synthesis | Yes | Cross-cutting pains paired by name with opportunities. |
+| N+2 | Source index | Yes | Clean named-source list per §11 of the skill. |
+
+### 13.2 Why the overview-diagram slide is non-negotiable
+
+The journey artifact is a MAP. Readers consume maps by seeing the whole
+territory first, then drilling into specific cells. A deck that opens with
+per-phase deep-dives without the overview forces readers to assemble the
+journey in their head from N sequential slides. The overview slide is
+the reader's orienting frame. The Stop hook reads the rendered deck and
+fails it if no slide between positions 1 and 3 contains all phase names.
+
+### 13.3 Anti-slop rules SPECIFIC to journey #slides
+
+These are stricter than the general anti-slop rules in `.claude/CLAUDE.md`
+because journey #slides have historically been the highest-slop deliverable:
+
+1. **No structure-description sentences.** Banned: "HOW TO READ THIS",
+   "One frame per phase", "Each row represents…", "The chart below shows…",
+   "evidenced by student voices from r/X" (the last as a structural
+   description; verbatim quotes with attribution remain fine).
+2. **No metaphor titles.** Banned families: clock/race ("the clock is
+   running", "running out of time"), journey-as-metaphor ("road ahead",
+   "long road", "crossroads"), construction ("building blocks", "lay
+   the foundation"), war/sports ("battle", "war chest"), anthropomorphism
+   ("prep feels abstract", "the system wants"). Use plain descriptive
+   titles: "Students apply to 100+ co-ops in the first cycle" not
+   "First-year prep feels abstract until the clock is already running."
+3. **No hyperbole.** Banned: "unprecedented", "transformative",
+   "paradigm shift", "game-changer", "the most important", "revolutionary".
+4. **Numbers only in cited quotes.** A standalone "60-to-4 ratio" in a
+   title or KPI is forbidden; the same ratio inside a Reddit quote with
+   attribution is fine.
+5. **Action titles, not topic labels.** "Students apply to 100+ co-ops"
+   is an action title (states a finding); "The Application Phase" is a
+   topic label (forbidden).
+
+### 13.4 Rendering layer hooks the Stop hook reads
+
+- `validate_journey_overview_slide.py` — runs at Stop on every journey-
+  typed deck. Reads the rendered HTML (or the SlideData[] for the gold
+  pipeline) and asserts:
+    (a) ≥1 slide between positions 1–3 contains the overview-diagram
+        class (`.nxt-process` or `.nxt-grid` of `.nxt-card`) AND every
+        detected phase name from the per-phase slides appears within it
+    (b) NO slide title matches the metaphor pattern list
+    (c) NO slide content contains structure-description phrases
+- `services/slidePostProcessor.ts::detectMetaphors` and `::detectAllSlop`
+  fire on every text field at runtime; flags + auto-corrects.

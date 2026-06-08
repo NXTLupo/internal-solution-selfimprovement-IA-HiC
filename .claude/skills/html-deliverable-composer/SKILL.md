@@ -312,3 +312,16 @@ If your output begins with ` ```html ` markdown fence, the chat handler will str
 10. [ ] `__HIC_ARTIFACT_META__` metadata script included
 
 Only after all checks pass do you emit.
+
+## Visual Output (GOLD design language)
+
+Render to the canonical GOLD visual language. Full spec: `hic-workspace/wiki/design-system/gold-visual-language.md`.
+Your reference twin(s): `brief-nu.html` / `brief-nxt.html`, `explainer-nu.html` / `explainer-nxt.html`, `approaches-nu.html` / `approaches-nxt.html` in `hic-workspace/wiki/design-system/gold/`.
+
+Layout: Brief: hero finding (accent left-border) + 3 supporting findings + copy-as-prompt footer. Explainer: horizontal flow steps (cool top-borders) + the gotcha (accent left-border). Approaches: CONSENSUS row + BETS row of pick-when cards.
+
+Invariants (from the spec): 1920x1080 stage, brand rail + 3x3 dot mark, IBM Plex Mono kicker,
+serif(NU)/Archivo(NXT) action-title h1, dark takeaway band with exactly one accent-bold phrase.
+Color is meaning (accent = pain/critical/diagnosis; cool = need/target/fix/source; neutral = structure).
+NO eyebrow microlabels that color/position already convey (WHAT FRUSTRATES THEM, WHAT THEY NEED,
+DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent; the language is fixed.

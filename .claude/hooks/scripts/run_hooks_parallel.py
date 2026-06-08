@@ -64,6 +64,7 @@ HOOK_SCRIPTS: list[Tuple[str, int]] = [
     ("validate_ai_slop.py", 10),
     ("validate_freeform_structure.py", 10),
     ("validate_no_em_dashes.py", 10),
+    ("validate_no_emoji.py", 10),
     ("validate_speculative_claims.py", 10),
 ]
 

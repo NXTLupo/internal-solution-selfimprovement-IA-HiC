@@ -122,11 +122,12 @@ fundamental shift, seismic shift, unprecedented, transformative, revolutionary, 
 
 ## 8. Action titles beat topic labels (every slide, every title field)
 
-Every slide title MUST be a complete sentence stating a conclusion with data.
+Every slide title MUST be a complete sentence stating a conclusion (qualitative; any figure rides in a cited quote on the slide body, never in the title itself).
 
 - BAD: "The Landscape", "Key Findings", "Recommendations", "The Path Forward"
-- GOOD: "35% of first-year students do not return, costing $9B annually"
-- GOOD: "Fragmented CRM systems force advancement teams to spend 40% of time on manual data entry"
+- BAD (naked number): "35% of first-year students do not return, costing $9B annually"
+- GOOD: "Disconnected systems force staff into manual rework instead of the work that creates value"
+- GOOD: "The renewal base enters every conversation already doubting the product's value"
 
 **The Partner Test**: A senior partner reading ONLY slide titles must understand the complete argument.
 

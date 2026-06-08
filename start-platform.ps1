@@ -108,16 +108,12 @@ if (Test-Path "port_scanner.py") {
     }
 }
 
-# Pull latest images (optional)
-Write-Host "`nPulling latest Docker images..." -ForegroundColor Yellow
-docker compose -f docker-compose-all.yml pull 2>&1 | Out-Null
-
-# Start the services
-Write-Host "`nStarting all services..." -ForegroundColor Yellow
+# Start the services (always --build so local Dockerfile changes ship)
+Write-Host "`nStarting all services (with --build)..." -ForegroundColor Yellow
 Write-Host "Using docker-compose-all.yml" -ForegroundColor Cyan
 
 try {
-    docker compose -f docker-compose-all.yml up -d
+    docker compose -f docker-compose-all.yml up -d --build
     if ($?) {
         Write-Host "`nAll services started successfully!" -ForegroundColor Green
         Write-Host "`nService URLs:" -ForegroundColor Blue

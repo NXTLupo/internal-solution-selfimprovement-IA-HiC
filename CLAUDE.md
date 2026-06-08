@@ -32,7 +32,7 @@ Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). **`d
 ### Critical Files (modify with caution)
 - `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
 - `launchpad/app.py` — WebSocket proxy hub (1,310 lines)
-- `docker-compose-all.yml` — Full platform config (487 lines). **Always use this file**, never `docker-compose.yml` alone
+- `docker-compose-all.yml` — Full platform config (573 lines). **Always use this file**, never `docker-compose.yml` alone
 
 ### Branch & Commit Discipline
 - **Never merge to main.** Main is owner-controlled and runs months behind feature branches. Branch FROM the latest feature branch (e.g., `HiC-*`) to inherit recent work — never from main.
@@ -169,7 +169,7 @@ Several services have their own `CLAUDE.md` with local dev commands:
 - `internal-solutions-socialresearch/CLAUDE.md` — full local setup (frontend, backend, DB migrations with Alembic). **Python 3.11 required** (3.12 not supported).
 
 ### Custom Agent Skills (`.claude/skills/`)
-40+ custom skills available to Claude Code sessions, spanning prompt engineering, consulting frameworks, and HiC pipeline stages. Used by HiC Research for deliverable generation (deck narrative, persona architecture, strategy authoring, etc.). The Vite dev server serves these at `/skills/` for runtime access. Key skills: `deck-narrative-composer`, `strategy-author`, `persona-architect`, `competitive-analyst`, `theme-analyst`, `preflight`, `qa-gate`, `verbalized-sampling`, `experience-prototype-composer`, `design-exemplar-curator`, `reinforcement-inference`.
+70+ custom skills available to Claude Code sessions, spanning prompt engineering, consulting frameworks, and HiC pipeline stages. Used by HiC Research for deliverable generation (deck narrative, persona architecture, strategy authoring, etc.). The Vite dev server serves these at `/skills/` for runtime access. Key skills: `deck-narrative-composer`, `strategy-author`, `persona-architect`, `competitive-analyst`, `theme-analyst`, `preflight`, `qa-gate`, `verbalized-sampling`, `experience-prototype-composer`, `design-exemplar-curator`, `reinforcement-inference`, `critic-revise-loop`, `mind-map-architect`, `research-planner`, `meta-themes`.
 
 ### Service Code Conventions
 ```python
@@ -212,6 +212,11 @@ humans-in-control-research/
 ├── services/                     — TypeScript service modules — the application's brain:
 │   ├── aiRouter.ts               — model selection + provider routing (Gemini-primary on
 │   │                                Stage 2/5, Opus default on brief deepen)
+│   ├── deliverableModelRouter.ts — health-aware per-#deliverable model router with
+│   │                                cross-provider fallback (Pro→Flash→2.5Flash→gpt-5.5);
+│   │                                reorders by provider health, per-model timeouts
+│   ├── multiModelResilience.ts   — content-hash embedding cache + provider health tracker +
+│   │                                per-corpus provider commitment + signature-keyed LLM cache
 │   ├── geminiService.ts          — primary AI provider
 │   ├── anthropicService.ts       — Claude API integration
 │   ├── openaiService.ts          — OpenAI / GPT-5.5 fallback (with DeepSeek auto-fallback)
@@ -258,7 +263,7 @@ pip install -r requirements.txt && python app.py   # Port 5012
 
 **Rebuild required on every frontend change** — the HiC container is nginx serving a static Vite dist with **no HMR**. After editing anything under `humans-in-control-research/`, run `docker compose -f docker-compose-all.yml up -d --build research-generator` and hard-refresh the browser. Port `3000` belongs to **Social Research**, not HiC — never suggest `npm run dev` on `:3000` for HiC work.
 
-**Active work plans** live in `humans-in-control-research/plans/` (e.g., `html-as-default-output-uplift.md`, `verbalized-sampling-uplift.md`, `reinforcement-inference-uplift.md`). Check there before starting non-trivial HiC work — there may already be a plan to extend rather than duplicate.
+**Active work plans** live in `humans-in-control-research/plans/` — dated files dominate (most recent first). Recent and load-bearing: `harness-master-roadmap-2026-06-02.md`, `harness-architecture-audit-2026-06-02.md`, `harness-rehardening-2026-06-02.md`, `nxt-design-system-200-build-2026-06-01.md`, `design-system-wiki-catalog-2026-06-01.md`, `end-to-end-lifecycle-assessment-2026-05-31.md`, `journey-retrieval-pipeline-fix-2026-05-31.md`, `preview-vs-export-parity-audit-2026-05-29.md`, `karpathy-second-brain-uplift.md`, `hic-notebooklm-uplift-plan-2026-05-24.md`, `hic-honest-audit-and-remediation-2026-05-23.md`. Older but still-referenced: `html-as-default-output-uplift.md`, `verbalized-sampling-uplift.md`, `reinforcement-inference-uplift.md`. Check there before starting non-trivial HiC work — there may already be a plan to extend rather than duplicate.
 
 **Output quality rules** live in `.claude/CLAUDE.md` — brand colors, citation protocol, banned phrases (350+), consulting frameworks (Minto, Rumelt, SCQA), content budgets. These load into every Claude Code session and apply to all deliverable generation.
 
