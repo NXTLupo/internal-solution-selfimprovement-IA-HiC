@@ -41,6 +41,7 @@ import { KnowledgeLibraryPreview } from './components/KnowledgeLibraryPreview';
 import { KnowledgeLibraryClosureBanner } from './components/KnowledgeLibraryClosureBanner';
 import type { WikiLibrarySummary } from './services/wikiLibraryAggregator';
 import { resetRun as resetCostMeter, summarizeRun as summarizeCostRun } from './services/costMeter';
+import { mergeThemeSets } from './services/corpusMergeAuthority';
 import ChatWorkbench from './components/ChatWorkbench';
 import { DesignDesk } from './design-desk';
 import { saveDesignContext } from './design-desk/services/designContext';
@@ -1504,19 +1505,22 @@ const App = () => {
     // prepends them (tagged source:'cached', deduped by name) to the generated
     // set so every selected theme ALWAYS appears, independent of the model.
     const cachedThemesRef = useRef<any[]>([]);
+    // ENHANCEMENT A (2026-06-08): blend mode. When the user opts to blend, the
+    // KL-selected cached articles are resolved as individual DataSourceItems
+    // (not the opaque cached-only blob) and stashed here, so the fresh path's
+    // mergeResultsToCorpus runs them through the Enhancement B merge authority
+    // and dedups cached-vs-fresh at the article level.
+    const blendCachedItemsRef = useRef<any[]>([]);
     const mergeCachedThemes = useCallback((result: any): any => {
         const cached = cachedThemesRef.current || [];
         if (!cached.length) return result;
         const arr = Array.isArray(result) ? result : (result?.themes || []);
-        const seen = new Set(
-            arr.map((t: any) => String(t?.name || t?.title || '').trim().toLowerCase()).filter(Boolean)
-        );
-        const uniqueCached = cached.filter((c: any) => {
-            const k = String(c?.name || '').trim().toLowerCase();
-            return k && !seen.has(k);
-        });
-        if (!uniqueCached.length) return result;
-        const merged = [...uniqueCached, ...arr];
+        // ENHANCEMENT B (2026-06-08): dedup via the single corpus-merge authority
+        // by clusterId then summary fingerprint, NOT by name. Variant names
+        // ("ML Trends" vs "Machine Learning Trends") no longer double-count, and
+        // a same-cluster fresh twin collapses INTO the cached (canonical) entry
+        // so the user's curated selection is always retained without duplication.
+        const { merged } = mergeThemeSets(cached, arr, { scope: 'mergeCachedThemes' });
         return Array.isArray(result) ? merged : { ...(result || {}), themes: merged };
     }, []);
     // 2026-05-23 - Karpathy Phase 2.3: Knowledge-gap detection result.
@@ -3598,6 +3602,11 @@ const App = () => {
         // GoalRegrade effect ALSO checks so it doesn't trigger the 50-error
         // embedding storm the user flagged 2026-06-06.
         let _willSkipCollection = false;
+        let _blendMode = false;
+        // ENHANCEMENT A: when the user toggled blend, a KL selection no longer
+        // forces cached-only - fresh collection ALSO runs, and the cached
+        // selection is merged in as individual items (deduped by Enhancement B).
+        const _blendFlag = !!(window as any).__hicBlendMode;
         try {
             const _selResp = await fetch('http://127.0.0.1:5012/api/user-selection/active');
             if (_selResp.ok) {
@@ -3609,7 +3618,7 @@ const App = () => {
                         (_sel.social_subreddits?.length || 0) +
                         (_sel.engagement_slugs?.length || 0) +
                         (_sel.source_archive_paths?.length || 0);
-                    if (_total > 0) {
+                    if (_total > 0 && !_blendFlag) {
                         _willSkipCollection = true;
                         (window as any).__hicCachedOnlyMode = true;
                         console.info(`[App] CACHED-ONLY MODE: ${_total} KL items selected. Skipping ALL external collection. Generation will draw from the 60K+ wiki chunks via manifest pointers.`);
@@ -3617,11 +3626,77 @@ const App = () => {
                             type: 'PHASE',
                             content: `[CACHED-ONLY] Using your ${_total} curated KL items. Zero fresh external API calls this run.`,
                         }]);
+                    } else if (_total > 0 && _blendFlag) {
+                        _blendMode = true;
+                        (window as any).__hicCachedOnlyMode = false;
+                        console.info(`[App] BLEND MODE: ${_total} KL items + fresh collection. Cached articles resolved as items and deduped against fresh via the merge authority.`);
+                        setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
+                            type: 'PHASE',
+                            content: `[BLEND] Combining your ${_total} curated KL items WITH fresh external collection. Duplicates between cached and fresh are collapsed automatically.`,
+                        }]);
                     }
                 }
             }
         } catch (_e) { /* silent - fall through to default */ }
         if (!_willSkipCollection) (window as any).__hicCachedOnlyMode = false;
+
+        // ENHANCEMENT A: resolve KL-selected cached articles as INDIVIDUAL
+        // DataSourceItems for the blend path (additive; does not touch the
+        // cached-only blob path below). These flow into mergeResultsToCorpus so
+        // the Enhancement B authority dedups cached-vs-fresh at the item level.
+        blendCachedItemsRef.current = [];
+        if (_blendMode) {
+            try {
+                let _bSel: any = {};
+                const _r = await fetch('http://127.0.0.1:5012/api/user-selection/active');
+                if (_r.ok) {
+                    const _s = await _r.json();
+                    if (_s && !_s._uncommitted) {
+                        _bSel = {
+                            social_subreddits: _s.social_subreddits || [],
+                            article_sources: _s.article_sources || [],
+                            source_archive_paths: _s.source_archive_paths || [],
+                            theme_cluster_ids: _s.theme_cluster_ids || [],
+                            max_chars_per_article: 15000,
+                            max_articles: 200,
+                        };
+                    }
+                }
+                const _cr = await fetch('http://127.0.0.1:5012/api/corpus/from-selection', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(_bSel),
+                });
+                if (_cr.ok) {
+                    const _cd = await _cr.json();
+                    const _articles: any[] = Array.isArray(_cd?.articles) ? _cd.articles : [];
+                    const _items = _articles
+                        .filter(a => String(a?.body || '').trim().length >= 40)
+                        .map((a, i) => ({
+                            id: `cached_${a.wikiPath || a.url || i}`,
+                            title: a.title || a.wikiPath || 'Cached source',
+                            content: String(a.body || '').slice(0, 15000),
+                            url: a.url || a.wikiPath || `cached://${i}`,
+                            date: a.date || '',
+                            sourceType: 'company' as const,
+                            sourceName: 'Cached (Knowledge Library)',
+                            credibilityTier: 2 as const,
+                            relevanceScore: typeof a.relevance === 'number' ? a.relevance : 70,
+                            enriched: true,
+                            extractionMethod: 'cached',
+                            wikiPath: a.wikiPath || '',
+                            source: 'cached',
+                        }));
+                    blendCachedItemsRef.current = _items;
+                    console.info(`[App] BLEND: resolved ${_items.length} cached articles as items for merge-authority dedup against fresh.`);
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: `[BLEND] ${_items.length} cached articles staged; fresh collection will run and duplicates collapse via content/url identity.`,
+                    }]);
+                }
+            } catch (_be: any) {
+                console.warn('[App] BLEND cached-item resolution failed (non-fatal):', _be?.message || _be);
+            }
+        }
 
         // 2026-06-06 - When cached-only mode is engaged, the entire willCollectData
         // block below is skipped. Previously that meant:
@@ -4197,6 +4272,12 @@ const App = () => {
                 // generate from. User can override per-run via the
                 // INCLUDE_FRESH_SOURCES checkbox (TODO UI; default off).
                 let _cachedOnly = false;
+                // ENHANCEMENT A (2026-06-08): blend override. When the user
+                // toggled blend, a KL selection must NOT force cached-only here -
+                // fresh collection runs and the cached items (staged earlier into
+                // blendCachedItemsRef) are merged + deduped via the merge
+                // authority. Only force cached-only when blend is OFF.
+                const _blendActive = !!(window as any).__hicBlendMode;
                 try {
                     const _selResp = await fetch('http://127.0.0.1:5012/api/user-selection/active');
                     if (_selResp.ok) {
@@ -4208,11 +4289,13 @@ const App = () => {
                                 (_sel.social_subreddits?.length || 0) +
                                 (_sel.engagement_slugs?.length || 0) +
                                 (_sel.source_archive_paths?.length || 0);
-                            if (_total > 0) {
+                            if (_total > 0 && !_blendActive) {
                                 _cachedOnly = true;
                                 (window as any).__hicCachedOnlyMode = true;
                                 console.info(`[App] CACHED-ONLY MODE engaged (${_total} KL items selected). Skipping external search, GoalRegrade, and Reddit-deep fetches. Generation will draw from the manifest catalog.`);
                                 setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[CACHED-ONLY] User curated ${_total} items; skipping all external API calls and using cached corpus.` }]);
+                            } else if (_total > 0 && _blendActive) {
+                                console.info(`[App] BLEND: ${_total} KL items selected but blend is ON - running fresh collection AND merging cached items (deduped by the merge authority).`);
                             }
                         }
                     }
@@ -4874,7 +4957,16 @@ const App = () => {
                 setDataSourceStatus('AI filtering results for relevance...');
                 const { uploadsToDataSourceItems } = await import('./services/wikiService');
                 const uploadedCorpusItems = uploadsToDataSourceItems(files, researchGoal);
-                const corpus = await mergeResultsToCorpus(executionResult, researchGoal, uploadedCorpusItems);
+                // ENHANCEMENT A: in blend mode, prepend KL-cached items (after
+                // user uploads) so they are canonical; fresh duplicates collapse
+                // into them via the Enhancement B merge authority inside
+                // mergeResultsToCorpus. Empty in non-blend runs (no-op).
+                const _blendCached = blendCachedItemsRef.current || [];
+                if (_blendCached.length > 0) {
+                    console.info(`[App] BLEND: merging ${_blendCached.length} cached items with fresh corpus (dedup via merge authority).`);
+                }
+                const _mergeUploads = [...uploadedCorpusItems, ..._blendCached];
+                const corpus = await mergeResultsToCorpus(executionResult, researchGoal, _mergeUploads);
 
                 // Also merge proxy multi-search results
                 let proxyCorpus = '';

@@ -8,6 +8,6 @@ export default defineConfig({
         environment: 'jsdom',
         globals: true,
         setupFiles: ['./design-desk/__fixtures__/vitest.setup.ts'],
-        include: ['design-desk/**/*.test.{ts,tsx}'],
+        include: ['design-desk/**/*.test.{ts,tsx}', 'services/**/*.test.{ts,tsx}'],
     },
 });

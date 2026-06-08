@@ -17,6 +17,7 @@ import { collectSocialData, SocialCollectionConfig, SocialDataSummary } from './
 import { AnalyticalLens } from '../types';
 import { GoogleGenAI } from "@google/genai";
 import { tryRepairJson } from './aiRouter';
+import { mergeCorpusItems, contentFingerprint } from './corpusMergeAuthority';
 
 /**
  * Chunk-to-source mapping built during corpus assembly.
@@ -27,6 +28,10 @@ export interface ChunkSourceInfo {
     sourceName: string;
     title: string;
     url?: string;
+    // Enhancement C (2026-06-08): the stable wiki page a CHUNK_XXX projects to,
+    // so citations can resolve to durable manifest pointers after the in-memory
+    // map is gone (exports, insight-chunks, post-hoc audits).
+    wikiPath?: string;
 }
 
 let _chunkSourceMap: Record<string, ChunkSourceInfo> = {};
@@ -992,13 +997,22 @@ export async function executePlan(
                     });
 
                     // The synthesized research content (always include - this is the AI's analysis)
+                    // ENHANCEMENT D (2026-06-08): stable content-hash URL instead of a
+                    // timestamped synthetic url - identical re-runs now dedup (via the
+                    // B content-hash alias) instead of accumulating near-duplicate
+                    // syntheses. enriched=true so it is archived with its own content
+                    // (not Jina-fetched). derivedFrom (its grounding sources) is
+                    // attached after the source loop below, restoring custody.
                     items = [{
                         id: `research_${source.id}`,
                         title: `AI Research (${researchResult.provider}): ${source.query.substring(0, 60)}`,
                         content: researchResult.content,
+                        url: `deepresearch://${contentFingerprint(researchResult.content)}`,
                         sourceType: 'web',
                         sourceName: `${researchResult.provider} (${source.config.mode} research)`,
-                    }];
+                        enriched: true,
+                        extractionMethod: 'deep-research',
+                    } as any];
 
                     // RELEVANCE FILTER: Only filter out clearly off-topic results
                     // (e.g., Gemini product news for a higher-ed query).
@@ -1047,6 +1061,17 @@ export async function executePlan(
                     if (filteredSources > 0) {
                         console.log(`[DeepResearch] Relevance filter: ${includedSources} sources kept, ${filteredSources} irrelevant sources removed`);
                     }
+
+                    // ENHANCEMENT D: attach the grounding source URLs to the synthesis
+                    // item so write-article persists `derived_from` frontmatter - the
+                    // synthetic-URL synthesis links back to the real sources it cited.
+                    try {
+                        const _derived = (researchResult.sources || [])
+                            .map((s: any) => s?.url || s?.title)
+                            .filter(Boolean)
+                            .slice(0, 50);
+                        if (_derived.length > 0 && items[0]) (items[0] as any).derivedFrom = _derived;
+                    } catch { /* non-fatal */ }
 
                 } else if (source.type === 'data_api') {
                     // Free data API
@@ -1665,9 +1690,11 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     date: (item as any).date || (item as any).publicationDate || undefined,
                     tier: (item as any).credibilityTier || undefined,
                     method,
-                    kind: 'article',
+                    kind: (item as any).kind || 'article',
                     relevanceScore: (item as any).relevanceScore ?? undefined,
                     engagementGoal: engagementGoal || undefined,
+                    // Enhancement D: custody for deep-research syntheses.
+                    derivedFrom: (item as any).derivedFrom || undefined,
                 }),
                 label: 'wiki-write-article.residual-archival',
                 note: item.url ? `url=${item.url.slice(0, 80)}` : undefined,
@@ -2016,26 +2043,52 @@ export async function mergeResultsToCorpus(
 ): Promise<string> {
     const sections: string[] = [];
 
-    // Collect all items from all sources, then filter in one batch for efficiency
-    const allItems: DataSourceItem[] = [];
-    const sourceRanges: { name: string; start: number; count: number }[] = [];
-
-    // Inject uploaded client documents as a synthetic "Client Uploads" source
-    // so they appear as first-class source tiles in the Analyst Desk treemap
-    // and as evidence nodes linked to any themes citing their text. They arrive
-    // pre-enriched (parsed body is already in `content`) with relevanceScore=100
-    // so the scorer won't filter them out. Placed FIRST so chunk IDs for client
-    // docs occupy CHUNK_001..CHUNK_NN - makes citation resolution intuitive.
+    // ENHANCEMENT B (2026-06-08, plans/data-pipeline-bulletproofing-2026-06-08.md):
+    // every corpus item flows through the single dedup authority BEFORE
+    // scoring/assembly so cached + fresh + uploaded copies of the same source
+    // (same URL, same content at different URLs, renamed uploads) collapse to
+    // one canonical item with provenance, instead of double-counting. Uploads
+    // are tagged FIRST so they stay canonical (relevanceScore=100) and occupy
+    // the leading chunk IDs - keeps citation resolution intuitive.
+    const taggedItems: DataSourceItem[] = [];
     if (uploadedItems && uploadedItems.length > 0) {
-        sourceRanges.push({ name: 'Client Uploads', start: allItems.length, count: uploadedItems.length });
-        allItems.push(...uploadedItems);
+        for (const u of uploadedItems) {
+            taggedItems.push({ ...(u as any), sourceName: (u as any).sourceName || 'Client Uploads' } as DataSourceItem);
+        }
         console.log(`[Corpus] Injected ${uploadedItems.length} client upload(s) as first-class corpus items`);
     }
-
     for (const source of executionResult.sources) {
         if (source.status !== 'completed' || source.items.length === 0) continue;
-        sourceRanges.push({ name: source.name, start: allItems.length, count: source.items.length });
-        allItems.push(...source.items);
+        for (const it of source.items) {
+            taggedItems.push({ ...(it as any), sourceName: (it as any).sourceName || source.name } as DataSourceItem);
+        }
+    }
+
+    const { merged: dedupedItems, stats: dedupStats } = mergeCorpusItems(taggedItems, { scope: 'mergeResultsToCorpus' });
+    if (dedupStats.collapsed > 0) {
+        console.log(
+            `[Corpus] Merge authority collapsed ${dedupStats.collapsed} duplicate item(s) ` +
+            `(clusterId:${dedupStats.byKey.clusterId} contentHash:${dedupStats.byKey.contentHash} urlKey:${dedupStats.byKey.urlKey}); ` +
+            `${dedupStats.output} unique of ${dedupStats.input}.`
+        );
+    }
+
+    // Rebuild allItems + sourceRanges from survivors, grouped by sourceName in
+    // first-seen order (preserves uploads-first chunk numbering and the
+    // start/count contract the downstream packer relies on).
+    const allItems: DataSourceItem[] = [];
+    const sourceRanges: { name: string; start: number; count: number }[] = [];
+    const _groupOrder: string[] = [];
+    const _groups = new Map<string, DataSourceItem[]>();
+    for (const it of dedupedItems) {
+        const nm = String((it as any).sourceName || 'Unknown');
+        if (!_groups.has(nm)) { _groups.set(nm, []); _groupOrder.push(nm); }
+        _groups.get(nm)!.push(it);
+    }
+    for (const nm of _groupOrder) {
+        const grp = _groups.get(nm)!;
+        sourceRanges.push({ name: nm, start: allItems.length, count: grp.length });
+        allItems.push(...grp);
     }
 
     // Run AI relevance SCORING on ALL items at once
@@ -2127,10 +2180,12 @@ export async function mergeResultsToCorpus(
             const enrichedTag = (item as any).enriched ? ` | FULL TEXT (${(item as any).extractionMethod || 'web'})` : '';
 
             // Track chunk-to-source mapping for human-readable citation resolution
+            // (Enhancement C: carry wikiPath so CHUNK_XXX projects to a stable pointer)
             chunkMap[chunkId] = {
                 sourceName: range.name,
                 title: item.title || '',
                 url: item.url,
+                wikiPath: (item as any).wikiPath || '',
             };
 
             sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness}${enrichedTag}`);
@@ -2193,6 +2248,22 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
     // Store chunk map for downstream citation resolution
     _chunkSourceMap = chunkMap;
     console.log(`[Corpus] Built chunk-to-source map: ${Object.keys(chunkMap).length} chunks mapped`);
+
+    // ENHANCEMENT C: persist the CHUNK_XXX -> {source,title,url,wikiPath}
+    // projection so citations resolve to stable pointers after this run.
+    // Best-effort, non-blocking; the proxy slugifies the engagement.
+    try {
+        if (researchGoal && Object.keys(chunkMap).length > 0) {
+            void fetch(`${PROXY}/api/session/chunk-map`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ engagement: researchGoal, chunk_map: chunkMap }),
+            }).then(r => r.ok
+                ? console.log(`[Corpus] Persisted chunk-map sidecar (${Object.keys(chunkMap).length} entries) for citation projection.`)
+                : undefined
+            ).catch(() => { /* non-fatal */ });
+        }
+    } catch { /* non-fatal */ }
 
     return corpus;
 }

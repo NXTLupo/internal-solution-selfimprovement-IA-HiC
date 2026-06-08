@@ -40,6 +40,21 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
         loaded: boolean;
     }>({ chunks: 0, sources: 0, klItems: 0, cachedOnly: false, loaded: false });
 
+    // ENHANCEMENT A (2026-06-08): blend toggle. When on, a KL selection no
+    // longer forces cached-only - App.tsx runs fresh collection AND merges the
+    // cached selection (deduped by the corpus merge authority). Persisted on a
+    // window flag the App.tsx collection gate reads.
+    const [blend, setBlend] = useState<boolean>(
+        typeof window !== 'undefined' && !!(window as any).__hicBlendMode,
+    );
+    const toggleBlend = () => {
+        setBlend(prev => {
+            const next = !prev;
+            if (typeof window !== 'undefined') (window as any).__hicBlendMode = next;
+            return next;
+        });
+    };
+
     useEffect(() => {
         let cancelled = false;
         const load = async () => {
@@ -77,7 +92,11 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
     const handleClear = async () => {
         try {
             await fetch(`${PROXY_BASE}/api/user-selection/active`, { method: 'DELETE' });
-            if (typeof window !== 'undefined') (window as any).__hicCachedOnlyMode = false;
+            if (typeof window !== 'undefined') {
+                (window as any).__hicCachedOnlyMode = false;
+                (window as any).__hicBlendMode = false;
+            }
+            setBlend(false);
             setStats(s => ({ ...s, klItems: 0, cachedOnly: false }));
             onClear?.();
         } catch { /* silent */ }
@@ -152,17 +171,42 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
                 )}
             </span>
 
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: stats.cachedOnly ? '#0CCE6B' : '#CC6644' }} />
-                <span style={{ textTransform: 'uppercase', color: '#737373' }}>Mode</span>
-                <span style={{ color: stats.cachedOnly ? '#0CCE6B' : '#CC6644', fontWeight: 600 }}>
-                    {stats.cachedOnly ? 'cached-only' : 'fresh + cached'}
-                </span>
-            </span>
+            {(() => {
+                // Effective mode: KL + blend off = cached-only; KL + blend on =
+                // blend; no KL = fresh. The dot/colour follow the same logic.
+                const modeLabel = hasKL ? (blend ? 'blend (cached + fresh)' : 'cached-only') : 'fresh';
+                const modeColor = hasKL ? (blend ? '#00B7C3' : '#0CCE6B') : '#CC6644';
+                return (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: modeColor }} />
+                        <span style={{ textTransform: 'uppercase', color: '#737373' }}>Mode</span>
+                        <span style={{ color: modeColor, fontWeight: 600 }}>{modeLabel}</span>
+                        {hasKL && (
+                            <button
+                                type="button"
+                                onClick={toggleBlend}
+                                title="Blend: run fresh external collection AND your cached selection together. Duplicates are collapsed automatically by content/url identity."
+                                style={{
+                                    padding: '2px 8px', marginLeft: 4,
+                                    background: blend ? '#00B7C3' : 'transparent',
+                                    color: blend ? '#0D0D0D' : '#00B7C3',
+                                    border: '1px solid #00B7C3', borderRadius: 1,
+                                    fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
+                                    letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', fontWeight: 700,
+                                }}
+                            >
+                                {blend ? 'Blend ON' : 'Add fresh'}
+                            </button>
+                        )}
+                    </span>
+                );
+            })()}
 
             <span style={{ marginLeft: 'auto', color: '#525252', fontSize: 10 }}>
                 {hasKL
-                    ? 'Your selection will be applied to the next run. No external API calls.'
+                    ? (blend
+                        ? 'Blend: fresh external sources WILL be queried and merged with your cached selection (duplicates collapsed).'
+                        : 'Your selection will be applied to the next run. No external API calls.')
                     : 'No KL selection. External sources will be queried per your run setup.'}
             </span>
         </div>

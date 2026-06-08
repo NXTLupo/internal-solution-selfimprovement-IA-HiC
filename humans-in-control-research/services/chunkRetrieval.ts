@@ -118,10 +118,16 @@ async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
     }
 }
 
-async function _readManifestCatalog(engagementSlug: string): Promise<ManifestChunkRecord[]> {
+async function _readManifestCatalog(engagementSlug: string, bypassCache = false): Promise<ManifestChunkRecord[]> {
     if (!engagementSlug) return [];
-    const cached = _CATALOG_CACHE.get(engagementSlug);
-    if (cached && Date.now() - cached.ts < _CATALOG_TTL_MS) return cached.records;
+    // ENHANCEMENT E (2026-06-08): bypass the 60s catalog TTL during sharded
+    // breadth (excludeIds non-empty). Otherwise parallel shards read a stale
+    // catalog and select OVERLAPPING windows despite excludeIds, defeating the
+    // breadth diversity the sharding exists to produce.
+    if (!bypassCache) {
+        const cached = _CATALOG_CACHE.get(engagementSlug);
+        if (cached && Date.now() - cached.ts < _CATALOG_TTL_MS) return cached.records;
+    }
     try {
         const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}`;
         const resp = await fetch(url);
@@ -266,7 +272,9 @@ export async function pickChunksForPrompt(
     // also removed from the pin set (a prior shard already carried them).
     const _exclude = new Set(opts.excludeIds || []);
     for (const id of _exclude) pinned.delete(id);
-    let catalog = await _readManifestCatalog(engagementSlug);
+    // Enhancement E: sharded runs (excludeIds present) bypass the catalog TTL
+    // cache so each shard sees concurrent writes and picks non-overlapping windows.
+    let catalog = await _readManifestCatalog(engagementSlug, _exclude.size > 0);
     if (_exclude.size > 0) {
         const before = catalog.length;
         catalog = catalog.filter(r => !_exclude.has(r.chunkId));
