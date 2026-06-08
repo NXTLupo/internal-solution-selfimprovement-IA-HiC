@@ -103,9 +103,11 @@ if __name__ == "__main__":
             print("Using default API key")
             os.environ["ANTHROPIC_API_KEY"] = default_key
     
-    # Set the model
+    # Set the model — standalone Journey Mapper default is Opus 4.8 (2026-06-03;
+    # off the retired claude-3-7-sonnet). Compose sets ANTHROPIC_MODEL in Docker;
+    # this only applies to bare `python run.py` local runs.
     if "ANTHROPIC_MODEL" not in os.environ:
-        os.environ["ANTHROPIC_MODEL"] = "claude-3-7-sonnet-20250219"
+        os.environ["ANTHROPIC_MODEL"] = "claude-opus-4-8"
     
     # Create necessary directories
     os.makedirs("uploads", exist_ok=True)

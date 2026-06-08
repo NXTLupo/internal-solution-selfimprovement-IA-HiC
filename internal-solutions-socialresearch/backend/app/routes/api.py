@@ -6,6 +6,8 @@ from .api_user import user_bp
 from .api_pgvector import rag_bp
 from .api_reddit import reddit_bp
 from .api_reddit_proxy import reddit_proxy_bp
+from .api_sentiment import sentiment_bp
+from .api_embed import embed_bp
 
 
 # Main API blueprint
@@ -32,3 +34,11 @@ api_bp.register_blueprint(reddit_bp, url_prefix='/reddit')
 
 # Register the Reddit proxy blueprint for CORS handling
 api_bp.register_blueprint(reddit_proxy_bp, url_prefix='/reddit-proxy')
+
+# Register the RoBERTa sentiment-scoring blueprint (shared with HiC proxy)
+api_bp.register_blueprint(sentiment_bp, url_prefix='/sentiment')
+
+# Register the local sentence-transformer embedding blueprint (shared with HiC
+# proxy) — a quota-free embedding provider so research runs never starve on
+# Gemini/OpenAI 429s. Route: /api/embed
+api_bp.register_blueprint(embed_bp)

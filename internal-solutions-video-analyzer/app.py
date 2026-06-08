@@ -33,6 +33,12 @@ class YouTubeAnalysisRequest(BaseModel):
 # OpenAI API key (should be set as environment variable in production)
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 
+# 2026-06-01 — Gemini multimodal transcription fallback. Used when OpenAI
+# Whisper returns 429 insufficient_quota (billing exhausted) so uploads still
+# get a real transcript instead of "Speech segment" placeholders.
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+GEMINI_TRANSCRIBE_MODEL = os.environ.get('GEMINI_TRANSCRIBE_MODEL', 'gemini-3.5-flash')
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -260,9 +266,10 @@ async def process_video(job_id: str, file_path: str):
             # Format the transcript with timestamps from the Whisper API response
             transcript_path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.txt")
             
+            _method = getattr(transcript_data, "method", "whisper")
             with open(transcript_path, "w") as f:
                 f.write(f"Video File: {os.path.basename(file_path)}\n\n")
-                f.write("==== WHISPER TRANSCRIPTION ====\n\n")
+                f.write(f"==== {'GEMINI' if _method == 'gemini' else 'WHISPER'} TRANSCRIPTION ====\n\n")
 
                 # Write the full transcript
                 f.write(transcript_data.text + "\n\n")
@@ -283,7 +290,7 @@ async def process_video(job_id: str, file_path: str):
                     "filename": os.path.basename(file_path),
                 },
                 transcription={
-                    "method": "whisper",
+                    "method": _method,
                     "language": getattr(transcript_data, "language", "en"),
                     "full_text": (transcript_data.text or "").strip(),
                     "segments": _whisper_segments_to_list(getattr(transcript_data, "segments", []) or []),
@@ -292,7 +299,7 @@ async def process_video(job_id: str, file_path: str):
             active_jobs[job_id]["transcript_json_path"] = sidecar_path
 
         except Exception as e:
-            logger.error(f"Error with Whisper API, falling back to simple speech detection: {str(e)}")
+            logger.error(f"Transcription failed on BOTH Whisper and Gemini, falling back to simple speech detection: {str(e)}")
             active_jobs[job_id]["progress"] = 70
 
             # Fallback to speech segment detection
@@ -479,7 +486,110 @@ def _whisper_single_call(client, audio_file_path: str):
         )
 
 
+async def transcribe_with_gemini(audio_file_path):
+    """Fallback transcription via Gemini multimodal (google-genai File API).
+    Invoked when OpenAI Whisper is unavailable (e.g. 429 insufficient_quota).
+    Returns a WhisperResponse-shaped object so the rest of the pipeline is
+    unchanged. Raises on its own failure so the caller can degrade further."""
+    if not GEMINI_API_KEY:
+        raise Exception("No GEMINI_API_KEY configured for Gemini transcription fallback")
+    from google import genai   # local import: only needed on the fallback path
+
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    logger.info(
+        f"Gemini transcription fallback via {GEMINI_TRANSCRIBE_MODEL}: "
+        f"uploading {os.path.basename(audio_file_path)} "
+        f"({os.path.getsize(audio_file_path):,} bytes)"
+    )
+    uploaded = client.files.upload(file=audio_file_path)
+
+    # Audio files are usually ACTIVE immediately; poll briefly if still PROCESSING.
+    for _ in range(30):
+        state = getattr(getattr(uploaded, 'state', None), 'name', None) or getattr(uploaded, 'state', None)
+        if state in (None, 'ACTIVE'):
+            break
+        if state == 'FAILED':
+            raise Exception("Gemini File API reported FAILED processing the audio")
+        time.sleep(1)
+        uploaded = client.files.get(name=uploaded.name)
+
+    prompt = (
+        "Transcribe this audio VERBATIM. Return ONLY raw JSON (no markdown, no code fences, "
+        "no commentary) with EXACTLY this shape: "
+        '{"language":"<iso code>","segments":[{"start":<seconds number>,"end":<seconds number>,'
+        '"text":"<verbatim spoken text>"}]}. '
+        "Break the transcript into natural sentence/pause segments in time order. "
+        "Timestamps are seconds from the start of the audio; estimate if uncertain. "
+        "Transcribe every spoken word; do not summarize or paraphrase."
+    )
+    response = client.models.generate_content(
+        model=GEMINI_TRANSCRIBE_MODEL,
+        contents=[prompt, uploaded],
+    )
+    raw = (getattr(response, 'text', '') or '').strip()
+    # Strip accidental ```json fences.
+    if raw.startswith('```'):
+        raw = re.sub(r'^```[a-zA-Z]*\n?', '', raw)
+        raw = re.sub(r'\n?```$', '', raw).strip()
+
+    segments = []
+    language = 'en'
+    text = raw
+    try:
+        data = json.loads(raw)
+        language = data.get('language') or 'en'
+        parts = []
+        for s in (data.get('segments') or []):
+            try:
+                st = float(s.get('start', 0) or 0)
+                en = float(s.get('end', st) or st)
+            except (TypeError, ValueError):
+                st, en = 0.0, 0.0
+            tx = (s.get('text') or '').strip()
+            if not tx:
+                continue
+            segments.append(WhisperResponse.Segment(start=st, end=en, text=tx))
+            parts.append(tx)
+        text = ' '.join(parts) if parts else raw
+    except (json.JSONDecodeError, ValueError) as pe:
+        # Model returned prose instead of JSON — still a real transcript. Keep
+        # it as one full-length segment rather than discarding it.
+        logger.warning(f"Gemini transcription was not JSON; using raw text as one segment ({pe})")
+        dur = _audio_duration_seconds(audio_file_path)
+        text = raw
+        segments = [WhisperResponse.Segment(start=0.0, end=dur or 0.0, text=raw)] if raw else []
+
+    if not segments:
+        raise Exception("Gemini transcription returned empty text")
+
+    result = WhisperResponse(text)
+    result.segments = segments
+    result.language = language
+    result.method = 'gemini'
+
+    # Best-effort cleanup of the uploaded file (don't fail the job if it errors).
+    try:
+        client.files.delete(name=uploaded.name)
+    except Exception:
+        pass
+
+    logger.info(f"Gemini transcription succeeded: {len(segments)} segments, {len(text):,} chars")
+    return result
+
+
 async def transcribe_with_whisper(audio_file_path):
+    """Public transcription entry point. Tries OpenAI Whisper first; on ANY
+    failure (most commonly 429 insufficient_quota when OpenAI billing is dry)
+    falls back to Gemini multimodal transcription. Raises only if BOTH fail,
+    at which point the caller degrades to silence-detection segments."""
+    try:
+        return await _transcribe_with_whisper_only(audio_file_path)
+    except Exception as whisper_err:
+        logger.error(f"Whisper unavailable ({whisper_err}); attempting Gemini transcription fallback")
+        return await transcribe_with_gemini(audio_file_path)
+
+
+async def _transcribe_with_whisper_only(audio_file_path):
     """Transcribe audio via OpenAI Whisper. Handles files >25 MB by:
       (a) recompressing to Whisper-optimal 16kHz mono 64 kbps MP3
       (b) if still too big, chunking into 10-min segments and stitching results."""
@@ -708,12 +818,13 @@ async def process_youtube_video(job_id: str, youtube_url: str):
             # Format the transcript with timestamps from the Whisper API response
             transcript_path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.txt")
             
+            _method = getattr(transcript_data, "method", "whisper")
             with open(transcript_path, "w") as f:
                 f.write(f"YouTube Video: {youtube_url}\n")
                 f.write(f"Title: {active_jobs[job_id]['video_title']}\n")
                 f.write(f"Channel: {active_jobs[job_id]['video_channel']}\n")
                 f.write(f"Duration: {active_jobs[job_id]['video_duration']} seconds\n\n")
-                f.write("==== WHISPER TRANSCRIPTION ====\n\n")
+                f.write(f"==== {'GEMINI' if _method == 'gemini' else 'WHISPER'} TRANSCRIPTION ====\n\n")
 
                 # Write the full transcript
                 f.write(transcript_data.text + "\n\n")
@@ -738,7 +849,7 @@ async def process_youtube_video(job_id: str, youtube_url: str):
                     "duration_seconds": active_jobs[job_id]["video_duration"],
                 },
                 transcription={
-                    "method": "whisper",
+                    "method": _method,
                     "language": getattr(transcript_data, "language", "en"),
                     "full_text": (transcript_data.text or "").strip(),
                     "segments": _whisper_segments_to_list(getattr(transcript_data, "segments", []) or []),
@@ -747,7 +858,7 @@ async def process_youtube_video(job_id: str, youtube_url: str):
             active_jobs[job_id]["transcript_json_path"] = sidecar_path
 
         except Exception as e:
-            logger.error(f"Error with Whisper API, falling back to simple speech detection: {str(e)}")
+            logger.error(f"Transcription failed on BOTH Whisper and Gemini, falling back to simple speech detection: {str(e)}")
             active_jobs[job_id]["progress"] = 70
 
             # Fallback to speech segment detection

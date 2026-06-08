@@ -356,7 +356,14 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
         # Initialize sentiment analyzer
         debug_file.write("Initializing sentiment analyzer...\n")
         model1 = "CardiffNLP/twitter-roberta-base-sentiment"
-        sentiment_analyzer = pipeline("sentiment-analysis", model=model1)
+        # 2026-06-01 — top_k=None returns the FULL softmax distribution (neg/neu/pos)
+        # per input, not just the argmax label. Required for the distribution-based
+        # compound score below that fixes the "negative topics read neutral" wash-out.
+        # truncation + max_length at construction (matches api_sentiment.py) so
+        # every call to this analyzer is hard-capped at RoBERTa's 512 tokens,
+        # version-robustly (call-time kwargs do not forward on all transformers
+        # versions). Belt-and-suspenders with the per-call kwargs below.
+        sentiment_analyzer = pipeline("sentiment-analysis", model=model1, top_k=None, truncation=True, max_length=512)
         debug_file.write("Sentiment analyzer initialized successfully\n\n")
         
         # Analyze sentiment for each document (limited to first 512 tokens due to BERT limitations)
@@ -397,27 +404,33 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
                     
                     # Analyze sentiment for this chunk
                     debug_file.write(f"  Analyzing sentiment for chunk {chunk_idx + 1}...\n")
-                    result = sentiment_analyzer(chunk)[0]
-                    debug_file.write(f"  Raw result: {result}\n")
-                    
-                    # Map the label to a score
-                    # CardiffNLP model returns labels like 'LABEL_0' (negative), 'LABEL_1' (neutral), 'LABEL_2' (positive)
-                    label = result['label']
-                    confidence = result['score']  # This is the confidence score from the model
-                    debug_file.write(f"  Label: {label}\n")
-                    debug_file.write(f"  Confidence: {confidence}\n")
-                    
-                    # Convert to a normalized score between -1 and 1
-                    if label == 'LABEL_0':  # Negative
-                        normalized_score = -1.0 * confidence
-                    elif label == 'LABEL_1':  # Neutral
-                        normalized_score = 0.0  # Neutral is always 0 regardless of confidence
-                    elif label == 'LABEL_2':  # Positive
-                        normalized_score = 1.0 * confidence
-                    else:
-                        normalized_score = 0.0  # Default to neutral for unknown labels
-                    
-                    debug_file.write(f"  Normalized score (-1 to 1): {normalized_score}\n")
+                    # 2026-06-01 — DISTRIBUTION-BASED COMPOUND SCORE.
+                    # OLD: took only the argmax label and mapped any 'neutral' argmax
+                    # to a hard 0.0, then averaged. CardiffNLP rates much Reddit text
+                    # 'neutral', so those forced-zeros diluted genuinely negative topics
+                    # toward 0 and they were mislabeled "neutral" (e.g. "Job search
+                    # struggles" netted -0.07). NEW: use the full softmax distribution
+                    # and compute compound = P(positive) - P(negative). Neutral mass
+                    # cancels instead of zeroing the signal; a negative-leaning chunk
+                    # the model calls "neutral" still contributes its negative lean.
+                    # 2026-06-03 — HARD tokenizer truncation. The 1600-char chunk
+                    # above was assumed to be ~450 tokens, but token-dense text
+                    # (URLs, code, non-English, no whitespace) can exceed 512
+                    # tokens in 1600 chars and overflow RoBERTa's 514 position
+                    # limit ("expanded size of the tensor (987) must match (514)").
+                    # truncation=True + max_length=512 guarantees the model never
+                    # sees an over-length sequence regardless of char count.
+                    all_scores = sentiment_analyzer(chunk, truncation=True, max_length=512)
+                    # pipeline(top_k=None) returns a list-of-dicts per input, or a
+                    # list-of-list-of-dicts when the input is batched. Normalize.
+                    if all_scores and isinstance(all_scores[0], list):
+                        all_scores = all_scores[0]
+                    probs = {d['label']: d['score'] for d in all_scores}
+                    p_neg = probs.get('LABEL_0', 0.0)  # negative
+                    p_pos = probs.get('LABEL_2', 0.0)  # positive
+                    normalized_score = p_pos - p_neg   # -1..1; neutral (LABEL_1) cancels
+                    debug_file.write(f"  Probs: {probs}\n")
+                    debug_file.write(f"  Compound (P_pos - P_neg): {normalized_score}\n")
                     chunk_sentiments.append(normalized_score)
                 
                 # Calculate average sentiment for this document across all chunks
@@ -447,10 +460,13 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
         debug_file.write(f"All document sentiment scores: {sentiments}\n")
         debug_file.write(f"Final average sentiment score: {avg_score}\n")
         
-        # Categorize sentiment
-        if avg_score > 0.25:
+        # Categorize sentiment — 2026-06-01: tighter SYMMETRIC band (was +0.25/-0.25,
+        # which buried mildly/moderately negative topics in "neutral"). With the
+        # distribution-based compound score above, +/-0.10 cleanly separates the three
+        # classes. MUST stay in sync with topic_processor.py's bucketing thresholds.
+        if avg_score > 0.10:
             category = "positive"
-        elif avg_score < -0.25:
+        elif avg_score < -0.10:
             category = "negative"
         else:
             category = "neutral"
@@ -461,8 +477,126 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
     # Clean up resources
     del sentiment_analyzer
     gc.collect()
-    
+
     return category, avg_score
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WEIGHTED TOPIC SENTIMENT (2026-06-01)
+# Market-research-grade aggregation: the original post is weighted ~3x a comment
+# (it frames the topic), comments are engagement-weighted by upvotes (log-scaled;
+# downvoted comments fall below base weight), repeat authors are capped (1/sqrt(n))
+# to stop a vocal minority impersonating consensus, and the topic label is driven
+# by a Net Sentiment Score (NSS = weighted %pos - %neg) that does NOT wash out the
+# way a plain mean does. Controversy (polarization) is reported as metadata.
+# ─────────────────────────────────────────────────────────────────────────────
+POST_STRUCTURAL_WEIGHT = 3.0   # the OP defines the topic's framing/stance
+UNIT_OPINION_THRESHOLD = 0.15  # |compound| above which a unit is "opinionated"
+SENTIMENT_BAND = 0.10          # |score| below which a topic is labeled neutral
+
+
+def _engagement_weight(score):
+    """Log-scaled upvote weight. Upvoted comments carry more of the community's
+    voice (diminishing returns); downvoted comments fall BELOW base weight because
+    the community rejected them, so they should not speak for it."""
+    try:
+        s = float(score)
+    except (TypeError, ValueError):
+        s = 0.0
+    if s >= 0:
+        return 1.0 + float(np.log1p(s))          # 0->1.0, 9->3.3, 99->5.6
+    return 1.0 / (1.0 + float(np.log1p(-s)))      # -9->0.30, -99->0.18
+
+
+def _text_compound(text, analyzer):
+    """Distribution-based compound P(pos)-P(neg) for an arbitrary text, chunked to
+    stay under the model's token limit and averaged across chunks. Returns a float
+    in [-1, 1]; 0.0 for empty/unscorable text."""
+    text = (text or "").strip()
+    if not text:
+        return 0.0
+    chunk_size, max_chunks = 1600, 4
+    chunks = []
+    for j in range(0, len(text), chunk_size):
+        ck = text[j:j + chunk_size].strip()
+        if ck:
+            chunks.append(ck)
+        if len(chunks) >= max_chunks:
+            break
+    if not chunks:
+        return 0.0
+    vals = []
+    for ck in chunks:
+        # 2026-06-03 — hard tokenizer truncation (see note at the chunk loop in
+        # analyze_topic_sentiment): char-chunking alone can still exceed RoBERTa's
+        # 514 token limit on dense text. truncation=True + max_length=512 is the
+        # guarantee.
+        out = analyzer(ck, truncation=True, max_length=512)
+        if out and isinstance(out[0], list):
+            out = out[0]
+        probs = {d['label']: d['score'] for d in out}
+        vals.append(probs.get('LABEL_2', 0.0) - probs.get('LABEL_0', 0.0))
+    return float(mean(vals)) if vals else 0.0
+
+
+def analyze_topic_sentiment_weighted(topic_posts, topic_id, temp_dir):
+    """Weighted topic sentiment over structured post+comment units.
+    Returns: (category:str, score:float, meta:dict)."""
+    debug_path = os.path.join(temp_dir, f"topic_{topic_id}_weighted_sentiment.txt")
+    analyzer = pipeline("sentiment-analysis", model="CardiffNLP/twitter-roberta-base-sentiment", top_k=None, truncation=True, max_length=512)
+    try:
+        units = []            # (compound, weight)
+        author_counts = {}    # author -> units seen (for the 1/sqrt(n) cap)
+
+        def add_unit(text, base_weight, author):
+            comp = _text_compound(text, analyzer)
+            n = author_counts.get(author, 0) + 1
+            author_counts[author] = n
+            cap = 1.0 / (n ** 0.5)            # 1st=1.0, 2nd=0.71, 3rd=0.58...
+            units.append((comp, max(base_weight * cap, 1e-6)))
+
+        for post in (topic_posts or []):
+            ptext = post.get('post_text') or f"{post.get('title','')} {post.get('content','')}".strip()
+            add_unit(ptext, POST_STRUCTURAL_WEIGHT * _engagement_weight(post.get('score', 0)),
+                     post.get('post_author', '[deleted]'))
+            for c in (post.get('weighted_comments') or []):
+                body = (c.get('body') or '').strip()
+                if len(body) < 15:           # drop ultra-short low-information comments
+                    continue
+                add_unit(body, _engagement_weight(c.get('score', 0)), c.get('author', '[deleted]'))
+
+        W = sum(w for _, w in units)
+        with open(debug_path, 'w', encoding='utf-8') as dbg:
+            dbg.write(f"Topic {topic_id}: {len(units)} weighted units, total weight {W:.2f}\n")
+            if not units or W <= 0:
+                dbg.write("No scorable units -> neutral 0.0\n")
+                return "neutral", 0.0, {"nss": 0.0, "weighted_mean": 0.0, "controversy": 0.0,
+                                        "pos_share": 0.0, "neg_share": 0.0, "neutral_share": 1.0, "n_units": 0}
+            weighted_mean = sum(c * w for c, w in units) / W
+            w_pos = sum(w for c, w in units if c > UNIT_OPINION_THRESHOLD)
+            w_neg = sum(w for c, w in units if c < -UNIT_OPINION_THRESHOLD)
+            w_neu = W - w_pos - w_neg
+            nss = (w_pos - w_neg) / W                       # net sentiment, neutral mass excluded
+            controversy = (2.0 * min(w_pos, w_neg)) / W      # 0..1, high = polarized
+            score = 0.6 * nss + 0.4 * weighted_mean          # polarity-led, intensity-aware
+            if score > SENTIMENT_BAND:
+                category = "positive"
+            elif score < -SENTIMENT_BAND:
+                category = "negative"
+            else:
+                category = "neutral"
+            meta = {"nss": round(nss, 4), "weighted_mean": round(weighted_mean, 4),
+                    "controversy": round(controversy, 4),
+                    "pos_share": round(w_pos / W, 4), "neg_share": round(w_neg / W, 4),
+                    "neutral_share": round(w_neu / W, 4), "n_units": len(units)}
+            dbg.write(f"NSS={nss:.3f} weighted_mean={weighted_mean:.3f} controversy={controversy:.3f} "
+                      f"-> score={score:.3f} [{category}]\n")
+            dbg.write(f"shares: pos={meta['pos_share']} neg={meta['neg_share']} neu={meta['neutral_share']}\n")
+            return category, float(score), meta
+    finally:
+        del analyzer
+        gc.collect()
+
 
 def calculate_topic_similarities(topic_model, topic_info):
     """

@@ -8,8 +8,10 @@ class FilteringRoBERTa:
             print("[FilteringRoBERTa] Initializing RoBERTa model...")
             model_name = "cardiffnlp/twitter-roberta-base-sentiment"
             
-            # Initialize sentiment pipeline
-            self.classifier = pipeline("sentiment-analysis", model=model_name)
+            # Initialize sentiment pipeline. truncation + max_length at
+            # construction hard-cap inputs at RoBERTa's 512-token limit so an
+            # over-length post never overflows (the 987-vs-514 tensor crash).
+            self.classifier = pipeline("sentiment-analysis", model=model_name, truncation=True, max_length=512)
             
             self.filtered_content = {
                 "posts": [],
@@ -25,8 +27,11 @@ class FilteringRoBERTa:
     def is_relevant(self, text):
         """Check if text has non-neutral sentiment"""
         try:
-            result = self.classifier(text)[0]
-            
+            # 2026-06-03 — hard tokenizer truncation so an over-length post can
+            # never overflow RoBERTa's 514 position limit (the "expanded size of
+            # the tensor (987) must match (514)" crash on the topic-modeling page).
+            result = self.classifier(text, truncation=True, max_length=512)[0]
+
             # Consider text relevant if sentiment is not neutral
             # and confidence score is above threshold
             is_relevant = (result['label'] != 'NEUTRAL' and result['score'] > 0.50)

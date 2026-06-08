@@ -13,7 +13,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from util.topic_model.extract_sentiment_evidence import extract_sentiment_evidence, analyze_post_sentiment
-from util.topic_model.BertTopic import analyze_topic_sentiment, filter_redundant_keywords
+from util.topic_model.BertTopic import analyze_topic_sentiment, analyze_topic_sentiment_weighted, filter_redundant_keywords
 from app.repositories.jobs_repositories import update_job_status
 
 
@@ -40,31 +40,50 @@ def process_posts_for_analysis(raw_reddit_data, max_comments_per_post, min_conte
         created_utc = submission_data.get('created_utc', 0)
         timestamp = datetime.fromtimestamp(created_utc).strftime('%Y-%m-%d %H:%M:%S') if created_utc else ''
         
-        # Process comments
+        # Process comments. 2026-06-01 — also collect STRUCTURED comment units
+        # (body + upvote score + author, replies flattened) so the weighted topic
+        # sentiment model can engagement-weight comments and cap vocal authors,
+        # instead of averaging a flattened blob.
         comments_text = ""
+        weighted_comments = []
+        def _collect(c):
+            body = (c.get('body') or '').strip()
+            if body and body not in ('[deleted]', '[removed]'):
+                weighted_comments.append({
+                    'body': body,
+                    'score': c.get('score', 0) or 0,
+                    'author': c.get('author', '[deleted]'),
+                })
+            for rep in (c.get('replies') or []):
+                _collect(rep)
         for comment in comments[:max_comments_per_post]:
             comments_text += comment.get('body', '') + "\n"
-        
+            _collect(comment)
+
         # Build document with title, content, and comments
         full_text = f"{title} {content} {comments_text}".strip()
-        
+
         # Filter out posts with insufficient content
         if len(full_text) < min_content_length:
             continue
-            
+
         if title or content or comments_text:  # Include content in the check
             documents.append(full_text)
             post_ids.append(submission_data['id'])
             scores.append(submission_data.get('score', 0))
-            
+
             post_data.append({
                 'id': submission_data['id'],
                 'title': title,
-                'content': content,  
+                'content': content,
                 'comments_count': len(comments),
                 'score': submission_data.get('score', 0),
                 'timestamp': timestamp,
-                'created_utc': created_utc
+                'created_utc': created_utc,
+                # --- weighted-sentiment inputs (2026-06-01) ---
+                'post_text': f"{title} {content}".strip(),
+                'post_author': submission_data.get('author', '[deleted]'),
+                'weighted_comments': weighted_comments,
             })
     
     return documents, post_ids, scores, post_data
@@ -163,12 +182,22 @@ def process_top_topics(topic_model, topic_info, topics, documents, post_ids, pos
         if check_cancellation():
             return [], {}
                     
-        sentiment_category, sentiment_score = analyze_topic_sentiment(topic_docs, topic_id, temp_dir)
-        
+        # 2026-06-01 — WEIGHTED topic sentiment (post>comment, upvote-weighted,
+        # author-capped, NSS-based). Falls back to the flat mean only if the
+        # structured post metadata isn't present (older cached corpora).
+        sentiment_meta = {}
+        if topic_posts and any(p.get('post_text') is not None for p in topic_posts):
+            sentiment_category, sentiment_score, sentiment_meta = analyze_topic_sentiment_weighted(
+                topic_posts, topic_id, temp_dir
+            )
+        else:
+            sentiment_category, sentiment_score = analyze_topic_sentiment(topic_docs, topic_id, temp_dir)
+
         sentiment_results.append({
             "topic_id": topic_id,
-            "sentiment_category": sentiment_category,  
-            "sentiment_score": float(sentiment_score)
+            "sentiment_category": sentiment_category,
+            "sentiment_score": float(sentiment_score),
+            "sentiment_meta": sentiment_meta,
         })
         
         # Analyze sentiment for each post in this topic
@@ -198,7 +227,8 @@ def process_top_topics(topic_model, topic_info, topics, documents, post_ids, pos
             'topic_posts_ids': topic_posts_ids,
             'post_sentiments': post_sentiments,
             'count': int(topic.Count),
-            'score': float(sentiment_score)
+            'score': float(sentiment_score),
+            'sentiment_meta': sentiment_meta,   # nss / controversy / shares (weighted model)
         })
     
     # Function to process sentiment evidence in worker threads
@@ -323,10 +353,14 @@ def process_top_topics(topic_model, topic_info, topics, documents, post_ids, pos
             topic_data['one_sentence_summary'] = ""
 
         # Add to appropriate sentiment category
-        if result['score'] > 0.15:
+        # 2026-06-01 — SYMMETRIC +/-0.10 band, matching analyze_topic_sentiment in
+        # BertTopic.py. Was +0.15/-0.20 (asymmetric + wide), which mislabeled
+        # moderately-negative topics (e.g. -0.07..-0.20) as "neutral". Keep the two
+        # threshold sites identical so the displayed score and the bucket agree.
+        if result['score'] > 0.10:
             response['topics']['positive']['topics'].append(topic_data)
             response['topics']['positive']['count'] += 1
-        elif result['score'] < -0.20:
+        elif result['score'] < -0.10:
             response['topics']['negative']['topics'].append(topic_data)
             response['topics']['negative']['count'] += 1
         else:

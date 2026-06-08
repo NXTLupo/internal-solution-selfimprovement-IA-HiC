@@ -12,3 +12,7 @@ requests>=2.30.0
 # transitively requires jinja2 at runtime. Container crashed on startup with
 # ImportError: jinja2 must be installed to use Jinja2Templates.
 jinja2>=3.1.0
+# 2026-06-01 — Gemini multimodal transcription fallback. When OpenAI Whisper
+# returns 429 insufficient_quota (billing exhausted), the pipeline falls back
+# to Gemini audio transcription instead of useless "Speech segment" placeholders.
+google-genai>=1.0.0

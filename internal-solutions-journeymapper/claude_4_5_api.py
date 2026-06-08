@@ -9,7 +9,7 @@ curl https://api.anthropic.com/v1/messages \
     --header "anthropic-version: 2023-06-01" \
     --header "content-type: application/json" \
     --data '{
-   "model": "claude-opus-4-5-20251101",
+   "model": "claude-opus-4-8",
    "max_tokens": 1024,
    "messages": [
        {"role": "user", "content": "Hello, world"}
@@ -26,7 +26,7 @@ client = anthropic.Anthropic(api_key=API_KEY)
 try:
     # Send request to Claude 4.5
     response = client.messages.create(
-        model="claude-opus-4-5-20251101",  # Claude 4.5 Opus model
+        model="claude-opus-4-8",  # Claude 4.5 Opus model
         max_tokens=1024,                   # Maximum tokens in response
         messages=[                         # Message content
             {"role": "user", "content": "Hello, world"}

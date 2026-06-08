@@ -44,7 +44,7 @@ if not os.environ.get("ANTHROPIC_API_KEY"):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-5-20251101",
+                "model": "claude-opus-4-8",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -98,7 +98,7 @@ try:
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-5-20251101",
+                "model": "claude-opus-4-8",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -127,8 +127,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Setting Claude 4.5 as the default model
-DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-5-20251101")
+# 2026-06-03 — standalone Journey Mapper default upgraded to Opus 4.8 (1M context).
+DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-8")
 
 data_processor = DataProcessor()
 
@@ -136,13 +136,14 @@ def get_available_models() -> List[str]:
     """
     Return a list of available Claude models
     """
+    # 2026-06-03 — current, non-deprecated models only. Removed the retired
+    # claude-3-7-* family (sonnet/haiku/opus 3.7 officially retired) and the
+    # superseded 4.5 line. Opus 4.8 + Sonnet 4.6 share a 1M-token context;
+    # Sonnet 4.6 is the faster/cheaper alternative, Haiku 4.5 the lightweight.
     return [
-        "claude-opus-4-5-20251101",
-        "claude-sonnet-4-5-20250929",
-        "claude-haiku-4-5-20251001", 
-        "claude-3-7-sonnet-20250219",
-        "claude-3-7-haiku-20250201",
-        "claude-3-7-opus-20250211"
+        "claude-opus-4-8",
+        "claude-sonnet-4-6",
+        "claude-haiku-4-5-20251001",
     ]
 
 @app.get("/", response_class=HTMLResponse)
@@ -441,7 +442,7 @@ async def check_api_key():
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-5-20251101",
+                "model": "claude-opus-4-8",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -615,8 +616,18 @@ async def analyze_files(
             body_pos = journey_html.find("<body>") + len("<body>")
             journey_html = journey_html[:body_pos] + summary_html + journey_html[body_pos:]
             
-        # Create export and editing functionality HTML
-        export_script_html = f"""
+        # Create export and editing functionality HTML.
+        # 2026-05-29 — These reference the JM service's own /static/ editor +
+        # CSV-export assets. On the BRANDED path (HiC #journey/#blueprint) the
+        # artifact is re-served by HiC's proxy at :5012, where /static/ does
+        # NOT resolve, so the browser 404s on hide_exports.css /
+        # journey_editor_improved.js / journey_export_csv.js. The branded doc
+        # is a clean standalone artifact that does not use the JM in-page
+        # editor anyway, so suppress the injection entirely when brand is set
+        # (mirrors the summary_html / model_info_html gating above).
+        export_script_html = ""
+        if not brand:
+            export_script_html = f"""
 <link rel="stylesheet" href="/static/hide_exports.css">
 <script>
 // Journey Map Configuration - ID only, no export panel functionality

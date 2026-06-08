@@ -55,7 +55,11 @@ CLAUDE_MAX_DETAILED_ITEMS = 15    # Maximum number of detailed items to include 
 class DynamicJourneyMapper:
     def __init__(self, anthropic_model=None, debug_mode=True, use_rag=True, brand=None, artifact_type=None, render_mode=None, include_metrics=False):
         # Use environment variable or default to the Sonnet model
-        self.anthropic_model = anthropic_model or os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
+        # 2026-06-03 — fallback bumped off the RETIRED claude-3-7-sonnet (officially
+        # retired) to claude-sonnet-4-6 (current, non-deprecated, 1M-token, fast).
+        # HiC journey/blueprint generation passes llm_model explicitly (e.g.
+        # gemini-3.5-flash); this is the safety default when none is provided.
+        self.anthropic_model = anthropic_model or os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6")
         self.debug_mode = debug_mode
         self.logger = logging.getLogger(__name__)
         self.use_rag = use_rag
@@ -598,41 +602,55 @@ NU LAYOUT CONTRACT (fixes known failure modes):
 """
         if self.brand == "nxt":
             return """
-*** MANDATORY BRAND STYLING — NXT HUMANS (NXT), STARK-WHITE EDITORIAL ***
-This is a STARK WHITE editorial layout, NOT a dark dashboard. Do NOT invent a different
-palette. Do NOT use generic blue. Match the NXT artifact system exactly:
+*** MANDATORY: BUILD WITH THE NXT ARTIFACT DESIGN SYSTEM (2026), STARK-WHITE ***
+A complete stark-white component stylesheet, an icon sprite, the real NXT HUMANS
+wordmark, and a working-tabs script are AUTOMATICALLY INJECTED into this document.
+Your job is to emit semantic HTML that USES these exact classes. Do NOT write your
+own <style> theme, do NOT set background colors in inline styles, do NOT load your
+own fonts. The system already handles all visual styling. If you fight it with your
+own dark CSS it will be stripped.
 
-SURFACES (the most important rule):
-- PAGE BACKGROUND: #FFFFFF (pure white). The dominant surface of the ENTIRE document is white.
-- SECTION/CARD SURFACE: #FFFFFF on a #F5F5F0 (near-white paper) canvas. Cards are white with a thin #E2E2DC (1px) border, NOT dark fills.
-- DARK BANDS ARE RARE: use the dark band (#0D0D0D) for AT MOST the top masthead strip and the bottom footer band. NEVER render the hero summary, the pain-points section, the opportunities section, the source index, or the phase cards as large dark panels. Those are WHITE sections with dark ink.
+SURFACE RULE (non-negotiable): the ENTIRE document is WHITE (#FFFFFF) with near-black
+ink (#141414). There is NO dark dashboard, NO dark cards, NO dark panels. Dark appears
+ONLY through the intentional block classes below (which carry white text automatically).
+NEVER place dark text on a dark background. NEVER invent a tiny "N" or "NXT" box logo.
 
-TEXT COLOR, CONTRAST IS NON-NEGOTIABLE (WCAG AA, 4.5:1 minimum):
-- BODY TEXT ON WHITE: #0D0D0D (near-black). The default for nearly all text.
-- HEADINGS ON WHITE: Teal #115054 (display) or #0D0D0D.
-- MUTED/CAPTION ON WHITE: #4A4A44. NEVER lighter than #5A5A52 on white.
-- ON ANY DARK BAND: every word is pure #FFFFFF or #F5F5F5. ABSOLUTELY FORBIDDEN: teal, chartreuse, or dark ink as body text on a dark band; no dark-on-dark anywhere. If a band is dark, 100% of its text including connective words is white.
+BRAND TOKENS (already in the CSS, do not redeclare): teal #115054, lime #CACA20,
+ink #141414, paper #FAFAFA, hairline #EAEAEA. Display font Saira Condensed (the
+Agency FB substitute), body font Archivo (Light/ExtraLight), mono JetBrains Mono.
 
-ACCENT:
-- Teal #115054: section headings, primary emphasis, eyebrow rules.
-- Chartreuse #B8B800: focal numbers, active markers, emphasis ticks. Use as INK/accent on white, never as a large fill behind body text.
-- Cyan #00B7C3: links, data labels. Rust #CC6644: pain markers.
-- Pale tints only for small chips/badges, never large panels.
+REQUIRED DOCUMENT SHELL:
+<header class="nxt-masthead"><span class="nxt-logo">NXT HUMANS</span><span class="nxt-masthead__label">ARTIFACT TYPE</span></header>
+(The .nxt-logo span renders the real wordmark via the injected CSS. Always use it; never an SVG or text substitute.)
+Then, if the artifact has sections/views, a tab bar:
+<nav class="nxt-tabs" data-tabs><button class="nxt-tab" data-tab="x" aria-selected="true">Label</button>...</nav>
+<div data-tabs-scope><section class="nxt-panel" data-panel="x" data-active="true">...</section>...</div>
+(The injected JS makes these tabs work. Match each data-tab to a data-panel. Tabs are
+only for artifacts with real distinct views, e.g. tech-audit, architecture, org, meta-themes.)
+Then a hero: <section class="nxt-hero nxt-wrap"><p class="nxt-eyebrow">LABEL</p><h1 class="nxt-hero__title">Action title</h1><p class="nxt-hero__standfirst">One standfirst sentence.</p></section>
+Wrap content sections in <section class="nxt-section nxt-wrap">...</section>.
+End with <section class="nxt-section nxt-wrap nxt-source-index"><ul><li><span class="sname">Source.</span> note</li>...</ul></section>
+and <footer class="nxt-footer"><span class="nxt-logo nxt-logo--sm">NXT HUMANS</span><span>Artifact type</span></footer>.
 
-FONTS:
-- DISPLAY / HEADINGS: 'Bebas Neue', sans-serif (large section titles, tracked).
-- BODY: 'Archivo', sans-serif (weights 200-900).
-- MONO / LABELS: 'JetBrains Mono', monospace, uppercase, 10-12px, letter-spacing 2px; eyebrow color Teal #115054.
-- Load in <head>: <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+COMPONENT VOCABULARY (use these classes, do not invent dark equivalents):
+- Headings: .nxt-h2, .nxt-h3, eyebrow .nxt-eyebrow, display caps .nxt-display, prose .nxt-prose
+- Cards/grid: .nxt-card (.nxt-card__label/.nxt-card__title/.nxt-card__body) inside .nxt-grid.nxt-grid--2|3|4
+- Stats (opt-in only): .nxt-stat (.nxt-stat__fig/.nxt-stat__label/.nxt-stat__src)
+- Quote: .nxt-quote (.nxt-quote__text/.nxt-quote__cite)
+- Chips: .nxt-chip, .nxt-chip--status, .nxt-chip--accent, .nxt-chip--source
+- Table: .nxt-table (light header, NEVER a black header bar)
+- Intentional color blocks (ONLY way to use dark/color): .nxt-block.nxt-block--teal | --ink | --lime
+- Icons: <svg class="nxt-ico"><use href="#i-NAME"></use></svg> where NAME is one of
+  user team building data gear network chart search target flow shield idea calendar doc chat arrow check layers clock alert grid
+- Infographics: .nxt-process (numbered steps), .nxt-quadrant, .nxt-bars/.nxt-bar, .nxt-donut, .nxt-funnel, .nxt-tiers, .nxt-iconstat, .nxt-compare, .nxt-numlist
+- Tech diagrams: .nxt-flow + .nxt-flow__node/.nxt-flow__arrow, .nxt-hub + .nxt-hub__center/.nxt-hub__spoke, .nxt-layer + .nxt-component
+- Artifact modules: .nxt-timeline/.nxt-phase, .nxt-swimlane, .nxt-matrix/.nxt-strength, .nxt-persona, .nxt-userstory, .nxt-horizons/.nxt-horizon, .nxt-gap, .nxt-org, .nxt-kernel, .nxt-rec, .nxt-callout, .nxt-dialog/.nxt-bubble, .nxt-theme
+- Slides (#slide/#slides): .nxt-slide (+ --title/--divider/--closing/--quote/--image/--split), .nxt-slide__kicker/__title/__body/__logo
 
-NXT LAYOUT CONTRACT (fixes known failure modes):
-- HEADER: lead DIRECTLY with the diagnostic action-title in Bebas Neue on white, then one short standfirst paragraph in #0D0D0D. NO eyebrow metadata strip, NO slash-separated mono-label row, NO duplicate summary band. A tiny plain "NXT" or "Northeastern" wordmark is optional; nothing else above the title.
-- NO EMOTION CURVE / NO GRAPHS: do NOT draw an emotion curve, stress line, sparkline, SVG arc, or any line/area chart. The emotional arc never renders usefully and is BANNED. Emotion appears only as a short text label inside each phase card.
-- ONLY ONE DARK ELEMENT: the single thin top masthead strip may be dark (#0D0D0D) with small white mono labels. EVERY OTHER SECTION is white/near-white with dark ink. Do NOT render the source index, the footer, the synthesis, or any large content band as a dark panel. The repeated failure is a dark source-index/footer band with dark ink text on it (invisible). FIX: the SOURCE INDEX is a WHITE section, dark ink (#0D0D0D) body, teal mono eyebrows; never dark-on-dark.
-- PAIN / OPPORTUNITY SYNTHESIS: white cards on white canvas, dark ink text, rust (#CC6644) eyebrow for pains and teal (#115054) eyebrow for opportunities. NOT a dark section.
-- NO SELF-REFERENTIAL / META LANGUAGE: section headings and standfirsts describe the JOURNEY and its EVIDENCE, never the artifact itself. FORBIDDEN phrasings: "Every quote, every number, traceable", "This map traces", "This journey shows", "this analysis", "this report", or any sentence describing the document's own properties, traceability, or how it was generated. Name the source index "Source Index" with NO editorial tagline.
-- Sharp 2-4px corners, geometric, restrained, generous whitespace, thin 1px #E2E2DC dividers, no decorative shadows.
-- NEVER emit em-dash characters (U+2014). Use comma, semicolon, period.
+NO GRAPHS drawn as SVG arcs/curves; use the infographic primitives above. Sharp 2px
+corners, generous whitespace, no shadows. NEVER emit em-dash (U+2014). NO emoji.
+NO metadata chrome (no Plan Hash, Version, HUMAN CHECKPOINT, "N selected from M",
+methodology names). Lead with the insight; describe the EVIDENCE, never the document.
 """
         return ""
 
@@ -645,7 +663,7 @@ NXT LAYOUT CONTRACT (fixes known failure modes):
 *** METRICS POLICY: DASHBOARD REQUESTED (opt-in is ON) ***
 A metrics treatment was explicitly requested, so you MAY include a KPI/stat dashboard. Even so:
 every numeric tile must be a REAL figure that a named source stated, rendered with that source
-attribution on the tile (e.g. "11 weeks, Source: NU Student Survey 2025"). Never invent or compute
+attribution on the tile (e.g. "11 weeks, Source: 2025 Customer Benchmark Survey"). Never invent or compute
 a stat. Prefer 3-4 tiles. If a figure was not actually stated by a source, use a qualitative tile instead.
 """
         else:
@@ -662,9 +680,9 @@ Write like a senior consultant briefing a partner: clear, concise, specific, no 
 - ACTION TITLE: ONE plain declarative sentence stating the single most important conclusion (a
   judgment), with NO standalone number in it. The Partner Test: a reader seeing only the title
   grasps the finding without effort.
-  BAD (quant-crammed): "A 200:1 advising ratio is being patched by an LLM readiness layer in front of NUworks, where 60 applications return 4 responses."
-  BAD (naked number): "One advisor for every 200 students leaves first-years to navigate co-op alone."
-  GOOD (qualitative judgment): "One overstretched advisor cannot carry a first-year through the co-op search alone."
+  BAD (quant-crammed): "A 200:1 support ratio is being patched by an LLM triage layer in front of the help desk, where 60 tickets return 4 resolutions."
+  BAD (naked number): "One support rep for every 200 accounts leaves new customers to navigate setup alone."
+  GOOD (qualitative judgment): "One overstretched support rep cannot carry a new customer through setup alone."
 
 *** QUANTITATIVE CLAIM RULE (CRITICAL, applies to ALL text) ***
 Do NOT state standalone quantitative claims (percentages, ratios, counts, dollar figures,
@@ -672,20 +690,35 @@ durations-as-metrics, "Nx", "N%", "N-to-M") as YOUR OWN assertion anywhere: titl
 prose, KPI/metric tiles, pain or opportunity statements, captions, synthesis. A naked number
 reads as fabricated and is the worst AI-slop tell.
 - A number may appear ONLY inside a VERBATIM quote with inline source attribution. If a real
-  source said it, show it in that quote's context. Allowed: a pull quote "I applied to 60 co-ops
-  and heard back from 4." with "Source: Reddit r/NEU". FORBIDDEN: the same "60-to-4" as a title,
+  source said it, show it in that quote's context. Allowed: a pull quote "I sent 60 follow-ups
+  and heard back from 4." with "Source: Customer Forum". FORBIDDEN: the same "60-to-4" as a title,
   heading, KPI tile, or narrative sentence.
 - Default to QUALITATIVE language everywhere else: name the pattern (FRAGMENTED, PERSISTENT,
   SCARCE, ONE-TO-MANY), the system, or the proper noun, never the statistic.
 - THIS INCLUDES NUMBERS BURIED IN SYNTHESIS / STANDFIRST PROSE, not just titles and tiles.
-  BAD (naked ratio in prose): "the system produces a 9am workshop, a thousand-posting feed, and a 200-to-1 advising ratio."
-  GOOD (qualitative): "the system produces a badly timed workshop, an unfilterable feed, and an advisor stretched across far too many students."
+  BAD (naked ratio in prose): "the system produces a poorly timed webinar, a thousand-item feed, and a 200-to-1 support ratio."
+  GOOD (qualitative): "the system produces a badly timed webinar, an unfilterable feed, and a support team stretched across far too many accounts."
   If a specific number matters, move it into a cited verbatim quote; do not assert it in your own sentence.
 - When a contract below says "with a number" or "KPI tiles with real numbers", OVERRIDE it: use a
   qualitative descriptor, OR render the number only as a cited verbatim quote.
 - FINAL SELF-SCAN before emitting: re-read every sentence that is NOT inside a quotation-marked,
   source-attributed quote. If it contains a digit, %, ratio (N:M or N-to-M), or $ figure, REWRITE
   it qualitatively. Numbers survive ONLY inside cited quotes. This scan is mandatory.
+
+*** CITATION INTEGRITY (CRITICAL) ***
+Every "Source:" attribution MUST name a REAL EXTERNAL source that appears in the supplied evidence
+(a named publication, platform, subreddit, report, or document). NEVER cite the analysis pipeline's
+own internal passes or prior deliverables as a source. ABSOLUTELY FORBIDDEN as a citation, anywhere:
+"Tri-Model Synthesis", "Tri-Model", "Synthesis", "Highlights", "Gaps section", "Pre-Analysis",
+"the corpus", "the record", "the material", "Themes", "Personas", "Prior Findings", "intelligence_sources".
+A block labeled "INTERNAL PRE-ANALYSIS" or "PRIOR FINDINGS (context only)" is orientation, NOT a source:
+you may USE it to understand the material, but you must trace every quote and claim back to the named
+EXTERNAL source it actually came from. If a claim cannot be traced to a real external source, OMIT it
+rather than invent a citation or cite an internal pass.
+Quotes must be VERBATIM voice from a real source with a complete sentence. NEVER render an LLM artifact
+as a quote (e.g. "please provide the content of Part N/M", "as an AI", "continue the analysis", a label
+dump like "Pre-Built Agents Prompt Library Governance Tools"). If the only available "quote" is a
+fragment or a label dump, do not render a quote block for that point.
 
 *** NO METADATA CHROME (CRITICAL) ***
 The reader sees a finished consulting artifact, never a build trace. Do NOT render ANY micro-metadata
@@ -698,7 +731,7 @@ internal structure counts. SPECIFICALLY FORBIDDEN anywhere in the document:
 
 *** NO EYEBROW METADATA STRIP ***
 Do NOT render the slash-separated mono-label "eyebrow" strip across the top (e.g.
-"NORTHEASTERN UNIVERSITY / EXPERIENCE RESEARCH | PERSONA SET / FIRST-YEAR CO-OP | N = 1 CORPUS / 5 EVIDENCE PARAGRAPHS").
+"ACME CORP / EXPERIENCE RESEARCH | PERSONA SET / NEW CUSTOMER | N = 1 CORPUS / 5 EVIDENCE PARAGRAPHS").
 No one reads it and it reads as AI chrome. The document LEADS with the action title. A header, if any,
 is at most a small plain brand wordmark on its own; it carries NO slash-separated category labels, NO
 artifact-type tag, NO corpus/evidence counts. The named sources live ONLY in the SOURCE INDEX at the end.
@@ -716,7 +749,7 @@ artifact-type tag, NO corpus/evidence counts. The named sources live ONLY in the
   "The corpus shows churn is the core failure" becomes "Churn is the core failure".
   If you catch yourself listing what the artifact contains or naming where a claim came from in
   the body prose, delete that framing and state the finding plainly. (Inline source attribution on
-  a specific quote, e.g. "Source: Reddit r/NEU", is fine; sentence-level "the corpus suggests" is not.)
+  a specific quote, e.g. "Source: Customer Forum", is fine; sentence-level "the corpus suggests" is not.)
 - VERBS: use plain verbs. BANNED purple/copula-avoidance verbs: threads, weaves, knits, patches together,
   serves as, stands as, marks, represents (a/the), embodies, leverages, harnesses, orchestrates, underpins.
   Say "is/are/has" plainly. "The stack has four layers" not "The stack threads four layers".
@@ -752,8 +785,8 @@ RICHNESS FLOORS, meet ALL of them:
 - PHASES: 4 to 6 phases. Each phase is a concrete behavioral event (e.g. "Application submission", "Interview cycle"), NEVER a gerund category.
 - ACTIVITIES PER PHASE: at least 3 specific activities per phase, each a complete sentence (subject + verb + outcome).
 - PAIN POINTS: at least 1 named pain per phase carrying BOTH severity (how much it hurts) and frequency (how often / how many it affects), anchored to a number, a system name, or a proper noun. No generic "poor UX". Aim for 6+ distinct pains across the journey.
-- EVIDENCE QUOTES, PLENTY PER PHASE: 2 to 3 VERBATIM voice-of-user quotes in EVERY phase, pulled word-for-word from the corpus, each with inline source attribution (e.g. "Source: Reddit r/NEU"). NEVER fabricate, paraphrase, or stitch a quote. If the corpus genuinely offers only one usable quote for a phase, use one; never drop below one when the corpus has material. Aim for 12+ verbatim quotes across the journey. Additionally, surface 1 PULL QUOTE per phase: the single most impactful line, rendered large and visually distinct.
-- TOUCHPOINTS: name the specific system/channel at each phase (e.g. "NUworks job board", "Career Center walk-in").
+- EVIDENCE QUOTES, PLENTY PER PHASE: 2 to 3 VERBATIM voice-of-user quotes in EVERY phase, pulled word-for-word from the corpus, each with inline source attribution (e.g. "Source: Customer Forum"). NEVER fabricate, paraphrase, or stitch a quote. If the corpus genuinely offers only one usable quote for a phase, use one; never drop below one when the corpus has material. Aim for 12+ verbatim quotes across the journey. Additionally, surface 1 PULL QUOTE per phase: the single most impactful line, rendered large and visually distinct.
+- TOUCHPOINTS: name the specific system/channel at each phase (the actual named systems the corpus references).
 - EMOTION (NO GRAPH): give one emotion word + a one-clause psychological reason per phase, rendered as a small inline label inside that phase's card. DO NOT plot an emotion/stress curve, line chart, sparkline, or SVG arc anywhere. The emotional arc as a graphic is BANNED; it never renders usefully. Emotion lives as text in the phase, nothing more.
 - KPI DASHBOARD: (see METRICS POLICY: a KPI/stat dashboard is OFF by default and omitted entirely unless a metrics treatment was explicitly requested). If a number would be invented, use a qualitative display word (FRAGMENTED, MULTIPLE, PERSISTENT) instead.
 - OVERALL PAIN POINTS + STRATEGIC OPPORTUNITIES: 3-5 journey-level entries each (cross-cutting, not per-phase), each opportunity actionable and tied to a named pain.
@@ -806,8 +839,15 @@ STEP B (critique, internal): which players or dimensions did you omit? Which cel
 instead of an evidenced capability or gap? Where is the "so what" missing? Fix it.
 STEP C (emit): output ONLY the improved analysis as one complete HTML document.
 
-STRUCTURE (CSS-GRID matrix, never SVG with absolute coordinates):
-- COMPETITORS / ALTERNATIVES: 4 to 7 REAL named players drawn from the corpus (never invented).
+STRUCTURE (use .nxt-matrix; never SVG with absolute coordinates):
+- COMPETITORS / ALTERNATIVES: 4 to 7 REAL, SPECIFICALLY NAMED players from the corpus
+  as the matrix ROW HEADERS (the actual named organizations, products, vendors, or
+  programs the corpus mentions). NAMING IS MANDATORY: a competitive
+  analysis with zero named competitors is an OUTRIGHT FAILURE, re-scan the corpus for every
+  organization, program, vendor, or alternative it names and use them. NEVER use generic
+  placeholders ("Competitor A", "Vendor X", "Other programs"). The rivals are whatever the
+  corpus and the research objective actually name as alternatives to the subject.
+  Use the .nxt-strength bars (leader/parity/gap) for cell encoding.
 - EVALUATION DIMENSIONS: 4 to 6 dimensions that actually decide buyer choice (columns).
 - Each cell: a concrete, evidenced capability or gap (a feature, a number, a named limitation), never a generic "strong/weak".
 - Optionally encode each cell with a strength marker (leader / parity / gap) using brand-accent intensity, never red-vs-green only (accessibility).
@@ -854,19 +894,19 @@ STEP B (critique, internal): are these real distinct segments or one persona spl
 Which goals/pains are generic instead of evidenced? Are the quotes verbatim? Fix it.
 STEP C (emit): output ONLY the improved persona set as one complete HTML document.
 
-STRUCTURE (CSS-grid persona cards, one card per persona):
+STRUCTURE (use the .nxt-persona module, one card per persona):
 - 2 to 4 PERSONAS, each a distinct, evidenced user type. Lead with GOALS, not demographics.
-- NO persona NUMBERING or index label ("PERSONA 01 /", "PERSONA 02 /", "Persona type: Primary"). Each card leads with its goals-first NAME only.
-- NO SEGMENT-SIZE STAT ("SEGMENT ~ 68% OF FIRST-YEARS", "SEGMENT = N%"). Segment-size percentages are fabricated metadata and are BANNED. Describe who the persona is in words, not a made-up share.
-- Each card carries: a goals-first name/label; CONTEXT (one sentence on situation); GOALS (2-3, what they are trying to achieve); BEHAVIORS (2-3 observed patterns); PAIN POINTS (2-3 named, with severity + frequency); NEEDS (2-3, what would unblock them).
-- PERSONA PHOTO SLOT (REQUIRED): at the TOP of each persona card, include a situational-photo figure that a downstream image generator will fill. Emit it EXACTLY in this shape, with NOTHING else inside the figure:
-  <figure class="persona-photo"><img class="persona-img" data-gen-prompt="DESCRIBE A SITUATIONAL SCENE OF THIS PERSONA IN THEIR REAL CONTEXT" alt="" src="" /></figure>
-  HARD RULES for the figure:
-  - The figure contains ONLY the <img>. Do NOT add a <figcaption>, a caption, a label, or ANY text.
-  - Do NOT add a CSS ::before or ::after with `content:` on .persona-photo (no "Situational portrait" placeholder label, no "PHOTO" text). NO words rendered over or under the image, ever.
-  - Leave src empty; the generator fills it. Leave alt empty.
-  Rules for the data-gen-prompt value: a single vivid sentence describing THIS archetype in a DISTINCTIVE moment of friction or action. CRITICAL, AVOID THE CLICHE: do NOT make every persona "a person staring at a laptop at a desk." VARY the setting and the action across the personas, for example: walking out of a crowded advising office looking deflated; standing at a career-fair table mid-conversation with a recruiter; checking a phone in a stairwell after a rejection; sketching notes on a whiteboard with peers; arriving late and flustered to a workshop already in progress; pacing a dorm hallway on a call. Each persona gets a DIFFERENT environment, posture, and activity. Photographic, candid, editorial, natural light. NO on-image text, NO logos, NO watermark, NO UI screenshots. Make the personas authentically diverse across age-appropriate first-year students of varied ethnicity; avoid stereotypes.
-  GENDER MATCH (MANDATORY): the person described in data-gen-prompt MUST match the gender implied by the pronouns you use for this persona in the card copy. If the card says "she/her", describe a young woman; if "he/his", a young man; if "they/them", keep the description gender-neutral. State the gender explicitly in the prompt (e.g. "a first-year woman ..."). The image and the copy pronouns must never contradict. Decide each persona's gender first, then write BOTH the copy and the prompt to agree.
+- Emit each as: <div class="nxt-persona"><div class="nxt-persona__avatar">INITIALS</div><div>... card body ...</div></div>
+  The avatar is a flat MONOGRAM (the persona's two initials) rendered by the system CSS.
+  Do NOT use a generated photo, an emoji, a stock avatar, a 3D/gradient icon, or any
+  decorative illustration. The monogram is the only avatar. (The previous AI-photo
+  approach read as slop and is REMOVED.)
+- Inside the card body: <div class="nxt-persona__name">Goals-first name</div>
+  <div class="nxt-persona__arch">Archetype label</div>, then labeled blocks using
+  <div class="nxt-persona__k">GOALS</div><p class="nxt-card__body">...</p> for each of:
+  CONTEXT (one sentence), GOALS (2-3), BEHAVIORS (2-3), PAIN POINTS (2-3 named, severity+frequency), NEEDS (2-3).
+- NO persona NUMBERING or index label ("PERSONA 01", "Persona type: Primary"). Name only.
+- NO SEGMENT-SIZE STAT ("SEGMENT ~ 68%", "N%"). Fabricated metadata, BANNED. Describe in words.
 RICHNESS FLOORS:
 - VERBATIM QUOTES: each persona carries 2 to 3 VERBATIM voice-of-user quotes pulled word-for-word from the corpus with inline source attribution, plus ONE large PULL QUOTE that defines the persona. NEVER fabricate, paraphrase, or composite a quote. (This is the single most important persona rule.)
 - CROSS-PERSONA INSIGHT: one paragraph on what unites or divides the personas and the design implication.
@@ -875,14 +915,161 @@ RICHNESS FLOORS:
 Final self-check: if a persona lacks verbatim quotes or reads generic, EXPAND or merge before returning.
 """
 
+        prd_contract = """
+*** PRODUCT REQUIREMENTS (PRD) DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a PRD, NOT a journey, an essay, or a slide of themes. A PRD without user
+stories and testable requirements is an OUTRIGHT FAILURE. Build a real PRD.
+STRUCTURE:
+- PROBLEM + OBJECTIVE: 2-3 sentences naming the user problem and the product objective.
+- USER STORIES: 5 to 8, each as a .nxt-userstory block in the exact form
+  "As a <specific role>, I want <capability>, so that <outcome>", each with a
+  <div class="nxt-userstory__ac">Acceptance: <testable criterion></div>.
+- REQUIREMENTS TABLE: a .nxt-table with columns Requirement | Priority (P0/P1/P2 as
+  .nxt-chip) | Acceptance criteria. 8+ functional requirements, concrete and testable.
+- NON-FUNCTIONAL: 3-5 (performance, accessibility, privacy, scale) as cards.
+- OUT OF SCOPE: 3-4 explicit exclusions.
+- DEPENDENCIES / RISKS: 3-4, each named.
+Every requirement is specific and verifiable. NO vague "the system should be good".
+"""
+        org_contract = """
+*** ORG / OPERATING-MODEL DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is an ORG CHART / operating model. It MUST actually RENDER the hierarchy as boxes
+and connectors, not describe it in prose. An org artifact without a visible chart is an
+OUTRIGHT FAILURE. Use the .nxt-org module (collision-free CSS grid, never absolute SVG):
+STRUCTURE:
+- A clear hierarchy: a top sponsor/owner row, then 2-4 levels below it.
+- Each node: <div class="nxt-org__node"><div class="nxt-org__name">Role/Team</div><div class="nxt-org__role">Mandate</div></div>
+- Group sibling nodes in <div class="nxt-org__row">...</div>; connect levels with <div class="nxt-org__connector"></div>.
+- 8-14 real nodes drawn from the corpus (teams, roles, functions the corpus names).
+- RACI / OWNERSHIP: for the 4-6 key functions, name who is Responsible and Accountable (a small .nxt-table is fine).
+- GAPS: 2-3 capability or ownership gaps in the current structure, each evidenced.
+"""
+        gap_contract = """
+*** GAP ANALYSIS DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a GAP ANALYSIS (current vs target). Use .nxt-gap rows (current | target) plus impact.
+STRUCTURE:
+- 5 to 8 GAPS. For each: a .nxt-gap block with .nxt-gap__cur (current state) and .nxt-gap__tgt (target state).
+- GAP IMPACT (mandatory, per learned constraint): for each gap, name the AFFECTED SYSTEM,
+  TEAM, or STAKEHOLDER and the concrete OPERATIONAL CONSEQUENCE. Any figure appears ONLY
+  inside a cited verbatim quote, never as a bare number.
+- PRIORITY: tag each gap effort/impact with a .nxt-chip; optionally place gaps on a .nxt-quadrant.
+- CLOSURE MOVES: 3-5, each tied by name to a specific gap.
+"""
+        tech_audit_contract = """
+*** TECHNOLOGY AUDIT DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a SYSTEMS / TECH AUDIT. Use WORKING TABS (.nxt-tabs + data-tabs + .nxt-panel) for the
+views and a LIGHT-HEADER .nxt-table (never a black header bar).
+VIEWS (tabs): Systems Inventory | Integration Map | Capability Matrix | Consolidation & Actions.
+- SYSTEMS INVENTORY: .nxt-table of 6+ named systems (System | Role | Owner | State chip Legacy/Active/At-risk).
+- INTEGRATION MAP: a .nxt-flow or .nxt-hub diagram of how the named systems connect (collision-free).
+- CAPABILITY MATRIX: .nxt-bars or .nxt-matrix scoring capabilities (qualitative: Leading/Strong/Emerging/Gap).
+- CONSOLIDATION & ACTIONS: 4-6 consolidation moves, each naming the systems it affects.
+- RISKS: 3-5 named (single points of failure, legacy lock-in), each evidenced.
+"""
+        roadmap_contract = """
+*** ROADMAP DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a ROADMAP. Use the .nxt-horizons module (Now | Next | Later columns).
+- 3 HORIZONS, each with 3-5 .nxt-horizon__item cards.
+- Per learned constraint, EVERY item carries a specific SUCCESS METRIC with a NAMED BASELINE
+  and a TIMEFRAME (the measurement four-tuple), so each is verifiable, not aspirational.
+  Numbers ride only inside cited quotes; otherwise describe the metric qualitatively with its baseline named.
+- DEPENDENCIES: note what each later item depends on from an earlier one.
+- One diagnostic action-title naming the sequencing logic.
+"""
+        strategy_contract = """
+*** STRATEGY DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a STRATEGY built on Rumelt's kernel. Use the .nxt-kernel module.
+- DIAGNOSIS: .nxt-kernel__step naming THE central challenge with specific evidence.
+- GUIDING POLICY: .nxt-kernel__step stating the approach as a DECISION (not a goal).
+- COHERENT ACTIONS: .nxt-kernel__step with 5-7 actions that reinforce each other.
+- EVIDENCE: 3+ verbatim cited quotes anchoring the diagnosis.
+- TRADE-OFFS: 2-3 things this strategy explicitly chooses NOT to do.
+"""
+        recommendation_contract = """
+*** RECOMMENDATIONS DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a PRIORITIZED RECOMMENDATION SET. Use .nxt-rec cards.
+- 4 to 6 recommendations, each .nxt-rec with a number, a title (action), a rationale,
+  an impact .nxt-chip--accent, and the named evidence/pain it resolves.
+- Sequence them; note quick wins vs structural moves.
+- Each recommendation is concrete enough to assign an owner.
+"""
+        meta_themes_contract = """
+*** META-THEMES DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a CROSS-ENGAGEMENT THEME SYNTHESIS. Use .nxt-theme cards in a .nxt-grid.
+- 5 to 8 themes, each a .nxt-theme with a .nxt-theme__tag (Convergent / Divergent / Emerging)
+  and an evidenced description.
+- EXECUTIVE SYNTHESIS: lead with a 2-3 sentence synthesis of the meta-pattern.
+- EVIDENCE: each theme cites the named sources that converge on it.
+"""
+        research_plan_contract = """
+*** RESEARCH PLAN DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a RESEARCH PLAN. Stark-white, no dark tiles. Use .nxt-card / .nxt-table.
+- SUB-QUESTIONS: 5-8, each a card with the question and what answering it unlocks (type chip + priority chip).
+- SOURCE STRATEGY: which source types answer which questions (a .nxt-table).
+- EXECUTION: sequence + method per question.
+- NO pipeline chrome (no Plan Hash, Version, checkpoint banners).
+"""
+        mindmap_contract = """
+*** MINDMAP DEPTH CONTRACT (NON-NEGOTIABLE) ***
+This is a MINDMAP. A central theme with branches. Use a .nxt-hub for the center+branches OR a
+.nxt-grid of .nxt-callout tiles (LIGHT tiles, dark text, NEVER dark-on-dark).
+- 1 central idea, 4-6 branches, each branch with 2-4 .nxt-callout leaf tiles.
+- Each leaf is a concrete, evidenced point. No decorative-only nodes.
+"""
+        brief_contract = """
+*** STRATEGIC BRIEF DEPTH CONTRACT (NON-NEGOTIABLE) ***
+A strategic brief FRAMES THE SPACE, not just lists logistics. It must do real synthesis work, not a
+thin one-card-per-field summary. REQUIRED structure (each a substantive section, not a label):
+1. DIAGNOSIS / ACTION TITLE: one declarative sentence naming the central tension or shift (qualitative,
+   no naked number).
+2. FRAME THE SPACE (3-5 sentences + supporting cards): what this domain looks like right now, the
+   forces at play, where it is heading. This is the "where the field is" framing.
+3. KEY FINDINGS: 4-6 evidenced findings, EACH with a one-sentence claim + 2-3 sentences of substance +
+   at least one VERBATIM cited quote from a named external source. Not bullets, real analysis.
+4. OPPORTUNITIES: 3-5 concrete opportunities, each tied to a named finding/pain it answers.
+5. CHALLENGES / RISKS: 3-5 real obstacles with why they bite, each anchored to evidence.
+6. RECOMMENDED MOVES: 3-5 actions that reinforce each other (Rumelt coherence), each with the
+   stakeholder/system it touches.
+EVIDENCE FLOOR: at least 8 VERBATIM cited quotes across the brief, from at least 5 distinct named
+external sources. Lead every section with the insight, corroborate with external evidence, then
+contextualize with client docs.
+SELF-CHECK BEFORE RETURNING: if any section is a stub (under ~3 substantive sentences), if the space
+is not framed, or if the evidence floor is unmet, EXPAND before returning. A thin brief is a failure.
+For brief-dialog: use .nxt-dialog / .nxt-bubble (light bubbles, dark text on white); 6-10 Q/A
+exchanges that progressively scope the engagement, each answer substantive and evidenced.
+"""
+
         contracts = {
             "journey": journey_contract,
             "blueprint": blueprint_contract,
             "competitive": competitive_contract,
             "tech-arch": tech_arch_contract,
+            "arch": tech_arch_contract,
             "personas": personas_contract,
+            "persona": personas_contract,
+            "prd": prd_contract,
+            "org": org_contract,
+            "gap-analysis": gap_contract,
+            "gap_analysis": gap_contract,
+            "gap": gap_contract,
+            "tech-audit": tech_audit_contract,
+            "tech_audit": tech_audit_contract,
+            "roadmap": roadmap_contract,
+            "strategy": strategy_contract,
+            "strategy-slide": strategy_contract,
+            "recommendation": recommendation_contract,
+            "recommendations": recommendation_contract,
+            "meta-themes": meta_themes_contract,
+            "meta_themes": meta_themes_contract,
+            "research-plan": research_plan_contract,
+            "research_plan": research_plan_contract,
+            "mindmap": mindmap_contract,
+            "brief": brief_contract,
+            "brief-dialog": brief_contract,
+            "brief_dialog": brief_contract,
         }
-        return contracts.get(at, journey_contract)
+        key = (at or "journey").lower().strip()
+        return contracts.get(key, contracts.get(key.replace("_", "-"), journey_contract))
 
     def _slide_layout_contract(self):
         """When render_mode == 'slides', return a layout contract that turns the
@@ -890,6 +1077,48 @@ Final self-check: if a persona lacks verbatim quotes or reads generic, EXPAND or
         slide) instead of one continuous page. Empty string in document mode."""
         if self.render_mode != "slides":
             return ""
+        # NXT brand uses the design-system .nxt-slide frames (injected CSS styles
+        # them, and each fixed 16:9 frame exports 1:1 to an editable PPTX slide).
+        if self.brand == "nxt":
+            return """
+*** SLIDE-DECK MODE (OVERRIDES THE CONTINUOUS-PAGE LAYOUT) ***
+Render this artifact as a SLIDE DECK using the design-system .nxt-slide frames, NOT one scrolling
+page. Same depth, quotes, and evidence floors, SUMMARIZED to slide density, ONE idea per frame.
+
+EACH FRAME is <section class="nxt-slide ...">...</section> (a fixed 16:9 box; the injected CSS
+styles it). Do NOT write your own slide CSS or scroll-snap. Frame templates:
+- Title: <section class="nxt-slide nxt-slide--title"><span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">CONTEXT</p><h2 class="nxt-slide__title">Action title</h2><p class="nxt-slide__body">Standfirst.</p></section>
+- Section divider: <section class="nxt-slide nxt-slide--divider"><p class="nxt-slide__kicker">Section</p><h2 class="nxt-slide__title">Movement</h2></section>
+- Content/phase: <section class="nxt-slide"><span class="nxt-logo nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">PHASE</p><h2 class="nxt-slide__title">Point</h2><p class="nxt-slide__body">Tight paragraph.</p></section> plus the phase's named pain + emotion label + a .nxt-quote for the verbatim voice-of-user.
+- Evidence: <section class="nxt-slide nxt-slide--quote"> with a large .nxt-quote.
+- Lists .nxt-numlist; steps .nxt-process; stats .nxt-grid of .nxt-iconstat; data .nxt-table; cards .nxt-grid of .nxt-card. Vary templates per frame.
+- Closing: <section class="nxt-slide nxt-slide--closing"><span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">What's NXT</p><h2 class="nxt-slide__title">Next step</h2></section>
+
+SEQUENCE (journey artifact_type):
+  1. Title frame (action title only).
+  2. *** JOURNEY OVERVIEW DIAGRAM frame — MANDATORY for artifact_type=journey ***
+     A SINGLE frame that lays out ALL phases at once as a horizontal phase strip
+     (left-to-right, one column per phase). Each column shows: phase number + name,
+     a one-line phase summary, the dominant pain label, and the emotion label
+     (qualitative word, not a curve). Use the .nxt-process class for the strip; if
+     >5 phases, use the .nxt-grid layout instead. This frame is the READER'S MAP —
+     they see the whole journey before drilling in. DO NOT skip this frame.
+  3. ONE frame per phase, each with that phase's pains + 2-3 verbatim quotes +
+     emotion label.
+  4. A synthesis frame pairing pains with opportunities.
+  5. A final source-index frame.
+
+SEQUENCE (blueprint / other artifact_types): title; ONE frame per primary element
+(per step/layer for a blueprint), each with its pains + 2-3 verbatim quotes;
+synthesis; source index.
+
+ONE idea per frame, never overfill (split if it would overflow). Titles are
+judgments. Numbers ONLY inside cited quotes. NO emotion curve/chart, NO document
+chrome, NO em-dashes, NO emoji. NO meta-commentary frames (no "How to read this",
+no "One frame per phase", no "evidenced by student voices" structure descriptions).
+NO metaphors in titles (no clock-running, no road-ahead, no foundation-laying,
+no clock-is-ticking; plain language only).
+"""
         return """
 *** SLIDE DECK LAYOUT (OVERRIDES ANY CONTINUOUS-PAGE LAYOUT ABOVE) ***
 Render this artifact as a SLIDE DECK, not one scrolling page. OVERRIDE any earlier
@@ -906,11 +1135,19 @@ MECHANICS:
 
 SLIDE SEQUENCE:
   1. COVER slide: the diagnostic action-title (large display) and the persona/standfirst line. A tiny plain brand wordmark is optional; NO eyebrow metadata strip, NO corpus/evidence counts.
-  2. METRICS slide: the 3-4 KPI tiles, large.
-  3. ONE slide PER primary element (per phase for a journey; per service step OR per layer for a blueprint). Each carries that element's activities, named pains (severity + frequency), 2-3 VERBATIM quotes with source attribution, touchpoint, and (journey) the emotion label.
-  4. SYNTHESIS slide(s): cross-cutting pains paired by name with opportunities / redesign moves.
-  5. SOURCE INDEX slide: the named sources.
+  2. *** JOURNEY OVERVIEW DIAGRAM slide — MANDATORY when artifact_type=journey ***
+     A SINGLE slide showing ALL phases at once as a horizontal phase strip (one column
+     per phase, left-to-right). Each column carries: phase number + phase name, a
+     one-line phase summary, the dominant pain label, and the qualitative emotion
+     label (one word, not a curve). This is the READER'S MAP of the whole journey
+     before drilling into individual phases. SKIP THIS SLIDE = SLIDE DECK IS INVALID.
+  3. METRICS slide: the 3-4 KPI tiles, large.
+  4. ONE slide PER primary element (per phase for a journey; per service step OR per layer for a blueprint). Each carries that element's activities, named pains (severity + frequency), 2-3 VERBATIM quotes with source attribution, touchpoint, and (journey) the emotion label.
+  5. SYNTHESIS slide(s): cross-cutting pains paired by name with opportunities / redesign moves.
+  6. SOURCE INDEX slide: the named sources.
 - Every slide obeys the brand contract: stark-white surface, WCAG-AA contrast, NO dark-on-dark, NO emotion curve or chart, NO meta/self-referential language, NO em-dashes.
+- NO meta-commentary slides ("How to read this", "One frame per phase", structure descriptions).
+- NO metaphors in slide titles (no clock-running, no road-ahead, no foundation-laying).
 """
 
     def _create_prompt(self, title, description, journey_type, data, insights):
@@ -934,13 +1171,13 @@ SLIDE SEQUENCE:
         depth_contract = depth_contract + """
 *** SOURCE INDEX CONTENT RULE ***
 The source index is a clean citation list for the reader. Each entry = the SOURCE NAME
-(e.g. "Reddit r/NEU", "NU Student Survey 2025") plus a one-line FACTUAL description of what
+(e.g. "G2 Reviews", "2025 Industry Benchmark Survey") plus a one-line FACTUAL description of what
 that source IS or what it reports. NOTHING ELSE. ABSOLUTELY FORBIDDEN in the source index:
 - internal corpus indices ("PARAGRAPH 3", "CHUNK_017", "Document 2")
 - sentiment readouts ("Sentiment, positive", "Sentiment: neutral")
 - cross-references to the artifact's own internals ("Anchors Persona 02", "Anchors Phase 04", "Used in Step 03")
 - role-in-document framing ("Source of the 6.7% figure", "Backs the matching claim")
-Good entry: "Reddit r/NEU. First-year students describing the co-op search and NUworks experience."
+Good entry: "Customer Forum. New customers describing the onboarding and setup experience."
 """
         # 2026-05-26 — Slide-deck layout override (empty in document mode).
         slide_contract = self._slide_layout_contract()
@@ -1007,9 +1244,11 @@ emotional states, pain points, and opportunities, but base ALL conclusions stric
    - Pain points (show in red, with specific examples from the data)
    - Opportunities for improvement (based on data patterns)
 4. Include a detailed section at the top summarizing the key journey insights from the data analysis
-5. Add metrics or KPIs directly drawn from the data
+5. (Removed 2026-05-31) Do NOT add a KPI/metrics dashboard or hoisted big numbers — the metrics policy
+   and Quantitative Claim Rule above govern; numbers appear ONLY inside cited verbatim quotes.
 6. Create interactive elements that enhance understanding of the data
-7. Include data visualizations where appropriate (charts, graphs)
+7. (Removed 2026-05-31) Do NOT add decorative charts/graphs or an emotion curve — they are banned by
+   the graphic-collision and no-emotion-graph rules above. Use the prose + card + quote modules.
 8. Make the visualization RESPONSIVE for all screen sizes
 9. USE FULL VIEWPORT WIDTH - utilize the available screen space effectively
 10. ENSURE ALL HEADERS ARE CLEARLY VISIBLE with high contrast against backgrounds
@@ -1023,6 +1262,13 @@ emotional states, pain points, and opportunities, but base ALL conclusions stric
 6. If you're summarizing data, clearly indicate when you're synthesizing multiple sources vs. direct quoting
 7. Put 2 to 3 verbatim quotes inside EVERY phase, and elevate the single most impactful line per phase as a large, visually distinct PULL QUOTE
 8. Quotes are the spine of the journey, not decoration: each phase's pains and emotions must be evidenced by its quotes
+
+*** OBJECTIVE FIDELITY (SUPREME) ***
+The journey MUST be about the subject named in TITLE/DESCRIPTION below and nothing else. If some DATA
+items are about a different topic than this objective, treat them as background and DO NOT let them
+define the journey's phases, actors, or domain. Never substitute a different domain's journey (for
+example a generic job-search, co-op, or enrollment journey) when the objective is about something
+else. The phases, actors, activities, pains, and opportunities must all serve THIS objective.
 
 TITLE: {title}
 DESCRIPTION: {description}
