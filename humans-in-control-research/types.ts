@@ -850,6 +850,7 @@ export interface SavedProject {
     synthesis: StepResult_CrossCuttingSynthesis | null;
     structure: StepResult_Structure | null;
     narrative: StepResult_Narrative | null;
+    orgChart?: any | null; // org-chart deliverable snapshot (optional; added 2026-06-08)
 }
 
 // ============================================================

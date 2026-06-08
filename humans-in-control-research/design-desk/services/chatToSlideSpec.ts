@@ -303,7 +303,7 @@ export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<Sl
     // Validate spec
     const specCheck = validateSlideSpec(parsed.spec);
     if (!specCheck.ok) {
-        return { ok: false, error: `Spec schema validation failed: ${specCheck.error}`, rawResponse: raw, modelUsed: model };
+        return { ok: false, error: `Spec schema validation failed: ${'error' in specCheck ? specCheck.error : 'unknown'}`, rawResponse: raw, modelUsed: model };
     }
 
     // Compose the artifact

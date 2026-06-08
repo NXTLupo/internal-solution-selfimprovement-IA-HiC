@@ -25,7 +25,12 @@ export type BrandId = 'nxt' | 'nu';
  * access - the VALUES differ per brand, which is what actually changes the
  * look of each slide.
  */
-export type Brand = typeof TOKENS;
+// 2026-06-08 - Brand is "same keys as TOKENS, but string tokens widened to
+// `string`". Using `typeof TOKENS` directly inferred LITERAL types (INK:'141414'),
+// so the NU brand's different hex/font values were rejected (21 tsc TS2322
+// errors). Numeric tokens (WEB_W, PX_TO_IN, ...) keep their type; only string
+// literals widen. -readonly drops the `as const` readonly so brand objects assign.
+export type Brand = { -readonly [K in keyof typeof TOKENS]: typeof TOKENS[K] extends string ? string : typeof TOKENS[K] };
 
 // === NXT HUMANS (default) - teal + chartreuse ===
 export const nxtBrand: Brand = { ...TOKENS };

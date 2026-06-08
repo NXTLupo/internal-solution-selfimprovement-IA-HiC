@@ -174,7 +174,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     titleSlide.addText((result.selectedOutputs?.[0] || 'STRATEGIC ANALYSIS').replace(/_/g, ' '), {
         x: PX, y: SH * 0.55, w: 5, h: 0.25,
         fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
-        letterSpacing: 2.5 as any,
     });
     // Horizontal rule
     titleSlide.addShape(pptx.ShapeType.line, {
@@ -208,7 +207,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                 s.addText(`SECTION ${slide.slideNumber || i + 1}`, {
                     x: PX + 0.1, y: SH * 0.55, w: 4, h: 0.25,
                     fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.chartreuse, bold: true,
-                    letterSpacing: 3 as any,
                 });
                 s.addText(cleanText(slide.title), {
                     x: PX + 0.1, y: SH * 0.55 + 0.35, w: SW * 0.6, h: 1.0,
@@ -245,7 +243,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     s.addText(sectionLabel, {
                         x: PX, y: leftY, w: leftW, h: 0.22,
                         fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
-                        letterSpacing: 2.5 as any,
                     });
                     leftY += 0.32;
                 }
@@ -306,7 +303,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     s.addText(`${slide.problemStat.value}${slide.problemStat.unit ? ' ' + slide.problemStat.unit : ''}`, {
                         x: PX + 0.2, y: leftY + 0.08, w: leftW - 0.4, h: 0.4,
                         fontSize: 24, fontFace: BRAND.fallbackFont, color: BRAND.negative,
-                        fontWeight: 200 as any,
                         valign: 'top',
                     });
                     s.addText(psDesc, {
@@ -418,13 +414,11 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                             s.addText((m.label || '').toUpperCase(), {
                                 x: cardX + 0.2, y: cardY + 0.1, w: cardW - 0.4, h: 0.2,
                                 fontSize: 9, fontFace: BRAND.fallbackFont, color: accent, bold: true,
-                                letterSpacing: 1.5 as any,
                             });
                             // Value
                             s.addText(`${m.value}${m.unit ? ' ' + m.unit : ''}`, {
                                 x: cardX + 0.2, y: cardY + 0.35, w: cardW - 0.4, h: 0.55,
                                 fontSize: 28, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
-                                fontWeight: 200 as any,
                             });
                             cardY += 1.3;
                         }
@@ -465,7 +459,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                                     x: bx + 0.15, y: by + 0.15, w: cellW - 0.3, h: 0.5,
                                     fontSize: 22, fontFace: BRAND.fallbackFont,
                                     color: cell.accentColor || BRAND.cyan,
-                                    fontWeight: 200 as any,
                                 });
                                 s.addText(cell.label || cell.text || '', {
                                     x: bx + 0.15, y: by + 0.7, w: cellW - 0.3, h: 0.4,
@@ -489,8 +482,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                                     s.addText(cell.label.toUpperCase(), {
                                         x: bx + 0.15, y: by + 0.12, w: cellW - 0.3, h: 0.18,
                                         fontSize: 8, fontFace: BRAND.fallbackFont, color: BRAND.cyan,
-                                        bold: true, letterSpacing: 1 as any,
-                                    });
+                                        bold: true,                                     });
                                 }
                                 const cellContent = cell.text || (cell.items || []).join(', ');
                                 if (cellContent) {
@@ -529,12 +521,10 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     closeSlide.addText('NXT Humans', {
         x: PX, y: SH * 0.4, w: SW - PX * 2, h: 1.0,
         fontSize: 36, fontFace: BRAND.fallbackFont, color: BRAND.white, align: 'center',
-        fontWeight: 700 as any,
     });
     closeSlide.addText('Intelligence Augmentation', {
         x: PX, y: SH * 0.4 + 1.0, w: SW - PX * 2, h: 0.5,
         fontSize: 18, fontFace: BRAND.fallbackFont, color: BRAND.chartreuse, align: 'center',
-        fontWeight: 200 as any,
     });
 
     // ====== APPENDIX: Evidence Base ======
@@ -543,7 +533,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     appendixSlide.addText('APPENDIX', {
         x: PX, y: PY, w: 3, h: 0.25,
         fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
-        letterSpacing: 2.5 as any,
     });
     appendixSlide.addText('Evidence Base', {
         x: PX, y: PY + 0.35, w: SW * 0.6, h: 0.7,
@@ -559,7 +548,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
         appendixSlide.addText('THEMES', {
             x: PX, y: PY + 1.2, w: 3, h: 0.25,
             fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
-            letterSpacing: 1.5 as any,
         });
         appendixSlide.addText(themesList as any, {
             x: PX, y: PY + 1.55, w: SW - PX * 2, h: 2.5,
@@ -588,7 +576,6 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     appendixSlide.addText('DATA SOURCES', {
         x: PX, y: summaryY, w: 3, h: 0.25,
         fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
-        letterSpacing: 1.5 as any,
     });
     const sourceLines = sourceNames.size > 0
         ? Array.from(sourceNames).slice(0, 15)

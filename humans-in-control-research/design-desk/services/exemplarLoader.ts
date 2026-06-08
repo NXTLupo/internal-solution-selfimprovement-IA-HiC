@@ -36,7 +36,10 @@ import archSkill from '../../exemplar-skills/diagrams/arch-illustrator/SKILL.md?
 import roadmapSkill from '../../exemplar-skills/diagrams/roadmap-illustrator/SKILL.md?raw';
 import blueprintSkill from '../../exemplar-skills/diagrams/blueprint-illustrator/SKILL.md?raw';
 
-const EXEMPLARS: Record<FreeformKind, Record<BrandHashtag, string>> = {
+// Partial: only the diagram kinds (org/arch/roadmap/blueprint/journey) ship HTML
+// exemplars; the other FreeformKind values resolve via fallback. (was a total
+// Record, which tsc rejected for the missing keys.)
+const EXEMPLARS: Partial<Record<FreeformKind, Record<BrandHashtag, string>>> = {
     org:       { nu: orgNuHtml,      nxt: orgNxtHtml      },
     arch:      { nu: archNuHtml,     nxt: archNxtHtml     },
     roadmap:   { nu: roadmapNuHtml,  nxt: roadmapNxtHtml  },
@@ -56,7 +59,7 @@ const BRAND_SKILLS: Record<BrandHashtag, string> = {
     nu:  nuBrandSkill,
 };
 
-const DIAGRAM_SKILLS: Record<FreeformKind, string> = {
+const DIAGRAM_SKILLS: Partial<Record<FreeformKind, string>> = {
     org:       orgSkill,
     journey:   journeySkill,
     arch:      archSkill,

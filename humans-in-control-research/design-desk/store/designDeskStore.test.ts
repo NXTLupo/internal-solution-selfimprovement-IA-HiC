@@ -28,7 +28,7 @@ describe('designDeskStore', () => {
         store.addArtifact(personaFixture as PersonaArtifact);
         const updated = { ...personaFixture, name: 'Alex Chen' } as PersonaArtifact;
         store.replaceArtifact(updated);
-        expect(useDesignDeskStore.getState().artifacts[0].name).toBe('Alex Chen');
+        expect((useDesignDeskStore.getState().artifacts[0] as PersonaArtifact).name).toBe('Alex Chen');
         expect(useDesignDeskStore.getState().history).toHaveLength(1);
     });
 
@@ -38,7 +38,7 @@ describe('designDeskStore', () => {
         const updated = { ...personaFixture, name: 'Alex Chen' } as PersonaArtifact;
         store.replaceArtifact(updated);
         store.undo();
-        expect(useDesignDeskStore.getState().artifacts[0].name).toBe('Sarah Chen');
+        expect((useDesignDeskStore.getState().artifacts[0] as PersonaArtifact).name).toBe('Sarah Chen');
     });
 
     it('undo is no-op when history empty', () => {

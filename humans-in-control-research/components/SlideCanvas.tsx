@@ -31,6 +31,10 @@ import type {
 export interface SlideData {
     id: string;
     template: SlideTemplate;
+    /** Underscore-prefixed validator telemetry (evidence-gap audit). NOT rendered
+     *  - the visible `evidenceGap` field stays unset so no badge ships. Carried so
+     *  the chat composer can attach audit data without a tsc excess-property error. */
+    _evidenceGap?: { summary?: string; issues?: any[] };
     /** Visual brand: 'nxt' (default) or 'nu' (Northeastern). Set by hashtag detection in the parser. */
     brand?: BrandId;
     title: string;

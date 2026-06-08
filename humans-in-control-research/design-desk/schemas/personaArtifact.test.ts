@@ -12,7 +12,7 @@ describe('PersonaArtifactSchema', () => {
         const bad = { id: 'p1', type: 'persona', brand: 'nxt' };
         const r = validatePersonaArtifact(bad);
         expect(r.ok).toBe(false);
-        if (!r.ok) {
+        if (!r.ok && 'error' in r) {
             expect(r.error).toMatch(/name|role|goals/i);
         }
     });

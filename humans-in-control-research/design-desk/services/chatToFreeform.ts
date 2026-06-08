@@ -288,7 +288,7 @@ function perKindGuidance(kind: FreeformKind): string {
  */
 function buildEmphasisVSPreamble(kind: FreeformKind): string {
     // Per-kind emphasis axes - what the model gets to vary across candidates.
-    const axes: Record<FreeformKind, { focal: string; framing: string; emotion: string; metric: string }> = {
+    const axes: Partial<Record<FreeformKind, { focal: string; framing: string; emotion: string; metric: string }>> = {
         journey: {
             focal: 'which step is the focal moment-of-truth (one and only one)',
             framing: 'whether the journey is framed as friction-cascade, expectation-mismatch, capability-gap, or trust-erosion',

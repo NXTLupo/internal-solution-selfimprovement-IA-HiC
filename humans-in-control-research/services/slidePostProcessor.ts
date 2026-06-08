@@ -822,7 +822,7 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
  * The replacement model (Gemini 3.1 Pro) produces cleaner prose than DeepSeek,
  * but defense-in-depth still strips anything that slips through.
  */
-const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
+const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = [
     // === (a) JARGON / CONSULTANT BUZZWORDS - high severity ===
     { phrase: 'paradigm shift', severity: 'high' },
     { phrase: 'game-changer', severity: 'high' },
@@ -1196,7 +1196,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
 
 export interface AntiPatternViolation {
     phrase: string;
-    severity: 'high' | 'medium';
+    severity: 'high' | 'medium' | 'low';
 }
 
 export interface AntiPatternResult {

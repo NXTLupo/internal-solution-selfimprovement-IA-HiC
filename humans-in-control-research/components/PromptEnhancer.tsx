@@ -6,7 +6,9 @@ type EnhancerState = 'idle' | 'loading' | 'preview' | 'error';
 interface UseEnhancerArgs {
     input: string;
     setInput: (val: string) => void;
-    surface: 'analyst' | 'design';
+    // Match the full surface union in services/promptEnhancer.ts - the analyst
+    // desk also enhances 'research-goal', 'revision', 'brief-customization'.
+    surface: 'analyst' | 'design' | 'research-goal' | 'revision' | 'brief-customization';
     /** Optional context snippet - research goal, attachments summary, source list. Kept short on the wire. */
     getContext?: () => string;
     /** If set, biases the enhancer rubric toward a specific downstream model. */

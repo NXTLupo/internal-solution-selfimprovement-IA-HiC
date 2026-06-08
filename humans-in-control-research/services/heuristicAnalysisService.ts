@@ -136,11 +136,12 @@ export async function runHeuristicAnalysis(
         criticalCount: data.critical,
     }));
 
-    // Ensure severity distribution has all keys
-    const severityDist = rawResult.executiveSummary.severityDistribution || {};
-    for (let i = 0; i <= 4; i++) {
-        if (severityDist[i as SeverityScore] === undefined) severityDist[i as SeverityScore] = 0;
-    }
+    // Ensure severity distribution has all keys (0-4 fully seeded so the type
+    // is a complete Record<SeverityScore, number>, not a partial {}).
+    const severityDist: Record<SeverityScore, number> = {
+        0: 0, 1: 0, 2: 0, 3: 0, 4: 0,
+        ...(rawResult.executiveSummary.severityDistribution || {}),
+    };
 
     return {
         brief,

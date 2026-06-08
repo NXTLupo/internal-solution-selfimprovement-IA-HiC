@@ -299,7 +299,7 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
             seenIds.add(normalized.id);
             const r = validator(normalized as any);
             if (r.ok) collected.push(r.value as Artifact);
-            else errors.push(`item ${idx}: ${r.error}`);
+            else errors.push(`item ${idx}: ${'error' in r ? r.error : 'invalid'}`);
         });
         if (collected.length === 0) {
             return {
@@ -319,7 +319,7 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
 
     const result = validator(normalized as any);
     if (!result.ok) {
-        return { ok: false, error: `Artifact schema validation failed: ${result.error}`, rawResponse: raw, modelUsed: model };
+        return { ok: false, error: `Artifact schema validation failed: ${'error' in result ? result.error : 'unknown'}`, rawResponse: raw, modelUsed: model };
     }
 
     return { ok: true, artifact: result.value as Artifact, modelUsed: model };

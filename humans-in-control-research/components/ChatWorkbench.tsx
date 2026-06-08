@@ -411,9 +411,11 @@ export const ChatWorkbench: React.FC<Props> = ({
         return items;
     }, []);
 
-    const parseSlideBlocks = useCallback((text: string, model?: string): SlideData[] => {
+    // These are block-based CHAT slides ({id,title,blocks,status,...}), NOT the
+    // template-based SlideData (which requires `template`). Typed loosely.
+    const parseSlideBlocks = useCallback((text: string, model?: string): any[] => {
         const pattern = /:::slide\n([\s\S]*?):::/g;
-        const slidesList: SlideData[] = [];
+        const slidesList: any[] = [];
         let match;
         while ((match = pattern.exec(text)) !== null) {
             try {
@@ -944,12 +946,13 @@ export const ChatWorkbench: React.FC<Props> = ({
                 {/* Panel Content */}
                 <div style={{ flex: 1, overflowY: 'auto' }}>
                     {rightPanel === 'graph' && knowledgeGraphData && (
+                        // 2026-06-08: onExcludeSource/onPrioritySource/prioritySources
+                        // were not props on ResearchKnowledgeGraph (silently ignored);
+                        // removed to clear tsc. ChatWorkbench has no setExcludedSources
+                        // setter in scope, so the KG renders read-only here.
                         <ResearchKnowledgeGraph
                             graph={knowledgeGraphData}
                             excludedSources={excludedSources}
-                            onExcludeSource={onExcludeSource || (() => {})}
-                            onPrioritySource={onPrioritySource || (() => {})}
-                            prioritySources={prioritySources}
                         />
                     )}
                     {rightPanel === 'graph' && !knowledgeGraphData && (

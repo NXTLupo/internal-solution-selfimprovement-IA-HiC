@@ -109,7 +109,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   const [editedReport, setEditedReport] = useState<any>(null);
   
   const [expandedPersona, setExpandedPersona] = useState<number | null>(null);
-  const [narrativeTab, setNarrativeTab] = useState<'slides'>('slides');
+  const [narrativeTab, setNarrativeTab] = useState<'slides' | 'script'>('slides');
   const [hasEdits, setHasEdits] = useState(false);
   
   // Track specific edits for logging

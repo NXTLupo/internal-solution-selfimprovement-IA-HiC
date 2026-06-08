@@ -69,8 +69,8 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'AI Communities': 'social',
     'AI Code': 'social',
     'AI Conferences': 'academic',
-    'AI Communities': 'social',
-    'AI Code': 'social',
+    // 2026-06-08 - removed duplicate 'AI Communities' / 'AI Code' keys (already
+    // defined above; exact dup -> TS1117). Harmless at runtime but sloppy.
     // 2026-04-29 - Checkout-fundraising / cause-commerce intelligence pack
     'Cause-Commerce Tech': 'web',
     'Cause-Brand Impact': 'web',

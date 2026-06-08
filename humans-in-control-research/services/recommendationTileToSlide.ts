@@ -26,8 +26,9 @@ import type {
 import type {
     RecommendationData,
     SectionDividerData,
-    Brand,
 } from '../components/slideTemplates/types';
+// Brand is exported from brands.ts, not types.ts (TS2305).
+import type { Brand } from '../components/slideTemplates/brands';
 
 /**
  * Minimal RecommendationTile shape - keep in sync with the interface in

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { parseHashtags } from './services/hashtagParser';
+import { parseHashtags, type ContentHashtag } from './services/hashtagParser';
 import { generateArtifact, type GenerateResult, type GenerateError } from './services/chatToArtifact';
 import { generateFreeformArtifact } from './services/chatToFreeform';
 import { generateSlideSpec } from './services/chatToSlideSpec';
@@ -390,7 +390,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 return;
             }
             const res = await generateArtifact({
-                content: active.type, brand: active.brand, userPrompt: parsed.cleanPrompt,
+                // active.type may be 'freeform' (not a ContentHashtag); preserved
+                // as-is at runtime (generateArtifact normalizes), cast for tsc.
+                content: active.type as ContentHashtag, brand: active.brand, userPrompt: parsed.cleanPrompt,
                 designMdRaw, corpusText: corpus, currentArtifact: active as any,
             });
             handleResult(res);

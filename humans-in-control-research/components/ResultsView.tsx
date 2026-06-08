@@ -297,6 +297,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               'GAP_ANALYSIS': 'gap',
               'TECH_AUDIT': 'techAudit',
               'COMPETITIVE_ANALYSIS': 'competitive',
+              'ORG_CHART': 'org',
           };
           const mapped = map[result.selectedOutputs[0]];
           if (mapped) return mapped;
