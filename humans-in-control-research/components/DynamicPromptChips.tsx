@@ -1,5 +1,5 @@
 /**
- * DynamicPromptChips — Consulting-Partner guidance strip above the chat input.
+ * DynamicPromptChips - Consulting-Partner guidance strip above the chat input.
  *
  * Renders state-aware suggestions produced by services/dynamicPromptSuggestions.
  * Clicking a chip populates the chat input (does NOT auto-send) so the
@@ -21,28 +21,28 @@ import { suggestPrompts, detectPhase, type PromptSuggestion, type SuggestionStat
 
 interface Props {
     state: SuggestionState;
-    /** Called when user clicks a chip — receives the suggestion text to load into input. */
+    /** Called when user clicks a chip - receives the suggestion text to load into input. */
     onSelect: (text: string) => void;
     /** Debounce ms before refreshing suggestions after state changes (default 900ms). */
     debounceMs?: number;
     /** Max number of chips to show (default 5). */
     max?: number;
-    /** Vertical compact mode — chips wrap instead of scrolling horizontally. */
+    /** Vertical compact mode - chips wrap instead of scrolling horizontally. */
     compact?: boolean;
 }
 
 const KIND_GLYPH: Record<SuggestionKind, string> = {
-    'document-drill': '📄',
-    'source-coverage': '📰',
-    'theme-exploration': '🎯',
-    'persona-perspective': '👤',
+    'document-drill': '',
+    'source-coverage': '',
+    'theme-exploration': '',
+    'persona-perspective': '',
     'comparison': '⇄',
     'synthesis': '∑',
     'slide-request': '▦',
-    'evidence-probe': '⚠',
+    'evidence-probe': '',
 };
 
-// 2026-05-12 — Map each suggestion kind to the directive that would
+// 2026-05-12 - Map each suggestion kind to the directive that would
 // produce the most relevant artifact. When a user clicks a chip, we
 // prepend the suggested hashtag to the chip text so they go from
 // "Drill into theme X" → "#explainer Drill into theme X" and get a
@@ -81,10 +81,10 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
     // suggestPrompts throws or the effect never fires. If you don't see this
     // in the console, the component isn't being mounted at all.
     useEffect(() => {
-        console.log(`[DynamicPromptChips] MOUNTED — goal=${(state.researchGoal || '').length} chars, uploads=${(state.uploadedFiles || []).length}, sources=${(state.liveSourceResults || []).length}`);
+        console.log(`[DynamicPromptChips] MOUNTED - goal=${(state.researchGoal || '').length} chars, uploads=${(state.uploadedFiles || []).length}, sources=${(state.liveSourceResults || []).length}`);
     }, []);
 
-    // State fingerprint — changes trigger a refresh. Designed to be stable
+    // State fingerprint - changes trigger a refresh. Designed to be stable
     // against benign updates (timestamp ticks, irrelevant counts) so the
     // Gemini call fires ~once per meaningful phase change.
     const fingerprint = buildFingerprint(state);
@@ -93,7 +93,7 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
         if (dismissed) return;
         // NOTE: removed the old "researchGoal < 10 chars => bail" guard
         // (2026-04-21). The setup phase is the MOST important time to show
-        // guidance chips — that's when the researcher hasn't written a brief
+        // guidance chips - that's when the researcher hasn't written a brief
         // yet and needs coaching. suggestPrompts() now returns fallback
         // setup-phase chips directly without calling Gemini.
         if (fingerprint === lastFingerprint.current) return;
@@ -115,7 +115,7 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
                     setSuggestions(result);
                     // Diagnostic log so blank-chip states are instantly
                     // debuggable from the devtools console.
-                    console.log(`[DynamicPromptChips] phase=${detectedPhase} produced ${result.length} suggestions${result.length === 0 ? ' — check state: ' + JSON.stringify({ goalLen: (state.researchGoal || '').length, uploads: (state.uploadedFiles || []).length, sources: (state.liveSourceResults || []).length, kgNodes: state.knowledgeGraph?.nodes?.length || 0 }) : ''}`);
+                    console.log(`[DynamicPromptChips] phase=${detectedPhase} produced ${result.length} suggestions${result.length === 0 ? ' - check state: ' + JSON.stringify({ goalLen: (state.researchGoal || '').length, uploads: (state.uploadedFiles || []).length, sources: (state.liveSourceResults || []).length, kgNodes: state.knowledgeGraph?.nodes?.length || 0 }) : ''}`);
                 }
             } catch (err: any) {
                 console.warn('[DynamicPromptChips] suggestPrompts threw:', err?.message || err);
@@ -145,7 +145,7 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
     };
 
     if (dismissed) return null;
-    // Always render — if loading, show skeleton; if suggestions empty after
+    // Always render - if loading, show skeleton; if suggestions empty after
     // load, show a subtle "no suggestions" note instead of silently vanishing.
     // Silent null-returns were the reason blank states were impossible to debug.
 
@@ -169,7 +169,7 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
                         fontWeight: 700, color: '#888',
                     }}>{PHASE_LABEL[phase]}</span>
                     {loading && (
-                        <span style={{ fontSize: 10, color: '#888' }}>thinking…</span>
+                        <span style={{ fontSize: 10, color: '#888' }}>thinking...</span>
                     )}
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
@@ -219,7 +219,7 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
                 )}
                 {suggestions.map((s, i) => {
                     const tag = KIND_HASHTAG[s.kind];
-                    // The chip text the user actually loads — prepends the
+                    // The chip text the user actually loads - prepends the
                     // hashtag when one is mapped, so a single click produces
                     // an artifact instead of a one-shot chat answer.
                     const loadedText = tag ? `${tag} ${s.text}` : s.text;

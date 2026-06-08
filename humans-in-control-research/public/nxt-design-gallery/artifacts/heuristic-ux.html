@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Heuristic UX Brief · NUworks v2 portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#FFFFFF;font-family:'Open Sans',sans-serif;color:#0D0D0D;width:1920px;height:1080px;overflow:hidden}
+  .slide{width:1920px;height:1080px;padding:56px 80px;display:grid;grid-template-rows:auto 1fr auto;row-gap:18px}
+  .header{border-bottom:1px solid #0D0D0D;padding-bottom:16px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B8B800;margin-bottom:8px}
+  .title{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:34px;line-height:1.05;color:#0D0D0D;max-width:1700px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;row-gap:14px}
+  .h-card{background:#FFFFFF;border:1px solid #E0E0E0;padding:14px 18px;border-left:3px solid #B8B800;display:grid;grid-template-columns:42px 1fr 70px;column-gap:14px;align-items:start}
+  .h-card.sev-h{border-left-color:#FF5A5A}
+  .h-card.sev-m{border-left-color:#B8B800}
+  .h-card.sev-l{border-left-color:#0CCE6B}
+  .h-num{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:28px;color:#0D0D0D;line-height:1}
+  .h-body{font-size:12.5px;line-height:1.45;color:#2B2B2B}
+  .h-body strong{display:block;font-family:'Roboto Condensed',sans-serif;font-size:14px;color:#0D0D0D;margin-bottom:4px}
+  .h-body small{display:block;color:#5C5C5C;font-size:11px;margin-top:6px;line-height:1.4}
+  .h-body small b{color:#CC6644}
+  .h-score{text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:#5C5C5C}
+  .h-score .grade{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:22px;color:#B8B800;display:block}
+  .footer{padding-top:12px;border-top:1px solid #E0E0E0;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5C5C5C;letter-spacing:.04em;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="eyebrow">Heuristic UX Brief · NUworks v2 portal · Nielsen 10</div>
+    <h1 class="title">Six of ten heuristics scored C or below on the student-application flow — three (visibility of system status, match between system and real world, error prevention) require redesign before bench-evaluator integration ships.</h1>
+  </div>
+
+  <div class="grid">
+    <div class="h-card sev-h">
+      <div class="h-num">01</div>
+      <div class="h-body"><strong>Visibility of system status</strong>
+        Submission status reads "Submitted" for both ATS-accepted and ATS-rejected applications. Students cannot tell if a recruiter saw the resume.
+        <small>Observed in <b>8 of 12</b> student interviews; advisor support tickets cite this as the #1 confusion source.</small>
+      </div>
+      <div class="h-score"><span class="grade">D</span>severity high</div>
+    </div>
+    <div class="h-card sev-h">
+      <div class="h-num">02</div>
+      <div class="h-body"><strong>Match between system and real world</strong>
+        Posting filters use vendor-jargon labels ("requisition class", "cycle window"); students search by major and term.
+        <small>Time-to-first-match averages <b>14 minutes</b> on first session; peer benchmark is 3-4.</small>
+      </div>
+      <div class="h-score"><span class="grade">C</span>severity high</div>
+    </div>
+    <div class="h-card sev-m">
+      <div class="h-num">03</div>
+      <div class="h-body"><strong>User control and freedom</strong>
+        No "withdraw application" affordance after submission. Students who change mind contact CECCA via email.
+        <small>~120 withdrawal requests per cycle currently routed through advisors.</small>
+      </div>
+      <div class="h-score"><span class="grade">C</span>severity med</div>
+    </div>
+    <div class="h-card sev-l">
+      <div class="h-num">04</div>
+      <div class="h-body"><strong>Consistency and standards</strong>
+        Filter UI patterns consistent within NUworks; mostly aligned with Workday norms on the employer side.
+        <small>Minor inconsistencies in date format (US vs ISO) across two screens.</small>
+      </div>
+      <div class="h-score"><span class="grade">B</span>severity low</div>
+    </div>
+    <div class="h-card sev-h">
+      <div class="h-num">05</div>
+      <div class="h-body"><strong>Error prevention</strong>
+        Application form allows submission with required fields blank if user toggles "no preference" — silently fails ATS validation upstream.
+        <small><b>11%</b> of cycle-1 submissions fail this way; root cause of the recruiter "ghost application" pattern.</small>
+      </div>
+      <div class="h-score"><span class="grade">D</span>severity high</div>
+    </div>
+    <div class="h-card sev-l">
+      <div class="h-num">06</div>
+      <div class="h-body"><strong>Recognition rather than recall</strong>
+        Saved searches and recently-viewed postings are visible on landing. Strong on this dimension.
+        <small>No student feedback flagging this heuristic in the interview set.</small>
+      </div>
+      <div class="h-score"><span class="grade">A-</span>severity low</div>
+    </div>
+    <div class="h-card sev-m">
+      <div class="h-num">07</div>
+      <div class="h-body"><strong>Flexibility and efficiency of use</strong>
+        No keyboard shortcuts. No bulk-apply (students submit one at a time). Power users (returning co-op students) lose 4-6 minutes per session.
+        <small>Returning students rank this their #1 complaint (advisor pulse, 2025-09).</small>
+      </div>
+      <div class="h-score"><span class="grade">C+</span>severity med</div>
+    </div>
+    <div class="h-card sev-m">
+      <div class="h-num">08</div>
+      <div class="h-body"><strong>Aesthetic and minimalist design</strong>
+        Landing page contains 14 sidebar links; 80% of students use 3. Cognitive load drag on first-time users.
+        <small>Heatmap data from 2025-Q4 (CECCA Data &amp; Systems) confirms 9-link tail goes unclicked.</small>
+      </div>
+      <div class="h-score"><span class="grade">C</span>severity med</div>
+    </div>
+    <div class="h-card sev-m">
+      <div class="h-num">09</div>
+      <div class="h-body"><strong>Help users recognize, diagnose, recover from errors</strong>
+        Error messages on form validation say "Field required" with no context. Students retry blind.
+        <small>5-second test: <b>2 of 8</b> students in usability sessions could fix the error without help.</small>
+      </div>
+      <div class="h-score"><span class="grade">C-</span>severity med</div>
+    </div>
+    <div class="h-card sev-l">
+      <div class="h-num">10</div>
+      <div class="h-body"><strong>Help and documentation</strong>
+        CECCA-authored help articles available inline; updated quarterly. Discoverable from each form section.
+        <small>Help-article click-through rate is healthy at 22%.</small>
+      </div>
+      <div class="h-score"><span class="grade">B+</span>severity low</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>Methodology: Nielsen 10 applied across 8 student-flow tasks · n=12 student interviews · n=8 coordinator interviews · 2025-Q4 heatmap data</div>
+    <div>Tri-model audit · Claude Opus 4.6 · GPT-5.5 · Gemini 3.1 Pro · agreement 9/10 heuristics</div>
+  </div>
+</div>
+</body>
+</html>

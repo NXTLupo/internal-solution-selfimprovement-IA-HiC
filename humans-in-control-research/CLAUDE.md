@@ -108,10 +108,12 @@ The AI emits `:::slide` fenced blocks with a `template` field; the web renderer 
 
 | Category        | Default              | Alternatives                                  |
 |-----------------|----------------------|-----------------------------------------------|
-| research        | `claude-opus-4-6`    | `claude-sonnet-4-6`, `gpt-5.4`, `gemini-3.1-pro-preview`, `gemini-2.5-flash` |
+| research        | `claude-opus-4-8`    | `claude-sonnet-4-6`, `gpt-5.4`, `gemini-3.1-pro-preview`, `gemini-2.5-flash` |
 | fast_generation | `gpt-5.4-mini`       | `claude-sonnet-4-6`, `gemini-2.5-flash`       |
-| vision          | `claude-opus-4-6`    | `gpt-5.4`, `gemini-3.1-pro-preview`           |
+| vision          | `claude-opus-4-8`    | `gpt-5.4`, `gemini-3.1-pro-preview`           |
 | image / video   | `gemini-2.5-flash`   | (imagen-4.0, veo-3.1 via Gemini API)          |
+
+> **2026-05-29 — Opus 4.8 swap.** All Claude Opus call sites in HiC (proxy default, journey-mapper dispatch, brief generator, research planner, critic dispatchers, CorpusChat journey/blueprint route, topic-modeling labels) were swapped from `claude-opus-4-7` / `claude-opus-4-6` to `claude-opus-4-8` (released 2026-05-28). Adaptive thinking is on by default — no `effort` parameter wired. Standard pricing is $5/$25 per 1M tokens (3x cheaper than 4.7); `services/costMeter.ts` was updated accordingly. Sonnet 4.6 and Haiku 4.5 paths are unchanged.
 
 Provider adapters live in [services/providers/](services/providers/) (`claudeAdapter.ts`, `geminiAdapter.ts`, `openaiAdapter.ts`) behind a common `ProviderAdapter.ts` interface. Raw-HTTP provider clients in `anthropicService.ts`, `openaiService.ts`, `geminiService.ts` predate the adapter layer and are still used by most generation code paths — **new generation code should route via `aiRouter.ts`**.
 

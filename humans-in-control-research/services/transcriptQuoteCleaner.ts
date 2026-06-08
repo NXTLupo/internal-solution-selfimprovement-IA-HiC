@@ -1,5 +1,5 @@
 /**
- * Transcript Quote Cleaner — strips Whisper disfluencies and video-intro
+ * Transcript Quote Cleaner - strips Whisper disfluencies and video-intro
  * meta-narration from auto-generated YouTube transcripts before they're
  * surfaced as slide quotes.
  *
@@ -9,22 +9,22 @@
  *   meta-narration ("In today's video, I'm walking you through four
  *   strategies...") that reads as slop when quoted out of context.
  *   The slidePostProcessor's existing meta-narration filter targets
- *   consulting-deliverable cliches — it misses video-intro language.
+ *   consulting-deliverable cliches - it misses video-intro language.
  *   This module adds a transcript-specific pass.
  *
  * Strategy:
- *   1. `cleanDisfluencies(text)` — strip "um"/"uh" fillers and collapse
+ *   1. `cleanDisfluencies(text)` - strip "um"/"uh" fillers and collapse
  *      mid-word restarts while preserving the actual sentence.
- *   2. `isTranscriptIntroNarration(sentence)` — returns true for video
+ *   2. `isTranscriptIntroNarration(sentence)` - returns true for video
  *      opening lines ("So, let's dive into...", "In today's video..."
  *      "Before we begin...", "Hey everyone welcome back").
- *   3. `cleanTranscriptQuote(text)` — the single entrypoint: strips
+ *   3. `cleanTranscriptQuote(text)` - the single entrypoint: strips
  *      disfluencies AND drops intro/outro narration sentences. Returns
  *      the cleaned text, or empty string if nothing meaningful survives.
  *
  * Non-goals:
  *   - Rewriting speech into prose (we preserve the speaker's voice)
- *   - Correcting transcription errors — we don't invent words
+ *   - Correcting transcription errors - we don't invent words
  *   - Removing speaker names or timestamps (those happen upstream)
  */
 
@@ -143,7 +143,7 @@ export function cleanTranscriptQuote(text: string): string {
 
 /**
  * Heuristic: does this look like a transcript-derived quote?
- * We use it to decide whether to run the transcript cleaner at all — PDF
+ * We use it to decide whether to run the transcript cleaner at all - PDF
  * quotes don't need disfluency stripping and we want to avoid collapsing
  * formal prose that happens to contain words like "um" inside a URL.
  */

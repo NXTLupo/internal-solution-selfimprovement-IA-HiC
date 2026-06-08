@@ -1,7 +1,7 @@
 /**
- * Exemplar loader — loads the canonical 1920x1080 HTML exemplar for a given
+ * Exemplar loader - loads the canonical 1920x1080 HTML exemplar for a given
  * (kind, brand) pair plus the matching brand-style and diagram-illustrator
- * skill markdown. The exemplar HTML is the visual ground truth — the model
+ * skill markdown. The exemplar HTML is the visual ground truth - the model
  * adapts content but preserves the frame, typography, atmospheric treatment.
  *
  * Vite ?raw imports bundle the file content as a string at build time. After
@@ -43,7 +43,7 @@ const EXEMPLARS: Record<FreeformKind, Record<BrandHashtag, string>> = {
     // 2026-05-09: Journey + blueprint NOW SHARE the new journey exemplar
     // (09/10) which embodies the 10-point design spec. Blueprint is
     // semantically a journey with pain-points-solved + recommendations
-    // layered — the visual frame is identical; the diagram skill's
+    // layered - the visual frame is identical; the diagram skill's
     // perKindGuidance handles the future-state framing and intervention
     // overlays. The old service-blueprint exemplars (01/02) are retired
     // from the registry but remain in styles/ for historical reference.
@@ -78,10 +78,10 @@ export function loadExemplar(kind: FreeformKind, brand: BrandHashtag): ExemplarB
     const brandSkill = BRAND_SKILLS[brand];
     const diagramSkill = DIAGRAM_SKILLS[kind];
     if (!brandSkill || brandSkill.trim().length === 0) {
-        throw new Error(`exemplarLoader: brand skill not authored — add content to .claude/skills/brands/${brand}-style/SKILL.md`);
+        throw new Error(`exemplarLoader: brand skill not authored - add content to .claude/skills/brands/${brand}-style/SKILL.md`);
     }
     if (!diagramSkill || diagramSkill.trim().length === 0) {
-        throw new Error(`exemplarLoader: diagram skill not authored — add content to .claude/skills/diagrams/${kind}-illustrator/SKILL.md`);
+        throw new Error(`exemplarLoader: diagram skill not authored - add content to .claude/skills/diagrams/${kind}-illustrator/SKILL.md`);
     }
     return { exemplarHtml, brandSkill, diagramSkill };
 }

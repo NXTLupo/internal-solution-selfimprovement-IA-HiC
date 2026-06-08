@@ -8,7 +8,7 @@ import {
 } from '../services/wikiService';
 
 /**
- * ResumeEngagementPanel — IDLE-screen surface that detects prior engagements
+ * ResumeEngagementPanel - IDLE-screen surface that detects prior engagements
  * matching the entered research goal (via cheap keyword overlap on the
  * persisted manifest list) and surfaces a tiered resume picker:
  *
@@ -17,7 +17,7 @@ import {
  *     Saves $30-50 per re-iteration.
  *   - "Briefs only" (T3): load cached briefs, but rerun the build from
  *     scratch if the user picks a different one. (Same as Build-only in
- *     this MVP — distinguished mostly by intent.)
+ *     this MVP - distinguished mostly by intent.)
  *   - "Fresh": ignore cache, run the full pipeline.
  *
  * The panel only appears when the entered goal has a match with score >= 0.25.
@@ -185,12 +185,12 @@ export const ResumeEngagementPanel: React.FC<PanelProps> = ({ matches, loading, 
                                             disabled={isLoadingThis}
                                             style={{ padding: '8px 12px', background: '#0D0D0D', color: accentColor, border: 'none', fontFamily: "'Archivo', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', cursor: isLoadingThis ? 'wait' : 'pointer', textAlign: 'left' }}
                                         >
-                                            {isLoadingThis ? 'Loading your briefs…' : 'Build another prototype from these briefs'}
+                                            {isLoadingThis ? 'Loading your briefs...' : 'Build another prototype from these briefs'}
                                         </button>
                                     )}
                                     {briefCount > 0 && (
                                         <span style={{ fontSize: 10, color: '#737373', fontStyle: 'italic', padding: '0 2px' }}>
-                                            Reuses the briefs and research you already paid for. The new prototype takes 4–8 minutes.
+                                            Reuses the briefs and research you already paid for. The new prototype takes 4-8 minutes.
                                         </span>
                                     )}
                                     <button

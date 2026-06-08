@@ -1,5 +1,5 @@
 /**
- * HeuristicBriefIntake — Structured form for UX analysis brief
+ * HeuristicBriefIntake - Structured form for UX analysis brief
  * Human checkpoint: user confirms all parameters before analysis begins
  */
 
@@ -42,7 +42,7 @@ const HeuristicBriefIntake: React.FC<Props> = ({ onSubmit, isAnalyzing }) => {
     const [experienceType, setExperienceType] = useState<UXBrief['experienceType']>('marketing_website');
     const [dimensions, setDimensions] = useState<HeuristicDimensionId[]>([...ALL_DIMENSIONS]);
 
-    // 2026-05-14 — Enhancer for the competitive context field. The downstream
+    // 2026-05-14 - Enhancer for the competitive context field. The downstream
     // heuristic analyzer uses this to position the product against named
     // competitors; vague "competing with similar apps" produces weak findings.
     const competitiveEnhancer = usePromptEnhancer({

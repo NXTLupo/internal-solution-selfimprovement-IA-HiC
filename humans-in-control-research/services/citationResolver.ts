@@ -1,5 +1,5 @@
 /**
- * Citation Resolver — Maps ALL raw citation references to human-readable sources.
+ * Citation Resolver - Maps ALL raw citation references to human-readable sources.
  *
  * G-02: Zero raw references should appear in any rendered output:
  * - [CHUNK_XXX] -> "(Source: [Document Name], [date])"
@@ -119,7 +119,7 @@ export function resolveChunkReferences(
             return ''; // Strip unresolved file refs
         });
     } else {
-        // No file map — strip [FILE N] refs entirely rather than showing raw
+        // No file map - strip [FILE N] refs entirely rather than showing raw
         resolved = resolved.replace(/\[FILE\s*\d+\]/gi, '');
     }
 
@@ -263,12 +263,12 @@ export function fuzzyCorrectProperNouns(text: string): string {
     return text.replace(/\b[A-Za-z][A-Za-z0-9.]{3,}\b/g, (word) => {
         const lower = word.toLowerCase();
 
-        // Exact match — just fix casing
+        // Exact match - just fix casing
         if (PROPER_NOUN_DICTIONARY[lower]) {
             return PROPER_NOUN_DICTIONARY[lower];
         }
 
-        // Fuzzy match — only for words 5+ chars to avoid false positives
+        // Fuzzy match - only for words 5+ chars to avoid false positives
         if (word.length < 5) return word;
 
         let bestMatch = '';

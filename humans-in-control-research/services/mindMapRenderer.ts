@@ -1,14 +1,14 @@
 // services/mindMapRenderer.ts
 // Renders a MindMapOutput (from mindMapArchitect.buildMindMap) into a
 // self-contained, brand-styled 1920×1080 HTML page that fits inside the
-// FreeformViewer iframe (sandbox="allow-same-origin" — NO scripts).
+// FreeformViewer iframe (sandbox="allow-same-origin" - NO scripts).
 //
 // Pure-SVG radial tree layout computed at render time. Convergent-evidence
 // nodes get a cyan ring; thin-evidence nodes are dimmed. Chunk-id chips
 // surface under each node label for click-to-explore (parent picks up
 // data-chunk-id attributes via the iframe's same-origin DOM).
 //
-// 2026-05-24 — Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import type { MindMapNode, MindMapOutput } from './mindMapArchitect';
 
@@ -68,7 +68,7 @@ function escapeHtml(s: string): string {
 // ─── Radial layout ────────────────────────────────────────────────────────────
 // Compute (x, y) for every node by walking the tree and partitioning angular
 // space among children. Root sits at canvas center; subsequent rings are at
-// increasing radii. We never invoke d3 — pure arithmetic, deterministic.
+// increasing radii. We never invoke d3 - pure arithmetic, deterministic.
 
 interface Positioned {
     node: MindMapNode;
@@ -91,7 +91,7 @@ function layoutRadial(root: MindMapNode): Positioned[] {
     const groups = root.children;
     if (groups.length === 0) return positioned;
 
-    // Ring 1 — top-level groups
+    // Ring 1 - top-level groups
     const ring1Span = Math.PI * 2;
     const ring1Start = -Math.PI / 2;  // 12 o'clock
     const ring1Step = ring1Span / groups.length;
@@ -106,7 +106,7 @@ function layoutRadial(root: MindMapNode): Positioned[] {
             ring: 1,
         });
 
-        // Ring 2 — themes inside this group. Each group gets an angular wedge.
+        // Ring 2 - themes inside this group. Each group gets an angular wedge.
         const themes = groups[i].children;
         if (themes.length === 0) continue;
         const wedge = ring1Step * 0.85;
@@ -168,7 +168,7 @@ function wrapLabel(label: string, maxCharsPerLine: number, maxLines = 3): string
             if (cur) lines.push(cur);
             cur = w;
             if (lines.length >= maxLines - 1) {
-                lines.push(cur + (words.indexOf(w) < words.length - 1 ? '…' : ''));
+                lines.push(cur + (words.indexOf(w) < words.length - 1 ? '...' : ''));
                 return lines;
             }
         } else {
@@ -195,7 +195,7 @@ function edgePath(from: Positioned, to: Positioned): string {
     const sy = from.y + (dy / len) * fromR;
     const ex = to.x - (dx / len) * toR;
     const ey = to.y - (dy / len) * toR;
-    // Quadratic control point — curve outward by 8% of segment length
+    // Quadratic control point - curve outward by 8% of segment length
     const mx = (sx + ex) / 2;
     const my = (sy + ey) / 2;
     const nx = -dy / len;
@@ -280,7 +280,7 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
     const themeCount = input.output.root.children.reduce((sum, g) => sum + g.children.length, 0);
 
     const goalEsc = escapeHtml(input.researchGoal || 'Mind Map');
-    // 2026-05-25 — Run ID stamp removed. Reporting-depth metadata is process
+    // 2026-05-25 - Run ID stamp removed. Reporting-depth metadata is process
     // narration; the reader of a finished artifact must never see it. Hash is
     // still computed and stored in the artifact's data-* attributes for audit
     // tooling, but is not rendered as visible chrome.
@@ -340,7 +340,7 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
   </div>
 </div>
 <script>
-  // 2026-05-26 — Click-to-chat drill-down. Each node carries its chunk
+  // 2026-05-26 - Click-to-chat drill-down. Each node carries its chunk
   // ids as data-chunk-ids. Click sends a postMessage to the parent
   // window with the node label + chunk ids; the parent (CorpusChatPanel)
   // pre-populates a chat query targeting those chunks.

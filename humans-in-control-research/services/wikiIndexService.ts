@@ -1,11 +1,11 @@
 /**
- * Wiki Index + Retrieval — client wrapper for the RAG endpoints added
+ * Wiki Index + Retrieval - client wrapper for the RAG endpoints added
  * to the proxy (2026-04-20). These two endpoints are the foundation of
  * the wiki-as-context-store architecture:
  *
- *   GET  /api/wiki/index             — metadata menu of every archived article
+ *   GET  /api/wiki/index             - metadata menu of every archived article
  *                                      (url_hash id, title, source, summary, chars, path)
- *   POST /api/wiki/fetch-articles    — full bodies for ids / keyword query
+ *   POST /api/wiki/fetch-articles    - full bodies for ids / keyword query
  *
  * The in-memory corpus passed to each chat turn is now capped at the
  * context window; the wiki itself can hold hundreds of thousands of chars
@@ -54,12 +54,18 @@ export interface WikiFetchArticlesParams {
     minChars?: number;
     limit?: number;               // default 10, max 50
     maxCharsPerArticle?: number;  // default 20000, max 50000
-    // Phase 2.5 (2026-04-28): goal-blended retrieval — when present, the proxy
+    // Phase 2.5 (2026-04-28): goal-blended retrieval - when present, the proxy
     // blends the chat-question embedding with the engagement goal embedding,
     // strengthening recall of previously archived content aligned with the
     // broader engagement context (not just the narrow chat question).
     engagementGoal?: string;      // original research goal text
     goalBlendWeight?: number;     // 0..1, default 0.30 server-side
+    // 2026-06-05 - Bug 2: cross-engagement archive aug should NOT pull in
+    // uploaded client PDFs from unrelated prior engagements (alumni,
+    // fundraising, billing leaking into a co-op engagement). Set true to
+    // exclude kind=='upload' from results. Default false preserves legacy
+    // semantics for all other callers.
+    excludeUploads?: boolean;
 }
 
 export interface WikiArticleBody {
@@ -89,7 +95,7 @@ export interface WikiFetchArticlesResponse {
 
 /**
  * Fetch the lightweight wiki metadata index. Returns empty array on any
- * error — callers should treat the absence of the wiki gracefully.
+ * error - callers should treat the absence of the wiki gracefully.
  *
  * @param opts.summary_len  chars of body preview to include (default 200)
  * @param opts.limit        cap on entries returned (default 0 = all)
@@ -119,7 +125,7 @@ export async function fetchWikiIndex(opts: {
 
         const url = `${PROXY}/api/wiki/index${params.toString() ? '?' + params.toString() : ''}`;
         const resp = await fetch(url, {
-            // 2026-05-15 — Bumped 10s → 60s. The wiki now has 1,569 articles
+            // 2026-05-15 - Bumped 10s → 60s. The wiki now has 1,569 articles
             // across 56+ subdirs and the proxy's /api/wiki/index endpoint
             // walks every file to build the response. On cold start (no
             // server-side cache) the 10s timeout fires before the proxy
@@ -139,14 +145,14 @@ export async function fetchWikiIndex(opts: {
         return data.entries || [];
     } catch (e: any) {
         const isTimeout = (e?.name === 'TimeoutError') || /timed out|signal timed out/i.test(e?.message || '');
-        console.warn(`[wikiIndex] fetch error (${isTimeout ? 'TIMEOUT after 60s — wiki enumeration too slow' : 'other'}):`, e?.message || e);
+        console.warn(`[wikiIndex] fetch error (${isTimeout ? 'TIMEOUT after 60s - wiki enumeration too slow' : 'other'}):`, e?.message || e);
         return [];
     }
 }
 
 /**
  * Fetch full article bodies by id, path, or keyword query. Returns empty
- * array on any error — same non-blocking contract as fetchWikiIndex.
+ * array on any error - same non-blocking contract as fetchWikiIndex.
  *
  * Use this when the AI (or the pre-fetch layer) needs real text to quote:
  * call fetchWikiIndex first to get the menu, then fetchWikiArticles to
@@ -199,7 +205,7 @@ export function formatArticlesAsCorpusBlock(articles: WikiArticleBody[], maxTota
         kept.push(a);
     }
     if (kept.length === 0) return '';
-    const header = `\n=== WIKI ARTICLE BODIES (${kept.length} articles, ${Math.round(total / 1024)}KB) — real text pulled from the archive for this question ===\n`;
+    const header = `\n=== WIKI ARTICLE BODIES (${kept.length} articles, ${Math.round(total / 1024)}KB) - real text pulled from the archive for this question ===\n`;
     return header + kept.map(renderArticleBlock).join('\n\n---\n\n');
 }
 
@@ -213,7 +219,7 @@ function renderArticleBlock(a: WikiArticleBody): string {
 /**
  * Semantic-neighbor exploration for the dynamic prompt chip system.
  * Returns archive articles bucketed by cosine similarity to the goal.
- * Non-blocking — all failure modes return empty buckets.
+ * Non-blocking - all failure modes return empty buckets.
  */
 export interface WikiExploreNeighbor {
     id: string;
@@ -235,7 +241,7 @@ export interface WikiExploreConceptsResponse {
     reason?: string;
 }
 // Per-session cache for exploreConcepts. The dynamic-prompt-chip layer
-// re-fires suggestPrompts on every state tick during mid-collection —
+// re-fires suggestPrompts on every state tick during mid-collection -
 // 11 identical calls in a single collection burn 11 OpenAI query-embed
 // requests + 11 proxy round-trips for the same goal. Cache by
 // goal+limit+minSim+kind with a 5-min TTL. The archive itself changes
@@ -301,7 +307,7 @@ export async function exploreConcepts(
  * archived articles aren't stuck at scores graded against the old goal.
  *
  * Scope: only articles tagged with the OLD engagement_goal are eligible by
- * default (uploads excluded — they're axiomatically relevant). Run in batches;
+ * default (uploads excluded - they're axiomatically relevant). Run in batches;
  * the proxy bounds each call to `limit` articles.
  *
  * Non-blocking: returns null on any error so a regrade outage doesn't break
@@ -341,7 +347,7 @@ export async function regradeWikiRelevance(
                 limit: opts.limit ?? 50,
                 dry_run: opts.dryRun === true,
             }),
-            // 5-min timeout — Gemini grading 50 articles in 25-batch chunks
+            // 5-min timeout - Gemini grading 50 articles in 25-batch chunks
             // can take 30-90s; we want to wait it out rather than orphan the work.
             signal: opts.signal || AbortSignal.timeout(5 * 60_000),
         });
@@ -368,7 +374,7 @@ export async function prefetchArticlesForMessage(message: string, opts: {
 } = {}): Promise<WikiArticleBody[]> {
     const trimmed = (message || '').trim();
     if (trimmed.length < 8) return [];
-    // Use the raw message as the query — proxy tokenizes and scores server-side.
+    // Use the raw message as the query - proxy tokenizes and scores server-side.
     // engagementGoal (when provided) biases the retrieval embedding toward
     // archive content relevant to the broader engagement context. Strengthens
     // recall of articles graded high-relevance at collection time but only

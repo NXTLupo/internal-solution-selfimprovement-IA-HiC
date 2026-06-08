@@ -1,5 +1,5 @@
 /**
- * Feedback Regeneration — synchronous "Apply now" path.
+ * Feedback Regeneration - synchronous "Apply now" path.
  *
  * Given an original output and a feedback instruction, runs a focused
  * regeneration of either the targeted section or the whole deliverable.
@@ -20,7 +20,7 @@ export interface RegenerationRequest {
     sectionScope?: string | null;
     engagementSlug?: string;
     /**
-     * Provider override. 2026-05-22 — Default changed from 'anthropic'
+     * Provider override. 2026-05-22 - Default changed from 'anthropic'
      * (Opus) to 'gemini' (Gemini 3.5 Flash). The "Apply now" path has a
      * <15s latency budget that Opus consistently exceeded; Flash hits the
      * same regen task in ~3-6s at ~10% of the cost, and the targeted-edit
@@ -68,9 +68,9 @@ Convert this into a precise, actionable instruction for an AI regenerator. The i
 
 Return only the instruction text. No preamble. No quotes.`;
 
-    // 2026-05-22 — Switched from Haiku to Gemini 3.5 Flash for the
+    // 2026-05-22 - Switched from Haiku to Gemini 3.5 Flash for the
     // feedback-instruction parse step. Single-step transform, but the
-    // applyRegeneration step downstream now also uses Flash by default —
+    // applyRegeneration step downstream now also uses Flash by default -
     // keeping both halves on the same provider eliminates the cross-vendor
     // latency on the "Apply now" path and tightens the total budget toward
     // <10s. Anthropic Haiku stays as a fallback for resilience.
@@ -149,7 +149,7 @@ CONSTRAINTS:
         const data = await resp.json();
         return data?.content?.[0]?.text || null;
     } else if (provider === 'gemini') {
-        // 2026-05-22 — Gemini 3.5 Flash for the "Apply now" path. The proxy
+        // 2026-05-22 - Gemini 3.5 Flash for the "Apply now" path. The proxy
         // wraps the request in the proper { contents: [{ parts: [...] }] }
         // shape via its config field, so we send the string directly.
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
@@ -264,7 +264,7 @@ export async function regenerateWithFeedback(
             durationMs: Date.now() - t0,
         };
     } catch (err: any) {
-        // P0.4 — surface the failure with structured detail so the UI can show
+        // P0.4 - surface the failure with structured detail so the UI can show
         // the user a specific diagnostic ("Apply Now parse failed: <reason>")
         // instead of generic "regeneration failed".
         const errMessage = err?.message || String(err);
@@ -275,7 +275,7 @@ export async function regenerateWithFeedback(
             error: errMessage,
             errorCategory: isParseError ? 'parse-error' : 'generation-error',
             errorHint: isParseError
-                ? 'The regeneration model returned malformed JSON. Try clicking Apply Now again — the system will retry with the Opus model.'
+                ? 'The regeneration model returned malformed JSON. Try clicking Apply Now again - the system will retry with the Opus model.'
                 : 'The regeneration model returned an error. Check the proxy logs and the model status.',
         } as any;
     }

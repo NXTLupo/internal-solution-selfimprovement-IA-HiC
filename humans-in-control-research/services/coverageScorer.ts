@@ -1,5 +1,5 @@
 /**
- * coverageScorer — multi-metric per-question coverage analysis.
+ * coverageScorer - multi-metric per-question coverage analysis.
  *
  * The April 2026 research consensus (Amazing Agent Race, Trustworthy Report
  * Generation) argued that a single "coverage score" hides where research
@@ -7,21 +7,21 @@
  * independent signals so the patch-query loop and the user can see exactly
  * which dimension is thin:
  *
- *   1. density        — # of records that substantively address the question
- *   2. diversity      — # of distinct sources contributing
- *   3. recency        — fraction of records inside the brief's date window
- *   4. avgConfidence  — mean extraction confidence of contributing records
- *   5. entityHonorRate — fraction of brief-named entities that produced evidence
+ *   1. density        - # of records that substantively address the question
+ *   2. diversity      - # of distinct sources contributing
+ *   3. recency        - fraction of records inside the brief's date window
+ *   4. avgConfidence  - mean extraction confidence of contributing records
+ *   5. entityHonorRate - fraction of brief-named entities that produced evidence
  *
  * Each metric has a `score` (normalized 0-1 against vertical-aware targets)
- * and a `compositeScore` rolls them up for UI sorting only — never gating.
+ * and a `compositeScore` rolls them up for UI sorting only - never gating.
  *
  * The scorer is DETERMINISTIC. No AI calls. Pure function over (brief, records).
  *
  * For records that lack questionIds (legacy items wrapped via fromLegacyItem
  * before the planner's per-source question attribution lands in a later tier),
  * the scorer falls back to keyword-overlap matching against question text.
- * Imperfect but workable — the target is "useful diagnostic", not "100%
+ * Imperfect but workable - the target is "useful diagnostic", not "100%
  * recall on question-record assignment".
  */
 
@@ -76,7 +76,7 @@ export function scoreCoverage(
 
         const entityHonorRate = computeEntityHonorRate(brief, qRecords);
 
-        // Composite — straight average of the five normalized scores
+        // Composite - straight average of the five normalized scores
         const compositeScore = (densityScore + diversityScore + recency + avgConfidence + entityHonorRate) / 5;
 
         const diagnostic = buildDiagnostic({
@@ -188,7 +188,7 @@ function countOverlap(a: Set<string>, b: Set<string>): number {
 function computeRecencyFraction(records: EvidenceRecord[], brief: ParsedBrief): number {
     if (records.length === 0) return 0;
     if (!brief.dateFilter || !brief.dateFilter.from) {
-        // No explicit date window — use freshness as proxy. Mean of (1 - age/year_decay)
+        // No explicit date window - use freshness as proxy. Mean of (1 - age/year_decay)
         return records.reduce((s, r) => s + (r.freshness || 0.5), 0) / records.length;
     }
 
@@ -206,7 +206,7 @@ function computeRecencyFraction(records: EvidenceRecord[], brief: ParsedBrief): 
         if (ms >= fromMs && ms <= toMs) inWindow++;
     }
 
-    if (withDate === 0) return 0.3;  // can't tell — penalize but not zero
+    if (withDate === 0) return 0.3;  // can't tell - penalize but not zero
     return inWindow / withDate;
 }
 
@@ -222,7 +222,7 @@ function computeEntityHonorRate(brief: ParsedBrief, records: EvidenceRecord[]): 
 
     // Dedupe (subreddit list contributes both r/X and X)
     const uniqueEntities = Array.from(new Set(entities));
-    if (uniqueEntities.length === 0) return 1;   // brief named no entities — vacuously honored
+    if (uniqueEntities.length === 0) return 1;   // brief named no entities - vacuously honored
 
     if (records.length === 0) return 0;
 

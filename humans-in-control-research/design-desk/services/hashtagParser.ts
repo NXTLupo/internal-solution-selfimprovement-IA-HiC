@@ -2,9 +2,9 @@ export type ContentHashtag =
     | 'persona' | 'journey' | 'blueprint' | 'arch'
     | 'prd' | 'roadmap' | 'strategy' | 'gap'
     | 'audit' | 'compete' | 'org'
-    // 2026-05-24 — NotebookLM uplift Phase 4-6
+    // 2026-05-24 - NotebookLM uplift Phase 4-6
     | 'mindmap' | 'brief-dialog' | 'meta-themes' | 'research-plan'
-    // 2026-05-26 — case-study + presentation + recommendation classes that
+    // 2026-05-26 - case-study + presentation + recommendation classes that
     // existed in the skill manifest but were missing from the parser, causing
     // silent misroute via matchSkills synonym expansion.
     | 'case-study' | 'presentation' | 'recommendations' | 'brief'
@@ -26,9 +26,9 @@ export interface ParsedHashtags {
 const CONTENT: Set<string> = new Set([
     'persona', 'journey', 'blueprint', 'arch',
     'prd', 'roadmap', 'strategy', 'gap', 'audit', 'compete', 'org',
-    // 2026-05-24 — NotebookLM uplift Phase 4-6
+    // 2026-05-24 - NotebookLM uplift Phase 4-6
     'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
-    // 2026-05-26 — case-study + remaining registry directives so the parser
+    // 2026-05-26 - case-study + remaining registry directives so the parser
     // recognizes everything hashtagRegistry.ts publishes. Prevents the silent
     // synonym-expansion misroute (#case study #slides → tech-audit-inspector).
     'case-study', 'presentation', 'recommendations', 'brief',
@@ -36,11 +36,11 @@ const CONTENT: Set<string> = new Set([
 ]);
 
 /**
- * Plural-form aliases — users naturally type `#journeys`, `#personas`, `#orgs`
+ * Plural-form aliases - users naturally type `#journeys`, `#personas`, `#orgs`
  * when they want one of those artifact types. Map them back to the canonical
  * singular content hashtag. Note: `slides` is a composition modifier (separate
  * meaning) and is NOT treated as a plural of `slide`. `gaps` not aliased to
- * `gap` because gap-analysis is the artifact name, not a count of gaps —
+ * `gap` because gap-analysis is the artifact name, not a count of gaps -
  * keeping it singular avoids ambiguity. `orgs` is included because users may
  * say "the orgs" or "org chart" interchangeably.
  */
@@ -63,7 +63,7 @@ const CONTENT_PLURAL_ALIASES: Record<string, string> = {
     orgs: 'org',
     orgcharts: 'org',
     orgchart: 'org',
-    // 2026-05-24 — NotebookLM uplift Phase 4-6
+    // 2026-05-24 - NotebookLM uplift Phase 4-6
     mindmaps: 'mindmap',
     'mind-map': 'mindmap',
     'mind-maps': 'mindmap',
@@ -76,10 +76,10 @@ const CONTENT_PLURAL_ALIASES: Record<string, string> = {
     deepresearch: 'research-plan',
     'deep-research': 'research-plan',
     plan: 'research-plan',
-    // 2026-05-26 — case-study, presentation, recommendation aliases.
-    // `case` is intentionally NOT aliased to `case-study` here — it is a
+    // 2026-05-26 - case-study, presentation, recommendation aliases.
+    // `case` is intentionally NOT aliased to `case-study` here - it is a
     // common English word ("case in point", "edge case") that would
-    // false-positive. Users get a "Unknown directive — did you mean
+    // false-positive. Users get a "Unknown directive - did you mean
     // #case-study?" suggestion via searchDirectives() in the dispatcher.
     casestudy: 'case-study',
     'case-studies': 'case-study',
@@ -105,7 +105,7 @@ export function parseHashtags(input: string): ParsedHashtags {
     let brand: BrandHashtag = 'nxt';
     let cleaned = input;
 
-    // 2026-05-24 — Allow hyphens so multi-word hashtags like #brief-dialog,
+    // 2026-05-24 - Allow hyphens so multi-word hashtags like #brief-dialog,
     // #meta-themes, #deep-research, #mind-map are detected as single tokens.
     // Hyphen NOT allowed at start or end of the tag (no `#-` or `#foo-`).
     const tokens = Array.from(input.matchAll(/#([a-zA-Z][a-zA-Z-]*[a-zA-Z]|[a-zA-Z])/g));

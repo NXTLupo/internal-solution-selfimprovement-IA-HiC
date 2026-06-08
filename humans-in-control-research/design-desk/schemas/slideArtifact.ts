@@ -1,5 +1,5 @@
 /**
- * SlideArtifact — wraps a SlideSpec with the same shape as the legacy
+ * SlideArtifact - wraps a SlideSpec with the same shape as the legacy
  * FreeformArtifact (id / kind / brand / title / citations / timestamps),
  * so it slots into the existing designDeskStore without changes.
  *

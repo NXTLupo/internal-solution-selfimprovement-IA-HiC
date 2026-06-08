@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Research Plan: Co-op readiness deep research</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .rp-cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: start; }
+  .rp-angle { font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; background: var(--slate-100); color: var(--fg-muted); white-space: nowrap; }
+  .rp-angle--evidence { background: var(--success-bg); color: var(--success-fg); }
+  .rp-angle--counter { background: var(--error-bg); color: var(--error-fg); }
+  .rp-angle--second { background: var(--special-bg); color: var(--special-fg); }
+  .rp-prio { font-family: var(--font-mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+  .rp-prio--high { color: var(--nu-red-600); font-weight: 700; }
+  .rp-prio--med { color: var(--warning-fg); }
+  .rp-prio--low { color: var(--fg-subtle); }
+  .rp-params { display: flex; flex-direction: column; gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+  .rp-param { background: var(--bg-surface); padding: 12px 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .rp-param .k { font-size: 11px; color: var(--fg-muted); letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
+  .rp-param .v { font-family: var(--font-display); font-size: 18px; color: var(--fg-strong); }
+  .rp-inst { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .rp-inst span { font-size: 11px; font-weight: 500; color: var(--ink-800); background: var(--slate-100); padding: 4px 10px; border-radius: 2px; }
+  .rp-cov { height: 6px; background: var(--slate-200); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+  .rp-cov > i { display: block; height: 100%; background: var(--success-solid); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Research plan · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Research Plan · Humans in control</div>
+    <h1 class="art-masthead__title" style="width: 560px">The plan you approve here is the plan that runs: edit the questions, sources, and budget before a single external call fires.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Sub-questions</dt><dd>Six, six angles</dd></div>
+    <div class="art-masthead__meta-block"><dt>Gate</dt><dd>Edit then approve</dd></div>
+    <div class="art-masthead__meta-block"><dt>Loop</dt><dd>Plan, act, reflect</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="rp-cols">
+
+    <div>
+      <div class="art-section__head" style="margin-top:0;">
+        <h2 class="art-section__title">Sub-questions</h2>
+        <span class="art-section__counter">six angles: definition, mechanism, evidence, counter-evidence, second-order, named entities</span>
+      </div>
+      <table class="dtable dtable--compact">
+        <thead>
+          <tr><th style="width:38%;">Question</th><th>Angle</th><th>Evidence types</th><th class="num">Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lead">What does co-op readiness mean for a first-year before their first cycle?</td>
+            <td><span class="rp-angle">definition</span></td>
+            <td>academic, client</td>
+            <td class="num"><span class="rp-prio rp-prio--high">high</span></td>
+          </tr>
+          <tr>
+            <td class="lead">How does the application-to-placement funnel actually filter candidates?</td>
+            <td><span class="rp-angle">mechanism</span></td>
+            <td>social, news</td>
+            <td class="num"><span class="rp-prio rp-prio--high">high</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Where is the evidence that early readiness signals change placement outcomes?</td>
+            <td><span class="rp-angle rp-angle--evidence">evidence</span></td>
+            <td>academic, government</td>
+            <td class="num"><span class="rp-prio rp-prio--high">high</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Where have advising or matching tools failed to move outcomes, and why?</td>
+            <td><span class="rp-angle rp-angle--counter">counter-evidence</span></td>
+            <td>news, social</td>
+            <td class="num"><span class="rp-prio rp-prio--med">medium</span></td>
+          </tr>
+          <tr>
+            <td class="lead">What second-order effects follow if advisors triage by an AI signal?</td>
+            <td><span class="rp-angle rp-angle--second">second-order</span></td>
+            <td>academic, client</td>
+            <td class="num"><span class="rp-prio rp-prio--med">medium</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Which institutions run comparable first-year readiness programs?</td>
+            <td><span class="rp-angle">named entities</span></td>
+            <td>news, academic</td>
+            <td class="num"><span class="rp-prio rp-prio--low">low</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="art-section__head">
+        <h2 class="art-section__title">Source strategy</h2>
+        <span class="art-section__counter">connectors mapped to the questions they answer, with expected coverage</span>
+      </div>
+      <table class="dtable dtable--compact">
+        <thead>
+          <tr><th>Connector</th><th>Answers</th><th>Rationale</th><th style="width:120px;">Expected coverage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lead">Reddit deep (r/NEU, r/cscareerquestions)</td>
+            <td>Q2, Q4</td>
+            <td>First-person funnel and failure accounts</td>
+            <td><div class="rp-cov"><i style="width:88%"></i></div></td>
+          </tr>
+          <tr>
+            <td class="lead">OpenAlex, Crossref</td>
+            <td>Q1, Q3, Q5</td>
+            <td>Peer-reviewed outcome and mechanism studies</td>
+            <td><div class="rp-cov"><i style="width:74%"></i></div></td>
+          </tr>
+          <tr>
+            <td class="lead">Higher Ed Dive, Inside Higher Ed</td>
+            <td>Q4, Q6</td>
+            <td>Program coverage and named comparators</td>
+            <td><div class="rp-cov"><i style="width:69%"></i></div></td>
+          </tr>
+          <tr>
+            <td class="lead">Client uploads</td>
+            <td>Q1, Q5</td>
+            <td>Institutional context and program description</td>
+            <td><div class="rp-cov"><i style="width:60%"></i></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="art-section__head" style="margin-top:0;">
+        <h2 class="art-section__title">Plan parameters</h2>
+        <span class="art-section__counter">editable before approval</span>
+      </div>
+      <div class="rp-params">
+        <div class="rp-param"><span class="k">Expected themes</span><span class="v">20 to 25</span></div>
+        <div class="rp-param"><span class="k">Budget cap</span><span class="v">$5.00</span></div>
+        <div class="rp-param"><span class="k">Reflection threshold</span><span class="v">0.75</span></div>
+        <div class="rp-param"><span class="k">Max iterations</span><span class="v">6</span></div>
+      </div>
+
+      <div class="art-section__head">
+        <h2 class="art-section__title">Named institutions</h2>
+        <span class="art-section__counter">seeded comparators</span>
+      </div>
+      <div class="rp-inst">
+        <span>Northeastern</span><span>Drexel</span><span>Waterloo</span><span>Cincinnati</span><span>Khoury College</span>
+      </div>
+
+      <div class="art-section__head">
+        <h2 class="art-section__title">Stop condition</h2>
+        <span class="art-section__counter">how the act-reflect loop exits</span>
+      </div>
+      <p style="font-size:12.5px; line-height:1.55; color:var(--fg-default);">
+        The loop halts when four of six sub-questions reach coverage, or when the budget cap is reached, whichever comes first. Each iteration writes a reflection trace to the engagement log, so the decision to stop is auditable, not silent.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">The human-in-control gate</div>
+    <ol>
+      <li><b>No external calls during planning</b> · the plan is composed, rendered, and edited before any connector runs</li>
+      <li><b>Deterministic plan hash</b> · the same goal and inputs produce the same plan, binding the run to what you approved</li>
+      <li><b>Binding budget</b> · the reflector halts when the cap is reached, never silently overspends</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">RESEARCH PLAN · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>research-planner</code> · Brand: NU</div>
+  </div>
+</footer>
+
+</body>
+</html>

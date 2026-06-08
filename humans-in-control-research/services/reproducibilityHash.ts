@@ -2,8 +2,8 @@
 // Stamp every deliverable with a deterministic reproducibility_hash.
 // Two runs with the same hash MUST produce byte-identical identity fields.
 //
-// 2026-05-24 — Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
-// Backlog item: Section 20 "Observability — Reproducibility hash stamping"
+// 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// Backlog item: Section 20 "Observability - Reproducibility hash stamping"
 
 import { stableHash } from './multiModelResilience';
 

@@ -1,11 +1,11 @@
 /**
- * Quote Extractor — deterministic verbatim-quote pulling for slide generation.
+ * Quote Extractor - deterministic verbatim-quote pulling for slide generation.
  *
  * The slide AI may emit `evidence` (single quote) or `quotes[]` (multi-quote)
  * fields on every theme/persona/barrier. When the user asks for a specific
  * quote density ("3 quotes each", "#quotes=5"), this module enriches the
  * model's JSON output with REAL verbatim text pulled from the knowledge graph
- * and source corpus — no fabrication.
+ * and source corpus - no fabrication.
  *
  * Why deterministic? The LLM is great at claim-making but prone to quote
  * drift (paraphrasing, composite quotes, or inventing plausible-sounding
@@ -35,6 +35,47 @@ const MAX_QUOTE_CHARS = 240;
 const IDEAL_QUOTE_CHARS = 140;
 const DEFAULT_MAX_PER_THEME = 3;
 
+// --- EVIDENCE HYGIENE (2026-06-01) ---
+// The wiki archive contains three classes of poison that must never reach a
+// slide quote: (1) synthesis-as-source self-references ("HiC Theme Synthesis",
+// "Tri-Model Research Synthesis"), (2) reporting-depth metadata that leaked
+// into article bodies ("*Goal alignment: 94/100 · status: Validated*"), and
+// (3) raw chunk dumps ([INSIGHT], [Page N], "--- TOP COMMENTS ---", PDF
+// table-of-contents text) plus test-fixture sources from dev seeding
+// ("PhaseA Test Source", "A4 Logistics Src"). These showed up verbatim on
+// exported theme-cluster decks. Reject the source/quote OR strip the metadata.
+const JUNK_SOURCE_RX = /\b(synthesis|tri-?model|test\s+source|logistics\s+src|phase\s?a\b|hic\s+theme)\b|\bsrc$/i;
+const JUNK_QUOTE_RX = /\[INSIGHT\]|\[Page\s|---\s*TOP\s+COMMENTS|T\s?able\s+of\s+Contents|ESSENTIAL\s+GUIDE|goal\s+alignment\s*:|status\s*:\s*(validated|emerging|hypothesis)|\[CHUNK_/i;
+
+/** A source label that is internal pipeline chrome, not a citable source. */
+function isJunkSource(src: string | undefined): boolean {
+    if (!src) return false;
+    return JUNK_SOURCE_RX.test(src.trim());
+}
+
+/** A quote body that is a raw dump or carries leaked pipeline metadata and
+ *  cannot be salvaged by prefix-stripping. */
+function isJunkQuote(text: string | undefined): boolean {
+    if (!text) return true;
+    return JUNK_QUOTE_RX.test(text);
+}
+
+/** Strip salvageable leaked metadata and escaped-markdown from a quote body.
+ *  Use AFTER isJunkQuote() has rejected the unsalvageable cases. */
+function sanitizeQuoteText(text: string): string {
+    return (text || '')
+        // leading "*Goal alignment: 94/100 · status: Validated*" stamp
+        .replace(/^\s*\*?\s*goal\s+alignment\s*:[^*]*\*?\s*/i, '')
+        // any inline "status: Validated" stamp
+        .replace(/\*?\s*status\s*:\s*(validated|emerging|hypothesis)\s*\*?/ig, '')
+        // escaped markdown bullets/emphasis from raw reddit/markdown dumps
+        .replace(/\\([-*_>#`[\]])/g, '$1')
+        // stray surrounding emphasis asterisks
+        .replace(/^\*+|\*+$/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+}
+
 // Stopwords that shouldn't drive keyword overlap scoring
 const STOPWORDS = new Set([
     'the', 'and', 'for', 'that', 'this', 'with', 'from', 'have', 'has', 'are',
@@ -54,7 +95,7 @@ function tokens(s: string | undefined): Set<string> {
     return out;
 }
 
-/** Count token-set intersection size — the basic keyword overlap metric. */
+/** Count token-set intersection size - the basic keyword overlap metric. */
 function overlap(a: Set<string>, b: Set<string>): number {
     let n = 0;
     for (const t of a) if (b.has(t)) n++;
@@ -79,7 +120,7 @@ function linkedEvidence(theme: KGNode, graph: KnowledgeGraph): KGNode[] {
     return graph.nodes.filter(n => ids.has(n.id) && n.type === 'evidence');
 }
 
-/** All source nodes this theme is linked to — direct edges + parent of linked evidence. */
+/** All source nodes this theme is linked to - direct edges + parent of linked evidence. */
 function linkedSources(theme: KGNode, graph: KnowledgeGraph): KGNode[] {
     const direct: KGNode[] = [];
     const ids = new Set<string>();
@@ -139,8 +180,8 @@ function trimToSentence(raw: string, max = MAX_QUOTE_CHARS): string {
     if (lastTerm >= minEnd) return slice.slice(0, lastTerm + 1).trim();
     // Fall back to last comma or space
     const lastComma = slice.lastIndexOf(', ');
-    if (lastComma >= minEnd) return slice.slice(0, lastComma).trim() + '…';
-    return slice.replace(/\s+\S*$/, '') + '…';
+    if (lastComma >= minEnd) return slice.slice(0, lastComma).trim() + '...';
+    return slice.replace(/\s+\S*$/, '') + '...';
 }
 
 /** Score a quote candidate for fitness on a theme. Higher is better. */
@@ -169,7 +210,7 @@ function scoreCandidate(ev: KGNode, src: KGNode | undefined, themeTokens: Set<st
     // Relevance carries through from AI scoring done at collection time
     const rel = typeof ev.relevanceScore === 'number' ? ev.relevanceScore / 100 : 0.5;
 
-    // Freshness — 90-day half-life. Missing dates score neutrally.
+    // Freshness - 90-day half-life. Missing dates score neutrally.
     const fresh = typeof ev.freshnessScore === 'number' ? ev.freshnessScore / 100 : 0.5;
 
     const score =
@@ -249,7 +290,7 @@ export function extractQuotesForTheme(
     }
 
     // Tier A: Also include ALL evidence nodes with strong keyword overlap to
-    // the theme text — this catches quotes the graph edges missed.
+    // the theme text - this catches quotes the graph edges missed.
     if (candidatePool.length < count * 2 && themeTokens.size > 0) {
         const seenEvIds = new Set(candidatePool.map(c => c.ev.id));
         for (const ev of graph.nodes) {
@@ -355,7 +396,7 @@ export function detectQuoteDensity(message: string): { count: number; perTheme: 
  * knowledge graph for every theme that doesn't already carry `quotes[]`.
  *
  * This is called after the AI produces slide JSON and before the renderer
- * consumes it — guaranteeing every theme on a quote-dense slide shows real
+ * consumes it - guaranteeing every theme on a quote-dense slide shows real
  * corpus-backed text. Fabrication impossible: if no matching evidence exists,
  * the function leaves `quotes[]` empty and the renderer falls back to the
  * `evidence` / `source` pair.
@@ -384,7 +425,7 @@ export function enrichSlideWithQuotes(slide: any, graph: KnowledgeGraph, directi
 // Deterministic fallback: walks every theme in every slide, detects
 // evidence fields that look like article titles (not body sentences), and
 // replaces them with real sentences pulled from the wiki archive. This is
-// the safety net that runs EVEN IF the AI emits a headline as a "quote" —
+// the safety net that runs EVEN IF the AI emits a headline as a "quote" -
 // we overwrite with ground truth from the archive.
 
 /** Heuristic: does this string look like an article title/headline rather
@@ -395,10 +436,10 @@ function looksLikeTitle(text: string | undefined): boolean {
     const s = text.trim();
     if (s.length < 40) return true;                       // too short to be a real quote
     // Headline heuristic 1: no terminal punctuation AND no internal comma/dash
-    if (!/[.!?]/.test(s) && !/[,;:—-]/.test(s)) return true;
+    if (!/[.!?]/.test(s) && !/[,;:-]/.test(s)) return true;
     // Headline heuristic 2: majority of words capitalized (>60%)
     // Exclude stopwords/connectives ("to", "a", "for", "and", etc.) which legitimately
-    // stay lowercase even in Title-Case titles — so we check proper words only.
+    // stay lowercase even in Title-Case titles - so we check proper words only.
     const TITLE_STOPWORDS = new Set(['a','an','the','of','in','on','at','to','for','and','or','but','with','by','as','is','are','was','were']);
     const words = s.split(/\s+/).filter(w => w.length > 1);
     const titleWords = words.filter(w => !TITLE_STOPWORDS.has(w.toLowerCase().replace(/[^a-z]/g, '')));
@@ -409,7 +450,7 @@ function looksLikeTitle(text: string | undefined): boolean {
     // Headline heuristic 3: article/Reddit-title patterns ending in ? or !,
     // starting with a question word, under 120 chars. These are almost always
     // post titles rather than body sentences. Apostrophes ("What's") and
-    // parens ("(with full AI features)") are common in titles — do NOT use
+    // parens ("(with full AI features)") are common in titles - do NOT use
     // their presence to disqualify.
     if (/^(how|why|what|when|which|who|where|is|are|can|should|does|do|the\s+best|top\s+\d|\d+\s+ways)\b/i.test(s)) {
         if (s.length < 140) return true;
@@ -417,13 +458,13 @@ function looksLikeTitle(text: string | undefined): boolean {
     // Headline heuristic 4: "<Thing>: <Longer Thing>" colon-split titles
     // ("From Go-Live to Growth Driver: A CRM Maturity Framework for Advancement Teams")
     // These read as body sentences to the old detector because the colon added
-    // internal punctuation, but they are structurally titles — short clause
+    // internal punctuation, but they are structurally titles - short clause
     // before colon, noun-phrase-heavy clause after.
     const colonSplit = s.split(/:\s+/);
     if (colonSplit.length === 2 && s.length < 160) {
         const before = colonSplit[0];
         const after = colonSplit[1];
-        // No verbs in the "after" part often signals a title — check for
+        // No verbs in the "after" part often signals a title - check for
         // common verb endings / modals instead of full NLP. If the after-part
         // has no lowercase verbs like "is/are/was/were/has/had/will/does/can",
         // it's likely a title subtitle.
@@ -475,7 +516,7 @@ function extractBodySentences(article: WikiArticleBody, maxSentences: number = 3
         if (/["'"']/.test(s)) score += 1;                 // quoted speech
         if (/\b[A-Z][a-z]+\s+[A-Z]/.test(s)) score += 1;  // proper noun pairs (names/orgs)
         if (s.length > 80 && s.length < 200) score += 1;  // ideal length
-        // Verb presence bumps the score — a verb-bearing sentence is prose,
+        // Verb presence bumps the score - a verb-bearing sentence is prose,
         // not a heading.
         if (/\b(is|are|was|were|has|had|will|shows|found|reports|says|argues|claims|suggests|indicates|reveals|notes|describes|means|requires)\b/i.test(s)) score += 1;
         return { s, score };
@@ -523,7 +564,7 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
     if (!themeCluster || !Array.isArray(themeCluster.themes)) return false;
     let changed = false;
 
-    // Cluster-level dedup — prevents the SAME sentence appearing across
+    // Cluster-level dedup - prevents the SAME sentence appearing across
     // multiple themes on one slide (the "Mary Washington bequest" bug was a
     // single PDF chunk dominating wiki search across themes).
     const clusterSeen = new Set<string>();
@@ -531,6 +572,27 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
     // Process themes in parallel to keep latency bounded
     await Promise.all(themeCluster.themes.map(async (t: any) => {
         stats.totalThemes++;
+
+        // PRE-SCRUB (2026-06-01): clean the AI's ORIGINAL quotes/evidence/source
+        // before deciding whether backfill is needed. Drops synthesis-as-source
+        // and test-fixture-sourced quotes entirely, strips leaked goal-alignment
+        // /status metadata, and unescapes raw-dump markdown. A theme whose
+        // quotes are ALL junk falls through to wiki backfill below.
+        if (Array.isArray(t.quotes) && t.quotes.length > 0) {
+            const beforeLen = t.quotes.length;
+            t.quotes = t.quotes
+                .filter((q: any) => q && !isJunkQuote(q.text) && !isJunkSource(q.source))
+                .map((q: any) => ({ ...q, text: sanitizeQuoteText(q.text) }))
+                .filter((q: any) => (q.text || '').length >= MIN_QUOTE_CHARS);
+            if (t.quotes.length !== beforeLen) changed = true;
+        }
+        if (isJunkQuote(t.evidence) || isJunkSource(t.source)) {
+            t.evidence = ''; t.source = t.source && !isJunkSource(t.source) ? t.source : '';
+            changed = true;
+        } else if (t.evidence) {
+            t.evidence = sanitizeQuoteText(t.evidence);
+        }
+
         const hasQuoteArray = Array.isArray(t.quotes) && t.quotes.length > 0;
         const quotesLookReal = hasQuoteArray && t.quotes.every((q: any) => !looksLikeTitle(q?.text));
         const evidenceLooksLikeTitle = looksLikeTitle(t.evidence);
@@ -541,7 +603,7 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
         const query = themeQuery.length >= 12 ? themeQuery : fallbackQuery;
         if (!query || query.length < 8) { stats.noMatchAnywhere++; return; }
 
-        // Theme anchor tokens — candidate sentences must share ≥2 content
+        // Theme anchor tokens - candidate sentences must share ≥2 content
         // tokens with the theme or they're likely off-topic noise from an
         // article that merely keyword-matched the search index.
         const themeAnchor = contentTokens(themeQuery);
@@ -549,7 +611,7 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
 
         let articles = await fetchWikiArticles({
             query,
-            limit: 6,                    // was 3 — give more candidates after relevance filter
+            limit: 6,                    // was 3 - give more candidates after relevance filter
             maxCharsPerArticle: 8_000,
             minChars: 800,
         });
@@ -572,17 +634,23 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
 
         // Collect candidate sentences from all matching articles, score each
         // by keyword overlap with the theme anchor. Reject sentences with
-        // <MIN_ANCHOR_OVERLAP tokens in common — those are unrelated noise.
+        // <MIN_ANCHOR_OVERLAP tokens in common - those are unrelated noise.
         type Candidate = { text: string; source: string; url?: string; date?: string; overlap: number };
         const candidates: Candidate[] = [];
         for (const art of articles) {
-            const sents = extractBodySentences(art, 3);    // was 1 — pull more per article
+            // Drop entire articles whose source is pipeline chrome / test fixtures
+            // (synthesis self-refs, "PhaseA Test Source", "A4 Logistics Src").
+            if (isJunkSource(art.source)) continue;
+            const sents = extractBodySentences(art, 3);    // was 1 - pull more per article
             for (const sent of sents) {
-                const sentTokens = contentTokens(sent);
+                if (isJunkQuote(sent)) continue;            // raw dumps / leaked metadata
+                const cleaned = sanitizeQuoteText(sent);
+                if (cleaned.length < MIN_QUOTE_CHARS) continue;
+                const sentTokens = contentTokens(cleaned);
                 let overlap = 0;
                 for (const tok of sentTokens) if (themeAnchor.has(tok)) overlap++;
                 candidates.push({
-                    text: sent,
+                    text: cleaned,
                     source: art.source || 'Source',
                     url: art.url,
                     date: art.date,
@@ -613,7 +681,7 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
             else stats.wikiHitsPass2++;
         } else {
             // Archive had candidates but NONE were topic-relevant. Leaving
-            // the AI's original evidence/quotes beats injecting noise — a
+            // the AI's original evidence/quotes beats injecting noise - a
             // wrong quote reads as authoritative slop.
             stats.noMatchAnywhere++;
         }
@@ -624,7 +692,7 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
 /**
  * Backfill all slides in a batch by pulling real body sentences from the
  * wiki archive wherever a theme's evidence/quotes look like titles. This
- * is the async companion to enrichSlideWithQuotes — call it AFTER the
+ * is the async companion to enrichSlideWithQuotes - call it AFTER the
  * slides have been parsed and added to state, then update state again
  * with the enriched versions.
  *
@@ -650,15 +718,15 @@ export async function backfillSlidesFromWiki(slides: any[], userMessage: string)
         const changed = await backfillThemeCluster(slide.themeCluster, userMessage, stats);
         if (changed) anyChanged = true;
     }
-    // Always log the outcome — ZERO matches is as informative as full matches
-    // ("wiki archive is headline-heavy for these themes — re-run collection").
+    // Always log the outcome - ZERO matches is as informative as full matches
+    // ("wiki archive is headline-heavy for these themes - re-run collection").
     const summary = `[slides] wiki backfill: ${stats.needingBackfill}/${stats.totalThemes} themes flagged, ${stats.wikiHitsPass1} upgraded (strict), ${stats.wikiHitsPass2} upgraded (relaxed), ${stats.noMatchAnywhere} no-match`;
     if (stats.needingBackfill === 0) {
-        console.log(`${summary} — nothing to do`);
+        console.log(`${summary} - nothing to do`);
     } else if (anyChanged) {
         console.log(summary);
     } else {
-        console.warn(`${summary} — archive lacks body text for these topics; run a fresh collection to populate wiki with enriched bodies`);
+        console.warn(`${summary} - archive lacks body text for these topics; run a fresh collection to populate wiki with enriched bodies`);
     }
     if (!anyChanged) return slides;     // nothing to update, return original ref
     return out;

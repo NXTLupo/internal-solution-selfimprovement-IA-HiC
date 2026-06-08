@@ -1,5 +1,5 @@
 /**
- * ChangeStrip — Session-header surface that tells users what improved
+ * ChangeStrip - Session-header surface that tells users what improved
  * since their last session.
  *
  * Sources data from:

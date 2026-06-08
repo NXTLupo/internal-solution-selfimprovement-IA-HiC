@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NU Service Blueprint — Internship placement, future state</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nu-red: #B8B800; --nu-black: #0D0D0D; --nu-graphite: #2B2B2B;
+    --nu-stone: #5C5C5C; --nu-mist: #9A9A9A; --nu-line: #E0E0E0;
+    --nu-paper: #FFFFFF; --nu-tint: #FFFFFF; --nu-rust: #CC6644;
+    --nu-chartreuse: #B8B800; --nu-cyan: #0091B6; --nu-white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--nu-paper); font-family: 'Archivo', sans-serif; color: var(--nu-black); width: 1920px; height: 1080px; overflow: hidden; }
+  .slide { width: 1920px; height: 1080px; position: relative; }
+  .frame { width: 1920px; height: 1080px; padding: 60px 80px; }
+  .header { margin-bottom: 24px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--nu-red); margin-bottom: 8px; }
+  .title { font-weight: 800; font-size: 42px; line-height: 1.05; letter-spacing: -0.02em; color: var(--nu-black); max-width: 1400px; }
+  .title em { font-family: 'Bebas Neue', serif; font-style: italic; font-weight: 400; color: var(--nu-red); }
+  .lede { font-size: 14px; line-height: 1.5; color: var(--nu-graphite); max-width: 1400px; margin-top: 10px; }
+
+  .grid { display: grid; grid-template-columns: 160px repeat(5, 1fr); column-gap: 16px; row-gap: 0; margin-top: 28px; }
+  .phase-head { grid-column-end: span 1; padding: 8px 4px; border-bottom: 1px solid var(--nu-black); }
+  .phase-head .pname { font-weight: 700; font-size: 13px; color: var(--nu-black); }
+  .phase-head .psys { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--nu-mist); margin-top: 2px; }
+  .phase-head.empty { border: none; padding-bottom: 9px; }
+
+  .lane-row { display: contents; }
+  .lane-label { padding: 12px 8px 12px 0; border-right: 1px solid var(--nu-line); font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nu-black); }
+  .lane-label .lrole { display: block; font-weight: 400; font-size: 9.5px; color: var(--nu-mist); letter-spacing: 0.04em; margin-top: 4px; text-transform: none; }
+  .cell { padding: 10px 8px; border-right: 1px solid var(--nu-line); }
+  .cell:last-child { border-right: none; }
+  .cell .ctext { font-size: 11.5px; line-height: 1.35; color: var(--nu-graphite); }
+  .cell .pain { display: flex; gap: 6px; margin-top: 6px; font-size: 9.5px; line-height: 1.3; color: var(--nu-graphite); }
+  .cell .pain::before { content: 'FAIL'; flex-shrink: 0; color: var(--nu-rust); font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; padding-top: 1px; }
+  .cell .gain { display: flex; gap: 6px; margin-top: 6px; font-size: 9.5px; line-height: 1.3; color: var(--nu-graphite); }
+  .cell .gain::before { content: 'GAIN'; flex-shrink: 0; color: var(--nu-chartreuse); font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; padding-top: 1px; }
+
+  .lov-row { grid-column: 1 / -1; border-top: 2px dashed var(--nu-stone); margin: 6px 0 6px 0; position: relative; }
+  .lov-row::after { content: 'LINE OF VISIBILITY'; position: absolute; left: 8px; top: -7px; background: var(--nu-paper); padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: var(--nu-stone); font-weight: 700; }
+  .loii-row { grid-column: 1 / -1; border-top: 2px dotted var(--nu-mist); margin: 6px 0 6px 0; position: relative; }
+  .loii-row::after { content: 'LINE OF INTERNAL INTERACTION'; position: absolute; left: 8px; top: -7px; background: var(--nu-paper); padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: var(--nu-mist); font-weight: 700; }
+
+  .kpi-row { display: grid; grid-template-columns: 160px repeat(5, 1fr); column-gap: 16px; margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--nu-black); }
+  .kpi-label { padding-right: 8px; font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nu-black); }
+  .kpi-cell { display: flex; flex-direction: column; gap: 4px; padding: 0 4px; }
+  .kpi-eye { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); }
+  .kpi-value { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; color: var(--nu-cyan); }
+  .kpi-value.worse { color: var(--nu-rust); }
+  .kpi-value.same { color: var(--nu-mist); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="frame">
+
+    <div class="header">
+      <div class="eyebrow">Service Blueprint · Future State</div>
+      <h1 class="title">A <em>skills-bench evaluator</em> upstream of the ATS lifts qualified-candidate visibility from 6.7% to 38% and reclaims the Submission week from keyword gaming.</h1>
+      <p class="lede">Each future-state step replaces a journey-stage fail point with a redesign tied to the corpus diagnosis. Customer Action and Frontstage live above the Line of Visibility; Backstage and Support Processes power the redesign below it.</p>
+    </div>
+
+    <div class="grid">
+      <div class="phase-head empty"></div>
+      <div class="phase-head"><div class="pname">Skill triage</div><div class="psys">NUworks · Bench app</div></div>
+      <div class="phase-head"><div class="pname">Posting browse</div><div class="psys">NUworks · Workday</div></div>
+      <div class="phase-head"><div class="pname">Submission</div><div class="psys">Bench-score → ATS</div></div>
+      <div class="phase-head"><div class="pname">Interview cycle</div><div class="psys">Zoom · On-site</div></div>
+      <div class="phase-head"><div class="pname">Decision</div><div class="psys">NUworks match</div></div>
+
+      <div class="lane-row">
+        <div class="lane-label">Customer Action<span class="lrole">Student</span></div>
+        <div class="cell"><div class="ctext">Student completes a 90-minute skills-bench evaluation (Python data, distributed systems, cloud) once per semester.</div><div class="gain">Replaces 4 advisor template reviews with one calibrated score.</div></div>
+        <div class="cell"><div class="ctext">Student browses postings ranked by bench-score-to-requirement match.</div><div class="gain">Top 15 ranked postings replace 30+ unranked.</div></div>
+        <div class="cell"><div class="ctext">Student submits to ranked top 15 with bench-score attached.</div><div class="gain">Submission count falls from 47 to 15; conversion rises.</div></div>
+        <div class="cell"><div class="ctext">Student takes 3-5 interviews from a higher-quality shortlist.</div></div>
+        <div class="cell"><div class="ctext">Student receives offer with extended 7-day decision window.</div><div class="gain">7-day window beats prior 48 hours; allows compare.</div></div>
+      </div>
+
+      <div class="lane-row">
+        <div class="lane-label">Frontstage<span class="lrole">Career advisor</span></div>
+        <div class="cell"><div class="ctext">Advisor reviews bench-score report and coaches on the lowest two skill bands.</div></div>
+        <div class="cell"><div class="ctext">Advisor surfaces high-bench-match postings the student missed.</div></div>
+        <div class="cell"><div class="ctext">Advisor reviews submission shortlist for tone and named-skill coverage.</div><div class="pain">If bench-score gating fails: advisor backup-review the resume manually.</div></div>
+        <div class="cell"><div class="ctext">Advisor preps the student for interview format with employer-specific notes.</div></div>
+        <div class="cell"><div class="ctext">Advisor mediates decision-window conflicts with concurrent offers.</div></div>
+      </div>
+
+      <div class="lov-row"></div>
+
+      <div class="lane-row">
+        <div class="lane-label">Backstage<span class="lrole">Recruiter / hiring manager</span></div>
+        <div class="cell"><div class="ctext">Recruiter publishes posting with required bench-score floor (not keyword list).</div></div>
+        <div class="cell"><div class="ctext">Recruiter sees only candidates above the bench-score floor for the role.</div><div class="gain">Filtered pool quality rises; ATS keyword filter disabled.</div></div>
+        <div class="cell"><div class="ctext">Recruiter reviews 30 above-floor candidates instead of 6.7% of 300+.</div></div>
+        <div class="cell"><div class="ctext">Recruiter selects 4-6 for interview; bench-score floor sets the qualified pool.</div></div>
+        <div class="cell"><div class="ctext">Recruiter extends offer aligned to the 7-day decision window.</div></div>
+      </div>
+
+      <div class="loii-row"></div>
+
+      <div class="lane-row">
+        <div class="lane-label">Support Processes<span class="lrole">Systems &amp; data</span></div>
+        <div class="cell"><div class="ctext">Bench evaluator (CECCA-built) administers and scores 4 skill bands per student.</div></div>
+        <div class="cell"><div class="ctext">Posting-match service (Workday-integrated) computes bench-score-to-requirement ranking.</div></div>
+        <div class="cell"><div class="ctext">Submission bridge attaches bench-score payload to employer ATS via partner API.</div><div class="pain">Partner ATS coverage launch-1: 60% of employers. Backup: bench-score PDF in application.</div></div>
+        <div class="cell"><div class="ctext">Interview scheduler honors NU class calendar; auto-blocks exam-week slots.</div></div>
+        <div class="cell"><div class="ctext">NUworks match service enforces 7-day window and surfaces concurrent offers.</div></div>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-label">Service KPI</div>
+      <div class="kpi-cell">
+        <div class="kpi-eye">Resume time</div>
+        <div class="kpi-value">4 reviews → 1 score</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-eye">Shortlist quality</div>
+        <div class="kpi-value">30+ unranked → 15 ranked</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-eye">Recruiter visibility</div>
+        <div class="kpi-value">6.7% → 38% of qualified</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-eye">Class collision</div>
+        <div class="kpi-value">9 of 12 missed class → auto-block</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-eye">Decision window</div>
+        <div class="kpi-value">48h → 7 days</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

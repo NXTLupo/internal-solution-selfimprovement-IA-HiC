@@ -1,5 +1,5 @@
 /**
- * Chunk Telemetry — Per-chunk JSONL persistence.
+ * Chunk Telemetry - Per-chunk JSONL persistence.
  *
  * Every chunked generation logs a record to wiki/synthesis/chunk-telemetry.jsonl
  * with chunk-level outcomes (success / retry / failure), per-chunk latency,
@@ -44,7 +44,7 @@ export interface ChunkRunRecord {
 export async function logChunkRun(record: ChunkRunRecord): Promise<boolean> {
     const line = JSON.stringify(record) + '\n';
     try {
-        // The proxy's /api/wiki/append adds markdown-style spacing — not what
+        // The proxy's /api/wiki/append adds markdown-style spacing - not what
         // we want for JSONL. Use /api/wiki/write with read-modify-write
         // semantics. For high-throughput use a dedicated append endpoint
         // (future). For now this is acceptable because chunk runs are
@@ -57,7 +57,7 @@ export async function logChunkRun(record: ChunkRunRecord): Promise<boolean> {
                 existing = data.content || '';
             }
         } catch {
-            // First run — no existing file
+            // First run - no existing file
         }
         const writeResp = await fetch(`${PROXY_BASE}/api/wiki/write`, {
             method: 'POST',
@@ -103,7 +103,7 @@ export async function readRecentChunkRuns(
 }
 
 /**
- * Aggregate stats for an artifact type — used to drive chunk-plan adjustments.
+ * Aggregate stats for an artifact type - used to drive chunk-plan adjustments.
  */
 export async function getArtifactStats(artifactType: string): Promise<{
     totalRuns: number;

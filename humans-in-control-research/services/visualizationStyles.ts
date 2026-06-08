@@ -1,5 +1,5 @@
 /**
- * NXT Humans Design System — Single Unified Visual Language
+ * NXT Humans Design System - Single Unified Visual Language
  *
  * Anti-Slop Business Flat Minimalism.
  *
@@ -38,9 +38,9 @@ const NXT_DESIGN_SYSTEM_PROMPT = {
         'Flat geometric vector minimalist portrait illustration.',
         'Built from rectangles, circles, and clean straight lines only.',
         'Maximum 3 colors: near-black (#0D0D0D) as primary, one gray (#999999) for secondary shapes,',
-        'and ONE accent color — either muted chartreuse (#B8B800) or deep cyan (#00B7C3) — for the single focal element.',
+        'and ONE accent color - either muted chartreuse (#B8B800) or deep cyan (#00B7C3) - for the single focal element.',
         'Solid flat fills only. Crisp vector edges.',
-        'Negative space is a deliberate design element — use it to create form.',
+        'Negative space is a deliberate design element - use it to create form.',
         'No facial features unless absolutely necessary. Geometric abstraction preferred.',
         'Style reference: Massimo Vignelli meets Swiss International Style.',
     ].join(' '),
@@ -49,12 +49,12 @@ const NXT_DESIGN_SYSTEM_PROMPT = {
         'Flat geometric vector minimalist scene illustration.',
         'Anti-slop business flat minimalism. Swiss International Style discipline.',
         'Built from rectangles, circles, triangles, and straight lines with right-angle turns only.',
-        'Maximum 3 colors: near-black (#0D0D0D), one gray (#999999 or #666666), and ONE accent —',
+        'Maximum 3 colors: near-black (#0D0D0D), one gray (#999999 or #666666), and ONE accent -',
         'either muted chartreuse (#B8B800) or deep cyan (#00B7C3). Never both accents together.',
         'Solid flat fills only. No gradients, no shadows, no 3D, no glow, no textures.',
         'Crisp vector edges at any scale. Negative space is a deliberate compositional element.',
         'High information density with clear visual hierarchy.',
-        'The accent color marks the single most important element — the one thing the viewer should notice first.',
+        'The accent color marks the single most important element - the one thing the viewer should notice first.',
         'Every shape earns its place through function: communicating hierarchy, directing attention, or making data legible.',
     ].join(' '),
 
@@ -73,7 +73,7 @@ const NXT_DESIGN_SYSTEM_PROMPT = {
     chart: [
         'Clean data visualization following McKinsey/Zelazny standards.',
         'Neutral base color (#999999 or #BBBBBB) for all data elements.',
-        'ONE element highlighted in chartreuse (#B8B800) or cyan (#00B7C3) — this is the element the conclusion refers to.',
+        'ONE element highlighted in chartreuse (#B8B800) or cyan (#00B7C3) - this is the element the conclusion refers to.',
         'No pie charts. Use horizontal bars for comparison, lines for trends, waterfall for cumulative impact.',
         'Y-axis starts at zero on all bar charts. Minimal gridlines in #EEEEEE if needed.',
         'Axes: 1px #E0E0E0 lines. Labels in small clean sans-serif.',
@@ -103,7 +103,7 @@ const NXT_NEGATIVE_CONSTRAINTS = [
     'NO Inter, Roboto, Arial, Poppins, Space Grotesk typefaces.',
     'NO decorative elements that do not communicate information.',
     'NO pie charts or donut charts. NO diagonal flow lines.',
-    'CRITICAL — NO TEXT IN IMAGES: Do NOT render any text, words, letters, numbers, labels, captions, titles, headings, or typography inside the image. AI image models cannot spell — text baked into pixels will contain errors that are impossible to fix. All text will be added as a separate overlay layer at render time. The image must contain ZERO readable characters.',
+    'CRITICAL - NO TEXT IN IMAGES: Do NOT render any text, words, letters, numbers, labels, captions, titles, headings, or typography inside the image. AI image models cannot spell - text baked into pixels will contain errors that are impossible to fix. All text will be added as a separate overlay layer at render time. The image must contain ZERO readable characters.',
     'If it looks like AI made it, it is wrong. Redesign.',
 ].join(' ');
 
@@ -114,7 +114,7 @@ const NXT_STYLE: VisualizationStyle = {
     name: 'NXT Humans Design System',
     shortLabel: 'NXT',
     description: 'Anti-slop business flat minimalism. Swiss International Style meets editorial brutalism. The single visual language for all NXT Humans deliverables.',
-    verticals: 'All — CX consulting, enterprise strategy, product management, technology audit',
+    verticals: 'All - CX consulting, enterprise strategy, product management, technology audit',
     promptBase: NXT_DESIGN_SYSTEM_PROMPT,
     negativeConstraints: NXT_NEGATIVE_CONSTRAINTS,
     motionStyle: NXT_MOTION_STYLE,

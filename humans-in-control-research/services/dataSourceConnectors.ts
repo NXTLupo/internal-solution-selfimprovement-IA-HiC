@@ -1,12 +1,12 @@
 /**
- * Data Source Connectors v2 — Unified proxy-based architecture
+ * Data Source Connectors v2 - Unified proxy-based architecture
  * ALL calls go through research-proxy (port 5012) which handles CORS,
  * rate limits, retries, and connector-type-specific formatting.
  *
  * The proxy exposes:
- *   GET /api/sources — list all registered sources
- *   GET /api/search/{source_id}?q=...&limit=... — search any source
- *   GET /api/multi-search?q=...&sources=id1,id2&limit=... — parallel multi-source
+ *   GET /api/sources - list all registered sources
+ *   GET /api/search/{source_id}?q=...&limit=... - search any source
+ *   GET /api/multi-search?q=...&sources=id1,id2&limit=... - parallel multi-source
  */
 
 const PROXY = 'http://127.0.0.1:5012';
@@ -71,7 +71,7 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'AI Conferences': 'academic',
     'AI Communities': 'social',
     'AI Code': 'social',
-    // 2026-04-29 — Checkout-fundraising / cause-commerce intelligence pack
+    // 2026-04-29 - Checkout-fundraising / cause-commerce intelligence pack
     'Cause-Commerce Tech': 'web',
     'Cause-Brand Impact': 'web',
     'Donation Tech Platforms': 'web',
@@ -81,7 +81,7 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'Consumer/CSR Research': 'web',
     'Press Wires': 'news',
     'Cause Reddit': 'social',
-    // 2026-04-29 — 400-source retail expansion pack
+    // 2026-04-29 - 400-source retail expansion pack
     'Retail Competitive Set': 'news',
     'Home/Furniture Trade': 'news',
     'Retail Tech Vendors': 'web',
@@ -142,7 +142,7 @@ function createProxyConnector(id: string, name: string, category: string, descri
 }
 
 // ============================================================
-// CONNECTOR INSTANCES — One per registered proxy source
+// CONNECTOR INSTANCES - One per registered proxy source
 // ============================================================
 
 // --- Higher-Ed News (RSS) ---
@@ -188,10 +188,10 @@ export const gdeltConnector = createProxyConnector('gdelt', 'GDELT', 'News & Med
 // --- Video ---
 export const youtubeSearchConnector = createProxyConnector('youtube', 'YouTube Search', 'Video', 'Video search via Invidious');
 
-// --- Video Transcriber (custom — POST /api/transcribe-youtube, not search-based) ---
+// --- Video Transcriber (custom - POST /api/transcribe-youtube, not search-based) ---
 // The research orchestrator pushes sources with config.connector === 'Video Transcriber'
 // for every user-supplied YouTube URL. Before this connector existed, those sources
-// silently failed with "Unknown connector" — Promise.allSettled swallowed the reject
+// silently failed with "Unknown connector" - Promise.allSettled swallowed the reject
 // and zero transcripts ever reached the corpus. This connector calls the Whisper
 // transcription endpoint (which also auto-persists the full transcript to the wiki),
 // unwraps the response, and returns a single DataSourceItem with the full transcript
@@ -232,7 +232,7 @@ export const videoTranscriberConnector: DataSourceConnector = {
                 return { source: 'Video Transcriber', category: 'Video', items: [], totalAvailable: 0, query: url, durationMs: Date.now() - start };
             }
             const videoId = data.video_id || '';
-            const title = data.title || `YouTube transcript — ${videoId || url.substring(0, 50)}`;
+            const title = data.title || `YouTube transcript - ${videoId || url.substring(0, 50)}`;
             const uploader = data.uploader || data.channel_id || 'YouTube';
             const item: DataSourceItem = {
                 id: `video_transcriber_${videoId || Date.now()}`,
@@ -1041,7 +1041,7 @@ const ytAiExplainedConnector = createProxyConnector('yt_ai_explained', 'AI Expla
 const ytSentdexConnector = createProxyConnector('yt_sentdex', 'Sentdex', 'Video', 'Python ML tutorials');
 
 // ============================================================
-// REGISTRY — ALL CONNECTORS
+// REGISTRY - ALL CONNECTORS
 // ============================================================
 
 export const ALL_CONNECTORS: DataSourceConnector[] = [

@@ -1,5 +1,5 @@
 /**
- * Output Completeness Validator — Heuristic truncation detection.
+ * Output Completeness Validator - Heuristic truncation detection.
  *
  * Every chunked generation runs the merged output through this validator
  * before shipping to the user. The validator catches the patterns that
@@ -72,7 +72,7 @@ export function validateCompleteness(
                 severity: 'fail',
                 code: 'unclosed-fence',
                 message: `Found ${opens} \`${marker}\` openers but only ${closes} closing \`:::\` markers. The output stopped mid-fence.`,
-                suggestedFix: 'Re-run the generator — likely a model soft-stop on a long output. Consider chunking this artifact type.',
+                suggestedFix: 'Re-run the generator - likely a model soft-stop on a long output. Consider chunking this artifact type.',
             });
         }
         if (opts.expectedItemCount != null) {
@@ -120,7 +120,7 @@ export function validateCompleteness(
             findings.push({
                 severity: 'fail',
                 code: 'unbalanced-json',
-                message: `JSON output is unbalanced — ${unclosed} unclosed brace/bracket. The model stopped mid-value.`,
+                message: `JSON output is unbalanced - ${unclosed} unclosed brace/bracket. The model stopped mid-value.`,
                 suggestedFix: 'Re-run; the model truncated. Try chunked generation if this is a long structured output.',
             });
         }

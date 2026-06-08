@@ -1,6 +1,6 @@
 // ChatAttachmentDropzone.tsx
 //
-// 2026-05-08 — Shared attachment input for both AI Analyst chat
+// 2026-05-08 - Shared attachment input for both AI Analyst chat
 // (CorpusChatPanel) and Designer chat (DesignDeskChat).
 //
 // Supports:
@@ -33,7 +33,7 @@ export interface ChatAttachment {
     parseMethod?: string;
     /** Set after the wiki-write side-effect resolves (parent's responsibility). */
     wikiPath?: string;
-    /** Raw bytes — preserved for Phase 3 multimodal image upload. */
+    /** Raw bytes - preserved for Phase 3 multimodal image upload. */
     bytesLength?: number;
 }
 
@@ -115,7 +115,7 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
         };
     }
 
-    // Binary path: PDF, DOCX, PPTX, images — needs server-side extraction.
+    // Binary path: PDF, DOCX, PPTX, images - needs server-side extraction.
     const base64 = await fileToBase64(file);
     const body = JSON.stringify({
         filename: file.name,
@@ -123,12 +123,12 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
         mimeType: file.type || 'application/octet-stream',
     });
 
-    // 2026-05-12 — Retry on transport-layer failures only. Chrome surfaces
+    // 2026-05-12 - Retry on transport-layer failures only. Chrome surfaces
     // `ERR_NETWORK_CHANGED` (Wi-Fi/VPN flip, NIC switch, container restart
     // killing in-flight requests) as a generic `TypeError: Failed to fetch`,
     // and `AbortSignal.timeout` rejects with `TimeoutError`. Both deserve a
-    // retry — the request never reached the proxy, so retrying is idempotent.
-    // Server-side errors (4xx/5xx) are NOT retried — those indicate the
+    // retry - the request never reached the proxy, so retrying is idempotent.
+    // Server-side errors (4xx/5xx) are NOT retried - those indicate the
     // proxy received the file and rejected it on the merits.
     const MAX_ATTEMPTS = 3;
     const BACKOFF_MS = [0, 1000, 3000];  // 0s, 1s, 3s
@@ -143,7 +143,7 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
                 body,
                 signal: AbortSignal.timeout(PARSE_TIMEOUT_MS),
             });
-            // Got an HTTP response — break out of the retry loop. Server-side
+            // Got an HTTP response - break out of the retry loop. Server-side
             // status codes are handled by the !resp.ok check below.
             break;
         } catch (e: any) {
@@ -161,11 +161,11 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
                     `Tried ${attempt + 1} time(s). Check your connection and try again.`
                 );
             }
-            console.warn(`[parseUploadedFile] transport failure on ${file.name} (attempt ${attempt + 1}/${MAX_ATTEMPTS}) — retrying after ${BACKOFF_MS[attempt + 1]}ms:`, msg.slice(0, 200));
+            console.warn(`[parseUploadedFile] transport failure on ${file.name} (attempt ${attempt + 1}/${MAX_ATTEMPTS}) - retrying after ${BACKOFF_MS[attempt + 1]}ms:`, msg.slice(0, 200));
         }
     }
     if (!resp) {
-        // Should be unreachable — the loop either returns a Response or throws.
+        // Should be unreachable - the loop either returns a Response or throws.
         throw lastTransportErr || new Error(`Upload failed for ${file.name}: no response after ${MAX_ATTEMPTS} attempts`);
     }
 
@@ -332,7 +332,7 @@ const ChatAttachmentDropzone: React.FC<Props> = ({
                 </svg>
             </button>
 
-            {/* Drag-drop overlay — only visible while a drag is in progress */}
+            {/* Drag-drop overlay - only visible while a drag is in progress */}
             {variant === 'both' && dragOver && (
                 <div
                     style={{
@@ -357,7 +357,7 @@ const ChatAttachmentDropzone: React.FC<Props> = ({
                 </div>
             )}
 
-            {/* Inline progress strip — only visible while uploads are pending */}
+            {/* Inline progress strip - only visible while uploads are pending */}
             {progress.length > 0 && (
                 <div
                     style={{

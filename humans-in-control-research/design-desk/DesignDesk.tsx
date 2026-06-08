@@ -27,7 +27,7 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
 
     // On Designer open, force the active artifact to be the most recent one.
     // Without this, the Designer hydrates from localStorage and shows whatever
-    // artifact was active at last close — which is almost always stale because
+    // artifact was active at last close - which is almost always stale because
     // the user just generated something new in Analyst Chat. Run once on mount.
     useEffect(() => {
         const state = useDesignDeskStore.getState();
@@ -41,7 +41,7 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
     }, []);
 
     // Drop every artifact except the most-recent N (default 1). Used by the
-    // "Clear older" button in the chrome — destructive but explicit, and the
+    // "Clear older" button in the chrome - destructive but explicit, and the
     // user has been asking for a way to prune accumulated drafts.
     const clearOlderArtifacts = (keepCount: number = 1) => {
         const state = useDesignDeskStore.getState();
@@ -104,7 +104,7 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
             background: '#FFFFFF',
             overflow: 'hidden',
         }}>
-            {/* Top chrome — compact title bar with close + maximize controls */}
+            {/* Top chrome - compact title bar with close + maximize controls */}
             <div style={{
                 background: '#0D0D0D',
                 color: '#FFFFFF',
@@ -127,7 +127,7 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
                 <div style={{ display: 'flex', gap: 6 }}>
                     <button
                         onClick={() => clearOlderArtifacts(1)}
-                        title="Remove every artifact except the most recent — keeps the workspace from accumulating stale drafts."
+                        title="Remove every artifact except the most recent - keeps the workspace from accumulating stale drafts."
                         style={{
                             padding: '4px 10px', fontSize: 9, fontWeight: 700,
                             letterSpacing: 1.5, textTransform: 'uppercase',
@@ -166,7 +166,7 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
                 </div>
             </div>
 
-            {/* Main split — chat (collapsible) + canvas */}
+            {/* Main split - chat (collapsible) + canvas */}
             <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
                 {!chatCollapsed && (
                     <div style={{

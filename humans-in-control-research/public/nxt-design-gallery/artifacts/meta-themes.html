@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Portfolio Patterns · Cross-Engagement Synthesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;min-height:1080px;background:#0D0D0D;color:#E8E8E8;font-family:'Archivo',sans-serif}
+  .mt-frame{width:1920px;padding:60px 80px}
+  .mt-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .mt-title{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:#FFFFFF;margin-bottom:14px;letter-spacing:.01em}
+  .mt-subtitle{font-size:14px;color:#B8B800;margin-bottom:32px;letter-spacing:.02em;max-width:1500px;line-height:1.4}
+  .mt-rail{width:56px;height:4px;background:#B8B800;margin-bottom:28px}
+  .mt-stats{display:flex;gap:48px;margin-bottom:36px;padding:16px 0;border-top:1px solid #222;border-bottom:1px solid #222}
+  .mt-stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888}
+  .mt-stat-value{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#B8B800;line-height:1}
+  .mt-themes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .mt-theme{padding:18px 22px;background:#141414;border-left:3px solid #00B7C3}
+  .mt-theme.platform{border-left-color:#B8B800;background:#16160C}
+  .mt-theme-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .mt-theme-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#FFFFFF;letter-spacing:.02em;line-height:1.1}
+  .mt-flag{display:inline-block;padding:2px 6px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;background:#B8B800;color:#0D0D0D;border-radius:1px}
+  .mt-flag.portfolio{background:#00B7C3;color:#0D0D0D}
+  .mt-summary{font-size:13px;line-height:1.5;color:#C8C8C8;margin-bottom:10px}
+  .mt-engagements{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.5px;color:#888;line-height:1.6}
+  .mt-engagements b{color:#B8B800;font-weight:700}
+  .mt-engagement-chip{display:inline-block;padding:2px 6px;margin:2px 4px 2px 0;background:#1F1F1F;color:#00B7C3;border-radius:1px}
+</style>
+</head>
+<body>
+<div class="mt-frame">
+  <div class="mt-kicker">Cross-Engagement Synthesis · NXT Humans Portfolio</div>
+  <h1 class="mt-title">Portfolio Patterns</h1>
+  <div class="mt-subtitle">Themes that recur across multiple engagements in the HiC research portfolio. Platform patterns appear in ≥5 engagements and define the institutional shape of the consultancy's findings, not single-client artifacts.</div>
+  <div class="mt-rail"></div>
+
+  <div class="mt-stats">
+    <div><div class="mt-stat-label">Engagements scanned</div><div class="mt-stat-value">18</div></div>
+    <div><div class="mt-stat-label">Portfolio patterns</div><div class="mt-stat-value">7</div></div>
+    <div><div class="mt-stat-label">Platform patterns</div><div class="mt-stat-value">3</div></div>
+  </div>
+
+  <div class="mt-themes">
+
+    <div class="mt-theme platform">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Vendor-controlled candidate filtering</div>
+        <span class="mt-flag">Platform</span>
+      </div>
+      <div class="mt-summary">Across HR-tech, higher-ed co-op, and apprenticeship programs, the institution has ceded the candidate-quality signal to a vendor ATS whose threshold tuning is opaque and biased toward signaled credentials over actual skill. Auditable internal rubrics are the recurring intervention.</div>
+      <div class="mt-engagements"><b>7</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">Drexel-2024</span><span class="mt-engagement-chip">Apprent-WA</span><span class="mt-engagement-chip">RIT-coop-2023</span><span class="mt-engagement-chip">UoW-pilot</span><span class="mt-engagement-chip">BSU-tech</span><span class="mt-engagement-chip">Cincy-coop</span></div>
+    </div>
+
+    <div class="mt-theme platform">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Academic calendar collides with high-stakes events</div>
+        <span class="mt-flag">Platform</span>
+      </div>
+      <div class="mt-summary">Application deadlines, interview cycles, and offer windows consistently land during peak-academic-load periods (midterms, finals, thesis defense). The compression compounds for first-generation students with no recruiter-network shortcut.</div>
+      <div class="mt-engagements"><b>6</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">Drexel-2024</span><span class="mt-engagement-chip">Cornell-grad</span><span class="mt-engagement-chip">RIT-coop-2023</span><span class="mt-engagement-chip">UMD-research</span><span class="mt-engagement-chip">UW-medical</span></div>
+    </div>
+
+    <div class="mt-theme platform">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Advisor capacity rationing crowds out first-gen students</div>
+        <span class="mt-flag">Platform</span>
+      </div>
+      <div class="mt-summary">Coordinator caseload of 70-120 students produces a 20-minute slot that becomes "template QA, not coaching." First-gen students who learn about the program late in the cycle face 3-week booking lead times and get crowded out.</div>
+      <div class="mt-engagements"><b>5</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">CUNY-pipeline</span><span class="mt-engagement-chip">BSU-tech</span><span class="mt-engagement-chip">UofM-firstgen</span><span class="mt-engagement-chip">ASU-online</span></div>
+    </div>
+
+    <div class="mt-theme">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Decision-window compression hides quality offers</div>
+        <span class="mt-flag portfolio">Portfolio</span>
+      </div>
+      <div class="mt-summary">48-72 hour decision windows force candidates to accept the first offer rather than compare across the cycle. The institution can extend the window through partner-employer MOUs; the constraint is policy, not vendor.</div>
+      <div class="mt-engagements"><b>4</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">Drexel-2024</span><span class="mt-engagement-chip">RIT-coop-2023</span><span class="mt-engagement-chip">Cincy-coop</span></div>
+    </div>
+
+    <div class="mt-theme">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Resume template staleness lags posting drift</div>
+        <span class="mt-flag portfolio">Portfolio</span>
+      </div>
+      <div class="mt-summary">Coordinator-owned template libraries update every 24-36 months while posting keyword frequency drifts quarterly. The lag leaves prepared students under-keyworded and generates false advisor signals.</div>
+      <div class="mt-engagements"><b>4</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">Cornell-grad</span><span class="mt-engagement-chip">UoW-pilot</span><span class="mt-engagement-chip">RIT-coop-2023</span></div>
+    </div>
+
+    <div class="mt-theme">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Outcomes warehouse instrumented after the fact</div>
+        <span class="mt-flag portfolio">Portfolio</span>
+      </div>
+      <div class="mt-summary">Outcomes dashboards exist but are not joined to upstream candidate-signal data. Match-rate by quality-signal quartile is the missing instrumentation that makes program-level intervention measurable.</div>
+      <div class="mt-engagements"><b>3</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">Drexel-2024</span><span class="mt-engagement-chip">UMD-research</span></div>
+    </div>
+
+    <div class="mt-theme">
+      <div class="mt-theme-header">
+        <div class="mt-theme-name">Span-of-control above 12 directs degrades coaching quality</div>
+        <span class="mt-flag portfolio">Portfolio</span>
+      </div>
+      <div class="mt-summary">Director-level org-design audits consistently surface 13-15 directs per lead, producing a coaching ceiling that no individual coordinator can overcome. The structural fix is a layer split, not headcount.</div>
+      <div class="mt-engagements"><b>3</b> engagements: <span class="mt-engagement-chip">NU-001</span><span class="mt-engagement-chip">BSU-tech</span><span class="mt-engagement-chip">CUNY-pipeline</span></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

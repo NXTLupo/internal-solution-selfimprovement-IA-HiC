@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NXT Humans — Design System Gallery</title>
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<style>
+  body { margin: 0; background: var(--bg-canvas); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px 96px; }
+  .masthead { background: var(--ink-900); color: var(--white); padding: 64px 48px 48px; position: relative; overflow: hidden; }
+  .masthead__watermark { position: absolute; right: -10px; top: -30px; font-family: var(--font-display); font-size: 12rem; line-height: .85; color: rgba(255,255,255,.05); pointer-events: none; text-transform: uppercase; }
+  .masthead__eyebrow { font-family: var(--font-display); font-size: 13px; letter-spacing: .2em; color: var(--nxt-chartreuse); }
+  .masthead__title { font-family: var(--font-display); font-size: 72px; line-height: .9; text-transform: uppercase; margin: 8px 0 12px; }
+  .masthead__sub { font-family: var(--font-sans); font-size: 16px; color: rgba(255,255,255,.7); max-width: 720px; line-height: 1.5; }
+  .dotgrid { position: absolute; left: 16px; top: 50%; display: grid; grid-template-columns: repeat(3, 7px); gap: 5px; }
+  .dotgrid span { width: 7px; height: 7px; background: var(--nxt-chartreuse); display: block; }
+  .section { margin-top: 56px; }
+  .section__head { font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--fg-strong); border-bottom: 1px solid var(--border-default); padding-bottom: 8px; }
+  .section__rule { width: 80px; height: 6px; background: var(--nxt-chartreuse); margin: 0 0 4px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .card { display: block; text-decoration: none; border: 1px solid var(--border-default); background: var(--bg-surface); transition: border-color var(--duration-fast) var(--ease-standard); }
+  .card:hover { border-color: var(--nxt-chartreuse); }
+  .card__bar { height: 6px; background: var(--nxt-chartreuse); }
+  .card__body { padding: 20px; }
+  .card__name { font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--fg-strong); }
+  .card__desc { font-family: var(--font-sans); font-size: 13px; color: var(--fg-muted); margin-top: 6px; line-height: 1.4; }
+  .card__tag { font-family: var(--font-mono); font-size: 10px; color: var(--nxt-cyan); letter-spacing: .04em; margin-top: 10px; display: block; }
+  footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border-default); font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); }
+</style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="masthead__watermark">NXT</div>
+    <div class="dotgrid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="masthead__eyebrow">NXT HUMANS · INTELLIGENCE AUGMENTATION</div>
+    <div class="masthead__title">Design System Gallery</div>
+    <div class="masthead__sub">Every consulting artifact, rendered in the NXT visual system — anti-slop flat minimalism, Bebas Neue + Archivo, chartreuse power-accent, stark white. These are the source designs the AI analyst and designer recreate; the same designs port to Figma via figma-generate-library.</div>
+  </div>
+  <div class="wrap">
+
+    <div class="section">
+      <div class="section__rule"></div>
+      <div class="section__head">Core Consulting Artifacts</div>
+      <div class="grid">
+        <a class="card" href="artifacts/personas.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Personas</div><div class="card__desc">Archetype cards with quote, JTBD, pains, motivations.</div><span class="card__tag">persona-card</span></div></a>
+        <a class="card" href="artifacts/themes.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Themes</div><div class="card__desc">Emerging-theme clusters with evidence + sources.</div><span class="card__tag">theme-cluster</span></div></a>
+        <a class="card" href="artifacts/strategy-deck.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Strategy Deck</div><div class="card__desc">Rumelt-kernel deck — diagnosis, policy, actions.</div><span class="card__tag">strategy</span></div></a>
+        <a class="card" href="artifacts/strategic-report.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Strategic Report</div><div class="card__desc">Long-form report — SCQA, evidence, recommendations.</div><span class="card__tag">report</span></div></a>
+        <a class="card" href="artifacts/recommendations.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Recommendations</div><div class="card__desc">Action cards with impact, effort, source.</div><span class="card__tag">recommendation</span></div></a>
+        <a class="card" href="artifacts/gap-analysis.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Gap Analysis</div><div class="card__desc">Current-vs-target capability matrix + impact.</div><span class="card__tag">gap-matrix</span></div></a>
+        <a class="card" href="artifacts/competitive-analysis.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Competitive Analysis</div><div class="card__desc">Named-rival capability matrix + positioning.</div><span class="card__tag">competitive-matrix</span></div></a>
+        <a class="card" href="artifacts/roadmap.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Roadmap</div><div class="card__desc">Now / Next / Later horizons with metrics.</div><span class="card__tag">timeline</span></div></a>
+        <a class="card" href="artifacts/prd.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">PRD</div><div class="card__desc">Feature specs, MoSCoW, acceptance criteria.</div><span class="card__tag">prd-feature</span></div></a>
+        <a class="card" href="artifacts/org-chart.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Org Chart</div><div class="card__desc">Functional units + reporting structure.</div><span class="card__tag">architecture-map</span></div></a>
+        <a class="card" href="artifacts/tech-architecture.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Tech Architecture</div><div class="card__desc">C4-style system + token/data flow.</div><span class="card__tag">architecture-map</span></div></a>
+        <a class="card" href="artifacts/tech-audit.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Tech Audit</div><div class="card__desc">Systems inventory, legacy vs current, risk.</div><span class="card__tag">systems-inventory</span></div></a>
+        <a class="card" href="artifacts/service-blueprint.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Service Blueprint</div><div class="card__desc">Frontstage / backstage / support swimlanes.</div><span class="card__tag">service-blueprint</span></div></a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__rule"></div>
+      <div class="section__head">Diagram & Specialized Artifacts</div>
+      <div class="grid">
+        <a class="card" href="artifacts/journey.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Journey Map</div><div class="card__desc">Stages, touchpoints, pains, emotion curve, quotes.</div><span class="card__tag">journey</span></div></a>
+        <a class="card" href="artifacts/service-blueprint-detailed.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Blueprint (detailed)</div><div class="card__desc">Full Bitner 5-component service blueprint.</div><span class="card__tag">blueprint</span></div></a>
+        <a class="card" href="artifacts/mindmap.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Mind Map</div><div class="card__desc">Corpus theme map with drill-down nodes.</div><span class="card__tag">mindmap</span></div></a>
+        <a class="card" href="artifacts/meta-themes.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Meta-Themes</div><div class="card__desc">Cross-engagement portfolio patterns.</div><span class="card__tag">meta-themes</span></div></a>
+        <a class="card" href="artifacts/heuristic-ux.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Heuristic UX</div><div class="card__desc">Nielsen heuristic audit with severity scoring.</div><span class="card__tag">heuristic-ux</span></div></a>
+        <a class="card" href="artifacts/brief-dialog.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Brief Dialog</div><div class="card__desc">Two-voice pressure-test of a finding.</div><span class="card__tag">brief-dialog</span></div></a>
+        <a class="card" href="artifacts/research-plan.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Research Plan</div><div class="card__desc">Question decomposition + retrieval plan.</div><span class="card__tag">research-plan</span></div></a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__rule"></div>
+      <div class="section__head">System Reference</div>
+      <div class="grid">
+        <a class="card" href="style-guide.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Style Guide</div><div class="card__desc">Tokens, type scale, the 7 patterns, anti-slop checklist.</div><span class="card__tag">foundations</span></div></a>
+        <a class="card" href="slide-layouts.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Slide Layouts</div><div class="card__desc">16:9 slide templates (NXT + NU).</div><span class="card__tag">slides</span></div></a>
+        <a class="card" href="icon-sprite.html"><div class="card__bar"></div><div class="card__body"><div class="card__name">Icon Sprite</div><div class="card__desc">Monoline geometric icon set.</div><span class="card__tag">icons</span></div></a>
+      </div>
+    </div>
+
+    <footer>NXT Humans · Design System Gallery · 20 artifact exemplars + system reference · Bebas Neue / Archivo / JetBrains Mono · v1 · 2026-06</footer>
+  </div>
+</body>
+</html>

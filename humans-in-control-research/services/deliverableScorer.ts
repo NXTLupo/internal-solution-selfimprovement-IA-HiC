@@ -1,7 +1,7 @@
 /**
- * services/deliverableScorer.ts — Composite quality scorer for HiC deliverables
+ * services/deliverableScorer.ts - Composite quality scorer for HiC deliverables
  *
- * Produces a scalar [0,1] score per (deliverable, kind) pair — the validation
+ * Produces a scalar [0,1] score per (deliverable, kind) pair - the validation
  * signal SkillOpt needs (paper §3.5).
  */
 
@@ -48,7 +48,7 @@ const universalComponents: RubricComponent[] = [
         name: 'em_dash_absent',
         weight: 0.05,
         score: (out) => {
-            const count = (out.match(/—/g) || []).length;
+            const count = (out.match(/-/g) || []).length;
             return { score: count === 0 ? 1 : Math.max(0, 1 - count / 10), pass: count === 0, note: count > 0 ? `${count} em-dash characters present` : undefined };
         },
     },

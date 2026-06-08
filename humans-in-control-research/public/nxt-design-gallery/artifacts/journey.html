@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NU Journey Map · Internship placement, current state</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nu-red: #B8B800; --nu-black: #0D0D0D; --nu-graphite: #2B2B2B;
+    --nu-stone: #5C5C5C; --nu-mist: #9A9A9A; --nu-line: #E0E0E0;
+    --nu-paper: #FFFFFF; --nu-tint: #FFFFFF; --nu-rust: #CC6644;
+    --nu-cyan: #0091B6; --nu-chartreuse: #B8B800; --nu-white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--nu-paper); font-family: 'Archivo', sans-serif; color: var(--nu-black); width: 1920px; height: 1080px; overflow: hidden; }
+  .slide { width: 1920px; height: 1080px; position: relative; }
+  .frame { width: 1920px; height: 1080px; padding: 60px 80px; }
+  .header { margin-bottom: 24px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--nu-red); margin-bottom: 8px; }
+  .title { font-weight: 800; font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; color: var(--nu-black); max-width: 1500px; }
+  .title em { font-family: 'Bebas Neue', serif; font-style: italic; font-weight: 400; color: var(--nu-red); }
+  .lede { font-size: 14px; line-height: 1.5; color: var(--nu-graphite); max-width: 1500px; margin-top: 10px; }
+
+  .grid { display: grid; grid-template-columns: 160px repeat(5, 1fr); column-gap: 16px; margin-top: 28px; }
+  .phase-head { padding: 8px 4px; border-bottom: 1px solid var(--nu-black); }
+  .phase-head .pname { font-weight: 700; font-size: 13px; color: var(--nu-black); }
+  .phase-head .psys { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--nu-mist); margin-top: 2px; }
+  .phase-head.focal { background: var(--nu-tint); }
+  .phase-head.empty { border: none; padding-bottom: 9px; }
+  .lane-row { display: contents; }
+  .lane-label { padding: 12px 8px 12px 0; border-right: 1px solid var(--nu-line); font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nu-black); }
+  .lane-label .lrole { display: block; font-weight: 400; font-size: 9.5px; color: var(--nu-mist); letter-spacing: 0.04em; margin-top: 4px; text-transform: none; }
+  .cell { padding: 10px 8px; border-right: 1px solid var(--nu-line); }
+  .cell:last-child { border-right: none; }
+  .cell.focal { background: var(--nu-tint); }
+  .cell .ctext { font-size: 11.5px; line-height: 1.35; color: var(--nu-graphite); }
+  .cell .empty { color: var(--nu-mist); font-style: italic; font-size: 11px; }
+  .cell .pain { display: flex; gap: 6px; margin-top: 6px; font-size: 9.5px; line-height: 1.3; color: var(--nu-graphite); }
+  .cell .pain::before { content: 'PAIN'; flex-shrink: 0; color: var(--nu-rust); font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; padding-top: 1px; }
+
+  .kpi-row { display: grid; grid-template-columns: 160px repeat(5, 1fr); column-gap: 16px; margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--nu-black); }
+  .kpi-label { padding-right: 8px; font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nu-black); }
+  .kpi-cell { display: flex; flex-direction: column; gap: 4px; padding: 0 4px; }
+  .kpi-eye { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); }
+  .kpi-value { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; color: var(--nu-rust); }
+</style>
+</head>
+<body>
+<div class="slide">
+<div class="frame">
+
+  <div class="header">
+    <div class="eyebrow">Journey Map · Current State</div>
+    <h1 class="title">First-year students lose <em>nearly half</em> their qualified applications to keyword screening before any recruiter reviews them.</h1>
+    <p class="lede">Five phases, three actors. Each cell shows what happens at the (actor, phase) intersection plus one named, evidenced friction. The rust PAIN row uses corpus-attested numbers.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="phase-head empty"></div>
+    <div class="phase-head"><div class="pname">Skill triage</div><div class="psys">NUworks profile, LinkedIn</div></div>
+    <div class="phase-head"><div class="pname">Posting browse</div><div class="psys">NUworks, Handshake</div></div>
+    <div class="phase-head focal"><div class="pname">Submission</div><div class="psys">Employer ATS, Workday</div></div>
+    <div class="phase-head"><div class="pname">Interview cycle</div><div class="psys">Zoom, On-site</div></div>
+    <div class="phase-head"><div class="pname">Decision</div><div class="psys">NUworks match, email</div></div>
+
+    <div class="lane-row">
+      <div class="lane-label">Student<span class="lrole">CS undergrad, Year 2</span></div>
+      <div class="cell">
+        <div class="ctext">Students audit their resume against last year's posting examples and update one keyword set.</div>
+        <div class="pain">Advisor templates still reference Java/MERN; current postings ask Python data stack.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students scroll NUworks and Handshake for two evenings and shortlist 30+ postings.</div>
+        <div class="pain">Posting density doubled to 4,200; no semantic filter on required skills.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Students submit 8 to 12 applications during weeks 5-8 between midterms.</div>
+        <div class="pain">48% of qualified submissions are rejected by ATS keyword filter pre-review.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students take 2 to 4 first-round interviews, mostly via Zoom in 30-minute blocks.</div>
+        <div class="pain">9 of 12 students missed at least one class for an interview time-zone collision.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Students accept or decline an offer within the partner-employer window.</div>
+        <div class="pain">48-hour match window often lands inside finals prep.</div>
+      </div>
+    </div>
+
+    <div class="lane-row">
+      <div class="lane-label">Advisor<span class="lrole">CECCA co-op coordinator</span></div>
+      <div class="cell">
+        <div class="ctext">Advisors host 45-minute prep workshops grouped by major.</div>
+        <div class="pain">First-gen students attend at 1.4x rate but report lower satisfaction.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors review one resume per student in a 20-minute slot booked 3+ weeks ahead.</div>
+        <div class="pain">Capacity rationing limits reviews to one variant per student per cycle.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Advisors push application-deadline reminders via email.</div>
+        <div class="pain">Reminder email lands during midterm week; opens drop to 31% from 64% baseline.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors mediate scheduling conflicts when students request class excuses.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Advisors confirm match outcomes and prep students for site logistics.</div>
+        <div class="pain">38% first-cycle CS match rate vs 61% institutional average.</div>
+      </div>
+    </div>
+
+    <div class="lane-row">
+      <div class="lane-label">Employer<span class="lrole">Hiring manager, recruiter</span></div>
+      <div class="cell"><div class="empty">not active in this phase</div></div>
+      <div class="cell">
+        <div class="ctext">Employers post requisitions and configure ATS filters by required-keyword threshold.</div>
+        <div class="pain">Filter thresholds set at 7+ keyword matches; tuned for senior roles, not interns.</div>
+      </div>
+      <div class="cell focal">
+        <div class="ctext">Employers review the ATS-surfaced top 20 from a pool of 300+ submissions.</div>
+        <div class="pain">Recruiters see only 6.7% of applicant pool; qualified candidates filtered upstream.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Employers interview 4 to 6 candidates and rank for offer.</div>
+        <div class="pain">Interview slots compete with NU student class schedule.</div>
+      </div>
+      <div class="cell">
+        <div class="ctext">Employers extend offer with a 48-hour acceptance window.</div>
+        <div class="pain">Tight window forces students to accept without comparing competing offers.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-label">Current-state KPI</div>
+    <div class="kpi-cell"><div class="kpi-eye">Template freshness</div><div class="kpi-value">30-month median lag</div></div>
+    <div class="kpi-cell"><div class="kpi-eye">Shortlist signal</div><div class="kpi-value">30+ postings, unranked</div></div>
+    <div class="kpi-cell"><div class="kpi-eye">Recruiter visibility</div><div class="kpi-value">6.7% of qualified pool</div></div>
+    <div class="kpi-cell"><div class="kpi-eye">Class collision</div><div class="kpi-value">9 of 12 missed class</div></div>
+    <div class="kpi-cell"><div class="kpi-eye">Decision window</div><div class="kpi-value">48 hours</div></div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

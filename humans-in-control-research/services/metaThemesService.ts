@@ -1,11 +1,11 @@
 // services/metaThemesService.ts
 // Reads every engagements/<slug>/themes.json from the wiki and surfaces themes
 // that recur across ≥3 engagements as portfolio patterns. Themes appearing in
-// ≥5 engagements are flagged as "platform patterns" — a categorical
+// ≥5 engagements are flagged as "platform patterns" - a categorical
 // differentiator from NotebookLM which has no concept of an engagement
 // portfolio.
 //
-// 2026-05-24 — Phase 6 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 6 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 // See .claude/skills/meta-themes/SKILL.md for the contract.
 
 type Brand = 'nxt' | 'nu';
@@ -57,7 +57,7 @@ async function readEngagementThemes(proxyBase: string, slug: string): Promise<En
     if (!data?.exists || !data.content) return null;
     try {
         const parsed = JSON.parse(data.content);
-        // Multiple historical shapes — normalize. Real engagement themes are
+        // Multiple historical shapes - normalize. Real engagement themes are
         // usually a list of {name, summary, citations}.
         const themes = Array.isArray(parsed) ? parsed
             : Array.isArray(parsed?.themes) ? parsed.themes
@@ -311,7 +311,7 @@ export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
             <div class="mt-theme-name">${escapeHtml(t.canonical_name)}</div>
             <span class="mt-flag ${flagClass}">${flagText}</span>
           </div>
-          <div class="mt-summary">${escapeHtml(t.summary || '—')}</div>
+          <div class="mt-summary">${escapeHtml(t.summary || '-')}</div>
           <div class="mt-engagements"><b>${t.engagement_count}</b> engagements: ${slugChips}</div>
         </div>`;
     }).join('');
@@ -347,7 +347,7 @@ export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
     </div>
   </div>
   <div class="mt-themes">
-    ${themesHtml || '<div style="color:#888; padding: 40px; text-align: center;">No portfolio patterns yet — fewer than 3 engagements share a common theme.</div>'}
+    ${themesHtml || '<div style="color:#888; padding: 40px; text-align: center;">No portfolio patterns yet - fewer than 3 engagements share a common theme.</div>'}
   </div>
 </div>
 </body>

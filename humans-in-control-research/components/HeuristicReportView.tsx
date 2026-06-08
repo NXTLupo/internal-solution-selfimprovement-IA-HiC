@@ -1,5 +1,5 @@
 /**
- * HeuristicReportView — Interactive display for UX heuristic analysis results
+ * HeuristicReportView - Interactive display for UX heuristic analysis results
  * Three-layer progressive disclosure: Executive Summary -> Dimension Breakdown -> Raw Data
  */
 

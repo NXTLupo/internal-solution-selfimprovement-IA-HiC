@@ -1,5 +1,5 @@
 /**
- * sourceCapabilities — the loud-failure contract for every data source.
+ * sourceCapabilities - the loud-failure contract for every data source.
  *
  * Each source declares what it can and cannot honor: date filters, domain
  * exclusion, search semantics, lookback window, rate limits. Consumed by:
@@ -12,7 +12,7 @@
  * Until a source is hand-curated here, it resolves through defaultCapabilityFor()
  * using its type (rss, rest, web_search, reddit, academic_api, etc.). The
  * defaults are conservative: if we're not sure whether a source honors a
- * filter, we say "unsupported" rather than "best-effort" — better to under-
+ * filter, we say "unsupported" rather than "best-effort" - better to under-
  * promise than to silently degrade the user's brief.
  */
 
@@ -24,7 +24,7 @@ import { defaultCapabilityFor } from './evidenceRecord';
 // expose those types over an API, we mirror the inference here.
 
 function inferType(sourceId: string): SourceCapabilityManifest['type'] {
-    // RSS feeds — trade press, AI news, AI lab blogs, higher-ed news
+    // RSS feeds - trade press, AI news, AI lab blogs, higher-ed news
     const rssPatterns = [
         'higher_ed_dive', 'inside_higher_ed', 'edsurge', 'hechinger', 'campus_tech', 'ecampus',
         'the_conversation', 'pie_news', 'open_campus', 'gdelt',
@@ -41,7 +41,7 @@ function inferType(sourceId: string): SourceCapabilityManifest['type'] {
     ];
     if (rssPatterns.some(p => sourceId.startsWith(p) || sourceId === p)) return 'rss';
 
-    // Reddit — both CX mesh and AI communities
+    // Reddit - both CX mesh and AI communities
     if (sourceId.startsWith('reddit') || sourceId.startsWith('r_')) return 'reddit';
 
     // Academic APIs
@@ -60,11 +60,11 @@ function inferType(sourceId: string): SourceCapabilityManifest['type'] {
     // Web extract (Jina Reader for named URLs)
     if (sourceId.includes('jina') || sourceId === 'web_extract') return 'web_extract';
 
-    // Web search — Jina search scoped to a domain
+    // Web search - Jina search scoped to a domain
     if (['university_world_news'].includes(sourceId)) return 'web_search';
     if (sourceId.startsWith('openai_research') || sourceId.includes('_research') && !sourceId.startsWith('arxiv_') && !sourceId.includes('ai_research')) return 'web_search';
 
-    // Hacker News, HuggingFace, GitHub — REST APIs
+    // Hacker News, HuggingFace, GitHub - REST APIs
     if (['hackernews', 'hf_models', 'hf_datasets', 'openml', 'kaggle_datasets', 'paperswithcode',
          'github_repos', 'github_trending', 'stackoverflow_ai'].includes(sourceId)) return 'rest';
 
@@ -89,8 +89,8 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         description: 'Higher-ed trade news via RSS feed. Only the ~30 most-recent articles are visible at any time.',
         knownLimitations: [
             'RSS window limits visibility to last ~30 items (roughly 3-7 days of coverage)',
-            'Date filter cannot be honored upstream — use fallback web search for older content',
-            'Keyword matching only — no semantic search',
+            'Date filter cannot be honored upstream - use fallback web search for older content',
+            'Keyword matching only - no semantic search',
         ],
     },
     'inside_higher_ed': {
@@ -113,7 +113,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 100 },
         description: 'Open Alex academic-paper API, 250M+ works indexed. Full-text search with date filtering supported via publication_year.',
-        knownLimitations: ['Domain exclusion not supported — filter by venue/publisher via post-processing'],
+        knownLimitations: ['Domain exclusion not supported - filter by venue/publisher via post-processing'],
     },
     'semantic_scholar': {
         sourceId: 'semantic_scholar',
@@ -159,7 +159,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         description: 'Reddit search scoped to a named subreddit. Time filter via t=year|month|week|day.',
         knownLimitations: [
             'Subreddits the brief names are always queried; AI-discovered subreddits now cap at 20 (was 6)',
-            'Comments not searched in bulk — only post titles and self-text',
+            'Comments not searched in bulk - only post titles and self-text',
         ],
     },
     'college_scorecard': {
@@ -203,7 +203,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'supported',
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 60 },
-        description: 'World Bank Open Data — 16K economic indicators across 200+ countries.',
+        description: 'World Bank Open Data - 16K economic indicators across 200+ countries.',
         knownLimitations: ['Returns numeric time series, not narrative analysis'],
     },
     'fred': {
@@ -214,7 +214,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'supported',
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 60 },
-        description: 'Federal Reserve Economic Data — 800K US economic time series.',
+        description: 'Federal Reserve Economic Data - 800K US economic time series.',
         knownLimitations: ['Numeric data only'],
     },
     'crossref': {
@@ -225,7 +225,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'supported',
         domainExclude: 'supported',
         rateLimit: { callsPerMinute: 50 },
-        description: 'Crossref DOI registry — 150M+ scholarly records with full metadata.',
+        description: 'Crossref DOI registry - 150M+ scholarly records with full metadata.',
         knownLimitations: [],
     },
     'eric': {
@@ -236,7 +236,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'supported',
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 60 },
-        description: 'ERIC — Institute of Education Sciences. 1.9M education research records.',
+        description: 'ERIC - Institute of Education Sciences. 1.9M education research records.',
         knownLimitations: ['Education-specific; won\'t cover general industry'],
     },
     'arxiv_cs_ai': {
@@ -247,8 +247,8 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'supported',
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 30 },
-        description: 'arXiv cs.AI category — AI research preprints.',
-        knownLimitations: ['Preprints — not peer-reviewed; rapid recency is a feature not a bug'],
+        description: 'arXiv cs.AI category - AI research preprints.',
+        knownLimitations: ['Preprints - not peer-reviewed; rapid recency is a feature not a bug'],
     },
     'youtube': {
         sourceId: 'youtube',
@@ -258,7 +258,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'best-effort',
         domainExclude: 'unsupported',
         rateLimit: { callsPerMinute: 10 },
-        description: 'YouTube search via Invidious. Video content — transcribe for full analysis.',
+        description: 'YouTube search via Invidious. Video content - transcribe for full analysis.',
         knownLimitations: ['Captions may be auto-generated and low-quality', 'Rate limit stricter than other sources'],
     },
     'web_extract': {
@@ -269,7 +269,7 @@ const CURATED: Record<string, SourceCapabilityManifest> = {
         dateFilter: 'unsupported',
         domainExclude: 'supported',
         rateLimit: { callsPerMinute: 10 },
-        description: 'Jina Reader — fetches and readabilifies a specific URL. Only returns current page state.',
+        description: 'Jina Reader - fetches and readabilifies a specific URL. Only returns current page state.',
         knownLimitations: ['Point-in-time extraction only', 'Some sites block Jina', 'No historical versions'],
     },
 };

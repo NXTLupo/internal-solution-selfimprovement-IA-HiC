@@ -271,6 +271,302 @@ def chunk_markdown(content: str) -> list[dict]:
     return final
 
 
+# ============================================================================
+# 2026-06-06 — Manifest-frontmatter contract layer.
+# The chunk_markdown() function above produces embedding-ready chunks with
+# `{text, section, char_start, char_end, token_count, idx}`. The contract
+# below adapts those chunks into the wiki's MANIFEST POINTER shape:
+#   - stable id = <source_path>#c<idx>
+#   - char_span = [char_start, char_end]
+#   - sentence_count + key_terms for fast pre-retrieval ranking
+# The frontmatter helpers upsert a `chunks:` block at the top of each wiki
+# page so the manifest can address sub-document spans by pointer at
+# generation time (replaces RAG-style full-body injection).
+# ============================================================================
+
+_FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n(.*)$", re.DOTALL)
+_WORD_KT_RE = re.compile(r"\b[a-z][a-z0-9'-]{2,}\b")
+_SENT_KT_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"'])")
+
+_KT_STOPWORDS = frozenset({
+    "the", "and", "for", "are", "but", "not", "you", "your", "with", "this",
+    "that", "from", "have", "has", "had", "was", "were", "will", "would",
+    "could", "should", "they", "them", "their", "there", "these", "those",
+    "what", "when", "where", "which", "while", "who", "whom", "why", "how",
+    "into", "onto", "upon", "about", "after", "before", "between", "during",
+    "than", "then", "very", "much", "more", "most", "some", "any", "all",
+    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    "first", "second", "third", "also", "just", "only", "even", "ever",
+    "every", "each", "other", "such", "same", "both", "many", "few", "over",
+    "under", "again", "once", "still", "yet", "may", "might", "must", "can",
+    "well", "way", "make", "made", "say", "said", "see", "know", "think",
+    "his", "her", "him", "she", "its", "our", "out", "off", "now", "yes",
+    "really", "actually", "basically", "literally", "thing", "things", "stuff",
+})
+
+
+def _kt_extract(text: str, top_n: int = 8) -> list[str]:
+    """Deterministic key-term extraction (count * mild length bonus, alpha
+    tie-break). Used to surface a chunk's topic shape into the manifest so
+    generators can pre-rank candidate chunks by relevance before fetching."""
+    if not text:
+        return []
+    tokens = _WORD_KT_RE.findall(text.lower())
+    counts: dict[str, int] = {}
+    for t in tokens:
+        if t in _KT_STOPWORDS:
+            continue
+        counts[t] = counts.get(t, 0) + 1
+    if not counts:
+        return []
+    scored = [
+        (cnt * (1.0 + max(0, len(tok) - 4) * 0.08), tok)
+        for tok, cnt in counts.items()
+    ]
+    scored.sort(key=lambda kv: (-kv[0], kv[1]))
+    return [tok for _, tok in scored[:top_n]]
+
+
+def _kt_count_sentences(text: str) -> int:
+    if not text:
+        return 0
+    return max(1, len(_SENT_KT_RE.split(text)))
+
+
+def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
+    """Manifest-shape chunker. Wraps `chunk_markdown` (the existing
+    embedding-aware chunker) and remaps every chunk to the contract shape:
+
+        {
+            "id": "<source_path>#c<idx>",   # stable pointer
+            "char_span": [start, end],       # span into post-frontmatter body
+            "sentence_count": N,
+            "key_terms": [...],
+            "section": str,                  # nearest h2/h3 ancestor or ""
+            "token_count": int,              # passthrough for cost budgeting
+        }
+
+    The `source_path` is the WIKI PATH the page lives at, e.g.
+    "articles/openalex/2024-smith-coop.md". Combining with #c<idx> yields a
+    globally unique pointer the resolver can dereference.
+
+    Returns [] when body is empty. Returns one chunk for tiny bodies.
+    Deterministic: same input -> same output across runs.
+    """
+    if not body or not source_path:
+        return []
+    chunks = chunk_markdown(body)
+    out: list[dict] = []
+    for c in chunks:
+        out.append({
+            "id": f"{source_path}#c{c['idx']}",
+            "char_span": [int(c.get("char_start", 0)), int(c.get("char_end", 0))],
+            "sentence_count": _kt_count_sentences(c.get("text", "")),
+            "key_terms": _kt_extract(c.get("text", ""), top_n=8),
+            "section": c.get("section", "") or "",
+            "token_count": int(c.get("token_count", 0)),
+        })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Frontmatter helpers — read / merge chunks into existing wiki-page text
+# ---------------------------------------------------------------------------
+
+def _yaml_scalar(s) -> str:
+    """Render a scalar safe to embed as a YAML value. Hand-rolled (no PyYAML
+    dep) since the shape is fixed and trivial. Quote on YAML-special chars."""
+    if isinstance(s, (int, float)):
+        return str(s)
+    s = str(s)
+    if not s:
+        return '""'
+    if re.search(r"[,\[\]\{\}:#&*!|>'\"%@`\n]", s):
+        return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    if s.lower() in ("null", "true", "false", "yes", "no", "on", "off"):
+        return '"' + s + '"'
+    return s
+
+
+def _serialize_chunks_yaml(chunks: list[dict]) -> str:
+    """Emit the chunks list as a YAML sub-block. Flat shape, no nesting."""
+    if not chunks:
+        return "chunks: []\n"
+    lines = ["chunks:"]
+    for c in chunks:
+        cs = c.get("char_span") or [0, 0]
+        terms = c.get("key_terms") or []
+        terms_yaml = "[" + ", ".join(_yaml_scalar(t) for t in terms) + "]"
+        lines.append(f"  - id: {_yaml_scalar(c.get('id', ''))}")
+        lines.append(f"    char_span: [{int(cs[0])}, {int(cs[1])}]")
+        lines.append(f"    sentence_count: {int(c.get('sentence_count', 0))}")
+        lines.append(f"    key_terms: {terms_yaml}")
+        if c.get("section"):
+            lines.append(f"    section: {_yaml_scalar(c.get('section', ''))}")
+        if c.get("token_count"):
+            lines.append(f"    token_count: {int(c.get('token_count', 0))}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def has_chunks_frontmatter(page_text: str) -> bool:
+    """Quick check: does the page already carry a chunks: frontmatter block?
+    Used by the retrofit pass to skip already-chunked pages (idempotency)."""
+    if not isinstance(page_text, str):
+        return False
+    m = _FRONTMATTER_RE.match(page_text)
+    if not m:
+        return False
+    fm = m.group(1)
+    return bool(re.search(r"(^|\n)chunks:\s*\n[ \t]+- id:", fm))
+
+
+def upsert_chunks_into_frontmatter(
+    page_text: str,
+    chunks: list[dict],
+    page_id: str | None = None,
+) -> str:
+    """Return page_text with the `chunks:` block inserted/replaced inside its
+    YAML frontmatter. Idempotent: re-running on a page that already has
+    chunks: replaces the block (so re-chunking with a new chunker version
+    cleanly updates the frontmatter without leaving stale entries).
+
+    If the page has no frontmatter at all, one is synthesized. `page_id`
+    (optional) is added as `id:` when no id is already present.
+    """
+    if not isinstance(page_text, str):
+        return page_text
+    chunks_yaml = _serialize_chunks_yaml(chunks)
+    m = _FRONTMATTER_RE.match(page_text)
+    if not m:
+        fm_lines: list[str] = []
+        if page_id:
+            fm_lines.append(f"id: {_yaml_scalar(page_id)}")
+        fm_lines.append(chunks_yaml.rstrip())
+        return "---\n" + "\n".join(fm_lines) + "\n---\n" + page_text
+    fm = m.group(1)
+    body = m.group(2)
+    # Strip any existing chunks: block (sequence form, 2-space indent).
+    fm_no_chunks = re.sub(
+        r"(^|\n)chunks:\s*(?:\n[ \t]+.+)*",
+        r"\1",
+        fm,
+    )
+    fm_no_chunks = fm_no_chunks.rstrip()
+    if page_id and not re.search(r"^id\s*:", fm_no_chunks, re.MULTILINE):
+        fm_no_chunks = f"id: {_yaml_scalar(page_id)}\n" + fm_no_chunks
+    new_fm = (fm_no_chunks + "\n" + chunks_yaml).rstrip()
+    return f"---\n{new_fm}\n---\n{body}"
+
+
+def extract_chunk_spans(page_text: str) -> list[dict]:
+    """Parse the chunks: block out of a page's frontmatter. Returns dicts
+    with keys: id, char_span, sentence_count, key_terms (and section/
+    token_count when present). Used by the resolver to dereference chunk
+    pointers without re-chunking. Returns [] when no chunks block exists."""
+    if not isinstance(page_text, str):
+        return []
+    m = _FRONTMATTER_RE.match(page_text)
+    if not m:
+        return []
+    fm = m.group(1)
+    chunks: list[dict] = []
+    cur: dict | None = None
+    inside_chunks = False
+    for raw_line in fm.splitlines():
+        line = raw_line.rstrip()
+        if not inside_chunks:
+            if re.match(r"^chunks:\s*$", line):
+                inside_chunks = True
+            continue
+        # Inside the chunks block.
+        if line.startswith("  - id:"):
+            if cur is not None:
+                chunks.append(cur)
+            cur = {"id": _yaml_strip(line.split("id:", 1)[1])}
+        elif cur is not None and line.startswith("    char_span:"):
+            v = line.split("char_span:", 1)[1].strip()
+            mm = re.match(r"\[\s*(\d+)\s*,\s*(\d+)\s*\]", v)
+            if mm:
+                cur["char_span"] = [int(mm.group(1)), int(mm.group(2))]
+        elif cur is not None and line.startswith("    sentence_count:"):
+            v = line.split("sentence_count:", 1)[1].strip()
+            try:
+                cur["sentence_count"] = int(v)
+            except ValueError:
+                pass
+        elif cur is not None and line.startswith("    key_terms:"):
+            v = line.split("key_terms:", 1)[1].strip()
+            mm = re.match(r"\[(.*)\]", v)
+            if mm:
+                inner = mm.group(1)
+                # Split: quoted strings or bare tokens separated by commas.
+                parts = re.findall(r'"([^"\\]*(?:\\.[^"\\]*)*)"|([^,]+)', inner)
+                cur["key_terms"] = [
+                    (q or b).strip().strip('"').strip()
+                    for q, b in parts if (q or b)
+                ]
+        elif cur is not None and line.startswith("    section:"):
+            cur["section"] = _yaml_strip(line.split("section:", 1)[1])
+        elif cur is not None and line.startswith("    token_count:"):
+            try:
+                cur["token_count"] = int(line.split("token_count:", 1)[1].strip())
+            except ValueError:
+                pass
+        elif not line.startswith(" ") and not line.startswith("\t"):
+            # Top-level key terminates the chunks block.
+            if cur is not None:
+                chunks.append(cur)
+                cur = None
+            break
+    if cur is not None:
+        chunks.append(cur)
+    return chunks
+
+
+def _yaml_strip(v: str) -> str:
+    v = v.strip()
+    if v.startswith('"') and v.endswith('"') and len(v) >= 2:
+        return v[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+    return v
+
+
+def extract_chunk_text(page_text: str, chunk_id: str) -> str | None:
+    """Look up a chunk by id and return the corresponding text span from the
+    page body (post-frontmatter). Returns None when the id is not in the
+    page's chunks: block or when the char_span is invalid."""
+    if not page_text or not chunk_id:
+        return None
+    spans = extract_chunk_spans(page_text)
+    if not spans:
+        return None
+    target = next((s for s in spans if s.get("id") == chunk_id), None)
+    if not target:
+        return None
+    cs = target.get("char_span") or [0, 0]
+    body = _strip_frontmatter(page_text)
+    try:
+        a, b = int(cs[0]), int(cs[1])
+    except (TypeError, ValueError):
+        return None
+    if a < 0 or b > len(body) or a >= b:
+        return None
+    return body[a:b]
+
+
+__all__ = [
+    "chunk_markdown",
+    "chunk_for_manifest",
+    "has_chunks_frontmatter",
+    "upsert_chunks_into_frontmatter",
+    "extract_chunk_spans",
+    "extract_chunk_text",
+    "CHUNK_TOKENS",
+    "OVERLAP_TOKENS",
+    "MIN_CHUNK_TOKENS",
+]
+
+
 if __name__ == "__main__":
     import sys
     path = sys.argv[1] if len(sys.argv) > 1 else None

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Brief Dialog · Skills-bench evaluator pressure-test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; background: #0D0D0D; color: #E8E8E8; }
+  body { font-family: 'Archivo', sans-serif; }
+  .bd-frame { width: 1920px; min-height: 1080px; padding: 60px 80px; }
+  .bd-kicker { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .bd-title { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1.05; color: #FFFFFF; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .bd-subtitle { font-size: 14px; color: #B8B800; max-width: 1400px; margin-bottom: 32px; line-height: 1.4; }
+  .bd-rail { width: 56px; height: 4px; background: #B8B800; margin: 0 0 28px 0; }
+  .bd-turns { columns: 2; column-gap: 60px; column-rule: 1px solid #222; }
+  .bd-turn { break-inside: avoid; margin-bottom: 18px; padding: 10px 14px 12px 14px; border-left: 3px solid transparent; }
+  .bd-turn.partner { border-left-color: #CC6644; }
+  .bd-turn.strategist { border-left-color: #00B7C3; }
+  .bd-turn.concession { background: rgba(184, 184, 0, 0.06); border-left-color: #B8B800; }
+  .bd-speaker { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .bd-turn.partner .bd-speaker { color: #CC6644; }
+  .bd-turn.strategist .bd-speaker { color: #00B7C3; }
+  .bd-turn.concession .bd-speaker::after { content: ' · concession'; color: #B8B800; }
+  .bd-line { font-size: 14px; line-height: 1.55; color: #E8E8E8; }
+  .bd-cite { display: inline-block; padding: 1px 6px; margin: 0 2px; background: rgba(0, 183, 195, 0.16); color: #00B7C3; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.5px; border-radius: 1px; }
+  .bd-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: baseline; }
+  .bd-stance-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
+  .bd-stance { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.02em; }
+  .bd-stance.stronger { color: #0CCE6B; }
+  .bd-stance.qualified { color: #B8B800; }
+  .bd-stance.rejected { color: #FF5A5A; }
+  .bd-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #666; letter-spacing: 1px; text-align: right; }
+  .bd-meta span { color: #B8B800; }
+</style>
+</head>
+<body>
+<div class="bd-frame">
+  <div class="bd-kicker">Brief Dialog · NXT</div>
+  <h1 class="bd-title">Pressure-testing the skills-bench-evaluator recommendation against three failure modes.</h1>
+  <div class="bd-subtitle">Claim under test: A CECCA-administered skills-bench evaluator upstream of the ATS will lift recruiter visibility from 6.7% to 38% of qualified candidates within two cycles.</div>
+  <div class="bd-rail"></div>
+
+  <div class="bd-turns">
+
+    <div class="bd-turn partner">
+      <div class="bd-speaker">Skeptical Partner</div>
+      <div class="bd-line">Forty-eight percent ATS reject is one number from one analysis <span class="bd-cite">CHUNK 014</span>. Before we recommend a multi-year bench-evaluator build, I need to see this isn't a Northeastern-specific keyword setup that a templating fix solves in a quarter.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-speaker">Curious Strategist</div>
+      <div class="bd-line">The forty-eight percent is corroborated across two independent sources <span class="bd-cite">CHUNK 014</span> <span class="bd-cite">CHUNK 027</span>: Higher Ed Dive's 2024 cross-institution review and the BLS 2025 entry-level hiring funnel. Both name keyword-density thresholds tuned for senior roles as the upstream cause, not Northeastern's own ATS configuration.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-speaker">Skeptical Partner</div>
+      <div class="bd-line">Sure. But a bench evaluator means partner-ATS integrations. Workday alone covers what, half the employer base? The other half ignores the score and the gain you're promising halves on day one.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-speaker">Curious Strategist</div>
+      <div class="bd-line">Launch-1 coverage is sixty percent of employer partners by volume <span class="bd-cite">CHUNK 041</span>, CECCA's named integration list. The remaining forty percent receive a bench-score PDF attached to the application. We don't claim full lift on day one; the model projects a phased thirty-two-percent visibility gain in cycle one, full thirty-eight in cycle three.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-speaker">Skeptical Partner</div>
+      <div class="bd-line">Phased projections collapse under load. What's the failure mode if employers reject the PDF as a non-standard attachment, or if the bench evaluator itself bias-encodes against the same first-gen students this is supposed to help?</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-speaker">Curious Strategist</div>
+      <div class="bd-line">Two answers. On PDF rejection: the bench-score is also embedded in the resume header as a single line, format-compatible with any ATS. On bias: the four bench bands are skill-based, Python data, distributed systems, cloud, system-design walk-through, not signaled-credential based. The current keyword filter is the bias mechanism; the evaluator is the audit-able replacement <span class="bd-cite">CHUNK 056</span>.</div>
+    </div>
+
+    <div class="bd-turn partner concession">
+      <div class="bd-speaker">Skeptical Partner</div>
+      <div class="bd-line">Fine. The auditability point holds, replacing an opaque vendor-controlled filter with a CECCA-controlled rubric is structurally defensible regardless of the lift magnitude. I'll concede that as the load-bearing argument, not the thirty-eight-percent projection.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-speaker">Curious Strategist</div>
+      <div class="bd-line">Then we should lead the recommendation with the auditability claim and treat the visibility lift as secondary upside. The first-cycle CS match rate of thirty-eight percent versus the institutional sixty-one <span class="bd-cite">CHUNK 062</span> is the disparity the bench evaluator directly addresses. Auditable rubric, measurable disparity reduction, projected lift in that order.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-speaker">Skeptical Partner</div>
+      <div class="bd-line">One more, the cost. CECCA-administered means staffing. We're sliding a recurring eight-figure operating line under a recommendation framed as a process change. Be honest about that.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-speaker">Curious Strategist</div>
+      <div class="bd-line">Year-one operating cost is six-point-two million for the evaluator team plus the partner-ATS integration work <span class="bd-cite">CHUNK 071</span>. Steady-state is two-point-eight after integration is in place. Against a three-year disparity-reduction target of moving first-cycle CS from thirty-eight to fifty-five percent match, the per-student-uplift cost lands at about nine hundred fifty dollars, defensible against the lifetime co-op-driven retention delta but worth pricing transparently in the recommendation deck.</div>
+    </div>
+
+  </div>
+
+  <div class="bd-footer">
+    <div>
+      <div class="bd-stance-label">Final stance</div>
+      <div class="bd-stance qualified">Qualified</div>
+    </div>
+    <div class="bd-meta">
+      <span>10</span> turns · <span>~720</span> words
+    </div>
+  </div>
+</div>
+</body>
+</html>

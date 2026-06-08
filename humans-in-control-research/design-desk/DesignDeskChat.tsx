@@ -5,7 +5,7 @@ import { generateFreeformArtifact } from './services/chatToFreeform';
 import { generateSlideSpec } from './services/chatToSlideSpec';
 import type { FreeformKind } from './schemas/freeformArtifact';
 
-// 2026-05-25 — Unified artifact-engine kinds. Every kind routes through the
+// 2026-05-25 - Unified artifact-engine kinds. Every kind routes through the
 // /api/artifact/* engine (special-cased journey -> JM IA service). Revisions
 // use /api/artifact/revise which preserves the existing HTML layout.
 const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
@@ -20,11 +20,11 @@ import FeedbackWidget from '../components/FeedbackWidget';
 import { regenerateWithFeedback } from '../services/feedbackRegeneration';
 import type { DesignTokens } from './services/designMdLoader';
 import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type DesignContext } from './services/designContext';
-// 2026-05-08 — Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
+// 2026-05-08 - Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
 import ChatAttachmentDropzone, { type ChatAttachment } from '../components/ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/PromptEnhancer';
-// 2026-05-20 — Improvement lineage panel: shows the user, in-line with the
+// 2026-05-20 - Improvement lineage panel: shows the user, in-line with the
 // artifact chat, what changed since the prior generation of this kind. Surfaces
 // the self-improvement loop visibly so users can witness compounding quality.
 import ImprovementLineagePanel from './components/ImprovementLineagePanel';
@@ -38,7 +38,7 @@ interface ChatMsg {
 
 /**
  * Small chrome strip that tells the user what evidence the Designer chat
- * has access to. Critical for trust — without this the user can't tell
+ * has access to. Critical for trust - without this the user can't tell
  * whether "add a quote about X" is grounded in real research or hallucinated.
  */
 const EvidenceStatus: React.FC<{ ctx: DesignContext; corpusTextProp: string }> = ({ ctx, corpusTextProp }) => {
@@ -54,7 +54,7 @@ const EvidenceStatus: React.FC<{ ctx: DesignContext; corpusTextProp: string }> =
             fontSize: 9, fontFamily: "'JetBrains Mono', monospace", color: '#666',
         }}>
             {noEvidence ? (
-                <span style={{ color: '#CC6644' }}>No research corpus loaded — generations will lack evidence grounding.</span>
+                <span style={{ color: '#CC6644' }}>No research corpus loaded - generations will lack evidence grounding.</span>
             ) : (
                 <>
                     {corpusKb > 0 && <span style={{ background: '#F0F0E8', padding: '2px 6px' }}>CORPUS {corpusKb}KB</span>}
@@ -72,7 +72,7 @@ const EvidenceStatus: React.FC<{ ctx: DesignContext; corpusTextProp: string }> =
  * Diff two artifacts of the same type and produce a human-readable summary
  * of what actually changed. Lets the user verify the AI followed their
  * instruction. Falls back to "Updated <type>" when nothing meaningful diffed
- * (which itself is a useful signal — means the model returned an unchanged
+ * (which itself is a useful signal - means the model returned an unchanged
  * artifact and we should investigate why).
  */
 function summarizeRevision(before: any, after: any): string {
@@ -135,7 +135,7 @@ function summarizeRevision(before: any, after: any): string {
         if (beforeQuotes !== afterQuotes) changes.push(`quotes: ${beforeQuotes} -> ${afterQuotes}`);
     }
 
-    if (changes.length === 0) return `Updated ${type} (no detectable changes — the model may not have followed the instruction; try rephrasing).`;
+    if (changes.length === 0) return `Updated ${type} (no detectable changes - the model may not have followed the instruction; try rephrasing).`;
     return `Updated ${type}: ${changes.join('; ')}`;
 }
 
@@ -150,9 +150,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     const [input, setInput] = useState('');
     const [busy, setBusy] = useState(false);
     const [ctx, setCtx] = useState<DesignContext>(() => loadDesignContext());
-    // 2026-05-08 — Pending mid-chat attachments staged for the next send.
+    // 2026-05-08 - Pending mid-chat attachments staged for the next send.
     const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
-    // 2026-05-14 — Prompt enhancer (Gemini Flash). Uses the live design
+    // 2026-05-14 - Prompt enhancer (Gemini Flash). Uses the live design
     // context (research goal + brand) so the rewrite is grounded.
     const enhancer = usePromptEnhancer({
         input,
@@ -165,7 +165,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         },
     });
     const endRef = useRef<HTMLDivElement>(null);
-    // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
+    // Outer panel ref - used by ChatAttachmentDropzone to scope drag-drop.
     const panelRef = useRef<HTMLDivElement>(null);
     const { artifacts, activeArtifactId, addArtifact, replaceArtifact } = useDesignDeskStore();
     const active = artifacts.find(a => a.id === activeArtifactId) ?? null;
@@ -183,7 +183,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     }, []);
 
     // Reload from localStorage on mount (handles popup window opening AFTER
-    // App.tsx has already populated context — no storage event would fire).
+    // App.tsx has already populated context - no storage event would fire).
     useEffect(() => {
         const refresh = () => setCtx(loadDesignContext());
         refresh();
@@ -199,11 +199,11 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
      * intelligence are always layered in if present.
      */
     const buildPromptCorpus = (): string => {
-        // 2026-05-08 — Mid-chat ad-hoc attachments take HIGHEST priority. The
+        // 2026-05-08 - Mid-chat ad-hoc attachments take HIGHEST priority. The
         // user just dropped these in for THIS turn; they shape the artifact
         // generation more than anything else in scope.
         const adHocBlock = pendingAttachments.length > 0
-            ? '=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY — JUST UPLOADED) ===\n' + pendingAttachments.map(att => {
+            ? '=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY - JUST UPLOADED) ===\n' + pendingAttachments.map(att => {
                 const meta = [
                     att.slideCount ? `${att.slideCount} slides` : null,
                     att.pageCount ? `${att.pageCount} pages` : null,
@@ -218,29 +218,38 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         if (fromStore.length > corpusTextProp.length) {
             return adHocBlock ? adHocBlock + '\n\n' + fromStore : fromStore;
         }
-        // Fallback: use prop and decorate with structured intelligence from store
+        // Fallback: use prop and decorate with structured intelligence from store.
+        // 2026-06-02 - themes/personas/journey/recs/gap/competitive/strategic are
+        // now shaped blocks that already carry their own headers (pushed verbatim),
+        // and the corpus manifest + full structured set are layered in to match
+        // the Analyst chat's grounding.
         const decoratedParts: string[] = [];
         if (adHocBlock) decoratedParts.push(adHocBlock);
+        if (ctx.corpusManifest) decoratedParts.push(ctx.corpusManifest);
         if (corpusTextProp) decoratedParts.push('=== EXTERNAL RESEARCH CORPUS ===\n' + corpusTextProp);
         if (ctx.uploadedFileContents && ctx.uploadedFileContents.length > 40) decoratedParts.push('=== CLIENT UPLOADS ===\n' + ctx.uploadedFileContents);
-        if (ctx.themes) decoratedParts.push('=== THEMES ===\n' + ctx.themes);
-        if (ctx.personas) decoratedParts.push('=== PERSONAS ===\n' + ctx.personas);
-        if (ctx.journeyStages) decoratedParts.push('=== JOURNEY ===\n' + ctx.journeyStages);
+        if (ctx.themes) decoratedParts.push(ctx.themes);
+        if (ctx.personas) decoratedParts.push(ctx.personas);
+        if (ctx.recommendations) decoratedParts.push(ctx.recommendations);
+        if (ctx.journeyStages) decoratedParts.push(ctx.journeyStages);
+        if (ctx.gapAnalysis) decoratedParts.push(ctx.gapAnalysis);
+        if (ctx.competitiveAnalysis) decoratedParts.push(ctx.competitiveAnalysis);
+        if (ctx.strategicReport) decoratedParts.push(ctx.strategicReport);
         return decoratedParts.join('\n\n');
     };
 
     const send = async (textOverride?: string) => {
-        // 2026-05-23 — `textOverride` lets Apply-now re-fire the original
+        // 2026-05-23 - `textOverride` lets Apply-now re-fire the original
         // user prompt with feedback appended, going through the same
         // hashtag/skill routing the original send used. Without an override
         // we fall back to whatever's in the input field.
-        // 2026-05-23 — Defensive: callers may accidentally pass a non-string
+        // 2026-05-23 - Defensive: callers may accidentally pass a non-string
         // (e.g., onClick={send} passes the synthetic event as textOverride).
         // Coerce to string before trim() to prevent a hard crash from any
         // future caller mistake.
         const rawText = typeof textOverride === 'string' ? textOverride : (typeof input === 'string' ? input : '');
         let text = rawText.trim();
-        // 2026-05-08 — Allow attachment-only sends (e.g., drop a brief and
+        // 2026-05-08 - Allow attachment-only sends (e.g., drop a brief and
         // the user expects "summarize this"). Synthesize a default that
         // surfaces the filenames so the model knows what to do.
         if (!text && pendingAttachments.length === 0) return;
@@ -258,9 +267,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 : ''),
             timestamp: Date.now(),
         };
-        // 2026-05-19 — Chat feedback capture (Designer Desk variant). Mirrors
+        // 2026-05-19 - Chat feedback capture (Designer Desk variant). Mirrors
         // the analyst panel intercept in CorpusChatPanel.tsx. Fire-and-forget.
-        // 2026-05-20 — Pass the active artifact's kind to the classifier so
+        // 2026-05-20 - Pass the active artifact's kind to the classifier so
         // captured rules get scoped (journey/blueprint/persona/etc.). The
         // active artifact tells us which kind the user is iterating on; a
         // density preference said during a journey iteration applies to
@@ -280,7 +289,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             });
         }).catch(() => { /* feedback capture must never break a chat send */ });
 
-        // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
+        // 2026-05-08 - Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
         // BEFORE the generation dispatch. Fire-and-forget; uses 'designer' chat
         // surface so the wiki record is distinguishable from analyst uploads.
         if (pendingAttachments.length > 0) {
@@ -309,7 +318,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             }
             setBusy(true);
             const corpus = buildPromptCorpus();
-            // Revision path — route by active artifact's type. Freeform artifacts
+            // Revision path - route by active artifact's type. Freeform artifacts
             // (org/journey/arch/roadmap/blueprint) go through chatToFreeform; persona
             // remains on the legacy structured pipeline.
             // SlideSpec revision path (feature-flagged)
@@ -337,17 +346,17 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 return;
             }
             if ((active as any).type === 'freeform') {
-                // 2026-05-20 — Collect prior user turns from this artifact's
+                // 2026-05-20 - Collect prior user turns from this artifact's
                 // chat session so the freeform generator has cumulative memory
                 // (the priorUserInstructions field was added 2026-05-19 but
-                // the call site never populated it — silent dead code). Each
+                // the call site never populated it - silent dead code). Each
                 // revision now sees every earlier user instruction in this
                 // chat: "remove the KPI tiles", "3 activities per phase",
                 // "no metadata codes", etc. The model is told to apply ALL
                 // of these unless the current turn explicitly retracts one.
                 const priorUserInstructions = messages
                     .filter(m => m.role === 'user' && typeof m.content === 'string' && m.content.trim())
-                    .slice(-8)  // last 8 user turns — enough memory without bloating the prompt
+                    .slice(-8)  // last 8 user turns - enough memory without bloating the prompt
                     .map(m => m.content);
                 const ff = await generateFreeformArtifact({
                     kind: (active as any).kind as FreeformKind,
@@ -362,7 +371,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     // opened, 12 closed"). Gemini 3.1 Pro has 1-2M context
                     // and much higher output token capacity, so revisions
                     // complete even on architecture diagrams with 30+ boxes.
-                    // (2026-05-07: upgraded from deepseek-v4-flash — Gemini 3.1 Pro
+                    // (2026-05-07: upgraded from deepseek-v4-flash - Gemini 3.1 Pro
                     // follows multi-step instructions more reliably.)
                     model: 'gemini-3.1-pro-preview',
                 });
@@ -395,7 +404,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         for (const contentTag of parsed.content) {
             // Diagram kinds → freeform pipeline. Persona → legacy structured pipeline.
             if (FREEFORM_KINDS.has(contentTag as FreeformKind)) {
-                // 2026-05-20 — Same priorUserInstructions wiring as the
+                // 2026-05-20 - Same priorUserInstructions wiring as the
                 // revision path above (kept in sync). On first generation
                 // (currentArtifact: null) this is usually empty, but if the
                 // user typed multiple messages before the first artifact
@@ -487,7 +496,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         <br/>or: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#org #NU advancement division</code>
                     </div>
                 )}
-                {/* 2026-05-20 — Improvement lineage. Renders whenever the active
+                {/* 2026-05-20 - Improvement lineage. Renders whenever the active
                     artifact has a lineage record (post first generation). Shows
                     score deltas, newly-applied rules, attribution. */}
                 {active && ((active as any)?.kind || active.type) && (
@@ -531,14 +540,14 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                                     compact
                                     onApplyNow={async ({ feedbackId, text, sectionScope }) => {
                                         try {
-                                            // 2026-05-23 — Apply-now re-fires the originating user
+                                            // 2026-05-23 - Apply-now re-fires the originating user
                                             // prompt through the normal send() path, augmented with
                                             // the feedback. Same rationale as the Analyst panel:
                                             // calling regenerateWithFeedback on the truncated assistant
                                             // output produced cosmetic revisions only, never a fresh
                                             // complete generation. The send() path runs hashtag
                                             // detection, skill matching, and corpus context loading
-                                            // — none of which the revise path did.
+                                            // - none of which the revise path did.
                                             const myIndex = messages.findIndex(mm => mm.id === m.id);
                                             let originatingPrompt = '';
                                             if (myIndex >= 0) {
@@ -562,10 +571,10 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                                                 : '';
                                             const augmentedPrompt = `${originatingPrompt}
 
-FEEDBACK FROM LAST ATTEMPT${scopeNote} — APPLY ON THIS RUN:
+FEEDBACK FROM LAST ATTEMPT${scopeNote} - APPLY ON THIS RUN:
 ${text}
 
-Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE artifact — not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
+Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE artifact - not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
                                             await send(augmentedPrompt);
                                         } catch (err) {
                                             console.warn('[DesignDeskChat.onApplyNow] threw:', err);
@@ -585,7 +594,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
             <div style={{ padding: '12px 16px', borderTop: '1px solid #E0E0E0', background: '#FFFFFF' }}>
                 <EvidenceStatus ctx={ctx} corpusTextProp={corpusTextProp} />
 
-                {/* 2026-05-08 — Pending mid-chat attachments. Same pattern as
+                {/* 2026-05-08 - Pending mid-chat attachments. Same pattern as
                     the AI Analyst panel: chips above the input, dismiss with x,
                     cleared on send. */}
                 {pendingAttachments.length > 0 && (

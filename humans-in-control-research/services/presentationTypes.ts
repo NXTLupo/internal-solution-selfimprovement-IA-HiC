@@ -29,7 +29,7 @@ export interface BrandTokens {
   textPrimary: string;
   textSecondary: string;
   textTertiary: string;
-  // Brand accents — semantic, not literal
+  // Brand accents - semantic, not literal
   accentPrimary: string;     // NXT chartreuse / NU huskies-red
   accentSecondary: string;   // NXT cyan / NU graphite
   accentTertiary: string;    // NXT teal / NU near-black
@@ -50,7 +50,7 @@ export interface BrandTokens {
 }
 
 // Canonical token sets. Single source of truth for both brand variants.
-// Geometry, typography, density rules are shared — only colors swap.
+// Geometry, typography, density rules are shared - only colors swap.
 export const BRAND_TOKENS: Record<BrandVariant, BrandTokens> = {
   NXT: {
     bgPrimary: '#0D0D0D',
@@ -232,12 +232,12 @@ export interface PresentationGapData {
 }
 
 export interface PresentationTechArchData extends ArchitectureMapData {
-  // ArchitectureMapData already has layers[] and nodes[] — reuse as-is.
+  // ArchitectureMapData already has layers[] and nodes[] - reuse as-is.
 }
 
 export interface TeamData {
   members: Array<{
-    name?: string;          // optional — many decks use roles, not names
+    name?: string;          // optional - many decks use roles, not names
     role: string;
     description: string;
     focus?: string;
@@ -254,7 +254,7 @@ export interface CtaData {
 }
 
 // ============================================================================
-// CITATIONS — universal across all sections
+// CITATIONS - universal across all sections
 // ============================================================================
 
 export interface Citation {
@@ -336,14 +336,14 @@ export interface PresentationPayload {
 }
 
 // ============================================================================
-// HELPERS — resolve brand to tokens
+// HELPERS - resolve brand to tokens
 // ============================================================================
 
 export function resolveBrandTokens(brand: BrandVariant): BrandTokens {
   return BRAND_TOKENS[brand];
 }
 
-// Type guard helpers — useful in renderer's section dispatcher
+// Type guard helpers - useful in renderer's section dispatcher
 export function isSectionKind(value: unknown): value is SectionKind {
   return typeof value === 'string' && [
     'hero', 'context', 'themes', 'evidence', 'quotes',
@@ -352,7 +352,7 @@ export function isSectionKind(value: unknown): value is SectionKind {
   ].includes(value);
 }
 
-// Slug generation — engagement-derived + short content hash
+// Slug generation - engagement-derived + short content hash
 export function generateSlug(engagementGoal: string, narrativeThesis: string): string {
   const goalSlug = engagementGoal
     .toLowerCase()
@@ -360,7 +360,7 @@ export function generateSlug(engagementGoal: string, narrativeThesis: string): s
     .replace(/^-+|-+$/g, '')
     .slice(0, 40);
 
-  // Short hash from thesis — deterministic across same input, no crypto needed
+  // Short hash from thesis - deterministic across same input, no crypto needed
   let hash = 0;
   for (let i = 0; i < narrativeThesis.length; i++) {
     hash = ((hash << 5) - hash + narrativeThesis.charCodeAt(i)) | 0;

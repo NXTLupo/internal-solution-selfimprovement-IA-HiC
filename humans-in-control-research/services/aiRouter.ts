@@ -1,5 +1,5 @@
 /**
- * AI Router — Multi-Model Intelligence Layer
+ * AI Router - Multi-Model Intelligence Layer
  * Routes tasks to the optimal AI model based on task type and user preferences.
  *
  * Model Roster (April 2026):
@@ -45,7 +45,7 @@ function tryRepairJsonDeep(cleaned: string): string {
 }
 
 export function tryRepairJson(jsonString: string): string {
-    // Strip \r (carriage return) globally — Gemini sometimes returns \r\n on Windows
+    // Strip \r (carriage return) globally - Gemini sometimes returns \r\n on Windows
     // JSON.parse chokes on \r at position 1 in some runtimes
     let cleaned = jsonString.replace(/\r/g, '').trim();
 
@@ -92,7 +92,7 @@ export function tryRepairJson(jsonString: string): string {
     if (jsonStart > 0) {
         cleaned = cleaned.substring(jsonStart);
     } else if (jsonStart === -1) {
-        // No JSON structure found at all — response is pure text, not JSON.
+        // No JSON structure found at all - response is pure text, not JSON.
         // Wrap it as a minimal valid JSON object so downstream doesn't crash.
         console.warn('[tryRepairJson] No JSON structure found in response, wrapping as error object');
         return JSON.stringify({ _error: "Model returned non-JSON text", _raw: cleaned.substring(0, 200) });
@@ -171,7 +171,7 @@ export function tryRepairJson(jsonString: string): string {
  *                                          ^ half-typed value
  *
  * tryRepairJson can balance brackets but cannot complete a half-typed value,
- * so JSON.parse still throws and the caller loses the ENTIRE batch — even
+ * so JSON.parse still throws and the caller loses the ENTIRE batch - even
  * though 24 of 25 objects are well-formed.
  *
  * This helper scans the text for top-level {...} objects (depth-aware,
@@ -202,7 +202,7 @@ export function salvageJsonArray<T = unknown>(rawText: string): T[] {
     let objStart = -1;
 
     // Iterate character-by-character to find top-level objects inside the
-    // outer array. We only care about depth-1 { ... } spans — anything
+    // outer array. We only care about depth-1 { ... } spans - anything
     // inside nested objects rides along inside its parent.
     for (let i = 0; i < text.length; i++) {
         const ch = text[i];
@@ -222,7 +222,7 @@ export function salvageJsonArray<T = unknown>(rawText: string): T[] {
                 try {
                     const parsed = JSON.parse(candidate) as T;
                     out.push(parsed);
-                } catch { /* skip — partial / malformed object */ }
+                } catch { /* skip - partial / malformed object */ }
             }
             if (depth < 0) depth = 0; // defensive
         }
@@ -279,16 +279,16 @@ export function salvageJsonObject<V = unknown>(rawText: string): Record<string, 
     if (objStart < 0) return {};
     text = text.substring(objStart);
 
-    // Fast path — try the bracket-balanced repair first.
+    // Fast path - try the bracket-balanced repair first.
     try {
         const parsed = JSON.parse(tryRepairJson(text)) as Record<string, V>;
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
     } catch { /* fall through to progressive trim */ }
 
-    // Slow path — trim a partial trailing entry, then rebalance & retry.
+    // Slow path - trim a partial trailing entry, then rebalance & retry.
     //
     // IMPORTANT: Gemini sometimes emits the malformed key BEFORE the outermost
-    // closer (e.g. `..., "AI News":}` — the } at the end is the object
+    // closer (e.g. `..., "AI News":}` - the } at the end is the object
     // closer, not part of the entry's value). To make the trim regexes anchor
     // on the partial entry instead of the closer, we strip ALL trailing
     // closers/whitespace first; tryRepairJson re-adds them via bracket
@@ -333,7 +333,7 @@ export interface ModelInfo {
     costTier: 'budget' | 'standard' | 'premium';
 }
 
-// 2026-05-05 — Single-vendor migration to DeepSeek V4 Flash via Azure.
+// 2026-05-05 - Single-vendor migration to DeepSeek V4 Flash via Azure.
 // All HiC reasoning / synthesis / chat / composer paths now route to
 // deepseek-v4-flash through /api/ai/deepseek. The proxy honors 429
 // Retry-After with exponential backoff so the staging deployment's
@@ -381,18 +381,18 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'gemini-3.1-pro-preview', provider: 'google', displayName: 'Gemini 3.1 Pro',
         vision: true, maxContext: 1_000_000, maxOutput: 65_536, costTier: 'premium'
     },
-    // 2026-05-22 — Gemini 3.5 Flash registered for HiC's agentic loops
+    // 2026-05-22 - Gemini 3.5 Flash registered for HiC's agentic loops
     // (learning engine, verifier, wiki compiler, "Apply now" regeneration).
     // Pricing per Google's posted card: $1.50/M input, $9/M output (vs Opus
     // $15/M input, $75/M output). Designed for multi-step tasks and coding
-    // pipelines — a strict superset of what HiC's self-improvement layer
+    // pipelines - a strict superset of what HiC's self-improvement layer
     // needs. Tier set to "budget" because it is below the Anthropic
     // premium-tier baseline at every dimension.
     'gemini-3.5-flash': {
         id: 'gemini-3.5-flash', provider: 'google', displayName: 'Gemini 3.5 Flash',
         vision: true, maxContext: 1_000_000, maxOutput: 65_536, costTier: 'budget'
     },
-    // 2026-05-27 — Claude re-registered as the FUNDED cross-provider escape for
+    // 2026-05-27 - Claude re-registered as the FUNDED cross-provider escape for
     // the deliverableModelRouter. ANTHROPIC_API_KEY is the platform's primary
     // required key (the journey-mapper now runs claude-opus-4-8 on it), so this is
     // the real "survive even if Gemini is fully down" fallback now that the
@@ -403,7 +403,7 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'claude-sonnet-4-6', provider: 'anthropic', displayName: 'Claude Sonnet 4.6',
         vision: true, maxContext: 200_000, maxOutput: 64_000, costTier: 'premium'
     },
-    // 2026-05-29 — Opus 4.8 (released 2026-05-28) registered as the deep-reasoning
+    // 2026-05-29 - Opus 4.8 (released 2026-05-28) registered as the deep-reasoning
     // upgrade over 4.7. Standard $5/$25 per 1M tokens, adaptive thinking by default,
     // 1M context window on the Anthropic API. Used by the journey-mapper service and
     // by anything that wants Opus-class reasoning at the new cheaper standard price.
@@ -414,25 +414,25 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 };
 
 // --- TASK CATEGORIES ---
-// 2026-05-03 — Defaults migrated from Anthropic to Google. Opus 4.7 cost was
+// 2026-05-03 - Defaults migrated from Anthropic to Google. Opus 4.7 cost was
 // $43/run dominated by ~363K-token system-prompt replay × 8 turns. Gemini
 // 3.1 Pro at $1.25/M input cuts per-run cost to ~$8 with no loss to source
 // coverage, theme breadth, or deliverable structure (those live in code, not
-// in the model). Anthropic is fully removed from this branch — all stages
+// in the model). Anthropic is fully removed from this branch - all stages
 // route to Google or OpenAI exclusively.
-// 2026-05-22 — `fast_agentic` category added for HiC's self-improvement
+// 2026-05-22 - `fast_agentic` category added for HiC's self-improvement
 // loops (lint contradiction detection, learning-engine payload generation,
 // verifier checks, wiki recompile, "Apply now" regeneration). Default is
 // gemini-3.5-flash because it is Google's most-capable model in the agentic
 // + structured-output band at roughly 10% of Opus cost.
 export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition' | 'fast_agentic';
 
-// 2026-05-07 — Defaults migrated from DeepSeek V4 Flash to Gemini 3.1 Pro
+// 2026-05-07 - Defaults migrated from DeepSeek V4 Flash to Gemini 3.1 Pro
 // across every reasoning category. DeepSeek narratives were jargon-heavy,
 // hyperbolic, and read as AI-slop; Gemini 3.1 Pro produces descriptive,
 // professional prose at 1M-token context with reliable instruction-following.
 //
-// 2026-05-26 — Tiered. Pro stays for `research` (cold-start analysis,
+// 2026-05-26 - Tiered. Pro stays for `research` (cold-start analysis,
 // partner-grade deliverables) and `narrative_composition` (deck/PPTX export,
 // the highest-quality surface). Everything else moves to Flash:
 //   - `fast_generation` is the chat/interactive path; Pro was 3-5x too slow
@@ -444,8 +444,8 @@ export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'gemini-3.1-pro-preview',
     fast_generation: 'gemini-3.5-flash',
     vision: 'gemini-3.5-flash',
-    image: 'gemini-2.5-flash',
-    video: 'gemini-2.5-flash',
+    image: 'gemini-3.1-flash-image-preview',
+    video: 'gemini-3.1-flash-image-preview',   // HiC has no video; kept off 2.5-flash for hygiene
     narrative_composition: 'gemini-3.1-pro-preview',
     fast_agentic: 'gemini-3.5-flash',
 };
@@ -454,12 +454,12 @@ export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash', 'deepseek-v4-flash'],
-    fast_generation: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
-    vision: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash'],
-    image: ['gemini-2.5-flash'],
-    video: ['gemini-2.5-flash'],
-    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    research: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
+    fast_generation: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'deepseek-v4-flash'],
+    vision: ['gemini-3.1-pro-preview', 'gemini-3.5-flash'],
+    image: ['gemini-3.1-flash-image-preview'],
+    video: ['gemini-3.1-flash-image-preview'],
+    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
     fast_agentic: ['gemini-3.5-flash', 'gemini-3.1-pro-preview'],
 };
 
@@ -468,7 +468,7 @@ export function getAvailableProviders(): Set<string> {
     const providers = new Set<string>();
     if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) providers.add('google');
     if ((process.env as any).OPENAI_API_KEY) providers.add('openai');
-    // 2026-05-27 — Anthropic is the funded cross-provider escape. vite.config
+    // 2026-05-27 - Anthropic is the funded cross-provider escape. vite.config
     // exposes ANTHROPIC_API_KEY to the client (line 89), and the proxy attaches
     // it server-side at /api/ai/anthropic.
     if ((process.env as any).ANTHROPIC_API_KEY) providers.add('anthropic');
@@ -490,7 +490,7 @@ import * as openaiService from './openaiService';
  * Route a text analysis task to the selected model.
  * Returns parsed JSON of type T.
  *
- * 2026-05-03 — Anthropic branch removed. Only OpenAI and Google providers
+ * 2026-05-03 - Anthropic branch removed. Only OpenAI and Google providers
  * are supported on this branch. Google text routing uses GenAISession
  * directly (see geminiService.ts), so this router only handles OpenAI.
  */

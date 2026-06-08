@@ -1,5 +1,5 @@
 /**
- * wikiLibraryAggregator.ts — 2026-05-14
+ * wikiLibraryAggregator.ts - 2026-05-14
  *
  * Walks the wiki via the existing /api/wiki/list and /api/wiki/read proxy
  * endpoints and assembles a structured summary of everything the researcher
@@ -15,7 +15,7 @@
  *   - articles: jina-reader cached article extracts (just counts + titles)
  *   - uploads: per-engagement client document archive (counts + size)
  *
- * Intentionally lightweight — does NOT read full bodies. Caller decides
+ * Intentionally lightweight - does NOT read full bodies. Caller decides
  * which items to hydrate based on selection.
  */
 
@@ -67,7 +67,7 @@ export interface LibrarySocialBucket {
     last_fetched?: string;
 }
 
-/** 2026-05-14 — Per-source bucket inside the articles/ tree. The wiki has
+/** 2026-05-14 - Per-source bucket inside the articles/ tree. The wiki has
  *  56+ subdirectories under articles/ (jina-reader, client-uploads,
  *  reddit-deep-r-*, youtube-*, hic-theme-synthesis) and the Knowledge
  *  Library used to count only jina-reader (41 of 1,388). This bucket lets
@@ -84,7 +84,7 @@ export interface LibraryArticleSummary {
     total_articles: number;
     sample_titles: string[];            // up to 6 representative titles or URLs across all buckets
     total_chars_estimated: number;
-    /** 2026-05-14 — Per-source breakdown. Empty array on legacy summaries (back-compat). */
+    /** 2026-05-14 - Per-source breakdown. Empty array on legacy summaries (back-compat). */
     buckets: LibraryArticleBucket[];
 }
 
@@ -136,7 +136,7 @@ async function listWikiDir(relPath: string): Promise<string[]> {
     }
 }
 
-/** 2026-05-14 — Lists SUBDIRECTORIES of a wiki path, not files. The proxy
+/** 2026-05-14 - Lists SUBDIRECTORIES of a wiki path, not files. The proxy
  *  /api/wiki/list endpoint was extended to return a `dirs` array; this helper
  *  uses it so we can walk dir-of-dirs structures like reddit-deep/<sub>/ or
  *  engagements/<slug>/. */
@@ -178,7 +178,7 @@ async function readWikiText(relPath: string): Promise<string | null> {
     }
 }
 
-/** Parse simple YAML frontmatter (just the top-level scalars we need — no full YAML parser). */
+/** Parse simple YAML frontmatter (just the top-level scalars we need - no full YAML parser). */
 function parseFrontmatter(text: string): Record<string, string> {
     const out: Record<string, string> = {};
     if (!text || !text.startsWith('---')) return out;
@@ -232,7 +232,7 @@ function parseThemeTerm(raw: any): ThemeTerm {
 }
 
 async function collectThemes(): Promise<LibraryThemeCluster[]> {
-    // 2026-05-23 — P0.3: topic-cache files moved out of wiki/synthesis to
+    // 2026-05-23 - P0.3: topic-cache files moved out of wiki/synthesis to
     // sessions/_topic-cache/. Read from the new endpoint which falls through
     // to the legacy location for any files not yet migrated.
     let jsonFiles: string[] = [];
@@ -356,7 +356,7 @@ async function collectSocial(): Promise<LibrarySocialBucket[]> {
     return buckets.sort((a, b) => b.post_count - a.post_count);
 }
 
-/** 2026-05-14 — Map a subfolder name to a human-readable label. Falls back
+/** 2026-05-14 - Map a subfolder name to a human-readable label. Falls back
  *  to the raw folder name if no match. Keeps the UI scannable for the 56+
  *  article source buckets without hard-coding every one. */
 function labelForArticleSource(folder: string): string {
@@ -370,11 +370,11 @@ function labelForArticleSource(folder: string): string {
 }
 
 async function collectArticles(): Promise<LibraryArticleSummary> {
-    // 2026-05-14 — Walk EVERY subdirectory under articles/, not just jina-reader.
+    // 2026-05-14 - Walk EVERY subdirectory under articles/, not just jina-reader.
     // The wiki/articles/ tree has 56+ subdirs (client-uploads with the RAG docs,
     // deep-research pulls, jina extracts, YouTube transcripts, theme syntheses).
     // The previous implementation only counted jina-reader (41) and missed
-    // 1,347+ other files including all RAG uploaded documents — the Knowledge
+    // 1,347+ other files including all RAG uploaded documents - the Knowledge
     // Library was effectively invisible to them.
     const subdirs = await listWikiSubdirs('articles');
     const buckets: LibraryArticleBucket[] = [];
@@ -465,7 +465,7 @@ function estimateRegenerationCost(summary: Omit<WikiLibrarySummary, 'estimated_r
 
 /**
  * Lightweight count-only aggregator for the landing-page preview tile.
- * Just hits the dir-list endpoints (5 fetches, < 500ms typical) — no body
+ * Just hits the dir-list endpoints (5 fetches, < 500ms typical) - no body
  * reads, no frontmatter parsing. Used when we only need totals, not detail.
  */
 export interface WikiLibraryCounts {
@@ -491,7 +491,7 @@ export async function getLibraryCounts(): Promise<WikiLibraryCounts> {
     ] = await Promise.all([
         // engagements (already aggregated by wikiService)
         collectEngagements(),
-        // 2026-05-23 — P0.3: topic caches moved to sessions/_topic-cache. New
+        // 2026-05-23 - P0.3: topic caches moved to sessions/_topic-cache. New
         // /api/topic-cache/list endpoint reads both new and legacy locations.
         (async () => {
             try {
@@ -513,7 +513,7 @@ export async function getLibraryCounts(): Promise<WikiLibraryCounts> {
     ]);
 
     // For "themes" count we want number of theme CLUSTERS across all synthesis
-    // files, not file count. But that requires reading each file — for the
+    // files, not file count. But that requires reading each file - for the
     // preview we approximate with "synthesis files × 20" or just show files.
     // We'll use file count as a proxy here; the modal shows exact cluster counts.
     const themesApprox = synthesisFiles.length * 20;
@@ -553,7 +553,7 @@ export async function getLibraryCounts(): Promise<WikiLibraryCounts> {
 // RELEVANCE_HIGH are surfaced as "relevant" in the UI; items above
 // RELEVANCE_MED still rank above unscored items but aren't flagged.
 //
-// Word-overlap is intentionally simple — instant, free, no LLM call. Phase
+// Word-overlap is intentionally simple - instant, free, no LLM call. Phase
 // B will swap this for semantic-embedding similarity via the existing
 // /api/wiki/fetch-articles embedding pipeline.
 

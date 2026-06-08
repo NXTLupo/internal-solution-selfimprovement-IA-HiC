@@ -1,5 +1,5 @@
 // services/artifactExpertPanel.ts
-// Expert-panel pre-emit system — 2026-05-25
+// Expert-panel pre-emit system - 2026-05-25
 //
 // Routes each artifact type to its appropriate domain expert (user researcher
 // for personas, UX researcher for journeys, service designer for blueprints,
@@ -9,19 +9,19 @@
 //
 // Design principle: this is the "expert panel" layer the user asked for in
 // task #93. Every artifact gets domain-expert review BEFORE shipping, with
-// the critique fed back as structured CriticEdits — not free-form prose the
+// the critique fed back as structured CriticEdits - not free-form prose the
 // caller has to re-interpret. The same primitive that powers Phase 3 critic-
 // revise loops on recommendations now powers per-kind expert review on every
 // freeform artifact.
 //
 // Wire-up: call runExpertPanel(...) at the end of any artifact generation
-// path. The function is idempotent — passing an artifact through twice is
+// path. The function is idempotent - passing an artifact through twice is
 // safe (the critics will accept on second pass when the first pass landed).
 
 import { criticReviseLoop, type CriticConfig, type CriticInvoker, type CriticReviseLoopResult, type CriticVerdict } from './criticReviseLoop';
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { withResilience, isThrottleError, type DegradationEvent } from './multiModelResilience';
-// 2026-05-25 — Real LLM critic dispatcher. Replaces the prior pass-through
+// 2026-05-25 - Real LLM critic dispatcher. Replaces the prior pass-through
 // default so domain experts (pre-mortem, persona-architect, etc.) actually
 // fire against the Anthropic proxy.
 import { dispatchCritic } from './criticDispatcher';
@@ -29,7 +29,7 @@ import { dispatchCritic } from './criticDispatcher';
 // ─── Artifact kind → expert critic config ────────────────────────────────────
 // Each kind names the experts that should review that artifact type. The
 // experts are skills (in .claude/skills/*) the model can invoke via the
-// criticReviseLoop primitive — same plumbing already used for recommendations
+// criticReviseLoop primitive - same plumbing already used for recommendations
 // and strategy.
 
 export type ArtifactKind =
@@ -64,7 +64,7 @@ export type ArtifactKind =
  */
 export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
     // User-research lineage: Cooper, Indi Young, Goodwin
-    // 2026-05-25 — JM-depth uplift extends persona panel with evidence-quality-
+    // 2026-05-25 - JM-depth uplift extends persona panel with evidence-quality-
     // auditor to enforce the learned constraint "use verbatim excerpts from
     // actual user research; generic or fabricated quotes lack authenticity"
     // (5 feedback signals, confidence 0.85). The verbatim-quote-auditor catches
@@ -78,8 +78,8 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
     ],
 
     // UX research lineage: NN/g, This Is Service Design Doing
-    // 2026-05-25 — JM-depth uplift adds verbatim-quote-auditor (validates that
-    // .vq cells contain actual corpus text, not fabricated quotes — the single
+    // 2026-05-25 - JM-depth uplift adds verbatim-quote-auditor (validates that
+    // .vq cells contain actual corpus text, not fabricated quotes - the single
     // load-bearing trust signal for the journey artifact) and pre-mortem (cross-
     // cutting risk lens on the journey's headline diagnostic). These two
     // critics catch the failure modes most likely to destroy stakeholder trust
@@ -92,7 +92,7 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
     ],
 
     // Service design lineage: Shostack, Stickdorn
-    // 2026-05-25 — JM-depth pattern: blueprint inherits the journey grid layout
+    // 2026-05-25 - JM-depth pattern: blueprint inherits the journey grid layout
     // with future-state framing. Adds verbatim-quote-auditor (each step needs
     // a corpus-grounded evidence quote per skill spec) and quantification-
     // architect (projected-impact tiles need finance-grade four-tuple).
@@ -145,7 +145,7 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
         { skill_name: 'research-planner',          max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
 
-    // Strategic diagnosis — learned constraint: "quantify gap impact in dollars
+    // Strategic diagnosis - learned constraint: "quantify gap impact in dollars
     // instead of qualitative descriptions" (5 feedback signals, confidence 0.85).
     // The quantification-architect critic enforces the four-tuple (baseline,
     // target, measurement method, refresh cadence); pre-mortem surfaces risks
@@ -214,7 +214,7 @@ export const UNIVERSAL_CRITICS: CriticConfig[] = [
 
 export const PANEL_BUDGETS_USD: Record<ArtifactKind, number> = {
     persona:         0.55,
-    // 2026-05-25 — Journey panel now fires 4 critics (was 2) per JM-depth
+    // 2026-05-25 - Journey panel now fires 4 critics (was 2) per JM-depth
     // uplift. Budget raised proportionally; verbatim-quote-auditor +
     // pre-mortem each consume ~0.10 USD on Sonnet 4.6.
     journey:         0.60,
@@ -238,10 +238,10 @@ export const PANEL_BUDGETS_USD: Record<ArtifactKind, number> = {
 
 // ─── Built-in deterministic invoker for the universal critics ────────────────
 // Anti-slop and structural-conformance run as deterministic checks (no LLM
-// call needed) — the patterns are well-defined regex and DOM-shape rules.
+// call needed) - the patterns are well-defined regex and DOM-shape rules.
 // This keeps the universal pass cheap and reliable.
 
-const EM_DASH_RE = /—/g;
+const EM_DASH_RE = /-/g;
 const UNICODE_BOLD_ITALIC_RE = /[\u{1D400}-\u{1D7FF}]/u;
 const CHATGPT_ARTIFACT_RE = /\b(oaicite|oai_citation|contentReference|attached_file|attributableIndex|turn\d+search\d+)\b/i;
 const KNOWLEDGE_CUTOFF_RE = /\b(as an ai|i'm an ai|i am an ai|as of my knowledge cutoff|my training data|i don't have real-time|i should note)\b/i;
@@ -262,7 +262,7 @@ function deterministicCriticInvoker(skill: string, deliverable: unknown): Critic
     const issues: string[] = [];
 
     if (skill === 'anti-slop-auditor') {
-        // 2026-05-25 — Hygiene strip ALWAYS fires (covers em-dashes + slop-phrase
+        // 2026-05-25 - Hygiene strip ALWAYS fires (covers em-dashes + slop-phrase
         // substitution). Previously gated on em-dash presence; that missed
         // "leveraging" → "using", "utilize" → "use", etc. in HTML artifacts.
         const lower = text.toLowerCase();
@@ -335,7 +335,7 @@ function deterministicCriticInvoker(skill: string, deliverable: unknown): Critic
         edits,
         rationale: issues.length === 0
             ? `${skill}: no issues found`
-            : `${skill}: ${issues.length} issue(s) — ${issues.slice(0, 5).join('; ')}`,
+            : `${skill}: ${issues.length} issue(s) - ${issues.slice(0, 5).join('; ')}`,
         confidence: 'high',
     };
 }
@@ -379,7 +379,7 @@ export type ExpertPanelResult<T> = CriticReviseLoopResult<T> & {
  * summary of what fired.
  *
  * Idempotent: calling runExpertPanel twice in a row on the same artifact
- * is safe — the critics will accept on the second pass.
+ * is safe - the critics will accept on the second pass.
  *
  * Wire-up callers in this codebase:
  *  - services/geminiService.ts::generatePersonas         → kind='persona'
@@ -390,7 +390,7 @@ export type ExpertPanelResult<T> = CriticReviseLoopResult<T> & {
  *  - components/CorpusChatPanel.tsx (UPLIFT_KINDS handler)
  */
 export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<ExpertPanelResult<T>> {
-    // 2026-05-25 circuit-breaker — When the deliverable is a freeform-HTML
+    // 2026-05-25 circuit-breaker - When the deliverable is a freeform-HTML
     // artifact (FreeformArtifact with .html: string), LLM critics that emit
     // target_path edits will either fail (paths into strings) or destroy the
     // artifact (replacing the html field with critic prose, observed dropping
@@ -411,7 +411,7 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
         : (opts.skip_universal ? [...panel] : [...panel, ...UNIVERSAL_CRITICS]);
 
     if (isFreeformHtml) {
-        console.info(`[runExpertPanel/${opts.kind}] freeform-HTML detected — LLM critics SKIPPED to prevent target_path corruption; running deterministic hygiene only`);
+        console.info(`[runExpertPanel/${opts.kind}] freeform-HTML detected - LLM critics SKIPPED to prevent target_path corruption; running deterministic hygiene only`);
     }
 
     const budget = opts.budget_usd ?? PANEL_BUDGETS_USD[opts.kind] ?? 0.40;
@@ -419,7 +419,7 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
 
     // Count em-dashes before the panel for the summary
     const beforeText = JSON.stringify(opts.deliverable);
-    const beforeEm = (beforeText.match(/—/g) || []).length;
+    const beforeEm = (beforeText.match(/-/g) || []).length;
 
     // Wrap the invoker so the universal critics use the deterministic path
     // when no custom invoker was supplied.
@@ -471,7 +471,7 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
     });
 
     const afterText = JSON.stringify(loopResult.result);
-    const afterEm = (afterText.match(/—/g) || []).length;
+    const afterEm = (afterText.match(/-/g) || []).length;
 
     return {
         ...loopResult,
@@ -494,7 +494,7 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /** Walk every string-valued field in an object/array tree and strip em-dashes
- * AND emoji (2026-05-27 — repo-wide hard emoji ban). Pure function; returns a
+ * AND emoji (2026-05-27 - repo-wide hard emoji ban). Pure function; returns a
  * new structure with banned glyphs removed. Layout glyphs (U+25xx bullets,
  * U+21xx arrows) are preserved. */
 const _EMOJI_RE_INPLACE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
@@ -502,9 +502,9 @@ export function stripEmDashesInPlace<T>(obj: T): T {
     if (obj === null || obj === undefined) return obj;
     if (typeof obj === 'string') {
         return (obj as string)
-            .replace(/ — /g, ', ')
-            .replace(/(\w)—(\w)/g, '$1-$2')
-            .replace(/—/g, ', ')
+            .replace(/ - /g, ', ')
+            .replace(/(\w)-(\w)/g, '$1-$2')
+            .replace(/-/g, ', ')
             .replace(_EMOJI_RE_INPLACE, '')
             .replace(/[ \t]{2,}/g, ' ')
             .replace(/ +([.,;:!?])/g, '$1') as unknown as T;
@@ -523,14 +523,14 @@ export function stripEmDashesInPlace<T>(obj: T): T {
 }
 
 
-// ─── 2026-05-25 — Slop-phrase substitution for HTML artifacts ────────────────
+// ─── 2026-05-25 - Slop-phrase substitution for HTML artifacts ────────────────
 // slidePostProcessor's SLOP_BLACKLIST only runs on Slide objects (title/content/
 // narrative/speakerNotes/quote). Freeform HTML artifacts bypass that pipeline.
 // This function applies the same phrase substitutions to ANY string-valued
 // field in a deliverable (including string-typed `html` fields on FreeformArtifact).
 // Word-boundary regex so "facilitates" doesn't match inside larger words.
 const SLOP_SUBSTITUTIONS: Array<[RegExp, string]> = [
-    // High-severity verbal tics — substitute with plain alternatives
+    // High-severity verbal tics - substitute with plain alternatives
     [/\b(?:leveraging|leverages|leveraged)\b/gi, 'using'],
     [/\butili(?:z|s)e(?:s|d|ing)?\b/gi, 'use'],
     [/\bdelve(?:s|d|ing)?\b/gi, 'examine'],

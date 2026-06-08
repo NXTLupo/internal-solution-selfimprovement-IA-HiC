@@ -1,4 +1,4 @@
-// services/criticDispatcher.ts — 2026-05-25
+// services/criticDispatcher.ts - 2026-05-25
 //
 // The piece that makes the expert panel actually fire LLM-based domain
 // critics (not just deterministic hygiene). Given a critic skill name +
@@ -37,7 +37,7 @@ async function loadSkillMarkdown(skillName: string, proxyBase: string): Promise<
             return text;
         }
     } catch { /* fall through */ }
-    // No skill found — return a minimal generic critic guidance so the call
+    // No skill found - return a minimal generic critic guidance so the call
     // doesn't fail. The panel keeps moving.
     return `You are a domain critic for the "${skillName}" skill. Review the deliverable for quality, evidence grounding, and adherence to the skill's core discipline. Suggest structured edits.`;
 }
@@ -83,8 +83,8 @@ RULES:
 - new_value is the corrected value (omit for action="remove")
 - accept is true ONLY if the deliverable fully meets the skill's discipline; otherwise false with at least one edit
 - confidence is "high" / "medium" / "low" reflecting your certainty
-- Max 5 edits per verdict — focus on the load-bearing issues
-- Skip cosmetic fixes (em-dashes, formatting) — those are caught by the universal critics
+- Max 5 edits per verdict - focus on the load-bearing issues
+- Skip cosmetic fixes (em-dashes, formatting) - those are caught by the universal critics
 - DO NOT invent corpus content. If a field needs evidence the corpus does not contain, OMIT (action="remove") rather than fabricate
 
 Return the JSON now.`;
@@ -128,7 +128,7 @@ async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict
     try {
         parsed = parseJSONWithRepair(text, { calling_context: `critic:${opts.skill}` });
     } catch (e: any) {
-        // Critic returned unparseable output — accept as a pass-through so
+        // Critic returned unparseable output - accept as a pass-through so
         // the panel doesn't block. Log for telemetry.
         console.warn(`[critic-dispatcher/${opts.skill}] unparseable output, pass-through:`, e?.message);
         return {
@@ -137,7 +137,7 @@ async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict
         };
     }
 
-    // Normalize the verdict — defensively, since critic models occasionally
+    // Normalize the verdict - defensively, since critic models occasionally
     // omit fields under load.
     const verdict: CriticVerdict = {
         accept: parsed.accept !== false,

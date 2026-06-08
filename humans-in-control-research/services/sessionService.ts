@@ -1,4 +1,4 @@
-// sessionService.ts — 2026-05-11 (HiC-Session-Save)
+// sessionService.ts - 2026-05-11 (HiC-Session-Save)
 //
 // Total research session persistence. Hides the proxy endpoints behind a
 // clean API: save / list / load / delete + serializer/deserializer that
@@ -252,7 +252,7 @@ export function buildSessionSnapshot(input: {
 
 /** Restore a session into App-level state. Returns a partial state
  *  object the caller maps onto its setState calls. Symmetric to
- *  buildSessionSnapshot — the shape mirrors what App.tsx already
+ *  buildSessionSnapshot - the shape mirrors what App.tsx already
  *  manages, so the receiving side just spreads the keys. */
 export function restoreSessionSnapshot(snap: SessionSnapshot) {
     return {
@@ -293,7 +293,7 @@ export function restoreSessionSnapshot(snap: SessionSnapshot) {
 
 /** Format a saved_at ISO string into a relative-time hint for the UI. */
 export function formatSessionTimestamp(iso?: string): string {
-    if (!iso) return '—';
+    if (!iso) return '-';
     try {
         const d = new Date(iso);
         if (isNaN(d.getTime())) return iso;

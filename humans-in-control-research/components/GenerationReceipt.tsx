@@ -1,9 +1,9 @@
 /**
- * GenerationReceipt — Per-deliverable footer that tells users which
+ * GenerationReceipt - Per-deliverable footer that tells users which
  * skill version, constraints, and similar past engagements informed
  * this output.
  *
- * Renders below any generated deliverable. Lightweight — uses cached
+ * Renders below any generated deliverable. Lightweight - uses cached
  * data from a single proxy call when possible.
  *
  * Created 2026-05-22 as part of Phase 6 (change-promotion surfaces).
@@ -22,10 +22,10 @@ export interface GenerationReceiptProps {
     skillName?: string;
     priorRunsOfThisType?: number; // computed by caller from session history
     /**
-     * 2026-05-22 — Model identifier that produced this output. Surfaces in
+     * 2026-05-22 - Model identifier that produced this output. Surfaces in
      * the receipt as a small chip so users can see whether they got a
      * frontier model (Opus / GPT-5.5) or a cost-tier model (Gemini Flash).
-     * Optional — when omitted the chip is hidden.
+     * Optional - when omitted the chip is hidden.
      */
     modelUsed?: string | null;
 }

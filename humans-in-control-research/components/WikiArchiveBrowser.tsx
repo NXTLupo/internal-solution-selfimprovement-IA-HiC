@@ -1,5 +1,5 @@
 /**
- * WikiArchiveBrowser — full-screen overlay listing every archived article,
+ * WikiArchiveBrowser - full-screen overlay listing every archived article,
  * transcript, and upload so the operator can inspect the wiki archive
  * directly without going through theme → evidence drill-downs.
  *
@@ -13,7 +13,7 @@
  * sort) and a click-to-read-full-body interaction that reuses
  * WikiArticleViewer.
  *
- * Designed as a peer overlay to WikiArticleViewer — they can stack (browser
+ * Designed as a peer overlay to WikiArticleViewer - they can stack (browser
  * open, click a row, viewer opens on top). ESC on viewer returns to browser;
  * ESC on browser closes both.
  */
@@ -36,9 +36,9 @@ const KIND_LABELS: Record<string, string> = {
     upload: 'UPLOAD',
 };
 const KIND_GLYPHS: Record<string, string> = {
-    article: '📄',
-    transcript: '🎬',
-    upload: '📑',
+    article: '',
+    transcript: '',
+    upload: '',
 };
 
 export const WikiArchiveBrowser: React.FC<Props> = ({ isOpen, onClose }) => {
@@ -156,9 +156,9 @@ export const WikiArchiveBrowser: React.FC<Props> = ({ isOpen, onClose }) => {
                             </div>
                             {/* Kind counts strip */}
                             <div style={{ display: 'flex', gap: 14, marginTop: 10, fontSize: 11, color: '#666' }}>
-                                <span>📄 {kindCounts.article} articles</span>
-                                <span>🎬 {kindCounts.transcript} transcripts</span>
-                                <span>📑 {kindCounts.upload} uploads</span>
+                                <span> {kindCounts.article} articles</span>
+                                <span> {kindCounts.transcript} transcripts</span>
+                                <span> {kindCounts.upload} uploads</span>
                             </div>
                         </div>
                         <button onClick={onClose} style={{
@@ -202,7 +202,7 @@ export const WikiArchiveBrowser: React.FC<Props> = ({ isOpen, onClose }) => {
 
                     {/* Results */}
                     <div style={{ flex: 1, overflow: 'auto', padding: '0 24px' }}>
-                        {loading && <div style={{ padding: 40, color: '#888', fontSize: 12 }}>Loading archive index…</div>}
+                        {loading && <div style={{ padding: 40, color: '#888', fontSize: 12 }}>Loading archive index...</div>}
                         {error && !loading && (
                             <div style={{ padding: 16, margin: '16px 0', border: '1px solid #CC6644', color: '#8A3B1F', background: '#FDF0EC', fontSize: 12 }}>
                                 {error}
@@ -238,11 +238,11 @@ export const WikiArchiveBrowser: React.FC<Props> = ({ isOpen, onClose }) => {
                                             </td>
                                             <td style={tdStyle}>
                                                 <div style={{ fontWeight: 600, color: '#141414' }}>{e.title || '(untitled)'}</div>
-                                                {e.summary && <div style={{ fontSize: 11, color: '#666', marginTop: 4, lineHeight: 1.4 }}>{e.summary.substring(0, 160)}…</div>}
+                                                {e.summary && <div style={{ fontSize: 11, color: '#666', marginTop: 4, lineHeight: 1.4 }}>{e.summary.substring(0, 160)}...</div>}
                                             </td>
-                                            <td style={{ ...tdStyle, color: '#555', fontSize: 11 }}>{e.source || '—'}</td>
+                                            <td style={{ ...tdStyle, color: '#555', fontSize: 11 }}>{e.source || '-'}</td>
                                             <td style={{ ...tdStyle, color: '#888', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
-                                                {e.date || (e.mtime ? new Date(e.mtime * 1000).toISOString().substring(0, 10) : '—')}
+                                                {e.date || (e.mtime ? new Date(e.mtime * 1000).toISOString().substring(0, 10) : '-')}
                                             </td>
                                             <td style={{ ...tdStyle, textAlign: 'right' as const, fontFamily: "'JetBrains Mono', monospace", color: '#555' }}>
                                                 {e.chars >= 1000 ? `${Math.round(e.chars / 1000)}k` : e.chars}

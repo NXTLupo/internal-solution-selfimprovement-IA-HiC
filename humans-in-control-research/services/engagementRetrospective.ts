@@ -1,8 +1,8 @@
-// engagementRetrospective.ts — 2026-05-11 (HiC-Active-Loop #7)
+// engagementRetrospective.ts - 2026-05-11 (HiC-Active-Loop #7)
 //
 // Session-end "PreCompact" hook applied to the whole engagement. Captures
-// everything the system learned across this run — deliverables produced,
-// edits the user made, constraints learned, sources cited, themes built —
+// everything the system learned across this run - deliverables produced,
+// edits the user made, constraints learned, sources cited, themes built -
 // and writes a single structured retrospective to:
 //
 //   wiki/engagements/{slug}-retrospective.md
@@ -12,10 +12,10 @@
 // priorEngagementMatches) auto-loads the retrospective into the new prompt.
 // That's the closing of the self-improvement loop:
 //
-//   Edits → Constraints → Future generations get sharper (loop #3 — shipped)
-//   Engagement run → Retrospective → Future engagements inherit (loop #7 — this)
+//   Edits → Constraints → Future generations get sharper (loop #3 - shipped)
+//   Engagement run → Retrospective → Future engagements inherit (loop #7 - this)
 //
-// The retrospective is intentionally STRUCTURED markdown — easy for the
+// The retrospective is intentionally STRUCTURED markdown - easy for the
 // matcher to read, easy for the model to load into context, and easy for
 // humans to skim later.
 
@@ -39,7 +39,7 @@ export interface EngagementSnapshot {
 
 /**
  * Build a structured retrospective markdown from an engagement snapshot.
- * No LLM call — this is pure assembly of session metadata so the matcher
+ * No LLM call - this is pure assembly of session metadata so the matcher
  * gets exact strings (not paraphrased) and the retrospective costs zero
  * tokens to produce. The optional LLM enrichment pass (`enrichWithInsights`)
  * adds a narrative summary if the caller wants one.
@@ -48,7 +48,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
     const slug = slugifyGoal(snap.researchGoal);
     const lines: string[] = [];
 
-    // YAML frontmatter — matched against future engagements via the
+    // YAML frontmatter - matched against future engagements via the
     // existing engagementMemoryMatcher (App.tsx priorEngagementMatches).
     lines.push('---');
     lines.push(`title: ${JSON.stringify(`Retrospective: ${snap.researchGoal.slice(0, 100)}`)}`);
@@ -73,7 +73,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
     lines.push('---');
     lines.push('');
 
-    // Body sections — same shape as the PreCompact session digest so the
+    // Body sections - same shape as the PreCompact session digest so the
     // model parses them consistently.
     lines.push(`# Retrospective: ${snap.researchGoal}`);
     lines.push('');
@@ -90,7 +90,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
             const name = (t as any).name || (t as any).label || '(unnamed)';
             const ev = (t as any).evidenceCount ?? ((t as any).citations?.length || 0);
             const summary = (t as any).description || (t as any).summary || '';
-            lines.push(`- **${name}** (${ev} evidence) — ${summary.slice(0, 200)}`);
+            lines.push(`- **${name}** (${ev} evidence) - ${summary.slice(0, 200)}`);
         }
         lines.push('');
     }
@@ -101,7 +101,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
             const name = (p as any).name || (p as any).role || '(unnamed)';
             const role = (p as any).role || '';
             const goals = ((p as any).goals || []).slice(0, 2).join('; ');
-            lines.push(`- **${name}** (${role})${goals ? ` — Goals: ${goals}` : ''}`);
+            lines.push(`- **${name}** (${role})${goals ? ` - Goals: ${goals}` : ''}`);
         }
         lines.push('');
     }
@@ -111,7 +111,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
         for (const r of snap.recommendations.slice(0, 12)) {
             const title = (r as any).title || (r as any).name || '(untitled)';
             const desc = (r as any).description || (r as any).rationale || '';
-            lines.push(`- **${title}** — ${desc.slice(0, 250)}`);
+            lines.push(`- **${title}** - ${desc.slice(0, 250)}`);
         }
         lines.push('');
     }
@@ -170,7 +170,7 @@ export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
 
 /**
  * Persist a retrospective to wiki/engagements/{slug}-retrospective.md.
- * Idempotent — overwrites existing file for the same slug, so re-running
+ * Idempotent - overwrites existing file for the same slug, so re-running
  * "End Engagement" on the same goal updates rather than duplicates.
  */
 export async function saveRetrospective(snap: EngagementSnapshot): Promise<{ ok: boolean; path: string; error?: string }> {

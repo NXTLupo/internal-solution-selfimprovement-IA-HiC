@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT HUMANS, Co-op AI Personas</title>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   NXT ARTIFACT DESIGN SYSTEM 2026, STARK WHITE INJECTION
+   ═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#141414;--ink-60:rgba(20,20,20,.6);--ink-12:rgba(20,20,20,.12);--ink-06:rgba(20,20,20,.06);--white:#fff;--teal:#006D6D;--teal-light:#E6F4F4;--lime:#C8F04A;--lime-dark:#3D5200;--accent:#0057FF;--accent-light:#E8EFFE;--r4:4px;--r8:8px;--r12:12px;--r16:16px;--font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono','Fira Mono',monospace;--wrap:1200px}
+html{font-size:16px;background:#fff;color:#141414}
+body{font-family:var(--font);background:#fff;color:#141414;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+
+/* MASTHEAD */
+.nxt-masthead{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;border-bottom:1.5px solid var(--ink-12);background:#fff;position:sticky;top:0;z-index:100}
+.nxt-logo{font-family:var(--font);font-weight:800;font-size:.95rem;letter-spacing:.18em;color:#141414;text-transform:uppercase}
+.nxt-logo--sm{font-size:.8rem}
+.nxt-masthead__label{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-60);border:1.5px solid var(--ink-12);padding:.2rem .6rem;border-radius:var(--r4)}
+
+/* WRAP */
+.nxt-wrap{max-width:var(--wrap);margin-left:auto;margin-right:auto;padding-left:2rem;padding-right:2rem}
+
+/* TABS */
+.nxt-tabs{display:flex;gap:0;border-bottom:1.5px solid var(--ink-12);background:#fff;padding:0 2rem;position:sticky;top:56px;z-index:90}
+.nxt-tab{background:none;border:none;border-bottom:2.5px solid transparent;padding:.75rem 1.25rem;font-family:var(--font);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-60);cursor:pointer;margin-bottom:-1.5px;transition:color .15s,border-color .15s}
+.nxt-tab[aria-selected="true"]{color:#141414;border-bottom-color:#141414}
+.nxt-tab:hover{color:#141414}
+.nxt-panel{display:none}
+.nxt-panel[data-active="true"]{display:block}
+
+/* HERO */
+.nxt-hero{padding:4rem 2rem 3rem;border-bottom:1.5px solid var(--ink-12)}
+.nxt-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-60);margin-bottom:.75rem}
+.nxt-hero__title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#141414;margin-bottom:1rem;max-width:800px}
+.nxt-hero__standfirst{font-size:1.1rem;color:var(--ink-60);max-width:640px;line-height:1.6}
+
+/* SECTIONS */
+.nxt-section{padding:3rem 2rem}
+.nxt-section+.nxt-section{border-top:1.5px solid var(--ink-06)}
+
+/* TYPOGRAPHY */
+.nxt-h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:#141414;margin-bottom:1rem}
+.nxt-h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;color:#141414;margin-bottom:.5rem}
+.nxt-display{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+.nxt-prose{font-size:.95rem;color:var(--ink-60);line-height:1.7;max-width:680px}
+
+/* GRID */
+.nxt-grid{display:grid;gap:1.5rem}
+.nxt-grid--2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.nxt-grid--3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.nxt-grid--4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+/* CARDS */
+.nxt-card{border:1.5px solid var(--ink-12);border-radius:var(--r12);padding:1.5rem;background:#fff}
+.nxt-card__label{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-60);margin-bottom:.5rem}
+.nxt-card__title{font-size:1rem;font-weight:700;color:#141414;margin-bottom:.5rem}
+.nxt-card__body{font-size:.875rem;color:var(--ink-60);line-height:1.6}
+
+/* CHIPS */
+.nxt-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .6rem;border-radius:99px;border:1.5px solid var(--ink-12);color:var(--ink-60);background:#fff}
+.nxt-chip--status{background:var(--teal-light);border-color:var(--teal);color:var(--teal)}
+.nxt-chip--accent{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+.nxt-chip--source{background:var(--ink-06);border-color:var(--ink-12);color:var(--ink-60);font-size:.65rem}
+
+/* QUOTE */
+.nxt-quote{border-left:3px solid #141414;padding:.75rem 1.25rem;margin:1rem 0}
+.nxt-quote__text{font-size:.9rem;font-style:italic;color:#141414;line-height:1.6;margin-bottom:.4rem}
+.nxt-quote__cite{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-60)}
+
+/* STAT */
+.nxt-stat{padding:1.25rem;border:1.5px solid var(--ink-12);border-radius:var(--r8)}
+.nxt-stat__fig{font-size:2rem;font-weight:900;letter-spacing:-.04em;color:#141414}
+.nxt-stat__label{font-size:.75rem;font-weight:600;color:var(--ink-60);margin-top:.25rem}
+.nxt-stat__src{font-size:.65rem;color:var(--ink-60);margin-top:.25rem;font-style:italic}
+
+/* BLOCKS */
+.nxt-block{border-radius:var(--r12);padding:2rem;margin:1.5rem 0}
+.nxt-block--teal{background:var(--teal);color:#fff}
+.nxt-block--teal .nxt-h2,.nxt-block--teal .nxt-h3,.nxt-block--teal p,.nxt-block--teal li{color:#fff}
+.nxt-block--ink{background:#FFFFFF;color:#141414}
+.nxt-block--ink .nxt-h2,.nxt-block--ink .nxt-h3,.nxt-block--ink p,.nxt-block--ink li{color:#fff}
+.nxt-block--lime{background:var(--lime);color:var(--lime-dark)}
+.nxt-block--lime .nxt-h2,.nxt-block--lime .nxt-h3,.nxt-block--lime p{color:var(--lime-dark)}
+
+/* TABLE */
+.nxt-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.nxt-table thead tr{background:var(--ink-06);border-bottom:1.5px solid var(--ink-12)}
+.nxt-table th{text-align:left;padding:.75rem 1rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+.nxt-table td{padding:.75rem 1rem;border-bottom:1px solid var(--ink-06);color:#141414;vertical-align:top}
+.nxt-table tr:last-child td{border-bottom:none}
+
+/* ICONS */
+.nxt-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+
+/* PERSONA CARDS */
+.nxt-persona{border:1.5px solid var(--ink-12);border-radius:var(--r16);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.nxt-persona__header{padding:2rem 2rem 1.5rem;border-bottom:1.5px solid var(--ink-06);display:flex;gap:1.25rem;align-items:flex-start}
+.nxt-persona__avatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:#FFFFFF;color:#141414;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;letter-spacing:-.02em;font-family:var(--font)}
+.nxt-persona__meta{flex:1}
+.nxt-persona__name{font-size:1.2rem;font-weight:800;color:#141414;letter-spacing:-.02em;margin-bottom:.2rem}
+.nxt-persona__archetype{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);margin-bottom:.5rem}
+.nxt-persona__chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.nxt-persona__body{padding:1.5rem 2rem;flex:1;display:flex;flex-direction:column;gap:1.25rem}
+.nxt-persona__section-label{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-60);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.nxt-persona__goals{background:var(--ink-06);border-radius:var(--r8);padding:1rem 1.25rem}
+.nxt-persona__goal-row{display:flex;gap:.75rem;align-items:flex-start;padding:.4rem 0;border-bottom:1px solid var(--ink-12)}
+.nxt-persona__goal-row:last-child{border-bottom:none}
+.nxt-persona__goal-type{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60);min-width:90px;padding-top:.1rem}
+.nxt-persona__goal-text{font-size:.875rem;color:#141414;line-height:1.5}
+.nxt-persona__behaviors{display:flex;flex-direction:column;gap:.5rem}
+.nxt-persona__behavior{display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem;color:#141414}
+.nxt-persona__behavior-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:#FFFFFF;margin-top:.45rem}
+.nxt-persona__pains{display:flex;flex-direction:column;gap:.5rem}
+.nxt-persona__pain{background:#FFF5F5;border:1px solid #FECACA;border-radius:var(--r8);padding:.6rem .9rem;font-size:.85rem;color:#141414;line-height:1.5}
+.nxt-persona__needs{display:flex;flex-direction:column;gap:.5rem}
+.nxt-persona__need{background:var(--teal-light);border:1px solid var(--teal);border-radius:var(--r8);padding:.6rem .9rem;font-size:.85rem;color:#141414;line-height:1.5}
+.nxt-persona__quotes{display:flex;flex-direction:column;gap:.75rem;padding:1.25rem 2rem;border-top:1.5px solid var(--ink-06);background:var(--ink-06)}
+.nxt-persona__jtbd{background:var(--accent-light);border:1.5px solid var(--accent);border-radius:var(--r8);padding:.75rem 1rem;font-size:.875rem;color:#141414;line-height:1.5}
+.nxt-persona__jtbd-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+
+/* PROCESS */
+.nxt-process{display:flex;gap:0;align-items:stretch;flex-wrap:wrap}
+.nxt-phase{flex:1;min-width:160px;border:1.5px solid var(--ink-12);padding:1.25rem;position:relative}
+.nxt-phase+.nxt-phase{border-left:none}
+.nxt-phase:first-child{border-radius:var(--r8) 0 0 var(--r8)}
+.nxt-phase:last-child{border-radius:0 var(--r8) var(--r8) 0}
+.nxt-phase__label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);margin-bottom:.5rem}
+.nxt-phase__title{font-size:.9rem;font-weight:700;color:#141414}
+
+/* CALLOUT */
+.nxt-callout{border:1.5px solid var(--ink-12);border-radius:var(--r8);padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;background:#fff}
+.nxt-callout__icon{color:var(--teal);margin-top:.1rem}
+.nxt-callout__body{font-size:.9rem;color:#141414;line-height:1.6}
+.nxt-callout__body strong{font-weight:700}
+
+/* SOURCE INDEX */
+.nxt-source-index{border-top:1.5px solid var(--ink-12)}
+.nxt-source-index ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.nxt-source-index li{font-size:.8rem;color:var(--ink-60);display:flex;gap:.75rem}
+.sname{font-weight:700;color:#141414;min-width:220px}
+
+/* FOOTER */
+.nxt-footer{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2rem;border-top:1.5px solid var(--ink-12);background:#fff}
+.nxt-footer span:last-child{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60)}
+
+/* NUMLIST */
+.nxt-numlist{counter-reset:nl;display:flex;flex-direction:column;gap:.75rem}
+.nxt-numlist__item{display:flex;gap:1rem;align-items:flex-start;counter-increment:nl}
+.nxt-numlist__item::before{content:counter(nl);font-size:.75rem;font-weight:800;color:#141414;background:#FFFFFF;border-radius:50%;width:22px;height:22px;min-width:22px;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
+.nxt-numlist__text{font-size:.9rem;color:#141414;line-height:1.6}
+
+/* PERSONA GRID LAYOUT */
+.nxt-persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:2rem}
+
+@media(max-width:600px){
+  .nxt-persona-grid{grid-template-columns:1fr}
+  .nxt-persona__header{flex-direction:column}
+  .nxt-tabs{overflow-x:auto}
+  .nxt-process{flex-direction:column}
+  .nxt-phase+.nxt-phase{border-left:1.5px solid var(--ink-12);border-top:none}
+  .nxt-phase:first-child{border-radius:var(--r8) var(--r8) 0 0}
+  .nxt-phase:last-child{border-radius:0 0 var(--r8) var(--r8)}
+}
+</style>
+
+<!-- ICON SPRITE -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+ <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+ <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5.5 6-5.5"/><circle cx="16" cy="8" r="3"/><path d="M21 20c0-3-2.7-5.5-6-5.5s-6 2.5-6 5.5"/></symbol>
+ <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+ <symbol id="i-idea" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 4 12.8V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.2A7 7 0 0 1 12 2z"/><path d="M9 21h6"/></symbol>
+ <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r=".5" fill="currentColor"/></symbol>
+ <symbol id="i-chart" viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></symbol>
+ <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+ <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/></symbol>
+ <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+ <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="4" rx="1"/><rect x="15" y="3" width="6" height="4" rx="1"/><rect x="9" y="17" width="6" height="4" rx="1"/><path d="M6 7v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7"/><line x1="12" y1="13" x2="12" y2="17"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-4 9-8 10C8 21 4 17 4 12V6l8-4z"/></symbol>
+ <symbol id="i-building" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 21V9h6v12"/><path d="M3 9h18"/></symbol>
+ <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+ <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></symbol>
+</svg>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700;800&family=Archivo:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style id="nxt-system">/* ============================================================================
+   NXT ARTIFACT SYSTEM  ,  stark-white, flat, minimal, dark-on-white, WCAG AA
+   The single component library every #NXT deliverable is built from.
+   2026 brand: Saira Condensed (Agency FB fallback) display + Archivo body,
+   teal #115054, lime #CACA20, ink #141414. No shadows, 2px radius, hairlines.
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700;800&family=Archivo:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --nxt-white:#FFFFFF;  --nxt-paper:#FAFAFA;  --nxt-line:#EAEAEA;  --nxt-line-2:#E2E2DC;
+  --nxt-ink:#141414;    --nxt-ink-2:#242424;  --nxt-mid:#3A3A3A;   --nxt-muted:#5A5A52;
+  --nxt-teal:#115054;   --nxt-lime:#CACA20;   --nxt-cyan:#00B7C3;  --nxt-rust:#CC6644;
+  --nxt-lime-tint:#F7F7DE; --nxt-teal-tint:#E4EFEF;
+  --nxt-disp:'Saira Condensed','Agency FB','Oswald',sans-serif;
+  --nxt-body:'Archivo',-apple-system,'Segoe UI',sans-serif;
+  --nxt-mono:'JetBrains Mono',ui-monospace,monospace;
+  --nxt-radius:2px;  --nxt-pad:64px;  --nxt-gap:20px;
+  /* logo: gallery uses file path; artifact injection overrides with a data: URI */
+  --nxt-logo-black:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABqQAAAG8CAYAAAC48sRAAAAa2ElEQVR4nO3da3LbOhKA0eiWl8D9rxB7yFTmTiaOLct8oIkG+pyq+XkzKgmCCHwg/fgBAAAAAABwg23bfnqj47TWHj+Sevjw8354Ppv+n5P3tN97eYT3/fr77j1k1QuR0Xy34seT9zju/fXeHuf9jeX9zfHeVmQ+PGbF8WQMxFltvBgrr9kHncNM30vfuVxagrHzz+gXkJ0vzTp8lmPeJ+/79ffJe4jvIbMyf8W9Z95bMjJ+yTzuWJcxAL5P1WSe9369tvf/G/16eP35jPiM3u7+PwQAAAD2+7VZkOFEK1CP+QfYM094l9b4/NoN15uCFAAAAAAAsIsItfbn2gLDlCBFGb++SCZLAAAAAIDj7K3WsAXeNSVIASTgESwAAHCMTTEAuIff3Lq2zndN/dPjHwEAAADi2AgC3wu4g98bPo4HY4Jfeo0DQWoHXzoAAAAAAKqwJ05EoBSkAAAAAAAAd0XxrStRSpACAAAApuLUNgD4fWW+azFBCgAAACYgwgAArjOY+dpUkAIAAAAAgKIceuGusSNIAZcnEgAAAGBN9gjq8ZnX4vPmzjEkSAW8qeTVWnuMfg0AAACcZ30OAH34TeXusSRIAWH8qO0jlAIA4BobALiTfTtGjClBCgAAAAAAgNAoJUgBAAAAMBUn+wHMocxHkAIAAACmIEIAmG/xW8q812uCVKc3EgAAAAAAgOcEKQAAAJiIw5IAgGsIZrxeFaQAAAAAAAAIJUhRTmvtMfo1AAAAAMzCnZkwP99jMow5QQpgIIEUAAD2sZEGADA3QQoAAAAmI84A4LcGmO2aVZC6+AYCAAAAAEBW9rTJQpACAAAAYBo2VgFgToIUAAAAkJoAAQAw/3WcIAV8O1EAAAD5uGYHAFwvMBNBCgAAAACATxx+AHoSpCiptfYY/RpW54IFAAAAAIDfBKkTbLQDPQijAABgDQ4AUKWpCFIAAAAwKQcmAfMN4DqBWQhSAAAAAAAAhBKkAAAAAAAACCVIAQAAACl5JCHAeOZioBdB6iQTMQAAAMC97McAwLy/4YIUAAAATMwGPQAAMxCkKKu19hj9GgAAAAAAoAJBCgAAAAAAFuIOajISpAAGcIceAAC8ZiMNAGAtghQAAABMTrwBwO8MkJ0gdYELfgAAAACqsBcGwBWCFPAlF5oAAAAAAPQgSAEAAACpOBwHALAeQQrozuIRAADu5zqc1RnjADA3QQoAAAAAgJdEYeAqQYrSWmuP0a8BAAAAAABWJ0hd5GQAcJQQCgAA1tkAANUIUgAAALAIhyYBAMhKkAIAAAAAACCUIAUAAAAA7OJOTADOEqQAAACAFGx0A+RmngauEKQ6MBEDAACQhTUqAAAZCVIAAAAAAACEEqQor7X2KP8mAAAAQGLu/AOA+QlSADcSQAEAAACAigQpAAAAYDh3wAAArE2QAl6yKAQAgPm4jgfAbwyQjSDViYt9AAAAAACA5wQpoCtxFgAAAACAjwQpAAAAYCgH22AuvrMAnCFIAQAAwIJsGAMAkIkgBT9+/GitPbwRAAAAAPA9hx6AMwSpjkzEwCvCJwAAgP0WAKhKkAIAAACGcbgTAKAGQQoAAAAWJfYAAJCFIAUAAAAAAECot9h/HgAAAAAAYK2/Ae9O9OPcIQUAAAAMYSMHYF7mcOAoQaozEzEAAACZWKcC5hYAMhCk4MTtmAAAAAAAwH6CFEByYinGEAAAAACzexv9AoA5HvEhilxz9f3L8P571Mu8nx0AAAAAjOYOKQAAAOB2DjxhnABALYIU0I0FJQAA5ORaHQC/L8BoglQAF/oAAAAAAAB/CFIAAAAAAACEEqQAAACAW3myCABAPYIUAAAAFCACAQAwkiAF77TWHt4QAAAAgO8J3RgHwBGCVBA/yMBvQicAAAAAUJ0gBQAAANzGAU4AgJoEKQAAAChCDAIAYBRBCgAAAIB0BFQAWIsgBQAAAAAAQChBCgAAALiFO14A1mR+B/YQpAKZiAEAAMjGWhUAgBEEKfigtfbwpnxm0QoAAAAAwFmCFEAggRMAAICVOcAKwF6CFNCFC1AAAAAAAL4iSAEAAADhHGIDAKhNkAIAAIBixCEA/LYAdxOkgrnIBwAAALCfAgDVCVIAAAAAAACEEqQAAACAUJ4eAgCAIAVPtNYe3hgAAGBlIhEAAHcSpACCCJsAAABAJQ47AK8IUjcwEQMAAAAAAJUJUgAAAEAYhzRhfb7nAOwhSAEAAEBRNpEBALiLIAUAAAAAAEAoQQoAAAAAAIBQghSwm8d5AAAAR1hDcIZxA3PzHQa+IkjdxEQ8n9baY/RrAAAAiGa9CgDAHQQp4DILWAAAAAAAXhGkAAK4ww4AAAAA4A9BCgAAAAAAgFCCFAAAANCdR3sD1OU3AHhGkAIAAIDibBwC5hEAoglSN3KBDwAAAAAAVCRIAQAAAAAAEEqQAgAAALryhBCMHQDgI0EKXmitPbxBAABABSISAACRBCmAzoRMAAAAoDoHHYCPBKmbmYgBAAAAAIBqBCkAAACgGwcxAQB4RpACAAAAAAAglCAFHOK0IwAArMv1PmAOASCKIAUAAAAAAEAoQQq4xAlKAAAAAOwbAd8RpAawgT+X1tpj9GsAAACYgfUuAABfEaQAOhIwAQCYnaiEsQcARBCkAAAAAAAACCVIAQAAAAAAEEqQAgAAAAAghEfBAr8JUgAAAMBlNhwBAHhFkBrEhToAAABZWbMCANCbIAUAAAAAdCFoA/AVQQp2aK09vFEAAAAAAHCOIAXQiXAJAAAAAPCcIAUAAABc4hFdXGUMwdp8x4FfBKmBTMQAAAAAAEAFghRwmJgKAADrc90PAEBPghQAAAAAAAChBCngNCcmAQAAAADYQ5ACAAAAAAAglCAFO7XWHt4sAACAv3lyAvCReYFnjAtAkBrMRAwAAEBW1qwAAPQiSAF04A46AAAAAICvCVIAAAAAAACEEqQAAAAAGMajIQGgBkEKAAAAAIBwAjTUJkglYCIGAABgRtazAADsJUgBAAAAXxKdAADo4a3LvwIAAAAAAFBEa+0x+jXMxh1ScIBJ5g+nJAEAAAAA2EuQArhIqAQAAIC/OcgKwEeCFAAAAAAAtxAroS5BKgkTMQAAADOxjgWgF0+fgRoEKQAAAAAAAEIJUgAAAMBL7oYiirEFAHUIUgAAAABwA48lA8jNQYlYghQAAAAAAAChBKnEnJrJyecCAAAAAOe5C4XMjM84glQiBjrMR6AEAAAAgLXYq48hSAEAAAAAALwjSvUnSAEAAACH2KABzBUAHCVIAQAAAAAAfOAQTl+CFAAAAAAE8zeI4W82+pmFsdqPIJWMwQ0AAEBG1qsYUwBU5TqoD0EKAAAAAADgBVHqOkEKTnCbPQAAAAAA7CdIAZwkTAIAAACQkX2rGO6SukaQAgAAAAAA2EGUOk+QAgAAAADgdjb2mZWxe44glZDBDAAAAMAK7HMB8JsgBQAAAOxmcxkAwDXRGYIUAAAAAABDtdYePgJm46DOMYIUAAAAANzEpjtgvlmLKLWfIAUnuYAEAACAc2zeAeYDqEeQSk70AAAAIAsRAQDANdJZb6f/S8Iv8sUoyMv3E6jKRiQAAAA8Xy/bM3zNHVIAAAAAALAggeReDnG+JkgBAAAAAAAQSpACAAAAAADowF1SXxOkAAAAACBQ9Udm2ZzFGBmr+hw0gnnvOUEqMYMWAAAAAADmY3//M0EKAAAAAAAW5i4pMhCk4AITOQAAABzjxDgAVfjN+5sgBXCQEAkAAADAbOxpjSFK/SFIAQAAAAAABBGl/iVIAQAAAAAwlA37e7hLapxt237+KE6QSs4gBQAAAAAAZidIAQAAAAAwnLt3vM+r24rfJSVIAQAAAAChqm/CAvxWeT4UpAAAAADgRu4Cgecqb9TfzTw01lZ0rAtScJHJGwAAAACYjX1N7iZIARzghxoAAAAAuGoreJeUIAUAAADALSpuvgFk5vD1WFux30VBCgAAAAAAihKlxtoKRSlBCgAAAAAAChOluIMgBQAAAAAAMMhW5C4pQQoAAAAAgrjrAJiF+WqsrUCUEqQAAAAAAABRarBt8SglSEEHTg8AAAAA1N5ohVXY6ySKIAWwkx9jAAAAACDStnC8F6QAAAAAAID/czB7rG3RKCVIAQAAABBu1c01gFWJUmNtC/5uClIAAAAAAMAnohQ9CVIAAAAAAADJbIvdJSVIAQAAAAAAT7lLaqxtoSglSAEAAAAAAF8SpcbaFolSghR0YlIGAAAA7CMAq7L/Oda2QJQSpAAAAACAW6ywoQrAOYIUwA5OgAAAAABQnT2ysbbJo74gBQAAAAAA7CJKjbVNHKUEKQAAAAAAYDdRaqxt0iglSAEAAAAQataNMwCgH0EKAAAAAAA4xF1SY20THvYQpAAAAAAggM1aYHXmubG2yaKUIAUAAAAAAJwiSo01U5QSpKAjky8AAAAAUI19UfYQpAC+4QcVAAAAAMhqm+QuKUEKAAAAALjNLBunwDEOdY+1TTC3ClIAAAAAAMBlotRYW/IoJUgBAAAAAABdiFJ8RZACAAAAAABYwJb4LilBCgAAAICSG2MAxHCX1Fhb0t9eQQoAAAAAAOhKlBprSxilBCnozEQLAAAA2EMAsFfK3wQpAAAAAACAxWzJ7pISpGDxLzkAAAAAwCieKDXWlmi/WpACAAAAAADCiFJjZYlSghQAAAAAUHJzFLiPKDVWhnlXkAIAAAAAACCUIAUAAAAAAIRzl1Ttu6QEKQAAAEjIhg0rGL3xNZLvMID5MaNt4G+zIAXwjcoLKAAAAADoTbSvud8pSEFHwgUAAAAAAHwmSAEAAAAAALdyl1S9mysEKQAAAEjIExgAgNWJUrWuNwUpAAAAYFo2sgBgbn7L60QpQQoAAAAAuJ07QYHfRKkaBCkAAAAAAICitpvukhKkAHZwagsAgBGcFgYAqnDds/7+pyAFnQgWAAAAAADniVJr73ELUgAAAAB05+DmPjZfAcyLVQhSAAAAAAAA/Ig8UCJIAQAAAAAAabh7dM0oJUgBAAAAAACpiFLrRSlBCgAAAAAASEeUWosgBbCTP8gLAAAAAFSxdb5LSpCCDoQKAACA+zk1TVbG5n72VABzap15WpACAAAAAADSEvrXiFJvPf4RAABqOLIIcNoVoN/ca04FAKpzTTTWr+vRq2HQHVIAAAAAdCWiAgAfCVIAAAAAAEB6Ht0394ETQQoAAAAAAJiCKDVvlBKkAG6acAEAAACA60SpOfdIBSkY9OUDAAAAAIAqBCkAAAAAAGAq7pKa70YNQQoAAAAAGMbTZ4CzRKm55m9BCgAAAJiODSgAwDXBXFFKkAIAAACm5c4KViCwAphHKxCkAAAAAAAACD0gJEgBBE2wAADQi7snmIk1EwAjuF7K//svSAEAAAAAANMTpXITpOACp74AAAAAWIXNfFZgHOfdLxekdjCAAQAAAAAAzhOkAAAAAKATB5sBxjMX57xLSpACAAAAAACWIkrli1KCFAAAACTl79YCVZjvgAiiVC6CFAAAAAAAAKEHDQQpgE4TKgAAcA+nnQHMseC6YT6C1E4udvlIkAAAAABgJfa7WJX9/RwEKQAAAAC6sJkNQFai1PjrAkEKAAAAJmATBQCAmQlSAAAAAADA8hzwGUuQ2sHt5gAAAABAFTbtWZnxPa6vCFIHGKgAAAAAADA3e/1jCFIAJ7l7EgAAgF5sjlpnA/cy795PkIIThAgAAAAAANi/ny5IAQAAAAAA5bhL6l6CFAAAAAAAUJIodR9BCgAAAJiGTaO8PN4e1mK+pRLj/R6C1EEGJgAAAAAAwDGCFAAAAAB04CAzwLzM4fF3UgtSABcnUm8gAAB3sVECAOBaa1aCFBwkQAAAAAAArMkBoDiCFAAAAAAAn9iYB3oSpAAAAACAFDyZBshAjI0hSJ1gMAIAAAAAKxIF4V86QH+CFAAAAAAAwAeiVF+CFAAAAAAAAKEEKYCL3MoOAAD3cEo5L+siAFbl+qMfQWonF1YYBwAAAABUYzMefA96EaROMhEDAAAAAEANmsB1ghQAAABMxGbIH55mwmp8vwFYmSAFAAAAAADwDQcHrhGkAAAAAAAAdhClzhOkAAAAAIA0PI4TyE6UOkeQAujAxTIAAACwKpvvQA+C1AUm4loEBwAAAAAAOEeQAgAAAOA0Bzj/5eAyALwmSAEAAAAAABBKkAIAAADSc/cJAMDc3ka/AAAAAAAA8h8M8IjOefisznEAJpY7pAAAAAAAAAglSF2kmAK/OXkCAMBdrEUBAJiNIAU7CA0AAAAA97EXA7AeQQo4xYlMAAAAgDUJgkCEt5B/FQAAAAAKsYEPAK+5QwoAAAAAgG95Yg5whSDVgYkYAAAAqMhdQQDAXoIUAAAAAAAAoQQpgI6cDgQAAAAA+EyQOsBGc00+dwAAgLE8Kh8AYH6CFAAAAAAAAKEEKQAAAAAAdnHXKnCWINWJiZiKjHsAABjH9TiwOn9GAWAtghQAAAAAAAChBCngMCcxAQAAAAA4QpAC6MwjBQAAgAqsfQCAIwQpeMHFNQAAAAD8zdNzgDMEKQAAAAAAAEIJUh05GQAAAAAAAPCZIAUAAAAAAEAoQQoAAABIy9NIAADWIEgBAAAAAClt2/Zz9GsAoA9BCgAAAACAQ9zBChwlSHVmIgZ+cYILAIA7WIMCADALQQq+ICgAAAAAAEAfghRwiROZAAAA9TjECQAcJUgBAAAAAAAQSpACDnFHFAAAAAAARwlSAAAAAAAc5uAycIQgFcBEDAAAAAAA8IcgBRDEH/kFAIBrHPgEAFiHIAVPCAkAAAAAOdinAViDIAUAAAAAAEAoQQoAAAAm5rF2AIzkdwjYS5AKYiIGAAAAAAD4lyAFAAAAwG7+ng8AcIYgBQAAAAAAQChBCiCQk4MAAAAAAIIUfCIgHOdvpgEAAAAA8Io7pAAAAAAAOM1hZWAPQSqQiZjVGNMAAAAAAJwhSAEAAADpOBAHvOdPLADMT5ACAAAAAAAglCAFAAAAAABAKEEKIJjHCgAAEM3j7biL9Q0AcJYgBe+4sAYAAACA4xyOAL4jSAUzEQMAAAAAANUJUgAAAAAAAIQSpAAAAAAAAAglSAEAAAAAABBKkAIAAAAA0tu27efo18BrrbWH9wj4iiB1AxMxFRjnr7loBgAAAAAqE6TgfwQDAACAHBx4AwBYjyAF7GJBCAAAAADAWYIUAAAAAN/yZBEA4ApBCgAAABbgqQYAAGQmSAEAAAAA0IUDEsBXBKmbmIgBAAAAAICqBCmAm3jeOgAAAABQlSAFQgEAAAAAAIQSpAAAAACAKXj6CMC8BCkAAAAAALpprT28ncBHghQAAAAAAAChBKkbORkAAAAA1s4z8pg0AOAqQQroRnQFAAAAAOAZQQrgRk4VAgAQySExAACyEqQoTyD4nkUtAAAAAABXCFIAAAAAAHTlgDPwkSB1MxMxAAAAAABQjSAFAAAAAEzDn18AmJMgBQAAAAAAQChBCgAAAAAAgFCCFMDNPFoAAAAAAKhGkKI0YQAAACCP1tpj9GvgM2tn4CzzOvCeIDWAiRgAAAAAAKjkbfQLAAAAAIDZ3Hng2F1qAKzAHVIAAACwEE/lAAAgI0EK6MriFwAAgNVZ+wLAcR7ZBwAAlOBxRwAAYwKu6zBmYazGcocU8JJTXzH8uAEAAIB1NUAlgtQgNvkBAAAAAIAqBCnKcocKAAAAAADcQ5ACAAAA4CmHOQGAXgQpAAAAAAAAQglSAAAAwHD+1jLAuszxwC+C1EAmYgAAAAAAoAJBCgAAAAAAgFCCFMAg/jgwAABRPJEDAIBsBClKEgIAAAAA5mZ/B2Aub6NfAAAAANCfu6Rgre+z+ALA7NwhBXRn4QsAAACA/SLgPUFqMBv3AAAAAADA6gQp4EuCKQAAQF0eEQcA9CRIAQAAAAAAEEqQAhjIiUMAAAAAoAJBinIEAAAAAOAsj7eH83x/oDZBCgAAAAAAgFCCVAJOBgAAAAAAACsTpAAAAACAKfnTDADzEKQAAAAAAAAIJUgBAMBkPPIZAACA2QhSAIN5vAAAsAKhFABwzQC8IkglYfF2Dxv/AAAAYP0MANxPkAJCiKwAAAAAAPwmSAEAAAAAABBKkAKecocTAAAAAAC9CFIAAAAAALAQh83JSJACAAAAgORsLrMS4xlqEqQSMRFDXdu2/Rz9GgAAAGBG1tQAcxCkKMPFCQAAAAAAjLkhR5ACAAAAAAAglCAFAAAT8rhnMjEeYS2eMAIARBCkAAAAAAC4lQMtUI8glYyJGAAAAAAAe82sRpACAAAAgB0cJAaA87+fghRAEp7TDgAAAACsSpCiBBv9Yzg5BgB+a1mfaz4AAGAPQQoAAAAAmJrDyPCcw0NkIkgBn/ihAgAAACCaPSio9T0XpBIyEQMA4NqRGVi7AAAAewlSAAAAAACwKIeIyEKQAgAAAOC//B0eACAqhgpSAIlY/AFwhhOPjGDcAQAARwhSLM8GPwAAAABQmcNEZCBIAQDAAiwwMd4AgBm5joU6321BKikTMQAAAAD2iwB7zqxCkAIAgEU41IRxBgAAZF2bClIAAAAAwPT8HXH4nkNsjBxjghQAACzEAhPjCwAAawYyEqSAUDbFjnOiCwC/v2Tkug4AcJ0BXFkzCFKJWfBdZ2MfAAAArKEBsPfM+J4hSAGHJw4AID+/6RhPAABYM5Bp/SlIAQDAokQpjCMAv6sA1gxkIUgBAMDCRCmMHwAArBnIsOYUpAAAYHGiFMYNAADWDIxeawpSAABQgCiF8QIAZOZ6dTyfAUfGypnxIkglZxKAmrZt+zn6NQCwnrOLBuowRgCYnfU0XGO9QOQYEaRYlgsQAIDnLDIxLgAA+IpDSkStJd+u/McAAMDcCwmHeBAoAQD4as1gvUDPNYMgBQAAhQlTtYlRAADsuV4UpmpqnR/5LkgBAAAWmoWIUMAzNhqBDNyRk5cwVUsL+tvDghQAAPBp4WFjcj1CFAAAPa8prRnW0oIi1HuC1AScDGB2xjAAzMdCcw0iFAAAd1xrilNzajdEqPcEqQMs5lidMc5348PFBUDN3+KPr8vvQV5Zx9B7rikwnsA8Cly7lsr4/lkzzKENHj8pBy8AADAfoarOQhIAAI6yXrhXxjVDuhcEAADUYVGac6EIAABZVF8ztIXWC/8Baxk3EmkL8UoAAAAASUVORK5CYII=');
+  --nxt-logo-white:url('data:image/png;base64,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');
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--nxt-paper);color:var(--nxt-ink);
+  font-family:var(--nxt-body);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:var(--nxt-teal);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.nxt-wrap{max-width:1280px;margin:0 auto;padding:0 var(--nxt-pad);}
+.nxt-section{padding:72px 0;border-top:1px solid var(--nxt-line);}
+.nxt-section:first-of-type{border-top:0;}
+
+/* ---- 1. LOGO ------------------------------------------------------------- */
+.nxt-logo{display:inline-block;background:var(--nxt-logo-black) no-repeat left center;
+  background-size:contain;width:150px;height:39px;text-indent:-9999px;overflow:hidden;}
+.nxt-logo--sm{width:104px;height:27px;}
+.nxt-logo--lg{width:230px;height:60px;}
+.nxt-logo--white{background-image:var(--nxt-logo-white);}
+
+/* ---- 2. MASTHEAD --------------------------------------------------------- */
+.nxt-masthead{display:flex;align-items:center;justify-content:space-between;
+  padding:18px var(--nxt-pad);background:var(--nxt-white);border-bottom:1px solid var(--nxt-line);
+  position:sticky;top:0;z-index:50;}
+.nxt-masthead__label{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--nxt-muted);}
+
+/* ---- 3. TABS (working; JS in nxt-artifact-system.js) --------------------- */
+.nxt-tabs{display:flex;gap:28px;padding:0 var(--nxt-pad);background:var(--nxt-white);
+  border-bottom:1px solid var(--nxt-line);position:sticky;top:75px;z-index:40;flex-wrap:wrap;}
+.nxt-tab{appearance:none;background:none;border:0;cursor:pointer;padding:16px 0;
+  font-family:var(--nxt-disp);font-weight:600;font-size:15px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--nxt-muted);border-bottom:3px solid transparent;}
+.nxt-tab:hover{color:var(--nxt-ink);}
+.nxt-tab[aria-selected="true"]{color:var(--nxt-teal);border-bottom-color:var(--nxt-lime);}
+.nxt-panel{display:none;}
+.nxt-panel[data-active="true"]{display:block;}
+
+/* ---- 4. HERO ------------------------------------------------------------- */
+.nxt-hero{padding:80px 0 56px;}
+.nxt-hero__title{font-family:var(--nxt-body);font-weight:200;font-size:64px;line-height:1.05;
+  letter-spacing:-.01em;color:var(--nxt-ink);margin:0 0 24px;max-width:18ch;}
+.nxt-hero__standfirst{font-size:19px;font-weight:300;line-height:1.6;color:var(--nxt-mid);max-width:60ch;}
+
+/* ---- 5. EYEBROW + HEADINGS ---------------------------------------------- */
+.nxt-eyebrow{font-family:var(--nxt-mono);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--nxt-teal);margin:0 0 14px;}
+.nxt-h2{font-family:var(--nxt-body);font-weight:200;font-size:40px;line-height:1.1;
+  color:var(--nxt-ink);margin:0 0 20px;}
+.nxt-h3{font-family:var(--nxt-body);font-weight:400;font-size:21px;line-height:1.3;
+  color:var(--nxt-ink);margin:0 0 10px;}
+.nxt-display{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;
+  letter-spacing:.01em;color:var(--nxt-ink);line-height:.95;}
+.nxt-prose{font-size:16px;font-weight:300;line-height:1.65;color:var(--nxt-ink);max-width:68ch;}
+.nxt-prose--muted{color:var(--nxt-mid);}
+
+/* ---- 6. CARD + GRID ------------------------------------------------------ */
+.nxt-card{background:var(--nxt-white);border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);
+  padding:28px;color:var(--nxt-ink);}
+.nxt-card__label{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--nxt-teal);margin:0 0 10px;}
+.nxt-card__title{font-family:var(--nxt-body);font-weight:500;font-size:18px;color:var(--nxt-ink);margin:0 0 8px;}
+.nxt-card__body{font-size:14.5px;font-weight:300;line-height:1.6;color:var(--nxt-mid);}
+.nxt-grid{display:grid;gap:var(--nxt-gap);}
+.nxt-grid--2{grid-template-columns:repeat(2,1fr);}
+.nxt-grid--3{grid-template-columns:repeat(3,1fr);}
+.nxt-grid--4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.nxt-grid--3,.nxt-grid--4{grid-template-columns:repeat(2,1fr);}}
+
+/* ---- 7. STAT TILE (opt-in) ---------------------------------------------- */
+.nxt-stat{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:3px solid var(--nxt-lime);
+  padding:22px 24px;}
+.nxt-stat__fig{font-family:var(--nxt-disp);font-weight:700;font-size:44px;color:var(--nxt-teal);line-height:1;}
+.nxt-stat__label{font-size:13px;color:var(--nxt-mid);margin-top:8px;}
+.nxt-stat__src{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.04em;color:var(--nxt-muted);margin-top:6px;}
+
+/* ---- 8. QUOTE ------------------------------------------------------------ */
+.nxt-quote{border-left:3px solid var(--nxt-teal);padding:6px 0 6px 26px;margin:24px 0;}
+.nxt-quote__text{font-family:var(--nxt-body);font-weight:300;font-size:23px;line-height:1.4;
+  color:var(--nxt-ink);font-style:italic;}
+.nxt-quote__cite{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;color:var(--nxt-teal);
+  margin-top:12px;font-style:normal;text-transform:uppercase;}
+
+/* ---- 9. CHIPS ------------------------------------------------------------ */
+.nxt-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:var(--nxt-radius);
+  font-family:var(--nxt-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--nxt-paper);border:1px solid var(--nxt-line);color:var(--nxt-ink);font-weight:500;}
+.nxt-chip--source{background:var(--nxt-white);color:var(--nxt-mid);}
+.nxt-chip--status{background:var(--nxt-teal);color:#fff;border-color:var(--nxt-teal);}
+.nxt-chip--accent{background:var(--nxt-lime);color:var(--nxt-ink);border-color:var(--nxt-lime);}
+
+/* ---- 10. COLOR BLOCKS (intentional, AA-enforced text) -------------------- */
+.nxt-block{padding:56px var(--nxt-pad);border-radius:var(--nxt-radius);}
+.nxt-block--teal{background:var(--nxt-teal);color:#fff;}
+.nxt-block--ink{background:var(--nxt-ink);color:#fff;}
+.nxt-block--lime{background:var(--nxt-lime);color:var(--nxt-ink);}
+.nxt-block--teal *, .nxt-block--ink *{color:#fff;}          /* no dark-on-dark, ever */
+.nxt-block--lime *{color:var(--nxt-ink);}                    /* no light-on-light */
+.nxt-block--teal .nxt-eyebrow,.nxt-block--ink .nxt-eyebrow{color:var(--nxt-lime);}
+.nxt-block .nxt-display{font-size:48px;}
+
+/* ---- 11. TABLE (light header, never a black bar) ------------------------- */
+.nxt-table{width:100%;border-collapse:collapse;font-size:14px;}
+.nxt-table thead th{background:var(--nxt-paper);color:var(--nxt-ink);text-align:left;
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;
+  padding:13px 16px;border-bottom:2px solid var(--nxt-teal);}
+.nxt-table td{padding:13px 16px;border-bottom:1px solid var(--nxt-line);color:var(--nxt-ink);vertical-align:top;font-weight:300;}
+.nxt-table tbody tr:nth-child(even){background:#fcfcfa;}
+
+/* ---- 12. SOURCE INDEX + FOOTER ------------------------------------------ */
+.nxt-source-index{background:var(--nxt-white);}
+.nxt-source-index ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.nxt-source-index li{font-size:14px;color:var(--nxt-ink);padding-left:18px;position:relative;font-weight:300;}
+.nxt-source-index li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--nxt-lime);}
+.nxt-source-index .sname{font-weight:600;color:var(--nxt-ink);}
+.nxt-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:28px var(--nxt-pad);background:var(--nxt-white);border-top:1px solid var(--nxt-line);
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;color:var(--nxt-muted);text-transform:uppercase;}
+
+/* ---- 13. ICON (flat line, currentColor) --------------------------------- */
+.nxt-icon{width:24px;height:24px;display:inline-block;stroke:currentColor;stroke-width:1.5;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;color:var(--nxt-teal);}
+
+/* ---- 14. RULE + SIDEBAR LAYOUT ------------------------------------------ */
+.nxt-rule{height:1px;background:var(--nxt-line);border:0;margin:32px 0;}
+.nxt-layout{display:grid;grid-template-columns:300px 1fr;gap:48px;}
+.nxt-rail{border-right:1px solid var(--nxt-line);padding-right:32px;}
+.nxt-rail__item{margin-bottom:22px;}
+.nxt-rail__k{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--nxt-muted);margin-bottom:5px;}
+.nxt-rail__v{font-size:14px;color:var(--nxt-ink);font-weight:400;}
+@media(max-width:820px){.nxt-layout{grid-template-columns:1fr;}.nxt-rail{border-right:0;border-bottom:1px solid var(--nxt-line);padding:0 0 24px;}}
+
+/* ============================================================================
+   ARTIFACT-SPECIFIC MODULES
+   ============================================================================ */
+
+/* journey timeline */
+.nxt-timeline{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:16px;overflow-x:auto;padding-bottom:8px;}
+.nxt-phase{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:22px;}
+.nxt-phase__n{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.14em;color:var(--nxt-muted);}
+.nxt-phase__name{font-family:var(--nxt-body);font-weight:500;font-size:17px;margin:4px 0 12px;color:var(--nxt-ink);}
+.nxt-phase__emotion{display:inline-block;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--nxt-rust);border:1px solid var(--nxt-line);padding:3px 8px;margin-top:10px;}
+
+/* blueprint swimlane */
+.nxt-swimlane{display:grid;gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);}
+.nxt-swimlane__row{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1px;background:var(--nxt-line);}
+.nxt-swimlane__cell{background:var(--nxt-white);padding:14px;font-size:13px;color:var(--nxt-ink);font-weight:300;}
+.nxt-swimlane__lane{background:var(--nxt-paper);font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--nxt-muted);padding:14px;}
+.nxt-divider-line{background:var(--nxt-teal);color:#fff;font-family:var(--nxt-mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;text-align:center;}
+.nxt-failpoint{border-left:3px solid var(--nxt-rust)!important;}
+
+/* competitive matrix + strength markers */
+.nxt-matrix{width:100%;border-collapse:collapse;font-size:13.5px;}
+.nxt-matrix th,.nxt-matrix td{padding:12px 14px;border:1px solid var(--nxt-line);text-align:left;vertical-align:top;color:var(--nxt-ink);font-weight:300;}
+.nxt-matrix thead th{background:var(--nxt-paper);font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+.nxt-matrix tbody th{font-weight:600;background:#fcfcfa;}
+.nxt-strength{display:inline-block;width:100%;height:6px;background:var(--nxt-line);position:relative;}
+.nxt-strength i{position:absolute;left:0;top:0;height:100%;background:var(--nxt-teal);}
+.nxt-strength--leader i{width:100%;}.nxt-strength--parity i{width:60%;}.nxt-strength--gap i{width:25%;background:var(--nxt-rust);}
+
+/* tech-arch layer bands */
+.nxt-layer{border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);padding:20px 24px;margin-bottom:16px;background:var(--nxt-white);}
+.nxt-layer__name{font-family:var(--nxt-disp);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--nxt-teal);margin-bottom:14px;}
+.nxt-component{background:var(--nxt-paper);border:1px solid var(--nxt-line);padding:14px;font-size:13px;color:var(--nxt-ink);}
+
+/* personas */
+.nxt-persona{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:28px;display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;}
+.nxt-persona__avatar{width:64px;height:64px;border-radius:50%;background:var(--nxt-teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:26px;}
+.nxt-persona__name{font-family:var(--nxt-body);font-weight:600;font-size:20px;color:var(--nxt-ink);}
+.nxt-persona__arch{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--nxt-teal);margin-top:2px;}
+.nxt-persona__k{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-muted);margin:14px 0 4px;}
+
+/* prd */
+.nxt-userstory{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:3px solid var(--nxt-teal);padding:18px 22px;margin-bottom:12px;}
+.nxt-userstory__role{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-teal);}
+.nxt-userstory__text{font-size:16px;color:var(--nxt-ink);font-weight:400;margin-top:6px;}
+.nxt-userstory__ac{font-size:13px;color:var(--nxt-mid);margin-top:10px;}
+
+/* roadmap horizons */
+.nxt-horizons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.nxt-horizon__head{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#fff;background:var(--nxt-teal);padding:12px 16px;}
+.nxt-horizon:nth-child(2) .nxt-horizon__head{background:var(--nxt-ink-2);}
+.nxt-horizon:nth-child(3) .nxt-horizon__head{background:var(--nxt-mid);}
+.nxt-horizon__item{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:0;padding:16px;font-size:14px;color:var(--nxt-ink);}
+
+/* gap matrix */
+.nxt-gap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);margin-bottom:1px;}
+.nxt-gap__cur{background:var(--nxt-paper);padding:16px;font-size:14px;color:var(--nxt-mid);}
+.nxt-gap__tgt{background:var(--nxt-white);padding:16px;font-size:14px;color:var(--nxt-ink);}
+
+/* org tree (collision-free CSS grid) */
+.nxt-org{text-align:center;}
+.nxt-org__node{display:inline-block;background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:12px 18px;margin:8px;min-width:160px;}
+.nxt-org__name{font-weight:600;font-size:14px;color:var(--nxt-ink);}
+.nxt-org__role{font-size:12px;color:var(--nxt-muted);}
+.nxt-org__row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.nxt-org__connector{width:1px;height:24px;background:var(--nxt-line);margin:0 auto;}
+
+/* strategy kernel */
+.nxt-kernel{display:grid;gap:16px;}
+.nxt-kernel__step{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:4px solid var(--nxt-lime);padding:24px;}
+.nxt-kernel__k{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--nxt-teal);font-size:14px;margin-bottom:8px;}
+
+/* recommendation */
+.nxt-rec{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:24px;margin-bottom:14px;display:grid;grid-template-columns:auto 1fr;gap:20px;}
+.nxt-rec__n{font-family:var(--nxt-disp);font-weight:700;font-size:40px;color:var(--nxt-line-2);line-height:1;}
+.nxt-rec__title{font-family:var(--nxt-body);font-weight:500;font-size:18px;color:var(--nxt-ink);margin-bottom:8px;}
+
+/* mindmap callouts */
+.nxt-callout{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-lime);padding:18px;color:var(--nxt-ink);}
+.nxt-callout__title{font-weight:600;font-size:15px;color:var(--nxt-ink);margin-bottom:6px;}
+
+/* dialog (brief / brief-dialog) */
+.nxt-dialog{display:grid;gap:14px;}
+.nxt-bubble{background:var(--nxt-white);border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);padding:16px 20px;max-width:78%;color:var(--nxt-ink);}
+.nxt-bubble--q{background:var(--nxt-paper);border-left:3px solid var(--nxt-teal);justify-self:start;}
+.nxt-bubble--a{background:var(--nxt-white);justify-self:end;}
+.nxt-bubble__role{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-teal);margin-bottom:6px;}
+
+/* theme cards (meta-themes) */
+.nxt-theme{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:22px;}
+.nxt-theme__tag{display:inline-block;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--nxt-ink);background:var(--nxt-lime);padding:3px 8px;margin-bottom:12px;}
+
+/* ---- SLIDE FRAMES (#slide / #slides , summarized density) ---------------- */
+.nxt-slide{width:1280px;max-width:100%;aspect-ratio:16/9;background:var(--nxt-white);border:1px solid var(--nxt-line);
+  padding:64px;display:flex;flex-direction:column;justify-content:center;position:relative;margin:0 auto 24px;overflow:hidden;}
+.nxt-slide--title{background:var(--nxt-ink);color:#fff;}
+.nxt-slide--title *{color:#fff;}
+.nxt-slide--divider{background:var(--nxt-teal);color:#fff;}
+.nxt-slide--divider *{color:#fff;}
+.nxt-slide__kicker{font-family:var(--nxt-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--nxt-teal);margin-bottom:18px;}
+.nxt-slide--title .nxt-slide__kicker,.nxt-slide--divider .nxt-slide__kicker{color:var(--nxt-lime);}
+.nxt-slide__title{font-family:var(--nxt-body);font-weight:200;font-size:46px;line-height:1.08;margin:0 0 18px;}
+.nxt-slide__logo{position:absolute;top:32px;right:48px;}
+.nxt-slide__body{font-size:17px;font-weight:300;line-height:1.6;color:var(--nxt-mid);max-width:62ch;}
+.nxt-slide--title .nxt-slide__body,.nxt-slide--divider .nxt-slide__body{color:rgba(255,255,255,.82);}
+.nxt-slide--closing{background:var(--nxt-ink);color:#fff;}
+.nxt-slide--closing *{color:#fff;}
+.nxt-slide--quote{justify-content:center;}
+.nxt-slide--quote .nxt-quote__text{font-size:38px;line-height:1.25;}
+.nxt-slide--image{padding:0;flex-direction:row;}
+.nxt-slide--split{flex-direction:row;gap:0;padding:0;}
+.nxt-slide--split .nxt-slide__pane{flex:1;padding:56px;display:flex;flex-direction:column;justify-content:center;}
+.nxt-slide--split .nxt-slide__pane--img{padding:0;}
+
+/* image placeholder (no external asset dependency) */
+.nxt-img-ph{background:repeating-linear-gradient(135deg,#EFEFEA,#EFEFEA 14px,#E7E7E1 14px,#E7E7E1 28px);
+  display:flex;align-items:center;justify-content:center;color:var(--nxt-muted);min-height:200px;width:100%;height:100%;
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+
+/* ============================================================================
+   INFOGRAPHIC PRIMITIVES
+   ============================================================================ */
+
+/* numbered process flow */
+.nxt-process{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;align-items:start;}
+.nxt-process__step{position:relative;padding:0 18px;text-align:center;}
+.nxt-process__num{width:44px;height:44px;border-radius:50%;background:var(--nxt-teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:20px;margin:0 auto 12px;position:relative;z-index:2;}
+.nxt-process__step:not(:last-child)::after{content:'';position:absolute;top:22px;left:50%;width:100%;height:2px;background:var(--nxt-line);z-index:1;}
+.nxt-process__label{font-weight:500;font-size:14px;color:var(--nxt-ink);margin-bottom:4px;}
+.nxt-process__sub{font-size:12.5px;color:var(--nxt-muted);}
+
+/* 2x2 quadrant */
+.nxt-quadrant{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);aspect-ratio:1.6;position:relative;}
+.nxt-quadrant__cell{background:var(--nxt-white);padding:18px;font-size:13px;color:var(--nxt-ink);}
+.nxt-quadrant__cell--hi{background:var(--nxt-lime-tint);}
+.nxt-quadrant__axis-x{text-align:center;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);margin-top:8px;}
+.nxt-quadrant__axis-y{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);}
+
+/* maturity / progress bars */
+.nxt-bars{display:grid;gap:14px;}
+.nxt-bar{display:grid;grid-template-columns:180px 1fr auto;gap:14px;align-items:center;}
+.nxt-bar__label{font-size:14px;color:var(--nxt-ink);}
+.nxt-bar__track{height:10px;background:var(--nxt-line);border-radius:2px;overflow:hidden;}
+.nxt-bar__fill{height:100%;background:var(--nxt-teal);}
+.nxt-bar__fill--lime{background:var(--nxt-lime);}
+.nxt-bar__val{font-family:var(--nxt-mono);font-size:12px;color:var(--nxt-muted);}
+
+/* donut (CSS conic) */
+.nxt-donut{width:160px;height:160px;border-radius:50%;
+  background:conic-gradient(var(--nxt-teal) 0 var(--a,55%),var(--nxt-lime) var(--a,55%) var(--b,80%),var(--nxt-line) var(--b,80%) 100%);
+  display:flex;align-items:center;justify-content:center;}
+.nxt-donut__hole{width:96px;height:96px;border-radius:50%;background:var(--nxt-white);display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:24px;color:var(--nxt-ink);}
+.nxt-legend{display:grid;gap:8px;}
+.nxt-legend__row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--nxt-ink);}
+.nxt-legend__sw{width:12px;height:12px;border-radius:2px;}
+
+/* funnel */
+.nxt-funnel{display:grid;gap:6px;justify-items:center;}
+.nxt-funnel__band{background:var(--nxt-teal);color:#fff;padding:12px 18px;text-align:center;font-size:13px;font-weight:500;}
+.nxt-funnel__band:nth-child(1){width:100%;}
+.nxt-funnel__band:nth-child(2){width:82%;background:#1c6166;}
+.nxt-funnel__band:nth-child(3){width:64%;background:#2a7176;}
+.nxt-funnel__band:nth-child(4){width:46%;background:var(--nxt-lime);color:var(--nxt-ink);}
+
+/* tiers / pyramid */
+.nxt-tiers{display:grid;gap:6px;justify-items:center;}
+.nxt-tier{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:12px 18px;text-align:center;font-size:13px;color:var(--nxt-ink);}
+.nxt-tier:nth-child(1){width:50%;border-top:3px solid var(--nxt-lime);}
+.nxt-tier:nth-child(2){width:72%;}
+.nxt-tier:nth-child(3){width:90%;}
+.nxt-tier:nth-child(4){width:100%;}
+
+/* icon-stat */
+.nxt-iconstat{display:flex;gap:16px;align-items:center;background:var(--nxt-white);border:1px solid var(--nxt-line);padding:20px 22px;}
+.nxt-iconstat .nxt-icon{width:32px;height:32px;flex:none;}
+.nxt-iconstat__fig{font-family:var(--nxt-disp);font-weight:700;font-size:34px;color:var(--nxt-teal);line-height:1;}
+.nxt-iconstat__label{font-size:13px;color:var(--nxt-mid);}
+
+/* before/after compare */
+.nxt-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);}
+.nxt-compare__col{background:var(--nxt-white);padding:22px;}
+.nxt-compare__col--before{background:var(--nxt-paper);}
+.nxt-compare__tag{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);margin-bottom:8px;}
+.nxt-compare__col--after .nxt-compare__tag{color:var(--nxt-teal);}
+
+/* big-number list */
+.nxt-numlist{display:grid;gap:16px;counter-reset:nl;}
+.nxt-numlist__item{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;border-bottom:1px solid var(--nxt-line);padding-bottom:14px;}
+.nxt-numlist__item::before{counter-increment:nl;content:counter(nl,decimal-leading-zero);font-family:var(--nxt-disp);font-weight:700;font-size:30px;color:var(--nxt-teal);line-height:1;}
+
+/* ============================================================================
+   TECH-DIAGRAM PRIMITIVES (collision-free, CSS only)
+   ============================================================================ */
+
+/* horizontal flow / pipeline with arrows */
+.nxt-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+.nxt-flow__node{flex:1;min-width:140px;background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:16px;font-size:13px;color:var(--nxt-ink);}
+.nxt-flow__arrow{flex:0 0 32px;display:flex;align-items:center;justify-content:center;color:var(--nxt-teal);font-size:20px;}
+.nxt-flow__arrow::before{content:'\2192';}
+
+/* hub and spoke */
+.nxt-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:center;justify-items:center;}
+.nxt-hub__center{grid-column:2;background:var(--nxt-teal);color:#fff;border-radius:50%;width:130px;height:130px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;font-size:14px;padding:12px;}
+.nxt-hub__spoke{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:12px 14px;font-size:13px;color:var(--nxt-ink);width:100%;text-align:center;}
+
+/* ============================================================================
+   ICON SPRITE styling (sprite markup injected separately)
+   ============================================================================ */
+.nxt-ico{width:24px;height:24px;display:inline-block;stroke:currentColor;stroke-width:1.5;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;color:var(--nxt-teal);vertical-align:middle;}
+.nxt-ico--lg{width:40px;height:40px;}
+</style>
+<style id="nxt-enforcement">
+html,body{background:#FFFFFF!important;color:#141414!important;font-family:'Archivo',-apple-system,'Segoe UI',sans-serif!important;}
+body *{box-shadow:none!important;text-shadow:none!important;}
+/* intentional dark surfaces keep 100% white text (no dark-on-dark) */
+.nxt-block--ink,.nxt-block--ink *,.nxt-block--teal,.nxt-block--teal *,
+.nxt-slide--title,.nxt-slide--title *,.nxt-slide--divider,.nxt-slide--divider *,
+.nxt-slide--closing,.nxt-slide--closing *{color:#FFFFFF!important;}
+.nxt-block--ink .nxt-eyebrow,.nxt-block--teal .nxt-eyebrow,
+.nxt-slide--title .nxt-slide__kicker,.nxt-slide--divider .nxt-slide__kicker,
+.nxt-slide--closing .nxt-slide__kicker{color:#CACA20!important;}
+/* lime surfaces keep dark text */
+.nxt-block--lime,.nxt-block--lime *{color:#141414!important;}
+</style>
+</head>
+<body><svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 3-5 6-5s6 1.5 6 5"/><path d="M15 20c0-2.5 2-3.5 4-3.5s2.5.8 2.5 3.5"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></symbol>
+  <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M12 7.2 6.5 16M12 7.2 17.5 16M7 18h10"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="5"/><rect x="12" y="8" width="3" height="9"/><rect x="17" y="5" width="3" height="12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="9" width="6" height="6"/><rect x="15" y="9" width="6" height="6"/><path d="M9 12h6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-idea" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.8.8 1 1.4 1 3h6c0-1.6.2-2.2 1-3a6 6 0 0 0-4-10z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16"/><path d="M4 9h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 17l9 5 9-5" opacity=".6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></symbol>
+</svg>
+
+<header class="nxt-masthead">
+ <span class="nxt-logo">NXT HUMANS</span>
+ <span class="nxt-masthead__label">PERSONA</span>
+</header>
+
+<nav class="nxt-tabs" data-tabs>
+ <button class="nxt-tab" data-tab="personas" aria-selected="true">Personas</button>
+ <button class="nxt-tab" data-tab="context" aria-selected="false">Research Context</button>
+ <button class="nxt-tab" data-tab="opportunities" aria-selected="false">Design Opportunities</button>
+</nav>
+
+<div data-tabs-scope>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANEL: PERSONAS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="nxt-panel" data-panel="personas" data-active="true">
+
+ <section class="nxt-hero nxt-wrap">
+ <p class="nxt-eyebrow">Co-op AI Strategy, Northeastern University</p>
+ <h1 class="nxt-hero__title">Four stakeholders whose unmet needs define where AI must act first</h1>
+ <p class="nxt-hero__standfirst">Declining placement rates, fragmented digital touchpoints, and a competitive labor market converge on four distinct humans whose goals, frictions, and expectations must shape any AI roadmap for co-op.</p>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+
+ <div class="nxt-persona-grid">
+
+ <!-- ═══════════════════════════════════════════════════ -->
+ <!-- PERSONA 1: THE ANXIOUS FIRST-PLACER -->
+ <!-- ═══════════════════════════════════════════════════ -->
+ <article class="nxt-persona">
+ <div class="nxt-persona__header">
+ <div class="nxt-persona__avatar">MA</div>
+ <div class="nxt-persona__meta">
+ <div class="nxt-persona__name">Maya Andrade</div>
+ <div class="nxt-persona__archetype">The Anxious First-Placer</div>
+ <div class="nxt-persona__chips">
+ <span class="nxt-chip--status nxt-chip">Undergraduate, Year 2</span>
+ <span class="nxt-chip--accent nxt-chip">First Co-op Cycle</span>
+ <span class="nxt-chip">EVIDENCED</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="nxt-persona__body">
+
+ <!-- JTBD -->
+ <div>
+ <div class="nxt-persona__jtbd-label">Job To Be Done</div>
+ <div class="nxt-persona__jtbd">When preparing for my first co-op, I want to know exactly where my profile falls short, so I can fix gaps before employers see me.</div>
+ </div>
+
+ <!-- GOALS -->
+ <div class="nxt-persona__goals">
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-target"></use></svg> Goals
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Life Goal</span>
+ <span class="nxt-persona__goal-text">Become a professional who earns her place through demonstrated competence, not luck or connections.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Experience Goal</span>
+ <span class="nxt-persona__goal-text">Feel genuinely prepared and not blindsided when she walks into a recruiter conversation.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Functional Goal</span>
+ <span class="nxt-persona__goal-text">Secure a first co-op placement in her target field before the application window closes.</span>
+ </div>
+ </div>
+
+ <!-- BEHAVIORS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-user"></use></svg> Behaviors
+ </div>
+ <div class="nxt-persona__behaviors">
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Iterates on her resume repeatedly but lacks a benchmark to know when it is strong enough to submit.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Navigates multiple disconnected university portals to find job listings, advising slots, and skill resources.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Seeks informal guidance from older students because she cannot get timely access to a co-op advisor.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Applies broadly rather than strategically because she has no signal about which roles match her actual readiness level.</span></div>
+ </div>
+ </div>
+
+ <!-- PAINS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-alert"></use></svg> Pains
+ </div>
+ <div class="nxt-persona__pains">
+ <div class="nxt-persona__pain">No real-time feedback on whether her professional profile is competitive relative to peers who landed placements.</div>
+ <div class="nxt-persona__pain">The student digital ecosystem is fragmented, forcing her to context-switch across tools that do not share data.</div>
+ <div class="nxt-persona__pain">Placement rates have dropped in competitive markets, raising the stakes of every application decision she makes.</div>
+ </div>
+ </div>
+
+ <!-- NEEDS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-idea"></use></svg> Needs
+ </div>
+ <div class="nxt-persona__needs">
+ <div class="nxt-persona__need">An AI-driven preparedness assessment that tells her specifically what to fix, not just that she needs to improve.</div>
+ <div class="nxt-persona__need">A unified digital experience that surfaces relevant job matches, skill gaps, and advisor availability in one place.</div>
+ <div class="nxt-persona__need">Peer connection pathways to students who completed similar co-ops, so she can calibrate expectations with real experience.</div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- QUOTES -->
+ <div class="nxt-persona__quotes">
+ <div class="nxt-persona__section-label" style="padding:0 0 .25rem">
+ <svg class="nxt-ico"><use href="#i-chat"></use></svg> Verbatim Evidence
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Our metric (co-op placements) has dropped considerably on student placement and co-op. And so what's the role of AI in enabling that to happen? And, if there's a role, that's huge."</div>
+ <div class="nxt-quote__cite">Northeastern Stakeholder, NXT Co-op AI Roadmap Prioritization, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"The student digital ecosystem is fragmented and causing frustration."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Theme 1, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Students feel more prepared when connecting with others who have done it before."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Theme 5, Dec 2024</div>
+ </div>
+ </div>
+ </article>
+
+ <!-- ═══════════════════════════════════════════════════ -->
+ <!-- PERSONA 2: THE STRATEGIC RETURNER -->
+ <!-- ═══════════════════════════════════════════════════ -->
+ <article class="nxt-persona">
+ <div class="nxt-persona__header">
+ <div class="nxt-persona__avatar">DK</div>
+ <div class="nxt-persona__meta">
+ <div class="nxt-persona__name">Daniel Kwon</div>
+ <div class="nxt-persona__archetype">The Strategic Returner</div>
+ <div class="nxt-persona__chips">
+ <span class="nxt-chip--status nxt-chip">Undergraduate, Year 3-4</span>
+ <span class="nxt-chip--accent nxt-chip">Second or Third Co-op</span>
+ <span class="nxt-chip">EVIDENCED</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="nxt-persona__body">
+
+ <!-- JTBD -->
+ <div>
+ <div class="nxt-persona__jtbd-label">Job To Be Done</div>
+ <div class="nxt-persona__jtbd">When targeting a high-stakes second placement, I want AI to surface roles that match my evolving profile, so I can convert co-op into a full-time offer.</div>
+ </div>
+
+ <!-- GOALS -->
+ <div class="nxt-persona__goals">
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-target"></use></svg> Goals
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Life Goal</span>
+ <span class="nxt-persona__goal-text">Build a career trajectory that is intentional and differentiated, not just a sequence of jobs he stumbled into.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Experience Goal</span>
+ <span class="nxt-persona__goal-text">Feel like the university's systems are working for him, not creating friction he has to work around.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Functional Goal</span>
+ <span class="nxt-persona__goal-text">Land a placement at a target employer that aligns with his post-graduation career plan.</span>
+ </div>
+ </div>
+
+ <!-- BEHAVIORS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-user"></use></svg> Behaviors
+ </div>
+ <div class="nxt-persona__behaviors">
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Researches employer reputations and return-offer rates independently because the university provides no structured signal on employer quality.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Tracks his own skill development across co-ops but has no institutional tool to surface that growth to employers.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Uses AI tools outside the university ecosystem to draft application materials, creating a parallel workflow the institution cannot see or support.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Actively networks with alumni and prior co-op supervisors to compensate for limited employer relationship data from the university.</span></div>
+ </div>
+ </div>
+
+ <!-- PAINS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-alert"></use></svg> Pains
+ </div>
+ <div class="nxt-persona__pains">
+ <div class="nxt-persona__pain">Commercially available AI tools are disconnected and fragmented, so he stitches together his own stack rather than using university resources.</div>
+ <div class="nxt-persona__pain">His learner profile is not rich enough to power personalized employer matching, leaving him to rely on keyword searches.</div>
+ <div class="nxt-persona__pain">Competitive job markets have reduced placement rates, raising the cost of a misaligned application strategy.</div>
+ </div>
+ </div>
+
+ <!-- NEEDS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-idea"></use></svg> Needs
+ </div>
+ <div class="nxt-persona__needs">
+ <div class="nxt-persona__need">A dynamic learner profile that accumulates evidence of his skills across co-ops and surfaces it to matched employers automatically.</div>
+ <div class="nxt-persona__need">AI-powered employer matching that goes beyond job title to surface roles where his specific competency trajectory is valued.</div>
+ <div class="nxt-persona__need">Transparent data on employer return-offer rates and co-op quality so he can make informed targeting decisions.</div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- QUOTES -->
+ <div class="nxt-persona__quotes">
+ <div class="nxt-persona__section-label" style="padding:0 0 .25rem">
+ <svg class="nxt-ico"><use href="#i-chat"></use></svg> Verbatim Evidence
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"There are dozens of commercially available AI tools to support the student journey, but they are disconnected and fragmented."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Core to Personalization is a Rich [Learner Profile]."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Theme 2, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Personalized experiences can be successful when using dynamic cohorting and ML clustering models."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Dec 2024</div>
+ </div>
+ </div>
+ </article>
+
+ <!-- ═══════════════════════════════════════════════════ -->
+ <!-- PERSONA 3: THE OVERLOADED CO-OP ADVISOR -->
+ <!-- ═══════════════════════════════════════════════════ -->
+ <article class="nxt-persona">
+ <div class="nxt-persona__header">
+ <div class="nxt-persona__avatar">RP</div>
+ <div class="nxt-persona__meta">
+ <div class="nxt-persona__name">Rachel Patel</div>
+ <div class="nxt-persona__archetype">The Overloaded Co-op Advisor</div>
+ <div class="nxt-persona__chips">
+ <span class="nxt-chip--status nxt-chip">University Staff</span>
+ <span class="nxt-chip--accent nxt-chip">Co-op Coordinator</span>
+ <span class="nxt-chip">EVIDENCED</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="nxt-persona__body">
+
+ <!-- JTBD -->
+ <div>
+ <div class="nxt-persona__jtbd-label">Job To Be Done</div>
+ <div class="nxt-persona__jtbd">When managing a high student caseload, I want AI to handle routine readiness assessments, so I can focus advising time on students who need human judgment.</div>
+ </div>
+
+ <!-- GOALS -->
+ <div class="nxt-persona__goals">
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-target"></use></svg> Goals
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Life Goal</span>
+ <span class="nxt-persona__goal-text">Be the advisor who genuinely changed the trajectory of students who needed real guidance, not just process management.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Experience Goal</span>
+ <span class="nxt-persona__goal-text">Feel like her expertise is being used for complex human problems, not consumed by repetitive administrative tasks.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Functional Goal</span>
+ <span class="nxt-persona__goal-text">Increase the placement rate across her student cohort while maintaining quality of employer relationships.</span>
+ </div>
+ </div>
+
+ <!-- BEHAVIORS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-user"></use></svg> Behaviors
+ </div>
+ <div class="nxt-persona__behaviors">
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Manually reviews student resumes and profiles before advising sessions, a task she recognizes could be pre-processed by AI.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Tracks employer satisfaction and placement outcomes in spreadsheets because institutional data systems do not surface this automatically.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Spends significant advising time answering the same preparedness questions from students who could be served by a self-service AI tool.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Relies on institutional memory and personal relationships with employers rather than data-driven employer matching tools.</span></div>
+ </div>
+ </div>
+
+ <!-- PAINS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-alert"></use></svg> Pains
+ </div>
+ <div class="nxt-persona__pains">
+ <div class="nxt-persona__pain">Placement rates have dropped considerably, creating institutional pressure she absorbs directly without better tools to diagnose root causes.</div>
+ <div class="nxt-persona__pain">Student data is siloed across disconnected systems, preventing her from seeing a complete picture of any student's readiness before a meeting.</div>
+ <div class="nxt-persona__pain">High caseloads mean she cannot provide the depth of personalized guidance that would meaningfully move placement outcomes.</div>
+ </div>
+ </div>
+
+ <!-- NEEDS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-idea"></use></svg> Needs
+ </div>
+ <div class="nxt-persona__needs">
+ <div class="nxt-persona__need">An AI prep advisor that handles routine profile assessment and readiness scoring before students reach her, so sessions focus on strategy.</div>
+ <div class="nxt-persona__need">A unified dashboard that surfaces student progress, employer satisfaction signals, and placement risk indicators in one view.</div>
+ <div class="nxt-persona__need">Employer relationship intelligence that helps her prioritize outreach to partners most likely to place her current cohort.</div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- QUOTES -->
+ <div class="nxt-persona__quotes">
+ <div class="nxt-persona__section-label" style="padding:0 0 .25rem">
+ <svg class="nxt-ico"><use href="#i-chat"></use></svg> Verbatim Evidence
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"AI can contribute to improve student success, employer satisfaction, and co-op placements."</div>
+ <div class="nxt-quote__cite">NXT Co-op AI Roadmap Prioritization, Overview, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"By analyzing student data, tracking progress, and identifying areas for improvement, AI can contribute to improve student success."</div>
+ <div class="nxt-quote__cite">NXT Co-op AI Roadmap Prioritization, AI ROI/KPIs, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Improve co-op placement rates in competitive job climates and markets."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Theme 3, Dec 2024</div>
+ </div>
+ </div>
+ </article>
+
+ <!-- ═══════════════════════════════════════════════════ -->
+ <!-- PERSONA 4: THE EMPLOYER RELATIONSHIP MANAGER -->
+ <!-- ═══════════════════════════════════════════════════ -->
+ <article class="nxt-persona">
+ <div class="nxt-persona__header">
+ <div class="nxt-persona__avatar">TL</div>
+ <div class="nxt-persona__meta">
+ <div class="nxt-persona__name">Thomas Liang</div>
+ <div class="nxt-persona__archetype">The Employer Relationship Manager</div>
+ <div class="nxt-persona__chips">
+ <span class="nxt-chip--status nxt-chip">University Staff</span>
+ <span class="nxt-chip--accent nxt-chip">Employer Partnerships</span>
+ <span class="nxt-chip">PARTIALLY EVIDENCED</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="nxt-persona__body">
+
+ <!-- JTBD -->
+ <div>
+ <div class="nxt-persona__jtbd-label">Job To Be Done</div>
+ <div class="nxt-persona__jtbd">When an employer posts a co-op role, I want to surface the most qualified matched candidates instantly, so I can protect Northeastern's employer relationships.</div>
+ </div>
+
+ <!-- GOALS -->
+ <div class="nxt-persona__goals">
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-target"></use></svg> Goals
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Life Goal</span>
+ <span class="nxt-persona__goal-text">Make Northeastern the university that employers call first because the quality and fit of its co-op candidates is consistently superior.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Experience Goal</span>
+ <span class="nxt-persona__goal-text">Feel confident presenting candidates to employers, knowing the match is grounded in data rather than intuition.</span>
+ </div>
+ <div class="nxt-persona__goal-row">
+ <span class="nxt-persona__goal-type">Functional Goal</span>
+ <span class="nxt-persona__goal-text">Reduce the time from employer posting to qualified candidate shortlist, improving employer satisfaction scores.</span>
+ </div>
+ </div>
+
+ <!-- BEHAVIORS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-user"></use></svg> Behaviors
+ </div>
+ <div class="nxt-persona__behaviors">
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Manually curates candidate shortlists for key employer partners because automated matching tools do not account for relationship history or employer culture fit.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Tracks employer satisfaction informally through relationship calls rather than structured feedback loops that could inform AI training data.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Advocates internally for employer-facing features but finds that product decisions prioritize student-facing tools, leaving employer experience underserved.</span></div>
+ <div class="nxt-persona__behavior"><div class="nxt-persona__behavior-dot"></div><span>Monitors placement rate trends as a proxy for employer satisfaction, knowing that a drop in placements signals a deteriorating employer relationship before formal feedback arrives.</span></div>
+ </div>
+ </div>
+
+ <!-- PAINS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-alert"></use></svg> Pains
+ </div>
+ <div class="nxt-persona__pains">
+ <div class="nxt-persona__pain">Placement rate declines create reputational risk with employer partners that he must manage without real-time diagnostic data.</div>
+ <div class="nxt-persona__pain">Employer satisfaction data is not systematically captured, making it impossible to identify which employer relationships are at risk before they deteriorate.</div>
+ <div class="nxt-persona__pain">Student learner profiles are not rich enough to power the kind of precise employer matching that would differentiate Northeastern from competing universities.</div>
+ </div>
+ </div>
+
+ <!-- NEEDS -->
+ <div>
+ <div class="nxt-persona__section-label">
+ <svg class="nxt-ico"><use href="#i-idea"></use></svg> Needs
+ </div>
+ <div class="nxt-persona__needs">
+ <div class="nxt-persona__need">An AI-powered employer matching engine that uses rich learner profiles and ML clustering to surface best-fit candidates for each role automatically.</div>
+ <div class="nxt-persona__need">Structured employer satisfaction feedback loops that feed into placement quality metrics and inform future matching logic.</div>
+ <div class="nxt-persona__need">Proactive relationship intelligence that flags employer partners showing declining engagement before placement rates reflect the problem.</div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- QUOTES -->
+ <div class="nxt-persona__quotes">
+ <div class="nxt-persona__section-label" style="padding:0 0 .25rem">
+ <svg class="nxt-ico"><use href="#i-chat"></use></svg> Verbatim Evidence
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Northeastern stakeholders challenged us to help them identify the right AI strategy and roadmap for the university and have directed us to prioritize the use of AI to further distinguish Northeastern as the leader in that space."</div>
+ <div class="nxt-quote__cite">NXT Co-op AI Roadmap Prioritization, Overview, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Experiential learning programs emphasize real-world impact and are a natural proving ground for AI to increase key performance indicators (KPIs)."</div>
+ <div class="nxt-quote__cite">NXT Co-op AI Roadmap Prioritization, AI ROI/KPIs, Dec 2024</div>
+ </div>
+ <div class="nxt-quote">
+ <div class="nxt-quote__text">"Agents are the next wave of the AI economy. Tech leaders and AI companies are partnering with universities to drive AI adoption."</div>
+ <div class="nxt-quote__cite">Northeastern PAI Vision and Roadmap, Dec 2024</div>
+ </div>
+ </div>
+ </article>
+
+ </div><!-- /persona-grid -->
+
+ </section>
+
+</section><!-- /panel personas -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANEL: RESEARCH CONTEXT -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="nxt-panel" data-panel="context" data-active="false">
+
+ <section class="nxt-hero nxt-wrap">
+ <p class="nxt-eyebrow">Research Context</p>
+ <h1 class="nxt-hero__title">Five research themes anchor every persona to institutional evidence</h1>
+ <p class="nxt-hero__standfirst">Interviews, market research, and technology research surfaced five converging themes that define the current state of co-op and the opportunity space for AI.</p>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Foundational Themes</p>
+ <div class="nxt-process">
+ <div class="nxt-phase">
+ <div class="nxt-phase__label">Theme 1</div>
+ <div class="nxt-phase__title">Connect Student Journey</div>
+ <p class="nxt-prose" style="margin-top:.5rem;font-size:.8rem">The student digital ecosystem is fragmented and causing frustration across every touchpoint from discovery to placement.</p>
+ </div>
+ <div class="nxt-phase">
+ <div class="nxt-phase__label">Theme 2</div>
+ <div class="nxt-phase__title">Build Learner Profiles</div>
+ <p class="nxt-prose" style="margin-top:.5rem;font-size:.8rem">Core to personalization is a rich, dynamic learner profile that accumulates evidence of skills and experience over time.</p>
+ </div>
+ <div class="nxt-phase">
+ <div class="nxt-phase__label">Theme 3</div>
+ <div class="nxt-phase__title">Improve Co-op Placement</div>
+ <p class="nxt-prose" style="margin-top:.5rem;font-size:.8rem">Placement rates have dropped in competitive job climates and markets, creating measurable institutional risk.</p>
+ </div>
+ <div class="nxt-phase">
+ <div class="nxt-phase__label">Theme 4</div>
+ <div class="nxt-phase__title">Personalize at Scale</div>
+ <p class="nxt-prose" style="margin-top:.5rem;font-size:.8rem">Personalized experiences succeed when using dynamic cohorting and ML clustering models across the student population.</p>
+ </div>
+ <div class="nxt-phase">
+ <div class="nxt-phase__label">Theme 5</div>
+ <div class="nxt-phase__title">Build Student Connections</div>
+ <p class="nxt-prose" style="margin-top:.5rem;font-size:.8rem">Students feel more prepared when connecting with others who have completed similar co-ops before them.</p>
+ </div>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Key Institutional Signals</p>
+ <div class="nxt-grid nxt-grid--2">
+ <div class="nxt-callout">
+ <div class="nxt-callout__icon"><svg class="nxt-ico"><use href="#i-alert"></use></svg></div>
+ <div class="nxt-callout__body"><strong>Placement rate decline</strong> is the primary institutional KPI driving the AI roadmap. Stakeholders named it explicitly as the metric that must move.</div>
+ </div>
+ <div class="nxt-callout">
+ <div class="nxt-callout__icon"><svg class="nxt-ico"><use href="#i-layers"></use></svg></div>
+ <div class="nxt-callout__body"><strong>Fragmented tooling</strong> is the root cause of student frustration. Dozens of commercially available AI tools exist but are disconnected from each other and from institutional data.</div>
+ </div>
+ <div class="nxt-callout">
+ <div class="nxt-callout__icon"><svg class="nxt-ico"><use href="#i-network"></use></svg></div>
+ <div class="nxt-callout__body"><strong>Agentic AI</strong> is identified as the next wave of the AI economy. The roadmap positions Northeastern to lead by deploying agents across the student journey.</div>
+ </div>
+ <div class="nxt-callout">
+ <div class="nxt-callout__icon"><svg class="nxt-ico"><use href="#i-data"></use></svg></div>
+ <div class="nxt-callout__body"><strong>Multimodal and immersive AI</strong> is flagged as superior for education, learning, and AI reasoning, pointing toward richer interaction models than text-only interfaces.</div>
+ </div>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <div class="nxt-block nxt-block--ink">
+ <p class="nxt-eyebrow" style="color:rgba(255,255,255,.6);margin-bottom:.75rem">Stakeholder Voice</p>
+ <div class="nxt-quote" style="border-left-color:rgba(255,255,255,.4)">
+ <div class="nxt-quote__text" style="color:#fff;font-size:1.1rem">"Our metric (co-op placements) has dropped considerably on student placement and co-op. And so what's the role of AI in enabling that to happen? And, if there's a role, that's huge."</div>
+ <div class="nxt-quote__cite" style="color:rgba(255,255,255,.6)">Northeastern University Stakeholder, NXT Co-op AI Roadmap Prioritization, December 2024</div>
+ </div>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Priority AI Application: Prep Advisor</p>
+ <div class="nxt-card">
+ <div class="nxt-card__label">Option 1, Drive Student Success</div>
+ <div class="nxt-card__title">AI-Driven Preparedness Assessment</div>
+ <div class="nxt-card__body">The roadmap identifies a Prep Advisor as a priority application: an AI-driven tool that assesses students' professional profile and co-op preparedness to recommend experiential learning and resources to optimize their resume and readiness. This directly addresses Maya's core pain and Rachel's capacity constraint simultaneously.</div>
+ </div>
+ </section>
+
+</section><!-- /panel context -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANEL: DESIGN OPPORTUNITIES -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="nxt-panel" data-panel="opportunities" data-active="false">
+
+ <section class="nxt-hero nxt-wrap">
+ <p class="nxt-eyebrow">Design Opportunities</p>
+ <h1 class="nxt-hero__title">Where each persona's unmet need becomes a product decision</h1>
+ <p class="nxt-hero__standfirst">Mapping persona needs to AI capabilities reveals a layered opportunity space where student, advisor, and employer needs converge on shared infrastructure.</p>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Persona-to-Opportunity Mapping</p>
+ <div style="overflow-x:auto">
+ <table class="nxt-table">
+ <thead>
+ <tr>
+ <th>Persona</th>
+ <th>Core Unmet Need</th>
+ <th>AI Capability Required</th>
+ <th>Evidence Anchor</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Maya Andrade</strong><br><span style="font-size:.75rem;color:var(--ink-60)">Anxious First-Placer</span></td>
+ <td>Specific, actionable feedback on profile gaps before applying</td>
+ <td>AI Prep Advisor with gap analysis and resource recommendation</td>
+ <td><span class="nxt-chip--source nxt-chip">NXT Roadmap, Dec 2024</span></td>
+ </tr>
+ <tr>
+ <td><strong>Daniel Kwon</strong><br><span style="font-size:.75rem;color:var(--ink-60)">Strategic Returner</span></td>
+ <td>Dynamic learner profile that grows across co-op cycles and powers employer matching</td>
+ <td>ML clustering and dynamic cohorting on accumulated competency data</td>
+ <td><span class="nxt-chip--source nxt-chip">PAI Vision, Dec 2024</span></td>
+ </tr>
+ <tr>
+ <td><strong>Rachel Patel</strong><br><span style="font-size:.75rem;color:var(--ink-60)">Overloaded Advisor</span></td>
+ <td>AI handles routine readiness tasks so advising time goes to complex cases</td>
+ <td>Agentic AI for pre-session profile review and risk flagging</td>
+ <td><span class="nxt-chip--source nxt-chip">NXT Roadmap, Dec 2024</span></td>
+ </tr>
+ <tr>
+ <td><strong>Thomas Liang</strong><br><span style="font-size:.75rem;color:var(--ink-60)">Employer Relationship Manager</span></td>
+ <td>Precise candidate matching that protects employer relationships and satisfaction</td>
+ <td>Employer-facing matching engine with satisfaction feedback loops</td>
+ <td><span class="nxt-chip--source nxt-chip">PAI Vision, Dec 2024</span></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Shared Infrastructure Opportunities</p>
+ <div class="nxt-grid nxt-grid--3">
+ <div class="nxt-card">
+ <div class="nxt-card__label">
+ <svg class="nxt-ico"><use href="#i-data"></use></svg> Unified Learner Profile
+ </div>
+ <div class="nxt-card__title">The data layer all four personas need</div>
+ <div class="nxt-card__body">Maya needs it to understand her gaps. Daniel needs it to surface his growth. Rachel needs it to prepare for advising. Thomas needs it to match candidates to employers. A rich, dynamic learner profile is the shared infrastructure that unlocks every downstream AI capability.</div>
+ </div>
+ <div class="nxt-card">
+ <div class="nxt-card__label">
+ <svg class="nxt-ico"><use href="#i-flow"></use></svg> Connected Student Journey
+ </div>
+ <div class="nxt-card__title">Eliminating the fragmentation tax</div>
+ <div class="nxt-card__body">Every persona pays a fragmentation tax today. A unified digital experience that connects job listings, skill resources, advisor availability, and employer data into one coherent journey removes the single largest source of friction across all four stakeholder groups.</div>
+ </div>
+ <div class="nxt-card">
+ <div class="nxt-card__label">
+ <svg class="nxt-ico"><use href="#i-network"></use></svg> Peer Connection Engine
+ </div>
+ <div class="nxt-card__title">Structured peer knowledge transfer</div>
+ <div class="nxt-card__body">Students feel more prepared when connecting with others who have done it before. An AI-powered peer matching system that connects first-placers like Maya with returners like Daniel creates a knowledge transfer loop that scales without advisor bandwidth.</div>
+ </div>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <div class="nxt-block nxt-block--teal">
+ <p class="nxt-eyebrow" style="color:rgba(255,255,255,.7);margin-bottom:.75rem">North Star Framing</p>
+ <h2 class="nxt-h2" style="color:#fff;margin-bottom:.75rem">AI that serves all four personas converges on one outcome: placement rates that reflect Northeastern's actual competitive advantage</h2>
+ <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.7;max-width:700px">The roadmap's stated objective is to distinguish Northeastern as the leader in experiential learning. That distinction is only credible when the placement metric moves. Every AI investment that does not trace back to a persona's unmet need and a measurable placement outcome is a distraction from that goal.</p>
+ </div>
+ </section>
+
+ <section class="nxt-section nxt-wrap">
+ <p class="nxt-eyebrow" style="margin-bottom:1.5rem">Sequencing Logic</p>
+ <div class="nxt-numlist">
+ <div class="nxt-numlist__item">
+ <div class="nxt-numlist__text"><strong>Build the learner profile infrastructure first.</strong> Without rich, dynamic student data, no downstream AI capability (matching, prep advising, peer connection) can function at the quality level the roadmap envisions. This is the prerequisite that unlocks everything else.</div>
+ </div>
+ <div class="nxt-numlist__item">
+ <div class="nxt-numlist__text"><strong>Deploy the AI Prep Advisor as the first student-facing product.</strong> It addresses Maya's highest-urgency need, reduces Rachel's caseload burden immediately, and generates the behavioral data that improves matching quality for Daniel and Thomas over time.</div>
+ </div>
+ <div class="nxt-numlist__item">
+ <div class="nxt-numlist__text"><strong>Activate employer-facing matching intelligence.</strong> Once learner profiles are rich enough to power ML clustering, Thomas can surface precise candidate shortlists to employer partners, directly addressing the placement rate decline that motivated the entire roadmap.</div>
+ </div>
+ <div class="nxt-numlist__item">
+ <div class="nxt-numlist__text"><strong>Layer in peer connection and multimodal experiences.</strong> Structured peer matching and immersive AI interactions address the preparation and belonging needs that placement mechanics alone cannot solve, completing the north star vision.</div>
+ </div>
+ </div>
+ </section>
+
+</section><!-- /panel opportunities -->
+
+</div><!-- /data-tabs-scope -->
+
+<!-- SOURCE INDEX -->
+<section class="nxt-section nxt-wrap nxt-source-index">
+ <p class="nxt-eyebrow" style="margin-bottom:1rem">Source Index</p>
+ <ul>
+ <li><span class="sname">NXT Co-op AI Roadmap Prioritization, Dec 2024.</span> Internal strategy document identifying AI applications for Northeastern's co-op program, including the Prep Advisor concept and placement rate KPI framing. Primary source for stakeholder verbatim quote on placement decline.</li>
+ <li><span class="sname">Northeastern PAI Vision and Roadmap, Dec 2024.</span> Research synthesis document presenting five themes derived from student and faculty interviews, market research, and technology research. Source for fragmentation finding, learner profile theme, peer connection theme, and agentic AI framing.</li>
+ </ul>
+</section>
+
+<footer class="nxt-footer">
+ <span class="nxt-logo nxt-logo--sm">NXT HUMANS</span>
+ <span>PERSONA</span>
+</footer>
+
+<!-- TAB SCRIPT, INJECTED BY SYSTEM -->
+<script>
+(function(){
+  var tabs = document.querySelectorAll('[data-tabs] .nxt-tab');
+  var panels = document.querySelectorAll('[data-tabs-scope] .nxt-panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var target = tab.getAttribute('data-tab');
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p){ p.removeAttribute('data-active'); });
+      tab.setAttribute('aria-selected','true');
+      var panel = document.querySelector('.nxt-panel[data-panel="'+target+'"]');
+      if(panel){ panel.setAttribute('data-active','true'); }
+    });
+  });
+})();
+</script>
+
+<script>/* NXT Artifact System , interactions. Self-contained, no deps.
+   Working tabs via event delegation so it survives any markup nesting the
+   model emits. Contract: a tab group is a [data-tabs] container holding
+   .nxt-tab buttons each with data-tab="<id>", and sibling .nxt-panel
+   elements each with data-panel="<id>". First tab/panel is active by default.
+   Fixes the dead-tab failure across arch / tech-audit / org / meta-themes / persona. */
+(function () {
+  function activate(group, id) {
+    var tabs = group.querySelectorAll('.nxt-tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].setAttribute('aria-selected', tabs[i].getAttribute('data-tab') === id ? 'true' : 'false');
+    }
+    // panels may be inside the group or in a sibling region scoped by data-tabs-for
+    var scope = group.closest('[data-tabs-scope]') || group.parentNode || document;
+    var panels = scope.querySelectorAll('.nxt-panel');
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].setAttribute('data-active', panels[j].getAttribute('data-panel') === id ? 'true' : 'false');
+    }
+  }
+  function initGroup(group) {
+    var tabs = group.querySelectorAll('.nxt-tab');
+    if (!tabs.length) return;
+    var hasActive = false;
+    for (var i = 0; i < tabs.length; i++) {
+      if (tabs[i].getAttribute('aria-selected') === 'true') hasActive = true;
+    }
+    if (!hasActive) activate(group, tabs[0].getAttribute('data-tab'));
+  }
+  function init() {
+    var groups = document.querySelectorAll('[data-tabs]');
+    for (var i = 0; i < groups.length; i++) initGroup(groups[i]);
+  }
+  // Delegated click: works for tabs added any time.
+  document.addEventListener('click', function (e) {
+    var tab = e.target && e.target.closest ? e.target.closest('.nxt-tab') : null;
+    if (!tab) return;
+    var group = tab.closest('[data-tabs]') || tab.parentNode;
+    var id = tab.getAttribute('data-tab');
+    if (id) { e.preventDefault(); activate(group, id); }
+  });
+  // Keyboard support
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    var tab = document.activeElement;
+    if (!tab || !tab.classList || !tab.classList.contains('nxt-tab')) return;
+    var group = tab.closest('[data-tabs]'); if (!group) return;
+    var tabs = Array.prototype.slice.call(group.querySelectorAll('.nxt-tab'));
+    var idx = tabs.indexOf(tab);
+    var next = e.key === 'ArrowRight' ? tabs[(idx + 1) % tabs.length] : tabs[(idx - 1 + tabs.length) % tabs.length];
+    if (next) { next.focus(); next.click(); }
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script></body>
+</html>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</ul>
+</tbody>
+</thead>
+</tr>
+</tr>
+</tr>
+</tr>
+</tr>
+</li>
+</li>

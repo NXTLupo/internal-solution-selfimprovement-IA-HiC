@@ -96,7 +96,7 @@ interface SuggesterButtonProps {
 export const SuggesterButton: React.FC<SuggesterButtonProps> = ({ handle, accentColor = '#00B7C3', compact }) => {
     const busy = handle.state === 'loading';
     const isDisabled = !handle.canSuggest;
-    const label = busy ? 'Suggesting…' : 'Suggest from goal';
+    const label = busy ? 'Suggesting...' : 'Suggest from goal';
     return (
         <button
             type="button"

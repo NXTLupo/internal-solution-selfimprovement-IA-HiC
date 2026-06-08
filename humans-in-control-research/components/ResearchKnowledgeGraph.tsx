@@ -1,10 +1,10 @@
 /**
- * ResearchKnowledgeGraph v4 — Zoned Radial Knowledge Graph
+ * ResearchKnowledgeGraph v4 - Zoned Radial Knowledge Graph
  *
  * 3-zone layout:
- *   Zone A (center 40%): themes, personas, recommendations, gaps — the analytical core
- *   Zone B (60-75%): sources — the data providers
- *   Zone C (80-95%): evidence — raw data texture
+ *   Zone A (center 40%): themes, personas, recommendations, gaps - the analytical core
+ *   Zone B (60-75%): sources - the data providers
+ *   Zone C (80-95%): evidence - raw data texture
  *   Orphan cluster: bottom area, outside the radial layout
  *
  * 4 shapes only: diamond (themes), circle (sources/evidence), rounded-rect (personas/journeys),
@@ -147,7 +147,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
         });
 
         // --- ZONE-BASED RADIAL LAYOUT ---
-        // Zone A: Analytical core (center) — themes at 0-15%, personas/recs/gaps at 25-35%
+        // Zone A: Analytical core (center) - themes at 0-15%, personas/recs/gaps at 25-35%
         // Zone B: Source ring (60-75%)
         // Zone C: Evidence field (80-95%), clustered near parent source
         const getTargetRadius = (node: any) => {
@@ -295,11 +295,11 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
             'quoted_in': '#D0D0D0',
         };
 
-        // Tier 1: Structural (supported_by) — always visible
+        // Tier 1: Structural (supported_by) - always visible
         const tier1Edges = visibleEdges.filter((e: any) => e.type === 'supported_by');
-        // Tier 2: Relationship (experiences, addresses) — visible at 1.2x+
+        // Tier 2: Relationship (experiences, addresses) - visible at 1.2x+
         const tier2Edges = visibleEdges.filter((e: any) => e.type === 'experiences' || e.type === 'addresses');
-        // Tier 3: Provenance (from, quoted_in) — hairlines at rest, visible on hover/2.0x+
+        // Tier 3: Provenance (from, quoted_in) - hairlines at rest, visible on hover/2.0x+
         const tier3Edges = visibleEdges.filter((e: any) => e.type === 'from' || e.type === 'quoted_in');
 
         // Render tier 3 first (lowest z)
@@ -400,7 +400,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
             const r = d.size || 10;
 
             if (d.type === 'theme') {
-                // DIAMOND — analytical backbone
+                // DIAMOND - analytical backbone
                 const themeR = Math.max(r, 32);
                 const pts = `0,${-themeR} ${themeR},0 0,${themeR} ${-themeR},0`;
                 const diamond = el.append('polygon').attr('points', pts);
@@ -427,7 +427,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                         .text(Math.round(d.sourceConcentration * 100));
                 }
             } else if (d.type === 'source') {
-                // CIRCLE — sized by evidence count
+                // CIRCLE - sized by evidence count
                 const sourceR = Math.max(8, Math.min(24, Math.sqrt(d.metadata?.itemCount || 3) * 4));
                 const tierStyle = d.metadata?.tierStyle || getTierStyle(d.tier || 3);
                 const circle = el.append('circle').attr('r', sourceR).attr('fill', tierStyle.fill);
@@ -438,7 +438,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                 // Store computed radius for label offset
                 d._renderedR = sourceR;
             } else if (d.type === 'evidence') {
-                // CIRCLE — small, opacity by freshness
+                // CIRCLE - small, opacity by freshness
                 const freshness = d.freshnessScore || 50;
                 const opacity = Math.max(0.2, Math.min(0.5, freshness / 150));
                 el.append('circle')
@@ -448,7 +448,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                     .attr('stroke-width', d.metadata?.enriched ? 1 : 0)
                     .attr('opacity', opacity);
             } else if (d.type === 'persona') {
-                // ROUNDED RECT — entity card shape
+                // ROUNDED RECT - entity card shape
                 if (d.imageUrl) {
                     const imgR = Math.max(r, 14);
                     el.append('clipPath').attr('id', `clip-${d.id}`)
@@ -473,14 +473,14 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                         .attr('stroke', '#0D0D0D').attr('stroke-width', 1);
                 }
             } else if (d.type === 'journey_stage') {
-                // ROUNDED RECT — entity card
+                // ROUNDED RECT - entity card
                 el.append('rect')
                     .attr('x', -r).attr('y', -r * 0.6)
                     .attr('width', r * 2).attr('height', r * 1.2)
                     .attr('rx', 4).attr('fill', d.color || '#00B7C3')
                     .attr('stroke', '#0D0D0D').attr('stroke-width', 0.5).attr('opacity', 0.85);
             } else if (['recommendation', 'feature', 'roadmap_item', 'gap'].includes(d.type)) {
-                // HEXAGON — action-oriented
+                // HEXAGON - action-oriented
                 const hexR = Math.max(r, 12);
                 const hex = Array.from({length: 6}, (_, i) => {
                     const angle = (Math.PI / 3) * i - Math.PI / 2;
@@ -564,10 +564,10 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                 return k >= 1.2 ? 'block' : 'none';
             });
 
-            // Tier 2 edges: relationship — fade in at 1.2x
+            // Tier 2 edges: relationship - fade in at 1.2x
             linkT2.attr('stroke-opacity', k >= 1.2 ? 0.25 : 0.0);
 
-            // Tier 3 edges: provenance — more visible at 2.0x
+            // Tier 3 edges: provenance - more visible at 2.0x
             linkT3.attr('stroke-opacity', k >= 2.0 ? 0.15 : 0.08)
                 .attr('stroke-width', k >= 2.0 ? 0.6 : 0.3);
         }
@@ -840,7 +840,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                         </div>
                     </div>
 
-                    {/* Scrollable content — structured sections */}
+                    {/* Scrollable content - structured sections */}
                     <div style={{ flex: 1, overflowY: 'auto', padding: '0' }}>
                         {/* Section 1: Description */}
                         {selectedNode.metadata?.description && (
@@ -875,7 +875,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                             </div>
                         )}
 
-                        {/* Section 4: Stats for themes — mini source bar chart */}
+                        {/* Section 4: Stats for themes - mini source bar chart */}
                         {selectedNode.type === 'theme' && selectedNode.evidenceCount !== undefined && (
                             <div style={{ padding: '10px 16px', borderBottom: '1px solid #F5F5F5' }}>
                                 <div style={{ display: 'flex', gap: 16, marginBottom: 8 }}>
@@ -908,11 +908,11 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                             </div>
                         )}
 
-                        {/* Section 5: Connected nodes — grouped by type with counts */}
+                        {/* Section 5: Connected nodes - grouped by type with counts */}
                         {totalConnections > 0 && (
                             <div style={{ padding: '10px 16px' }}>
                                 <div style={{ fontFamily: "'Helvetica Neue',sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAA', marginBottom: 8 }}>
-                                    CONNECTIONS ({totalConnections}{totalConnections > 30 ? ` — showing 30 of ${totalConnections}` : ''})
+                                    CONNECTIONS ({totalConnections}{totalConnections > 30 ? ` - showing 30 of ${totalConnections}` : ''})
                                 </div>
                                 {Object.entries(connectionGroups).map(([type, items]) => (
                                     <div key={type} style={{ marginBottom: 8 }}>
@@ -975,7 +975,7 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                 </div>
             )}
 
-            {/* COMPREHENSIVE LEGEND — expandable */}
+            {/* COMPREHENSIVE LEGEND - expandable */}
             <div className="flex items-center justify-between px-4 py-2 border-t border-[var(--border-primary)] bg-[#0D0D0D]" style={{ position: 'relative' }}>
                 <div className="flex items-center gap-4">
                     {/* Compact legend items */}

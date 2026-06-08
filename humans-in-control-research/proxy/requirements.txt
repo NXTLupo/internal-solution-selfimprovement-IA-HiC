@@ -32,3 +32,13 @@ tiktoken>=0.12.0
 # RSS body expansion (2026-04-29): direct HTML fetch + trafilatura article-body
 # extraction as the primary path; Jina Reader is only the rate-limited fallback.
 trafilatura>=1.12.0
+# 2026-05-30 — Slide export fidelity. Playwright (headless Chromium) renders the
+# real .nxt-slide frames so PNG/PDF exports are pixel-faithful to the preview
+# (generic: covers every design-system block, no per-template reimplementation).
+# Editable PPTX stays text-based via nxt_slide_export. Chromium + system libs are
+# installed in the Dockerfile via `playwright install --with-deps chromium`.
+playwright==1.49.0
+
+# 2026-06-02 — real per-document sentiment (pure-python, no PyTorch) to feed
+# the engagement-weighted topic sentiment ported from socialresearch BertTopic.py
+vaderSentiment>=3.3.2

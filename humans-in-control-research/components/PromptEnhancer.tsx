@@ -7,7 +7,7 @@ interface UseEnhancerArgs {
     input: string;
     setInput: (val: string) => void;
     surface: 'analyst' | 'design';
-    /** Optional context snippet — research goal, attachments summary, source list. Kept short on the wire. */
+    /** Optional context snippet - research goal, attachments summary, source list. Kept short on the wire. */
     getContext?: () => string;
     /** If set, biases the enhancer rubric toward a specific downstream model. */
     targetModel?: 'gemini' | 'opus' | 'gpt' | 'auto';
@@ -81,7 +81,7 @@ interface EnhanceButtonProps {
     handle: PromptEnhancerHandle;
     accentColor?: string;
     disabled?: boolean;
-    /** Compact mode shrinks the button label — useful when the input row is tight. */
+    /** Compact mode shrinks the button label - useful when the input row is tight. */
     compact?: boolean;
     title?: string;
 }

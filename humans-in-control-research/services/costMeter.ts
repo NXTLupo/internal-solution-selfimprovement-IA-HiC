@@ -1,11 +1,11 @@
 /**
- * costMeter.ts — 2026-05-14
+ * costMeter.ts - 2026-05-14
  *
  * Token-cost accounting for every AI call in HiC. Wraps the response-shape
  * parsing for Gemini / Anthropic / OpenAI, multiplies by current public list
  * pricing, and exposes per-run + per-model running totals.
  *
- * Estimates only — real bills come from the provider dashboards. Treat as a
+ * Estimates only - real bills come from the provider dashboards. Treat as a
  * dev-loop signal for "did my optimization actually move the needle".
  *
  * The aiRetryClient calls `recordAICall` after each successful response;
@@ -29,7 +29,7 @@ export type ModelId =
 
 // 2026-Q2 public list pricing per 1M tokens.
 // Verified against vendor pricing pages; update when vendors change rates.
-// Thinking-budget tokens (Gemini "thinking") are billed as OUTPUT tokens —
+// Thinking-budget tokens (Gemini "thinking") are billed as OUTPUT tokens -
 // already counted in usage_metadata.candidatesTokenCount + thoughtsTokenCount.
 const PRICING: Record<ModelId, { in: number; out: number }> = {
     'gemini-3.1-pro-preview': { in: 3.50, out: 10.50 },
@@ -73,7 +73,7 @@ let currentRun: RunTotals = emptyTotals();
 const recentCalls: CallRecord[] = [];
 const MAX_RECENT = 200;
 
-// Subscriber list — UI surfaces (footer chip, build status) subscribe to
+// Subscriber list - UI surfaces (footer chip, build status) subscribe to
 // rerender on every new call.
 type Subscriber = (totals: RunTotals) => void;
 const subscribers = new Set<Subscriber>();
@@ -93,7 +93,7 @@ function emptyTotals(): RunTotals {
 
 export function resetRun(label?: string): void {
     currentRun = emptyTotals();
-    if (label) console.log(`[CostMeter] run reset — ${label}`);
+    if (label) console.log(`[CostMeter] run reset - ${label}`);
     subscribers.forEach(s => s(currentRun));
 }
 
@@ -135,7 +135,7 @@ export function normalizeModel(raw: string | undefined): ModelId {
 
 /**
  * Extract token usage from a provider response. Each provider names them
- * differently — this normalizes to {input, output}.
+ * differently - this normalizes to {input, output}.
  *
  * Gemini native:    response.usageMetadata.{promptTokenCount, candidatesTokenCount, thoughtsTokenCount}
  * Gemini compat:    response.usage.{prompt_tokens, completion_tokens}
@@ -145,16 +145,16 @@ export function normalizeModel(raw: string | undefined): ModelId {
 export function extractTokenUsage(response: any): { input: number; output: number } {
     if (!response || typeof response !== 'object') return { input: 0, output: 0 };
 
-    // Gemini native — usageMetadata
+    // Gemini native - usageMetadata
     const um = response.usageMetadata;
     if (um) {
         const input = um.promptTokenCount || 0;
-        // Thinking budget tokens are billed at output rate — sum them in.
+        // Thinking budget tokens are billed at output rate - sum them in.
         const output = (um.candidatesTokenCount || 0) + (um.thoughtsTokenCount || 0);
         if (input || output) return { input, output };
     }
 
-    // OpenAI / Gemini-compat — usage
+    // OpenAI / Gemini-compat - usage
     const u = response.usage;
     if (u) {
         if (typeof u.input_tokens === 'number' || typeof u.output_tokens === 'number') {
@@ -285,7 +285,7 @@ export function diffByModel(snapshot: Record<string, { costUSD: number; callCoun
 /**
  * Build a plain-language summary of a per-build cost diff that NAMES the models
  * the user was billed for. Example output:
- *   "Approximately $5.43 in model usage — Claude Opus 4.7 $1.85, GPT-5.5 $2.32, Gemini 3.1 Pro $1.26"
+ *   "Approximately $5.43 in model usage - Claude Opus 4.7 $1.85, GPT-5.5 $2.32, Gemini 3.1 Pro $1.26"
  *
  * Used in the chat after each prototype build, so the user sees what they spent
  * AND which models they spent it on without having to open the cost panel.
@@ -296,7 +296,7 @@ export function summarizeBuildCost(snapshotAtStart: ReturnType<typeof snapshotBy
     if (totalUSD <= 0 || diff.length === 0) return '';
     const lead = `Approximately ${formatUSD(totalUSD)} in model usage`;
     const breakdown = diff.map(d => `${d.displayName} ${formatUSD(d.costUSD)}`).join(', ');
-    return `${lead} — ${breakdown}.`;
+    return `${lead} - ${breakdown}.`;
 }
 
 /** Build a one-line summary suitable for end-of-build chat messages. */

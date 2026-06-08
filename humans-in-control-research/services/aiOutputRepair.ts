@@ -4,7 +4,7 @@
 // empty whitespace tool-call arguments from DeepSeek, GPT-5.5 truncation at max-tokens.
 // See .claude/skills/ai-output-syntax-repair/SKILL.md for the 9-rung repair ladder.
 //
-// 2026-05-24 — Phase 1.1 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 1.1 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 export type RepairReport = {
     ok: boolean;
@@ -30,7 +30,7 @@ export type RepairOptions = {
 const MAX_INPUT_SIZE_BYTES = 1024 * 1024; // 1 MB cap
 
 
-// Rung 1 — Trim conversational wrapping
+// Rung 1 - Trim conversational wrapping
 function trimWrapping(text: string): { out: string; changed: boolean } {
     let s = text.trim();
     // Strip fenced code blocks
@@ -51,14 +51,14 @@ function trimWrapping(text: string): { out: string; changed: boolean } {
 }
 
 
-// Rung 3 — Trailing comma + dangling comma cleanup
+// Rung 3 - Trailing comma + dangling comma cleanup
 function trailingCommaCleanup(text: string): { out: string; changed: boolean } {
     const out = text.replace(/,(\s*[}\]])/g, '$1');
     return { out, changed: out !== text };
 }
 
 
-// Rung 4 — JSON5 normalization (single quotes → double; unquoted keys → quoted)
+// Rung 4 - JSON5 normalization (single quotes → double; unquoted keys → quoted)
 function json5Normalize(text: string): { out: string; changed: boolean } {
     // Only convert single-quoted string LITERALS that look like JSON values
     // Avoid touching apostrophes inside double-quoted strings
@@ -79,7 +79,7 @@ function json5Normalize(text: string): { out: string; changed: boolean } {
 }
 
 
-// Rung 6 — Truncation close. Walk the string tracking string state + bracket depth.
+// Rung 6 - Truncation close. Walk the string tracking string state + bracket depth.
 function truncationClose(text: string): { out: string; changed: boolean; incompletePath: string | null } {
     if (text.length < 2) return { out: text, changed: false, incompletePath: null };
 
@@ -136,7 +136,7 @@ function truncationClose(text: string): { out: string; changed: boolean; incompl
 }
 
 
-// Rung 7 — HTML truncation close (very lightweight)
+// Rung 7 - HTML truncation close (very lightweight)
 const VOID_TAGS = new Set([
     'br', 'hr', 'img', 'input', 'meta', 'link', 'area', 'base', 'col',
     'embed', 'source', 'track', 'wbr',
@@ -262,7 +262,7 @@ export function repairAIOutput(
             } catch { /* keep trying */ }
         }
 
-        // Rung 6 — truncation close
+        // Rung 6 - truncation close
         const r6 = truncationClose(candidate);
         if (r6.changed) {
             rungs_attempted.push('truncation_close');
@@ -319,7 +319,7 @@ export function repairAIOutput(
         };
     }
 
-    // CSS / XML — minimal repair for now (CSS rule close, XML close)
+    // CSS / XML - minimal repair for now (CSS rule close, XML close)
     return {
         ok: true, output: text, parsed: text,
         repaired_via: 'no_repair_needed', degradation: false,

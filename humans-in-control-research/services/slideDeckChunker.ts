@@ -1,5 +1,5 @@
 /**
- * Slide Deck Chunker — Per-theme parallel slide-deck generation.
+ * Slide Deck Chunker - Per-theme parallel slide-deck generation.
  *
  * Replaces the single-shot `:::slide` deck generation that silently truncated
  * at ~4-5 slides regardless of how many were requested. Now: detect themes
@@ -42,7 +42,7 @@ export interface SlideDeckResult {
  * Strategy A (preferred): numbered list inline. Split on `, N. ` or
  * sentence-end before a `N.` marker. This works even when individual
  * themes contain their OWN internal commas (e.g., "Give Advisors &
- * Trailblazers Tools to Monitor, Connect, Guide, and Intervene") —
+ * Trailblazers Tools to Monitor, Connect, Guide, and Intervene") -
  * the earlier `[^,;.]` exclusion broke on this.
  *
  * Strategy B (fallback): bulleted list across lines.
@@ -66,7 +66,7 @@ export function extractThemesFromPrompt(prompt: string): string[] {
         numberStarts.push({ pos: contentStart, n });
     }
     // Only treat as a numbered list if we have >= 2 sequential numbers (1, 2,
-    // 3, ...) — protects against false matches like "Section 4.5 ..."
+    // 3, ...) - protects against false matches like "Section 4.5 ..."
     const isSequential = numberStarts.length >= 2 &&
         numberStarts.every((s, i) => i === 0 || s.n === numberStarts[i - 1].n + 1);
     if (isSequential) {
@@ -82,7 +82,7 @@ export function extractThemesFromPrompt(prompt: string): string[] {
                     .replace(/[,;.\n]\s*\d+\.\s+$/, '');
             } else {
                 // Last item: stop at the first sentence boundary that starts
-                // a new sentence with a capital letter — e.g., ". Ensure ..."
+                // a new sentence with a capital letter - e.g., ". Ensure ..."
                 // after the final theme. Sentence boundary = `.` + whitespace
                 // + capital letter.
                 slice = prompt.substring(start).split(/\.\s+(?=[A-Z])/)[0];
@@ -120,7 +120,7 @@ export function extractThemesFromPrompt(prompt: string): string[] {
  */
 export function extractSlideCountFromPrompt(prompt: string): { perTheme?: number; total?: number } {
     const lc = prompt.toLowerCase();
-    // `#?` makes the hashtag prefix optional — handles "5 case study #slides
+    // `#?` makes the hashtag prefix optional - handles "5 case study #slides
     // per theme" (very common) just like "5 case study slides per theme".
 
     const perThemeMatch = lc.match(/(\d+)\s+(?:case\s+study\s+)?#?slides?\s+per\s+(?:theme|topic|item)/);
@@ -164,7 +164,7 @@ Template: ${opts.template}
 CORPUS CONTEXT:
 ${opts.corpusContext}
 
-${opts.feedbackHint ? `FEEDBACK FROM A PRIOR ATTEMPT — INCORPORATE: ${opts.feedbackHint}\n` : ''}
+${opts.feedbackHint ? `FEEDBACK FROM A PRIOR ATTEMPT - INCORPORATE: ${opts.feedbackHint}\n` : ''}
 RULES:
 - Emit EXACTLY ${opts.slidesPerTheme} \`:::slide\` blocks. Not fewer.
 - Each block: \`:::slide template=${opts.template} brand=${opts.brand.toLowerCase()}\` then a JSON object then \`:::\`.
@@ -183,7 +183,7 @@ export async function generateChunkedSlideDeck(
 ): Promise<SlideDeckResult> {
     const themes = req.themes?.length ? req.themes : extractThemesFromPrompt(req.prompt);
     if (themes.length === 0) {
-        throw new Error('No themes detected in prompt — slide-deck chunking requires explicit themes. Provide them via #themes=A,B,C or a numbered list.');
+        throw new Error('No themes detected in prompt - slide-deck chunking requires explicit themes. Provide them via #themes=A,B,C or a numbered list.');
     }
     const counts = extractSlideCountFromPrompt(req.prompt);
     const slidesPerTheme = req.slidesPerTheme || counts.perTheme || (counts.total ? Math.ceil(counts.total / themes.length) : 5);
@@ -199,9 +199,9 @@ export async function generateChunkedSlideDeck(
     });
 
     const feedbackHint = req.feedbackSignals?.incomplete
-        ? 'The previous attempt was truncated and only delivered partial content. Ensure THIS chunk is complete — emit every required slide.'
+        ? 'The previous attempt was truncated and only delivered partial content. Ensure THIS chunk is complete - emit every required slide.'
         : req.feedbackSignals?.tooShort
-            ? 'The previous attempt was too shallow. Use the full per-chunk budget — pack each slide with named entities, quantified outcomes, verbatim quotes from the corpus.'
+            ? 'The previous attempt was too shallow. Use the full per-chunk budget - pack each slide with named entities, quantified outcomes, verbatim quotes from the corpus.'
             : undefined;
 
     const dispatchResult = await runChunked<SlideDeckRequest, string, string>(
@@ -308,7 +308,7 @@ export async function generateChunkedSlideDeck(
  * Lightweight detection: should we route a chat send through the chunker?
  */
 export function shouldChunkSlideRequest(prompt: string): boolean {
-    // 2026-05-23 — DIVERSION DISABLED. The chunker produces correct
+    // 2026-05-23 - DIVERSION DISABLED. The chunker produces correct
     // :::slide fence content but the chat-panel render pipeline does not
     // mount slide cards from the chunker output reliably (user confirmed
     // twice). Until that path is repaired and verified pixel-level, force

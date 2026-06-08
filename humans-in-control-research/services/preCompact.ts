@@ -1,4 +1,4 @@
-// preCompact.ts — 2026-05-11 (HiC-Active-Loop-Improvements #3)
+// preCompact.ts - 2026-05-11 (HiC-Active-Loop-Improvements #3)
 //
 // Mid-session context compaction. When the chat history grows past a
 // model-window-relative threshold, the older turns get summarized into a
@@ -109,7 +109,7 @@ export function shouldCompactHistory(
 /**
  * Build the summarization prompt for the older turns. We pass it to whichever
  * model is currently active so the summarization style matches the rest of
- * the session. The output is a structured digest — decisions made,
+ * the session. The output is a structured digest - decisions made,
  * deliverables produced, constraints learned, open threads.
  */
 export function buildCompactionPrompt(olderTurns: ChatMessage[], researchGoal: string): string {
@@ -134,13 +134,13 @@ Return a single markdown digest with exactly these sections:
 - Bulleted list of every artifact created (slide N, persona X, presentation Y, journey map for Z). Include slugs/titles when available.
 
 ### Constraints learned
-- Bulleted list of user preferences the analyst expressed via corrections, approvals, or explicit instructions. These compound over the session — capture every one.
+- Bulleted list of user preferences the analyst expressed via corrections, approvals, or explicit instructions. These compound over the session - capture every one.
 
 ### Open threads
 - Bulleted list of unfinished tasks, pending decisions, or topics the analyst flagged for later.
 
 ### Key entities mentioned
-- Comma-separated list of named entities (institutions, people, products, sources) that appeared in the chat — useful for future retrievals.
+- Comma-separated list of named entities (institutions, people, products, sources) that appeared in the chat - useful for future retrievals.
 
 Compress aggressively. The full chat history is being dropped after this digest is written. If you don't capture something here, it's gone. Target ~600-1200 words total.
 
@@ -154,13 +154,13 @@ Return ONLY the digest. No preamble, no meta-commentary.`;
  * sets context before recent turns play.
  */
 export function buildCompactionMessage(digest: string, originalTurnCount: number): ChatMessage {
-    const content = `[SESSION DIGEST — compressed from ${originalTurnCount} earlier turns]
+    const content = `[SESSION DIGEST - compressed from ${originalTurnCount} earlier turns]
 
 The following digest summarizes the earlier portion of this conversation. The raw turns have been compacted to preserve context window space. Treat this as established session memory.
 
 ${digest}
 
-[END SESSION DIGEST — the conversation continues below from the most recent turns]`;
+[END SESSION DIGEST - the conversation continues below from the most recent turns]`;
 
     return {
         id: `digest_${Date.now()}`,

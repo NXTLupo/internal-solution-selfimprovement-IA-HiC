@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Research Fabric Orchestrator
  * The brain that ties together deep research, data source connectors,
  * and CX mesh into a unified research workflow.
@@ -99,7 +99,7 @@ export interface ResearchProgress {
  * for a given research goal and industry context.
  * Returns ranked recommendations with relevance reasoning.
  */
-// 2026-05-04 — Routed through the proxy at /api/ai/gemini instead of
+// 2026-05-04 - Routed through the proxy at /api/ai/gemini instead of
 // direct GoogleGenAI SDK. Reason: the SDK pulls GEMINI_API_KEY from
 // process.env at runtime, but in the prod Docker build the SPA's
 // process.env only carries what Vite baked in. If the operator chooses
@@ -108,10 +108,10 @@ export interface ResearchProgress {
 // defaults all relevance scores to 50. Going through /api/ai/gemini puts
 // the key on the proxy where it belongs.
 async function geminiJSON<T>(prompt: string): Promise<T> {
-    // 2026-05-12 — Use shared retry client (auto-retries 5xx + 429).
+    // 2026-05-12 - Use shared retry client (auto-retries 5xx + 429).
     const { callAIWithRetry } = await import('./aiRetryClient');
     const data = await callAIWithRetry('gemini', {
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.5-flash',
         contents: prompt,
         config: { temperature: 0.2, responseMimeType: 'application/json' },
     }, { label: 'research-fabric-orchestrator' });
@@ -145,13 +145,13 @@ No r/ prefix. No NSFW. Sort by relevance.`;
 }
 
 // --- FRESHNESS HELPER ---
-// 2026-05-11 (HiC-Active-Loop #5) — Greedy, relevance-weighted corpus packer.
+// 2026-05-11 (HiC-Active-Loop #5) - Greedy, relevance-weighted corpus packer.
 // Takes an already-built corpus string + the chunk-to-source map, splits it
 // into CHUNK_XXX blocks, scores each by relevance / token-cost, then greedy-
 // packs the highest-ratio chunks until the byte budget is consumed. Preserves
 // the header + tri-model synthesis verbatim (those are budget-prioritized).
 //
-// Returns the repacked corpus + telemetry the caller logs. Pure function —
+// Returns the repacked corpus + telemetry the caller logs. Pure function -
 // no side effects other than what the caller does with the result.
 function greedyPackCorpus(
     fullCorpus: string,
@@ -160,11 +160,11 @@ function greedyPackCorpus(
 ): { corpus: string; keptChunks: number; droppedChunks: number; droppedBytes: number; lowestRatio: number } {
     // Split on the CHUNK_XXX boundary. Anything before the first [CHUNK_
     // marker is treated as the "preamble" (header + tri-model synthesis +
-    // first SOURCE header) and is NEVER dropped — it sets context the model
+    // first SOURCE header) and is NEVER dropped - it sets context the model
     // needs to interpret what follows.
     const firstChunkIdx = fullCorpus.indexOf('\n[CHUNK_');
     if (firstChunkIdx < 0) {
-        // No chunks found — return as-is, only enforce hard byte cap.
+        // No chunks found - return as-is, only enforce hard byte cap.
         return {
             corpus: fullCorpus.slice(0, maxChars),
             keptChunks: 0,
@@ -209,7 +209,7 @@ function greedyPackCorpus(
     }
 
     if (blocks.length === 0) {
-        // No chunks matched — fall back to plain truncate.
+        // No chunks matched - fall back to plain truncate.
         return {
             corpus: fullCorpus.slice(0, maxChars),
             keptChunks: 0,
@@ -219,7 +219,7 @@ function greedyPackCorpus(
         };
     }
 
-    // Sort by relevance per Kchar (≈ relevance per 250 tokens) — high first.
+    // Sort by relevance per Kchar (≈ relevance per 250 tokens) - high first.
     // We use chars/4 ≈ tokens as a cheap proxy; the ratio is dimensionless
     // so the conversion factor cancels in ranking. A 90-relevance 2KB chunk
     // beats a 90-relevance 8KB chunk; a 30-relevance 500-byte chunk beats a
@@ -259,7 +259,7 @@ function greedyPackCorpus(
     rebuilt = rebuilt.replace(/\n=== SOURCE: [^=]+?===\n(?=\n=== SOURCE:|\n*$)/g, '');
 
     const truncationBanner = dropped.length > 0
-        ? `\n\n[CORPUS PACKED — ${dropped.length} low-yield chunk(s) (${Math.round(dropped.reduce((s, b) => s + b.bytes, 0) / 1024)}KB) omitted to fit context window. Kept chunks ranked by relevance ÷ size.]\n`
+        ? `\n\n[CORPUS PACKED - ${dropped.length} low-yield chunk(s) (${Math.round(dropped.reduce((s, b) => s + b.bytes, 0) / 1024)}KB) omitted to fit context window. Kept chunks ranked by relevance ÷ size.]\n`
         : '';
 
     const finalCorpus = preamble + rebuilt + truncationBanner;
@@ -294,7 +294,7 @@ function computeFreshnessFromDate(dateStr: string): string {
  */
 /**
  * Option B refinement for CX Mesh subreddits (and TrustPilot/Play Store).
- * For each community target, ask Gemini to produce a brief-specific 4–8 word
+ * For each community target, ask Gemini to produce a brief-specific 4-8 word
  * keyword query that would surface posts RELEVANT TO THE RESEARCH GOAL within
  * that community. Prevents the old behavior where r/neu was searched for "neu"
  * (matches everything) or for the full 500-char goal text.
@@ -329,7 +329,7 @@ Return a JSON object where each key is the subreddit name (without "r/") and the
 
     try {
         const result = await geminiJSON<Record<string, string>>(prompt);
-        // Sanity-check — if Gemini returns the subreddit name verbatim (old bug), replace with goal snippet
+        // Sanity-check - if Gemini returns the subreddit name verbatim (old bug), replace with goal snippet
         const out: Record<string, string> = {};
         for (const sub of subreddits) {
             const q = (result[sub] || '').trim();
@@ -350,7 +350,7 @@ Return a JSON object where each key is the subreddit name (without "r/") and the
 }
 
 /**
- * 2026-05-10 (HiC-Reddit-Deep) — Suggest 6-10 high-signal subreddits given
+ * 2026-05-10 (HiC-Reddit-Deep) - Suggest 6-10 high-signal subreddits given
  * a research goal. Used when the user leaves the "Reddit Communities" field
  * empty on the landing page. Gemini picks communities likely to discuss the
  * topic; bad picks are filtered by the proxy's PRAW call (404s come back as
@@ -367,7 +367,7 @@ Rules:
 - Prefer communities where the target USER hangs out, not just topic-tagged subs
 - Mix general (r/AskReddit-style adjacent) with specific niche communities
 - Use lowercase slugs without the "r/" prefix
-- Diversity matters more than quantity — 6 high-signal subs beats 10 redundant ones
+- Diversity matters more than quantity - 6 high-signal subs beats 10 redundant ones
 
 Return ONLY a JSON array of subreddit slug strings. Example for "remote work pain points":
 ["remotework", "digitalnomad", "WorkOnline", "cscareerquestions", "managers", "ITCareerQuestions"]`;
@@ -409,10 +409,10 @@ function heuristicSubredditQuery(goal: string): string {
 }
 
 // ============================================================================
-// HALLUCINATION GUARD (2026-04-28) — Phase 2.5 fidelity check
+// HALLUCINATION GUARD (2026-04-28) - Phase 2.5 fidelity check
 // ============================================================================
 // The LLM rewrites the goal into source-specific keywords. Without a guardrail,
-// it can drift — adding angles ("luxury experience", "subscription model") that
+// it can drift - adding angles ("luxury experience", "subscription model") that
 // the user didn't intend. We check each refined query for fidelity to the
 // original goal: a fraction of its content tokens must overlap with the goal's
 // content tokens. If overlap is below FIDELITY_THRESHOLD, we reject the rewrite
@@ -482,11 +482,11 @@ function extractSourceIdTokens(sourceId: string): Set<string> {
  * rewrites with the verbatim goal so the proxy hits the source with content
  * the user actually authored. Logs each rejection so quality drift is visible.
  *
- * 2026-04-29 — Source-aware: the source's own name tokens (e.g. "bombas",
+ * 2026-04-29 - Source-aware: the source's own name tokens (e.g. "bombas",
  * "wayfair", "salesforce") count toward the fidelity numerator. Without this
  * adjustment, perfectly valid source-tailored refinements like
  * "Bombas social impact giving" scored 1/4 token overlap against a goal that
- * never mentions Bombas, and got replaced with the verbose 250-char goal —
+ * never mentions Bombas, and got replaced with the verbose 250-char goal -
  * defeating the entire point of refinement. With it, the brand name acts as
  * a free goal-aligned token, so adding it doesn't penalize fidelity.
  */
@@ -552,7 +552,7 @@ DATA SOURCES TO GENERATE QUERIES FOR: ${sourceList}
 Return a JSON object where each key is the source name and the value is the optimized search query string. Example:
 {"GDELT": "remote work technology adoption enterprise 2025 2026", "OpenAlex": "hybrid workforce productivity digital collaboration tools", "Hacker News": "remote work tools startups"}
 
-CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
+CRITICAL FIDELITY RULES - do NOT introduce concepts the goal does not contain:
 - Each query: 4-8 keywords, no filler words
 - AT LEAST ONE keyword in each query MUST appear in the original goal
 - Do NOT invent industries, brands, geographies, or stakeholders not in the goal
@@ -563,12 +563,12 @@ CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
 - For economic sources: use indicator-relevant terms tied to the goal
 - For social sources: use community language, not formal terms`;
 
-    // 2026-05-23 — Same defense as filterAndScoreItems: call Gemini directly
+    // 2026-05-23 - Same defense as filterAndScoreItems: call Gemini directly
     // so we have the raw text on parse failure, then run JSON.parse →
     // tryRepairJson → salvageJsonObject ladder. Prior behavior: a single
     // truncated trailing entry ('"AI News":}') caused geminiJSON to throw,
     // which sent the catch handler to use the verbose research goal verbatim
-    // across ALL ${enabledSources.length} sources — defeating refinement
+    // across ALL ${enabledSources.length} sources - defeating refinement
     // entirely. New behavior: the salvage path recovers every well-formed
     // "Source": "query" pair and only the broken trailing entry falls back.
     const { callAIWithRetry } = await import('./aiRetryClient');
@@ -577,7 +577,7 @@ CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
     let refined: Record<string, string> | null = null;
     try {
         const data = await callAIWithRetry('gemini', {
-            // 2026-05-23 — Use 3.5-flash to match the canonical Flash
+            // 2026-05-23 - Use 3.5-flash to match the canonical Flash
             // everywhere else in the user-visible artifact path. The 2.5
             // entry was a hold-over from before the swap.
             model: 'gemini-3.5-flash',
@@ -619,7 +619,7 @@ CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
 
     if (refined && typeof refined === 'object' && !Array.isArray(refined)) {
         // Backfill any sources the model omitted (whether due to truncation
-        // or just because the model skipped them) with the raw goal — same
+        // or just because the model skipped them) with the raw goal - same
         // safety net as the old full-fallback behavior, but scoped per source.
         for (const src of enabledSources) {
             if (typeof refined[src] !== 'string' || !refined[src].trim()) {
@@ -630,7 +630,7 @@ CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
         return validated;
     }
 
-    // Complete failure — every parse path threw or returned empty. Fall back
+    // Complete failure - every parse path threw or returned empty. Fall back
     // to the verbose research goal verbatim across all sources (unchanged
     // historical behavior, only triggered when literally nothing parsed).
     const fallback: Record<string, string> = {};
@@ -655,7 +655,7 @@ export async function generateResearchPlan(
         socialTrends?: boolean;
         webIntelligence?: { urls?: string[] };
         cxMesh?: { subreddits?: string[]; trustpilot?: string[]; playstore?: string[] };
-        // 2026-05-10 (HiC-Reddit-Deep) — Subreddits the user typed on the
+        // 2026-05-10 (HiC-Reddit-Deep) - Subreddits the user typed on the
         // landing page get PRAW-deep treatment (full bodies + comment trees +
         // score/author metadata). These are distinct from cxMesh.subreddits,
         // which go through the older Reddit-Ripper sidecar pathway and only
@@ -880,7 +880,7 @@ export async function generateResearchPlan(
     }
 
     // 7b. CX Mesh - TrustPilot
-    // Same fix as subreddits above — pass the research goal as the query so
+    // Same fix as subreddits above - pass the research goal as the query so
     // reviews are filtered for brief-relevance, not brand-name-self-match.
     if (enabledCategories.cxMesh?.trustpilot?.length) {
         for (const company of enabledCategories.cxMesh.trustpilot) {
@@ -991,7 +991,7 @@ export async function executePlan(
                         onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: p.message });
                     });
 
-                    // The synthesized research content (always include — this is the AI's analysis)
+                    // The synthesized research content (always include - this is the AI's analysis)
                     items = [{
                         id: `research_${source.id}`,
                         title: `AI Research (${researchResult.provider}): ${source.query.substring(0, 60)}`,
@@ -1002,21 +1002,17 @@ export async function executePlan(
 
                     // RELEVANCE FILTER: Only filter out clearly off-topic results
                     // (e.g., Gemini product news for a higher-ed query).
-                    // Use broad domain matching — include anything that mentions ANY
+                    // Use broad domain matching - include anything that mentions ANY
                     // domain-relevant term from the research query OR common domain synonyms.
                     const allQueryText = `${source.query} ${researchGoal || ''}`.toLowerCase();
                     const queryWords = allQueryText.split(/\s+/).filter(w => w.length > 3);
-                    // Add domain synonyms so "fundraising" matches when query says "advancement"
+                    // 2026-06-03 - INDUSTRY-AGNOSTIC. Removed the hardcoded higher-ed /
+                    // co-op / fundraising synonym blocks: the system must be domain-
+                    // neutral and GOAL-anchored, never bake in one client's industry
+                    // vocabulary. Relevance is derived purely from the goal/query terms
+                    // (queryWords) plus the downstream goal-relevance scorer. An empty
+                    // synonym set keeps the matching logic intact with zero domain bias.
                     const domainSynonyms = new Set<string>();
-                    if (allQueryText.includes('fundrais') || allQueryText.includes('advancement') || allQueryText.includes('donor') || allQueryText.includes('giving')) {
-                        ['fundrais', 'donor', 'giving', 'advancement', 'philanthrop', 'alumni', 'endowment', 'stewardship', 'solicit', 'campaign'].forEach(s => domainSynonyms.add(s));
-                    }
-                    if (allQueryText.includes('higher ed') || allQueryText.includes('university') || allQueryText.includes('college') || allQueryText.includes('student')) {
-                        ['higher ed', 'university', 'college', 'student', 'campus', 'enrollment', 'tuition', 'faculty', 'academic'].forEach(s => domainSynonyms.add(s));
-                    }
-                    if (allQueryText.includes('co-op') || allQueryText.includes('coop') || allQueryText.includes('experiential') || allQueryText.includes('career')) {
-                        ['co-op', 'coop', 'experiential', 'career', 'intern', 'employer', 'workforce', 'skill'].forEach(s => domainSynonyms.add(s));
-                    }
 
                     let includedSources = 0;
                     let filteredSources = 0;
@@ -1086,11 +1082,11 @@ export async function executePlan(
                             sourceName: `${source.config.source}: ${source.config.target}`,
                         }));
                     } catch (e: any) {
-                        // CX Mesh services might be offline — graceful degradation
+                        // CX Mesh services might be offline - graceful degradation
                         throw new Error(`CX service unavailable: ${e.message}`);
                     }
                 } else if (source.type === 'reddit_deep') {
-                    // 2026-05-10 — Deep PRAW fetch. Directly calls the
+                    // 2026-05-10 - Deep PRAW fetch. Directly calls the
                     // research-proxy endpoint at /api/reddit-deep/fetch (no
                     // sidecar dependency). Items carry the full payload
                     // (post bodies + flattened comment trees + scores) under
@@ -1101,7 +1097,7 @@ export async function executePlan(
                     onProgress?.({
                         sourceId: source.id, sourceName: source.name,
                         status: 'running', itemsCollected: 0,
-                        message: `Fetching r/${cfg.target} (full bodies + comments)…`,
+                        message: `Fetching r/${cfg.target} (full bodies + comments)...`,
                     });
                     let resp: Response;
                     try {
@@ -1150,7 +1146,7 @@ export async function executePlan(
                             sourceName: `Reddit Deep: r/${cfg.target}`,
                             // Hang the raw payload off the item for the
                             // Topic Modeling tab. Downstream chunking only
-                            // looks at .content / .title — these fields are
+                            // looks at .content / .title - these fields are
                             // additive metadata.
                             _socialMeta: {
                                 postId: p.id,
@@ -1170,17 +1166,17 @@ export async function executePlan(
                         message: `Pulled ${items.length} posts + ${items.reduce((s: number, x: any) => s + (x._socialMeta?.comments?.length || 0), 0)} comments`,
                     });
 
-                    // 2026-05-11 — Persist EACH deep-Reddit post as a structured
+                    // 2026-05-11 - Persist EACH deep-Reddit post as a structured
                     // wiki page so the rich payload (full body + comment tree +
                     // score/author metadata) is queryable across sessions, not
                     // just embedded in this run's corpus. This is in addition to
-                    // the generic residual archival downstream — that path saves
+                    // the generic residual archival downstream - that path saves
                     // only the squashed body+comments blob; this path preserves
                     // structure so the Topic Modeling tab + future analyzers
                     // can read it back faithfully.
                     //
                     // Path: wiki/social-intelligence/reddit-deep/{subreddit}/{post_id}.md
-                    // Fire-and-forget — wiki writes are local and fast, but
+                    // Fire-and-forget - wiki writes are local and fast, but
                     // we don't want a slow wiki call to delay the pipeline.
                     (async () => {
                         const writes = items.map(async (item: any) => {
@@ -1208,7 +1204,7 @@ export async function executePlan(
                                 const fmYaml = Object.entries(fm)
                                     .map(([k, v]) => `${k}: ${typeof v === 'string' ? JSON.stringify(v) : v}`)
                                     .join('\n');
-                                // The post body comes from selftext via _socialMeta? No —
+                                // The post body comes from selftext via _socialMeta? No -
                                 // selftext lives in the raw payload before we squashed.
                                 // We have it on the item.content head segment. Pull it
                                 // from the raw `rawItems` array to preserve fidelity.
@@ -1221,7 +1217,7 @@ export async function executePlan(
                                         return `${indent}- **${c.author}** (${c.score}↑): ${c.body}`;
                                     }).join('\n')
                                     : '';
-                                const md = `---\n${fmYaml}\n---\n\n# ${item.title}\n\nSource: [${fm.source}](${fm.url})\n${meta.author ? `Posted by **${meta.author}**` : ''}${meta.score !== undefined ? ` · **${meta.score}↑** · **${meta.numComments} comments**` : ''}\n\n${bodyText || '_(no body — link/image post)_'}${commentSection}\n`;
+                                const md = `---\n${fmYaml}\n---\n\n# ${item.title}\n\nSource: [${fm.source}](${fm.url})\n${meta.author ? `Posted by **${meta.author}**` : ''}${meta.score !== undefined ? ` · **${meta.score}↑** · **${meta.numComments} comments**` : ''}\n\n${bodyText || '_(no body - link/image post)_'}${commentSection}\n`;
 
                                 await fetch('http://127.0.0.1:5012/api/wiki/write', {
                                     method: 'POST',
@@ -1283,14 +1279,14 @@ export async function executePlan(
  * title + ~600-char body excerpt per item, batched to keep prompt size sane.
  *
  * Returns items with relevanceScore (0-100) and reason attached.
- * NO ITEMS ARE DROPPED — scoring affects ordering only. The downstream wiki
+ * NO ITEMS ARE DROPPED - scoring affects ordering only. The downstream wiki
  * embedding + retrieval stack does the actual selection at chat time.
  */
 const SCORE_BATCH_SIZE = 25;          // items per Gemini call
 const SCORE_BATCH_CONCURRENCY = 3;    // simultaneous batches (rate-limit safety)
 const SCORE_BODY_CHARS = 600;         // body excerpt per item (title + this)
 
-async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promise<DataSourceItem[]> {
+async function filterAndScoreItems(items: DataSourceItem[], goal: string, bodyChars: number = SCORE_BODY_CHARS): Promise<DataSourceItem[]> {
     if (items.length === 0) return items;
     if (items.length <= 3) {
         // Score even tiny sets but don't drop
@@ -1298,14 +1294,16 @@ async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promi
     }
 
     // Build the body-aware item line. Strip newlines to keep the prompt compact.
+    // U2: bodyChars is widened on the post-enrichment re-score so relevance reflects
+    // the full fetched body, not the 600-char pre-enrichment snippet.
     const itemLine = (item: DataSourceItem): string => {
         const body = (item.content || '')
             .replace(/\s+/g, ' ')
             .trim()
-            .slice(0, SCORE_BODY_CHARS);
+            .slice(0, bodyChars);
         const sourceTag = item.sourceName ? ` [${item.sourceName}]` : '';
         // Title is required for context; body is the substantive signal.
-        return `TITLE: ${item.title}${sourceTag}\nBODY: ${body || '(no body — score on title only)'}`;
+        return `TITLE: ${item.title}${sourceTag}\nBODY: ${body || '(no body - score on title only)'}`;
     };
 
     // Split items into batches keyed by their original global index so we
@@ -1333,7 +1331,7 @@ async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promi
                 // we map them back to global indices via batch.startIdx.
                 const block = batch.items.map((it, j) => `--- ${j} ---\n${itemLine(it)}`).join('\n\n');
 
-                // 2026-05-23 — Two failure modes seen in the wild:
+                // 2026-05-23 - Two failure modes seen in the wild:
                 //   (a) Gemini Flash truncates mid-object on the last item
                 //       (e.g. `"s":}`) so the whole batch fails parse
                 //   (b) An overly aggressive "be terse / single line" prompt
@@ -1347,24 +1345,24 @@ async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promi
                 // (a) case via salvageJsonArray.
                 const prompt = `RESEARCH GOAL: "${goal}"
 
-You are scoring search results for relevance to the research goal. READ THE BODY EXCERPT, not just the title — a generic title can hide highly relevant content, and a flashy title can disguise off-topic content.
+You are scoring search results for relevance to the research goal. READ THE BODY EXCERPT, not just the title - a generic title can hide highly relevant content, and a flashy title can disguise off-topic content.
 
 Score on 0-100:
 - 90-100: Directly addresses the research goal with specific data, named entities, or analysis
 - 70-89: Closely related, provides useful supporting context or evidence
 - 40-69: Tangentially related, might provide background or analogous insight
-- 0-39: Not relevant — different topic entirely
+- 0-39: Not relevant - different topic entirely
 
 ITEMS (each labeled --- N --- where N is the local index 0..${batch.items.length - 1}):
 ${block}
 
-Return ONLY a JSON array — one object per item, EVERY item scored:
+Return ONLY a JSON array - one object per item, EVERY item scored:
 [{"i": 0, "s": 85, "r": "Body discusses Northeastern alumni engagement metrics"}]
 Where i=local index 0..${batch.items.length - 1}, s=score 0-100, r=one-sentence reason grounded in the body content.
 You MUST emit all ${batch.items.length} objects. Do not stop early.
-Be STRICT — if the body doesn't substantively engage with the research goal, score under 60.`;
+Be STRICT - if the body doesn't substantively engage with the research goal, score under 60.`;
 
-                // 2026-05-23 — Call gemini directly so we have access to the raw
+                // 2026-05-23 - Call gemini directly so we have access to the raw
                 // text on parse failure. geminiJSON wraps JSON.parse and throws
                 // away the raw response, which means a single truncated object
                 // at index 24 used to lose all 25 items in the batch. Now we
@@ -1376,7 +1374,7 @@ Be STRICT — if the body doesn't substantively engage with the research goal, s
                 let rawText = '';
                 try {
                     const data = await callAIWithRetry('gemini', {
-                        // 2026-05-23 — Use 3.5-flash to match the canonical
+                        // 2026-05-23 - Use 3.5-flash to match the canonical
                         // Flash everywhere else in the user-visible artifact
                         // path (corpusChatService:409, generateNarrative).
                         // The 2.5 entry was a hold-over from before the swap.
@@ -1404,7 +1402,7 @@ Be STRICT — if the body doesn't substantively engage with the research goal, s
                         try {
                             parsed = JSON.parse(tryRepairJson(cleaned));
                         } catch {
-                            // Per-object salvage — recovers everything well-formed
+                            // Per-object salvage - recovers everything well-formed
                             // even when the trailing object is truncated.
                             const salvaged = salvageJsonArray<{ i: number; s: number; r: string }>(cleaned);
                             if (salvaged.length > 0) {
@@ -1444,7 +1442,7 @@ Be STRICT — if the body doesn't substantively engage with the research goal, s
         };
     });
 
-    // KEEP ALL ITEMS — do NOT drop evidence before the AI analyzes it
+    // KEEP ALL ITEMS - do NOT drop evidence before the AI analyzes it
     // Relevance scores are attached for sorting and post-analysis scoring,
     // but no item is excluded. The AI must see everything to perform
     // comprehensive cross-source analysis. Confidence is computed AFTER
@@ -1474,12 +1472,12 @@ const filterRelevantItems = filterAndScoreItems;
 /**
  * Content Enrichment: Fetch full text from top-scored items via the proxy's
  * /api/extract-content endpoint (PDF-first, Jina web fallback). Academic APIs
- * return only titles + abstracts — this downloads the real article so the AI
+ * return only titles + abstracts - this downloads the real article so the AI
  * can cite specific findings instead of refusing for lack of body text.
  *
  * URL-based fast-path: items whose URL points to a known full-text source
  * (DOI, Europe PMC, arXiv, PubMed Central, OpenAlex, OSF, *.pdf, etc.) are
- * always enriched regardless of how long their abstract happens to be —
+ * always enriched regardless of how long their abstract happens to be -
  * because even a 2000-char Europe PMC abstract is still a tiny fraction of
  * the 30-page paper sitting one DOI redirect away.
  */
@@ -1506,7 +1504,7 @@ function isLikelyFullTextSource(url: string): boolean {
 
 // Hosts where Jina / web extraction reliably FAILS or times out. Items from
 // these domains already arrive with their body text from their native
-// connector (Reddit selftext, tweet text, etc.) — re-extracting them via
+// connector (Reddit selftext, tweet text, etc.) - re-extracting them via
 // Jina just burns 45s per item and returns nothing. We exclude them from
 // the enrichment filter below; they still participate in residual wiki
 // archival using whatever body the connector produced.
@@ -1530,10 +1528,10 @@ function isJinaBlockedUrl(url: string): boolean {
     return JINA_BLOCKED_HOSTS.some(p => p.test(url));
 }
 
-const ENRICHMENT_PER_ITEM_CAP = 30_000; // 30KB per item (was 3KB) — fits comfortably in 1M-token Claude/Gemini context
-const ENRICHMENT_RELEVANCE_FLOOR = 40;   // was 60 — let medium-relevance items through
-const ENRICHMENT_GENERIC_LENGTH_GATE = 5_000; // was 300 — abstracts run 1-3KB; only skip if item already has substantial body
-// Phase 1-retrofit (2026-04-20): the wiki is the canonical RAG store — we archive EVERYTHING
+const ENRICHMENT_PER_ITEM_CAP = 30_000; // 30KB per item (was 3KB) - fits comfortably in 1M-token Claude/Gemini context
+const ENRICHMENT_RELEVANCE_FLOOR = 40;   // was 60 - let medium-relevance items through
+const ENRICHMENT_GENERIC_LENGTH_GATE = 5_000; // was 300 - abstracts run 1-3KB; only skip if item already has substantial body
+// Phase 1-retrofit (2026-04-20): the wiki is the canonical RAG store - we archive EVERYTHING
 // and rely on metadata retrieval to pull bodies on demand. The 80-item cap that used to sit
 // here meant 96% of collected items stayed as headlines (the user's audit caught this:
 // "4 full-text · 357 snippets · 288 headlines"). Raised to 300 so a typical ~500-item scored
@@ -1550,15 +1548,15 @@ const ENRICHMENT_TOP_N = 300;
 const CACHE_CHECK_CONCURRENCY = 8;
 const JINA_EXTRACT_CONCURRENCY = 3;
 
-async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICHMENT_TOP_N): Promise<DataSourceItem[]> {
+async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICHMENT_TOP_N, engagementGoal: string = ''): Promise<DataSourceItem[]> {
     // Items qualify for enrichment if they have an http URL AND either:
-    //   (a) their URL points to a known full-text source (DOI/PMC/arXiv/etc) — always enrich, OR
+    //   (a) their URL points to a known full-text source (DOI/PMC/arXiv/etc) - always enrich, OR
     //   (b) their existing content is shorter than the generic length gate.
     // Both paths still respect the relevance floor.
     const needsEnrichment = items.filter(item => {
         if (!item.url || !item.url.startsWith('http')) return false;
         if (((item as any).relevanceScore || 0) < ENRICHMENT_RELEVANCE_FLOOR) return false;
-        // Skip Reddit/Twitter/Discord/etc. — the native connector already
+        // Skip Reddit/Twitter/Discord/etc. - the native connector already
         // returned the selftext/body, and Jina can't scrape these anyway.
         // (Unless the URL is ALSO a known full-text source, which no social
         // URL matches, but keep the guard order safe.)
@@ -1567,16 +1565,16 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         return isLikelyFullTextSource(item.url) || len < ENRICHMENT_GENERIC_LENGTH_GATE;
     });
 
-    // 2026-04-29 — DO NOT early-return when needsEnrichment is empty.
+    // 2026-04-29 - DO NOT early-return when needsEnrichment is empty.
     // Previously the function bailed here, which silently skipped the
     // residual wiki archival step at the bottom. Now that RSS body
     // expansion (Tier 1: trafilatura) gives most items full 10KB bodies
-    // BEFORE this function runs, almost nothing needs enrichment — and
+    // BEFORE this function runs, almost nothing needs enrichment - and
     // the early return was sending everything past the wiki without
     // archiving it. Let the enrichment loop be a no-op when toEnrich
     // is empty; residual archival below will pick up the full-body items.
 
-    // Sort by relevance, but break ties by giving full-text-source URLs priority —
+    // Sort by relevance, but break ties by giving full-text-source URLs priority -
     // they yield 10-30KB of real evidence; landing-page scrapes typically yield <5KB.
     const toEnrich = needsEnrichment
         .sort((a, b) => {
@@ -1596,7 +1594,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     }
 
     const PROXY = 'http://127.0.0.1:5012';
-    // 2026-04-21 — Map keyed by ITEM REFERENCE (not string id) to defeat the
+    // 2026-04-21 - Map keyed by ITEM REFERENCE (not string id) to defeat the
     // prior collision bug: different items occasionally shared item.id strings
     // across connector code paths (e.g. Tier 0 URLs plus CX-mesh items plus
     // connector-factory items producing overlapping "cx_0", "jina_0", etc.),
@@ -1610,7 +1608,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     /**
      * Check the wiki archive for an already-extracted copy of this URL.
      * Returns the cached content + wikiPath on hit, null on miss / error.
-     * Failures are silent — we fall through to the normal fetch path.
+     * Failures are silent - we fall through to the normal fetch path.
      */
     async function checkWikiCache(url: string): Promise<{ content: string; wikiPath: string } | null> {
         try {
@@ -1620,7 +1618,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
             if (!check.ok) return null;
             const data = await check.json();
             if (!data.cached || !data.wikiPath) return null;
-            // Cached — fetch the full body from wiki
+            // Cached - fetch the full body from wiki
             const read = await fetch(`${PROXY}/api/wiki/read-article/${encodeURIComponent(data.wikiPath)}`, {
                 signal: AbortSignal.timeout(6000),
             });
@@ -1643,21 +1641,20 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
 
     /**
      * Persist an extracted article to the wiki. Returns the wikiPath on
-     * success or null on failure. Non-blocking — enrichment still succeeds
+     * success or null on failure. Non-blocking - enrichment still succeeds
      * if the write fails.
+     *
+     * 2026-06-05 - Migrated to networkResilient.ts::resilientFetch. The
+     * prior version dropped articles silently on `ERR_NETWORK_CHANGED`
+     * (3 articles lost in the 2026-06-05 console log's residual archival
+     * pass). resilientFetch retries up to 4 times with exponential backoff
+     * + jitter, honors `Retry-After` on 429, and records every transient
+     * to errorTelemetry so dropped writes become loud, not silent.
      */
     async function writeWikiArticle(item: DataSourceItem, content: string, method: string, source: string): Promise<string | null> {
         try {
-            // 2026-04-29 — Timeout raised from 8s to 25s. The proxy's
-            // /api/wiki/write-article endpoint synchronously embeds the
-            // article via OpenAI (1-3s per call) before returning. With
-            // 8-wide concurrency from residual archival, some writes
-            // succeeded server-side but the client's 8s window had already
-            // expired by the time the response arrived — causing the
-            // frontend to undercount persistence (e.g. "9/46 persisted"
-            // when the proxy actually wrote ~30). 25s comfortably covers
-            // the slowest p99 OpenAI embed even under burst load.
-            const resp = await fetch(`${PROXY}/api/wiki/write-article`, {
+            const { resilientFetch } = await import('./networkResilient');
+            const data: any = await resilientFetch<any>(`${PROXY}/api/wiki/write-article`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -1669,13 +1666,21 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     tier: (item as any).credibilityTier || undefined,
                     method,
                     kind: 'article',
+                    relevanceScore: (item as any).relevanceScore ?? undefined,
+                    engagementGoal: engagementGoal || undefined,
                 }),
-                signal: AbortSignal.timeout(25000),
+                label: 'wiki-write-article.residual-archival',
+                note: item.url ? `url=${item.url.slice(0, 80)}` : undefined,
+                maxRetries: 4,
+                initialBackoffMs: 800,
+                // Total budget: 4 retries × ~30s ceiling + 25s per-attempt = ~150s.
+                // The original 25s timeout was per-attempt; we keep that semantically
+                // and add retries on top.
+                timeoutMs: 150_000,
             });
-            if (!resp.ok) return null;
-            const data = await resp.json();
-            return data.wikiPath || null;
+            return (data && data.wikiPath) || null;
         } catch {
+            // resilientFetch already telemetry-logged the exhausted/timeout event.
             return null;
         }
     }
@@ -1683,7 +1688,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     let enrichFailures = 0;
     let enrichNon200 = 0;
 
-    // ===== PHASE 1 — Wiki cache checks (local proxy, cheap, 8-wide) =====
+    // ===== PHASE 1 - Wiki cache checks (local proxy, cheap, 8-wide) =====
     // This pass ONLY asks the proxy "do you already have this URL archived?"
     // and loads the body if so. No Jina traffic. Cache checks are ~4-6s each
     // and don't hit external rate limits, so we run them wide.
@@ -1717,7 +1722,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         console.log(`[Enrich] Phase 1 (cache): ${cachedHits}/${toEnrich.length} items served from wiki archive. ${cacheMisses.length} require fresh extraction.`);
     }
 
-    // ===== PHASE 2 — Jina / PDF extraction for cache misses (3-wide) =====
+    // ===== PHASE 2 - Jina / PDF extraction for cache misses (3-wide) =====
     // Jina is an external rate-limited service. Empirically bursts above 3
     // parallel requests trigger throttle → 45-second timeout pileups
     // (observed 2026-04-21: 20+ consecutive timeouts after a 6-wide burst).
@@ -1728,7 +1733,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         const results = await Promise.allSettled(
             batch.map(async (item) => {
                 try {
-                    // 2026-05-23 — Prefer the explicit pdfUrl when academic
+                    // 2026-05-23 - Prefer the explicit pdfUrl when academic
                     // sources provided one (OpenAlex open_access.oa_url,
                     // Crossref link[content-type=application/pdf], Semantic
                     // Scholar openAccessPdf.url). Falls back to landing-page
@@ -1784,33 +1789,39 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     const freshlyExtracted = Math.max(0, enriched.size - cachedHits);
     console.log(`Content enrichment: ${enriched.size}/${toEnrich.length} items enriched (cached: ${cachedHits}, freshly extracted: ${freshlyExtracted}, persisted to wiki: ${wikiWrites}, failed: ${enrichFailures}, non-200: ${enrichNon200})`);
     if (collisionWarnings > 0) {
-        console.warn(`[Enrich] ${collisionWarnings} unexpected item-reference collisions during set() — investigate if >0`);
+        console.warn(`[Enrich] ${collisionWarnings} unexpected item-reference collisions during set() - investigate if >0`);
     }
 
-    // Phase 1-retrofit (2026-04-20) — WIKI-FIRST ARCHIVAL FOR EVERYTHING.
+    // Phase 1-retrofit (2026-04-20) - WIKI-FIRST ARCHIVAL FOR EVERYTHING.
     // Items that skipped enrichment (already have >5KB body from Reddit/API)
     // or whose URL wasn't enrichable (social posts with no http URL, transcripts)
     // still carry real content we want queryable via the wiki later. Archive
-    // them now — purely additive, does NOT alter the in-memory `items`
+    // them now - purely additive, does NOT alter the in-memory `items`
     // passed downstream to theme/persona/challenge/recommendation generation.
     // enriched is keyed by item reference, so membership check is direct.
     const residualToArchive = items.filter(item => {
         if (enriched.has(item)) return false;                         // already in wiki via enrichment
         const len = (item.content || '').length;
-        if (len < 500) return false;                                  // pure headlines — skip (future: on-demand extraction tool)
-        if (((item as any).relevanceScore || 0) < 30) return false;  // noise — drop
+        if (len < 500) return false;                                  // pure headlines - skip (future: on-demand extraction tool)
+        if (((item as any).relevanceScore || 0) < 30) return false;  // noise - drop
         return true;
     });
     if (residualToArchive.length > 0) {
         console.log(`Wiki residual archival: writing ${residualToArchive.length} items that bypassed enrichment (pre-existing body >=500 chars)`);
         let residualWrites = 0;
-        // Bounded concurrency; this is fire-and-forget for the active session
-        // but we do await so the wiki is populated BEFORE the caller returns
-        // and the metadata index builder (next phase) has real files to scan.
-        // Residual archival writes to local proxy only — use cache-check
-        // concurrency (8-wide), not Jina-extract concurrency.
-        for (let i = 0; i < residualToArchive.length; i += CACHE_CHECK_CONCURRENCY) {
-            const batch = residualToArchive.slice(i, i + CACHE_CHECK_CONCURRENCY);
+        // 2026-06-05 - Concurrency LOWERED to 3 (was 8) + inter-batch yield
+        // to fix the chain-walker chaos observed in the 2026-06-05 chat
+        // transcript: 138 residual writes at 8-wide saturated all 4 proxy
+        // workers, so chat-driven #whitepaper hit ERR_EMPTY_RESPONSE on
+        // every model in the deliverableModelRouter chain, burning through
+        // all 5 fallback models in ~3 seconds. With cap=3 we leave at least
+        // ONE proxy worker free for interactive chat traffic; the inter-batch
+        // yield (250ms) further spreads the load so a 50-batch run doesn't
+        // monopolize the proxy for 85+ seconds.
+        const RESIDUAL_CONCURRENCY = 3;
+        const RESIDUAL_INTER_BATCH_MS = 250;
+        for (let i = 0; i < residualToArchive.length; i += RESIDUAL_CONCURRENCY) {
+            const batch = residualToArchive.slice(i, i + RESIDUAL_CONCURRENCY);
             const writes = await Promise.allSettled(
                 batch.map(async (item) => {
                     // Use the item's own URL if present; otherwise synthesize a
@@ -1832,10 +1843,18 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                 if (w.status === 'fulfilled' && w.value) {
                     residualWrites++;
                     // Attach wikiPath so KG builder + retrieval layer can reference it.
-                    // Safe mutation — `items` is our locally-scoped collection.
+                    // Safe mutation - `items` is our locally-scoped collection.
                     const target = items.find(it => it.id === w.value!.id);
                     if (target) (target as any).wikiPath = w.value.wikiPath;
                 }
+            }
+            // 2026-06-05 - Inter-batch yield. Without this, all batches fire
+            // back-to-back which still saturates the proxy even at low
+            // concurrency (a slow disk-write keeps the worker busy across
+            // batches). The 250ms gap lets queued interactive requests
+            // interleave between archival batches.
+            if (i + RESIDUAL_CONCURRENCY < residualToArchive.length) {
+                await new Promise(r => setTimeout(r, RESIDUAL_INTER_BATCH_MS));
             }
         }
         console.log(`Wiki residual archival: ${residualWrites}/${residualToArchive.length} persisted`);
@@ -1843,7 +1862,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
 
     // Replace short content with full content for enriched items. Also attach
     // the wikiPath so downstream KG builders can reference the archive copy.
-    // Lookup is by item reference (not id), so no collisions — every item
+    // Lookup is by item reference (not id), so no collisions - every item
     // that was successfully enriched in this pass gets its body swapped in.
     return items.map(item => {
         const enrichment = enriched.get(item);
@@ -1861,9 +1880,9 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
 }
 
 /**
- * TRI-MODEL PARALLEL ANALYSIS — Split enriched corpus across two Gemini variants + OpenAI
+ * TRI-MODEL PARALLEL ANALYSIS - Split enriched corpus across two Gemini variants + OpenAI
  * Each model analyzes a third of the enriched items and produces a focused summary.
- * (2026-05-03 — Anthropic / Claude slice removed; replaced with a Gemini Pro slice
+ * (2026-05-03 - Anthropic / Claude slice removed; replaced with a Gemini Pro slice
  * for triangulation diversity. Different training corpora, different reasoning profiles.)
  * The three summaries are merged into a unified "multi-model synthesis" that gets
  * prepended to the corpus, giving the main session diverse analytical perspectives.
@@ -1877,13 +1896,13 @@ async function triModelAnalysis(enrichedItems: DataSourceItem[], researchGoal: s
     const groups: DataSourceItem[][] = [[], [], []];
     enrichedItems.forEach((item, i) => groups[i % 3].push(item));
 
-    // 2026-05-03 — Claude Sonnet slice replaced with Gemini 3.1 Pro to
+    // 2026-05-03 - Claude Sonnet slice replaced with Gemini 3.1 Pro to
     // eliminate Anthropic dependency. Triangulation diversity preserved by
     // running two distinct Google models (Pro + Flash) plus one OpenAI
-    // model — different training corpora, different reasoning profiles.
+    // model - different training corpora, different reasoning profiles.
     const modelConfigs = [
         { name: 'GeminiPro', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-3.1-pro-preview' },
-        { name: 'GeminiFlash', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-2.5-flash' },
+        { name: 'GeminiFlash', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-3.5-flash' },
         { name: 'OpenAI', endpoint: `${PROXY}/api/ai/openai`, model: 'gpt-5.4-mini' },
     ];
 
@@ -1894,7 +1913,7 @@ async function triModelAnalysis(enrichedItems: DataSourceItem[], researchGoal: s
 Analyze these ${items.length} research items and extract:
 1. The 3-5 most important findings relevant to the research objective (with specific data points)
 2. Any contradictions or tensions between sources
-3. Gaps — what questions do these sources NOT answer?
+3. Gaps - what questions do these sources NOT answer?
 
 ITEMS:\n${itemText}
 
@@ -1957,9 +1976,27 @@ Be specific. Cite item numbers. Extract statistics, percentages, and named entit
         modelConfigs.map((config, i) => analyzeWithModel(config, groups[i]))
     );
 
+    // 2026-05-31 - Sanitize each model slice. A slice can come back as an LLM
+    // continuation/error string ("please provide the content of Part 2/3 of
+    // the research corpus", "As an AI...", a near-empty stub). Those previously
+    // got prepended to the corpus and surfaced as a leaked pull-quote in the
+    // journey deck. Reject any slice that is too short or matches an artifact
+    // pattern, so a bad slice contributes nothing rather than poisoning output.
+    const _LEAKED_SLICE_RE = /(please\s+provide|part\s*\d\s*\/\s*\d|content\s+of\s+(?:the\s+|part\s+).{0,40}corpus|provide\s+the\s+content|\bas\s+an\s+ai\b|i\s+cannot\b|i'?m\s+an\s+ai\b|continue\s+the\s+(?:analysis|response|synthesis)|here\s+is\s+(?:part|the\s+(?:next|remaining)))/i;
+    const sanitizeSlice = (text: string): string => {
+        if (!text) return '';
+        const t = text.trim();
+        if (t.length < 80) return '';            // too short to be real analysis
+        if (_LEAKED_SLICE_RE.test(t)) {
+            console.warn('[TriModel] rejected a model slice as an LLM artifact (leaked/continuation string)');
+            return '';
+        }
+        return t;
+    };
+
     const summaries = results
         .map((r, i) => {
-            const text = r.status === 'fulfilled' ? r.value : '';
+            const text = r.status === 'fulfilled' ? sanitizeSlice(r.value) : '';
             return text ? `\n=== ${modelConfigs[i].name.toUpperCase()} ANALYSIS (${groups[i].length} items) ===\n${text}` : '';
         })
         .filter(Boolean);
@@ -1988,7 +2025,7 @@ export async function mergeResultsToCorpus(
     // and as evidence nodes linked to any themes citing their text. They arrive
     // pre-enriched (parsed body is already in `content`) with relevanceScore=100
     // so the scorer won't filter them out. Placed FIRST so chunk IDs for client
-    // docs occupy CHUNK_001..CHUNK_NN — makes citation resolution intuitive.
+    // docs occupy CHUNK_001..CHUNK_NN - makes citation resolution intuitive.
     if (uploadedItems && uploadedItems.length > 0) {
         sourceRanges.push({ name: 'Client Uploads', start: allItems.length, count: uploadedItems.length });
         allItems.push(...uploadedItems);
@@ -2007,7 +2044,38 @@ export async function mergeResultsToCorpus(
         : allItems.map(item => ({ ...item, relevanceScore: 70 }));
 
     // CONTENT ENRICHMENT: Fetch full text for top-scored items with short content
-    scoredItems = await enrichTopItems(scoredItems);
+    scoredItems = await enrichTopItems(scoredItems, ENRICHMENT_TOP_N, researchGoal);
+
+    // U2 (enrich-then-score): the initial relevance score was computed on a
+    // ~600-char pre-enrichment snippet (often just a title/abstract), then drove
+    // ordering + the greedy packer - so the corpus was ranked by text the model
+    // would never see. Re-score the items enrichment actually expanded, on a wider
+    // window of the FETCHED body, and merge the corrected scores back. Bounded to
+    // the enriched subset so cost stays proportional to what changed.
+    try {
+        if (researchGoal) {
+            const enrichedSubset = scoredItems.filter((it: any) => it?.enriched && (it?.content || '').length > SCORE_BODY_CHARS * 2);
+            if (enrichedSubset.length >= 4) {
+                const rescored = await filterAndScoreItems(enrichedSubset, researchGoal, 2800);
+                const byKey = new Map(rescored.map((it: any) => [(it.url || it.title || '') as string, it.relevanceScore]));
+                let changed = 0;
+                scoredItems = scoredItems.map((it: any) => {
+                    if (!it?.enriched) return it;
+                    const k = (it.url || it.title || '') as string;
+                    const ns = byKey.get(k);
+                    if (typeof ns === 'number' && ns !== it.relevanceScore) {
+                        changed++;
+                        return { ...it, relevanceScore: ns, _rescoredOnBody: true };
+                    }
+                    return it;
+                });
+                scoredItems.sort((a: any, b: any) => (b.relevanceScore ?? 0) - (a.relevanceScore ?? 0));
+                console.log(`[Corpus] U2 enrich-then-score: re-scored ${enrichedSubset.length} enriched items on full body, ${changed} relevance scores corrected`);
+            }
+        }
+    } catch (e: any) {
+        console.warn('[Corpus] U2 re-score skipped (non-fatal):', e?.message || e);
+    }
 
     // TRI-MODEL PARALLEL ANALYSIS: Split enriched items across Gemini/Claude/OpenAI
     // Each model analyzes a subset; merged synthesis prepended to corpus
@@ -2024,7 +2092,7 @@ export async function mergeResultsToCorpus(
     }
 
     // Build STRUCTURED corpus with chunk IDs for citation tracking
-    // NO STATIC TIER LABELS — source credibility is determined POST-ANALYSIS
+    // NO STATIC TIER LABELS - source credibility is determined POST-ANALYSIS
     // based on actual contribution to the research objective
     let chunkIndex = 0;
     const chunkMap: Record<string, ChunkSourceInfo> = {};
@@ -2041,7 +2109,7 @@ export async function mergeResultsToCorpus(
             : 0;
         return { ...range, avgRelevance, kept };
     });
-    // Sort by average relevance — most relevant sources appear first
+    // Sort by average relevance - most relevant sources appear first
     rangesWithRelevance.sort((a, b) => b.avgRelevance - a.avgRelevance);
 
     for (const range of rangesWithRelevance) {
@@ -2082,16 +2150,25 @@ export async function mergeResultsToCorpus(
 NO PRE-ASSIGNED CREDIBILITY TIERS. Source value is determined by YOU based on actual contribution to the research objective. An academic paper irrelevant to the goal is worth less than a practitioner Reddit post that describes exactly the problem the client faces. Judge each source by what it contributes, not where it came from.
 CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must reference the chunk it came from. Cite from across the FULL corpus range.\n`;
 
-    let corpus = header + (triModelSynthesis ? triModelSynthesis + '\n\n' : '') + sections.join('\n');
+    // 2026-05-31 - The tri-model synthesis is ORIENTATION for the model, not a
+    // source. Wrap it in an explicit non-citable marker so downstream
+    // generation (themes, journey, any artifact reading this corpus) never
+    // cites "Tri-Model Synthesis / Highlights / Gaps" as if it were evidence
+    // (a CRITICAL defect in the 2026-05-31 journey audit). The proxy + slide
+    // post-processors also strip such citations as a deterministic backstop.
+    const synthesisBlock = triModelSynthesis
+        ? `\n=== INTERNAL PRE-ANALYSIS (orientation only - NOT a source; never cite this section) ===\n${triModelSynthesis}\n=== END PRE-ANALYSIS ===\n\n`
+        : '';
+    let corpus = header + synthesisBlock + sections.join('\n');
 
     // CORPUS SIZE GUARD (raised 2026-04-29, packer-upgraded 2026-05-11).
-    // Gemini 2.5 Flash supports a 1M-token input window — ~3.5MB of text.
+    // Gemini 2.5 Flash supports a 1M-token input window - ~3.5MB of text.
     // Cap: 2.5MB, leaving ~30% headroom for system prompt + wiki + uploads.
     //
-    // 2026-05-11 (HiC-Active-Loop #5) — replaced the old "char-truncate at
+    // 2026-05-11 (HiC-Active-Loop #5) - replaced the old "char-truncate at
     // end" strategy with a per-item, relevance-weighted GREEDY PACKER. The
     // old approach dropped whichever items happened to sit at the end of the
-    // corpus string — which after source-grouping meant the LAST SOURCE's
+    // corpus string - which after source-grouping meant the LAST SOURCE's
     // items got cut regardless of how relevant individual items were. A
     // high-relevance chunk from a low-avg-relevance source would lose to a
     // mediocre chunk from a high-avg-relevance source.
@@ -2110,7 +2187,7 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
             `kept ${packed.keptChunks} chunk(s). Lowest kept ratio: ${packed.lowestRatio.toFixed(2)} rel/Ktok.`
         );
     } else {
-        console.log(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB (under ${MAX_CORPUS_CHARS / 1024}KB cap — full corpus passed to LLM)`);
+        console.log(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB (under ${MAX_CORPUS_CHARS / 1024}KB cap - full corpus passed to LLM)`);
     }
 
     // Store chunk map for downstream citation resolution

@@ -66,6 +66,30 @@ _GEMINI_EMBED_URL = "https://generativelanguage.googleapis.com/v1beta/models/gem
 # ──────────────────────────────────────────────────────────────────────────
 import hashlib
 from pathlib import Path
+import functools
+
+# 2026-05-31 — CPU-bound clustering (UMAP/HDBSCAN via numba) holds the GIL in
+# bursts and would stall the worker's event loop → intermittent 502s on /status
+# DURING a topic job. Offload it to a worker THREAD so the loop stays mostly
+# responsive; the SPA poller (waitForTopicModelJob) additionally tolerates
+# transient gateway 502s and keeps polling, so the job never fails on a hiccup.
+# (A spawn ProcessPoolExecutor was tried but its per-job cold-start on
+# Docker/Windows cost more latency than it saved, so a thread + client retry is
+# the simpler, more robust combination.)
+async def _run_cpu(func, *args, **kwargs):
+    """Run a CPU-bound function off the event loop via a worker thread."""
+    return await asyncio.to_thread(functools.partial(func, *args, **kwargs))
+
+
+def _umap_plot_2d(embeddings, n_neighbors):
+    """Top-level (picklable) 2D UMAP projection for the mindmap plot, so it can
+    run in the CPU process pool."""
+    import numpy as _np
+    import umap as _umap
+    arr = _np.array(embeddings, dtype=_np.float32)
+    reducer = _umap.UMAP(n_neighbors=n_neighbors, n_components=2, min_dist=0.1,
+                         metric="cosine", random_state=42)
+    return reducer.fit_transform(arr).tolist()
 
 THROTTLE_COOLDOWN_S = 600  # 10 minutes after a 429, skip the provider
 
@@ -118,6 +142,9 @@ def _cluster_signature(top_terms: list, sample_titles: list[str], research_goal:
     Provides deterministic naming even when LLM stochasticity beyond
     temperature=0 would otherwise cause drift."""
     h = hashlib.sha256()
+    # Prompt version salt — bump when the labeling PROMPT changes so cached names
+    # from the old (generic) prompt don't survive. v2 = 2026-06-02 insightful titles.
+    h.update(b"labelprompt:v2-insightful\x00")
     terms_str = "|".join(sorted([t for t, _ in (top_terms or [])][:10]))
     titles_str = "|".join(sorted([(t or "")[:120] for t in (sample_titles or [])][:8]))
     h.update(terms_str.encode("utf-8"))
@@ -270,10 +297,32 @@ async def _embed_via_gemini(texts: list[str]) -> list[list[float]]:
     return await asyncio.gather(*[one(t) for t in texts])
 
 
+# 2026-06-03 — LOCAL embedding provider (the root-cause fix for quota
+# starvation). Routes to the social-research-backend's sentence-transformer
+# (all-mpnet-base-v2, 768-dim) which has NO API quota, so a research run never
+# stalls on Gemini/OpenAI 429 "Resource exhausted". This is the SAME model the
+# social topic pipeline uses, so vectors are consistent. Preferred provider.
+_LOCAL_EMBED_URL = os.environ.get("EMBED_LOCAL_URL", "http://social-research-backend:8081/api/embed")
+
+
+async def _embed_via_local(texts: list[str]) -> list[list[float]]:
+    """Embed via the local sentence-transformer endpoint. No quota, no rate
+    limit — works every run as long as the social-research-backend is up."""
+    async with httpx.AsyncClient(timeout=180.0) as client:
+        resp = await client.post(_LOCAL_EMBED_URL, json={"texts": texts})
+        if resp.status_code != 200:
+            raise RuntimeError(f"local embed HTTP {resp.status_code}: {resp.text[:200]}")
+        data = resp.json()
+        embs = data.get("embeddings")
+        if not isinstance(embs, list) or len(embs) != len(texts):
+            raise RuntimeError(f"local embed returned {len(embs) if isinstance(embs, list) else 'non-list'} vectors for {len(texts)} texts")
+        return embs
+
+
 async def embed_documents(texts: list[str], batch_size: int = 32) -> list[list[float]]:
-    """Embed texts. Tries OpenAI first (cheaper + faster batching); falls back
-    to Gemini on quota/auth errors. Raises only if BOTH providers are
-    unavailable. The proxy logs which provider succeeded for observability."""
+    """Embed texts. PREFERS the LOCAL sentence-transformer (quota-free, reliable
+    every run); falls back to OpenAI then Gemini only if the local endpoint is
+    unreachable. The proxy logs which provider succeeded for observability."""
     if not texts:
         return []
 
@@ -308,8 +357,10 @@ async def embed_documents(texts: list[str], batch_size: int = 32) -> list[list[f
         log.warning(f"[topic_model] both embedding providers recently 429'd; attempting OpenAI first regardless")
         provider_order = ["openai", "gemini"] if _OPENAI_API_KEY else (["gemini"] if _GEMINI_API_KEY else [])
 
-    if not provider_order:
-        raise RuntimeError("No embedding provider available: OPENAI_API_KEY and GEMINI_API_KEY both empty/unauth'd")
+    # 2026-06-03 — LOCAL is the preferred, quota-free provider: try it FIRST,
+    # keep the API providers as fallback only if the local endpoint is down.
+    # This is what makes topic modeling work EVERY run regardless of API quota.
+    provider_order = ["local"] + [p for p in provider_order if p != "local"]
 
     last_err: Exception | None = None
     for provider in provider_order:
@@ -328,7 +379,9 @@ async def embed_documents(texts: list[str], batch_size: int = 32) -> list[list[f
 
         try:
             log.info(f"[topic_model] embedding {len(uncached_texts)} uncached docs via {provider} (cache provided {cache_hits})")
-            if provider == "openai":
+            if provider == "local":
+                fresh = await _embed_via_local(uncached_texts)
+            elif provider == "openai":
                 fresh = await _embed_via_openai(uncached_texts, batch_size=batch_size)
             else:
                 fresh = await _embed_via_gemini(uncached_texts)
@@ -345,6 +398,12 @@ async def embed_documents(texts: list[str], batch_size: int = 32) -> list[list[f
         except Exception as e:
             last_err = e
             err = str(e).lower()
+            # 2026-06-03 — the LOCAL endpoint being down (connection refused,
+            # timeout, 5xx) must NEVER fail the run: fall through to the API
+            # providers instead. Only local has this blanket-continue.
+            if provider == "local":
+                log.warning(f"[topic_model] local embed unavailable ({e}) — falling back to API providers")
+                continue
             if any(s in err for s in ("429", "quota", "insufficient", "billing", "rate")):
                 _record_provider_429(provider)
                 log.warning(f"[topic_model] {provider} 429/quota ({e}) — trying next provider")
@@ -414,7 +473,19 @@ def _reduce_and_cluster(
         # tree, surfacing the actual topic structure underneath.
         cluster_selection_method="leaf",
     )
-    labels = clusterer.fit_predict(reduced_for_cluster)
+    labels = clusterer.fit_predict(reduced_for_cluster).tolist()
+
+    # 2026-06-03 — OUTLIER REDUCTION (ported concept from socialresearch BERTopic
+    # prediction_data/reduce_outliers). Raw HDBSCAN leaves many docs as noise
+    # (-1) — the live 351-post run lost 24 that way, starving the topic view.
+    # Recover each noise doc into its nearest cluster by ORIGINAL-embedding
+    # cosine similarity, but ONLY when the match is strong (>= threshold) so we
+    # never pollute a topic with a genuinely-off doc. Pure coverage gain, no
+    # fragmentation. Determinism preserved (no randomness).
+    try:
+        labels = _reduce_outliers(labels, arr)
+    except Exception as _oe:
+        log.warning(f"[topic_model] outlier reduction skipped: {_oe}")
 
     reducer_plot = umap.UMAP(
         n_neighbors=plot_n_neighbors,
@@ -425,7 +496,39 @@ def _reduce_and_cluster(
     )
     coords = reducer_plot.fit_transform(arr)
 
-    return labels.tolist(), coords.tolist()
+    return labels, coords.tolist()
+
+
+def _reduce_outliers(labels: list, arr, threshold: float = 0.45) -> list:
+    """Assign HDBSCAN noise docs (-1) to their nearest cluster by ORIGINAL-
+    embedding cosine similarity, when that similarity clears `threshold`. Docs
+    that match no cluster strongly stay noise. Deterministic; no randomness."""
+    import numpy as np
+    labels = list(labels)
+    cluster_ids = sorted({l for l in labels if l != -1})
+    if not cluster_ids:
+        return labels
+    a = np.asarray(arr, dtype=np.float32)
+    norm = a / (np.linalg.norm(a, axis=1, keepdims=True) + 1e-9)
+    centroids = []
+    for c in cluster_ids:
+        idx = [i for i, l in enumerate(labels) if l == c]
+        cen = norm[idx].mean(axis=0)
+        centroids.append(cen)
+    cmat = np.asarray(centroids, dtype=np.float32)
+    cmat = cmat / (np.linalg.norm(cmat, axis=1, keepdims=True) + 1e-9)
+    reassigned = 0
+    for i, l in enumerate(labels):
+        if l != -1:
+            continue
+        sims = cmat @ norm[i]
+        best = int(np.argmax(sims))
+        if float(sims[best]) >= threshold:
+            labels[i] = cluster_ids[best]
+            reassigned += 1
+    if reassigned:
+        log.info(f"[topic_model] outlier reduction: recovered {reassigned} noise docs into nearest cluster (cos >= {threshold})")
+    return labels
 
 
 def _ctfidf_top_terms(
@@ -456,11 +559,27 @@ def _ctfidf_top_terms(
     # distinctive to the cluster rather than common to all of them.
     combined = [" ".join(cluster_docs[c]) for c in cluster_ids]
 
+    # 2026-06-02 — richer representation (ported from socialresearch BertTopic.py):
+    # (1,3) n-grams capture multi-word topic phrases ("ai co op matching"), and a
+    # domain stopword list strips generic social/forum filler that c-TF-IDF would
+    # otherwise surface as "distinctive" terms.
+    _DOMAIN_STOP = [
+        "just", "like", "really", "actually", "people", "thing", "things", "lot",
+        "way", "make", "makes", "get", "got", "going", "know", "think", "want",
+        "need", "use", "using", "used", "good", "great", "post", "comment",
+        "reddit", "thread", "subreddit", "op", "edit", "https", "http", "www",
+        "com", "year", "years", "time", "day", "today", "yeah", "gonna",
+    ]
+    try:
+        from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS as _SK_STOP
+        _stop = list(_SK_STOP) + _DOMAIN_STOP
+    except Exception:
+        _stop = "english"
     vectorizer = CountVectorizer(
         max_df=0.95,
         min_df=1,
-        ngram_range=(1, 2),
-        stop_words="english",
+        ngram_range=(1, 3),
+        stop_words=_stop,
         max_features=5000,
     )
     counts = vectorizer.fit_transform(combined)
@@ -535,21 +654,24 @@ async def _llm_label_clusters(
         )
         cluster_blocks.append(block)
 
-    prompt = f"""You are labeling topic clusters discovered in Reddit discussion data.
+    prompt = f"""You are a senior research analyst labeling topic clusters discovered in Reddit discussion data.
 
 RESEARCH GOAL: {research_goal[:400]}
 
 For each cluster below, return:
-- name: a 3-6 word descriptive label (no emojis, no "the", proper nouns capitalized)
-- summary: a single declarative sentence stating what the cluster is about. Do NOT reference "this cluster", "the data", or the research process. State the topic directly.
-- sentiment: one of "positive", "negative", "neutral", "mixed" — the overall emotional tone of the discussion
+- name: a 4-7 word INSIGHTFUL label that names the SPECIFIC TENSION, PATTERN, or FINDING in the cluster — not a generic category. A reader should grasp the cluster's distinct angle from the title alone.
+    GENERIC (BANNED): "Job Market Struggles", "Career Advice", "Internship Search", "AI and Work", "Tech Jobs" — these are bland buckets, not insights.
+    INSIGHTFUL (DO THIS): "Entry-Level Roles Vanish Behind AI Tooling", "Co-op Applicants Ghosted After Final Rounds", "Students Distrust Opaque AI Placement", "Visa Timing Derails Internship Offers", "Bootcamp Grads Undercut by CS Degrees".
+    Name the friction or the stance the posts actually express. Capitalize proper nouns. No "the"/"a" lead, no emojis.
+- summary: ONE declarative sentence stating the specific finding the posts converge on (who, what tension, why it matters to the goal). Do NOT reference "this cluster", "the data", or the research process.
+- sentiment: one of "positive", "negative", "neutral", "mixed" — the emotional tone of the OPs (post authors), not the encouraging replies.
 
 {chr(10).join(cluster_blocks)}
 
 Return ONLY a JSON array, one object per cluster, in the same order. Example:
 [
-  {{"name": "Employer Application Ghosting", "summary": "First-year applicants describe being ignored by recruiters for 3+ weeks after multiple touchpoints.", "sentiment": "negative"}},
-  {{"name": "Microsoft AI Tooling Excitement", "summary": "Students discuss new Copilot integration in coursework as a productivity unlock.", "sentiment": "positive"}}
+  {{"name": "Recruiters Ghost Applicants After Final Rounds", "summary": "Co-op applicants report weeks of silence following final-round interviews, eroding trust in the employer pipeline.", "sentiment": "negative"}},
+  {{"name": "Students Lean On Copilot To Close Skill Gaps", "summary": "First-years adopt AI coding assistants to compensate for gaps coursework leaves before their first co-op.", "sentiment": "positive"}}
 ]"""
 
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -573,9 +695,14 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
                 "Content-Type": "application/json",
             },
             json={
+                # opus-4-8 REJECTS `temperature` with a 400 ("deprecated for this
+                # model"), which made EVERY label call fail -> heuristic keyword-salad
+                # names + the domain gate silently skipped. opus-4-8 is deterministic
+                # by default, so omitting temperature preserves the determinism the
+                # 2026-05-24 note wanted. (Fixed 2026-06-02 alongside the same bug in
+                # _call_claude_for_artifact and the /api/ai/anthropic passthrough.)
                 "model": "claude-opus-4-8",
                 "max_tokens": 4000,
-                "temperature": 0,  # 2026-05-24 — was unspecified (default 1.0); identity-class call must be deterministic per feedback_determinism_first_for_cached_runs
                 "messages": [{"role": "user", "content": prompt}],
             },
         )
@@ -675,6 +802,265 @@ def _doc_text_for_embedding(item: dict) -> str:
     if comment_blob:
         parts.append(comment_blob)
     return "\n".join(parts).strip()
+
+
+# ============================================================================
+# WEIGHTED SENTIMENT (2026-06-02) — ported from socialresearch
+# BertTopic.py::analyze_topic_sentiment_weighted. Replaces the single
+# LLM-guessed word per topic with a MEASURED, engagement-weighted aggregate over
+# the OP + comments of each cluster's member posts: VADER per-unit polarity, OP
+# structural weight, log-scaled upvote weighting, vocal-author cap (1/sqrt(n)),
+# Net Sentiment Score (NSS = %pos - %neg), and a controversy/polarization metric.
+# Pure-python (VADER), so it respects the proxy's no-PyTorch design. Falls back
+# to the LLM word if VADER is unavailable or a cluster has no usable text.
+# ============================================================================
+try:
+    from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as _VaderSIA
+    _VADER = _VaderSIA()
+    log.info("[topic_model] VADER sentiment available — weighted per-unit sentiment enabled")
+except Exception as _ve:  # pragma: no cover
+    _VADER = None
+    log.warning(f"[topic_model] VADER unavailable ({_ve}); topic sentiment falls back to the LLM label")
+
+_POST_STRUCTURAL_WEIGHT = 3.0   # an OP counts ~3x a single comment (it frames the thread)
+_SENT_BAND = 0.10               # symmetric pos/neg band on the compound score
+
+
+def _vader_compound(text: str):
+    if not _VADER or not text or not text.strip():
+        return None
+    try:
+        return _VADER.polarity_scores(text[:2000]).get("compound")
+    except Exception:
+        return None
+
+
+# 2026-06-02 — RoBERTa sentiment via the social-research backend. VADER is a lexicon
+# tool that reads encouraging words ("great", "good luck") as positive even in posts
+# describing struggles, so career/co-op topics came out falsely positive ("Negative
+# Internship Experiences" -> positive). The social-research backend already runs
+# CardiffNLP twitter-roberta-base-sentiment (the model Social Analytics uses) which
+# understands context. We batch-score every OP+comment text through it once per run;
+# VADER remains the fallback if the backend is unreachable.
+_ROBERTA_URL = os.environ.get("SENTIMENT_ROBERTA_URL", "http://social-research-backend:8081/api/sentiment/score")
+_ROBERTA_OK = True  # flips False for the run after one failure, so we don't retry-storm
+
+
+def _roberta_compounds(texts: list) -> list | None:
+    """Batch-score texts -> list of compounds in [-1,1] via the RoBERTa endpoint.
+    Returns None if unavailable (caller falls back to VADER)."""
+    global _ROBERTA_OK
+    if not _ROBERTA_OK or not texts:
+        return None
+    try:
+        import httpx as _httpx
+        # Topic modeling is an async/background job (SPA polls /status), so a longer
+        # sentiment call is fine. 300s covers the model cold-start (~18s) + a batched
+        # score of several hundred OP texts.
+        with _httpx.Client(timeout=300.0) as c:
+            r = c.post(_ROBERTA_URL, json={"texts": [t[:2000] for t in texts]})
+            if r.status_code != 200:
+                log.warning(f"[topic_model] RoBERTa sentiment endpoint {r.status_code}; falling back to VADER")
+                _ROBERTA_OK = False
+                return None
+            comps = r.json().get("compounds")
+            if isinstance(comps, list) and len(comps) == len(texts):
+                return comps
+            return None
+    except Exception as e:
+        log.warning(f"[topic_model] RoBERTa sentiment unavailable ({e}); falling back to VADER")
+        _ROBERTA_OK = False
+        return None
+
+
+def _engagement_weight(score) -> float:
+    """Log-scaled upvote weight; downvoted/zero units fall below base weight."""
+    try:
+        s = float(score or 0)
+    except (TypeError, ValueError):
+        s = 0.0
+    if s <= 0:
+        return 0.5
+    return 1.0 + math.log10(1.0 + s)
+
+
+_OP_POOL_WEIGHT = 0.70   # the OP defines what the topic is ABOUT; comments are reactions
+
+def _pool_stats(units: list) -> dict | None:
+    """Weighted pos/neg/mean over a list of (compound, weight, author) units, with
+    a vocal-author cap (1/sqrt(author unit count)) so one prolific poster can't fake
+    consensus. Returns {nss, mean, pos, neg, wsum} or None."""
+    if not units:
+        return None
+    from collections import defaultdict
+    author_counts = defaultdict(int)
+    for _c, _w, a in units:
+        author_counts[a] += 1
+    pos = neg = wsum = wmean_num = 0.0
+    for c, w, a in units:
+        w = w / math.sqrt(author_counts[a])
+        wsum += w
+        wmean_num += c * w
+        if c >= _SENT_BAND:
+            pos += w
+        elif c <= -_SENT_BAND:
+            neg += w
+    if wsum <= 0:
+        return None
+    return {"nss": (pos - neg) / wsum, "mean": wmean_num / wsum,
+            "pos": pos, "neg": neg, "wsum": wsum}
+
+
+def _weighted_cluster_sentiment(member_items: list, compound_fn=None) -> dict | None:
+    """Engagement-weighted sentiment over a cluster's posts. `compound_fn(text)->
+    float|None` supplies the per-unit polarity (RoBERTa-backed when available, else
+    VADER); defaults to VADER.
+
+    2026-06-02 FIX: the OP and comments are scored as SEPARATE pools, then blended
+    70/30 toward the OP. Reason (verified on real co-op Reddit data): career-advice
+    threads have hundreds of *encouraging* comments ("good luck!", "you got this")
+    that VADER reads positive, swamping the OPs who are describing struggles — so a
+    "co-op rejections / visa refusals" topic came out +63% positive. The OP states
+    what the topic is ABOUT; comments are reactions to it. Blending OP-dominant makes
+    a struggle-topic read negative even amid supportive replies, while comments still
+    shape controversy. Returns {label, score, nss, controversy, units} or None."""
+    score_fn = compound_fn or _vader_compound
+    op_units = []      # (compound, weight, author)
+    cmt_units = []
+    for it in member_items or []:
+        meta = it.get("_socialMeta") or {}
+        op_text = ((it.get("title") or "") + ". " + (it.get("selftext") or it.get("content") or "")).strip()
+        c = score_fn(op_text)
+        if c is not None:
+            w = _engagement_weight(meta.get("score", it.get("score", 0)))
+            op_units.append((c, w, (it.get("author") or meta.get("author") or "_op")))
+        comments = it.get("comments") or meta.get("comments") or []
+        for cm in comments[:80]:
+            cc = score_fn(cm.get("body", ""))
+            if cc is not None:
+                cmt_units.append((cc, _engagement_weight(cm.get("score", 0)), (cm.get("author") or "_anon")))
+
+    op = _pool_stats(op_units)
+    cmt = _pool_stats(cmt_units)
+    if not op and not cmt:
+        return None
+
+    # Blend OP-dominant. If only one pool exists, use it alone.
+    if op and cmt:
+        nss = _OP_POOL_WEIGHT * op["nss"] + (1 - _OP_POOL_WEIGHT) * cmt["nss"]
+        mean = _OP_POOL_WEIGHT * op["mean"] + (1 - _OP_POOL_WEIGHT) * cmt["mean"]
+    else:
+        only = op or cmt
+        nss, mean = only["nss"], only["mean"]
+
+    # Controversy reflects split across the WHOLE discussion (OP + comments), since
+    # polarization is a property of the debate, not just the openers.
+    tot_pos = (op["pos"] if op else 0) + (cmt["pos"] if cmt else 0)
+    tot_neg = (op["neg"] if op else 0) + (cmt["neg"] if cmt else 0)
+    tot_w = (op["wsum"] if op else 0) + (cmt["wsum"] if cmt else 0)
+    controversy = (2.0 * min(tot_pos, tot_neg) / tot_w) if tot_w > 0 else 0.0
+
+    score = 0.6 * nss + 0.4 * mean
+    if controversy >= 0.5 and abs(score) < 0.25:
+        label = "mixed"
+    elif score >= _SENT_BAND:
+        label = "positive"
+    elif score <= -_SENT_BAND:
+        label = "negative"
+    else:
+        label = "neutral"
+    return {"label": label, "score": round(score, 3), "nss": round(nss, 3),
+            "controversy": round(controversy, 3),
+            "units": len(op_units) + len(cmt_units),
+            "op_nss": round(op["nss"], 3) if op else None}
+
+
+def _apply_weighted_sentiment(topics: list, items: list) -> dict:
+    """In-place: replace each topic's LLM-guessed sentiment with the MEASURED
+    engagement-weighted aggregate over its member posts. Prefers RoBERTa (accurate,
+    context-aware, via the social-research backend) and falls back to VADER. No-op
+    if neither scorer is available.
+
+    U4 (2026-06-02) — returns a loud sentiment-health dict so a silent
+    RoBERTa->VADER fallback (the accuracy regression that rated struggle topics
+    positive) surfaces on the result payload, not just in a log line:
+      {engine, degraded: bool, reason, topics_scored}."""
+    if not topics:
+        return {"engine": "none", "degraded": True, "reason": "no topics", "topics_scored": 0}
+    id_to_item = {}
+    for i, it in enumerate(items):
+        id_to_item[it.get("id") or f"item_{i}"] = it
+        id_to_item[it.get("id") or f"post_{i}"] = it
+
+    # Collect every OP + comment text across the member posts of all topics, then
+    # batch-score them through RoBERTa in ONE request (per-text HTTP would be far
+    # too slow). Build a text->compound cache the per-cluster scorer reads.
+    member_ids = set()
+    for t in topics:
+        for pid in (t.get("post_ids") or []):
+            if pid in id_to_item:
+                member_ids.add(pid)
+    # RoBERTa-score only the OP texts (title+body). The OP defines the topic's
+    # stance and dominates the blend (70%); RoBERTa on ~N_topics*posts OPs is fast
+    # and accurate, whereas scoring thousands of comments on CPU would blow the HTTP
+    # timeout. Comments fall through to VADER (cache miss -> VADER in score_fn),
+    # which is fine since they only carry 30% and are mostly reactive tone.
+    texts: list[str] = []
+    seen_texts: set[str] = set()
+    def _collect(txt: str):
+        txt = (txt or "").strip()
+        if txt and txt not in seen_texts:
+            seen_texts.add(txt)
+            texts.append(txt)
+    for pid in member_ids:
+        it = id_to_item[pid]
+        _collect(((it.get("title") or "") + ". " + (it.get("selftext") or it.get("content") or "")).strip())
+
+    cache: dict[str, float] = {}
+    method = "vader-weighted"
+    degraded = False
+    reason = ""
+    comps = _roberta_compounds(texts) if texts else None
+    if comps is not None:
+        cache = {texts[i]: comps[i] for i in range(len(comps))}
+        method = "roberta-op+vader-comments"
+        log.info(f"[topic_model] RoBERTa scored {len(cache)} OP texts; comments via VADER")
+    elif _VADER is None:
+        log.warning("[topic_model] no sentiment scorer available (RoBERTa unreachable, VADER absent); keeping LLM labels")
+        return {"engine": "llm-label", "degraded": True,
+                "reason": "RoBERTa unreachable AND VADER absent; topic sentiment is the unmeasured LLM guess",
+                "topics_scored": 0}
+    else:
+        # RoBERTa unreachable but VADER present -> measured, but on the weaker
+        # lexicon engine. This is the regression that read struggle topics as
+        # positive, so flag it loudly on the payload.
+        degraded = True
+        reason = "RoBERTa sentiment endpoint unreachable; fell back to VADER lexicon (less accurate on struggle/sarcasm)"
+        log.warning(f"[topic_model] U4 sentiment DEGRADED: {reason}")
+
+    def score_fn(txt: str):
+        txt = (txt or "").strip()
+        if not txt:
+            return None
+        if txt in cache:
+            return cache[txt]
+        return _vader_compound(txt[:2000])  # RoBERTa miss / cache gap -> VADER
+
+    upgraded = 0
+    for t in topics:
+        members = [id_to_item[pid] for pid in (t.get("post_ids") or []) if pid in id_to_item]
+        ws = _weighted_cluster_sentiment(members, compound_fn=score_fn)
+        if ws:
+            t["sentiment"] = ws["label"]
+            t["sentiment_score"] = ws["score"]
+            t["net_sentiment_score"] = ws["nss"]
+            t["controversy"] = ws["controversy"]
+            t["sentiment_units"] = ws["units"]
+            t["sentiment_method"] = method
+            upgraded += 1
+    if upgraded:
+        log.info(f"[topic_model] {method} sentiment applied to {upgraded}/{len(topics)} topics")
+    return {"engine": method, "degraded": degraded, "reason": reason, "topics_scored": upgraded}
 
 
 async def run_pipeline(
@@ -808,6 +1194,7 @@ async def run_pipeline(
                 if weight > 0.15:  # filter weak edges
                     sims.append({"source": a["id"], "target": b["id"], "weight": round(weight, 3)})
 
+    sentiment_health = _apply_weighted_sentiment(topics, items)  # 2026-06-02 measured sentiment (v1 fallback path too)
     noise_count = sum(1 for l in labels if l == -1)
     log.info(f"[topic_model] pipeline complete: {len(topics)} topics, {noise_count} noise in {time.time() - t0:.1f}s")
 
@@ -819,6 +1206,7 @@ async def run_pipeline(
         "documents": documents,
         "topic_similarities": sims,
         "duration_seconds": round(time.time() - t0, 1),
+        "sentiment_health": sentiment_health,
     }
 
 
@@ -1030,7 +1418,9 @@ async def _source_stratified_cluster(
     # uniform or too thin to support per-bucket clustering.
     if len(buckets) < 2 or any(len(v) < min_cluster_size * 2 for v in buckets.values()):
         log.info(f"[topic_model] corpus too uniform/thin for stratification; running unified clustering")
-        labels, coords = _reduce_and_cluster(embeddings, min_cluster_size=min_cluster_size)
+        # 2026-05-31 — offload CPU-bound UMAP/HDBSCAN to a thread so the async
+        # event loop stays responsive (was blocking /status + /health → 502s).
+        labels, coords = await _run_cpu(_reduce_and_cluster, embeddings, min_cluster_size=min_cluster_size)
         # Wrap in meta — every cluster is "single-stratum"
         meta = {}
         for lbl in set(labels):
@@ -1052,9 +1442,13 @@ async def _source_stratified_cluster(
 
     for source_type, member_indices in buckets.items():
         bucket_emb = [embeddings[i] for i in member_indices]
-        bucket_min_cs = max(2, min(min_cluster_size, len(bucket_emb) // 5))
+        # 2026-06-03 — finer granularity for richer topic surfacing. Cap the
+        # per-bucket min cluster size at 4 (was = min_cluster_size, i.e. 5) so
+        # hundreds of posts yield more distinct topics instead of a handful of
+        # large buckets. Floor stays 2; outlier reduction recovers the tail.
+        bucket_min_cs = max(2, min(4, len(bucket_emb) // 8))
         try:
-            bucket_labels, _ = _reduce_and_cluster(bucket_emb, min_cluster_size=bucket_min_cs)
+            bucket_labels, _ = await _run_cpu(_reduce_and_cluster, bucket_emb, min_cluster_size=bucket_min_cs)
         except Exception as e:
             log.warning(f"[topic_model] bucket '{source_type}' failed clustering ({e}); marking all as noise")
             continue
@@ -1081,10 +1475,19 @@ async def _source_stratified_cluster(
                     "centroid_vector": centroid.tolist(),
                 })
 
+    log.info(f"[topic_model] pre-merge: {len(bucket_clusters)} bucket clusters across {len({c['bucket_type'] for c in bucket_clusters})} source types")
+
     # Cross-type merge: pair clusters from DIFFERENT source_types whose
-    # centroid cosine similarity >= 0.75. Each merged group becomes a
-    # single cluster id with convergent_evidence flag set.
-    MERGE_COSINE_THRESHOLD = 0.75
+    # centroid cosine similarity is high. Each merged group becomes a single
+    # cluster id with convergent_evidence flag set.
+    # 2026-06-03 — raised 0.75 -> 0.84. At 0.75 the merge declared loosely-related
+    # bucket clusters "the same theme" and collapsed a homogeneous co-op corpus
+    # (hundreds of posts) down to ~5 unified topics ("4 convergent"). Convergence
+    # should mean the SAME theme seen across sources, not merely adjacent. 0.84
+    # keeps genuinely-distinct themes separate (more topics surfaced) while still
+    # merging true cross-source duplicates. This RAISES topic yield by being more
+    # conservative about merging — it does not relax any evidence/coherence gate.
+    MERGE_COSINE_THRESHOLD = 0.84
     merged_groups: list[list[dict]] = []  # each: list of clusters merged together
     used: set[int] = set()
     for i, ci in enumerate(bucket_clusters):
@@ -1124,12 +1527,7 @@ async def _source_stratified_cluster(
 
     # Compute 2d UMAP for visualization across ALL items
     plot_n_neighbors = max(2, min(15, n - 1))
-    import umap as _umap
-    reducer_plot = _umap.UMAP(
-        n_neighbors=plot_n_neighbors, n_components=2, min_dist=0.1,
-        metric="cosine", random_state=42,
-    )
-    coords = reducer_plot.fit_transform(arr_all).tolist()
+    coords = await _run_cpu(_umap_plot_2d, embeddings, plot_n_neighbors)
 
     convergent_count = sum(1 for m in cluster_meta.values() if m["convergent_evidence"])
     log.info(f"[topic_model] source-stratified clustering: {len(cluster_meta)} unified clusters; {convergent_count} convergent across source types")
@@ -1163,15 +1561,20 @@ def _apply_quality_gates(
             cp["_dropped_reason"] = f"incoherent (score={score:.2f})"
             dropped.append(cp)
             continue
-        # Evidence density
+        # Source diversity is NO LONGER a drop criterion (2026-06-03).
+        # The user deliberately SELECTED social/comment sources; a topic drawn
+        # from a single subreddit (or only user comments) can carry real insight
+        # and must NOT be discarded for failing a cross-source quota. The old
+        # ">=2 distinct sources or DROP" rule discriminated against exactly the
+        # data the user chose, collapsing 16 clusters to 7. We now keep every
+        # COHERENT cluster and record source diversity as a neutral TAG only
+        # (convergent topics can still be highlighted, never at the cost of
+        # hiding single-source ones). Coherence (above) remains the only drop
+        # gate, and it targets stopword noise, not source provenance.
         cluster_idxs = [i for i, l in enumerate(labels) if l == cid]
         distinct_sources = _distinct_sources_in_cluster(cluster_idxs, items)
-        if len(distinct_sources) < 2:
-            cp["_dropped_reason"] = f"insufficient distinct sources ({len(distinct_sources)})"
-            dropped.append(cp)
-            continue
-        # Attach the convergence + source metadata for downstream rendering
         meta = cluster_meta.get(cid, {})
+        cp["single_source"] = len(distinct_sources) < 2
         cp["convergent_evidence"] = bool(meta.get("convergent_evidence", False))
         cp["source_types"] = meta.get("source_types", [])
         cp["distinct_source_count"] = len(distinct_sources)
@@ -1218,6 +1621,43 @@ async def run_pipeline_v2(
     log.info(f"[topic_model_v2] embedding {len(texts)} documents…")
     embeddings = await embed_documents(texts)
     log.info(f"[topic_model_v2] embedded in {time.time() - t0:.1f}s")
+
+    # 2026-05-30 — OBJECTIVE-RELEVANCE ADMISSION (research-objective supremacy).
+    # Previously topic modeling clustered the WHOLE harvest and used research_goal
+    # only to LABEL clusters, so a mixed corpus produced off-objective themes
+    # (co-op themes for an AI-design goal). Pull only objective-relevant items into
+    # clustering: embed the goal in the SAME vector space (cached, deterministic),
+    # cosine-rank every item, and drop the clearly off-objective tail. A relative
+    # threshold + absolute floor + min-keep guarantee prevent over-pruning on a
+    # thin or fully-on-topic corpus, so the clusterer never starves.
+    goal = (research_goal or "").strip()
+    if goal and len(items) >= min_cluster_size * 2:
+        try:
+            goal_vec = (await embed_documents([goal]))[0]
+            sims = [_cosine(e, goal_vec) for e in embeddings]
+            max_sim = max(sims) if sims else 0.0
+            rel_floor = max(0.12, 0.55 * max_sim)
+            min_keep = max(min_cluster_size * 3, 24)
+            order = sorted(range(len(items)), key=lambda i: sims[i], reverse=True)
+            keep = [i for i in order if sims[i] >= rel_floor]
+            if len(keep) < min_keep:
+                keep = order[:min(min_keep, len(order))]
+            keep_set = set(keep)
+            dropped = len(items) - len(keep_set)
+            if dropped > 0:
+                kept = [i for i in range(len(items)) if i in keep_set]  # preserve order
+                items = [items[i] for i in kept]
+                texts = [texts[i] for i in kept]
+                embeddings = [embeddings[i] for i in kept]
+                log.info(
+                    f"[topic_model_v2] objective-relevance filter: kept {len(items)}, "
+                    f"dropped {dropped} off-objective (max_sim={max_sim:.3f} floor={rel_floor:.3f}) "
+                    f"goal={goal[:60]!r}"
+                )
+        except Exception as e:
+            log.warning(f"[topic_model_v2] objective-relevance filter skipped (non-fatal): {e}")
+
+    log.info(f"[topic_model_v2] {len(items)} docs entering clustering (min_cluster_size={min_cluster_size})")
 
     # Stage 2 — Source-stratified clustering with cross-type merge
     labels, coords, cluster_meta = await _source_stratified_cluster(
@@ -1278,6 +1718,43 @@ async def run_pipeline_v2(
             "distinct_source_count": cp.get("distinct_source_count", 0),
         })
 
+    # 2026-05-30 — DOMAIN-RELEVANCE GATE on topic outputs. The input cosine
+    # filter cannot tell "AI for co-op job search" from "AI for design
+    # production" (both score above its floor), so off-domain clusters survive
+    # clustering. An LLM domain judgment (the discriminator cosine can't be)
+    # drops topics whose SUBJECT does not serve the objective. Failure-safe:
+    # keeps all on error / if 0 would survive (a hard log signals the collected
+    # corpus is off-objective).
+    goal_g = (research_goal or "").strip()
+    if goal_g and len(topics) > 1:
+        try:
+            def _terms(t):
+                return ", ".join(str(x[0] if isinstance(x, (list, tuple)) else x) for x in (t.get("top_terms") or [])[:8])
+            listing = "\n".join(f"{i}. {t.get('name','')} — terms: {_terms(t)}" for i, t in enumerate(topics))
+            gate_prompt = (
+                f'RESEARCH OBJECTIVE: "{goal_g}"\n\n'
+                "Below are clustered research topics. For EACH, decide whether it HELPS ANSWER this research "
+                "objective. KEEP a topic if EITHER (a) it directly addresses the objective's subject, OR (b) it is a "
+                "transferable CROSS-INDUSTRY ANALOGUE: a different domain solving the SAME underlying problem the "
+                "objective targets, offering a lesson that transfers. Cross-industry analogues are VALUABLE evidence, "
+                "especially when the objective seeks transferable patterns, comparison, or names multiple industries. "
+                "DROP a topic ONLY if it is genuinely irrelevant to the objective's purpose: a different problem in a "
+                'different domain with no transferable lesson (judge by SUBJECT and PROBLEM, not a shared buzzword like "AI"). '
+                "When the objective invites cross-industry learning, lean toward KEEPING; when uncertain, KEEP.\n\n"
+                f"TOPICS:\n{listing}\n\nReturn ONLY a JSON array of the integer indices to KEEP. Example: [0,2,3]"
+            )
+            kept = await _label_clusters_via_gemini(gate_prompt)
+            if isinstance(kept, list):
+                keepset = {int(i) for i in kept if isinstance(i, (int, float)) and 0 <= int(i) < len(topics)}
+                if keepset and len(keepset) < len(topics):
+                    dropped_names = [topics[i]["name"] for i in range(len(topics)) if i not in keepset]
+                    topics = [t for i, t in enumerate(topics) if i in keepset]
+                    log.info(f"[topic_model_v2] domain-relevance gate: kept {len(topics)} on-objective; dropped off-domain: {dropped_names}")
+                elif not keepset:
+                    log.error(f"[topic_model_v2] DOMAIN GATE: 0/{len(topics)} topics on-objective for goal — the COLLECTED CORPUS does not match the objective; keeping all to avoid an empty result (fix source/subreddit selection).")
+        except Exception as e:
+            log.warning(f"[topic_model_v2] domain gate skipped (non-fatal): {e}")
+
     # Stage 6 — Theme-count targeting
     # Sort by: convergent_evidence (True first), distinct_source_count desc,
     # post_count desc. This puts the strongest cross-source themes first
@@ -1322,6 +1799,9 @@ async def run_pipeline_v2(
                 if weight > 0.15:
                     sims.append({"source": a["id"], "target": b["id"], "weight": round(weight, 3)})
 
+    # 2026-06-02 — measured engagement-weighted sentiment (replaces the LLM word).
+    sentiment_health = _apply_weighted_sentiment(topics, items)
+
     noise_count = sum(1 for l in labels if l == -1)
     log.info(f"[topic_model_v2] complete: {len(topics)} topics ({sum(1 for t in topics if t.get('convergent_evidence'))} convergent), {noise_count} noise, {len(dropped)} dropped by gates in {time.time() - t0:.1f}s")
 
@@ -1336,4 +1816,5 @@ async def run_pipeline_v2(
         "pipeline_version": "v2",
         "dropped_by_quality_gates": len(dropped),
         "convergent_evidence_count": sum(1 for t in topics if t.get("convergent_evidence")),
+        "sentiment_health": sentiment_health,
     }

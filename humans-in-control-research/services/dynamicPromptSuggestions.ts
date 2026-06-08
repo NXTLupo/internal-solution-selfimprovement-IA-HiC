@@ -1,14 +1,14 @@
-/**
- * Dynamic Prompt Suggestions — the Consulting Partner guidance layer.
+﻿/**
+ * Dynamic Prompt Suggestions - the Consulting Partner guidance layer.
  *
  * Turns the chat input from a blank box into a guided research surface.
  * Suggested questions (rendered as clickable chips above the input) are
  * state-aware:
  *
- *   PRE-COLLECTION   — research goal + uploaded document names/content
- *   MID-COLLECTION   — live source feed + goal ("the PDFs are in, two
+ *   PRE-COLLECTION   - research goal + uploaded document names/content
+ *   MID-COLLECTION   - live source feed + goal ("the PDFs are in, two
  *                      connectors returned, what should you ask?")
- *   POST-COLLECTION  — knowledge graph (themes, personas, barriers) + goal
+ *   POST-COLLECTION  - knowledge graph (themes, personas, barriers) + goal
  *                      ("you have 23 themes and 6 personas, here are the
  *                      highest-leverage follow-ups")
  *
@@ -41,18 +41,18 @@ export type CollectionPhase = 'setup' | 'pre-collection' | 'mid-collection' | 'p
 
 export interface SuggestionState {
     researchGoal: string;
-    /** Files the user uploaded — name + optional parsed text */
+    /** Files the user uploaded - name + optional parsed text */
     uploadedFiles?: Array<{ name: string; parsedText?: string }>;
-    /** Live source feed — each entry is a connector result with {source, items[], status} */
+    /** Live source feed - each entry is a connector result with {source, items[], status} */
     liveSourceResults?: Array<{ source?: string; items?: Array<{ title?: string; sourceName?: string }>; status?: string }>;
-    /** Knowledge graph — set once themes/personas/etc. have been generated */
+    /** Knowledge graph - set once themes/personas/etc. have been generated */
     knowledgeGraph?: { nodes?: any[]; edges?: any[] };
     /** Hint from caller: override the phase detection if needed */
     phaseOverride?: CollectionPhase;
 }
 
 // --- DESCRIPTIVE LABELS ---
-// Uploaded files often have opaque names — especially YouTube transcripts which
+// Uploaded files often have opaque names - especially YouTube transcripts which
 // are saved as `transcript_{uuid}.txt` or `{uuid}_transcript.txt`. The chips
 // and Gemini prompt need a HUMAN-READABLE label or they'll produce useless
 // questions like "Summarize the key findings from transcript_446863f9..."
@@ -78,11 +78,11 @@ export function describeUploadedFile(f: { name: string; parsedText?: string }): 
     // as a last-resort description (truncated to 70 chars).
     if (UUID_FILENAME_RX.test(f.name)) {
         const firstLine = (body.split(/\r?\n/).map(s => s.trim()).find(s => s.length > 20) || '').slice(0, 70);
-        if (firstLine) return `Transcript: "${firstLine}…"`;
+        if (firstLine) return `Transcript: "${firstLine}..."`;
     }
     // Fall back to filename (trimmed + stripped of extension)
     const base = f.name.replace(/\.[^.]+$/, '');
-    return base.length > 60 ? base.slice(0, 58) + '…' : base;
+    return base.length > 60 ? base.slice(0, 58) + '...' : base;
 }
 
 // --- PHASE DETECTION ---
@@ -95,7 +95,7 @@ export function detectPhase(state: SuggestionState): CollectionPhase {
         .reduce((sum, s) => sum + (s.items?.length || 0), 0);
     if (themes.length > 0) return 'post-collection';
     if (liveItemCount > 0 || sources.length > 0) return 'mid-collection';
-    // NEW 2026-04-21 — distinguish "setup" (no goal OR empty goal) from
+    // NEW 2026-04-21 - distinguish "setup" (no goal OR empty goal) from
     // "pre-collection" (goal exists but data hasn't been collected yet).
     // Setup state gets guidance chips tailored to writing a better brief;
     // pre-collection gets chips that probe uploaded docs + clarify scope.
@@ -114,7 +114,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
     const phase = detectPhase(state);
     const objective = extractResearchObjective(state.researchGoal);
 
-    // Setup phase (no goal, no uploads) still gets suggestions — but these
+    // Setup phase (no goal, no uploads) still gets suggestions - but these
     // come from the deterministic fallback path since the AI has nothing to
     // ground against. A Gemini call with an empty objective wastes tokens
     // and produces generic boilerplate.
@@ -122,7 +122,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
         return fallbackSuggestions(phase, state, maxSuggestions);
     }
 
-    // Embeddings-backed neighbor lookup — gives the chip generator real
+    // Embeddings-backed neighbor lookup - gives the chip generator real
     // archive titles/sources that semantically match the goal so chips
     // reference actual content instead of generic phrasing. Non-blocking:
     // if the proxy is slow or embeddings are empty, neighbors = empty and
@@ -143,7 +143,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
 
     const prompt = buildPromptForPhase(phase, objective, state, maxSuggestions, neighbors);
 
-    // 2026-05-12 — Retry NOT added here on purpose. This call already has
+    // 2026-05-12 - Retry NOT added here on purpose. This call already has
     // fallbackSuggestions() on failure (graceful degradation built in)
     // AND uses AbortSignal.timeout(15s) that the effect cancels on every
     // state-fingerprint change. A retry-with-backoff would conflict with
@@ -155,7 +155,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-2.5-flash',
+                model: 'gemini-3.5-flash',
                 contents: prompt,
                 config: { temperature: 0.4, maxOutputTokens: 1200 },
             }),
@@ -168,7 +168,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
         if (parsed.length === 0) return fallbackSuggestions(phase, state, maxSuggestions);
         return parsed.slice(0, maxSuggestions);
     } catch (err: any) {
-        // Abort errors are EXPECTED — they fire when the component's state
+        // Abort errors are EXPECTED - they fire when the component's state
         // fingerprint changes and a new effect run cancels the in-flight
         // fetch. Logging them as warnings floods the console with noise on
         // a rapidly-updating workbench. Real failures (network, bad JSON)
@@ -194,20 +194,20 @@ function renderNeighborsBlock(neighbors: { strong: any[]; adjacent: any[]; weak:
         const sim = typeof n.similarity === 'number' ? ` (sim ${n.similarity.toFixed(2)})` : '';
         return `  - [${src}] ${ttl}${sim}`;
     };
-    let block = `\nARCHIVE NEIGHBORS (semantically matched to the goal via OpenAI/Gemini embeddings — REFERENCE THESE SPECIFIC TITLES IN YOUR SUGGESTIONS):\n`;
+    let block = `\nARCHIVE NEIGHBORS (semantically matched to the goal via OpenAI/Gemini embeddings - REFERENCE THESE SPECIFIC TITLES IN YOUR SUGGESTIONS):\n`;
     if (strong.length > 0) {
-        block += `\nSTRONG MATCHES (archive already covers this — suggest a review/drill-in question):\n${strong.map(fmt).join('\n')}\n`;
+        block += `\nSTRONG MATCHES (archive already covers this - suggest a review/drill-in question):\n${strong.map(fmt).join('\n')}\n`;
     }
     if (adjacent.length > 0) {
-        block += `\nADJACENT-BUT-CLOSE (overlooked angles — suggest exploring why this neighbor matters to the goal):\n${adjacent.map(fmt).join('\n')}\n`;
+        block += `\nADJACENT-BUT-CLOSE (overlooked angles - suggest exploring why this neighbor matters to the goal):\n${adjacent.map(fmt).join('\n')}\n`;
     }
     block += `
 NEIGHBOR-GROUNDING RULES:
 - At least 2 of your ${'${n}'.replace(/\$\{n\}/, '')} suggestions MUST reference a specific title or source from the lists above by NAME
 - When citing a STRONG match, phrase as drill-in: "What does [TITLE] say about [ASPECT]?" or "Pull everything [SOURCE] has on [ASPECT]"
 - When citing an ADJACENT match, phrase as lateral exploration: "Why might [TITLE] be relevant to [GOAL CONCEPT]?" or "Compare [ADJACENT TITLE] against [GOAL ASPECT]"
-- Never invent a title — use only titles from the lists above
-- Never say "the archive contains..." — just ask about specific titles directly
+- Never invent a title - use only titles from the lists above
+- Never say "the archive contains..." - just ask about specific titles directly
 `;
     return block;
 }
@@ -239,7 +239,7 @@ ${objective.substring(0, 1500)}
         stateBlock = `
 CURRENT STATE: PRE-COLLECTION (data has not been collected yet)
 
-UPLOADED DOCUMENTS (${descriptions.length}) — REFER TO THEM BY THE HUMAN-READABLE LABEL, NEVER BY FILENAME OR UUID:
+UPLOADED DOCUMENTS (${descriptions.length}) - REFER TO THEM BY THE HUMAN-READABLE LABEL, NEVER BY FILENAME OR UUID:
 ${descriptions.map(n => `- ${n}`).join('\n') || '(none)'}
 
 ${samples.length ? `SAMPLE CONTENT (first 400 chars of up to 3 documents):\n${samples.map(s => '"""\n' + s + '\n"""').join('\n\n')}` : ''}
@@ -270,15 +270,15 @@ Suggest ${n} questions that:
         const totalItems = all.reduce((sum, s) => sum + (s.items?.length || 0), 0);
         const uploadDescriptions = (state.uploadedFiles || []).map(f => describeUploadedFile(f));
         stateBlock = `
-CURRENT STATE: MID-COLLECTION (data is flowing in right now — ${totalItems} total items from ${all.length} sources)
+CURRENT STATE: MID-COLLECTION (data is flowing in right now - ${totalItems} total items from ${all.length} sources)
 
 UPLOADED DOCUMENTS (refer by human-readable label, not filename):
 ${uploadDescriptions.length ? uploadDescriptions.map(n => `- ${n}`).join('\n') : '(none)'}
 
-PATTERN-RICH SOURCES (≥5 items each — safe to ask about emerging themes/patterns):
-${richSummary || '(none yet — do NOT ask "what patterns are emerging from X?" about thin sources below)'}
+PATTERN-RICH SOURCES (≥5 items each - safe to ask about emerging themes/patterns):
+${richSummary || '(none yet - do NOT ask "what patterns are emerging from X?" about thin sources below)'}
 
-THIN SOURCES (<5 items — ask about the SPECIFIC article/item, NOT about "patterns"):
+THIN SOURCES (<5 items - ask about the SPECIFIC article/item, NOT about "patterns"):
 ${thinSummary || '(none)'}
 
 HARD RULES:
@@ -288,8 +288,8 @@ HARD RULES:
 - If <3 pattern-rich sources exist, shift to cross-cutting questions about the CORPUS (not individual sources)
 
 Suggest ${n} questions that:
-- Ask about pattern-rich sources by NAME (kind: source-coverage) — only if ≥5 items
-- Drill into specific article titles from thin sources (kind: evidence-probe) — quote the title
+- Ask about pattern-rich sources by NAME (kind: source-coverage) - only if ≥5 items
+- Drill into specific article titles from thin sources (kind: evidence-probe) - quote the title
 - Bridge uploaded docs with newly-arriving data (kind: comparison)
 - Cross-source synthesis: what's emerging across the corpus overall (kind: synthesis)
 - Generate in-progress slides (kind: slide-request) only if enough evidence exists`;
@@ -323,10 +323,10 @@ TOP SOURCES:
 ${sources.slice(0, 8).map(s => `- ${s}`).join('\n') || '(none)'}
 
 Suggest ${n} questions that:
-- Drill into the most robust themes (kind: theme-exploration) — NAME the theme
+- Drill into the most robust themes (kind: theme-exploration) - NAME the theme
 - Frame a question from a named persona's POV (kind: persona-perspective)
 - Compare themes against each other or against a specific source (kind: comparison)
-- Request specific slide outputs (kind: slide-request) — e.g. "Build a case study slide on X"
+- Request specific slide outputs (kind: slide-request) - e.g. "Build a case study slide on X"
 - Probe cross-cutting "so what" synthesis (kind: synthesis)`;
     }
 
@@ -339,7 +339,7 @@ RETURN STRICT JSON ONLY:
   ]
 }`;
 
-    // Semantic archive-neighbors block — empty string when wiki has no
+    // Semantic archive-neighbors block - empty string when wiki has no
     // embeddings yet OR no articles cleared the similarity floor. When
     // populated, it steers the chip generator toward specific titles in
     // the archive rather than generic phrasing.
@@ -382,7 +382,7 @@ function parseSuggestionsFromResponse(text: string): PromptSuggestion[] {
 function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: number): PromptSuggestion[] {
     const out: PromptSuggestion[] = [];
     if (phase === 'setup') {
-        // No goal AND no uploads — coach the user into writing a real brief.
+        // No goal AND no uploads - coach the user into writing a real brief.
         // These chips LOAD INTO THE CHAT INPUT so the researcher can tweak and send
         // the question to the AI, which will walk them through writing a better brief.
         out.push({ text: 'Help me structure a research brief for my project', kind: 'synthesis', rationale: 'AI walks you through a brief template' });
@@ -397,7 +397,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
             // Use descriptive label (video Title / Channel) instead of opaque
             // UUID filenames. See describeUploadedFile() for extraction logic.
             const label = describeUploadedFile(f);
-            const short = label.length > 60 ? label.substring(0, 58) + '…' : label;
+            const short = label.length > 60 ? label.substring(0, 58) + '...' : label;
             out.push({ text: `Summarize the key findings from "${short}"`, kind: 'document-drill' });
             out.push({ text: `What does "${short}" say about the research objective?`, kind: 'document-drill' });
         }
@@ -416,7 +416,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
             out.push({
                 text: `What patterns are emerging from ${s.source} (${s.items?.length || 0} articles)?`,
                 kind: 'source-coverage',
-                rationale: 'Pattern-rich source — enough items to surface themes',
+                rationale: 'Pattern-rich source - enough items to surface themes',
             });
         }
         for (const s of thin) {
@@ -425,7 +425,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
                 out.push({
                     text: `What does "${firstTitle}" say, and does it support or contradict the corpus?`,
                     kind: 'evidence-probe',
-                    rationale: 'Thin source — drill into the single returned article',
+                    rationale: 'Thin source - drill into the single returned article',
                 });
             }
         }
@@ -436,7 +436,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
         const themes = (state.knowledgeGraph?.nodes || []).filter(n => n?.type === 'theme').slice(0, 2);
         for (const t of themes) {
             const name = (t.label || t.name || '').substring(0, 60);
-            if (name) out.push({ text: `Drill into the "${name}" theme — what's the evidence?`, kind: 'theme-exploration' });
+            if (name) out.push({ text: `Drill into the "${name}" theme - what's the evidence?`, kind: 'theme-exploration' });
         }
         out.push({ text: 'Build a case study slide on the highest-leverage theme #slide', kind: 'slide-request' });
         out.push({ text: 'Compare the top 3 themes across sources', kind: 'comparison' });

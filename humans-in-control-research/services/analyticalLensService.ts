@@ -5,7 +5,7 @@
  *
  * AUTO-DETECTION (2026-04-10):
  * The lens is now AI-selected based on research goal + uploaded documents.
- * The user doesn't choose — the system reads the goal, detects domain
+ * The user doesn't choose - the system reads the goal, detects domain
  * signals, selects the best lens, and explains WHY in the reasoning stream.
  * New lenses can be added via the wiki self-improvement engine.
  */

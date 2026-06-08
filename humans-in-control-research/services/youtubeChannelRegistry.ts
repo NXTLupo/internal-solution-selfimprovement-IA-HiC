@@ -1,11 +1,11 @@
 /**
- * YouTube Channel Registry — lens-aware selection of high-signal channels.
+ * YouTube Channel Registry - lens-aware selection of high-signal channels.
  *
  * Previously the YouTube pipeline hardcoded 5 AI-focused channels
  * (yt_lex_fridman, yt_yannic_kilcher, yt_two_minute_papers, yt_ai_explained,
  * yt_sentdex) regardless of the research topic. On a university-advancement
  * brief these returned zero relevant content. The user audit called this out:
- * "I selected YouTube — why didn't it analyze videos?" because the lens was
+ * "I selected YouTube - why didn't it analyze videos?" because the lens was
  * fundraising, not AI.
  *
  * This registry:
@@ -126,7 +126,7 @@ export async function pickYouTubeChannelIdsForLens(
 
     const manifest = await loadYouTubeChannelManifest();
     if (!manifest) {
-        console.warn('[YouTubeRegistry] no manifest — returning empty channel set');
+        console.warn('[YouTubeRegistry] no manifest - returning empty channel set');
         return [];
     }
 
@@ -159,7 +159,7 @@ export async function pickYouTubeChannelIdsForLens(
     });
     scored.sort((a, b) => b.score - a.score);
 
-    // Dedup by channel_id (defensive — manifest shouldn't have dupes but belt-and-suspenders)
+    // Dedup by channel_id (defensive - manifest shouldn't have dupes but belt-and-suspenders)
     const picked: string[] = [];
     const seen = new Set<string>();
     for (const { ch } of scored) {

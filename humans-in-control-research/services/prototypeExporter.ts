@@ -1,5 +1,5 @@
 /**
- * prototypeExporter.ts — 2026-05-14
+ * prototypeExporter.ts - 2026-05-14
  *
  * Bundles a built prototype into a runnable, downloadable .zip with:
  *   - src/App.jsx (the generated prototype code)
@@ -13,7 +13,7 @@
  *   - critique.json (Stage 5 audit, if available)
  *
  * Output: a single .zip the researcher can `npm install && npm run dev`
- * locally — fully detached from HiC.
+ * locally - fully detached from HiC.
  */
 
 import JSZip from 'jszip';

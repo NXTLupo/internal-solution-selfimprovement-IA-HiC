@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Competitive analysis — peer institutions</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .ca-strip {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    margin-bottom: 28px;
+  }
+  /* Peer matrix — main competitive table */
+  .peer-matrix {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 12.5px;
+    table-layout: fixed;
+  }
+  .peer-matrix thead th {
+    text-align: left;
+    padding: 14px 14px 12px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    border-right: 1px solid var(--border-subtle);
+    vertical-align: bottom;
+  }
+  .peer-matrix thead th:first-child {
+    width: 180px;
+    position: sticky; left: 0; z-index: 2;
+  }
+  .peer-matrix thead th:last-child { border-right: 0; }
+  .peer-matrix .peer-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: -.005em;
+    color: var(--fg-strong);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .peer-matrix .peer-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    text-transform: none;
+  }
+  .peer-matrix tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--fg-default);
+  }
+  .peer-matrix tbody tr:last-child td { border-bottom: 0; }
+  .peer-matrix tbody td:last-child { border-right: 0; }
+  .peer-matrix tbody td:first-child {
+    background: var(--slate-50);
+    border-right: 1px solid var(--border-default);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    position: sticky; left: 0;
+    width: 180px;
+  }
+  .peer-matrix tbody td:first-child small {
+    display: block;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-subtle);
+    font-size: 10.5px;
+    font-weight: 400;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .nu-col {
+    background: rgba(200,16,46,.03) !important;
+    border-left: 2px solid var(--nu-red-600);
+  }
+  .nu-col-head {
+    background: rgba(200,16,46,.06) !important;
+    border-left: 2px solid var(--nu-red-600) !important;
+  }
+  .badge-strength { color: var(--success-fg); }
+  .badge-weak { color: var(--nu-red-700); }
+  .badge-strength::before { content: "+"; font-family: var(--font-mono); margin-right: 3px; }
+  .badge-weak::before { content: "−"; font-family: var(--font-mono); margin-right: 3px; }
+  .strength-list, .weak-list, .diff-list { list-style: none; padding: 0; margin: 0; font-size: 11.5px; line-height: 1.4; }
+  .strength-list li, .weak-list li, .diff-list li { padding: 2px 0; }
+  .mat-pos {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--slate-100);
+    border-radius: 4px;
+  }
+  /* Benchmark grid below */
+  .bench-grid {
+    display: grid;
+    grid-template-columns: 200px repeat(5, 1fr);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .bench-grid > div {
+    padding: 12px 14px;
+    border-right: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 11.5px;
+    color: var(--fg-default);
+  }
+  .bench-grid > div:nth-child(6n) { border-right: 0; }
+  .bench-grid > div.dim {
+    background: var(--slate-50);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    border-right: 1px solid var(--border-default);
+  }
+  .bench-grid > div.head {
+    background: var(--slate-50);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    text-transform: none;
+    border-bottom: 1px solid var(--border-default);
+    font-weight: 500;
+  }
+  .bench-grid > div.nu-head {
+    background: rgba(200,16,46,.06);
+    color: var(--nu-red-700);
+    border-bottom: 1px solid var(--border-default);
+  }
+  .bench-grid > div.nu-cell { background: rgba(200,16,46,.03); }
+  .level {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .level__dots { display: flex; gap: 2px; }
+  .level__dots i {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--slate-200);
+    display: inline-block;
+  }
+  .level__dots i.on { background: var(--ink-800); }
+  .level__dots i.on-brand { background: var(--nu-red-600); }
+  .level__num {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  /* Gap summary */
+  .gap-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gap-block {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    background: var(--bg-surface);
+  }
+  .gap-block.priority { border-left: 3px solid var(--nu-red-600); }
+  .gap-block h4 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .gap-block .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .gap-block p { font-size: 12px; line-height: 1.5; color: var(--fg-default); margin-bottom: 8px; }
+  .gap-block .leaders {
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 8px;
+    margin-top: auto;
+  }
+  .gap-block .leaders b { color: var(--fg-default); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Peer benchmark · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Competitive analysis · Named peers</div>
+    <h1 class="art-masthead__title">Across five peers Northeastern leads in co-op scale but trails in advancement-to-student-outcome integration by two maturity levels.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Peers</dt><dd>5 named</dd></div>
+    <div class="art-masthead__meta-block"><dt>Dimensions</dt><dd>9</dd></div>
+    <div class="art-masthead__meta-block"><dt>Industry avg</dt><dd>not used (banned)</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- Stat strip -->
+  <div class="stat-strip ca-strip">
+    <div class="stat">
+      <div class="stat__label">Industry context</div>
+      <div class="stat__value" style="font-size: 14px; font-family: var(--font-sans); font-weight: 400; line-height: 1.4; color: var(--fg-default);">R1 institutions with experiential-learning programs at scale (≥2,500 placements / yr) and active capital campaigns ≥$1B.</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">NU position</div>
+      <div class="stat__value">3.4 <span class="u">/ 5</span></div>
+      <div class="stat__delta">overall maturity, weighted across 9 dims</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Peer leader</div>
+      <div class="stat__value" style="font-size: 18px;">Drexel</div>
+      <div class="stat__delta stat__delta--up">4.0 · co-op-to-advancement coupling</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Where NU leads</div>
+      <div class="stat__value">2 <span class="u">of 9 dimensions</span></div>
+      <div class="stat__delta">scale · employer breadth</div>
+    </div>
+  </div>
+
+  <!-- Peer matrix -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Named peer profiles</h2>
+      <span class="art-section__counter">positioning · strengths · weaknesses · differentiators</span>
+    </div>
+    <table class="peer-matrix">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th class="nu-col-head">
+            <span class="peer-name">Northeastern</span>
+            <span class="peer-meta">R1 · 32K UG · Boston · $1.6B campaign</span>
+          </th>
+          <th>
+            <span class="peer-name">Drexel</span>
+            <span class="peer-meta">R1 · 22K UG · Philadelphia · co-op since 1919</span>
+          </th>
+          <th>
+            <span class="peer-name">Univ. of Waterloo</span>
+            <span class="peer-meta">R1 · 36K UG · Ontario · co-op since 1957</span>
+          </th>
+          <th>
+            <span class="peer-name">Univ. of Cincinnati</span>
+            <span class="peer-meta">R1 · 38K UG · Ohio · co-op since 1906</span>
+          </th>
+          <th>
+            <span class="peer-name">Purdue</span>
+            <span class="peer-meta">R1 · 38K UG · West Lafayette</span>
+          </th>
+          <th>
+            <span class="peer-name">Georgia Tech</span>
+            <span class="peer-meta">R1 · 21K UG · Atlanta</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Position<small>where they win, in one line</small></td>
+          <td class="nu-col">Largest co-op operation; weakest cross-org data spine.</td>
+          <td>Tightest coupling between student outcomes and advancement narratives.</td>
+          <td>Engineering-led recommender; ranks fit by major signal at scale.</td>
+          <td>Operational efficiency; lowest per-coordinator caseload (95:1).</td>
+          <td>Donor-advisor convergence; one CRM, both populations.</td>
+          <td>Mobile-first student surfaces; 92% of prep happens on phone.</td>
+        </tr>
+        <tr>
+          <td>Strengths<small>3 max</small></td>
+          <td class="nu-col">
+            <ul class="strength-list">
+              <li class="badge-strength">Scale: 9,400 placements / yr</li>
+              <li class="badge-strength">Employer breadth: 3,300 partners</li>
+              <li class="badge-strength">Campaign momentum: 78% of $1.6B</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="strength-list">
+              <li class="badge-strength">Placement → donor story in 5 days</li>
+              <li class="badge-strength">Co-op story in alumni mag every issue</li>
+              <li class="badge-strength">Outcomes API, public</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="strength-list">
+              <li class="badge-strength">In-house recommender, owned IP</li>
+              <li class="badge-strength">87% major-fit accuracy</li>
+              <li class="badge-strength">Open dataset to alums</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="strength-list">
+              <li class="badge-strength">95:1 advising ratio</li>
+              <li class="badge-strength">Triage queue at day 5 of silence</li>
+              <li class="badge-strength">Process docs are public</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="strength-list">
+              <li class="badge-strength">Single Salesforce instance</li>
+              <li class="badge-strength">Coordinator + MGO see same record</li>
+              <li class="badge-strength">No second portal</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="strength-list">
+              <li class="badge-strength">Native mobile app</li>
+              <li class="badge-strength">9–1 a.m. usage 4.2× desktop</li>
+              <li class="badge-strength">Push-notification triage</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Weaknesses<small>3 max</small></td>
+          <td class="nu-col">
+            <ul class="weak-list">
+              <li class="badge-weak">15 disconnected systems</li>
+              <li class="badge-weak">11-day donor-side lag on placements</li>
+              <li class="badge-weak">No silence-detection trigger</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="weak-list">
+              <li class="badge-weak">Half NU's placement volume</li>
+              <li class="badge-weak">Single-city employer market</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="weak-list">
+              <li class="badge-weak">Cross-border donor restrictions</li>
+              <li class="badge-weak">No co-op-to-philanthropy bridge</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="weak-list">
+              <li class="badge-weak">Older CRM stack (Banner-era)</li>
+              <li class="badge-weak">Static reporting only</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="weak-list">
+              <li class="badge-weak">Co-op is opt-in, smaller scope</li>
+              <li class="badge-weak">No external employer integration</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="weak-list">
+              <li class="badge-weak">Advancement runs separately from student-success</li>
+              <li class="badge-weak">Limited co-op model</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Differentiator<small>one sharp claim</small></td>
+          <td class="nu-col">"Most experiential placements per student in any R1 — by 2.4×."</td>
+          <td>"From placement to donor thank-you in one workflow."</td>
+          <td>"Our recommender knows your major before you log in."</td>
+          <td>"We don't lose students; we find them at day 5." <sup class="cite">21</sup></td>
+          <td>"One record, every relationship."</td>
+          <td>"Built for the dorm at 11 p.m."</td>
+        </tr>
+        <tr>
+          <td>Tooling signature<small>visible stack</small></td>
+          <td class="nu-col">Raiser's Edge · Salesforce EDU · Handshake · 12 satellites</td>
+          <td>Salesforce + custom outcomes API · in-house alumni stack</td>
+          <td>Workday · in-house Python recommender · Tableau</td>
+          <td>Banner · Tableau · in-house triage Python service</td>
+          <td>Salesforce single instance (rare in higher-ed)</td>
+          <td>Custom Android/iOS · Salesforce backend</td>
+        </tr>
+        <tr>
+          <td>Public evidence<small>where this comes from</small></td>
+          <td class="nu-col"><span class="cite-chip">NU annual report '25</span> <span class="cite-chip">VP-OPS-09</span></td>
+          <td><span class="cite-chip">CASE case study '24</span> <span class="cite-chip">Drexel.edu</span></td>
+          <td><span class="cite-chip">Waterloo coop.ca</span> <span class="cite-chip">EDUCAUSE '25</span></td>
+          <td><span class="cite-chip">UC '25 report</span> <span class="cite-chip">CASE</span></td>
+          <td><span class="cite-chip">Purdue PR</span> <span class="cite-chip">HiEd Dive '25</span></td>
+          <td><span class="cite-chip">GT.edu</span> <span class="cite-chip">EDUCAUSE '25</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Benchmark grid — maturity by dimension -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Maturity matrix · nine dimensions</h2>
+      <span class="art-section__counter">Gartner 1–5 scale · NU column shaded</span>
+    </div>
+    <div class="bench-grid">
+      <div class="dim">Dimension</div>
+      <div class="head nu-head">Northeastern</div>
+      <div class="head">Drexel</div>
+      <div class="head">Waterloo</div>
+      <div class="head">Cincinnati</div>
+      <div class="head">Purdue / GT (best of)</div>
+
+      <div class="dim">Cross-system data spine</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+
+      <div class="dim">Co-op scale &amp; reach</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i class="on-brand"></i><i class="on-brand"></i><i class="on-brand"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+
+      <div class="dim">Outcomes → advancement</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+
+      <div class="dim">Recommender quality</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+
+      <div class="dim">Advising load efficiency</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+
+      <div class="dim">Silence-detection / triage</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i></i><i></i><i></i><i></i></div><span class="level__num">1 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+
+      <div class="dim">Mobile experience</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+
+      <div class="dim">Donor narrative loop</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="level__num">5 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span class="level__num">2 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+
+      <div class="dim">Privacy &amp; FERPA discipline</div>
+      <div class="nu-cell"><div class="level"><div class="level__dots"><i class="on-brand"></i><i class="on-brand"></i><i class="on-brand"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="level__num">3 / 5</span></div></div>
+      <div><div class="level"><div class="level__dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="level__num">4 / 5</span></div></div>
+
+    </div>
+  </section>
+
+  <!-- Gap summary -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Where NU is behind — and who set the bar</h2>
+      <span class="art-section__counter">three priority gaps · named leaders</span>
+    </div>
+    <div class="gap-summary">
+
+      <div class="gap-block priority">
+        <h4>Outcomes don't reach advancement.</h4>
+        <p>Drexel converts a placement event into a donor-narrative artifact in 5 days; Northeastern's lag is 11 days. The donor relationship cools while the data sits.</p>
+        <div class="leaders"><b>Leader:</b> Drexel (5 / 5) · <b>NU:</b> 2 / 5 <sup class="cite">22</sup></div>
+      </div>
+
+      <div class="gap-block priority">
+        <h4>No silence-detection in the application funnel.</h4>
+        <p>Cincinnati flags students at day 5 of inactivity and routes them into a triage queue. Northeastern fires a single template email at day 7 with no follow-up logic.</p>
+        <div class="leaders"><b>Leader:</b> Cincinnati (5 / 5) · <b>NU:</b> 1 / 5 <sup class="cite">21</sup></div>
+      </div>
+
+      <div class="gap-block priority">
+        <h4>Donor-narrative loop is brittle and slow.</h4>
+        <p>Drexel publishes co-op stories every alumni-magazine cycle with a workflow that loops the student for verbatim approval; Northeastern's path is six handoffs and no verbatim approval at scale.</p>
+        <div class="leaders"><b>Leader:</b> Drexel (5 / 5) · <b>NU:</b> 2 / 5 <sup class="cite">22</sup></div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>CASE Benchmark</b> · advancement maturity by experiential-learning institution, 2025</li>
+      <li><b>EDUCAUSE Horizon Report</b> · 2025</li>
+      <li><b>Drexel Co-op CASE study</b> · "Outcomes to advancement," 2024</li>
+      <li><b>Waterloo coop.ca</b> · public outcomes API documentation, 2025</li>
+      <li><b>UC Co-op annual report</b> · 2025</li>
+      <li><b>Purdue + Salesforce case study</b> · 2024</li>
+      <li><b>Georgia Tech</b> · student-success mobile case, EDUCAUSE 2025</li>
+      <li><b>NU annual report</b> · 2025 campaign progress</li>
+      <li><b>VP-OPS-09 memo</b> · internal, 2026-01-22</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">COMPETITIVE · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>competitive-analyst</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,13 +1,13 @@
 // services/researchPlanRunner.ts
-// 2026-05-26 — Deep Research plan-act-reflect iteration runner.
+// 2026-05-26 - Deep Research plan-act-reflect iteration runner.
 //
 // Takes an approved ResearchPlan (post-editor) and runs the
 // plan-act-reflect loop end-to-end. Each iteration:
 //   1. Pick the next unresolved sub-question (priority-ordered).
-//   2. ACT — fire data fabric via /api/search for the sub-question.
-//   3. REFLECT — Sonnet evaluates whether the evidence resolves the
+//   2. ACT - fire data fabric via /api/search for the sub-question.
+//   3. REFLECT - Sonnet evaluates whether the evidence resolves the
 //      sub-question, leaves it open, or surfaces a NEW sub-question.
-//   4. PERSIST — write a reflection trace row to engagements/<slug>/
+//   4. PERSIST - write a reflection trace row to engagements/<slug>/
 //      research_log.json so the next training pass can learn from it.
 //
 // Bounded by plan.max_iterations + plan.budget_usd. Aborts cleanly on
@@ -153,7 +153,7 @@ async function reflectOnSubQuestion(
             plan,
             coverage_per_sub_question,
             iteration: 0,  // planner-side reflector tracks its own iteration
-            budget_remaining: plan.budget_usd,  // optimistic — real spend tracked by runner
+            budget_remaining: plan.budget_usd,  // optimistic - real spend tracked by runner
             proxy_base: proxyBase,
         });
         // Map the planner's verdict shape to ours. The planner returns

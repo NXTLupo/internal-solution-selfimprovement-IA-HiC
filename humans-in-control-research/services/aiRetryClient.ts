@@ -1,16 +1,16 @@
-// aiRetryClient.ts — 2026-05-12
+// aiRetryClient.ts - 2026-05-12
 //
 // Shared retry-with-backoff client for ALL AI endpoint fetches in HiC.
 // Gemini / OpenAI / Anthropic / Gemini-compat all return transient 5xx
 // (503 Service Unavailable, 502 Bad Gateway) and 429 (rate limit) errors
 // under load. Without retry, a single transient failure kills the
-// caller — recommendations generation, an artifact build, a research
+// caller - recommendations generation, an artifact build, a research
 // stage, a chip suggestion.
 //
 // This helper wraps fetch with exponential backoff (1s / 3s / 7s) on:
 //   - HTTP 5xx (server-side transient failures)
 //   - HTTP 429 (rate-limit; longer backoff because the API explicitly
-//     asked us to slow down — 5s / 12s / 30s)
+//     asked us to slow down - 5s / 12s / 30s)
 //   - Network failures (ERR_EMPTY_RESPONSE, fetch failed, AbortError)
 //
 // Does NOT retry on 4xx (config errors should fail loudly) or on a
@@ -45,11 +45,11 @@ function endpointToProvider(endpointId: AIEndpointId): Provider | null {
 export type RetryProgress = (attempt: number, total: number, status: string) => void;
 
 export type AIEndpointId =
-    | 'gemini'             // /api/ai/gemini — native Gemini
-    | 'gemini-compat'      // /api/ai/gemini-compat — OpenAI-compatible Gemini
-    | 'openai'             // /api/ai/openai — OpenAI / GPT
-    | 'anthropic'          // /api/ai/anthropic — Claude
-    | 'gemini-image'       // /api/ai/gemini-image — Imagen
+    | 'gemini'             // /api/ai/gemini - native Gemini
+    | 'gemini-compat'      // /api/ai/gemini-compat - OpenAI-compatible Gemini
+    | 'openai'             // /api/ai/openai - OpenAI / GPT
+    | 'anthropic'          // /api/ai/anthropic - Claude
+    | 'gemini-image'       // /api/ai/gemini-image - Imagen
     ;
 
 export interface CallAIOptions {
@@ -108,18 +108,30 @@ export async function callAIWithRetry(
     let lastErrText = '';
 
     const timeoutMs = options.requestTimeoutMs ?? 300_000;
+    // 2026-06-05 - drift-catcher C1: thread the active engagement slug through
+    // the proxy so server-side fallback paths can write per-engagement
+    // provider commitments. window.__hicCurrentEngagementSlug is the same
+    // global the traceRecorder reads - single source of truth for "which
+    // engagement is this call for?" Skip the header when no slug is set
+    // (pre-engagement bootstrap calls).
+    const sessionSlug = (typeof window !== 'undefined'
+        ? (window as any).__hicCurrentEngagementSlug
+        : undefined);
+    const sessionHeader = (typeof sessionSlug === 'string' && sessionSlug.length > 0)
+        ? { 'x-hic-session': sessionSlug }
+        : {};
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const callStart = Date.now();
         try {
             const resp = await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+                headers: { 'Content-Type': 'application/json', ...sessionHeader, ...(options.headers || {}) },
                 body: JSON.stringify(body),
                 signal: AbortSignal.timeout(timeoutMs),
             });
             if (resp.ok) {
                 const parsed = await resp.json();
-                // 2026-05-14 — Cost meter accounting. The body may carry the
+                // 2026-05-14 - Cost meter accounting. The body may carry the
                 // model id directly (Gemini native) or nested (OpenAI compat).
                 // We try the obvious locations; recordAICall normalizes.
                 try {
@@ -132,12 +144,26 @@ export async function callAIWithRetry(
                 // 2026-05-24 Wire 2: reset provider 429 streak on success
                 const prov = endpointToProvider(endpointId);
                 if (prov) recordProviderSuccess(prov);
+                // 2026-06-05 - drift-catcher C1: when the proxy fell back to
+                // DeepSeek (Gemini-429 or OpenAI-429 path), it returns
+                // _engagement_committed_to in the body. Mirror that into the
+                // SPA commitment cache so subsequent router decisions agree
+                // with the proxy's view of "which provider this engagement
+                // is on now." Async import keeps the dep out of the hot path
+                // when the response is a normal success.
+                const committedTo = (parsed && (parsed as any)._engagement_committed_to);
+                if (committedTo && typeof committedTo === 'string') {
+                    void import('./engagementCommitment')
+                        .then(m => m.setCommitment(committedTo as any,
+                            `proxy fallback (label=${label}) committed engagement`))
+                        .catch(() => { /* non-fatal */ });
+                }
                 return parsed;
             }
             lastStatus = resp.status;
             lastErrText = await resp.text().catch(() => '');
 
-            // 4xx (excluding 429) — config error, fail loudly
+            // 4xx (excluding 429) - config error, fail loudly
             if (resp.status >= 400 && resp.status < 500 && resp.status !== 429) {
                 throw new Error(`${label} (${family}) returned HTTP ${resp.status}: ${lastErrText.slice(0, 300)}`);
             }
@@ -149,8 +175,8 @@ export async function callAIWithRetry(
                 if (prov) recordProvider429(prov, 429);
             }
 
-            // 429 — rate-limited. Use the longer backoff schedule.
-            // 5xx — server overload. Use the standard schedule.
+            // 429 - rate-limited. Use the longer backoff schedule.
+            // 5xx - server overload. Use the standard schedule.
             const schedule = resp.status === 429
                 ? (options.backoffMs ?? DEFAULT_BACKOFF_429)
                 : (options.backoffMs ?? DEFAULT_BACKOFF_5XX);
@@ -159,7 +185,7 @@ export async function callAIWithRetry(
             console.warn(`[aiRetry/${label}] ${family} HTTP ${resp.status} ${reason} (attempt ${attempt + 1}/${maxAttempts}): ${lastErrText.slice(0, 200)}`);
             if (options.onRetry) {
                 const waitMs = schedule[Math.min(attempt, schedule.length - 1)];
-                options.onRetry(attempt + 1, maxAttempts, `${family} ${resp.status} (${reason}) — retrying in ${waitMs / 1000}s`);
+                options.onRetry(attempt + 1, maxAttempts, `${family} ${resp.status} (${reason}) - retrying in ${waitMs / 1000}s`);
             }
             if (attempt < maxAttempts - 1) {
                 await new Promise(r => setTimeout(r, schedule[Math.min(attempt, schedule.length - 1)]));
@@ -173,14 +199,14 @@ export async function callAIWithRetry(
             if (options.onRetry) {
                 const schedule = options.backoffMs ?? DEFAULT_BACKOFF_5XX;
                 const waitMs = schedule[Math.min(attempt, schedule.length - 1)];
-                options.onRetry(attempt + 1, maxAttempts, `Network failure — retrying in ${waitMs / 1000}s`);
+                options.onRetry(attempt + 1, maxAttempts, `Network failure - retrying in ${waitMs / 1000}s`);
             }
             if (attempt < maxAttempts - 1) {
                 const schedule = options.backoffMs ?? DEFAULT_BACKOFF_5XX;
                 await new Promise(r => setTimeout(r, schedule[Math.min(attempt, schedule.length - 1)]));
                 continue;
             }
-            // Final attempt — re-throw with a clearer user-facing message
+            // Final attempt - re-throw with a clearer user-facing message
             if (lastErrText.includes('Failed to fetch') || lastErrText.includes('ERR_EMPTY_RESPONSE') || lastErrText.includes('AbortError')) {
                 throw new Error(`${label} (${family}): network connection to research proxy failed after ${maxAttempts} attempts. Check that the research-proxy container is running and reachable on port 5012.`);
             }
@@ -188,20 +214,20 @@ export async function callAIWithRetry(
         }
     }
 
-    // Exhausted retries on persistent transient error — friendly message
+    // Exhausted retries on persistent transient error - friendly message
     const friendly = lastStatus === 503
-        ? `${family} API temporarily overloaded (HTTP 503). The model service is under heavy load right now — please retry in a moment. (${label})`
+        ? `${family} API temporarily overloaded (HTTP 503). The model service is under heavy load right now - please retry in a moment. (${label})`
         : lastStatus === 429
-            ? `${family} API rate-limited (HTTP 429) — quota exhausted or burst limit hit. Wait a minute and try again. (${label})`
+            ? `${family} API rate-limited (HTTP 429) - quota exhausted or burst limit hit. Wait a minute and try again. (${label})`
             : lastStatus === 502 || lastStatus === 504
-                ? `${family} API gateway error (HTTP ${lastStatus}) — upstream timeout. Retry in a moment. (${label})`
+                ? `${family} API gateway error (HTTP ${lastStatus}) - upstream timeout. Retry in a moment. (${label})`
                 : lastStatus >= 500
                     ? `${family} API returned HTTP ${lastStatus} after ${maxAttempts} attempts. (${label})`
                     : `${label} (${family}): HTTP ${lastStatus}: ${lastErrText.slice(0, 200)}`;
     throw new Error(friendly);
 }
 
-/** Convenience wrapper for Gemini native — the most-used endpoint. */
+/** Convenience wrapper for Gemini native - the most-used endpoint. */
 export async function callGemini(body: any, options: CallAIOptions): Promise<any> {
     return callAIWithRetry('gemini', body, options);
 }

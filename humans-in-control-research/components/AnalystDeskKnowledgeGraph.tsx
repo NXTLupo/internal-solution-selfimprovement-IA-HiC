@@ -1,5 +1,5 @@
 /**
- * Analyst Desk Knowledge Graph — Option 1 redesign
+ * Analyst Desk Knowledge Graph - Option 1 redesign
  *
  * A dense, dashboard-style view of the research knowledge graph inspired by
  *   - Newsmap (area-weighted theme treemap)
@@ -14,7 +14,7 @@
  *
  * Contract mirrors ResearchKnowledgeGraph.tsx so it's a drop-in sibling:
  *   same Props shape, same `graph` input, same `onNodeClick` callback.
- * Persona portrait graphics are retained — they render as clipped rounded
+ * Persona portrait graphics are retained - they render as clipped rounded
  * rectangles in the linkage strip and in the detail panel persona section.
  *
  * Reverse-pivot: clicking a source chip in the detail panel rewires the
@@ -25,6 +25,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { KGNode, KnowledgeGraph } from '../services/knowledgeGraphBuilder';
 import WikiArticleViewer from './WikiArticleViewer';
 import TopicModelingPanel from './TopicModelingPanel';
+import { ResearchBrowser } from './ResearchBrowser';
+import { ThemeDeepDiveModal } from './ThemeDeepDiveModal';
 import { useSemanticSearch } from '../services/semanticUiSearch';
 
 declare const d3: any;
@@ -182,8 +184,8 @@ const STAGE_LABEL: Record<string, string> = {
 // viewport-aware CSS length. Defaults live in the root component.
 export type DeskSize = 'snug' | 'tall' | 'full';
 const SIZE_PRESETS: Record<DeskSize, { height: string; minHeight: string; label: string; tooltip: string }> = {
-    snug: { height: 'min(72vh, 860px)', minHeight: '560px', label: 'SNUG', tooltip: 'Compact — fits alongside tile grid' },
-    tall: { height: 'min(115vh, 1500px)', minHeight: '820px', label: 'TALL', tooltip: 'Expanded — prioritizes treemap readability' },
+    snug: { height: 'min(72vh, 860px)', minHeight: '560px', label: 'SNUG', tooltip: 'Compact - fits alongside tile grid' },
+    tall: { height: 'min(115vh, 1500px)', minHeight: '820px', label: 'TALL', tooltip: 'Expanded - prioritizes treemap readability' },
     full: { height: '100dvh', minHeight: '100dvh', label: 'FULL', tooltip: 'Fills the viewport (same as EXPAND)' },
 };
 
@@ -213,7 +215,7 @@ interface Props {
     height?: number | string;
     /** Optional min-height floor so very short viewports don't cramp the desk. */
     minHeight?: number | string;
-    /** Preferred adaptive size — overrides height/minHeight when provided.
+    /** Preferred adaptive size - overrides height/minHeight when provided.
      *  'snug' fits alongside other content; 'tall' prioritizes treemap
      *  readability; 'full' uses 100dvh (viewport-fill). */
     size?: DeskSize;
@@ -223,7 +225,7 @@ interface Props {
     setExcludedSources?: React.Dispatch<React.SetStateAction<Set<string>>>;
     theme?: DeskTheme;
     activity?: PipelineActivity;
-    // 2026-05-10 (HiC-Reddit-Deep Phase 2) — Drives the Topic Modeling tab.
+    // 2026-05-10 (HiC-Reddit-Deep Phase 2) - Drives the Topic Modeling tab.
     // When `redditDeepItems` has 10+ entries, the tab strip appears at the
     // top of the desk. `topicModelResult` is the precomputed TopicResult
     // from the parent's background job; `topicModelStatus` lets the panel
@@ -231,11 +233,20 @@ interface Props {
     redditDeepItems?: any[];
     topicModelResult?: any;
     topicModelStatus?: { jobId?: string; status: 'idle' | 'running' | 'completed' | 'failed'; message?: string };
-    /** 2026-05-11 — Callback to bubble panel-computed topic results up to
+    /** 2026-05-11 - Callback to bubble panel-computed topic results up to
      *  App.tsx state so they survive tab switches. Without this, switching
      *  Knowledge Graph ↔ Topic Modeling forces a fresh compute every time. */
     onTopicModelResult?: (result: any) => void;
     researchGoal?: string;
+    // 2026-06-06 - Research Browser (unified Themes + Topics surface).
+    // App.tsx passes themes + topics + engagement slug + the wiki/chat
+    // bridge callbacks. The Browser sits as a third tab next to KG +
+    // legacy Topics; sharing filter state with the treemap via
+    // researchBrowserState.
+    themesData?: any;          // themesResult.themes
+    engagementSlug?: string;
+    onOpenWiki?: (wikiPath: string, chunkPointer?: string) => void;
+    onPrefillChat?: (chunkPointers: string[], titleHint: string) => void;
 }
 
 // --- HELPERS ---
@@ -310,7 +321,7 @@ function nodeAccent(n: KGNode, t: Tokens): string {
 
 function shortLabel(s: string | undefined, n = 48): string {
     if (!s) return '';
-    return s.length > n ? s.slice(0, n - 1) + '…' : s;
+    return s.length > n ? s.slice(0, n - 1) + '...' : s;
 }
 
 // --- SUBCOMPONENTS ---
@@ -345,7 +356,7 @@ const MetricTile: React.FC<{ label: string; count: number; accent: string; onCli
                 lineHeight: 1,
                 letterSpacing: 1,
                 color: active ? (t.theme === 'light' ? '#FFFFFF' : t.bg) : accent,
-            }}>{count === 0 && inferring ? '…' : count}</span>
+            }}>{count === 0 && inferring ? '...' : count}</span>
             <span style={{
                 fontSize: 10,
                 letterSpacing: 2.2,
@@ -371,16 +382,92 @@ const MetricTile: React.FC<{ label: string; count: number; accent: string; onCli
 };
 
 /**
- * CorpusCompositionBar (X.1) — horizontal strip above the treemap showing
+ * CorpusCompositionBar (X.1) - horizontal strip above the treemap showing
  * the extraction-depth distribution of the current evidence pool. Turns
  * Phase 1.6's per-node `extractionDepth` classifications into an operator
- * dashboard: "5 🎬 · 12 📑 · 47 📄 · 188 📰 · 9 ⌘" tells you instantly
+ * dashboard: "5  · 12  · 47  · 188  · 9 ⌘" tells you instantly
  * whether your corpus has teeth or is RSS-blurb shallow.
  *
  * Also renders a thin proportional stacked bar underneath the counts so the
- * RATIO of deep → shallow is visible without math. Pure presentational —
+ * RATIO of deep → shallow is visible without math. Pure presentational -
  * no network, no state.
  */
+/**
+ * P4 (2026-06-06) - MANIFEST HEALTH PILL.
+ *
+ * Surfaces the cached-corpus footprint the user is querying against, so
+ * they can see at a glance what's in scope BEFORE generating. Reads:
+ *   - GLOBAL CATALOG: /api/manifest/chunks (total addressable wiki chunks)
+ *   - KL SELECTION: /api/user-selection/active (items the user curated)
+ *   - MODE: window.__hicCachedOnlyMode (cached-only run flag set by App.tsx)
+ *
+ * Polls every 15s so a fresh ingest or KL change reflects without reload.
+ * Best-effort: missing endpoints yield "-" placeholders, never errors.
+ */
+const ManifestHealthPill: React.FC<{ theme: ReturnType<typeof useTokens> }> = ({ theme: t }) => {
+    const [stats, setStats] = useState<{ chunks: number; sources: number; klItems: number; cachedOnly: boolean }>({
+        chunks: 0, sources: 0, klItems: 0, cachedOnly: false,
+    });
+    useEffect(() => {
+        let cancelled = false;
+        const load = async () => {
+            try {
+                const c = await fetch('http://127.0.0.1:5012/api/manifest/chunks?engagement=&types=social-post,article,upload,transcript,synthesis');
+                const sel = await fetch('http://127.0.0.1:5012/api/user-selection/active');
+                if (cancelled) return;
+                let chunks = 0, sources = 0, klItems = 0;
+                if (c.ok) {
+                    const cd = await c.json();
+                    chunks = cd.chunk_id_count || 0;
+                    sources = cd.source_count || 0;
+                }
+                if (sel.ok) {
+                    const sd = await sel.json();
+                    if (sd && !sd._uncommitted) {
+                        klItems = (sd.theme_cluster_ids?.length || 0)
+                            + (sd.article_sources?.length || 0)
+                            + (sd.social_subreddits?.length || 0)
+                            + (sd.engagement_slugs?.length || 0)
+                            + (sd.source_archive_paths?.length || 0);
+                    }
+                }
+                const cachedOnly = (typeof window !== 'undefined' && (window as any).__hicCachedOnlyMode) || false;
+                setStats({ chunks, sources, klItems, cachedOnly });
+            } catch { /* silent */ }
+        };
+        void load();
+        const interval = setInterval(load, 15_000);
+        return () => { cancelled = true; clearInterval(interval); };
+    }, []);
+    const fmt = (n: number) => n >= 1000 ? `${(n / 1000).toFixed(1)}K` : String(n);
+    const pill = (label: string, value: string, accent?: string): React.ReactElement => (
+        <span style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+            letterSpacing: 0.5, padding: '4px 10px',
+            background: t.theme === 'light' ? '#F7F7F2' : '#1A1A1A',
+            border: `1px solid ${t.line}`, borderRadius: 2,
+            color: t.muted,
+        }}>
+            <span style={{ color: t.muted, textTransform: 'uppercase' }}>{label}</span>
+            <span style={{ color: accent || t.text, fontWeight: 600 }}>{value}</span>
+        </span>
+    );
+    return (
+        <div style={{
+            display: 'flex', flexWrap: 'wrap', gap: 6,
+            padding: '8px 12px', borderBottom: `1px solid ${t.line}`,
+            background: t.theme === 'light' ? t.panelAlt : '#0F0F0F',
+            flexShrink: 0,
+        }}>
+            {pill('Catalog', `${fmt(stats.chunks)} chunks`, t.lime)}
+            {pill('Sources', fmt(stats.sources), t.tealMid)}
+            {pill('KL', `${stats.klItems} items`, stats.klItems > 0 ? t.lime : t.muted)}
+            {pill('Mode', stats.cachedOnly ? 'cached-only' : 'fresh+cached', stats.cachedOnly ? t.lime : t.rust)}
+        </div>
+    );
+};
+
 const CorpusCompositionBar: React.FC<{ evidence: KGNode[] }> = ({ evidence }) => {
     const t = useTokens();
     const counts = useMemo(() => {
@@ -398,14 +485,15 @@ const CorpusCompositionBar: React.FC<{ evidence: KGNode[] }> = ({ evidence }) =>
         return { ...c, archived, totalChars, totalSeconds, total: evidence.length };
     }, [evidence]);
 
-    // Palette per depth — deep extractions use tokens' accent colors, shallow use muted.
+    // Palette per depth - deep extractions use tokens' accent colors, shallow use muted.
     const deepColor = t.theme === 'light' ? t.text : t.lime;
     const depths: Array<{ key: keyof typeof counts; glyph: string; label: string; color: string; strong: boolean }> = [
-        { key: 'transcript',    glyph: '🎬', label: 'TRANSCRIPTS', color: deepColor,   strong: true },
-        { key: 'pdf_extracted', glyph: '📑', label: 'PDFs',         color: deepColor,   strong: true },
-        { key: 'full_text',     glyph: '📄', label: 'FULL-TEXT',    color: deepColor,   strong: true },
-        { key: 'dataset',       glyph: '📊', label: 'DATASETS',     color: t.tealMid,   strong: true },
-        { key: 'snippet',       glyph: '📰', label: 'SNIPPETS',     color: t.muted,     strong: false },
+        // 2026-06-08 - Emoji removed (forbidden). Labels stand alone; the bullet is ASCII-safe.
+        { key: 'transcript',    glyph: '', label: 'TRANSCRIPTS', color: deepColor,   strong: true },
+        { key: 'pdf_extracted', glyph: '', label: 'PDFs',         color: deepColor,   strong: true },
+        { key: 'full_text',     glyph: '', label: 'FULL-TEXT',    color: deepColor,   strong: true },
+        { key: 'dataset',       glyph: '', label: 'DATASETS',     color: t.tealMid,   strong: true },
+        { key: 'snippet',       glyph: '', label: 'SNIPPETS',     color: t.muted,     strong: false },
         { key: 'headline',      glyph: '•',  label: 'HEADLINES',    color: t.muted,     strong: false },
     ];
 
@@ -454,7 +542,7 @@ const CorpusCompositionBar: React.FC<{ evidence: KGNode[] }> = ({ evidence }) =>
                     );
                 })}
                 {counts.archived > 0 && (
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 10, color: t.tealMid, letterSpacing: 1 }} title="Persisted to wiki archive — reusable across engagements">
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 10, color: t.tealMid, letterSpacing: 1 }} title="Persisted to wiki archive - reusable across engagements">
                         ⌘ {counts.archived} ARCHIVED
                     </span>
                 )}
@@ -543,34 +631,76 @@ interface TreemapTile {
     weight: number;
 }
 
-// 2026-05-19 — Treemap weight = evidenceCount × goalAlignment (0-1).
-// Previously the treemap sized + sorted tiles purely by evidenceCount, so
-// an off-topic theme with the most evidence could dominate the headline
-// tile despite the model's own self-scored goalAlignment of 40/100.
-// Multiplying by goalAlignment turns the layout into a relevance-aware
-// importance map: a 16-evidence theme at goalAlignment 40 (weight 6.4)
-// sorts below an 8-evidence theme at goalAlignment 90 (weight 7.2).
-// When goalAlignment is missing (legacy nodes), we treat it as 100 to
-// avoid regressing the layout for sessions that pre-date the field.
+// 2026-06-03 - Treemap weight = RELEVANCE to the research topic, NOT evidence
+// density. Per the user: a theme already IS recurring evidence for a topic, so
+// tile area should convey how central the theme is to the objective, not how
+// many evidence nodes happen to link to it. Prefer the model's self-scored
+// goalAlignment (0-100); fall back to relevanceScore (normalize >1 as a 0-100
+// scale); default mid (0.6) so legacy nodes without either field don't
+// collapse to slivers. (Evidence counts still live in the detail modal.)
 function _treemapWeight(t: KGNode): number {
-    const evidence = Math.max(1, t.evidenceCount || 1);
     const alignment = (t as any)?.metadata?.goalAlignment;
-    const alignmentFactor = typeof alignment === 'number' ? Math.max(0, Math.min(100, alignment)) / 100 : 1;
-    return Math.max(0.1, evidence * alignmentFactor);
+    if (typeof alignment === 'number') return Math.max(0.1, Math.max(0, Math.min(100, alignment)) / 100);
+    const rs = t.relevanceScore;
+    if (typeof rs === 'number') return Math.max(0.1, rs > 1 ? Math.min(100, rs) / 100 : Math.max(0, Math.min(1, rs)));
+    return 0.6;
+}
+
+// 2026-06-02 - READABLE-TILE GUARANTEE. The user requirement: "no empty boxes,
+// only tiles with theme headers, each large enough to read the title." Two fixes:
+//   (1) CAP the number of tiles to what fits at a readable minimum size given the
+//       available area (maxTiles = area / MIN_READABLE_TILE_AREA). Themes beyond
+//       the cap collapse into ONE labeled "+N MORE" overflow tile - never a blank.
+//   (2) COMPRESS the weight dynamic range (sqrt) for LAYOUT only, so a 2-evidence
+//       theme still gets a readable area next to a 160-evidence theme. The true
+//       weight is kept on the tile for color/emphasis and the sort order (most
+//       important lands top-left) still conveys importance.
+// With the wall-to-wall + tall desk, the area is large enough that all ~30-40
+// themes render as readable, titled tiles.
+const MIN_READABLE_TILE_AREA = 8200;  // ~128w x 64h - smallest tile that fits a title
+const OVERFLOW_ID = '__treemap_overflow__';
+
+function _maxReadableTiles(width: number, height: number): number {
+    const area = Math.max(0, width) * Math.max(0, height);
+    if (area <= 0) return 6;
+    return Math.max(6, Math.floor(area / MIN_READABLE_TILE_AREA));
 }
 
 function computeTreemap(themes: KGNode[], width: number, height: number): TreemapTile[] {
     if (!themes.length || width <= 0 || height <= 0) return [];
+
+    // Cap to readable count; collapse the remainder into a single labeled overflow
+    // node so no theme is rendered as an unreadable, unlabeled sliver.
+    const sortedAll = [...themes].sort((a, b) => _treemapWeight(b) - _treemapWeight(a));
+    const maxTiles = _maxReadableTiles(width, height);
+    let display: KGNode[] = sortedAll;
+    let overflow: KGNode | null = null;
+    if (sortedAll.length > maxTiles) {
+        display = sortedAll.slice(0, maxTiles - 1);
+        const rest = sortedAll.slice(maxTiles - 1);
+        const restWeight = rest.reduce((s, t) => s + _treemapWeight(t), 0);
+        overflow = {
+            id: OVERFLOW_ID,
+            label: `+${rest.length} more themes`,
+            type: 'theme',
+            evidenceCount: Math.round(restWeight),
+            metadata: { goalAlignment: 45, _overflowCount: rest.length },
+        } as any;
+        display = [...display, overflow];
+    }
+
+    // Layout value: sqrt-compressed weight so low-weight tiles still get a
+    // readable area. Floor keeps the smallest tile above the readable minimum.
+    const layoutValue = (t: KGNode): number =>
+        t.id === OVERFLOW_ID ? Math.sqrt(Math.max(1, _treemapWeight(t)))
+                             : Math.max(1.0, Math.sqrt(_treemapWeight(t)));
+
     if (typeof d3 === 'undefined') {
-        // Simple row fallback if d3 isn't available for some reason. Sort by
-        // the same weight so the most-important tile lands top-left even in
-        // the fallback layout.
-        const sorted = [...themes].sort((a, b) => _treemapWeight(b) - _treemapWeight(a));
-        const cols = Math.ceil(Math.sqrt(sorted.length));
-        const rows = Math.ceil(sorted.length / cols);
+        const cols = Math.ceil(Math.sqrt(display.length));
+        const rows = Math.ceil(display.length / cols);
         const tw = width / cols;
         const th = height / rows;
-        return sorted.map((t, i) => ({
+        return display.map((t, i) => ({
             node: t,
             x: (i % cols) * tw,
             y: Math.floor(i / cols) * th,
@@ -579,7 +709,7 @@ function computeTreemap(themes: KGNode[], width: number, height: number): Treema
             weight: _treemapWeight(t),
         }));
     }
-    const root = d3.hierarchy({ children: themes.map(t => ({ node: t, value: _treemapWeight(t) })) })
+    const root = d3.hierarchy({ children: display.map(t => ({ node: t, value: layoutValue(t) })) })
         .sum((d: any) => d.value)
         .sort((a: any, b: any) => b.value - a.value);
     const tm = d3.treemap().size([width, height]).paddingInner(3).round(true);
@@ -590,7 +720,7 @@ function computeTreemap(themes: KGNode[], width: number, height: number): Treema
         y: leaf.y0,
         w: Math.max(0, leaf.x1 - leaf.x0),
         h: Math.max(0, leaf.y1 - leaf.y0),
-        weight: leaf.value,
+        weight: _treemapWeight(leaf.data.node),
     }));
 }
 
@@ -617,7 +747,10 @@ const ThemeTreemap: React.FC<{
         return () => ro.disconnect();
     }, []);
 
-    const tiles = useMemo(() => computeTreemap(themes, dims.w, dims.h), [themes, dims.w, dims.h]);
+    // 2026-06-03 FIX - floor the dims so a transient 0-measurement (before the
+    // ResizeObserver settles, or a momentarily-collapsed flex row) cannot make
+    // computeTreemap return [] and blank the themes pane.
+    const tiles = useMemo(() => computeTreemap(themes, dims.w || 640, dims.h || 420), [themes, dims.w, dims.h]);
 
     return (
         <div
@@ -667,8 +800,14 @@ const ThemeTreemap: React.FC<{
                 const n = tile.node;
                 const isSelected = n.id === selectedId;
                 const isHighlighted = highlighted ? highlighted.has(n.id) : true;
-                const conc = n.sourceConcentration || 0;
-                const thin = !!n.isThinTheme;
+                // 2026-06-03 - Evidence-density signals (concentration / thin)
+                // are NOT shown on THEME tiles anymore: tile area now conveys
+                // relevance, and the textual badges ate the title's real estate.
+                // Sources keep their density tint + count footer. Detail modal
+                // carries the full evidence breakdown for themes.
+                const isTheme = n.type === 'theme';
+                const conc = isTheme ? 0 : (n.sourceConcentration || 0);
+                const thin = isTheme ? false : !!n.isThinTheme;
                 // Theme-aware tile palette. Light mode goes typographic:
                 // white tiles with hairline rules; selection inverts to
                 // deep black with chartreuse ink. Dark mode keeps the
@@ -692,8 +831,15 @@ const ThemeTreemap: React.FC<{
                 }
                 const borderColor = t.theme === 'light' ? t.line : t.bg;
                 const borderWidth = isSelected ? 2 : 1;
-                const showLabel = tile.w > 60 && tile.h > 28;
-                const showCount = tile.w > 80 && tile.h > 50;
+                const isOverflow = n.id === OVERFLOW_ID;
+                // computeTreemap caps tiles to a readable minimum size, so EVERY
+                // rendered tile shows its title (no blank boxes). The low guard
+                // only catches degenerate 0-dimension cases during resize.
+                const showLabel = tile.w > 36 && tile.h > 18;
+                // Theme tiles no longer carry a count footer (relevance is the
+                // size; evidence lives in the modal) - so the title claims the
+                // whole tile. Sources still show their item-count footer.
+                const showCount = !isOverflow && !isTheme && tile.w > 80 && tile.h > 50;
                 // Responsive type curve: narrow tiles get smaller type and tighter
                 // letter-spacing so long words like "DONOR" don't overflow the tile
                 // width and get clipped by the parent overflow:hidden. Ceiling 32px,
@@ -705,8 +851,12 @@ const ThemeTreemap: React.FC<{
                     <button
                         key={n.id}
                         type="button"
-                        onClick={() => onSelect(n)}
-                        title={`${n.label} — ${n.evidenceCount || 0} evidence${n.dominantSource ? ` · ${n.dominantSource}` : ''}`}
+                        onClick={() => { if (!isOverflow) onSelect(n); }}
+                        title={isOverflow
+                            ? `${(n.metadata as any)?._overflowCount || 0} additional themes not shown, widen or expand the desk to see them`
+                            : isTheme
+                                ? `${n.label}${typeof (n.metadata as any)?.goalAlignment === 'number' ? ` · ${Math.round((n.metadata as any).goalAlignment)}/100 relevance` : ''} · click for sources`
+                                : `${n.label} · ${n.evidenceCount || 0} evidence${n.dominantSource ? ` · ${n.dominantSource}` : ''}`}
                         style={{
                             position: 'absolute',
                             left: tile.x, top: tile.y,
@@ -715,8 +865,9 @@ const ThemeTreemap: React.FC<{
                             color: fg,
                             border: `${borderWidth}px solid ${borderColor}`,
                             padding: '8px 10px',
-                            display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-                            cursor: 'pointer',
+                            display: 'flex', flexDirection: 'column', justifyContent: isOverflow ? 'center' : 'space-between',
+                            alignItems: isOverflow ? 'center' : 'stretch',
+                            cursor: isOverflow ? 'default' : 'pointer',
                             overflow: 'hidden',
                             textAlign: 'left',
                             transition: 'background 140ms, opacity 140ms',
@@ -756,7 +907,7 @@ const ThemeTreemap: React.FC<{
                                 justifyContent: 'space-between',
                                 gap: 8,
                             }}>
-                                {/* 2026-05-11 — Sources show item count + mean relevance;
+                                {/* 2026-05-11 - Sources show item count + mean relevance;
                                     themes keep the "N evidence" label they always had. */}
                                 {n.type === 'source' ? (
                                     <span>
@@ -768,7 +919,7 @@ const ThemeTreemap: React.FC<{
                                 ) : (
                                     <span>{n.evidenceCount || 0} evidence</span>
                                 )}
-                                {conc >= 0.7 && <span style={{ color: isSelected ? t.tileSelInk : t.rust, fontWeight: 700 }}>⚠ concentration</span>}
+                                {conc >= 0.7 && <span style={{ color: isSelected ? t.tileSelInk : t.rust, fontWeight: 700 }}> concentration</span>}
                                 {thin && conc < 0.7 && <span style={{ fontStyle: 'italic' }}>thin</span>}
                             </span>
                         )}
@@ -778,6 +929,26 @@ const ThemeTreemap: React.FC<{
         </div>
     );
 };
+
+// 2026-06-03 - Resolve a source/evidence reference to a SAFE open target.
+// BUG: clicking a source link bounced the user to the landing page. Cause:
+// Crossref items carry a BARE DOI ("10.21061/jcte...") with no scheme, and
+// other items carry relative paths. Rendered as <a href="10.21061/...">, the
+// browser resolved them against localhost:5011, the SPA router caught the
+// unknown path, and reset to the landing view. This returns an absolute
+// external URL (prefixing bare DOIs), an archived-wiki target (opens the
+// stored article in-app), or null (render as plain text - never a bad href).
+export function resolveSourceTarget(o: { url?: string; wikiPath?: string }): { kind: 'external' | 'archive'; href: string } | null {
+    const url = (o.url || '').trim();
+    const wikiPath = (o.wikiPath || '').trim();
+    if (/^https?:\/\//i.test(url)) return { kind: 'external', href: url };
+    if (/^doi:/i.test(url)) return { kind: 'external', href: `https://doi.org/${url.replace(/^doi:/i, '')}` };
+    if (/^10\.\d{4,}\/\S+$/.test(url)) return { kind: 'external', href: `https://doi.org/${url}` }; // bare DOI
+    if (/^www\./i.test(url)) return { kind: 'external', href: `https://${url}` };
+    if (wikiPath) return { kind: 'archive', href: wikiPath };           // stored wiki article
+    if (url && /\.md$/i.test(url)) return { kind: 'archive', href: url }; // relative wiki path
+    return null; // unknown/garbage - do NOT emit an href that the SPA router would catch
+}
 
 // --- DETAIL PANEL ---
 const DetailPanel: React.FC<{
@@ -817,7 +988,7 @@ const DetailPanel: React.FC<{
 
     const accent = nodeAccent(node, t);
     // 2026-04-28: previously capped at .slice(0, 24) which silently hid every
-    // evidence beyond #24 even when a theme had 80+ supporting passages —
+    // evidence beyond #24 even when a theme had 80+ supporting passages -
     // making themes look thinner than they were and burying cross-source
     // corroboration. Now the panel shows ALL evidence with a paginated
     // expand/collapse: first EVIDENCE_INITIAL_PAGE on load, full list when
@@ -903,7 +1074,7 @@ const DetailPanel: React.FC<{
                 </div>
             )}
 
-            {/* Goal-alignment badge — surfaces how directly this theme answers the
+            {/* Goal-alignment badge - surfaces how directly this theme answers the
                 research objective (Tier C goalAlignment 0..100). High-alignment
                 themes get a teal badge; tangential themes get a muted one. */}
             {node.type === 'theme' && typeof node.metadata?.goalAlignment === 'number' && (
@@ -939,7 +1110,7 @@ const DetailPanel: React.FC<{
                 so non-theme nodes (sources, personas, recs) are unaffected.
                 ────────────────────────────────────────────────────────────── */}
 
-            {/* Sub-themes — distinct mechanisms inside the umbrella theme */}
+            {/* Sub-themes - distinct mechanisms inside the umbrella theme */}
             {node.type === 'theme' && Array.isArray(node.metadata?.subThemes) && node.metadata.subThemes.length > 0 && (
                 <DetailSection label={`Sub-themes (${node.metadata.subThemes.length})`}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -964,7 +1135,7 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Organizing dimensions — analytical axes that explain how the theme varies */}
+            {/* Organizing dimensions - analytical axes that explain how the theme varies */}
             {node.type === 'theme' && Array.isArray(node.metadata?.dimensions) && node.metadata.dimensions.length > 0 && (
                 <DetailSection label="Dimensions">
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -993,7 +1164,7 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Contradictions — conflicting evidence the corpus contains */}
+            {/* Contradictions - conflicting evidence the corpus contains */}
             {node.type === 'theme' && Array.isArray(node.metadata?.contradictions) && node.metadata.contradictions.length > 0 && (
                 <DetailSection label={`Contradictions (${node.metadata.contradictions.length})`}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -1031,7 +1202,7 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Temporal arc — how this theme has evolved over time */}
+            {/* Temporal arc - how this theme has evolved over time */}
             {node.type === 'theme' && node.metadata?.temporalArc && (() => {
                 const arc = node.metadata.temporalArc;
                 const hasContent = arc.pre2024 || arc.in2024_2025 || arc.in2025_2026 || arc.forwardSignal;
@@ -1069,7 +1240,7 @@ const DetailPanel: React.FC<{
                 );
             })()}
 
-            {/* Implications — consultant-grade verbs to act on */}
+            {/* Implications - consultant-grade verbs to act on */}
             {node.type === 'theme' && Array.isArray(node.metadata?.implications) && node.metadata.implications.length > 0 && (
                 <DetailSection label={`Implications (${node.metadata.implications.length})`}>
                     <ol style={{ margin: 0, paddingLeft: 20, fontSize: 12, lineHeight: 1.6, color: t.text }}>
@@ -1094,7 +1265,7 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Evidence list (paginated — see EVIDENCE_INITIAL_PAGE above) */}
+            {/* Evidence list (paginated - see EVIDENCE_INITIAL_PAGE above) */}
             {linkedEvidence.length > 0 && (
                 <DetailSection label={`Evidence (${evidenceExpanded || allEvidence.length <= EVIDENCE_INITIAL_PAGE ? allEvidence.length : `${linkedEvidence.length} of ${allEvidence.length}`})`}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -1109,25 +1280,18 @@ const DetailPanel: React.FC<{
                                     paddingTop: 3, paddingBottom: 3,
                                 }}>
                                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
-                                        {ev.url ? (
-                                            <a
-                                                href={ev.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                style={{
-                                                    color: t.text,
-                                                    fontSize: 13,
-                                                    fontWeight: 600,
-                                                    textDecoration: 'none',
-                                                    lineHeight: 1.4,
-                                                    borderBottom: `1px dotted ${t.muted}`,
-                                                }}
-                                            >
-                                                {shortLabel(ev.label, 130)} ↗
-                                            </a>
-                                        ) : (
-                                            <span style={{ color: t.text, fontSize: 13, fontWeight: 600 }}>{shortLabel(ev.label, 130)}</span>
-                                        )}
+                                        {(() => {
+                                            const tgt = resolveSourceTarget(ev);
+                                            const lbl = shortLabel(ev.label, 130);
+                                            const linkStyle = { color: t.text, fontSize: 13, fontWeight: 600, textDecoration: 'none', lineHeight: 1.4, borderBottom: `1px dotted ${t.muted}` } as React.CSSProperties;
+                                            if (tgt?.kind === 'external') {
+                                                return <a href={tgt.href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{lbl} ↗</a>;
+                                            }
+                                            if (tgt?.kind === 'archive') {
+                                                return <button type="button" onClick={(e) => { e.stopPropagation(); onOpenArchive?.(tgt.href); }} style={{ ...linkStyle, background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left', fontFamily: 'inherit' }}>{lbl} ⌘</button>;
+                                            }
+                                            return <span style={{ color: t.text, fontSize: 13, fontWeight: 600 }}>{lbl}</span>;
+                                        })()}
                                     </div>
                                     {quote && (
                                         <div style={{
@@ -1137,7 +1301,10 @@ const DetailPanel: React.FC<{
                                             color: t.muted,
                                             fontFamily: "'JetBrains Mono', monospace",
                                         }}>
-                                            {shortLabel(quote, 260)}
+                                            {/* 2026-06-03 - the detail view is now a wide modal, so
+                                                show a far longer source excerpt (was 260 chars) to give
+                                                "more detail from the source materials" the user asked for. */}
+                                            {shortLabel(quote, 700)}
                                         </div>
                                     )}
                                     <div style={{ marginTop: 6, fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: t.muted, display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -1150,13 +1317,13 @@ const DetailPanel: React.FC<{
                                                 {src.label}
                                             </button>
                                         )}
-                                        {/* Extraction depth badge — makes it visibly evident when
+                                        {/* Extraction depth badge - makes it visibly evident when
                                             evidence is a full-text article, PDF, or transcript vs a
                                             headline blurb. Phase 1.6 surfaces the classification the
                                             orchestrator wrote onto the evidence node. */}
                                         {ev.extractionDepth && (() => {
                                             const depth = ev.extractionDepth;
-                                            const glyph = depth === 'transcript' ? '🎬' : depth === 'pdf_extracted' ? '📑' : depth === 'full_text' ? '📄' : depth === 'dataset' ? '📊' : depth === 'snippet' ? '📰' : '•';
+                                            const glyph = depth === 'transcript' ? '' : depth === 'pdf_extracted' ? '' : depth === 'full_text' ? '' : depth === 'dataset' ? '' : depth === 'snippet' ? '' : '•';
                                             const labelMap: Record<string, string> = { transcript: 'TRANSCRIPT', pdf_extracted: 'PDF', full_text: 'FULL TEXT', dataset: 'DATASET', snippet: 'SNIPPET', headline: 'HEADLINE' };
                                             const isDeep = depth === 'full_text' || depth === 'pdf_extracted' || depth === 'transcript';
                                             const kchars = ev.contentLength ? ` · ${ev.contentLength >= 1000 ? `${Math.round(ev.contentLength / 1000)}k` : ev.contentLength} chars` : '';
@@ -1199,7 +1366,7 @@ const DetailPanel: React.FC<{
                             );
                         })}
                     </div>
-                    {/* Expand / collapse — surfaces evidence beyond the
+                    {/* Expand / collapse - surfaces evidence beyond the
                         EVIDENCE_INITIAL_PAGE without forcing the user to live
                         in a 24-item ceiling that masks how thoroughly the theme
                         is supported. */}
@@ -1229,7 +1396,7 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Source chips — drive reverse-pivot */}
+            {/* Source chips - drive reverse-pivot */}
             {linkedSources.length > 0 && (
                 <DetailSection label={`Sources (${linkedSources.length})`}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
@@ -1291,7 +1458,7 @@ const DetailPanel: React.FC<{
                     </div>
                     {isSource && pivotSource?.id === node.id && (
                         <div style={{ marginTop: 10, fontSize: 10, letterSpacing: 1, color: t.lime }}>
-                            Treemap pivoted — highlighting themes this source drives.
+                            Treemap pivoted - highlighting themes this source drives.
                             <button type="button" onClick={() => onPivotSource(null)} style={{ marginLeft: 8, color: t.text, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>clear</button>
                         </div>
                     )}
@@ -1341,22 +1508,21 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Primary link when node itself has a URL */}
-            {node.url && (
-                <div style={{ padding: '12px 18px', borderTop: `1px solid ${divider}` }}>
-                    <a href={node.url} target="_blank" rel="noopener noreferrer" style={{
-                        color: t.lime,
-                        fontSize: 11,
-                        letterSpacing: 1,
-                        textTransform: 'uppercase',
-                        textDecoration: 'none',
-                        borderBottom: `1px solid ${t.lime}`,
-                        paddingBottom: 2,
-                    }}>
-                        Open source ↗
-                    </a>
-                </div>
-            )}
+            {/* Primary link when the node resolves to a real source target.
+                Routes bare DOIs / relative wiki paths correctly instead of
+                bouncing to the landing page. */}
+            {(() => {
+                const tgt = resolveSourceTarget(node);
+                if (!tgt) return null;
+                const baseStyle = { color: t.lime, fontSize: 11, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderBottom: `1px solid ${t.lime}`, paddingBottom: 2 } as React.CSSProperties;
+                return (
+                    <div style={{ padding: '12px 18px', borderTop: `1px solid ${divider}` }}>
+                        {tgt.kind === 'external'
+                            ? <a href={tgt.href} target="_blank" rel="noopener noreferrer" style={baseStyle}>Open source ↗</a>
+                            : <button type="button" onClick={() => onOpenArchive?.(tgt.href)} style={{ ...baseStyle, background: 'none', border: 'none', cursor: 'pointer', padding: '0 0 2px 0', fontFamily: 'inherit' }}>Open archived source ⌘</button>}
+                    </div>
+                );
+            })()}
         </div>
     );
 };
@@ -1500,23 +1666,30 @@ const LinkageStrip: React.FC<{
 };
 
 // --- ROOT COMPONENT ---
-const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height, minHeight, size, onSizeChange, excludedSources, setExcludedSources, theme = 'dark', activity, redditDeepItems = [], topicModelResult, topicModelStatus, researchGoal = '', onTopicModelResult }) => {
-    // 2026-05-10 — Tab state. 'kg' is the default (current treemap +
-    // detail panel). 'topics' shows the new Topic Modeling panel. The tab
-    // strip only appears when there's deep-Reddit data to cluster, so the
-    // desk stays single-view for engagements with no Reddit signal.
-    const [activeTab, setActiveTab] = useState<'kg' | 'topics'>('kg');
+const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height, minHeight, size, onSizeChange, excludedSources, setExcludedSources, theme = 'dark', activity, redditDeepItems = [], topicModelResult, topicModelStatus, researchGoal = '', onTopicModelResult, themesData, engagementSlug, onOpenWiki, onPrefillChat }) => {
+    // 2026-06-08 - UNIFIED ANALYST DESK. Per owner directive, the desk is now a
+    // SINGLE surface: the Research Browser (themes + topic-modeled topics merged,
+    // relevance-ranked, keyword-searchable). The separate KNOWLEDGE GRAPH and
+    // TOPIC MODELING tabs are retired (the tab strip is hidden below). The
+    // topic-model job still runs upstream (App.tsx) and its result flows into the
+    // Browser's merged frame - we just don't expose it as its own destination.
+    // Default tab is 'browser'; 'kg'/'topics' code stays in place (dead-but-reversible).
+    const [activeTab, setActiveTab] = useState<'kg' | 'topics' | 'browser'>('browser');
+    // 2026-06-08 - Theme deep-dive modal (replaces the KG detail panel's role for
+    // the unified Research Browser): clicking a theme's inspect opens full depth +
+    // evidence with working source link-backs.
+    const [inspectItem, setInspectItem] = useState<any | null>(null);
     const showTopicTab = (redditDeepItems?.length || 0) >= 10 || !!topicModelResult;
     const t = theme === 'light' ? LIGHT : DARK;
     useEffect(() => { ensureKeyframes(); }, []);
     const [selected, setSelected] = useState<KGNode | null>(null);
     const [pivotSource, setPivotSource] = useState<KGNode | null>(null);
     const [typeFilter, setTypeFilter] = useState<string | null>(null);
-    // Phase 1-retrofit (2026-04-20) — WIKI ARTICLE BROWSER
+    // Phase 1-retrofit (2026-04-20) - WIKI ARTICLE BROWSER
     // When set, the WikiArticleViewer overlay renders on top of the desk
     // and fetches the body so the user can verify the AI has the full text.
     const [viewerWikiPath, setViewerWikiPath] = useState<string | null>(null);
-    // Internal size state used only if the parent doesn't pass `size` — keeps
+    // Internal size state used only if the parent doesn't pass `size` - keeps
     // the toggle functional for standalone mounts while letting App.tsx take
     // authority over persistence when it wants to.
     const themeCountEarly = useMemo(() => graph.nodes.filter(n => n.type === 'theme').length, [graph]);
@@ -1539,12 +1712,12 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
     const stageLabel = activity?.activeStage ? (STAGE_LABEL[activity.activeStage] || activity.activeStage) : '';
     const isRunning = !!activity?.isRunning || (activity?.activeStage && activity.activeStage !== 'IDLE');
 
-    // 2026-05-19 — Themes are partitioned by goalAlignment so off-topic
+    // 2026-05-19 - Themes are partitioned by goalAlignment so off-topic
     // themes cannot dominate the headline tile. The threshold (60) matches
-    // the goalAlignment rubric in geminiService.ts — 60 = "essential context
+    // the goalAlignment rubric in geminiService.ts - 60 = "essential context
     // but not the headline", 40 = "adjacent / triangulation".
     //
-    // 2026-05-19b — CRITICAL FIX: the original logic emptied the main pane
+    // 2026-05-19b - CRITICAL FIX: the original logic emptied the main pane
     // entirely when ALL themes scored < 60 (observed in the wild: 19 themes
     // generated, every one scored < 60, headline pane showed 0 themes).
     // New behavior:
@@ -1558,7 +1731,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
     const _allThemes = useMemo(() => graph.nodes.filter(n => n.type === 'theme'), [graph]);
     const _themeAlignment = (n: KGNode): number => {
         const v = (n as any)?.metadata?.goalAlignment;
-        // Missing alignment is treated as "ungated" (100) — never hide
+        // Missing alignment is treated as "ungated" (100) - never hide
         // legacy themes that pre-date the field.
         return typeof v === 'number' ? v : 100;
     };
@@ -1567,11 +1740,11 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
         [_allThemes]
     );
     const _weakAlignmentFallback = _allThemes.length > 0 && _aboveFloor.length === 0;
-    // 2026-05-20 — Semantic cross-type search via /api/embed. Single input
+    // 2026-05-20 - Semantic cross-type search via /api/embed. Single input
     // that ranks every node category by cosine similarity to the user's query
     // (Gemini gemini-embedding-001, debounced 300ms). Typing "co-op problems"
     // surfaces themes about internship friction, sources about experiential
-    // learning gripes, etc. — anything semantically close, not just literal
+    // learning gripes, etc. - anything semantically close, not just literal
     // matches. Substring matches still rank highest (proper-noun safety).
     const [searchQuery, setSearchQuery] = useState('');
     const _nodeSearchText = (n: KGNode): string => {
@@ -1588,17 +1761,17 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
             meta.summary,
             Array.isArray((n as any).tags) ? ((n as any).tags as any[]).join(' ') : '',
             Array.isArray((n as any).citations) ? ((n as any).citations as any[]).map((c: any) => `${c?.sourceName || ''} ${c?.text || ''}`).join(' ') : '',
-        ].filter(Boolean).join(' — ').slice(0, 1500);
+        ].filter(Boolean).join(' - ').slice(0, 1500);
     };
     const _nodeId = (n: KGNode): string => `kg_${n.type}_${n.id}`;
 
     // Run semantic search once over ALL nodes, then partition by type.
     // Single embedding round-trip covers every panel.
     const _allFilterableNodes = useMemo(() => graph.nodes, [graph]);
-    // 2026-05-20 — Defaults: minSimilarity 0.55 (was 0.30, too loose for
+    // 2026-05-20 - Defaults: minSimilarity 0.55 (was 0.30, too loose for
     // Gemini gemini-embedding-001 baseline). Cap to top 60 across panels.
     // Fallback top-5 keeps the UI from going blank when nothing crosses
-    // the floor — UI labels those as weak matches.
+    // the floor - UI labels those as weak matches.
     const semantic = useSemanticSearch<KGNode>(
         _allFilterableNodes,
         _nodeId,
@@ -1671,6 +1844,14 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
         onNodeClick?.(n);
     };
 
+    // 2026-06-03 - Esc closes the detail modal.
+    useEffect(() => {
+        if (!selected) return;
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null); };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [selected]);
+
     const highlighted = useMemo<Set<string> | null>(() => {
         if (!pivotSource) return null;
         // Find theme ids directly linked to pivotSource OR to evidence whose parentSourceId matches
@@ -1707,7 +1888,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
             overflow: 'hidden',
             fontFamily: 'Archivo, sans-serif',
         }}>
-        {/* 2026-05-11 — Research objective banner. Sits above the tab strip
+        {/* 2026-05-11 - Research objective banner. Sits above the tab strip
             and the treemap, anchoring everything below it to what the user
             actually asked for. Truncates long goals to a single visible line
             with a hover-tooltip for the full text. Hidden when the goal
@@ -1744,9 +1925,14 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 </span>
             </div>
         )}
-        {/* 2026-05-10 — Tab strip. Only appears when there's deep-Reddit
-            data to model. Two tabs total today; the strip is extensible. */}
-        {showTopicTab && (
+        {/* 2026-05-10 - Tab strip. 2026-06-06: third tab added - RESEARCH
+            BROWSER (unified Themes + Topics surface). The strip now shows
+            whenever there's either deep-Reddit data OR themes data to
+            render in the Browser. */}
+        {/* 2026-06-08 - Tab strip RETIRED. Unified single-surface Analyst Desk =
+            Research Browser only. KG + Topic Modeling tabs removed per owner
+            directive; their code remains below (unreached) for reversibility. */}
+        {false && (
             <div style={{
                 display: 'flex', gap: 0, borderBottom: `1px solid ${t.line}`,
                 background: t.theme === 'light' ? t.panelAlt : '#0F0F0F',
@@ -1754,6 +1940,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
             }}>
                 {([
                     { key: 'kg' as const, label: 'KNOWLEDGE GRAPH', count: undefined },
+                    { key: 'browser' as const, label: 'RESEARCH BROWSER', count: ((themesData?.themes?.length || (Array.isArray(themesData) ? themesData.length : 0)) + (topicModelResult?.topic_count || 0)) || undefined },
                     { key: 'topics' as const, label: 'TOPIC MODELING', count: topicModelResult?.topic_count },
                 ]).map(tab => {
                     const isActive = activeTab === tab.key;
@@ -1793,7 +1980,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 })}
             </div>
         )}
-        {/* When the Topics tab is active, render the panel and skip the grid */}
+        {/* When Topics or Browser tabs are active, render those and skip the grid. */}
         {activeTab === 'topics' ? (
             <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
                 <TopicModelingPanel
@@ -1802,6 +1989,17 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                     cachedResult={topicModelResult}
                     onResult={onTopicModelResult}
                     upstreamStatus={topicModelStatus}
+                />
+            </div>
+        ) : activeTab === 'browser' ? (
+            <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                <ResearchBrowser
+                    themes={themesData?.themes || (Array.isArray(themesData) ? themesData : [])}
+                    topics={[]}
+                    engagementSlug={engagementSlug}
+                    onOpenWiki={(wp, cp) => { onOpenWiki?.(wp, cp); }}
+                    onOpenChat={(pointers, hint) => { onPrefillChat?.(pointers, hint); }}
+                    onInspect={(it) => setInspectItem(it)}
                 />
             </div>
         ) : (
@@ -1814,7 +2012,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 color: t.text,
                 display: 'grid',
                 // Rows: [inferring strip] breadcrumb, metrics, [composition], treemap+detail, linkage
-                // The composition row (X.1) is `auto` — collapses to 0 when no evidence yet.
+                // The composition row (X.1) is `auto` - collapses to 0 when no evidence yet.
                 gridTemplateRows: isRunning ? 'auto auto auto auto 1fr auto' : 'auto auto auto 1fr auto',
                 fontFamily: 'Archivo, sans-serif',
                 overflow: 'hidden',
@@ -1825,7 +2023,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 contain: 'layout size',
             }}
         >
-            {/* Row 0 — pipeline status strip (only when running) */}
+            {/* Row 0 - pipeline status strip (only when running) */}
             {isRunning && (
                 <div style={{
                     display: 'flex', alignItems: 'center', gap: 14,
@@ -1877,7 +2075,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 </div>
             )}
 
-            {/* Row 1 — breadcrumb */}
+            {/* Row 1 - breadcrumb */}
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -1921,14 +2119,14 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                         <button type="button" onClick={() => setPivotSource(null)} style={{ background: 'none', border: `1px solid ${t.line}`, color: t.text, padding: '4px 8px', cursor: 'pointer', fontSize: 10, letterSpacing: 1, fontFamily: 'Archivo, sans-serif' }}>clear</button>
                     </span>
                 )}
-                {/* SNUG/TALL/FULL moved to the parent VIEW popover — keeping
+                {/* SNUG/TALL/FULL moved to the parent VIEW popover - keeping
                     only the breadcrumb + pivot indicator in this row eliminates
                     the 3-pill-cluster that collided with the right-edge
                     flyout rail. sizeSetter still called from props when the
                     parent passes `onSizeChange`. */}
             </div>
 
-            {/* 2026-05-20 — Semantic search row. Filters every metric tile
+            {/* 2026-05-20 - Semantic search row. Filters every metric tile
                 + every panel below by cosine similarity to the query (Gemini
                 embeddings via /api/embed, debounced 300ms). Empty query →
                 no filtering. Indicator on the right shows whether the
@@ -1946,7 +2144,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search themes, sources, personas, recs… (semantic)"
+                    placeholder="Search themes, sources, personas, recs... (semantic)"
                     style={{
                         flex: 1,
                         padding: '8px 12px',
@@ -1972,7 +2170,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                         textAlign: 'right',
                     }}>
                         {semantic.isComputing
-                            ? 'embedding…'
+                            ? 'embedding...'
                             : semantic.usedSemantic
                                 ? `semantic · ${_searchTotalHits} hit(s)`
                                 : `literal · ${_searchTotalHits} hit(s)`}
@@ -2001,9 +2199,17 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 )}
             </div>
 
-            {/* Row 2 — metric tiles. S3.6: grid auto-fits so SNUG mode can
-                break to two rows without CSS changes; tiles downsize via
-                their own internal breakpoint. */}
+            {/* P4 (2026-06-06) - MANIFEST HEALTH pill row. Surfaces the
+                cached-corpus footprint the user is querying against so they
+                can see at a glance what's in scope BEFORE generating. */}
+            <ManifestHealthPill theme={t} />
+
+            {/* P3 (2026-06-06) - Auto-hide empty metric tiles. Tiles with
+                count 0 AND not currently being generated are vestigial; they
+                signal "should work but isn't". The themes / sources / evidence
+                / topics tiles always render (they're foundational); personas /
+                recs / barriers / journeys auto-hide until chat-driven
+                generation populates them. */}
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: effectiveSize === 'snug'
@@ -2014,25 +2220,37 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 padding: '1px 0',
             }}>
                 <MetricTile label="Themes" count={themes.length} accent={t.lime} active={typeFilter === 'theme'} inferring={activeStageKey === 'themes'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'theme' ? null : 'theme')} />
-                <MetricTile label="Personas" count={personas.length} accent={t.tealMid} active={typeFilter === 'persona'} inferring={activeStageKey === 'personas'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'persona' ? null : 'persona')} />
                 <MetricTile label="Sources" count={sources.length} accent={t.text} active={typeFilter === 'source'} inferring={activeStageKey === 'sources'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'source' ? null : 'source')} />
                 <MetricTile label="Evidence" count={evidence.length} accent={t.muted} inferring={activeStageKey === 'evidence'} compact={effectiveSize === 'snug'} />
-                <MetricTile label="Recs" count={recs.length} accent={t.tealMid} active={typeFilter === 'recommendation'} inferring={activeStageKey === 'recs'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'recommendation' ? null : 'recommendation')} />
-                <MetricTile label="Barriers" count={barriers.length} accent={t.rust} active={typeFilter === 'gap'} inferring={activeStageKey === 'barriers'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'gap' ? null : 'gap')} />
-                <MetricTile label="Journeys" count={journeys.length} accent={t.tealMid} active={typeFilter === 'journey_stage'} inferring={activeStageKey === 'journeys'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'journey_stage' ? null : 'journey_stage')} />
+                {/* P6: surface topic clusters in the metric row when topic-modeling has run. */}
+                {(topicModelResult?.topic_count > 0) && (
+                    <MetricTile label="Topics" count={topicModelResult.topic_count} accent={t.tealMid} compact={effectiveSize === 'snug'} onClick={() => setActiveTab('topics')} />
+                )}
+                {(personas.length > 0 || activeStageKey === 'personas') && (
+                    <MetricTile label="Personas" count={personas.length} accent={t.tealMid} active={typeFilter === 'persona'} inferring={activeStageKey === 'personas'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'persona' ? null : 'persona')} />
+                )}
+                {(recs.length > 0 || activeStageKey === 'recs') && (
+                    <MetricTile label="Recs" count={recs.length} accent={t.tealMid} active={typeFilter === 'recommendation'} inferring={activeStageKey === 'recs'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'recommendation' ? null : 'recommendation')} />
+                )}
+                {(barriers.length > 0 || activeStageKey === 'barriers') && (
+                    <MetricTile label="Barriers" count={barriers.length} accent={t.rust} active={typeFilter === 'gap'} inferring={activeStageKey === 'barriers'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'gap' ? null : 'gap')} />
+                )}
+                {(journeys.length > 0 || activeStageKey === 'journeys') && (
+                    <MetricTile label="Journeys" count={journeys.length} accent={t.tealMid} active={typeFilter === 'journey_stage'} inferring={activeStageKey === 'journeys'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'journey_stage' ? null : 'journey_stage')} />
+                )}
             </div>
 
-            {/* CORPUS COMPOSITION BAR (X.1) — shows extraction depth distribution
+            {/* CORPUS COMPOSITION BAR (X.1) - shows extraction depth distribution
                 so the operator can see at a glance what the wiki archive holds.
                 Counts drive confidence: "47 full-text + 12 PDFs + 5 transcripts"
                 reads very differently from "188 headlines". Only renders when
                 there's actual evidence in the graph. */}
             {evidence.length > 0 && <CorpusCompositionBar evidence={evidence} />}
 
-            {/* 2026-05-19 — WEAK ALIGNMENT BANNER. Fires when zero themes
+            {/* 2026-05-19 - WEAK ALIGNMENT BANNER. Fires when zero themes
                 cleared the goalAlignment floor. The previous behavior was
                 to hide all themes (empty treemap), which was worse than
-                useless — the user had no signal that themes existed at all.
+                useless - the user had no signal that themes existed at all.
                 Now we show all themes in the main pane AND surface this
                 banner so the user sees the alignment concern. Action:
                 regenerate themes (corpus may have pulled in off-topic
@@ -2050,26 +2268,30 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                     </span>
                     <span>
                         All {_allThemes.length} theme{_allThemes.length === 1 ? '' : 's'} scored below the {GOAL_ALIGNMENT_FLOOR}/100 goal-alignment floor.
-                        Showing them anyway, sorted by alignment. The corpus may have pulled in off-topic material —
+                        Showing them anyway, sorted by alignment. The corpus may have pulled in off-topic material -
                         consider regenerating themes or narrowing the research goal.
                     </span>
                 </div>
             )}
 
-            {/* Row 3 — treemap + detail panel */}
+            {/* Row 3 - treemap (ALWAYS full width).
+                2026-06-03 - The detail view is now a centered MODAL (see below),
+                not a right-hand column, so the treemap keeps the FULL width whether
+                or not a theme is selected. This gives theme titles the maximum
+                readable area and gives the detail a large, focused surface for
+                source material instead of a thin side panel. */}
             <div style={{
                 display: 'grid',
-                // S3.7: dense treemaps (many themes) get more horizontal space so
-                // tiles stay legible. Sparse treemaps give the detail panel more room.
-                gridTemplateColumns: themes.length > 15
-                    ? 'minmax(0, 2.4fr) minmax(320px, 0.9fr)'
-                    : themes.length < 6
-                        ? 'minmax(0, 1.4fr) minmax(360px, 1fr)'
-                        : 'minmax(0, 1.8fr) minmax(360px, 0.9fr)',
-                minHeight: 0,
+                gridTemplateColumns: 'minmax(0, 1fr)',
+                // 2026-06-03 FIX - the parent's `1fr` row can resolve to ~0 height
+                // when the desk card's flex chain doesn't propagate a definite
+                // height, which collapsed the treemap to 0px and rendered the
+                // themes pane BLANK despite themes being present. A hard floor
+                // guarantees the treemap always has a readable, non-zero height.
+                minHeight: 'clamp(380px, 56vh, 680px)',
             }}>
                 <div style={{ position: 'relative', minHeight: 0, background: t.bg, overflow: 'hidden' }}>
-                    {/* 2026-05-11 — Sources tile up in the SAME treemap as themes:
+                    {/* 2026-05-11 - Sources tile up in the SAME treemap as themes:
                         size = relevance to research goal (computed in the KG builder
                         as the sum of item relevance scores). Other filtered types
                         (personas, recs, barriers, journeys) still render as the
@@ -2095,7 +2317,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                             onSelect={handleSelect}
                         />
                     )}
-                    {/* 2026-05-19 — Adjacent Findings drawer. Surfaces themes
+                    {/* 2026-05-19 - Adjacent Findings drawer. Surfaces themes
                         the model scored < 60 on goalAlignment so they aren't
                         silently lost (the user might still want to inspect a
                         tangent), but keeps them out of the headline treemap. */}
@@ -2147,19 +2369,69 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                         </div>
                     )}
                 </div>
-                <DetailPanel
-                    node={selected}
-                    graph={graph}
-                    excludedSources={excludedSources}
-                    setExcludedSources={setExcludedSources}
-                    onSelectNode={handleSelect}
-                    onPivotSource={setPivotSource}
-                    pivotSource={pivotSource}
-                    onOpenArchive={setViewerWikiPath}
-                />
             </div>
 
-            {/* Row 4 — linkage strip */}
+            {/* 2026-06-03 - Detail MODAL. The detail view is a centered, focused
+                overlay (not a thin right-hand column) so it can show rich source
+                material at a comfortable reading width. Backdrop click or the X
+                closes it; the treemap keeps full width underneath. */}
+            {selected && (
+                <div
+                    role="dialog"
+                    aria-modal="true"
+                    onClick={() => setSelected(null)}
+                    style={{
+                        position: 'fixed', inset: 0, zIndex: 1000,
+                        background: 'rgba(13,13,13,0.62)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        padding: '4vh 4vw',
+                        backdropFilter: 'blur(2px)',
+                    }}
+                >
+                    <div
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                            position: 'relative',
+                            width: 'min(920px, 94vw)',
+                            maxHeight: '88vh',
+                            display: 'flex', flexDirection: 'column',
+                            background: t.panel,
+                            border: `1px solid ${t.theme === 'light' ? t.line : t.hairline}`,
+                            boxShadow: '0 24px 80px rgba(0,0,0,0.45)',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setSelected(null)}
+                            aria-label="Close"
+                            title="Close (Esc)"
+                            style={{
+                                position: 'absolute', top: 10, right: 10, zIndex: 5,
+                                width: 30, height: 30, lineHeight: '28px',
+                                background: t.theme === 'light' ? '#FFFFFF' : t.bg,
+                                color: t.text, border: `1px solid ${t.theme === 'light' ? t.line : t.hairline}`,
+                                cursor: 'pointer', fontSize: 16, fontFamily: 'Archivo, sans-serif',
+                                textAlign: 'center', padding: 0,
+                            }}
+                        >×</button>
+                        <div style={{ minHeight: 0, overflow: 'auto', flex: 1 }}>
+                            <DetailPanel
+                                node={selected}
+                                graph={graph}
+                                excludedSources={excludedSources}
+                                setExcludedSources={setExcludedSources}
+                                onSelectNode={handleSelect}
+                                onPivotSource={setPivotSource}
+                                pivotSource={pivotSource}
+                                onOpenArchive={setViewerWikiPath}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Row 4 - linkage strip */}
             <LinkageStrip
                 selected={selected}
                 graph={graph}
@@ -2174,9 +2446,14 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
         </div>
         </ActivityCtx.Provider>
         </ThemeCtx.Provider>
-        {/* Wiki article viewer overlay — opened by the ⌘ READ ARCHIVED button
+        {/* Wiki article viewer overlay - opened by the ⌘ READ ARCHIVED button
             on any archived evidence node. Lives at the top level so its
             fixed-position overlay escapes the desk's stacking context. */}
+        <ThemeDeepDiveModal
+            item={inspectItem}
+            onClose={() => setInspectItem(null)}
+            onOpenWiki={(wp) => setViewerWikiPath(wp)}
+        />
         <WikiArticleViewer
             wikiPath={viewerWikiPath}
             onClose={() => setViewerWikiPath(null)}
@@ -2197,9 +2474,9 @@ const FilteredListEmpty: React.FC = () => {
             {isRunning
                 ? <>
                     <span style={{ width: 8, height: 8, borderRadius: '50%', background: t.lime, animation: 'ad-dot-blink 1s ease-in-out infinite' }} />
-                    <span>Inferring — results will appear here</span>
+                    <span>Inferring - results will appear here</span>
                 </>
-                : <span>No entries yet — run a deliverable via Chat to Data</span>
+                : <span>No entries yet - run a deliverable via Chat to Data</span>
             }
         </div>
     );

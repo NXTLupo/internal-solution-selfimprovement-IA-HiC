@@ -8,7 +8,7 @@
 //   3. Returns a compact, goal-anchored "evidence pack" to prepend to ANY
 //      artifact generation prompt
 //
-// The full corpus is NOT discarded — it stays available as breadth context.
+// The full corpus is NOT discarded - it stays available as breadth context.
 // But the goal-filtered evidence pack is shown FIRST, with strong instructions
 // to ground citations in these chunks. The LLM is biased toward the on-topic
 // slice without losing fallback access.
@@ -19,7 +19,7 @@
 // per session, every artifact benefits.
 //
 // Composes cleanly with the existing /api/wiki/fetch-articles two-tier
-// retrieval (chunked store first, legacy semantic+keyword fallback) — no
+// retrieval (chunked store first, legacy semantic+keyword fallback) - no
 // new proxy endpoints needed.
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
@@ -52,7 +52,7 @@ export interface GoalRetrievalOptions {
      *  most ERIC papers, EdSurge analyses, and Hechinger investigations
      *  through intact. */
     maxCharsPerArticle?: number;
-    /** Minimum char count an article needs to be included. Default 500 —
+    /** Minimum char count an article needs to be included. Default 500 -
      *  excludes pure-headline stubs. */
     minChars?: number;
     /** How much the engagement goal biases retrieval vs the angle query. 1.0
@@ -118,7 +118,7 @@ export async function retrieveGoalRelevantEvidence(
                 minChars,
                 kind: options.kind,
             }),
-            // 180s — chunked retrieval on a 3322-article + 6322-chunk store
+            // 180s - chunked retrieval on a 3322-article + 6322-chunk store
             // (post-backfill) can take 30-90s end-to-end on a cold cache.
             // Previous 60s timeout was bumping into the cold-path latency.
             // The proxy's own /api/wiki/fetch-articles uses 300s server-side,
@@ -139,13 +139,13 @@ export async function retrieveGoalRelevantEvidence(
     let articles = Array.isArray(payload?.articles) ? payload.articles : [];
     if (articles.length === 0) return empty;
 
-    // 2026-05-20 — HARD RULE: Synthesis articles (the system's own past
+    // 2026-05-20 - HARD RULE: Synthesis articles (the system's own past
     // theme/analysis outputs) are EXCLUDED from new-synthesis retrieval.
     //
     // Why: if synthesis A cites article B, and we then ask for synthesis A'
     // on a related goal, NotebookLM retrieves A as the top-cosine match
     // because A was generated FROM the same goal text. A' ends up citing A
-    // and B becomes invisible. This produces compounding inbreeding —
+    // and B becomes invisible. This produces compounding inbreeding -
     // syntheses cite syntheses cite syntheses, and primary evidence
     // (Hechinger, OpenAI Blog, campus_tech, Reddit, client uploads) gets
     // squeezed out of the 40-chunk retrieval pack.
@@ -208,7 +208,7 @@ export async function retrieveGoalRelevantEvidence(
     blockLines.push('=== GOAL-FILTERED EVIDENCE PACK (NotebookLM-style retrieval) ===');
     blockLines.push('The chunks below are the TOP-RELEVANT material from the corpus,');
     blockLines.push('retrieved by EMBEDDING SIMILARITY to the research goal. They are');
-    blockLines.push('ALREADY filtered for relevance — you do not need to score them.');
+    blockLines.push('ALREADY filtered for relevance - you do not need to score them.');
     blockLines.push('');
     blockLines.push('PRIORITIZE THESE CHUNKS WHEN CITING. They are the highest-fidelity');
     blockLines.push('match to the research goal in the entire wiki. Lead with them.');

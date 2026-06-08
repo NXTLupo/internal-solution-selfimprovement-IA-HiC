@@ -1,4 +1,4 @@
-import { validatePersonaArtifact } from '../schemas/personaArtifact';
+﻿import { validatePersonaArtifact } from '../schemas/personaArtifact';
 import { validateJourneyArtifact } from '../schemas/journeyArtifact';
 import { validateOrgChartArtifact } from '../schemas/orgChartArtifact';
 import { buildPersonaPrompt } from '../prompts/personaPrompt';
@@ -10,10 +10,10 @@ import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
 /** Model id that the chat surface uses. Same union as `ChatModel` in corpusChatService.
- * 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary; legacy
+ * 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary; legacy
  * Gemini/GPT entries kept for backward-compat with old artifacts that
  * stored a model id, but new generations default to deepseek-v4-flash. */
-export type GenerationModel = 'deepseek-v4-flash' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
+export type GenerationModel = 'deepseek-v4-flash' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
 
 export interface GenerateArgs {
     content: ContentHashtag;
@@ -22,7 +22,7 @@ export interface GenerateArgs {
     designMdRaw: string;
     corpusText: string;
     currentArtifact: Artifact | null;
-    /** Which provider model to use. Defaults to 'gemini-2.5-flash' (matches chat default). */
+    /** Which provider model to use. Defaults to 'gemini-3.5-flash' (matches chat default). */
     model?: GenerationModel;
 }
 
@@ -56,7 +56,7 @@ function resolveProviderModelId(chatModel: GenerationModel): string {
     switch (chatModel) {
         case 'deepseek-v4-flash': return 'deepseek-v4-flash';
         case 'gpt-5.4': return 'gpt-5.4';
-        case 'gemini-2.5-flash': return 'gemini-2.5-flash';
+        case 'gemini-3.5-flash': return 'gemini-3.5-flash';
         case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
     }
 }
@@ -76,7 +76,7 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
     return (response as any)?.text ?? '';
 }
 
-// 2026-05-05 — Azure DeepSeek-V4-Flash via /api/ai/deepseek. OpenAI-
+// 2026-05-05 - Azure DeepSeek-V4-Flash via /api/ai/deepseek. OpenAI-
 // compatible chat-completions schema.
 async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
     const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
@@ -113,7 +113,7 @@ function extractJson(raw: string): unknown | null {
     const fenced = raw.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
     const candidate = (fenced ? fenced[1] : raw).trim();
 
-    // Try array shape first when the outermost token is `[` — happens when user
+    // Try array shape first when the outermost token is `[` - happens when user
     // asks for "generate 5 personas" and the model emits a JSON array. Use a
     // TRUNCATION-TOLERANT object walker: scan from the opening `[`, extract every
     // complete top-level `{...}` object using brace+string-state tracking, parse
@@ -124,7 +124,7 @@ function extractJson(raw: string): unknown | null {
     const firstBraceIdx = candidate.indexOf('{');
     const arrayIsOutermost = firstBracket !== -1 && (firstBraceIdx === -1 || firstBracket < firstBraceIdx);
     if (arrayIsOutermost) {
-        // Fast path: well-formed array. Try strict parse first — if it works we
+        // Fast path: well-formed array. Try strict parse first - if it works we
         // get exactly what the model emitted, no walker quirks.
         const lastBracket = candidate.lastIndexOf(']');
         if (lastBracket > firstBracket) {
@@ -163,7 +163,7 @@ function extractJson(raw: string): unknown | null {
                     if (depth === 0) { closed = true; i++; break; }
                 }
             }
-            if (!closed) break; // truncated object — stop here, keep what we have
+            if (!closed) break; // truncated object - stop here, keep what we have
             const objStr = candidate.slice(objStart, i);
             try { objects.push(JSON.parse(objStr)); } catch { /* skip malformed */ }
         }
@@ -217,7 +217,7 @@ function extractJson(raw: string): unknown | null {
     let repaired = buf.join('').replace(/,\s*$/, '').replace(/\s*"[^"]*$/, '').replace(/\s*$/, '');
     // If we ended inside a string, close it.
     if (inString) repaired += '"';
-    // Close any remaining open structures (innermost first — stack already matches).
+    // Close any remaining open structures (innermost first - stack already matches).
     while (stack.length > 0) repaired += stack.pop();
 
     try {
@@ -285,14 +285,14 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
 
     // Multi-artifact case: model emitted a JSON array (e.g., "generate 5 personas").
     // Normalize+validate each element. Skip invalid items rather than failing the
-    // whole batch — we want as many usable artifacts as the model produced.
+    // whole batch - we want as many usable artifacts as the model produced.
     if (Array.isArray(parsed)) {
         const collected: Artifact[] = [];
         const errors: string[] = [];
         const seenIds = new Set<string>();
         parsed.forEach((item, idx) => {
             const normalized = normalizeArtifact(item as any, args.content, args.brand);
-            // Force unique IDs — the model often clones the timestamp across array elements
+            // Force unique IDs - the model often clones the timestamp across array elements
             if (!normalized.id || typeof normalized.id !== 'string' || seenIds.has(normalized.id)) {
                 normalized.id = `${args.content[0]}_${Date.now()}_${idx}_${Math.random().toString(36).slice(2, 7)}`;
             }
@@ -312,7 +312,7 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
         return { ok: true, artifact: collected[0], artifacts: collected, modelUsed: model };
     }
 
-    // Defensive normalization — fill obvious gaps the model leaves so a missing
+    // Defensive normalization - fill obvious gaps the model leaves so a missing
     // sub-team name or a swapped brand doesn't fail the whole generation.
     // Mirrors what the existing pipeline generators do post-stream.
     const normalized = normalizeArtifact(parsed as any, args.content, args.brand);
@@ -329,7 +329,7 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
  * Defensive normalization. Models occasionally emit empty/null fields where the
  * schema requires non-empty strings (e.g., a placeholder sub-team without a name).
  * Rather than fail the whole generation, fill obvious gaps with sensible
- * defaults. Anything we can't repair stays — the validator will still reject
+ * defaults. Anything we can't repair stays - the validator will still reject
  * truly malformed output.
  */
 function normalizeArtifact(input: any, content: ContentHashtag, brand: BrandHashtag): any {
@@ -383,13 +383,13 @@ function normalizeArtifact(input: any, content: ContentHashtag, brand: BrandHash
                 if (!titleStr) node.title = 'Open role';
             } else if (!nameStr) {
                 if (titleStr) {
-                    // No name, but a real title exists — display the title as the name
+                    // No name, but a real title exists - display the title as the name
                     // so the user sees the role rather than "VACANT". iconKey stays whatever
                     // the model emitted (default 'person'). This matches the user's expectation:
                     // when the corpus describes a role, surface the role.
                     node.name = titleStr;
                 } else {
-                    // Truly empty — no name, no title. Now we have to call it something.
+                    // Truly empty - no name, no title. Now we have to call it something.
                     node.name = 'Unnamed Role';
                 }
             }

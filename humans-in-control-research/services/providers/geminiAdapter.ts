@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Gemini Provider Adapter
  * Wraps @google/genai SDK for the provider-agnostic interface.
  * Supports: structured output, grounded search, vision.
@@ -8,7 +8,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type { ProviderAdapter, ProviderCapabilities, AnalysisRequest, AnalysisResponse, StructuredRequest, StructuredResponse, GroundedSearchRequest } from './ProviderAdapter';
 import { tryRepairJson } from '../aiRouter';
 
-const MODEL = 'gemini-2.5-flash';
+const MODEL = 'gemini-3.5-flash';
 
 function getClient(): GoogleGenAI {
     const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;

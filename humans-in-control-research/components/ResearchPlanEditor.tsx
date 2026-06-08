@@ -1,5 +1,5 @@
 // components/ResearchPlanEditor.tsx
-// 2026-05-26 — Plan editor modal for HiC Deep Research.
+// 2026-05-26 - Plan editor modal for HiC Deep Research.
 // Opens when the user clicks a research-plan FreeformArtifact. Lets the
 // operator review and amend the planner's output BEFORE collection runs.
 // Approve fires the plan-act-reflect runner (services/researchPlanRunner.ts).

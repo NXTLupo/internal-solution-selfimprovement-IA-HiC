@@ -1,8 +1,8 @@
-// services/mindMapArchitect.ts
+﻿// services/mindMapArchitect.ts
 // Builds a nested mind-map from BERTopic v2 output.
 // See .claude/skills/mind-map-architect/SKILL.md for the full contract.
 //
-// 2026-05-24 — Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { stableHash, withResilience, isThrottleError } from './multiModelResilience';
@@ -80,7 +80,7 @@ Each cluster belongs to EXACTLY ONE group. Output ONLY this JSON:
 
 function clipText(s: string, n: number): string {
     s = (s || '').trim();
-    return s.length > n ? s.slice(0, n - 1) + '…' : s;
+    return s.length > n ? s.slice(0, n - 1) + '...' : s;
 }
 
 
@@ -126,7 +126,7 @@ async function callSonnetForGrouping(
                     messages: [{ role: 'user', content: prompt }],
                 }
                 : {
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-3.5-flash',
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: { temperature: 0, responseMimeType: 'application/json' },
                 };
@@ -188,7 +188,7 @@ export async function buildMindMap(input: MindMapInput): Promise<MindMapOutput> 
         };
     }
 
-    // Step 1 — grouping pass via Sonnet 4.6
+    // Step 1 - grouping pass via Sonnet 4.6
     const grouping = await callSonnetForGrouping(input.topics, input.research_goal, proxyBase);
 
     // Index topics by id
@@ -198,7 +198,7 @@ export async function buildMindMap(input: MindMapInput): Promise<MindMapOutput> 
     // Track which topics were assigned (some grouping outputs may miss topics)
     const assigned = new Set<number>();
 
-    // Step 2 — build groups
+    // Step 2 - build groups
     const rootLabel = clipText(input.research_goal, 60);
     const groupNodes: MindMapNode[] = [];
     for (const g of (grouping.groups || []).slice(0, maxChildren)) {
@@ -238,7 +238,7 @@ export async function buildMindMap(input: MindMapInput): Promise<MindMapOutput> 
         });
     }
 
-    // Step 2b — orphan topics (model dropped them) get attached to a fallback group
+    // Step 2b - orphan topics (model dropped them) get attached to a fallback group
     const orphans = input.topics.filter(t => !assigned.has(t.id));
     if (orphans.length > 0) {
         groupNodes.push({
@@ -264,7 +264,7 @@ export async function buildMindMap(input: MindMapInput): Promise<MindMapOutput> 
         });
     }
 
-    // Step 4 — visual treatment is set per node above
+    // Step 4 - visual treatment is set per node above
     const root: MindMapNode = {
         id: 'root',
         label: rootLabel,

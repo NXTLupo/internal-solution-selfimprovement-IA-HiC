@@ -819,16 +819,16 @@ Humans in Control (HiC) is a research workbench that turns a research goal and a
 <table>
   <thead><tr><th>Category</th><th>Default</th><th>Alternatives</th></tr></thead>
   <tbody>
-    <tr><td>research</td><td><code>claude-opus-4-7</code></td><td>claude-sonnet-4-6, gpt-5.4, gemini-3.1-pro-preview, gemini-2.5-flash</td></tr>
+    <tr><td>research</td><td><code>claude-opus-4-8</code></td><td>claude-sonnet-4-6, gpt-5.4, gemini-3.1-pro-preview, gemini-2.5-flash</td></tr>
     <tr><td>fast_generation</td><td><code>gpt-5.5-mini</code></td><td>claude-sonnet-4-6, gemini-2.5-flash</td></tr>
-    <tr><td>vision</td><td><code>claude-opus-4-7</code></td><td>gpt-5.4, gemini-3.1-pro-preview</td></tr>
+    <tr><td>vision</td><td><code>claude-opus-4-8</code></td><td>gpt-5.4, gemini-3.1-pro-preview</td></tr>
     <tr><td>image/video</td><td><code>gemini-2.5-flash</code></td><td>imagen-4.0, veo-3.1 via Gemini API</td></tr>
-    <tr><td>topic-model naming</td><td><code>claude-opus-4-6</code> at temperature=0</td><td>Heuristic top-terms naming on hard fail (cached if available)</td></tr>
+    <tr><td>topic-model naming</td><td><code>claude-opus-4-8</code> at temperature=0</td><td>Heuristic top-terms naming on hard fail (cached if available)</td></tr>
     <tr><td>embeddings (proxy)</td><td><code>text-embedding-3-small</code> (OpenAI)</td><td>Gemini <code>gemini-embedding-001</code> on OpenAI 429/quota</td></tr>
   </tbody>
 </table>
 
-<p><strong>Provider adapter capabilities:</strong> Claude Opus 4.7 supports assistant-message prefill; Sonnet does not. Anything using a prefilled-continuation pattern must stay on Opus. OpenAI <code>seed</code> parameter is honored on chat completions. Gemini <code>responseSchemaSeed</code> on some endpoints. Multi-model resilience pattern (Section 15) is the default for any new AI call.</p>
+<p><strong>Provider adapter capabilities:</strong> Claude Opus 4.8 supports assistant-message prefill; Sonnet does not. Anything using a prefilled-continuation pattern must stay on Opus. Opus 4.8 uses adaptive thinking by default and supports a 1M-token context window on the Anthropic API. OpenAI <code>seed</code> parameter is honored on chat completions. Gemini <code>responseSchemaSeed</code> on some endpoints. Multi-model resilience pattern (Section 15) is the default for any new AI call.</p>
 
 <h2 id="proxy">22. Python proxy &amp; services</h2>
 

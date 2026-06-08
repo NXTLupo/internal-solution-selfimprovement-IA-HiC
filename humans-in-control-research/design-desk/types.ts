@@ -1,5 +1,5 @@
 import type { PersonaArtifact } from './schemas/personaArtifact';
-// LEGACY — scheduled for deletion in Task 15 (freeform-HTML migration). Do not
+// LEGACY - scheduled for deletion in Task 15 (freeform-HTML migration). Do not
 // build new code that depends on JourneyArtifact or OrgChartArtifact; use
 // FreeformArtifact via #journey/#org/#arch/#roadmap/#blueprint hashtags.
 import type { JourneyArtifact } from './schemas/journeyArtifact';

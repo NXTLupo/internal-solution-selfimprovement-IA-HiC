@@ -1,5 +1,5 @@
 /**
- * Wiki Service — Persistent Knowledge Layer Interface
+ * Wiki Service - Persistent Knowledge Layer Interface
  *
  * Reads from hic-workspace/wiki/ to provide compiled knowledge
  * for deliverable generation. The wiki is the quality layer:
@@ -74,17 +74,54 @@ export interface GenerationContext {
     research: ResearchContext;
     industryAdaptation?: string;
     engagementContext?: string;
-    /** 2026-05-22 — Phase 4.3. Engagement goals lifted from the engagement
+    /** 2026-05-22 - Phase 4.3. Engagement goals lifted from the engagement
      *  page's `## Goals` section, formatted as a hard constraint string
      *  ready to be injected at the end of any generation prompt. */
     engagementGoals?: string;
     exemplar?: string;
-    /** 2026-05-24 — Phase 6.1 of NotebookLM uplift. Cross-engagement patterns
+    /** 2026-05-24 - Phase 6.1 of NotebookLM uplift. Cross-engagement patterns
      *  mined from prior runs (synthesis/cross-engagement-patterns.md). Injected
      *  into every generation system prompt so the model can build on portfolio
      *  patterns instead of re-discovering them per engagement. Best-effort
-     *  load — silent on miss, never blocks generation. */
+     *  load - silent on miss, never blocks generation. */
     crossEngagementPatterns?: string;
+    /** 2026-06-06 - Knowledge Library selection the user explicitly curated
+     *  before this run. Read from the engagement manifest's `cached_selection`
+     *  field. When present, the assembleEnhancedPrompt() injects a
+     *  PRIOR_CACHED block telling the model which themes / articles / source
+     *  archives to CARRY FORWARD as `source: cached|extended` rather than
+     *  regenerate. validate_cached_selection_honored.py at Stop rejects
+     *  emissions that ignore the selection. Closes Gap 1 from the
+     *  2026-06-06 architecture audit. */
+    cachedSelection?: {
+        engagement_slugs: string[];
+        theme_cluster_ids: string[];
+        source_archive_paths: string[];
+        social_subreddits: string[];
+        article_sources: string[];
+        selected_at_ms: number;
+        /** 2026-06-06 - Bodies resolved from the WIKI by loadGenerationContext.
+         *  Each theme_cluster_id has the format "<file>#<index>" pointing to
+         *  wiki/synthesis/<file>.json topic <index>. The loader groups IDs by
+         *  source file, fetches each file once, extracts the bodies, and
+         *  populates this array. Manifest -> wiki resolution: the IDs are
+         *  pointers persisted in the manifest, the bodies live in the wiki
+         *  synthesis files (single source of truth), and the loader resolves
+         *  pointers to content at generation time. */
+        resolved_theme_bodies?: Array<{
+            id: string;
+            name: string;
+            summary: string;
+            sentiment: string;
+            post_count: number;
+            top_terms: string[];
+            source_synthesis_path: string;
+            source_engagement_goal?: string;
+        }>;
+        /** Bodies hydrated from wiki - legacy field, kept for back-compat. */
+        hydrated_themes?: Array<{ id: string; name: string; insight?: string; evidence?: string; source_engagement?: string }>;
+        hydrated_article_summaries?: Array<{ path: string; title: string; one_line: string }>;
+    };
 }
 
 export interface QualityScore {
@@ -138,7 +175,7 @@ const FRAMEWORK_BENCHMARKS: Record<string, string[]> = {
 // --- BANNED PHRASES (loaded from wiki/brand/anti-slop.md at build time) ---
 
 /**
- * Comprehensive AI Slop Blacklist — ~350 phrases across 12 categories.
+ * Comprehensive AI Slop Blacklist - ~350 phrases across 12 categories.
  * Any match triggers detection + auto-correction in the slide pipeline.
  * Source: NXT Humans anti-slop style guide (2026-04-13).
  */
@@ -329,7 +366,7 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
  * `net::ERR_NETWORK_CHANGED` when the Docker network namespace renegotiates
  * after a container rebuild or after the laptop resumes from sleep. These
  * surface as red errors in the devtools console even though the proxy
- * itself is fully healthy — a fetch started a millisecond before the flip
+ * itself is fully healthy - a fetch started a millisecond before the flip
  * gets cancelled and rejects with a generic TypeError.
  *
  * This helper wraps fetch() with:
@@ -340,7 +377,7 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
  *   - Returns null on final failure (caller treats as "graceful degrade")
  *
  * Callers should use this for LIST and READ operations that are idempotent.
- * Do NOT use for writes (POST) — retries could cause duplicate side effects.
+ * Do NOT use for writes (POST) - retries could cause duplicate side effects.
  */
 async function resilientGet(url: string, opts: { timeoutMs?: number; maxAttempts?: number } = {}): Promise<Response | null> {
     const maxAttempts = opts.maxAttempts ?? 3;
@@ -367,7 +404,7 @@ async function resilientGet(url: string, opts: { timeoutMs?: number; maxAttempts
             continue;
         }
     }
-    // Silent final fail — caller decides what to do with null
+    // Silent final fail - caller decides what to do with null
     if (lastErr) console.warn(`[resilientGet] final fail for ${url.substring(0, 80)}: ${lastErr?.message || lastErr}`);
     return null;
 }
@@ -485,7 +522,7 @@ export async function ingestResearchRun(runData: {
             `### ${t.name}\n${t.description || ''}\n- Status: ${t.status || 'unknown'}\n- Citations: ${(t.citations || []).length}`
         ).join('\n\n');
         await appendToWikiPage('evidence/research-findings.md',
-            `\n## Research Run: ${date} — ${runData.goal.substring(0, 60)}\n\n${evidenceEntries}`);
+            `\n## Research Run: ${date} - ${runData.goal.substring(0, 60)}\n\n${evidenceEntries}`);
         pagesUpdated++;
     }
 
@@ -533,7 +570,7 @@ ${sourceLines.join('\n')}
         }
     }
 
-    // 5. A10: Benchmark verification — scan evidence for numbers matching benchmark claims
+    // 5. A10: Benchmark verification - scan evidence for numbers matching benchmark claims
     try {
         const benchmarkFiles = ['benchmarks/cx-metrics.md', 'benchmarks/technology-adoption.md', 'benchmarks/financial-impact.md', 'benchmarks/maturity-models.md', 'benchmarks/competitive-intel.md'];
         const allEvidenceText = (runData.themes || []).map((t: any) =>
@@ -592,20 +629,20 @@ ${sourceLines.join('\n')}
  *    studies from named peer... institutions that have modernized advancement..."
  *
  * contains the phrase "market research analyst" which Gemini's per-source
- * query refinement happily keys on — producing r/marketingautomation and
+ * query refinement happily keys on - producing r/marketingautomation and
  * r/CRM results instead of higher-ed advancement sources. It also makes
  * engagement slugs like "role-you-are-an-elite-market-research-an" that
  * false-match any other "ROLE You are..." run regardless of topic.
  *
  * This helper extracts the actual objective for slug generation, query
  * refinement, and engagement-memory matching. The RAW goal is still passed
- * to the AI system prompt (it contains valuable structural context) — only
+ * to the AI system prompt (it contains valuable structural context) - only
  * the routing/matching layers use the extracted version.
  */
 export function extractResearchObjective(goal: string): string {
     if (!goal || typeof goal !== 'string') return '';
     const trimmed = goal.trim();
-    // Prefer the MISSION block when present — that's the actual research
+    // Prefer the MISSION block when present - that's the actual research
     // question in most prompt-engineered goals. Capture until the next
     // section header (TARGET, RESEARCH, OUTPUT, HARD REQUIREMENTS, etc.).
     const missionMatch = trimmed.match(/\bMISSION[\s:]+(.+?)(?=\n\s*(?:TARGET|RESEARCH|OUTPUT|HARD|SPECIFIC|TIMELINE|FOCUS|GOAL|DIMENSIONS|REQUIREMENTS|NOTES|OBJECTIVE|DELIVERABLE|CONTEXT)\b|$)/is);
@@ -634,7 +671,7 @@ export function extractResearchObjective(goal: string): string {
  *  (not raw goal) so the slug reflects the actual research topic, not the
  *  prompt-engineering preamble.
  *
- *  2026-05-22 — Default maxLen bumped from 40 to 60. Phase B writers and
+ *  2026-05-22 - Default maxLen bumped from 40 to 60. Phase B writers and
  *  the geminiService deliverable readers were already calling this with an
  *  explicit `60` argument; the three legacy call sites (uploads archive
  *  paths) were still using the 40 default, causing the same goal to write
@@ -661,7 +698,7 @@ export function buildEngagementSlug(goal: string, maxLen: number = 60): string {
  * in individual upload wiki records, creating a strong attractor in the
  * corpus that caused Gemini Flash to enter repetition collapse on multiple
  * synthesis steps (strategy-author, gap-analysis, service-blueprint).
- * RepetitionGuard fired at 26x / 31x / 54x — salvaged only 1 recommendation
+ * RepetitionGuard fired at 26x / 31x / 54x - salvaged only 1 recommendation
  * and 0 barriers from a rich 599-evidence corpus.
  *
  * Fix: strip the shared suffix at ingestion time so only the distinguishing
@@ -681,7 +718,7 @@ export function normalizeUploadedFilename(raw: string): { display: string; type:
     let display = raw
         .replace(/\.(pdf|docx?|pptx?|xlsx?|csv|txt|json|md)$/i, '')
         // "Speaker Name - <engagement> Stakeholder Interview_anonymized"
-        .replace(/\s*-\s*[^-]+Stakeholder Interview(_anonymized)?$/i, ' — Stakeholder Interview')
+        .replace(/\s*-\s*[^-]+Stakeholder Interview(_anonymized)?$/i, ' - Stakeholder Interview')
         // "_ NXT Humans" / "_ NU Advancement" style brand/engagement tags
         .replace(/\s*_\s*(NXT Humans[^_]*|NU Advancement[^_]*|NXT\s+[A-Z][^_]*|Northeastern\s+Advancement[^_]*)/gi, '')
         // generic "_anonymized", "_redacted", "_final" suffixes
@@ -692,7 +729,7 @@ export function normalizeUploadedFilename(raw: string): { display: string; type:
         .replace(/[\s\-_]{2,}/g, ' ')
         .trim();
 
-    if (display.length > 100) display = display.substring(0, 97) + '…';
+    if (display.length > 100) display = display.substring(0, 97) + '...';
     if (!display) display = raw;
     return { display, type, original: raw };
 }
@@ -733,7 +770,7 @@ ${fileEntries}
 
 ## Notes
 
-These documents represent the client's own materials — proposals, SOWs, transcripts, strategies, budgets.
+These documents represent the client's own materials - proposals, SOWs, transcripts, strategies, budgets.
 They define the project scope, stakeholders, goals, constraints, and organizational reality.
 The AI ingestion pipeline reads these as PRIORITY 1 sources.
 `;
@@ -768,14 +805,14 @@ export interface AdHocUploadInput {
     pageCount?: number;
     /** Slide count for PPTX (optional) */
     slideCount?: number;
-    /** Set when the upload was an image — vision pending in Phase 3 */
+    /** Set when the upload was an image - vision pending in Phase 3 */
     isImage?: boolean;
     /** Which surface the upload came from: 'analyst' or 'designer' */
     chatSurface: 'analyst' | 'designer';
 }
 
 /** Write a single ad-hoc mid-chat upload to wiki/uploads/ad-hoc/{slug}/{date}/.
- *  Returns the wiki path on success or null on failure. Non-blocking — chat
+ *  Returns the wiki path on success or null on failure. Non-blocking - chat
  *  flow continues regardless. The path is suitable for setting on the
  *  ChatAttachment so the UI can link to the persisted copy. */
 export async function writeAdHocUpload(
@@ -855,7 +892,7 @@ function _safeB64Decode(b64: string): string {
 
 /** Best-effort text extraction from a FileUpload object. Accepts either
  *  { data: base64 } (current FileUpload shape) or pre-parsed text via
- *  content/text fields. Binary formats (PDF/DOCX) need upstream parsing —
+ *  content/text fields. Binary formats (PDF/DOCX) need upstream parsing -
  *  they return empty and the caller should skip the wiki write. */
 export function extractTextFromUpload(f: any): string {
     if (!f) return '';
@@ -883,7 +920,7 @@ export function extractTextFromUpload(f: any): string {
  * Each file lands at `wiki/uploads/{engagement-slug}/{hash}.md` via the
  * proxy's `/api/wiki/write-article` endpoint, with frontmatter capturing
  * filename, MIME type, upload date, engagement context, and char count.
- * Binaries without parseable text are skipped — they'll be wiki'd later
+ * Binaries without parseable text are skipped - they'll be wiki'd later
  * when the orchestrator runs them through `/api/extract-pdf`.
  *
  * Returns the count of files successfully archived.
@@ -891,7 +928,7 @@ export function extractTextFromUpload(f: any): string {
 export async function archiveUploadedDocs(files: any[], researchGoal: string): Promise<number> {
     if (!Array.isArray(files) || files.length === 0) return 0;
     // Engagement slug now derived from the extracted research OBJECTIVE rather
-    // than the raw goal — so "ROLE You are an elite market research analyst..."
+    // than the raw goal - so "ROLE You are an elite market research analyst..."
     // doesn't leak into directory names and false-match future runs.
     const engagementSlug = buildEngagementSlug(researchGoal);
     // Dedup defense (A-fix 2026-04-21): if the caller passed the same file
@@ -912,7 +949,7 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
             // Synthetic URL uses the ORIGINAL filename so hashes stay stable
             // across re-runs (no drift between engagements). But the SOURCE
             // and TITLE that land in frontmatter + embedding text get the
-            // normalized display name — this is what the LLM sees in prompts
+            // normalized display name - this is what the LLM sees in prompts
             // and what the attractor phrase had to be stripped from.
             const { display: normalizedName } = normalizeUploadedFilename(f.name);
             const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
@@ -1032,7 +1069,7 @@ function _serializeSynthesis(kind: SynthesisKind, data: any): string {
             return `## ${name}\n\n${body}`;
         }).join('\n\n---\n\n');
     }
-    // Fallback for unstructured synthesis — dump JSON.
+    // Fallback for unstructured synthesis - dump JSON.
     return '```json\n' + JSON.stringify(data, null, 2) + '\n```';
 }
 
@@ -1045,7 +1082,7 @@ function _serializeSynthesis(kind: SynthesisKind, data: any): string {
  */
 export async function archiveSynthesisOutput(kind: SynthesisKind, data: any, researchGoal: string): Promise<string | null> {
     if (!data) return null;
-    // 2026-05-23 — Use the canonical buildEngagementSlug so synthesis archives
+    // 2026-05-23 - Use the canonical buildEngagementSlug so synthesis archives
     // co-locate with the rest of the engagement's wiki state under the same slug.
     const engagementSlug = buildEngagementSlug(researchGoal || 'untitled', 60);
     const ts = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
@@ -1057,7 +1094,7 @@ engagement: "${engagementSlug}"
 goal: "${(researchGoal || '').replace(/"/g, '\\"').substring(0, 200)}"
 created: ${new Date().toISOString()}
 ---`;
-    const content = `${frontmatter}\n\n# ${kind.toUpperCase().replace('-', ' ')} — ${ts}\n\n${body}\n`;
+    const content = `${frontmatter}\n\n# ${kind.toUpperCase().replace('-', ' ')} - ${ts}\n\n${body}\n`;
     const path = `synthesis/${engagementSlug}/${kind}-${ts}.md`;
     try {
         const ok = await writeWikiPage(path, content);
@@ -1100,7 +1137,7 @@ export async function saveEngagementMemory(
     recommendations: any[],
     sourceCount: number
 ): Promise<boolean> {
-    // 2026-05-22 — Use buildEngagementSlug for consistency with the rest of
+    // 2026-05-22 - Use buildEngagementSlug for consistency with the rest of
     // the wiki write/read paths. createGoalSlug was producing a different
     // slug (50-char raw-goal vs 60-char extracted-objective) which caused
     // saveEngagementMemory to write under a slug the deliverable generators
@@ -1255,7 +1292,7 @@ function _extractGoalKeywords(goal: string, minLen = 5): Set<string> {
 export interface PriorEngagementMatch {
     /** Canonical engagement slug (directory name under wiki/synthesis/) */
     engagement: string;
-    /** Keyword-overlap count with the current goal — sort key */
+    /** Keyword-overlap count with the current goal - sort key */
     score: number;
     /** Overlapping keywords, for transparency + UI display */
     matchedTerms: string[];
@@ -1268,7 +1305,7 @@ export interface PriorEngagementMatch {
 }
 
 /**
- * Phase 1.9 — find prior engagements whose topic / goal overlaps with the
+ * Phase 1.9 - find prior engagements whose topic / goal overlaps with the
  * current research goal. Scans both:
  *   - wiki/engagements/*.md (legacy single-file engagement memos)
  *   - wiki/synthesis/{engagement-slug}/*.md (new per-artifact synthesis files)
@@ -1371,7 +1408,7 @@ export async function findPriorEngagementMatches(goal: string, opts: { limit?: n
 }
 
 /**
- * Phase 1.9 — stitch matched prior-engagement synthesis files into a
+ * Phase 1.9 - stitch matched prior-engagement synthesis files into a
  * single labeled markdown block. Used by the chat grounding context so
  * the LLM can surface reusable insights from prior runs.
  *
@@ -1497,7 +1534,7 @@ function getDefaultFrontmatter(): WikiFrontmatter {
 
 /**
  * Load the complete generation context for a deliverable type.
- * This is the main entry point — call before generating any deliverable.
+ * This is the main entry point - call before generating any deliverable.
  *
  * Returns compiled knowledge from:
  * - Framework page (structural requirements)
@@ -1507,16 +1544,16 @@ function getDefaultFrontmatter(): WikiFrontmatter {
  * - Brand standards (visual rendering rules)
  */
 
-// 2026-05-23 — P1.2: Module-scope throttle for the incremental wiki compile.
+// 2026-05-23 - P1.2: Module-scope throttle for the incremental wiki compile.
 // One compile per 10 minutes max per browser session; running too often
 // burns tokens without changing output. The COMPILE itself is lightweight
-// — it just refreshes evidence pages — but the LLM contradiction-check
+// - it just refreshes evidence pages - but the LLM contradiction-check
 // inside the compile path is expensive.
 let _lastIncrementalCompileTs = 0;
 const _INCREMENTAL_COMPILE_INTERVAL_MS = 10 * 60 * 1000;
 let _incrementalCompilePromise: Promise<void> | null = null;
 
-// 2026-05-23 — Recurring shortfall topics, cached for the session. Read by
+// 2026-05-23 - Recurring shortfall topics, cached for the session. Read by
 // loadGenerationContext to inject a "prior shortfalls" preamble into every
 // generation's context.
 let _cachedRecurringShortfalls: Array<{ topic: string; occurrenceCount: number; engagementSlugs: string[] }> = [];
@@ -1534,11 +1571,31 @@ async function _maybeLoadRecurringShortfallTopics(): Promise<void> {
     }
 }
 
-export function getRecurringShortfallPreamble(): string {
+export function getRecurringShortfallPreamble(goal?: string): string {
     if (_cachedRecurringShortfalls.length === 0) return '';
-    const top = _cachedRecurringShortfalls.slice(0, 8);
-    return `\n=== RECURRING COVERAGE SHORTFALLS (from prior engagements) ===\n` +
-        `These topics have been undercovered by the corpus in 2+ prior engagements. Prioritize evidence collection on them in this engagement and cite specifically when they apply:\n` +
+    // 2026-05-30 - RESEARCH-OBJECTIVE SUPREMACY. Recurring-shortfall topics are
+    // artifacts of PRIOR engagements. Injecting them unconditionally bled an
+    // all-co-op portfolio into unrelated objectives (the AI-design run that
+    // produced a co-op journey). Only surface a shortfall topic when it
+    // lexically overlaps the CURRENT objective; if a goal is supplied and
+    // nothing overlaps, inject NOTHING so the prior portfolio cannot steer
+    // this engagement off-topic.
+    let pool = _cachedRecurringShortfalls.slice(0, 12);
+    if (goal && goal.trim().length > 0) {
+        const goalWords = new Set(
+            goal.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 4)
+        );
+        pool = pool.filter(t => {
+            const topicWords = t.topic.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 4);
+            return topicWords.some(tw =>
+                Array.from(goalWords).some(gw => gw === tw || gw.includes(tw) || tw.includes(gw))
+            );
+        });
+        if (pool.length === 0) return '';
+    }
+    const top = pool.slice(0, 8);
+    return `\n=== RECURRING COVERAGE SHORTFALLS (relevant to this objective) ===\n` +
+        `These topics relate to the current research objective and were undercovered in prior engagements. Prioritize evidence on them ONLY where they directly serve THIS objective:\n` +
         top.map(t => `- ${t.topic.replace(/-/g, ' ')} (hit in ${t.occurrenceCount} prior engagement${t.occurrenceCount === 1 ? '' : 's'})`).join('\n') +
         `\n=== END RECURRING SHORTFALLS ===\n`;
 }
@@ -1567,7 +1624,7 @@ export async function loadGenerationContext(
     options?: {
         industry?: string;
         engagement?: string;
-        // 2026-05-11 — Lazy-context controls. Default is LITE mode: load
+        // 2026-05-11 - Lazy-context controls. Default is LITE mode: load
         // only what's irreducibly needed for the specific deliverable
         // (framework spec + anti-patterns + brand + benchmarks). Pages like
         // social-intelligence, research-context, and methodology
@@ -1581,7 +1638,7 @@ export async function loadGenerationContext(
     const benchmarkKeys = FRAMEWORK_BENCHMARKS[frameworkKey] || ['cx-metrics'];
     const wantExtras = options?.eagerExtras === true;
 
-    // 2026-05-23 — P1.2: Auto-invoke incremental compile of wiki evidence
+    // 2026-05-23 - P1.2: Auto-invoke incremental compile of wiki evidence
     // pages before loading context. Previously compileWiki() was only reachable
     // via the dev console hook (window.__hicSelfImprovement.compileWiki),
     // meaning the wiki never recompiled from new evidence between sessions.
@@ -1594,7 +1651,7 @@ export async function loadGenerationContext(
         // Best-effort; compile failures must never block generation.
     }
 
-    // 2026-05-23 — Karpathy Phase 2.3: Recurring-shortfall topics from
+    // 2026-05-23 - Karpathy Phase 2.3: Recurring-shortfall topics from
     // cross-engagement memory. Reads wiki/known-gaps/ and surfaces topics
     // hit by 2+ prior engagements so the model prioritizes evidence
     // collection on them this session. Throttled (cached for 10 min).
@@ -1604,7 +1661,7 @@ export async function loadGenerationContext(
         // Best-effort
     }
 
-    // Core load — these are the irreducibles that affect EVERY generation
+    // Core load - these are the irreducibles that affect EVERY generation
     // of this output type. Tight, fast, ~5-15KB total.
     const corePromises: Array<Promise<WikiPage | null | any>> = [
         readWikiPage(`frameworks/${frameworkKey}.md`),
@@ -1612,7 +1669,7 @@ export async function loadGenerationContext(
         loadBrandConfig(),
     ];
 
-    // Extras — only loaded when caller explicitly opts in. The model can
+    // Extras - only loaded when caller explicitly opts in. The model can
     // request these on-demand via fetch_wiki_resource() (see chat tools),
     // and the wiki manifest in the system prompt lists them for the
     // model to know they exist.
@@ -1646,7 +1703,7 @@ export async function loadGenerationContext(
     const cxMesh = extraPages[2] || null;
     const researchModes = extraPages[3] || null;
     const knowledgeGraph = extraPages[4] || null;
-    // documentIngestion was loaded but never read into the returned context — preserve that
+    // documentIngestion was loaded but never read into the returned context - preserve that
     const methodology = extraPages[6] || null;
     const analyticalLenses = extraPages[7] || null;
     const sourceConnectors = extraPages[8] || null;
@@ -1662,7 +1719,7 @@ export async function loadGenerationContext(
     if (options?.engagement) {
         const page = await readWikiPage(`engagements/${options.engagement}.md`);
         engagementContext = page?.content;
-        // 2026-05-22 — Goals-as-filter (Phase 4.3 of the self-improvement loop).
+        // 2026-05-22 - Goals-as-filter (Phase 4.3 of the self-improvement loop).
         // Extract the engagement's stated goals and inject them as a hard
         // constraint into the generation prompt. Best-effort; failure is
         // silent so existing flows are unaffected.
@@ -1685,10 +1742,10 @@ export async function loadGenerationContext(
         .map(p => p.content)
         .join('\n\n');
 
-    // 2026-05-24 — Phase 6.1: Cross-engagement patterns injection.
+    // 2026-05-24 - Phase 6.1: Cross-engagement patterns injection.
     // Read synthesis/cross-engagement-patterns.md and surface it on the
     // returned context so prompt builders can include portfolio-level
-    // patterns in the system prompt. Best-effort — silent on miss.
+    // patterns in the system prompt. Best-effort - silent on miss.
     let crossEngagementPatterns: string | undefined;
     try {
         const patternsPage = await readWikiPage('synthesis/cross-engagement-patterns.md');
@@ -1698,6 +1755,157 @@ export async function loadGenerationContext(
         }
     } catch {
         // Best-effort; the file may not exist yet (first run of any engagement).
+    }
+
+    // 2026-06-06 - Knowledge Library cached_selection load. ARCHITECTURAL
+    // CORRECTION: the selection is USER-LEVEL, not engagement-bound. When
+    // the user changes the research goal, their KL selection still applies.
+    // Read order:
+    //   1. User-level store (/api/user-selection/active) - source of truth
+    //   2. Engagement manifest (legacy / audit snapshot) - fallback only
+    // The engagement copy still gets written on apply (for replay), but the
+    // live read goes to the user-level store first.
+    let cachedSelection: GenerationContext['cachedSelection'];
+    try {
+        // Read 1: user-level store (PRIMARY).
+        const PROXY_BASE_LOCAL = 'http://127.0.0.1:5012';
+        const userResp = await fetch(`${PROXY_BASE_LOCAL}/api/user-selection/active`);
+        if (userResp.ok) {
+            const data = await userResp.json();
+            if (data && !data._uncommitted) {
+                cachedSelection = {
+                    engagement_slugs: Array.isArray(data.engagement_slugs) ? data.engagement_slugs : [],
+                    theme_cluster_ids: Array.isArray(data.theme_cluster_ids) ? data.theme_cluster_ids : [],
+                    source_archive_paths: Array.isArray(data.source_archive_paths) ? data.source_archive_paths : [],
+                    social_subreddits: Array.isArray(data.social_subreddits) ? data.social_subreddits : [],
+                    article_sources: Array.isArray(data.article_sources) ? data.article_sources : [],
+                    selected_at_ms: typeof data.selected_at_ms === 'number' ? data.selected_at_ms : 0,
+                };
+            }
+        }
+
+        // Read 2: engagement manifest (FALLBACK for legacy / audit).
+        if (!cachedSelection) {
+            const engagementSlug = options?.engagement
+                || (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : undefined);
+            if (engagementSlug && typeof engagementSlug === 'string') {
+                const manifest = await readEngagementManifest(engagementSlug);
+                const sel = (manifest as any)?.cached_selection;
+                if (sel && typeof sel === 'object') {
+                    cachedSelection = {
+                        engagement_slugs: Array.isArray(sel.engagement_slugs) ? sel.engagement_slugs : [],
+                        theme_cluster_ids: Array.isArray(sel.theme_cluster_ids) ? sel.theme_cluster_ids : [],
+                        source_archive_paths: Array.isArray(sel.source_archive_paths) ? sel.source_archive_paths : [],
+                        social_subreddits: Array.isArray(sel.social_subreddits) ? sel.social_subreddits : [],
+                        article_sources: Array.isArray(sel.article_sources) ? sel.article_sources : [],
+                        selected_at_ms: typeof sel.selected_at_ms === 'number' ? sel.selected_at_ms : 0,
+                    };
+                }
+            }
+        }
+
+        if (cachedSelection && cachedSelection.theme_cluster_ids.length + cachedSelection.article_sources.length + cachedSelection.engagement_slugs.length > 0) {
+            console.info(
+                `[loadGenerationContext] cached_selection loaded (USER-LEVEL store): ` +
+                `themes=${cachedSelection.theme_cluster_ids.length}, ` +
+                `articles=${cachedSelection.article_sources.length}, ` +
+                `engagements=${cachedSelection.engagement_slugs.length}, ` +
+                `subreddits=${cachedSelection.social_subreddits.length}`
+            );
+
+            // 2026-06-06 - MANIFEST -> WIKI RESOLUTION. Each theme_cluster_id
+            // has the format "<file>#<index>" pointing at
+            // wiki/synthesis/<file>.json topic <index>. We group IDs by source
+            // file, fetch each file ONCE, extract the matching topics, and
+            // store the bodies on cachedSelection.resolved_theme_bodies. The
+            // assembleEnhancedPrompt block then declares the manifest pointers
+            // and the corpus carries the resolved bodies - no body
+            // duplication into the user-selection store, no opaque-string
+            // problem at generation time. This replaces RAG (embed-and-find)
+            // with declarative pointer resolution.
+            const ids = cachedSelection.theme_cluster_ids;
+            if (ids.length > 0) {
+                const byFile = new Map<string, Array<{ id: string; index: number }>>();
+                for (const id of ids) {
+                    const hash = id.indexOf('#');
+                    if (hash < 0) continue;
+                    const file = id.slice(0, hash);
+                    const idxRaw = id.slice(hash + 1);
+                    const idx = /^\d+$/.test(idxRaw) ? parseInt(idxRaw, 10) : -1;
+                    if (!file) continue;
+                    if (!byFile.has(file)) byFile.set(file, []);
+                    byFile.get(file)!.push({ id, index: idx });
+                }
+                const resolved: NonNullable<GenerationContext['cachedSelection']>['resolved_theme_bodies'] = [];
+                let resolvedCount = 0;
+                for (const [file, slots] of byFile.entries()) {
+                    let payload: any = null;
+                    // 2026-06-07 - Topic-model files moved from
+                    // wiki/synthesis/ to sessions/_topic-cache/ on 2026-05-23
+                    // (proxy/app.py P0.3). The KL aggregator's stored
+                    // source_synthesis_path still points to the legacy
+                    // wiki/synthesis/ location, so the legacy fetch
+                    // returns 404 for every topics-tm_* file (the user's
+                    // 0/557 resolution failure 2026-06-07). Use the
+                    // proxy's /api/topic-cache/read endpoint which checks
+                    // the new location first AND falls back to the legacy
+                    // path, so themes and other synthesis files both
+                    // resolve correctly.
+                    try {
+                        const resp = await fetch(`http://127.0.0.1:5012/api/topic-cache/read/${encodeURIComponent(file)}`);
+                        if (resp.ok) {
+                            const data = await resp.json();
+                            const content = (data && typeof data.content === 'string') ? data.content : '';
+                            if (content) {
+                                try { payload = JSON.parse(content); } catch { /* not JSON */ }
+                            }
+                        }
+                    } catch { /* miss is non-fatal */ }
+                    // Belt + suspenders: also try the legacy wiki/synthesis
+                    // path so non-topic-model synthesis files (anti-pattern
+                    // pages, framework pages) still resolve when their ids
+                    // ever flow through this loader.
+                    if (!payload) {
+                        try {
+                            const page = await readWikiPage(`synthesis/${file}`);
+                            if (page?.content) {
+                                try { payload = JSON.parse(page.content); } catch { /* not JSON */ }
+                            }
+                        } catch { /* miss is non-fatal */ }
+                    }
+                    if (!payload) continue;
+                    const topics = Array.isArray(payload?.result?.topics) ? payload.result.topics : [];
+                    const engagementGoal = payload?.research_goal || '';
+                    for (const slot of slots) {
+                        let topic: any = null;
+                        if (slot.index >= 0 && slot.index < topics.length) topic = topics[slot.index];
+                        if (!topic) topic = topics.find((t: any) => String(t?.id) === String(slot.index));
+                        if (!topic) continue;
+                        const top_terms = Array.isArray(topic.top_terms)
+                            ? topic.top_terms.slice(0, 8).map((tt: any) => (typeof tt === 'string' ? tt : (tt?.term || ''))).filter(Boolean)
+                            : [];
+                        resolved.push({
+                            id: slot.id,
+                            name: String(topic.name || '').trim(),
+                            summary: String(topic.summary || '').trim(),
+                            sentiment: String(topic.sentiment || 'unknown'),
+                            post_count: Number(topic.post_count) || 0,
+                            top_terms,
+                            source_synthesis_path: `synthesis/${file}`,
+                            source_engagement_goal: engagementGoal,
+                        });
+                        resolvedCount++;
+                    }
+                }
+                cachedSelection.resolved_theme_bodies = resolved;
+                console.info(
+                    `[loadGenerationContext] resolved ${resolvedCount}/${ids.length} cached theme IDs via wiki synthesis files ` +
+                    `(${byFile.size} source files fetched). Manifest -> wiki resolution.`
+                );
+            }
+        }
+    } catch (e: any) {
+        console.warn('[loadGenerationContext] cached_selection load failed (non-fatal):', e?.message || e);
     }
 
     return {
@@ -1722,18 +1930,19 @@ export async function loadGenerationContext(
         engagementContext,
         engagementGoals,
         crossEngagementPatterns,
+        cachedSelection,
     };
 }
 
 // ============================================================
-// LAZY WIKI MANIFEST + FETCH-ON-DEMAND — 2026-05-11
+// LAZY WIKI MANIFEST + FETCH-ON-DEMAND - 2026-05-11
 // ============================================================
 //
 // The eager loadGenerationContext path used to drag 15+ wiki pages into
 // every prompt. Most of those pages (social-intelligence, research-context,
 // methodology descriptions, etc.) rarely change the actual output but
 // burned 30-70KB of every token budget. Now we ship the model a compact
-// MANIFEST instead — one line per available resource — and let the model
+// MANIFEST instead - one line per available resource - and let the model
 // call fetch_wiki_resource(path) only when it genuinely needs the full body.
 //
 // This mirrors the "100 tokens per skill scan" pattern from the SEAL-MCP
@@ -1744,21 +1953,21 @@ export interface WikiManifestEntry {
     path: string;       // e.g., "benchmarks/cx-metrics.md"
     kind: string;       // e.g., "benchmark", "anti-pattern", "framework"
     title: string;      // human-readable title from frontmatter or filename
-    summary: string;    // one-sentence "what this offers" — from frontmatter `description` if present, else first heading
+    summary: string;    // one-sentence "what this offers" - from frontmatter `description` if present, else first heading
 }
 
 /**
  * Cache the manifest in-memory for the SPA session. Rebuilt once per
  * page load (essentially per browser tab open). Wiki rarely changes
  * mid-session, and a stale manifest just means newly-added pages aren't
- * surfaced until the next refresh — acceptable tradeoff.
+ * surfaced until the next refresh - acceptable tradeoff.
  */
 let _wikiManifestCache: WikiManifestEntry[] | null = null;
 
 /**
  * Build a compact manifest of wiki resources the model can lazy-fetch.
  * Lists frameworks, anti-patterns, benchmarks, evidence, social-intelligence,
- * deep-research, methodologies, industries — but NOT article archives
+ * deep-research, methodologies, industries - but NOT article archives
  * (those have their own fetch_wiki_articles tool with semantic search).
  *
  * Output is sorted by kind then by path for stable prompt diffs.
@@ -1769,7 +1978,7 @@ export async function buildWikiManifest(forceRefresh = false): Promise<WikiManif
     const proxyBase = (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
 
     // Directories we expose to the model. Article archives are deliberately
-    // excluded — those are searched via fetch_wiki_articles (semantic), not
+    // excluded - those are searched via fetch_wiki_articles (semantic), not
     // listed verbatim (~1,300 files would blow up the manifest).
     const dirs = [
         'frameworks', 'anti-patterns', 'benchmarks', 'evidence',
@@ -1793,7 +2002,7 @@ export async function buildWikiManifest(forceRefresh = false): Promise<WikiManif
                 try {
                     const page = await readWikiPage(path);
                     if (!page) return;
-                    // Frontmatter is typed as Record<string, unknown>-shaped — cast
+                    // Frontmatter is typed as Record<string, unknown>-shaped - cast
                     // for property access. We tolerate any string-coercible value.
                     const fm: Record<string, any> = (page.frontmatter as any) || {};
                     const title = fm.title || page.title || fname.replace(/\.md$/, '');
@@ -1835,7 +2044,7 @@ export async function renderWikiManifestForPrompt(): Promise<string> {
         return '(no additional wiki resources available)';
     }
     const lines = entries.map(e =>
-        `  [${e.path}] ${e.kind}: ${e.title} — ${e.summary}`
+        `  [${e.path}] ${e.kind}: ${e.title} - ${e.summary}`
     );
     return lines.join('\n');
 }
@@ -1877,7 +2086,7 @@ export async function fetchWikiResourceByPath(path: string): Promise<{
  * so new evidence pages created by INGEST operations are automatically included.
  */
 async function loadAllEvidencePages(): Promise<(WikiPage | null)[]> {
-    // Known evidence page stubs — extend this list as INGEST creates new pages
+    // Known evidence page stubs - extend this list as INGEST creates new pages
     const knownEvidencePages = [
         'evidence/cx-maturity.md',
         'evidence/digital-transformation.md',
@@ -1982,6 +2191,110 @@ export function assembleEnhancedPrompt(
             '=== ENGAGEMENT CONTEXT ===\n' +
             context.engagementContext
         );
+    }
+
+    // 2026-06-06 - Knowledge Library cached_selection block. When the user
+    // selected items from prior engagements in the KL panel, those choices
+    // are persisted to the USER-LEVEL store (wiki/user-selections/active.json),
+    // which follows the user across goal changes. The model MUST honor them
+    // per validate_cached_selection_honored.py.
+    //
+    // CRITICAL FIX 2026-06-06b: inject the ACTUAL theme BODIES (name +
+    // summary + sentiment + top_terms + source path) for each selected
+    // theme, not just opaque ID strings. With only IDs the model has nothing
+    // to honor and falls back to regenerating from scratch (the failure
+    // the user reported on 2026-06-06 - KL persisted 527 themes but the
+    // emitted set contained 0 cached/extended).
+    if (context.cachedSelection) {
+        const cs = context.cachedSelection;
+        const totalSelected =
+            (cs.theme_cluster_ids?.length || 0) +
+            (cs.article_sources?.length || 0) +
+            (cs.engagement_slugs?.length || 0);
+        if (totalSelected > 0) {
+            const lines: string[] = [
+                '=== PRIOR CACHED SELECTION (USER EXPLICITLY CURATED - LOAD-BEARING) ===',
+                '',
+                'Before this run, the user reviewed the Knowledge Library and explicitly',
+                'selected the following items from prior engagements as required context.',
+                'They are persisted in the user-level store and follow the user across',
+                'goal changes - they were curated WITH KNOWLEDGE of the current goal.',
+                '',
+                'HARD CONTRACT - NO FLOORS, NO OMISSIONS, NO TOP-N:',
+                '  1. Every emitted item (theme / persona / recommendation / etc.) MUST',
+                '     carry a `source` field with EXACTLY one of these three values:',
+                '     - "cached"   - this item is one of the SELECTED cached themes below,',
+                '                    carried forward essentially unchanged (you may sharpen',
+                '                    wording but the substantive insight is the same)',
+                '     - "extended" - this item is one of the SELECTED cached themes below,',
+                '                    refined or strengthened with new corpus evidence from',
+                '                    this run (e.g. added a quote, added a new sub-theme)',
+                '     - "new"      - this item was NOT in the selected set; it is fresh',
+                '                    from the current corpus',
+                '  2. EVERY selected theme below MUST appear in your emission as either',
+                '     source="cached" or source="extended". 100% coverage. NO omissions.',
+                '     NO top-N. NO floors. The user curated EVERY id below; carry EVERY',
+                '     id forward. The Stop hook validate_cached_selection_honored.py',
+                '     REJECTS the response if any selected id is silently dropped.',
+                '  3. New themes the corpus reveals that are NOT in the selected set are',
+                '     added as source="new". Net emission count = (count of selected',
+                '     themes below) + (new themes discovered in this run).',
+                '  4. The selected cached themes were chosen by a human under the current',
+                '     research goal - they are RELEVANT and PROVEN. NEVER drop a selected',
+                '     theme. If contradicted by new evidence, KEEP it as source="extended"',
+                '     and add a refinement note. Never drop.',
+                '',
+                `Selected by user (selected_at_ms=${cs.selected_at_ms}):`,
+                `  - ${cs.theme_cluster_ids?.length || 0} theme cluster ids (full bodies below - ALL of them)`,
+                `  - ${cs.article_sources?.length || 0} article source folders`,
+                `  - ${cs.engagement_slugs?.length || 0} prior engagement slugs`,
+                `  - ${cs.social_subreddits?.length || 0} cached subreddits`,
+                `  - ${cs.source_archive_paths?.length || 0} source archive paths`,
+            ];
+
+            // 2026-06-06c - NO FLOORS, NO OMISSIONS. User explicit:
+            // every selected cached theme body is injected in full so the
+            // model can carry forward EVERY id. Removed prior top-K-by-
+            // relevance truncation. Gemini 3.1 Pro has 1M token context;
+            // ~527 selected themes × ~500 chars ≈ ~264KB ≈ ~66K tokens, fits.
+            const bodies = Array.isArray(cs.resolved_theme_bodies) ? cs.resolved_theme_bodies : [];
+            if (bodies.length > 0) {
+                // 2026-06-08 - STOP THE ECHO. These cached themes are now carried
+                // forward DETERMINISTICALLY by mergeCachedThemes (App.tsx) - they are
+                // inserted into the deliverable + persisted + shown tagged source=cached
+                // WITHOUT the model. The prior "You MUST emit every one" instruction made
+                // the model RE-EMIT all ~500 as themes with raw pointer names
+                // ("topics-tm_...json#0") and placeholder {sourceFile:'cached'} citations,
+                // which (a) duplicated the deterministic set, (b) polluted titles, and
+                // (c) broke source link-back (no real sourceFile). So: list them ONLY for
+                // dedup awareness; the model must NOT re-emit them and must generate ONLY
+                // genuinely-new corpus themes with REAL source citations.
+                lines.push('', `─── ${bodies.length} CACHED THEMES ALREADY CARRIED FORWARD (do NOT re-emit) ───`);
+                lines.push('These prior-research themes are ALREADY included in the deliverable automatically (tagged source=cached). Do NOT output, re-list, copy, or duplicate them.');
+                lines.push('They appear here ONLY so you AVOID generating near-duplicates. Generate ONLY genuinely NEW themes from the CURRENT corpus that ADD coverage beyond this list.');
+                lines.push('Every NEW theme you emit MUST cite REAL corpus sources: a real sourceFile (e.g. an article/post .md) plus a VERBATIM quote. NEVER emit a placeholder citation (no sourceFile:"cached", no text:"cached", no "[No direct source]").');
+                lines.push('');
+                for (const t of bodies) {
+                    // Names only (compact) - enough for dedup awareness, no full bodies
+                    // since the model is no longer copying them.
+                    lines.push(`  - ${t.name}`);
+                }
+            } else if (cs.theme_cluster_ids && cs.theme_cluster_ids.length > 0) {
+                // Back-compat: legacy selection without resolved bodies. List ids for
+                // dedup awareness only - the deterministic merge carries them forward.
+                lines.push('', `${cs.theme_cluster_ids.length} cached theme clusters already carried forward (do NOT re-emit; generate only NEW corpus themes with real citations):`);
+                for (const id of cs.theme_cluster_ids) {
+                    lines.push(`  [${id}]`);
+                }
+            }
+            if (cs.engagement_slugs && cs.engagement_slugs.length > 0) {
+                lines.push('', 'Selected prior-engagement slugs (synthesis pages must be referenced - ALL of them):');
+                for (const slug of cs.engagement_slugs) {
+                    lines.push(`  ${slug}`);
+                }
+            }
+            sections.push(lines.join('\n'));
+        }
     }
 
     // Social intelligence context (sentiment, topic modeling, CX mesh)
@@ -2123,13 +2436,13 @@ export function getSlopReplacement(phrase: string): string {
     // Specific high-value replacements for common phrases
     const specific: Record<string, string> = {
         "in today's rapidly evolving landscape": "Use specific market data: '[X]% growth in [metric] since [year]'",
-        "it's important to note": "Remove — state the point directly",
+        "it's important to note": "Remove - state the point directly",
         "game-changer": "Quantify the impact: '[X]% improvement in [metric]'",
         "leverage synergies": "Name the specific integration and its measured benefit",
         "best-in-class": "Cite the specific benchmark: 'Top quartile per [source]'",
         "cutting-edge": "Name the specific technology and its adoption rate",
         "paradigm shift": "Describe the specific change and its measured impact",
-        "actionable insights": "Remove — state the specific action and expected outcome",
+        "actionable insights": "Remove - state the specific action and expected outcome",
         "deep dive": "Use 'Detailed analysis of [specific topic]'",
         "low-hanging fruit": "Use 'Quick wins (0-3 months): [specific items]'",
         "moving forward": "Use specific timeline: 'In Q3 2026' or 'Within 90 days'",
@@ -2142,18 +2455,18 @@ export function getSlopReplacement(phrase: string): string {
 
     // Category-based fallbacks
     const metaNarration = ["good morning", "good afternoon", "welcome to", "today we will", "today we'll", "we will present", "we now move to", "let us now examine", "in this section", "in this presentation", "as you can see", "this slide shows", "thank you for", "our objective is", "allow me to", "before we begin", "before we get started", "let's explore", "let's pivot", "turning our attention", "having explored", "now that we've", "building on that", "this leads us", "with that in mind", "transitioning to"];
-    if (metaNarration.some(m => key.includes(m))) return "Remove — present content directly without announcing it";
+    if (metaNarration.some(m => key.includes(m))) return "Remove - present content directly without announcing it";
 
     const concluding = ["in conclusion", "to summarize", "ultimately", "only time will tell", "the future looks bright", "in short", "by and large", "at the end of the day", "embracing the possibilities", "a journey toward"];
-    if (concluding.some(m => key.includes(m))) return "Remove — end with a specific action item or data point";
+    if (concluding.some(m => key.includes(m))) return "Remove - end with a specific action item or data point";
 
     const filler = ["basically", "essentially", "actually", "definitely", "absolutely", "truly", "literally", "clearly", "obviously", "naturally", "effectively", "successfully"];
-    if (filler.some(m => key === m)) return "Remove — adds no meaning";
+    if (filler.some(m => key === m)) return "Remove - adds no meaning";
 
     const hedging = ["it is believed", "it could be argued", "one might suggest", "it appears to be", "generally considered", "to some extent", "arguably", "possibly the most", "it should be noted"];
-    if (hedging.some(m => key.includes(m))) return "Remove hedging — state the claim directly with evidence";
+    if (hedging.some(m => key.includes(m))) return "Remove hedging - state the claim directly with evidence";
 
-    return "Remove — replace with specific, quantified language";
+    return "Remove - replace with specific, quantified language";
 }
 
 // --- EVIDENCE DENSITY SCORING (G-05) ---
@@ -2257,18 +2570,18 @@ function estimateSpecificity(text: string): number {
 }
 
 // =============================================================================
-// 2026-05-14 — Engagement cache layer (Tier 4 build-only iteration support).
+// 2026-05-14 - Engagement cache layer (Tier 4 build-only iteration support).
 //
 // Persists generated artifacts under wiki/engagements/<slug>/ so a subsequent
 // run of the same engagement can resume from cache instead of regenerating.
 // Each engagement has:
 //
 //   wiki/engagements/<slug>/
-//     manifest.json         — what's cached + timestamps + cost stamps
-//     briefs.json           — the 5 product briefs from prototypeBriefGenerator
-//     themes.json           — themes JSON (future)
-//     deliverables.json     — personas/journey/gap/comp/blueprint (future)
-//     prototypes/<id>.json  — built prototypes (future)
+//     manifest.json         - what's cached + timestamps + cost stamps
+//     briefs.json           - the 5 product briefs from prototypeBriefGenerator
+//     themes.json           - themes JSON (future)
+//     deliverables.json     - personas/journey/gap/comp/blueprint (future)
+//     prototypes/<id>.json  - built prototypes (future)
 //
 // All paths are relative to the wiki root and go through the same proxy
 // /api/wiki/{read,write,list} endpoints as everything else.
@@ -2317,6 +2630,20 @@ export interface EngagementManifest {
     };
     /** Cumulative cost meter snapshot across the engagement's lifetime. */
     cost_usd_total?: number;
+    /** 2026-06-06 - Knowledge Library selection persisted on apply. Closes
+     *  Gap 1 from the architecture audit: KL had 5 selection fields but
+     *  only `socialSubreddits` was consumed. This field carries the FULL
+     *  selection so every generator path can read it via
+     *  loadGenerationContext() and inject a PRIOR_CACHED block into the
+     *  AI model's system prompt. */
+    cached_selection?: {
+        engagement_slugs: string[];
+        theme_cluster_ids: string[];
+        source_archive_paths: string[];
+        social_subreddits: string[];
+        article_sources: string[];
+        selected_at_ms: number;
+    };
 }
 
 const ENGAGEMENT_DIR = 'engagements';
@@ -2328,7 +2655,7 @@ function engagementManifestPath(slug: string): string {
     return `${ENGAGEMENT_DIR}/${slug}/manifest.json`;
 }
 
-// 2026-05-14 Phase B — Deliverable persistence. The pipeline generates a
+// 2026-05-14 Phase B - Deliverable persistence. The pipeline generates a
 // rich JSON for themes/personas/journey/gap/recs/competitive/blueprint, but
 // those have never been written to disk (only included in session snapshots).
 // Persisting them per-engagement enables the Knowledge Library to cache-load
@@ -2342,10 +2669,29 @@ function deliverablePath(slug: string, kind: DeliverableKind): string {
 
 /**
  * Persist a deliverable JSON to wiki/engagements/<slug>/<kind>.json. Best-
- * effort: returns false on any error rather than throwing — deliverable
+ * effort: returns false on any error rather than throwing - deliverable
  * generation already succeeded, we don't want to fail the user's run because
  * cache-write hit a transient proxy issue.
  */
+/**
+ * 2026-06-02 - Drift anchor (harness Layer 1). Pull the production fingerprint
+ * off the deliverable object that is ALREADY being written: which model made it,
+ * its reproducibility hash, and when. No new plumbing - themes already stamp
+ * reproducibility_hash/stamped_at; other kinds contribute what they carry. This
+ * is what makes drift DETECTABLE: "same fingerprint -> output changed" = drift.
+ */
+function extractDeliverableFingerprint(payload: any): { model?: string; reproducibility_hash?: string; generated_at: string } {
+    const p = (payload && payload.data) ? payload.data : (payload || {});
+    const fp: { model?: string; reproducibility_hash?: string; generated_at: string } = {
+        generated_at: (typeof p.stamped_at === 'string' && p.stamped_at) ? p.stamped_at : new Date().toISOString(),
+    };
+    const model = p.model || p.model_used || p.model_final || p.modelFinal;
+    if (typeof model === 'string' && model) fp.model = model.slice(0, 60);
+    const rh = p.reproducibility_hash || p.reproducibilityHash;
+    if (typeof rh === 'string' && rh) fp.reproducibility_hash = rh;
+    return fp;
+}
+
 export async function writeEngagementDeliverable(
     slug: string,
     kind: DeliverableKind,
@@ -2361,11 +2707,11 @@ export async function writeEngagementDeliverable(
             data: payload,
         };
         const ok = await writeWikiPage(deliverablePath(slug, kind), JSON.stringify(wrapped, null, 2));
-        // 2026-05-19 — Defensive manifest guarantee. Callers SHOULD also call
+        // 2026-05-19 - Defensive manifest guarantee. Callers SHOULD also call
         // writeEngagementManifest with the real research_goal, but historically
         // some paths (App.tsx persistDeliverable pre-fix) wrote 6 deliverables
         // without ever creating the manifest. That left the engagement dir
-        // visible to wikiCacheLoader.fetch but with manifest.json 404ing —
+        // visible to wikiCacheLoader.fetch but with manifest.json 404ing -
         // cascading console errors and broken Knowledge Library entries.
         //
         // This layer ensures a minimal manifest exists for every engagement
@@ -2375,20 +2721,21 @@ export async function writeEngagementDeliverable(
         // (derived from the slug) is at least serviceable.
         if (ok) {
             try {
+                // Always upsert this kind's cache entry WITH its production
+                // fingerprint (model + reproducibility hash + timestamp) - the
+                // drift anchor. writeEngagementManifest merges, so a real
+                // research_goal written by the caller is preserved; if none
+                // exists yet we seed a serviceable placeholder from the slug.
                 const existing = await readEngagementManifest(slug);
-                if (!existing) {
-                    const placeholderGoal = slug.replace(/-/g, ' ');
-                    const cached: any = {};
-                    cached[kind] = { count: 1, path: deliverablePath(slug, kind) };
-                    await writeEngagementManifest(slug, {
-                        research_goal: placeholderGoal,
-                        cached,
-                    });
-                    console.log(`[WikiService] Auto-created placeholder manifest for ${slug} (caller did not write one). Update with the real goal via writeEngagementManifest.`);
-                }
+                const cached: Record<string, any> = {};
+                cached[kind] = { count: 1, path: deliverablePath(slug, kind), ...extractDeliverableFingerprint(payload) };
+                await writeEngagementManifest(slug, {
+                    research_goal: existing?.research_goal || slug.replace(/-/g, ' '),
+                    cached,
+                });
             } catch (manifestErr) {
-                // Non-fatal — the deliverable is on disk. Manifest can be repaired later.
-                console.warn(`[WikiService] Placeholder manifest for ${slug} failed (non-fatal):`, manifestErr);
+                // Non-fatal - the deliverable is on disk. Manifest can be repaired later.
+                console.warn(`[WikiService] Manifest fingerprint update for ${slug} failed (non-fatal):`, manifestErr);
             }
         }
         return ok;
@@ -2446,7 +2793,7 @@ export async function writeEngagementManifest(slug: string, partial: Partial<Eng
     const now = new Date().toISOString();
     const existing = await readEngagementManifest(slug);
     // Start with what was there, layer the caller's partial on top, then force-set
-    // computed fields. Spread order matters — computed fields go LAST so they win.
+    // computed fields. Spread order matters - computed fields go LAST so they win.
     const merged: EngagementManifest = {
         ...(existing || {} as EngagementManifest),
         ...partial,

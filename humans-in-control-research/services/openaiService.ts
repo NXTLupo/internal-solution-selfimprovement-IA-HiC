@@ -20,7 +20,7 @@ interface OpenAIRequest {
     model: string;
     messages: OpenAIMessage[];
     temperature?: number;
-    // 2026-05-04 — GPT-5 family deprecated `max_tokens`; canonical field
+    // 2026-05-04 - GPT-5 family deprecated `max_tokens`; canonical field
     // is now `max_completion_tokens`. Old name removed from interface to
     // prevent regressions where a maintainer would set `max_tokens` and
     // get a 400 from the API.
@@ -85,6 +85,16 @@ async function withRetry<T>(
 // --- CORE API CALL ---
 async function callOpenAI(request: OpenAIRequest): Promise<OpenAIResponse> {
     const url = getApiUrl();
+    // 2026-06-07 - gpt-5.5 (reasoning family) rejects any temperature != 1 with a
+    // 400 ("Unsupported value: 'temperature' ... Only the default (1) is supported").
+    // This silently broke the Gemini->GPT resilient fallback: when Gemini
+    // repetition-collapsed on themes, the gpt-5.5 fallback 400'd and the whole
+    // deliverable failed. Drop the temperature param for gpt-5.5 so the API uses
+    // its only-supported default (the fallback can't be temperature-deterministic
+    // on this model anyway; Gemini is the deterministic primary).
+    if (request.temperature !== undefined && (request.model || '').startsWith('gpt-5.5')) {
+        delete (request as any).temperature;
+    }
     const headers: Record<string, string> = {
         'Content-Type': 'application/json',
     };

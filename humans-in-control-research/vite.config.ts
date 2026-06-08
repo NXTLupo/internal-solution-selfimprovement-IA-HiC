@@ -95,6 +95,12 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       },
+      // 2026-06-08 — Emit ASCII-escaped JS (non-ASCII -> \uXXXX) so glyphs never
+      // mojibake at serve time regardless of Content-Type charset. Fixes the
+      // garbled button icons ("Â—§ REASONING") that appeared because the served
+      // bundle's raw UTF-8 glyph bytes were mis-decoded. (Emoji are separately
+      // BANNED and stripped from the UI per the no-emoji rule.)
+      esbuild: { charset: 'ascii' },
       // 2026-05-12 — stable chunk names to survive Docker rebuilds while
       // a tab is open. Without this, every rebuild rotates the content
       // hashes on ~85 dynamic-import chunks (prototypeBuilder, sessionService,
@@ -112,6 +118,14 @@ export default defineConfig(({ mode }) => {
       // when a chunk's content DOES change, the browser picks it up on
       // the next request instead of serving the cached stale version.
       build: {
+        // 2026-06-06 — sourcemaps enabled to diagnose the recurring
+        // "Cannot read properties of undefined (reading '0')" crash in
+        // production-bundled minified code. Successor agent: with
+        // sourcemaps on, the AppErrorBoundary stack will show real
+        // component + source-file names instead of `eWe`/`tWe` minified
+        // symbols. After the crash source is identified and fixed,
+        // consider toggling back to false for smaller bundles.
+        sourcemap: true,
         rollupOptions: {
           output: {
             entryFileNames: 'assets/[name]-[hash].js',

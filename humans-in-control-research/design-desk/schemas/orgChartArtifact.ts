@@ -24,7 +24,7 @@ export const OrgChartArtifactSchema = z.object({
         source: z.string().min(1),
     })).default([]),
     layout: z.object({
-        // nodes is optional — when only direction changes (e.g., user asks
+        // nodes is optional - when only direction changes (e.g., user asks
         // for radial), the model SHOULD omit nodes so the renderer recomputes
         // positions. Required-nodes was a foot-gun that produced
         // "layout.nodes: Invalid input" failures on legitimate revisions.

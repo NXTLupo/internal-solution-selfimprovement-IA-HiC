@@ -1,6 +1,6 @@
 // presentationToPptx.ts
 //
-// 2026-05-06 — Bespoke per-section pptxgenjs builders that mirror the
+// 2026-05-06 - Bespoke per-section pptxgenjs builders that mirror the
 // interactive presentation's design language as elegant, native, editable
 // PowerPoint slides. NOT constrained to the existing slideTemplates inventory
 // (those have a different layout vocabulary). Brand-aware for both NU and NXT.
@@ -31,26 +31,26 @@ const NXT = {
     BODY_SOFT: '555555',
     MUTED: '999999',
     RULE: 'E0E0E0',
-    ACCENT: 'B8B800',          // chartreuse — primary brand accent
+    ACCENT: 'B8B800',          // chartreuse - primary brand accent
     SECONDARY: '00B7C3',       // cyan
     NEGATIVE: 'CC6644',        // rust
     TEAL: '115054',
 };
 
-// 2026-05-29 — Corrected to the canonical NU design-system tokens (see
+// 2026-05-29 - Corrected to the canonical NU design-system tokens (see
 // components/slideTemplates/brands.ts nuBrand + the official colors_and_type.css).
 // The prior values were WRONG: cream paper + violet secondary + pure-black ink
 // do not exist in the NU system. NU = ink navy primary, Huskies red ACCENT
 // (sparingly), slate neutrals, white surface. No cream, no violet.
 const NU = {
-    INK: '141D30',             // ink-800 navy — NU primary dark (NOT black)
+    INK: '141D30',             // ink-800 navy - NU primary dark (NOT black)
     PAPER: 'FFFFFF',           // white surface (cards white on slate)
-    PALE: 'F8FAFC',            // slate-50 — page background tint
-    BODY: '475569',            // slate-600 — paragraph body
-    BODY_SOFT: '64748B',       // slate-500 — secondary text
-    MUTED: '94A3B8',           // slate-400 — muted/disabled
-    RULE: 'CBD5E1',            // slate-300 — default stroke
-    ACCENT: 'C8102E',          // nu-red-600 — primary brand accent (sparing)
+    PALE: 'F8FAFC',            // slate-50 - page background tint
+    BODY: '475569',            // slate-600 - paragraph body
+    BODY_SOFT: '64748B',       // slate-500 - secondary text
+    MUTED: '94A3B8',           // slate-400 - muted/disabled
+    RULE: 'CBD5E1',            // slate-300 - default stroke
+    ACCENT: 'C8102E',          // nu-red-600 - primary brand accent (sparing)
     SECONDARY: '64748B',       // slate-500 (NU has no violet secondary)
     NEGATIVE: 'D8132D',        // nu error-solid
     TEAL: '141D30',            // dark-surface slot = ink navy
@@ -71,7 +71,7 @@ const MONO = 'JetBrains Mono';
 // --- Text helpers ---
 /** Clip text without ever appending an ellipsis. Looks forward 2× for next
  *  sentence end, else backward to last sentence end, else clause boundary
- *  (period — not ellipsis), else drops trailing fragment at last word. */
+ *  (period - not ellipsis), else drops trailing fragment at last word. */
 function clip(s: string | undefined | null, max: number): string {
     if (!s) return '';
     const t = String(s).trim();
@@ -105,7 +105,7 @@ function asArray<T>(v: T[] | undefined | null): T[] {
     return Array.isArray(v) ? v : [];
 }
 
-const PLACEHOLDER_RX = /^(\s*(none\s*(identified|specified|provided)?|n\/?a|not\s+(specified|provided|applicable|identified|available)|tbd|to\s+be\s+(determined|defined)|—|-|null|undefined|true|false|evidence\s+gap|needs\s+baseline|baseline\s+tbd)\s*\.?)$/i;
+const PLACEHOLDER_RX = /^(\s*(none\s*(identified|specified|provided)?|n\/?a|not\s+(specified|provided|applicable|identified|available)|tbd|to\s+be\s+(determined|defined)|-|-|null|undefined|true|false|evidence\s+gap|needs\s+baseline|baseline\s+tbd)\s*\.?)$/i;
 function meaningful(v: unknown): string {
     if (v == null || typeof v === 'boolean') return '';
     const s = String(v).trim();
@@ -115,7 +115,7 @@ function meaningful(v: unknown): string {
 }
 
 // ---------------------------------------------------------------------------
-// SHARED CHROME — eyebrow label, section title, source footer, card primitive
+// SHARED CHROME - eyebrow label, section title, source footer, card primitive
 // ---------------------------------------------------------------------------
 
 interface SectionCtx {
@@ -199,7 +199,7 @@ function addPill(slide: any, P: typeof NXT, x: number, y: number, w: number, h: 
 }
 
 // ---------------------------------------------------------------------------
-// HERO SECTION — large centered title with period accent, optional subtitles
+// HERO SECTION - large centered title with period accent, optional subtitles
 // ---------------------------------------------------------------------------
 
 function buildHero(pres: any, section: any, P: typeof NXT, payloadTitle: string) {
@@ -244,7 +244,7 @@ function buildHero(pres: any, section: any, P: typeof NXT, payloadTitle: string)
 }
 
 // ---------------------------------------------------------------------------
-// CONTEXT — 3-column SCQA grid (Situation / Complication / Resolution)
+// CONTEXT - 3-column SCQA grid (Situation / Complication / Resolution)
 // ---------------------------------------------------------------------------
 
 function buildContext(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -270,7 +270,7 @@ function buildContext(pres: any, section: any, P: typeof NXT, sectionNumber: num
             x: x + insetL, y: colY + 0.25, w: colW - insetL - 0.15, h: 0.25,
             fontSize: 9, color: isAccent ? P.ACCENT : P.MUTED, fontFace: FONT, bold: true, charSpacing: 3,
         });
-        slide.addText(clip(body, 600) || '—', {
+        slide.addText(clip(body, 600) || '-', {
             x: x + insetL, y: colY + 0.6, w: colW - insetL - 0.15, h: colH - 0.8,
             fontSize: 13, color: body ? P.BODY : P.MUTED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45,
         });
@@ -280,7 +280,7 @@ function buildContext(pres: any, section: any, P: typeof NXT, sectionNumber: num
 }
 
 // ---------------------------------------------------------------------------
-// THEMES — cluster grid (3-4 themes, equal weight) with optional pattern signal
+// THEMES - cluster grid (3-4 themes, equal weight) with optional pattern signal
 // ---------------------------------------------------------------------------
 
 function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -356,7 +356,7 @@ function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
 }
 
 // ---------------------------------------------------------------------------
-// EVIDENCE — 3-4 stat tiles + optional convergent insight callout
+// EVIDENCE - 3-4 stat tiles + optional convergent insight callout
 // ---------------------------------------------------------------------------
 
 function valueTypography(v: string): { fontSize: number; lineHeight: number } {
@@ -389,7 +389,7 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         addCard(slide, P, x, cardY, colW, cardH, { topAccent: true, accentColor: accent });
 
         // Big value
-        const valueText = meaningful(s.value) || '—';
+        const valueText = meaningful(s.value) || '-';
         const typo = valueTypography(valueText);
         slide.addText(valueText, {
             x: x + 0.2, y: cardY + 0.3, w: colW - 0.4, h: 1.5,
@@ -441,7 +441,7 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
 }
 
 // ---------------------------------------------------------------------------
-// QUOTES — vertical stack of left-bordered quote cards (1-3 per slide)
+// QUOTES - vertical stack of left-bordered quote cards (1-3 per slide)
 // ---------------------------------------------------------------------------
 
 function buildQuotes(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -489,7 +489,7 @@ function buildQuotes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
 }
 
 // ---------------------------------------------------------------------------
-// PERSONAS — up to 3 persona cards in a row, each with name/role/quote/key fields
+// PERSONAS - up to 3 persona cards in a row, each with name/role/quote/key fields
 // ---------------------------------------------------------------------------
 
 function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -576,7 +576,7 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
 }
 
 // ---------------------------------------------------------------------------
-// JOURNEY — horizontal stage strip, up to 5 stages
+// JOURNEY - horizontal stage strip, up to 5 stages
 // ---------------------------------------------------------------------------
 
 function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -663,7 +663,7 @@ function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: num
 }
 
 // ---------------------------------------------------------------------------
-// RECOMMENDATIONS — vertical stack of action cards, up to 4 per slide
+// RECOMMENDATIONS - vertical stack of action cards, up to 4 per slide
 // ---------------------------------------------------------------------------
 
 function buildRecommendations(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -735,7 +735,7 @@ function buildRecommendations(pres: any, section: any, P: typeof NXT, sectionNum
 }
 
 // ---------------------------------------------------------------------------
-// ROADMAP — 3 horizon columns (NOW/NEXT/LATER), each with 3px top accent
+// ROADMAP - 3 horizon columns (NOW/NEXT/LATER), each with 3px top accent
 // ---------------------------------------------------------------------------
 
 function buildRoadmap(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -799,7 +799,7 @@ function buildRoadmap(pres: any, section: any, P: typeof NXT, sectionNumber: num
 }
 
 // ---------------------------------------------------------------------------
-// GAP ANALYSIS — list of capability gaps with current/target maturity bars
+// GAP ANALYSIS - list of capability gaps with current/target maturity bars
 // ---------------------------------------------------------------------------
 
 function buildGapAnalysis(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -864,7 +864,7 @@ function buildGapAnalysis(pres: any, section: any, P: typeof NXT, sectionNumber:
 }
 
 // ---------------------------------------------------------------------------
-// TECH ARCH — layered groupings of nodes
+// TECH ARCH - layered groupings of nodes
 // ---------------------------------------------------------------------------
 
 function buildTechArch(pres: any, section: any, P: typeof NXT, sectionNumber: number) {
@@ -904,7 +904,7 @@ function buildTechArch(pres: any, section: any, P: typeof NXT, sectionNumber: nu
 }
 
 // ---------------------------------------------------------------------------
-// COMPETITIVE & TEAM & generic — fall back to a clean list slide
+// COMPETITIVE & TEAM & generic - fall back to a clean list slide
 // ---------------------------------------------------------------------------
 
 function buildList(pres: any, section: any, P: typeof NXT, sectionNumber: number, eyebrow: string, headline: string, listKey: string, titleField = 'name', bodyField = 'description') {
@@ -941,7 +941,7 @@ function buildList(pres: any, section: any, P: typeof NXT, sectionNumber: number
 }
 
 // ---------------------------------------------------------------------------
-// CTA — large centered title with brand-period accent (mirror hero)
+// CTA - large centered title with brand-period accent (mirror hero)
 // ---------------------------------------------------------------------------
 
 function buildCta(pres: any, section: any, P: typeof NXT) {

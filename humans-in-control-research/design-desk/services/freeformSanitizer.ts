@@ -3,11 +3,11 @@
  * event handlers, and javascript: URLs without pulling in DOMPurify (which
  * we'll add as a hardening pass later). The freeform pipeline renders inside
  * an iframe with `sandbox="allow-same-origin"` (no scripts allowed at the
- * browser level), so this is defense-in-depth — even if the regex misses
+ * browser level), so this is defense-in-depth - even if the regex misses
  * something, the iframe sandbox prevents script execution.
  *
  * IMPORTANT: this sanitizer must NOT touch <style> blocks, <link> tags for
- * Google Fonts, or SVG primitives — the exemplars rely on all of those.
+ * Google Fonts, or SVG primitives - the exemplars rely on all of those.
  */
 
 const SCRIPT_TAG_RE = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
@@ -20,7 +20,7 @@ const FORM_RE = /<form\b[^<]*(?:(?!<\/form>)<[^<]*)*<\/form>/gi;
 const FORM_OPEN_RE = /<form\b[^>]*\/?>/gi;
 const OBJECT_EMBED_RE = /<(object|embed)\b[^<]*(?:(?!<\/\1>)<[^<]*)*<\/\1>/gi;
 
-// 2026-05-12 — VS-thinking reasoning block patterns. The emphasis-VS preamble
+// 2026-05-12 - VS-thinking reasoning block patterns. The emphasis-VS preamble
 // for freeform artifacts (chatToFreeform.ts buildEmphasisVSPreamble) asks the
 // model to emit <vs_thinking>, <emphasis_vs>, <commit_to>, <why_committed>
 // scratch blocks before the body content. Strip them here so they never reach
@@ -32,8 +32,8 @@ const VS_PLAINTEXT_PREAMBLE_RE = /^[\s\S]*?(?=<(?:main|article|section|header|di
 // VS preamble that needs the plain-text strip.
 const VS_FINGERPRINTS = [
     /\bLayer\s*:\s*(?:Visual\s+Layout|Diagram|Information|Interaction|Iconography)/i,
-    /\bCandidate\s+\d+\s*[—-]\s*p\s*[≈~]\s*0\./i,
-    /\bCOMMIT\s*:\s*\d+\s*[—-]/i,
+    /\bCandidate\s+\d+\s*[-]\s*p\s*[≈~]\s*0\./i,
+    /\bCOMMIT\s*:\s*\d+\s*[-]/i,
     /\bVisual\s+Layout\s+Candidates\b/i,
     /\bCentered-card\b/i,
     /\bEditorial-asymmetric\b/i,
@@ -62,11 +62,40 @@ function stripVsReasoning(html: string): string {
     return out.replace(/^\s+/, '');
 }
 
+// 2026-06-03 - Deterministic accessibility contrast guard, injected into every
+// freeform artifact. The freeform regen model (Gemini 3.1 Pro) does not reliably
+// honor CSS-level instructions like "eliminate dark tab selected states": it
+// regenerates the whole journey and reproduces the same dark-navy-bg + dark-text
+// active tab (fails WCAG, ~1.3:1). We cannot know the model's class name, but the
+// SELECTED-STATE CONTRACT is stable (aria-selected, role="tab", .active/.selected).
+// Forcing those to a known pairing (brand-dark bg + pure white text, >7:1) makes
+// the requested change real regardless of model compliance, and works on already-
+// stored artifacts at render time. This is the enforcement the per-artifact prompt
+// could not guarantee.
+export const FREEFORM_A11Y_GUARD = (
+    '<style id="nxt-freeform-a11y">'
+    + '[role="tab"][aria-selected="true"],[role="tab"].active,[role="tab"].selected,'
+    + '[aria-selected="true"].tab,[aria-selected="true"].phase-tab,.tab.active,.tab.selected,'
+    + '.phase-tab.active,.phase-tab.selected,.tab-active,[data-active="true"][role="tab"],'
+    + '.is-active[role="tab"]'
+    + '{background:#0B1326!important;color:#FFFFFF!important;}'
+    + '[role="tab"][aria-selected="true"] *,[role="tab"].active *,.tab.active *,'
+    + '.phase-tab.active *,.tab.selected *,.phase-tab.selected *{color:#FFFFFF!important;}'
+    + '</style>'
+);
+
+function injectA11yGuard(html: string): string {
+    if (!html || html.includes('nxt-freeform-a11y')) return html;
+    if (html.includes('</body>')) return html.replace('</body>', FREEFORM_A11Y_GUARD + '</body>');
+    if (html.includes('</head>')) return html.replace('</head>', FREEFORM_A11Y_GUARD + '</head>');
+    return html + FREEFORM_A11Y_GUARD;
+}
+
 export function sanitizeFreeformHtml(html: string): string {
     if (!html || typeof html !== 'string') return '';
 
     let out = html;
-    // 2026-05-12 — VS reasoning FIRST so the rest of the sanitizer doesn't
+    // 2026-05-12 - VS reasoning FIRST so the rest of the sanitizer doesn't
     // accidentally pattern-match against scratch content.
     out = stripVsReasoning(out);
     out = out.replace(SCRIPT_TAG_RE, '');
@@ -78,6 +107,7 @@ export function sanitizeFreeformHtml(html: string): string {
     out = out.replace(OBJECT_EMBED_RE, '');
     out = out.replace(ON_HANDLER_RE, '');
     out = out.replace(JAVASCRIPT_URL_RE, '');
+    out = injectA11yGuard(out);
 
     return out;
 }

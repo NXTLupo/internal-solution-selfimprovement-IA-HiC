@@ -1,5 +1,5 @@
 /**
- * Deliverable Chunkers — Per-artifact parallel generation for the 6
+ * Deliverable Chunkers - Per-artifact parallel generation for the 6
  * deliverable types that previously ran single-shot and silently truncated.
  *
  * Each chunker:
@@ -20,8 +20,53 @@
 import { runChunked } from './chunkDispatcher';
 import { calculateChunkPlan, type FeedbackSignalsForChunking } from './chunkBudgetCalculator';
 import { validateCompleteness } from './outputCompletenessValidator';
+import { resolveDeliverableBodies, currentEngagementSlug } from './wikiPointerResolver';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
+
+/**
+ * 2026-06-06 - MANIFEST -> WIKI enrichment helper. Each chunker takes an
+ * `input` object that includes themes/personas/etc. as in-memory state. The
+ * SAME data is also in the wiki (engagements/<slug>/<kind>.json). To honor
+ * the manifest -> wiki architecture (single source of truth) we resolve from
+ * the wiki first and override the in-memory fields. Falls back to whatever
+ * the caller passed when wiki is empty (deliverable not yet persisted).
+ *
+ * Mutates `input` in-place so the chunker's existing JSON.stringify calls
+ * pick up the wiki-resolved bodies without per-chunker prompt rewrites.
+ * Cached by the resolver so multiple chunkers in the same cascade only
+ * incur the wiki read once per engagement.
+ */
+async function _enrichInputFromWiki<T extends Record<string, any>>(input: T): Promise<T> {
+    const slug = currentEngagementSlug();
+    if (!slug) return input;
+    try {
+        const r = await resolveDeliverableBodies(slug, [
+            'themes', 'personas', 'journey', 'recs', 'prd', 'roadmap',
+            'gap', 'techAudit', 'competitive', 'techArch',
+        ]);
+        const b = r.bodies as any;
+        if (b.themes?.themes && Array.isArray(b.themes.themes) && b.themes.themes.length) (input as any).themes = b.themes.themes;
+        if (b.personas?.personas && Array.isArray(b.personas.personas) && b.personas.personas.length) (input as any).personas = b.personas.personas;
+        if (b.journey?.stages && Array.isArray(b.journey.stages) && b.journey.stages.length) {
+            (input as any).journeyStages = b.journey.stages;
+            (input as any).journey = b.journey;
+        }
+        if (b.recs?.recommendations && Array.isArray(b.recs.recommendations) && b.recs.recommendations.length) (input as any).recommendations = b.recs.recommendations;
+        if (b.prd && !(input as any).prd) (input as any).prd = b.prd;
+        if (b.roadmap && !(input as any).roadmap) (input as any).roadmap = b.roadmap;
+        if (b.gap && !(input as any).gapAnalysis) (input as any).gapAnalysis = b.gap;
+        if (b.techAudit && !(input as any).techAudit) (input as any).techAudit = b.techAudit;
+        if (b.competitive && !(input as any).competitiveAnalysis) (input as any).competitiveAnalysis = b.competitive;
+        if (b.techArch && !(input as any).techArchitecture) (input as any).techArchitecture = b.techArch;
+        if (r.readCount > 0) {
+            console.info(`[chunker/enrichFromWiki] resolved ${r.readCount} wiki deliverable(s) for slug=${slug} in ${r.elapsedMs}ms; missing: ${r.missingKinds.join(',') || 'none'}`);
+        }
+    } catch (e: any) {
+        console.warn('[chunker/enrichFromWiki] non-fatal:', e?.message || e);
+    }
+    return input;
+}
 
 interface CommonChunkerInputs {
     goal: string;
@@ -100,7 +145,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
     if (start === -1) return null;
 
     // Forward scan: maintain the stack of expected closers, string state, and
-    // — critically — a snapshot of (length, stack) taken every time we land in
+    // - critically - a snapshot of (length, stack) taken every time we land in
     // a "safe" position outside any string with no partial value pending. Safe
     // positions are: immediately after a complete value (a `,`, `}`, `]`, or a
     // closing `"` that ends a string-typed value), where appending the remaining
@@ -109,7 +154,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
     // Each entry on the open-container stack also carries the safeEnd/safeStack
     // snapshot taken BEFORE the container was opened. If we reach EOF while
     // that container is still open and never had a completed item recorded
-    // inside it, we revert to that pre-open snapshot — preserving the parent's
+    // inside it, we revert to that pre-open snapshot - preserving the parent's
     // valid state while dropping the partial child. This avoids producing
     // `{"outer": [{}]}` placeholders that downstream validators would treat as
     // malformed items.
@@ -141,9 +186,9 @@ function tryRepairTruncatedJson(raw: string): string | null {
                 inString = false;
                 if (expectingColon) {
                     expectingColon = false;
-                    // string was a KEY — still need value, unsafe to trim here
+                    // string was a KEY - still need value, unsafe to trim here
                 } else if (!expectingValue) {
-                    // string was a VALUE — safe trim point right after this quote
+                    // string was a VALUE - safe trim point right after this quote
                     recordSafe(i + 1);
                 }
                 continue;
@@ -153,18 +198,18 @@ function tryRepairTruncatedJson(raw: string): string | null {
         if (c === '"') {
             inString = true;
             if (expectingValue && stack[stack.length - 1]?.close === '}') {
-                // Object context — this string is a KEY
+                // Object context - this string is a KEY
                 expectingValue = false;
                 expectingColon = true;
             } else {
-                // Array context or after `:` — this string is a VALUE
+                // Array context or after `:` - this string is a VALUE
                 expectingValue = false;
             }
             continue;
         }
         if (c === '{') {
             pushContainer('}'); expectingValue = true;
-            // Do NOT recordSafe yet — only after the container completes or
+            // Do NOT recordSafe yet - only after the container completes or
             // has at least one completed entry. This lets us revert past
             // unfinished containers on truncation.
             continue;
@@ -188,7 +233,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
         }
         if (c === ':') { expectingColon = false; continue; }
         if (/[\d\-\.tfn]/.test(c) && !expectingColon) {
-            // Number, true, false, null literal — assume part of a value
+            // Number, true, false, null literal - assume part of a value
             expectingValue = false;
             // We CANNOT safely trim in the middle of a literal, but if the
             // literal completes naturally we'll hit a `,` or close next.
@@ -198,7 +243,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
     }
 
     if (stack.length === 0 && !inString) {
-        // Not actually truncated — the caller's earlier JSON.parse should have
+        // Not actually truncated - the caller's earlier JSON.parse should have
         // worked. Return null to signal "no repair applicable here".
         return null;
     }
@@ -211,7 +256,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
         // Actually we want the INNERMOST: revert to before its open. If the
         // outermost is also incomplete we keep walking outward. Choose the
         // outermost incomplete container that has NO recorded safe inside it
-        // — but we don't track that precisely, so just revert to the deepest
+        // - but we don't track that precisely, so just revert to the deepest
         // pre-snapshot that left at least some content.
         // Simpler: walk from innermost outward, pick the deepest entry whose
         // preEnd > start (i.e., its parent had at least the opening char).
@@ -225,7 +270,7 @@ function tryRepairTruncatedJson(raw: string): string | null {
         }
     }
 
-    if (safeEnd === -1) return null;  // never reached a safe point — give up
+    if (safeEnd === -1) return null;  // never reached a safe point - give up
 
     let body = stripped.slice(start, safeEnd);
     if (body.endsWith(',')) body = body.slice(0, -1);
@@ -253,17 +298,17 @@ async function callFlash(prompt: string, maxOutputTokens: number, expectJson: bo
     try {
         firstText = await _flashOnce(prompt, maxOutputTokens, 'gemini-3.5-flash');
     } catch (err) {
-        // Network or HTTP failure — surface directly; no point repairing.
+        // Network or HTTP failure - surface directly; no point repairing.
         throw err;
     }
     if (!expectJson) return firstText;
 
-    // Repair ladder — try each in order, stop on first success.
+    // Repair ladder - try each in order, stop on first success.
     // 1) Plain JSON.parse on stripped text (fast path; covers clean outputs).
     const stripped = firstText.replace(/```json\n?|```/g, '').trim();
     try { return JSON.parse(stripped); } catch { /* fall through */ }
 
-    // 2) Extract first balanced JSON value — fixes trailing prose ("Here's the
+    // 2) Extract first balanced JSON value - fixes trailing prose ("Here's the
     //    JSON: {...} Hope this helps!") which is Flash's most common defect.
     const extracted = extractFirstJsonValue(firstText);
     if (extracted) {
@@ -304,7 +349,7 @@ async function callFlash(prompt: string, maxOutputTokens: number, expectJson: bo
 }
 
 // ============================================================================
-// PHASE 3.1 — ROADMAP CHUNKER (per horizon: NOW / NEXT / LATER)
+// PHASE 3.1 - ROADMAP CHUNKER (per horizon: NOW / NEXT / LATER)
 // ============================================================================
 
 export interface RoadmapInput extends CommonChunkerInputs {
@@ -314,6 +359,7 @@ export interface RoadmapInput extends CommonChunkerInputs {
 }
 
 export async function chunkedGenerateRoadmap(input: RoadmapInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     const plan = await calculateChunkPlan({
         artifactType: 'roadmap',
         feedbackSignals: input.feedbackSignals,
@@ -331,11 +377,11 @@ export async function chunkedGenerateRoadmap(input: RoadmapInput): Promise<any> 
         perChunkRetries: 1,
         split: () => horizons.map(h => ({ id: h.id, payload: h, description: h.label })),
         generate: async (chunkId, h) => {
-            const prompt = `${input.skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: ROADMAP for ${h.label} horizon (${h.window}). Generate ONLY the ${h.label} initiatives — not NOW, not LATER, not NEXT — just this horizon.
+            const prompt = `${input.skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: ROADMAP for ${h.label} horizon (${h.window}). Generate ONLY the ${h.label} initiatives - not NOW, not LATER, not NEXT - just this horizon.
 
 REQUIREMENTS:
 - Produce AT LEAST 4 initiatives for this horizon, each with:
-  - initiative (problem-framed name; NOT "Build X" — start with the problem)
+  - initiative (problem-framed name; NOT "Build X" - start with the problem)
   - horizon: "${h.label}"
   - owner (role, not person)
   - description (30-50 words, cite [CHUNK_XXX] evidence)
@@ -416,7 +462,7 @@ Output STRICT JSON: { items: [{ initiative, horizon, owner, description, depende
 }
 
 // ============================================================================
-// PHASE 3.2 — PRD CHUNKER (per section-family: Problem / Solution / Execution / Risk)
+// PHASE 3.2 - PRD CHUNKER (per section-family: Problem / Solution / Execution / Risk)
 // ============================================================================
 
 export interface PRDInput extends CommonChunkerInputs {
@@ -469,6 +515,7 @@ const PRD_SECTIONS: Record<string, { label: string; sections: Array<{ key: strin
 };
 
 export async function chunkedGeneratePRD(input: PRDInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     const plan = await calculateChunkPlan({
         artifactType: 'prd',
         feedbackSignals: input.feedbackSignals,
@@ -482,7 +529,7 @@ export async function chunkedGeneratePRD(input: PRDInput): Promise<any> {
         perChunkRetries: 1,
         split: () => families.map(f => ({ id: f.id, payload: f, description: f.label })),
         generate: async (chunkId, f) => {
-            const prompt = `${input.skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: PRD ${f.label}. Generate ONLY these sections — not any others. Cagan/SVPG product format.
+            const prompt = `${input.skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: PRD ${f.label}. Generate ONLY these sections - not any others. Cagan/SVPG product format.
 
 SECTIONS TO POPULATE (${f.description}):
 ${f.sections.map(s => `  - section #${s.number} ${s.title} (JSON key "${s.key}"): required, minimum 120 words, evidence-cited`).join('\n')}
@@ -525,7 +572,7 @@ Output STRICT JSON: { ${f.sections.map(s => `"${s.key}": "string content of this
                         if (sec.key === 'problemStatement') purposeAndObjectives = content.slice(0, 1200);
                         if (sec.key === 'successMetrics') {
                             // Split on newlines / bullets to populate successMetrics array
-                            const lines = content.split(/\n|;|—/).map(s => s.trim()).filter(s => s.length > 12);
+                            const lines = content.split(/\n|;|-/).map(s => s.trim()).filter(s => s.length > 12);
                             for (const l of lines.slice(0, 6)) successMetricsRaw.push(l);
                         }
                     }
@@ -568,7 +615,7 @@ Output STRICT JSON: { ${f.sections.map(s => `"${s.key}": "string content of this
 }
 
 // ============================================================================
-// PHASE 3.3 — SERVICE BLUEPRINT CHUNKER (per persona)
+// PHASE 3.3 - SERVICE BLUEPRINT CHUNKER (per persona)
 // ============================================================================
 
 export interface BlueprintInput extends CommonChunkerInputs {
@@ -578,6 +625,7 @@ export interface BlueprintInput extends CommonChunkerInputs {
 }
 
 export async function chunkedGenerateBlueprint(input: BlueprintInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     const personas = (input.personas || []).slice(0, 6);
     if (personas.length === 0) {
         throw new Error('Blueprint chunker requires at least one persona');
@@ -614,7 +662,7 @@ EACH ACTION MUST INCLUDE:
 - name (specific verb)
 - pain (specific friction with [CHUNK_XXX] citation)
 - opportunity (named intervention)
-- emotion (specific feeling — anxious, confident, frustrated, relieved)
+- emotion (specific feeling - anxious, confident, frustrated, relieved)
 - failPoint (if known)
 
 THEMES: ${JSON.stringify((input.themes || []).slice(0, 10))}
@@ -648,7 +696,7 @@ Output STRICT JSON: { persona: "${persona.name}", customerActions: [...], onstag
 }
 
 // ============================================================================
-// PHASE 4.1 — GAP-ANALYSIS CHUNKER (per capability domain)
+// PHASE 4.1 - GAP-ANALYSIS CHUNKER (per capability domain)
 // ============================================================================
 
 export interface GapInput extends CommonChunkerInputs {
@@ -664,6 +712,7 @@ const CAPABILITY_DOMAINS = [
 ];
 
 export async function chunkedGenerateGapAnalysis(input: GapInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     const plan = await calculateChunkPlan({
         artifactType: 'gap',
         feedbackSignals: input.feedbackSignals,
@@ -678,7 +727,7 @@ export async function chunkedGenerateGapAnalysis(input: GapInput): Promise<any> 
             const prompt = `${input.skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: GAP ANALYSIS for the "${domain.label}" capability domain only. Other domains will be analyzed separately. Focus tightly.
 
 REQUIREMENTS:
-- Produce AT LEAST 2 gaps in this domain. Quality over quantity — each fully evidenced.
+- Produce AT LEAST 2 gaps in this domain. Quality over quantity - each fully evidenced.
 - Each gap: { capability, currentMaturity (1-5), targetMaturity (1-5), gap (number), severity (critical/high/medium), impact (with [CHUNK_XXX] citation), effort, citations [], evidenceBasis }
 - Score by Gartner 5-level maturity: 1=ad hoc, 2=developing, 3=defined, 4=managed, 5=optimized
 - severity: critical if gap >= 3, high if gap = 2, medium if gap = 1
@@ -742,7 +791,7 @@ Output STRICT JSON: { domain: "${domain.label}", gaps: [{ capability, currentMat
 }
 
 // ============================================================================
-// PHASE 4.2 — COMPETITIVE CHUNKER (per peer)
+// PHASE 4.2 - COMPETITIVE CHUNKER (per peer)
 // ============================================================================
 
 export interface CompetitiveInput extends CommonChunkerInputs {
@@ -751,6 +800,7 @@ export interface CompetitiveInput extends CommonChunkerInputs {
 }
 
 export async function chunkedGenerateCompetitive(input: CompetitiveInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     const plan = await calculateChunkPlan({
         artifactType: 'competitive',
         feedbackSignals: input.feedbackSignals,
@@ -759,7 +809,7 @@ export async function chunkedGenerateCompetitive(input: CompetitiveInput): Promi
     // Phase A: identify 4-6 named peers via a small Flash call
     const peerDiscoveryPrompt = `Identify 4-6 NAMED peer entities for a competitive analysis. Target: ${input.targetEntity || 'the focal organization in the research goal'}. Research goal: ${input.goal}.
 
-Use the themes and corpus evidence to find real, named peers — NOT "Industry Average" or "Peers Collective" or anonymous baselines.
+Use the themes and corpus evidence to find real, named peers - NOT "Industry Average" or "Peers Collective" or anonymous baselines.
 
 THEMES: ${JSON.stringify((input.themes || []).slice(0, 12))}
 ${input.evidenceBlock}
@@ -863,7 +913,7 @@ Output STRICT JSON: { peer: "${peer.name}", offering, target_segment, strengths,
 }
 
 // ============================================================================
-// PHASE 4.3 — TECH AUDIT CHUNKER (2-pass: inventory then per-system)
+// PHASE 4.3 - TECH AUDIT CHUNKER (2-pass: inventory then per-system)
 // ============================================================================
 
 export interface TechAuditInput extends CommonChunkerInputs {
@@ -871,8 +921,9 @@ export interface TechAuditInput extends CommonChunkerInputs {
 }
 
 export async function chunkedGenerateTechAudit(input: TechAuditInput): Promise<any> {
+    await _enrichInputFromWiki(input);
     // Pass 1: inventory list (single small Flash call)
-    const inventoryPrompt = `${input.skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP 1 of 2: TECH INVENTORY. Produce ONLY the list of systems / tools / platforms in use. One-line description each. No deep analysis — that comes in step 2.
+    const inventoryPrompt = `${input.skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP 1 of 2: TECH INVENTORY. Produce ONLY the list of systems / tools / platforms in use. One-line description each. No deep analysis - that comes in step 2.
 
 THEMES: ${JSON.stringify((input.themes || []).slice(0, 12))}
 ${input.contextBlock}
@@ -903,7 +954,7 @@ Output STRICT JSON: { systems: [{ name, category, oneLineDescription }] }`;
         generate: async (chunkId, system) => {
             const prompt = `STEP 2 of 2: AUDIT ENTRY for "${system.name}" only.
 
-Produce: risk, integration list, consolidation opportunity, gartner_maturity (1-5), citations [], evidenceBasis. Be specific — name the integrations, name the risk vectors.
+Produce: risk, integration list, consolidation opportunity, gartner_maturity (1-5), citations [], evidenceBasis. Be specific - name the integrations, name the risk vectors.
 
 ${input.contextBlock}
 ${input.evidenceBlock}
@@ -987,7 +1038,7 @@ Output STRICT JSON: { system: "${system.name}", category: "${system.category}", 
 }
 
 // ============================================================================
-// PHASE 4.3 — TECH ARCHITECTURE CHUNKER (C4 context, then per-node container)
+// PHASE 4.3 - TECH ARCHITECTURE CHUNKER (C4 context, then per-node container)
 // ============================================================================
 
 export interface TechArchInput extends CommonChunkerInputs {
@@ -995,7 +1046,8 @@ export interface TechArchInput extends CommonChunkerInputs {
 }
 
 export async function chunkedGenerateTechArchitecture(input: TechArchInput): Promise<any> {
-    // Pass 1: C4 context level (single small Flash call) — identify major nodes
+    await _enrichInputFromWiki(input);
+    // Pass 1: C4 context level (single small Flash call) - identify major nodes
     const contextPrompt = `${input.skillInstructions ? `=== AGENT SKILL: TECH ARCH GENERATOR ===\n${input.skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP 1 of 2: C4 CONTEXT level. Identify the 4-8 major system nodes + their external dependencies. One-line description each. Container-level detail comes in step 2.
 
 THEMES: ${JSON.stringify((input.themes || []).slice(0, 12))}

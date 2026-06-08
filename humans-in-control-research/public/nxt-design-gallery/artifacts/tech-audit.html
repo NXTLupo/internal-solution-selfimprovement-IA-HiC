@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Technology audit — Northeastern Advancement systems</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .ta-strip { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; margin-bottom: 24px; }
+
+  /* Master systems table */
+  .systems {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 12px;
+    table-layout: fixed;
+  }
+  .systems thead th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+    vertical-align: bottom;
+  }
+  .systems tbody td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .systems tbody tr:last-child td { border-bottom: 0; }
+  .systems tbody tr:hover td { background: var(--slate-50); }
+  .systems .sys-name b {
+    display: block;
+    color: var(--fg-strong);
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .systems .sys-name span {
+    color: var(--fg-muted);
+    font-size: 10.5px;
+    font-family: var(--font-mono);
+  }
+  .systems .users {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--fg-default);
+    text-align: right;
+  }
+  .systems .users span { color: var(--fg-subtle); font-size: 10px; display: block; }
+  .systems .mat-cell { padding-right: 16px; }
+  .systems .matbar { width: 100%; }
+  .systems .matbar__track { background: var(--slate-100); }
+  .systems .health-cell { text-align: center; }
+  .systems .cat-cell { font-size: 11px; color: var(--fg-muted); }
+
+  .row-sunset { background: rgba(216,19,45,.03); }
+  .row-sunset td:first-child b { color: var(--nu-red-700); }
+
+  /* Integration health summary */
+  .health-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .health-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    display: grid;
+    gap: 6px;
+  }
+  .health-card h5 {
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  .health-card .big {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+  }
+  .health-card .big sup { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--fg-muted); }
+  .health-card.healthy .big { color: var(--success-fg); }
+  .health-card.degraded .big { color: var(--warning-fg); }
+  .health-card.broken .big { color: var(--nu-red-700); }
+  .health-card p { font-size: 11px; color: var(--fg-muted); margin: 0; line-height: 1.45; }
+
+  /* Consolidation opportunities */
+  .consol {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .consol-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--ink-800);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+  }
+  .consol-card.priority { border-left-color: var(--nu-red-600); }
+  .consol-card h4 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: -.005em;
+  }
+  .consol-card .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .consol-card p { font-size: 11.5px; line-height: 1.5; color: var(--fg-muted); margin: 0 0 10px; }
+  .consol-card .nums {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 8px;
+  }
+  .consol-card .nums dt { letter-spacing: .12em; text-transform: uppercase; font-size: 9px; }
+  .consol-card .nums dd { margin: 0; font-family: var(--font-mono); color: var(--fg-default); font-weight: 500; }
+
+  /* =====================================================================
+     Tweak-driven body modifiers
+     ===================================================================== */
+  body.tw-dense .systems tbody td { padding: 7px 12px; font-size: 11.5px; }
+  body.tw-dense .systems thead th { padding: 7px 12px; }
+  body.tw-dense .systems .sys-name b { font-size: 12px; }
+  body.tw-dense .ta-strip { margin-bottom: 16px; }
+  body.tw-dense .art-section { margin-top: 24px; }
+
+  body.tw-cozy .systems tbody td { padding: 16px 14px; font-size: 12.5px; }
+  body.tw-cozy .systems thead th { padding: 14px 14px; }
+
+  body.tw-no-vendor .systems .sys-name span,
+  body.tw-no-vendor .consol-card .num { display: none; }
+
+  body.tw-no-bars .systems .mat-cell,
+  body.tw-no-bars .systems thead th:nth-child(5) { display: none; }
+  body.tw-no-bars .systems { table-layout: auto; }
+
+  body.tw-no-health .systems .health-cell,
+  body.tw-no-health .systems thead th:nth-child(7),
+  body.tw-no-health .systems thead th:nth-child(8) { display: none; }
+
+  body.tw-no-hover .systems tbody tr:hover td { background: transparent !important; }
+  body.tw-no-hover .dtable tbody tr:hover td { background: transparent !important; }
+
+  body.tw-emph-subtle .row-sunset { background: transparent !important; }
+  body.tw-emph-subtle .row-sunset td:first-child b { color: var(--fg-strong) !important; }
+  body.tw-emph-subtle .health-card.broken .big,
+  body.tw-emph-subtle .consol-card.priority { border-left-color: var(--slate-300); }
+
+  body.tw-emph-strong .row-sunset { background: rgba(216,19,45,.08) !important; }
+  body.tw-emph-strong .row-sunset td { border-bottom-color: rgba(216,19,45,.15) !important; }
+
+  /* =====================================================================
+     Tweaks panel — vanilla JS, host-managed visibility
+     ===================================================================== */
+  .tw-panel {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 320px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    font-family: var(--font-sans);
+    display: none;
+    overflow: hidden;
+  }
+  .tw-panel.is-open { display: block; }
+  .tw-panel__head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px;
+    background: var(--ink-900);
+    color: var(--white);
+    cursor: grab;
+  }
+  .tw-panel__head:active { cursor: grabbing; }
+  .tw-panel__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -.005em;
+  }
+  .tw-panel__title span {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 9.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,.55);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .tw-panel__close {
+    background: transparent;
+    border: 0;
+    color: rgba(255,255,255,.6);
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .tw-panel__close:hover { color: var(--white); background: rgba(255,255,255,.1); }
+  .tw-panel__body {
+    padding: 14px 18px 18px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  .tw-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .tw-row:last-child { border-bottom: 0; }
+  .tw-row__label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .tw-row__label b {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--fg-strong);
+  }
+  .tw-row__label small {
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .02em;
+  }
+  .tw-seg {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--slate-100);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+  }
+  .tw-seg button {
+    background: transparent;
+    border: 0;
+    padding: 5px 4px;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    font-weight: 500;
+    letter-spacing: .02em;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: capitalize;
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  .tw-seg button:hover { color: var(--fg-default); }
+  .tw-seg button.is-on {
+    background: var(--bg-surface);
+    color: var(--fg-strong);
+    box-shadow: var(--shadow-xs);
+  }
+  .tw-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--slate-50);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .tw-toggle__txt { font-size: 11.5px; color: var(--fg-default); }
+  .tw-toggle__sw {
+    width: 32px; height: 18px;
+    background: var(--slate-300);
+    border-radius: 999px;
+    position: relative;
+    transition: background var(--duration-base) var(--ease-standard);
+  }
+  .tw-toggle__sw::before {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 14px; height: 14px;
+    background: var(--white);
+    border-radius: 999px;
+    transition: transform var(--duration-base) var(--ease-standard);
+    box-shadow: 0 1px 2px rgba(11,19,38,.15);
+  }
+  .tw-toggle.is-on .tw-toggle__sw { background: var(--ink-800); }
+  .tw-toggle.is-on .tw-toggle__sw::before { transform: translateX(14px); }
+  .tw-foot {
+    padding: 10px 18px;
+    background: var(--slate-50);
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+  }
+  .tw-foot button {
+    background: transparent;
+    border: 0;
+    color: var(--fg-muted);
+    font-size: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    letter-spacing: .04em;
+  }
+  .tw-foot button:hover { color: var(--fg-strong); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Technology audit · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Technology audit · Systems inventory</div>
+    <h1 class="art-masthead__title" style="width: 800px">Fourteen systems run the advancement function; three overlap with primary platforms and absorb $2.1M / yr of operating spend.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Systems</dt><dd>14 inventoried</dd></div>
+    <div class="art-masthead__meta-block"><dt>Annual run</dt><dd>$4.7M</dd></div>
+    <div class="art-masthead__meta-block"><dt>Consol opps</dt><dd>3 named</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- Top strip -->
+  <div class="stat-strip ta-strip">
+    <div class="stat">
+      <div class="stat__label">Total annual spend</div>
+      <div class="stat__value">$4.7<span class="u">M</span></div>
+      <div class="stat__delta">14 systems · licences + ops</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Spend at risk of overlap</div>
+      <div class="stat__value">$1.8<span class="u">M</span></div>
+      <div class="stat__delta stat__delta--down">38% of total</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Avg maturity</div>
+      <div class="stat__value">3.1<span class="u"> / 5</span></div>
+      <div class="stat__delta">target FY27: 3.8</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Integrations</div>
+      <div class="stat__value">22</div>
+      <div class="stat__delta">17 healthy · 4 degraded · 1 broken</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Sunset candidates</div>
+      <div class="stat__value">3</div>
+      <div class="stat__delta">funds FY27 program</div>
+    </div>
+  </div>
+
+  <!-- Systems table -->
+  <section class="art-section" style="margin-top: 0;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Systems inventory</h2>
+      <span class="art-section__counter">14 systems · maturity bars · health · sunset flag</span>
+    </div>
+    <table class="systems">
+      <thead>
+        <tr>
+          <th style="width: 22%;">System &amp; vendor</th>
+          <th style="width: 13%;">Category</th>
+          <th style="width: 9%;">Dept owner</th>
+          <th style="width: 9%; text-align: right;">Users</th>
+          <th style="width: 22%;">Maturity current → target</th>
+          <th style="width: 10%; text-align: right;">Annual</th>
+          <th style="width: 9%; text-align: center;">Integ health</th>
+          <th style="width: 6%; text-align: center;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="sys-name"><b>Raiser's Edge NXT</b><span>Blackbaud · CRM</span></td>
+          <td class="cat-cell">Donor CRM</td>
+          <td class="cat-cell">Adv Ops</td>
+          <td class="users">312<span>active</span></td>
+          <td class="mat-cell">
+            <div class="matbar">
+              <div class="matbar__track">
+                <div class="matbar__current" style="width: 80%;"></div>
+                <div class="matbar__target" style="left: 90%;"></div>
+              </div>
+            </div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">target 4.5</span></div>
+          </td>
+          <td class="users">$680K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Salesforce Education Cloud</b><span>Salesforce · CRM</span></td>
+          <td class="cat-cell">Student CRM</td>
+          <td class="cat-cell">Co-op Ops</td>
+          <td class="users">428<span>active</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 60%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>3 / 5</span><span style="font-family: var(--font-mono);">target 4</span></div>
+          </td>
+          <td class="users">$540K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Handshake</b><span>Handshake · ATS bridge</span></td>
+          <td class="cat-cell">Job board</td>
+          <td class="cat-cell">Co-op Ops</td>
+          <td class="users">31K<span>students</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$320K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>iWave</b><span>iWave · prospect research</span></td>
+          <td class="cat-cell">Prospect data</td>
+          <td class="cat-cell">Adv Ops</td>
+          <td class="users">28<span>MGOs</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 60%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>3 / 5</span><span style="font-family: var(--font-mono);">target 4</span></div>
+          </td>
+          <td class="users">$180K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Snowflake (data warehouse)</b><span>Snowflake · data platform</span></td>
+          <td class="cat-cell">Warehouse</td>
+          <td class="cat-cell">IT</td>
+          <td class="users">62<span>analysts</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 100%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">target 5</span></div>
+          </td>
+          <td class="users">$420K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Marketing Cloud</b><span>Salesforce · MA</span></td>
+          <td class="cat-cell">Marketing</td>
+          <td class="cat-cell">Mktg Ops</td>
+          <td class="users">19<span>users</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 60%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>3 / 5</span><span style="font-family: var(--font-mono);">target 4</span></div>
+          </td>
+          <td class="users">$260K</td>
+          <td class="health-cell"><span class="signal signal--yellow"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Tableau</b><span>Salesforce · BI</span></td>
+          <td class="cat-cell">Analytics</td>
+          <td class="cat-cell">IT</td>
+          <td class="users">84<span>users</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$210K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Okta</b><span>Okta · identity</span></td>
+          <td class="cat-cell">Identity</td>
+          <td class="cat-cell">IT</td>
+          <td class="users">all<span>NU</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 100%;"></div><div class="matbar__target" style="left: 100%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>5 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$140K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Workday HCM</b><span>Workday · HR</span></td>
+          <td class="cat-cell">HR</td>
+          <td class="cat-cell">HR</td>
+          <td class="users">all<span>staff</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$420K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr class="row-sunset">
+          <td class="sys-name"><b>Engagement Cloud (legacy)</b><span>Vendor X · donor engagement</span></td>
+          <td class="cat-cell">Donor CRM ✕</td>
+          <td class="cat-cell">Adv Ops</td>
+          <td class="users">11<span>users</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 40%;"></div><div class="matbar__target" style="left: 0%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>2 / 5</span><span style="font-family: var(--font-mono); color: var(--nu-red-700);">target 0 (retire)</span></div>
+          </td>
+          <td class="users">$420K</td>
+          <td class="health-cell"><span class="signal signal--yellow"></span></td>
+          <td class="health-cell"><span class="pill pill--error">sunset</span></td>
+        </tr>
+
+        <tr class="row-sunset">
+          <td class="sys-name"><b>Events platform (legacy)</b><span>Vendor Y · events</span></td>
+          <td class="cat-cell">Events ✕</td>
+          <td class="cat-cell">Adv Ops</td>
+          <td class="users">8<span>users</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 40%;"></div><div class="matbar__target" style="left: 0%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>2 / 5</span><span style="font-family: var(--font-mono); color: var(--nu-red-700);">target 0 (retire)</span></div>
+          </td>
+          <td class="users">$580K</td>
+          <td class="health-cell"><span class="signal signal--red"></span></td>
+          <td class="health-cell"><span class="pill pill--error">sunset</span></td>
+        </tr>
+
+        <tr class="row-sunset">
+          <td class="sys-name"><b>Volunteer mgmt (legacy)</b><span>Vendor Z · volunteer mgmt</span></td>
+          <td class="cat-cell">Volunteer ✕</td>
+          <td class="cat-cell">Adv Ops</td>
+          <td class="users">6<span>users</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 20%;"></div><div class="matbar__target" style="left: 0%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>1 / 5</span><span style="font-family: var(--font-mono); color: var(--nu-red-700);">target 0 (retire)</span></div>
+          </td>
+          <td class="users">$240K</td>
+          <td class="health-cell"><span class="signal signal--yellow"></span></td>
+          <td class="health-cell"><span class="pill pill--error">sunset</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>DocuSign</b><span>DocuSign · e-sig</span></td>
+          <td class="cat-cell">Workflow</td>
+          <td class="cat-cell">IT</td>
+          <td class="users">all<span>staff</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$95K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+        <tr>
+          <td class="sys-name"><b>Slack Enterprise</b><span>Salesforce · collab</span></td>
+          <td class="cat-cell">Collab</td>
+          <td class="cat-cell">IT</td>
+          <td class="users">all<span>staff</span></td>
+          <td class="mat-cell">
+            <div class="matbar"><div class="matbar__track"><div class="matbar__current" style="width: 80%;"></div><div class="matbar__target" style="left: 80%;"></div></div></div>
+            <div style="font-size: 10px; color: var(--fg-muted); margin-top: 4px; display: flex; justify-content: space-between;"><span>4 / 5</span><span style="font-family: var(--font-mono);">stable</span></div>
+          </td>
+          <td class="users">$190K</td>
+          <td class="health-cell"><span class="signal signal--green"></span></td>
+          <td class="health-cell"><span class="pill pill--success">keep</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Integration health summary -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Integration map · 22 links</h2>
+      <span class="art-section__counter">17 healthy · 4 degraded · 1 broken · health refreshed nightly</span>
+    </div>
+    <div class="health-summary">
+      <div class="health-card healthy">
+        <h5>Healthy</h5>
+        <div class="big">17 <sup>/ 22</sup></div>
+        <p>Active integrations meeting SLA. Core CRM-to-warehouse paths, Okta SSO, Tableau reads.</p>
+      </div>
+      <div class="health-card degraded">
+        <h5>Degraded</h5>
+        <div class="big">4 <sup>/ 22</sup></div>
+        <p>SLA met inconsistently. Marketing Cloud ↔ Raiser's Edge sync; Volunteer-mgmt API rate-limited.</p>
+      </div>
+      <div class="health-card broken">
+        <h5>Broken</h5>
+        <div class="big">1 <sup>/ 22</sup></div>
+        <p>Placement-event ETL → donor warehouse: 11-day lag. Quick-win daily-digest bridges while I-07 lands.</p>
+      </div>
+      <div class="health-card">
+        <h5>Net integrations FY27</h5>
+        <div class="big">+3</div>
+        <p>FERPA bridge (N-10); silence webhook (N-11); explain-view payload (F-13).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consolidation opportunities -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Consolidation opportunities · 3 named</h2>
+      <span class="art-section__counter">$1.8M / yr recoverable to fund FY27 program · zero net-new SaaS</span>
+    </div>
+    <div class="consol">
+
+      <div class="consol-card priority">
+        <h4>Retire Engagement Cloud (legacy) — fully duplicates Raiser's Edge NXT for 11 users.</h4>
+        <p>The legacy donor-engagement platform retained two unique features in 2022; both shipped to Raiser's Edge in the 2024 NXT release. 11 users access it less than weekly. No data migration required.</p>
+        <dl class="nums">
+          <dt>Savings</dt><dd>$420K / yr</dd>
+          <dt>Migration</dt><dd>≤4 wks</dd>
+          <dt>Owner</dt><dd>Adv Ops</dd>
+          <dt>Risk</dt><dd>Low</dd>
+        </dl>
+      </div>
+
+      <div class="consol-card priority">
+        <h4>Retire legacy events platform — replace with Marketing Cloud event capability.</h4>
+        <p>The events platform handles ≈90 events / yr at $580K. Marketing Cloud already runs the alumni-day pilot at parity for 30% of cost. Two features (signed-attendance and dietary tracking) need a Marketing Cloud extension; both are scoped.</p>
+        <dl class="nums">
+          <dt>Savings</dt><dd>$580K / yr</dd>
+          <dt>Migration</dt><dd>12 wks</dd>
+          <dt>Owner</dt><dd>Mktg Ops</dd>
+          <dt>Risk</dt><dd>Med</dd>
+        </dl>
+      </div>
+
+      <div class="consol-card">
+        <h4>Retire volunteer-mgmt platform — fold into Raiser's Edge volunteer module.</h4>
+        <p>Six users; 12 active volunteer roles. Raiser's Edge volunteer module is included in the existing licence and exceeds current feature scope. Retiring closes a $240K / yr line.</p>
+        <dl class="nums">
+          <dt>Savings</dt><dd>$240K / yr</dd>
+          <dt>Migration</dt><dd>6 wks</dd>
+          <dt>Owner</dt><dd>Adv Ops</dd>
+          <dt>Risk</dt><dd>Low</dd>
+        </dl>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Recommendations summary -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Audit recommendations</h2>
+      <span class="art-section__counter">five actions · tied to gap analysis &amp; roadmap</span>
+    </div>
+    <table class="dtable dtable--compact">
+      <thead>
+        <tr>
+          <th style="width: 60px;">ID</th>
+          <th style="width: 35%;">Recommendation</th>
+          <th>Rationale</th>
+          <th class="num" style="width: 110px;">Impact</th>
+          <th style="width: 100px;">Linked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="mono">A-01</td><td class="lead">Retire 3 named systems on fiscal boundary</td><td>C-01, C-02, C-03 above. $1.2M migration cost vs. $1.24M / yr ongoing savings.</td><td class="num">$1.8M / yr</td><td><span class="pill pill--outline">R-07 · I-08</span></td></tr>
+        <tr><td class="mono">A-02</td><td class="lead">Build FERPA-bridged identity layer (N-10)</td><td>Two warehouses, two CRMs, no canonical ID. Foundation for every connective-tissue initiative.</td><td class="num">$340K + ∞ unlock</td><td><span class="pill pill--outline">R-02 · I-05</span></td></tr>
+        <tr><td class="mono">A-03</td><td class="lead">Repair placement-event ETL (broken link)</td><td>11-day lag is the highest-impact broken integration. Daily-digest is the quick-win bridge.</td><td class="num">$1.1M / yr</td><td><span class="pill pill--outline">R-05 · I-04</span></td></tr>
+        <tr><td class="mono">A-04</td><td class="lead">Marketing Cloud ↔ Raiser's Edge sync to SLA</td><td>Currently degraded; intermittent failures lose donor segmentation freshness.</td><td class="num">qualitative</td><td><span class="pill pill--outline">backlog</span></td></tr>
+        <tr><td class="mono">A-05</td><td class="lead">Snowflake cost optimization · 12-month review</td><td>$420K / yr and growing. Set warehouse-size discipline; archive unused models.</td><td class="num">~$80K / yr</td><td><span class="pill pill--outline">FY28</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit (full inventory)</li>
+      <li><b>NU contract registry</b> · annual spend FY26</li>
+      <li><b>VP-OPS-09 memo</b> · D. Chen, 2026-01-22 (sunset posture)</li>
+      <li><b>Blackbaud RE NXT release notes</b> · 2024-Q3</li>
+      <li><b>Salesforce EDU usage analytics</b> · 2025-Q4</li>
+      <li><b>Snowflake cost report</b> · NU 2025</li>
+      <li><b>NU IT integration registry</b> · 2025</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">TECH AUDIT · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>tech-audit-inspector</code></div>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     Tweaks panel
+     ===================================================================== -->
+<div class="tw-panel" id="twPanel" role="dialog" aria-label="Tweaks">
+  <div class="tw-panel__head" id="twHead">
+    <div class="tw-panel__title"><span>Tweaks</span>Tech audit</div>
+    <button class="tw-panel__close" id="twClose" aria-label="Close">×</button>
+  </div>
+  <div class="tw-panel__body">
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Density</b><small>row padding</small></div>
+      <div class="tw-seg" data-tweak="density">
+        <button data-val="dense">compact</button>
+        <button data-val="standard">standard</button>
+        <button data-val="cozy">cozy</button>
+      </div>
+    </div>
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Sunset emphasis</b><small>row tint for retiring systems</small></div>
+      <div class="tw-seg" data-tweak="emphasis">
+        <button data-val="subtle">subtle</button>
+        <button data-val="standard">standard</button>
+        <button data-val="strong">strong</button>
+      </div>
+    </div>
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Show vendor sublines</b><small>"Blackbaud · CRM" under names</small></div>
+      <div class="tw-toggle" data-tweak="vendorLines">
+        <span class="tw-toggle__txt">Vendor + category subtitle</span>
+        <div class="tw-toggle__sw"></div>
+      </div>
+    </div>
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Maturity column</b><small>current → target bars</small></div>
+      <div class="tw-toggle" data-tweak="matBars">
+        <span class="tw-toggle__txt">Show maturity bars</span>
+        <div class="tw-toggle__sw"></div>
+      </div>
+    </div>
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Health &amp; status columns</b><small>last two columns</small></div>
+      <div class="tw-toggle" data-tweak="healthCols">
+        <span class="tw-toggle__txt">Show integration health</span>
+        <div class="tw-toggle__sw"></div>
+      </div>
+    </div>
+
+    <div class="tw-row">
+      <div class="tw-row__label"><b>Row hover tint</b><small>interactive feedback</small></div>
+      <div class="tw-toggle" data-tweak="rowHover">
+        <span class="tw-toggle__txt">Highlight row on hover</span>
+        <div class="tw-toggle__sw"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="tw-foot">
+    <span>Live · saved to file</span>
+    <button id="twReset">reset</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ===== EDITMODE — defaults survive a reload =====
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "density": "standard",
+    "emphasis": "standard",
+    "vendorLines": true,
+    "matBars": true,
+    "healthCols": true,
+    "rowHover": true
+  }/*EDITMODE-END*/;
+
+  const body = document.body;
+  const panel = document.getElementById('twPanel');
+
+  // === apply ===
+  function apply(t) {
+    body.classList.toggle('tw-dense', t.density === 'dense');
+    body.classList.toggle('tw-cozy', t.density === 'cozy');
+
+    body.classList.toggle('tw-emph-subtle', t.emphasis === 'subtle');
+    body.classList.toggle('tw-emph-strong', t.emphasis === 'strong');
+
+    body.classList.toggle('tw-no-vendor', !t.vendorLines);
+    body.classList.toggle('tw-no-bars', !t.matBars);
+    body.classList.toggle('tw-no-health', !t.healthCols);
+    body.classList.toggle('tw-no-hover', !t.rowHover);
+
+    // sync seg UIs
+    panel.querySelectorAll('.tw-seg').forEach(seg => {
+      const k = seg.dataset.tweak;
+      seg.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('is-on', b.dataset.val === t[k]);
+      });
+    });
+    panel.querySelectorAll('.tw-toggle').forEach(tg => {
+      const k = tg.dataset.tweak;
+      tg.classList.toggle('is-on', !!t[k]);
+    });
+  }
+
+  // === update + persist ===
+  function setTweak(key, val) {
+    TWEAKS[key] = val;
+    apply(TWEAKS);
+    try {
+      window.parent.postMessage(
+        { type: '__edit_mode_set_keys', edits: { [key]: val } },
+        '*'
+      );
+    } catch (e) {}
+  }
+
+  // === wire seg buttons ===
+  panel.querySelectorAll('.tw-seg').forEach(seg => {
+    seg.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-val]');
+      if (!btn) return;
+      setTweak(seg.dataset.tweak, btn.dataset.val);
+    });
+  });
+  // === wire toggles ===
+  panel.querySelectorAll('.tw-toggle').forEach(tg => {
+    tg.addEventListener('click', () => {
+      const k = tg.dataset.tweak;
+      setTweak(k, !TWEAKS[k]);
+    });
+  });
+  // === reset ===
+  document.getElementById('twReset').addEventListener('click', () => {
+    const defaults = { density: 'standard', emphasis: 'standard', vendorLines: true, matBars: true, healthCols: true, rowHover: true };
+    Object.keys(defaults).forEach(k => setTweak(k, defaults[k]));
+  });
+
+  // === host protocol: register listener FIRST, then announce ===
+  window.addEventListener('message', (e) => {
+    if (!e.data || typeof e.data !== 'object') return;
+    if (e.data.type === '__activate_edit_mode') {
+      panel.classList.add('is-open');
+    } else if (e.data.type === '__deactivate_edit_mode') {
+      panel.classList.remove('is-open');
+    }
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  // === close button + dismiss notify ===
+  document.getElementById('twClose').addEventListener('click', () => {
+    panel.classList.remove('is-open');
+    try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch (e) {}
+  });
+
+  // === drag the panel by its head ===
+  (function drag() {
+    const head = document.getElementById('twHead');
+    let sx, sy, sr, sb, dragging = false;
+    head.addEventListener('mousedown', (e) => {
+      if (e.target.closest('button')) return;
+      dragging = true;
+      const rect = panel.getBoundingClientRect();
+      sx = e.clientX; sy = e.clientY;
+      sr = window.innerWidth - rect.right;
+      sb = window.innerHeight - rect.bottom;
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      panel.style.right = Math.max(8, sr - dx) + 'px';
+      panel.style.bottom = Math.max(8, sb - dy) + 'px';
+    });
+    window.addEventListener('mouseup', () => { dragging = false; });
+  })();
+
+  // === initial render ===
+  apply(TWEAKS);
+})();
+</script>
+
+</body>
+</html>

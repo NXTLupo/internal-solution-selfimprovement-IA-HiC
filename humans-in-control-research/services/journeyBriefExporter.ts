@@ -1,12 +1,12 @@
 // services/journeyBriefExporter.ts
-// 2026-05-26 — Journey Brief export path.
+// 2026-05-26 - Journey Brief export path.
 //
 // THE PROBLEM this solves: exporting a journey artifact to PPTX used to
 // rasterize / stretch the interactive journey HTML (emotion curve +
 // stretched theme boxes), producing an unreadable "stretched slop"
 // slide. A journey bound for a partner deck should be a SUMMARIZED
 // JOURNEY BRIEF authored by a reasoning model: diagnostic title, per-
-// stage summary, top cross-cutting pains, top opportunities, KPIs —
+// stage summary, top cross-cutting pains, top opportunities, KPIs -
 // one clean on-brand slide.
 //
 // THE FIX: this module takes the journey artifact's HTML (or its

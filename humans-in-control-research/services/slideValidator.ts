@@ -1,5 +1,5 @@
 /**
- * Slide Validator — post-parse quality gate for AI-emitted :::slide blocks.
+ * Slide Validator - post-parse quality gate for AI-emitted :::slide blocks.
  *
  * Catches the failure mode where, when evidence is thin, the AI fills case-
  * study / theme / quote templates with meta-commentary about the research
@@ -11,7 +11,7 @@
  *
  * These slip past the existing SLOP_PHRASES banlist (which targets paradigm-
  * shift-style jargon) because they sound analytical. This module flags them
- * so the renderer can surface an EVIDENCE GAP badge — the slide still
+ * so the renderer can surface an EVIDENCE GAP badge - the slide still
  * renders, but the operator sees exactly what's wrong.
  *
  * Design contract:
@@ -119,7 +119,7 @@ export interface SlideIssue {
 export interface SlideValidationResult {
     ok: boolean;
     issues: SlideIssue[];
-    /** True if any issue is severity 'gap' — the slide should render with an
+    /** True if any issue is severity 'gap' - the slide should render with an
      *  EVIDENCE GAP badge so the operator knows the underlying evidence is thin. */
     evidenceGap: boolean;
     /** Short user-facing summary for the badge tooltip. Empty when ok. */
@@ -152,7 +152,7 @@ function mentionsSubject(text: string | undefined, subject: string | undefined):
     return subTokens.some(t => lowerText.includes(t));
 }
 
-/** Normalize a string for comparison — collapses whitespace + lowercases. */
+/** Normalize a string for comparison - collapses whitespace + lowercases. */
 function norm(s: string | undefined): string {
     return (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
 }
@@ -219,7 +219,7 @@ function validateBlockQuote(slide: any): SlideIssue[] {
     if (text && title && text === title) {
         issues.push({
             field: 'quote.text',
-            reason: 'Quote text is identical to the slide title — no distinct evidence.',
+            reason: 'Quote text is identical to the slide title - no distinct evidence.',
             severity: 'gap',
         });
     }
@@ -234,7 +234,7 @@ function validateBlockQuote(slide: any): SlideIssue[] {
     return issues;
 }
 
-/** Generic title check — flags action titles that describe the research
+/** Generic title check - flags action titles that describe the research
  *  artifact ("This slide shows...", "The corpus reveals...") instead of
  *  stating a conclusion about the subject. */
 function validateTitle(slide: any): SlideIssue[] {
@@ -253,7 +253,7 @@ function validateTitle(slide: any): SlideIssue[] {
     return issues;
 }
 
-/** Theme cluster / spotlight / arc / mosaic — check each child theme's
+/** Theme cluster / spotlight / arc / mosaic - check each child theme's
  *  insight and evidence/quote for corpus meta-commentary. */
 function validateThemeCluster(slide: any): SlideIssue[] {
     const issues: SlideIssue[] = [];
@@ -276,7 +276,7 @@ function validateThemeCluster(slide: any): SlideIssue[] {
 // --- ROOT VALIDATOR ---
 
 /**
- * Validate a parsed :::slide block. Returns an advisory result — the caller
+ * Validate a parsed :::slide block. Returns an advisory result - the caller
  * decides whether to render, warn, or reject.
  */
 export function validateSlide(slide: any): SlideValidationResult {

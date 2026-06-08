@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "check:templates": "node scripts/check-template-parity.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "skillopt:extract": "python scripts/extract-rollouts.py --workspace hic-workspace --out-dir ../tmp/skillopt-rollouts",
     "skillopt:build-training": "python scripts/build-training-set.py --real-rollouts-dir ../tmp/skillopt-rollouts --out-dir ../tmp/skillopt-training",
     "skillopt:train": "bash scripts/skillopt-batch.sh",

@@ -1,4 +1,4 @@
-// councilSynthesis.ts — 2026-05-11 (HiC-Active-Loop-Improvements #2)
+// councilSynthesis.ts - 2026-05-11 (HiC-Active-Loop-Improvements #2)
 //
 // Sanhedrin Architecture for HiC chat: fan a single user query out to THREE
 // independent models in parallel, then synthesize their answers via a fourth
@@ -9,10 +9,10 @@
 // When the user picks "Council" in the chat model selector, sendChatMessage
 // delegates here instead of calling a single provider. The synthesizer is
 // Claude Opus by default (its long-synthesis behavior is strongest); the
-// three reads are Gemini 3.1 Pro, Claude Opus, and DeepSeek V4 Flash —
+// three reads are Gemini 3.1 Pro, Claude Opus, and DeepSeek V4 Flash -
 // distinct training lineages so disagreements are real, not stylistic.
 //
-// Cost: ~3× per query. We don't enable Council by default — the user must
+// Cost: ~3× per query. We don't enable Council by default - the user must
 // opt in via the chat dropdown. For high-stakes deliverables (long-form
 // technical manuals, strategy decks, persona architectures) this is cheap
 // insurance against a single model's blind spots.
@@ -26,7 +26,7 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 const COUNCIL_READERS: ChatModel[] = [
     'gemini-3.1-pro-preview',
     'deepseek-v4-flash',
-    // 2026-05-11 — third reader is GPT-5.5 via the OpenAI path. The proxy
+    // 2026-05-11 - third reader is GPT-5.5 via the OpenAI path. The proxy
     // already has automatic Gemini-fallback if OpenAI returns 429/auth fail,
     // so the third slot is resilient even when OpenAI quota is exhausted.
     'gpt-5.5' as ChatModel,
@@ -55,7 +55,7 @@ export interface CouncilOutput {
  *
  * The `sendOne` callback is injected by the caller (sendChatMessage in
  * corpusChatService.ts) so we don't duplicate the provider dispatch logic
- * here — Council piggybacks on the same chat path each model normally uses.
+ * here - Council piggybacks on the same chat path each model normally uses.
  */
 export async function runCouncilSynthesis(args: {
     userMessage: string;
@@ -66,7 +66,7 @@ export async function runCouncilSynthesis(args: {
     const t0 = Date.now();
 
     // Fire the three readers concurrently. Use allSettled so one model's
-    // failure (timeout, content_filter, quota) doesn't kill the council —
+    // failure (timeout, content_filter, quota) doesn't kill the council -
     // synthesis can still proceed with 2 of 3 reads if necessary.
     const reads = await Promise.allSettled(
         COUNCIL_READERS.map(async (model) => {
@@ -123,7 +123,7 @@ export async function runCouncilSynthesis(args: {
         finalText = await args.sendOne(
             COUNCIL_SYNTHESIZER,
             synthesisPrompt,
-            [], // empty history — synthesis is a fresh single-turn call
+            [], // empty history - synthesis is a fresh single-turn call
         );
     } catch (e: any) {
         // If the synthesizer itself fails, fall back to the longest read.
@@ -171,14 +171,14 @@ ${userMessage}
 ${readBlocks}
 
 ## Synthesis instructions
-1. Identify the CONSENSUS — claims, structure, citations, and recommendations that appear in 2+ reads. These are the strongest part of the final answer.
-2. Identify DISAGREEMENTS — places where readers contradict each other or where one read goes substantially deeper than another. Pick the more rigorous version (more citations, more specificity, more concrete artifacts) for the final answer.
-3. Identify GAPS — claims one reader makes that no other corroborated AND that you cannot independently verify from the context. Either remove these claims or downgrade them to softer language.
+1. Identify the CONSENSUS - claims, structure, citations, and recommendations that appear in 2+ reads. These are the strongest part of the final answer.
+2. Identify DISAGREEMENTS - places where readers contradict each other or where one read goes substantially deeper than another. Pick the more rigorous version (more citations, more specificity, more concrete artifacts) for the final answer.
+3. Identify GAPS - claims one reader makes that no other corroborated AND that you cannot independently verify from the context. Either remove these claims or downgrade them to softer language.
 4. Compose a single final answer that:
-   - Matches or exceeds the LENGTH and DEPTH of the longest individual read (the user asked for substantial output and got it from at least one reader — don't compress)
+   - Matches or exceeds the LENGTH and DEPTH of the longest individual read (the user asked for substantial output and got it from at least one reader - don't compress)
    - Preserves every concrete artifact (code blocks, named entities, specific numbers, citations) that appeared in any read and survived consensus
    - Reads as a single coherent voice, NOT a "Model 1 said... Model 2 said..." comparison
    - Never references the readers, the synthesis process, or that multiple models were consulted
 
-Return ONLY the final answer. No preamble. No meta-commentary about the synthesis. The reader is an executive — they see only the deliverable.`;
+Return ONLY the final answer. No preamble. No meta-commentary about the synthesis. The reader is an executive - they see only the deliverable.`;
 }

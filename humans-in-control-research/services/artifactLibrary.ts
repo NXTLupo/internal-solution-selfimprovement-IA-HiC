@@ -1,4 +1,4 @@
-// artifactLibrary.ts — 2026-05-12 (Sprint H1)
+// artifactLibrary.ts - 2026-05-12 (Sprint H1)
 //
 // CRUD client for the proxy's /api/artifacts family. Mirrors
 // prototypeLibrary.ts. Supports the new #brief / #explainer / #report /
@@ -74,7 +74,7 @@ export interface SaveArtifactInput {
 
 export async function saveArtifact(input: SaveArtifactInput): Promise<ArtifactSummary> {
     // Retry on transient network failures (proxy restart). Same pattern
-    // as savePrototype — 3 attempts with exponential backoff so a 39KB
+    // as savePrototype - 3 attempts with exponential backoff so a 39KB
     // HTML artifact does not vanish to a 2-second proxy hiccup.
     let resp: Response | null = null;
     let lastErr: any = null;

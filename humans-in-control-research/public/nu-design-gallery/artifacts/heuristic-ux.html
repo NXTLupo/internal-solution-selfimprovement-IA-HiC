@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Heuristic UX Audit: NUworks application flow</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .hx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+  .hx { background: var(--bg-surface); padding: 16px 18px; display: grid; grid-template-columns: 40px 1fr 64px; column-gap: 14px; align-items: start; border-left: 3px solid var(--slate-300); }
+  .hx.sev-h { border-left-color: var(--error-solid); }
+  .hx.sev-m { border-left-color: var(--warning-solid); }
+  .hx.sev-l { border-left-color: var(--success-solid); }
+  .hx__n { font-family: var(--font-display); font-weight: 600; font-size: 24px; color: var(--fg-subtle); line-height: 1; }
+  .hx__name { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--fg-strong); line-height: 1.15; margin-bottom: 5px; }
+  .hx__find { font-size: 12px; line-height: 1.45; color: var(--fg-default); }
+  .hx__ev { display: block; margin-top: 7px; font-size: 11px; line-height: 1.4; color: var(--fg-muted); }
+  .hx__ev .q { font-family: var(--font-display); font-style: italic; color: var(--fg-strong); }
+  .hx__ev cite { font-style: normal; font-family: var(--font-mono); font-size: 9.5px; color: var(--fg-subtle); }
+  .hx__grade { text-align: right; }
+  .hx__grade .g { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1; display: block; }
+  .hx__grade .g.h { color: var(--error-solid); } .hx__grade .g.m { color: var(--warning-solid); } .hx__grade .g.l { color: var(--success-solid); }
+  .hx__grade .sev { font-family: var(--font-mono); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-muted); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">NUworks · Heuristic UX audit · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Heuristic UX · Nielsen 10</div>
+    <h1 class="art-masthead__title" style="width: 560px">The application flow hides whether a recruiter ever saw the resume, and that single status ambiguity drives most of the student confusion.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Surface</dt><dd>Student apply flow</dd></div>
+    <div class="art-masthead__meta-block"><dt>Method</dt><dd>Nielsen 10</dd></div>
+    <div class="art-masthead__meta-block"><dt>Redesign-now</dt><dd>Three heuristics</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="stat-strip" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 22px;">
+    <div class="stat"><div class="stat__label">Highest-severity gap</div><div class="stat__value">Status opacity</div><div class="stat__delta stat__delta--down">filtered vs reviewed is indistinguishable</div></div>
+    <div class="stat"><div class="stat__label">Vocabulary mismatch</div><div class="stat__value">Vendor jargon</div><div class="stat__delta">students search by major and term</div></div>
+    <div class="stat"><div class="stat__label">Recovery</div><div class="stat__value">No self-withdraw</div><div class="stat__delta">requests routed through advisors</div></div>
+  </div>
+
+  <div class="hx-grid">
+
+    <div class="hx sev-h">
+      <div class="hx__n">01</div>
+      <div>
+        <div class="hx__name">Visibility of system status</div>
+        <div class="hx__find">Submission status reads the same for an ATS-accepted and an ATS-rejected application, so a student cannot tell whether a human ever opened the resume.</div>
+        <span class="hx__ev"><span class="q">"No idea if a human ever saw the rest."</span> <cite>Reddit r/NEU</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g h">D</span><span class="sev">high</span></div>
+    </div>
+
+    <div class="hx sev-h">
+      <div class="hx__n">02</div>
+      <div>
+        <div class="hx__name">Match between system and the real world</div>
+        <div class="hx__find">Posting filters use vendor labels (requisition class, cycle window) while students think in major and term, so first-session search is slow and error-prone.</div>
+        <span class="hx__ev"><span class="q">"No way to sort by what I'm actually qualified for."</span> <cite>Reddit r/cscareerquestions</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g h">C</span><span class="sev">high</span></div>
+    </div>
+
+    <div class="hx sev-m">
+      <div class="hx__n">03</div>
+      <div>
+        <div class="hx__name">User control and freedom</div>
+        <div class="hx__find">No withdraw affordance after submission. A student who changes their mind has to email the co-op office, which routes the request through an advisor.</div>
+        <span class="hx__ev">Withdrawal requests currently arrive as advisor email, not a self-service action. <cite>Coordinator field-note</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g m">C</span><span class="sev">med</span></div>
+    </div>
+
+    <div class="hx sev-h">
+      <div class="hx__n">04</div>
+      <div>
+        <div class="hx__name">Error prevention</div>
+        <div class="hx__find">Nothing warns a student that a resume keyword set is mismatched to a posting before they submit, so qualified students are filtered out at the gate with no prior signal.</div>
+        <span class="hx__ev"><span class="q">"The templates push Java, but every posting wants Python."</span> <cite>Reddit r/NEU</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g h">D</span><span class="sev">high</span></div>
+    </div>
+
+    <div class="hx sev-l">
+      <div class="hx__n">05</div>
+      <div>
+        <div class="hx__name">Recognition rather than recall</div>
+        <div class="hx__find">Saved searches and prior applications are surfaced on return, so students do not re-key their criteria each session. This heuristic largely holds.</div>
+        <span class="hx__ev">Returning-session recall works; the gap is downstream at status, not entry. <cite>Usability walkthrough</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g l">B</span><span class="sev">low</span></div>
+    </div>
+
+    <div class="hx sev-m">
+      <div class="hx__n">06</div>
+      <div>
+        <div class="hx__name">Help and documentation</div>
+        <div class="hx__find">Guidance exists but lives in a separate office and a separate portal, so students reach an upperclassman before they find the official help.</div>
+        <span class="hx__ev"><span class="q">"I asked an upperclassman before I asked my coordinator."</span> <cite>First-year diary study</cite></span>
+      </div>
+      <div class="hx__grade"><span class="g m">C</span><span class="sev">med</span></div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Evidence cited inline</div>
+    <ol>
+      <li><b>Reddit r/NEU</b> · application + status threads, 2026-Q1</li>
+      <li><b>Reddit r/cscareerquestions</b> · posting-search friction</li>
+      <li><b>Co-op coordinator field-note</b> · withdrawal routing, 2025-12</li>
+      <li><b>First-year diary study</b> · help-seeking path, 2026-03</li>
+      <li><b>Usability walkthrough</b> · NUworks return session</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">HEURISTIC UX · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Method: Nielsen 10 · Brand: NU</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-// chatFeedbackExtractor.ts -- 2026-05-19
+﻿// chatFeedbackExtractor.ts -- 2026-05-19
 //
 // Captures user feedback signals from the Analyst Desk and Designer Desk
 // chat surfaces and turns them into FeedbackSignal objects that the
@@ -34,7 +34,7 @@ export interface FeedbackSignal {
     chatSurface: 'analyst' | 'designer';
     timestamp: number;
     /**
-     * 2026-05-20 — Artifact kind this feedback applies to ('journey',
+     * 2026-05-20 - Artifact kind this feedback applies to ('journey',
      * 'blueprint', 'persona', 'org', 'arch', 'roadmap', 'theme', 'recommendation',
      * etc.). Extracted by the classifier from the message + active-artifact
      * context. 'all' (or undefined) for messages that apply universally.
@@ -53,7 +53,7 @@ const NEGATION_RX = /\b(no|don'?t|never|not|without|stop|doesn'?t|isn'?t|wrong|i
 const RULE_RX = /\b(always|from\s+now\s+on|going\s+forward|every\s+time|whenever|instead|rule:|never\s+use|stop\s+using|don'?t\s+use|prefer|should(\s+not)?\s+\w+|shouldn'?t|must\s+(not\s+)?\w+)\b/i;
 const PREFERENCE_RX = /\b(prefer|better|worse|like|annoying|frustrating|awkward|clunky|stilted|formulaic|generic|hedging|wishy-washy)\b/i;
 const IMPERATIVE_RX = /^(make|change|fix|rewrite|redo|shorten|lengthen|simplify|clarify|tighten|remove|add|delete|replace|use|swap|cut|drop)\s/i;
-// 2026-05-20 — Density/detail preferences. These are RULES (apply to every
+// 2026-05-20 - Density/detail preferences. These are RULES (apply to every
 // future generation) even when phrased as a one-shot correction ("more
 // detailed", "more activities", "include 3 pain points per phase"). Without
 // this gate the classifier sees them as plain corrections and never persists
@@ -125,19 +125,19 @@ interface ClassifierResult {
 
 async function callClassifier(userText: string, aiText: string, activeArtifactKind?: string): Promise<ClassifierResult | null> {
     const kindHint = activeArtifactKind
-        ? `\n\nACTIVE ARTIFACT KIND (context): ${activeArtifactKind} — use this to disambiguate artifactKind unless the message explicitly references a different kind.`
+        ? `\n\nACTIVE ARTIFACT KIND (context): ${activeArtifactKind} - use this to disambiguate artifactKind unless the message explicitly references a different kind.`
         : '';
     const userPayload = `RECENT AI OUTPUT (truncated):\n${aiText.slice(0, 400) || '(no prior AI message in context)'}${kindHint}\n\nUSER MESSAGE:\n${userText}`;
 
     try {
-        // 2026-05-20 — Switched from OpenAI to Gemini Flash. The OpenAI key
+        // 2026-05-20 - Switched from OpenAI to Gemini Flash. The OpenAI key
         // on this account hits insufficient_quota 429s constantly; classifier
         // calls have been silently failing for the whole session, which is
         // why feedback hasn't been getting persisted as rules. Gemini Flash
         // is the same speed/cost class and the workbench's healthiest
         // provider.
         const parsed = await callAIWithRetry('gemini', {
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.5-flash',
             systemInstruction: { parts: [{ text: CLASSIFIER_SYSTEM }] },
             contents: [{ role: 'user', parts: [{ text: userPayload }] }],
             config: {
@@ -202,7 +202,7 @@ export async function classifyMessage(
     if (result.type === 'none') return null;
     if (result.confidence < 0.5) return null;
 
-    // 2026-05-20 — Density-preference upgrade: if the message clearly states
+    // 2026-05-20 - Density-preference upgrade: if the message clearly states
     // a density/structural preference ("more activities per phase", "always
     // include 3 pain points"), upgrade `correction` → `rule` and floor the
     // confidence at 0.85 so it bypasses the 5-edit detect-patterns threshold

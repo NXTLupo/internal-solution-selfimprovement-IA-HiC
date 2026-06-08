@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Generate a typed SlideSpec JSON from a user prompt + corpus + brand + kind.
  *
  * The architectural pivot away from chatToFreeform: instead of asking the
@@ -9,7 +9,7 @@
  * The model is told the slide is 13.333" × 7.5" (16:9 widescreen) and
  * asked to populate `objects` with positioned text/shape/line/image
  * primitives. Brand chrome (atmospheric overlays, grain, ::before lines)
- * is added by the renderers — the model focuses on content placement.
+ * is added by the renderers - the model focuses on content placement.
  */
 
 import { validateSlideSpec, type SlideSpec, SLIDE_W_IN, SLIDE_H_IN } from '../schemas/slideSpec';
@@ -19,8 +19,8 @@ import type { BrandHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-// 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary.
-export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview';
+// 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary.
+export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview';
 
 export interface SlideSpecGenerateArgs {
     kind: FreeformKind;
@@ -49,12 +49,12 @@ function resolveProviderModelId(m: SlideSpecModel): string {
     if (m === 'deepseek-v4-flash') return 'deepseek-v4-flash';
     if (m === 'gpt-5.4') return 'gpt-5.4';
     if (m === 'gemini-3.1-pro-preview') return 'gemini-3.1-pro-preview';
-    return 'gemini-2.5-flash';
+    return 'gemini-3.5-flash';
 }
 
 async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
-    // 2026-05-05 — DeepSeek V4 Flash is the primary path.
+    // 2026-05-05 - DeepSeek V4 Flash is the primary path.
     if (m === 'deepseek-v4-flash') {
         const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
             method: 'POST',
@@ -89,20 +89,20 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
 }
 
 // ---------------------------------------------------------------------------
-// Per-kind layout guidance — what content the AI should produce
+// Per-kind layout guidance - what content the AI should produce
 // ---------------------------------------------------------------------------
 
 function perKindGuidance(kind: FreeformKind): string {
     const common = `
 LAYOUT BANDS (positions in slide inches):
-  Top band:      x=0.4, y=0.18, w=12.5, h=1.0     — eyebrow + h1 + lede + meta
-  Body zone:     x=0.4, y=1.30, w=12.5, h=5.20    — kind-specific content
-  Bottom band:   x=0.4, y=6.65, w=12.5, h=0.65    — voice quote / stat tiles / footnote
+  Top band:      x=0.4, y=0.18, w=12.5, h=1.0     - eyebrow + h1 + lede + meta
+  Body zone:     x=0.4, y=1.30, w=12.5, h=5.20    - kind-specific content
+  Bottom band:   x=0.4, y=6.65, w=12.5, h=0.65    - voice quote / stat tiles / footnote
 
 TOP BAND TEXT OBJECTS (always include these):
   • role="eyebrow"   small caps, color=accent, size 7pt, charSpacing=2, at (0.4, 0.20, 6.0, 0.20)
   • role="h1"        bold body title, size 28pt, at (0.4, 0.42, 9.5, 0.55)
-  • role="lede"      paragraph, size 9pt, at (0.4, 1.00, 8.5, 0.30) — include any inline-formatted phrases as separate runs
+  • role="lede"      paragraph, size 9pt, at (0.4, 1.00, 8.5, 0.30) - include any inline-formatted phrases as separate runs
   • role="meta"      mono, small caps, size 7pt, right-aligned, at (10.0, 0.20, 2.9, 1.00)
   • role="brandSeal" 0.32"×0.32" filled rect with single-letter text on top, at (0.4, 0.18)
 
@@ -137,7 +137,7 @@ JOURNEY MAP (CURRENT-state) body must contain:
 SERVICE BLUEPRINT (FUTURE-state) body must contain:
   • 4 canonical lanes (Customer Action / Frontstage / Backstage / Support Processes).
   • Vertical line of visibility between Frontstage and Backstage (2pt dashed full-height).
-  • Step boxes at band_top + 0.18" OR band_bottom − 0.18" — never overlapping the lane line.
+  • Step boxes at band_top + 0.18" OR band_bottom − 0.18" - never overlapping the lane line.
   • Fail-point markers + emotion bands in row ABOVE the lanes.
   • Frame everything as proposed redesign (what SHOULD BE).
 `;
@@ -148,7 +148,7 @@ TECHNICAL ARCHITECTURE body must contain:
   • System boxes 1.6-2.0" wide × 0.55-0.7" tall. NO box smaller than 1.6×0.55.
   • Max 6 boxes per tier horizontally; if more, use 2 rows within tier.
   • Connector arrows between systems with 1.5pt stroke + endArrow=true.
-  • Connectors NEVER cross THROUGH a system box — route around with midpoints.
+  • Connectors NEVER cross THROUGH a system box - route around with midpoints.
   • Datastore icons distinguished from service icons (use ellipse for datastore, roundRect for service).
 `;
         case 'roadmap':
@@ -213,17 +213,17 @@ CRITICAL: omit any property whose value is the default. Don't include keys with 
         args.brand === 'nu'
             ? `paper: "FAF8F4" (slide background)
 primary: "0A0A0A" (body text + lines + node borders)
-accent: "C8102E" (NU red — emphasis, eyebrow color, highlight box fill)
-secondary: "6E54E0" (violet — alternative accent)
-muted: "5C5C5C" (grey — sub-labels, role descriptions)
-soft: "FBE8EC" (pink — for L3/sub-team band fill)
-cream: "F4F1EA" (cream — secondary band fill)
+accent: "C8102E" (NU red - emphasis, eyebrow color, highlight box fill)
+secondary: "6E54E0" (violet - alternative accent)
+muted: "5C5C5C" (grey - sub-labels, role descriptions)
+soft: "FBE8EC" (pink - for L3/sub-team band fill)
+cream: "F4F1EA" (cream - secondary band fill)
 fonts: Archivo (body + display), Fraunces (italic emphasis in h1), JetBrains Mono (eyebrow + meta)`
             : `paper: "FFFFFF" (slide background)
 primary: "0D0D0D" (body text + lines)
-accent: "B8B800" (NXT chartreuse — emphasis, highlight)
-secondary: "00B7C3" (cyan — alternative accent)
-muted: "666666" (grey — sub-labels)
+accent: "B8B800" (NXT chartreuse - emphasis, highlight)
+secondary: "00B7C3" (cyan - alternative accent)
+muted: "666666" (grey - sub-labels)
 fonts: Archivo (body + display), Fraunces (italic), JetBrains Mono (eyebrow + meta)`));
 
     // Per-kind guidance
@@ -236,7 +236,7 @@ fonts: Archivo (body + display), Fraunces (italic), JetBrains Mono (eyebrow + me
 
     // Revision
     if (args.currentArtifact) {
-        sections.push(`\n=== CURRENT SPEC (REVISION mode — apply user intent; preserve unchanged objects; modify only what the prompt requests) ===\n` +
+        sections.push(`\n=== CURRENT SPEC (REVISION mode - apply user intent; preserve unchanged objects; modify only what the prompt requests) ===\n` +
             `id: ${args.currentArtifact.id}\n` +
             `title: ${args.currentArtifact.title}\n` +
             `--- existing spec JSON ---\n` +

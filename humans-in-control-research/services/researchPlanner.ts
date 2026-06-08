@@ -1,8 +1,8 @@
-// services/researchPlanner.ts
+﻿// services/researchPlanner.ts
 // HiC Deep Research planner + reflector loop.
 // See .claude/skills/research-planner/SKILL.md for the planning contract.
 //
-// 2026-05-24 — Phase 5 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 5 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { stableHash, withResilience, isThrottleError, type DegradationEvent, emitDegradationEvent } from './multiModelResilience';
@@ -169,7 +169,7 @@ export async function buildResearchPlan(input: ResearchPlannerInput): Promise<Re
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// Reflector loop — runs AFTER plan approval, during collection
+// Reflector loop - runs AFTER plan approval, during collection
 // ──────────────────────────────────────────────────────────────────────────
 
 export type ReflectionResult = {
@@ -272,7 +272,7 @@ export async function reflectOnCollection(opts: {
                     messages: [{ role: 'user', content: prompt }],
                 }
                 : {
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-3.5-flash',
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: { temperature: 0, responseMimeType: 'application/json' },
                 };

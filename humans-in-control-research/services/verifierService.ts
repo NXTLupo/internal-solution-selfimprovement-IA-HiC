@@ -1,5 +1,5 @@
 /**
- * Verifier Service — Pre-shipping quality gate.
+ * Verifier Service - Pre-shipping quality gate.
  *
  * Runs three checks on every generated deliverable before the user sees it:
  *   - brief-fit:      every section serves at least one stated engagement goal
@@ -138,8 +138,8 @@ Return STRICT JSON only:
 
 Default to "pass" when checks succeed. Use "weak" for partial issues. Use "fail" only for clear violations.`;
 
-    // 2026-05-22 — Model selection. The verifier runs three structured
-    // checks against goals + framework + deliverable simultaneously — exactly
+    // 2026-05-22 - Model selection. The verifier runs three structured
+    // checks against goals + framework + deliverable simultaneously - exactly
     // the multi-step reasoning Gemini 3.5 Flash is designed for. Flash is
     // also ~10x cheaper than Opus and faster than Haiku per Google's
     // positioning, which matters because the verifier runs before every
@@ -188,7 +188,7 @@ Default to "pass" when checks succeed. Use "weak" for partial issues. Use "fail"
             return { findings: parsed.findings, overall: parsed.overall };
         }
     } catch (err) {
-        // Verifier failures must never block the user — return pass on error
+        // Verifier failures must never block the user - return pass on error
         console.warn('[verifier] LLM check failed:', err);
     }
     return { findings: [], overall: 'pass' };
@@ -219,7 +219,7 @@ async function appendVerifierHistory(report: VerifierReport): Promise<void> {
  * Main entry: verify a deliverable. Returns the report; if any sections were
  * auto-regenerated, `finalText` contains the regenerated output.
  *
- * `autoRegenerate: false` makes this a pure inspection pass — no rewriting.
+ * `autoRegenerate: false` makes this a pure inspection pass - no rewriting.
  */
 export async function verifyDeliverable(input: {
     text: string;

@@ -1,21 +1,30 @@
-// 2026-05-26 — Static ESM import for the hashtag registry. Replaces the
+// 2026-05-26 - Static ESM import for the hashtag registry. Replaces the
 // Node-style `require('./hashtagRegistry')` call that broke at runtime
 // in the Vite browser bundle. `hashtagRegistry.ts` has no dependencies
 // on this file, so no circular risk. The `_hashtagRegistryModule` alias
 // is used by `extractHashtagDirectives` below.
 import * as _hashtagRegistryModule from './hashtagRegistry';
+// 2026-06-02 - Single canonical shaper for run intelligence + corpus manifest.
+// Replaces this file's inline theme/persona/rec/journey/gap/competitive/strategic
+// formatting so the Analyst chat, the Designer chat, and the staged engine all
+// inject the identical shape. buildCorpusManifest adds the corpus-composition
+// overview both chats previously lacked.
+import {
+    shapeThemes, shapePersonas, shapeRecommendations, shapeJourney,
+    shapeGap, shapeCompetitive, shapeStrategic, buildCorpusManifest,
+} from './intelligenceShaping';
 
 /**
- * Corpus Chat Service v2 — Chat-Driven Research Workbench
+ * Corpus Chat Service v2 - Chat-Driven Research Workbench
  *
  * Multi-model conversational interface grounded in the full research corpus,
  * wiki knowledge base, and specialized consulting skills.
  *
  * Models:
- * - Claude Opus 4.7 (Anthropic) — Primary: deep reasoning, strategy, agentic, vision, 1M context
- * - Claude Sonnet 4.6 (Anthropic) — Fast reasoning, structured output
- * - Gemini 2.5 Flash (Google) — Rapid data extraction, image generation
- * - GPT-5.4-mini (OpenAI) — Strict JSON schema compliance
+ * - Claude Opus 4.7 (Anthropic) - Primary: deep reasoning, strategy, agentic, vision, 1M context
+ * - Claude Sonnet 4.6 (Anthropic) - Fast reasoning, structured output
+ * - Gemini 2.5 Flash (Google) - Rapid data extraction, image generation
+ * - GPT-5.4-mini (OpenAI) - Strict JSON schema compliance
  *
  * Architecture:
  * - Tiered knowledge loading (brand/constraints always, skills on-demand)
@@ -24,12 +33,12 @@ import * as _hashtagRegistryModule from './hashtagRegistry';
  * - Full corpus grounding (no 500KB cap for Claude 4.7)
  */
 
-// 2026-05-07 — Promoted Gemini 3.1 Pro to primary chat model. DeepSeek V4
+// 2026-05-07 - Promoted Gemini 3.1 Pro to primary chat model. DeepSeek V4
 // Flash produced jargon-heavy, hyperbolic, AI-slop narratives that read as
 // fake. Gemini 3.1 Pro has a 1M-token context, follows multi-step
 // instructions reliably, and produces descriptive, professional copy.
 // The legacy DeepSeek IDs remain in the type so prior localStorage values
-// don't reject at parse-time — the resolver in sendChatMessage maps any
+// don't reject at parse-time - the resolver in sendChatMessage maps any
 // unrecognized model to gemini-3.1-pro-preview.
 export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-3.5-flash' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'council';
 
@@ -37,9 +46,9 @@ export interface ChatMessage {
     id: string;
     role: 'user' | 'assistant' | 'system';
     content: string;
-    // 2026-05-05 — Widened from ChatModel to string. Designer chat returns
+    // 2026-05-05 - Widened from ChatModel to string. Designer chat returns
     // FreeformGenerationModel / GenerationModel which can include legacy
-    // (Gemini/GPT) ids — those flow through here as message-level labels
+    // (Gemini/GPT) ids - those flow through here as message-level labels
     // for display only, not for routing.
     model?: string;
     timestamp: number;
@@ -52,10 +61,10 @@ export interface ChatMessage {
     deliveredArtifactType?: 'persona' | 'journey' | 'org';
     /** When true, the artifact is rendered inside a 16:9 NXT slide frame (triggered by #slide / #slides). */
     deliveredAsSlide?: boolean;
-    /** 2026-05-09 — Presentation library items. Set when the user typed the
+    /** 2026-05-09 - Presentation library items. Set when the user typed the
      *  bare `#presentations` (plural) command. The renderer surfaces a card
      *  grid with Open / Edit / Delete chips per item. */
-    libraryItems?: any[]; // PresentationSummary[] — kept loose to avoid a circular import
+    libraryItems?: any[]; // PresentationSummary[] - kept loose to avoid a circular import
     /** When the chat composed an interactive presentation, this is the renderer URL.
      * Triggers a Launch button to open the presentation in a separate window. */
     presentationUrl?: string;
@@ -66,7 +75,7 @@ export interface ChatMessage {
         citationCount?: number;
         sourceCount?: { external: number; uploaded: number; analysis: number; total: number };
     };
-    /** 2026-05-25 — Journey-map launcher (kept for backward compat). New
+    /** 2026-05-25 - Journey-map launcher (kept for backward compat). New
      *  generations use artifactLaunchUrl below. */
     journeyMapUrl?: string;
     journeyMapMeta?: {
@@ -76,10 +85,10 @@ export interface ChatMessage {
         model?: string;
         source?: string;
     };
-    /** 2026-05-25 — Unified artifact launcher (any deliverable kind). Set when
+    /** 2026-05-25 - Unified artifact launcher (any deliverable kind). Set when
      *  the unified /api/artifact/* engine produced the artifact and the proxy
      *  returned a launcher_url. The renderer surfaces a card with a Launch
-     *  button that opens the full interactive HTML in a new browser window —
+     *  button that opens the full interactive HTML in a new browser window -
      *  the chat iframe sandbox blocks scripts so interactive widgets are
      *  non-functional inside the Design Desk preview. Replaces journeyMapUrl
      *  for everything except legacy journey artifacts. */
@@ -92,7 +101,7 @@ export interface ChatMessage {
         model?: string;
         source?: string;
     };
-    /** 2026-05-11 — Prototype launcher. Set when the chat built an interactive
+    /** 2026-05-11 - Prototype launcher. Set when the chat built an interactive
      *  experience prototype via #proto. The renderer surfaces a card with
      *  Launch / Edit / Delete chips that open the prototype in a new window
      *  on http://127.0.0.1:5012/api/prototypes/{slug}/view. */
@@ -105,24 +114,24 @@ export interface ChatMessage {
         verdict?: 'ship' | 'refine' | 'rebuild';
         code_chars?: number;
     };
-    /** 2026-05-11 — Prototype library items. Set when user typed `#prototypes`
+    /** 2026-05-11 - Prototype library items. Set when user typed `#prototypes`
      *  (plural). Renderer surfaces a card grid with Launch / Edit / Delete. */
     prototypeLibraryItems?: any[];
-    /** 2026-05-13 — Brief-selection payload. Set when the user typed `#proto`
+    /** 2026-05-13 - Brief-selection payload. Set when the user typed `#proto`
      *  and the brief generator returned 5 distinct product briefs. The
      *  renderer surfaces each as a comparison card with full use-case detail
      *  and a BUILD THIS button that fires the build with the chosen brief. */
-    prototypeBriefs?: any[];        // ProductBrief[] — typed loose to avoid circular import
+    prototypeBriefs?: any[];        // ProductBrief[] - typed loose to avoid circular import
     prototypeBriefsMeta?: {
         brand: 'NXT' | 'NU';
         basedOn?: string;
         researchGoal?: string;
         originalConcept: string;     // the rich concept text the user submitted; passed to buildPrototype later
     };
-    /** 2026-05-11 — Structured recommendation tiles emitted by #recommendations.
+    /** 2026-05-11 - Structured recommendation tiles emitted by #recommendations.
      *  Renderer surfaces each as an elegant tile with thumbnail + concise PRD
      *  highlights + clickable mockup variants. Thumbnails populate asynchronously
-     *  after the initial JSON parse — the renderer treats `image_data` as
+     *  after the initial JSON parse - the renderer treats `image_data` as
      *  optional and shows a placeholder until it arrives. */
     recommendationTiles?: Array<{
         slug: string;
@@ -135,7 +144,7 @@ export interface ChatMessage {
         image_prompt: string;
         image_data?: string; // base64 data URI, set after Imagen generation
         variants: Array<{ label: string; command: string }>;
-        // 2026-05-11 — Execution-depth fields. Populated when the model is
+        // 2026-05-11 - Execution-depth fields. Populated when the model is
         // given client-specific constraints (e.g., dependency on an initiative,
         // existing-stack reuse, stakeholder non-starters, effort/risk). All
         // optional so older saved tiles still render.
@@ -146,21 +155,21 @@ export interface ChatMessage {
         effort_estimate?: string;       // T-shirt or "X engineer-weeks"
         risk_level?: 'low' | 'medium' | 'high' | string;
         evidence_sources?: string[];    // filenames or source names cited
-        // 2026-05-11 — Consulting-depth fields. Each is multi-paragraph
+        // 2026-05-11 - Consulting-depth fields. Each is multi-paragraph
         // content modeled on the user's original prompt structure (Liz/Jen
         // brief). Optional so older tiles still render but the tile UI
         // should expand to show them when present.
         // Generic, context-aware field names (preferred going forward).
         initiative_dependent?: boolean | null;
         group?: 'initiative_dependent' | 'initiative_independent' | 'clr_dependent' | 'clr_independent' | null;
-        description?: string;                          // 80-180 words — what it IS
-        why_matters_target_segment?: string;           // 60-120 words — segment relevance (generic)
-        long_term_outcome_through_line?: string;       // 60-100 words — through-line (generic)
+        description?: string;                          // 80-180 words - what it IS
+        why_matters_target_segment?: string;           // 60-120 words - segment relevance (generic)
+        long_term_outcome_through_line?: string;       // 60-100 words - through-line (generic)
         initiative_dependency_explanation?: string;    // 60-120 words (generic; replaces clr_dependency_explanation)
-        execution_in_existing_stack?: string;          // 80-150 words — named systems (generic)
-        preferred_stack_fit?: string;                  // 60-120 words — named preferred-stack tools (generic)
-        stakeholder_guardrail_fit?: string;            // 60-120 words — passes the meeting filter (generic)
-        // Legacy aliases — older sessions used these names; the renderer
+        execution_in_existing_stack?: string;          // 80-150 words - named systems (generic)
+        preferred_stack_fit?: string;                  // 60-120 words - named preferred-stack tools (generic)
+        stakeholder_guardrail_fit?: string;            // 60-120 words - passes the meeting filter (generic)
+        // Legacy aliases - older sessions used these names; the renderer
         // falls back to them when the generic versions above are missing.
         why_matters_first_year?: string;
         long_term_coop_readiness?: string;
@@ -174,7 +183,7 @@ export interface ChatMessage {
         risks_constraints?: Array<{ risk: string; severity: 'low' | 'medium' | 'high' | string; mitigation: string }>;
         expected_impact?: string;
         verbatim_quote_evidence?: string;
-        // 2026-05-12 — VS-Multi (Sprint 2). frame labels whether this tile
+        // 2026-05-12 - VS-Multi (Sprint 2). frame labels whether this tile
         // is a defensible consensus pick or a non-obvious tail-of-distribution
         // bet. probability is the model's verbalized confidence (paper
         // 2510.01171v3 verbalized sampling). diverges_from documents on
@@ -183,9 +192,9 @@ export interface ChatMessage {
         probability?: number;
         diverges_from?: string;
     }>;
-    /** 2026-05-11 — Engagement context the recommendation-architect skill
+    /** 2026-05-11 - Engagement context the recommendation-architect skill
      *  extracts from the user's prompt + uploads BEFORE concepts. Drives
-     *  every label, group, and rule downstream — making the recommendations
+     *  every label, group, and rule downstream - making the recommendations
      *  + prototypes pipeline brand/industry/persona agnostic. */
     engagementContext?: {
         client_name?: string;
@@ -201,7 +210,7 @@ export interface ChatMessage {
         hard_non_starters?: string[];
         regulatory_constraints?: string[];
     };
-    /** 2026-05-11 — Analytical preamble produced by the recommendation-architect
+    /** 2026-05-11 - Analytical preamble produced by the recommendation-architect
      *  skill before concepts. Captures stakeholder priorities, design
      *  principles, ideas to retire, and guardrail validation criteria the
      *  model extracted from the user prompt + uploads. Rendered above the
@@ -220,7 +229,7 @@ export interface ChatMessage {
     recommendationNextSteps?: string[];
 
     // ────────────────────────────────────────────────────────────────────
-    // 2026-05-12 — HTML artifact launchers (#brief, #explainer, #report,
+    // 2026-05-12 - HTML artifact launchers (#brief, #explainer, #report,
     // #playground, #approaches, #help). Mirror of presentationUrl /
     // prototypeUrl. Set by the chat handler after the artifact is saved.
     // ────────────────────────────────────────────────────────────────────
@@ -235,7 +244,7 @@ export interface ChatMessage {
         topic?: string;
         variants_count?: number;
     };
-    /** Used by bare #artifacts directive — renders an artifact library grid. */
+    /** Used by bare #artifacts directive - renders an artifact library grid. */
     artifactLibraryItems?: any[];
 }
 
@@ -275,18 +284,18 @@ export interface ChatContext {
     sourceReferences?: SourceReference[];
     chunkMap?: Record<string, { sourceName: string; title: string; url?: string }>;
     uploadedFileContents?: string;
-    /** 2026-04-21 — individual uploaded file objects (name + parsedText).
+    /** 2026-04-21 - individual uploaded file objects (name + parsedText).
      *  Kept as an array (not just concatenated text) so the Dynamic Prompt
      *  Chips can generate per-document questions like
      *  "Summarize CASE VSE 2025 key findings". Safe to omit; pre-collection
      *  suggestions fall back to generic prompts. */
     uploadedFiles?: Array<{ name: string; parsedText?: string }>;
-    /** 2026-04-21 — live source feed passed through so the Dynamic Prompt
+    /** 2026-04-21 - live source feed passed through so the Dynamic Prompt
      *  Chips can ask about the RETURNING SOURCES mid-collection. */
     liveSourceResults?: Array<{ source?: string; items?: Array<{ title?: string; sourceName?: string }>; status?: string }>;
-    // Knowledge Graph state — the AI must understand the graph structure
+    // Knowledge Graph state - the AI must understand the graph structure
     knowledgeGraph?: { nodes: any[]; edges: any[]; stats?: any };
-    // 2026-05-11 — Topic-modeling result from the Analyst Desk's Topic
+    // 2026-05-11 - Topic-modeling result from the Analyst Desk's Topic
     // Modeling tab. When deep-Reddit posts are clustered, the chat should
     // be able to cite cluster names ("Microsoft AI Tooling Excitement"),
     // sentiment buckets, c-TF-IDF terms, and the underlying post IDs. A
@@ -323,24 +332,24 @@ export interface ChatContext {
     wikiMethodologies?: string;
     wikiEngagement?: string;
     wikiSourceArchive?: string; // Full source archive from wiki with verified URLs
-    /** Phase 1.8 — deep extracted article bodies loaded from wiki via wikiPath.
+    /** Phase 1.8 - deep extracted article bodies loaded from wiki via wikiPath.
      *  Pre-built by the caller (App.tsx / ChatWorkbench) so buildGroundingContext
      *  just concatenates it. Claude Opus 4.7's 1M context makes this trivial
      *  to include up to ~800KB of real article text. Each block is separated
      *  by a source-labeled header for citation reconstruction. */
     wikiArticleBodies?: string;
-    /** Phase 1.9 — synthesis outputs from prior engagements that semantically
+    /** Phase 1.9 - synthesis outputs from prior engagements that semantically
      *  match the current research goal. Gives the LLM context about reusable
      *  prior insights so it doesn't re-synthesize the same findings. */
     priorEngagementInsights?: string;
-    /** Phase 1-retrofit (2026-04-20) — wiki metadata index (titles, sources,
+    /** Phase 1-retrofit (2026-04-20) - wiki metadata index (titles, sources,
      *  dates, char counts, wikiPaths, 200-char summaries). This is the
      *  AI's menu of what's available in the wiki archive. Small (<100KB
      *  for most engagements); the AI uses it to decide which articles to
      *  request bodies for via the retrieval tool. Typically pre-built
      *  once per workbench session by the caller. */
     wikiIndexMenu?: string;
-    /** Phase 1-retrofit — pre-fetched article bodies for THIS specific
+    /** Phase 1-retrofit - pre-fetched article bodies for THIS specific
      *  message, pulled by keyword-matching the user's question against the
      *  wiki index. Purely additive: absent means "no pre-fetch happened"
      *  (proxy down, short message, or caller opted out) and the rest of
@@ -363,7 +372,7 @@ export interface SkillManifestEntry {
     category: 'research-deliverable' | 'prompt-engineering' | 'render-contract' | 'retrieval-enhancer' | 'quality-enhancer';
     /** Skills to auto-load alongside this one. When a research-deliverable
      *  is the top content skill, every entry here gets loaded and its
-     *  SKILL.md concatenated into the same system prompt — no extra LLM
+     *  SKILL.md concatenated into the same system prompt - no extra LLM
      *  call. Used to make quality skills (source-ranker, contradiction-
      *  finder, second-order-thinker, slide-title-lab) load automatically
      *  whenever the user invokes a deliverable, without them having to
@@ -403,15 +412,15 @@ export interface ModelConfig {
     maxCorpusChars: number;
 }
 
-// 2026-05-05 — Single-vendor primary on DeepSeek V4 Flash via Azure AI
+// 2026-05-05 - Single-vendor primary on DeepSeek V4 Flash via Azure AI
 // Foundry. 256K context handles the full corpus injection without
 // truncation; OpenAI-compatible chat-completions schema; tool-use with
 // our discriminated-union schema verified.
-// 2026-05-06 — DeepSeek V4 Pro removed from the picker because the Azure
+// 2026-05-06 - DeepSeek V4 Pro removed from the picker because the Azure
 // resource (`intelligence-aug-stage-resource`) only has V4 Flash deployed.
 // Selecting Pro previously caused chat calls to return Azure 404
 // `DeploymentNotFound` while the `#presentation` composer (which hardcoded
-// Flash via parsePresentationDirective default) silently kept working —
+// Flash via parsePresentationDirective default) silently kept working -
 // confusing the user about which model was actually running. The Pro entry
 // will be re-added when/if a Pro deployment is provisioned on Azure.
 export const AVAILABLE_MODELS: ModelConfig[] = [
@@ -430,14 +439,14 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         maxCorpusChars: 1_400_000,
     },
     {
-        // 2026-05-22 — Gemini 3.5 Flash added as a chat-tier option. Google's
+        // 2026-05-22 - Gemini 3.5 Flash added as a chat-tier option. Google's
         // most-capable agentic + coding model in the budget band: $1.50/M
         // input + $9/M output (vs Opus $15/$75). Default for the
         // self-improvement loops (learning, verifier, compiler) and the
         // "Apply now" regeneration path. Offered here as a fast, low-cost
         // chat option for grounded Q&A on the corpus. Stays NON-DEFAULT
         // because Gemini 3.1 Pro has the established quality bar for
-        // deliverable generation — users opt in when latency or budget
+        // deliverable generation - users opt in when latency or budget
         // matters more than 3.1 Pro's depth.
         id: 'gemini-3.5-flash',
         name: 'Gemini 3.5 Flash',
@@ -453,7 +462,7 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         id: 'deepseek-v4-flash',
         name: 'DeepSeek V4 Flash (legacy)',
         provider: 'deepseek',
-        description: '256K context. Retained as fallback only — produced jargon-heavy AI-slop narratives, demoted from primary 2026-05-07.',
+        description: '256K context. Retained as fallback only - produced jargon-heavy AI-slop narratives, demoted from primary 2026-05-07.',
         contextWindow: '256K tokens',
         strengths: 'Cost-effective, OpenAI-compatible tool-use',
         color: '#888888',
@@ -461,7 +470,7 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         maxCorpusChars: 900000,
     },
     {
-        // 2026-05-11 — Council mode (Sanhedrin Architecture). Fans the query
+        // 2026-05-11 - Council mode (Sanhedrin Architecture). Fans the query
         // out to Gemini 3.1 Pro + DeepSeek V4 Flash + GPT-5.5 in parallel,
         // then synthesizes via a fourth pass. ~3x cost per query; opt-in
         // only. Best for high-stakes deliverables where you want consensus
@@ -492,7 +501,7 @@ const THINKING_BUDGETS: Record<ThinkingEffort, number> = {
 
 const DELIVERABLE_PROTOCOL = `
 ========================================================================
-RESPONSE MODE — READ THIS FIRST ON EVERY TURN
+RESPONSE MODE - READ THIS FIRST ON EVERY TURN
 ========================================================================
 
 Your response format is ALWAYS determined by what the user explicitly asks for. There are three modes, and the DEFAULT is plain chat.
@@ -501,37 +510,42 @@ Your response format is ALWAYS determined by what the user explicitly asks for. 
 When the user asks a question, requests analysis, brainstorms, or makes any conversational request, respond as an expert research analyst:
   - Plain prose, grounded in the corpus
   - Cite named sources inline: e.g., "Higher Ed Dive reports that..." or "[r/NEU post, Mar 2026]"
-  - Liberal quoting — pull verbatim where possible
+  - Liberal quoting - pull verbatim where possible
   - Use light markdown for readability (bold for emphasis, short bullet lists, a header if the answer is long)
   - Answer directly. No preamble, no "Great question".
   - DO NOT emit :::slide, :::deliverable:, or :::nxt: fences. Answering in prose is your default contract.
 
-The knowledge graph is ALREADY being built automatically in the background (themes, personas, recs, gaps, etc. populate without you having to emit cards). So when the user asks a question, just answer — don't force structure on them.
+The knowledge graph is ALREADY being built automatically in the background (themes, personas, recs, gaps, etc. populate without you having to emit cards). So when the user asks a question, just answer - don't force structure on them.
 
---- 2. SLIDE MODE: triggered ONLY by #slide in the user's message ---
-If and only if the user's message contains "#slide" (case-insensitive), switch to slide generation using the SLIDE OUTPUT PROTOCOL below. Optional brand hashtag:
-  - #slide #NU  → Northeastern brand (near-black + Huskies Red)
-  - #slide #NXT → NXT Humans brand (teal + chartreuse) — also the default if no brand hashtag
-  - #slide alone → NXT Humans brand
+--- 2. SLIDE MODE: triggered by #slide OR #slides in the user's message ---
+If the user's message contains "#slide" OR "#slides" (case-insensitive - "#slides" counts), switch to slide generation using the SLIDE OUTPUT PROTOCOL below. This OVERRIDES the prose default and applies EVEN WHEN a deliverable directive is also present. The deliverable hashtag picks the TEMPLATE; #slide/#slides forces slide output:
+  - "5 #personas ... #slides"        → emit 5 :::slide template=persona-card blocks (NOT prose, NOT markdown)
+  - "8 #themes ... #slides"          → emit :::slide template=theme-cluster blocks (max 4 themes per block → 2 blocks for 8)
+  - "#recommendations ... #slide"    → emit :::slide template=recommendation blocks
+  - "#competitive ... #slides"       → emit :::slide template=competitive-matrix blocks
+  Optional brand hashtag: #NU → Northeastern (near-black + Huskies Red); #NXT → NXT Humans (teal + chartreuse, default).
+
+CRITICAL: when #slide/#slides is present you MUST emit :::slide fences. NEVER answer a #slides request in markdown prose (no ###, no >, no * bullets) - that is a hard failure. The renderer only draws cards from :::slide blocks.
 
 Examples:
   "#slide #NU give me a persona for Sarah Chen"     → emit one :::slide template=persona-card brand=nu
+  "5 #personas designer archetypes #slides #NXT"    → emit 5 :::slide template=persona-card brand=nxt
   "#slide show the top 3 themes"                    → emit 3 :::slide template=theme-cluster blocks
   "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
 
-NOT slide mode:
+NOT slide mode (no #slide/#slides anywhere):
   "Who are our customers?"           → prose answer, not a slide
   "What themes are emerging?"        → prose summary with citations, not a slide
   "Summarize the competitive data"   → prose analysis, not a slide
-  (unless the user adds #slide)
+  (the moment the user adds #slide or #slides, switch to slide output)
 
 --- 3. DELIVERABLE CARD MODE: triggered ONLY by explicit request for approvable cards ---
 If the user explicitly asks for "approvable cards", "persona cards I can approve", "pin-able deliverables", or similar phrasing that makes the approval intent explicit, emit :::deliverable:TYPE blocks per the schema below. These are interactive cards the user approves into the knowledge graph.
 
-If the user just asks "create personas" or "what themes exist" WITHOUT mentioning cards or approvals, answer in prose. The background synthesis already populates the knowledge graph — you don't need to emit cards for the KG to know about these items.
+If the user just asks "create personas" or "what themes exist" WITHOUT mentioning cards, approvals, OR #slide/#slides, answer in prose. The background synthesis already populates the knowledge graph - you don't need to emit cards for the KG to know about these items. (But if #slide/#slides IS present, Section 2 applies and you emit slides.)
 
 --- THE RULE ---
-Structured outputs (:::slide, :::deliverable:, :::nxt:) are ALWAYS opt-in. If neither #slide nor explicit card-approval phrasing appears in the user's message, your response is PLAIN PROSE. Questions deserve answers. Conversations deserve conversation.
+Structured outputs (:::slide, :::deliverable:, :::nxt:) are opt-in. If #slide OR #slides appears, emit :::slide blocks (Section 2). Else if explicit card-approval phrasing appears, emit :::deliverable: blocks (Section 3). Else respond in PLAIN PROSE. Questions deserve answers; conversations deserve conversation; but a #slides request deserves slides.
 
 ========================================================================
 
@@ -545,32 +559,32 @@ Format:
 :::
 
 Supported types and their required JSON fields:
-- :::deliverable:theme — {name, description, quote, citations: [{sourceName, text, url?}], status: "hypothesis"|"supported"|"verified", isCrossDocument: boolean}
-- :::deliverable:persona — {name, role, demographics?, quote, bio, jtbd, goals: {lifeGoal, experienceGoal, functionalGoal}, painPoints: [{label, quote, source}], motivations: [{label, quote, source}]}
-- :::deliverable:recommendation — {title, description, impactLevel: "critical"|"high"|"medium"|"low", evidenceBasis, citations: [string], effort?, timeline?}
-- :::deliverable:journey_stage — {phase, touchpoint, customerAction, frontstage, backstage, support, painPoint, emotion, fail_point?, citations: [string]}
-- :::deliverable:prd_feature — {name, description, priority: "must"|"should"|"could"|"won't", userStory, acceptanceCriteria: [string], citations: [string]}
-- :::deliverable:roadmap_item — {title, description, horizon: "now"|"next"|"later", effort, impact, dependencies: [string], citations: [string]}
-- :::deliverable:gap — {capability, currentMaturity: 1-5, targetMaturity: 1-5, gap: number, severity: "critical"|"high"|"medium"|"low", impact, citations: [string]}
-- :::deliverable:competitive_peer — {name, position, strengths: [string], weaknesses: [string], citations: [string]}
-- :::deliverable:tech_audit_system — {name, category, status, risk, description, citations: [string]}
-- :::deliverable:tech_node — {name, layer, type, description, constraints: [string], citations: [string]}
+- :::deliverable:theme - {name, description, quote, citations: [{sourceName, text, url?}], status: "hypothesis"|"supported"|"verified", isCrossDocument: boolean}
+- :::deliverable:persona - {name, role, demographics?, quote, bio, jtbd, goals: {lifeGoal, experienceGoal, functionalGoal}, painPoints: [{label, quote, source}], motivations: [{label, quote, source}]}
+- :::deliverable:recommendation - {title, description, impactLevel: "critical"|"high"|"medium"|"low", evidenceBasis, citations: [string], effort?, timeline?}
+- :::deliverable:journey_stage - {phase, touchpoint, customerAction, frontstage, backstage, support, painPoint, emotion, fail_point?, citations: [string]}
+- :::deliverable:prd_feature - {name, description, priority: "must"|"should"|"could"|"won't", userStory, acceptanceCriteria: [string], citations: [string]}
+- :::deliverable:roadmap_item - {title, description, horizon: "now"|"next"|"later", effort, impact, dependencies: [string], citations: [string]}
+- :::deliverable:gap - {capability, currentMaturity: 1-5, targetMaturity: 1-5, gap: number, severity: "critical"|"high"|"medium"|"low", impact, citations: [string]}
+- :::deliverable:competitive_peer - {name, position, strengths: [string], weaknesses: [string], citations: [string]}
+- :::deliverable:tech_audit_system - {name, category, status, risk, description, citations: [string]}
+- :::deliverable:tech_node - {name, layer, type, description, constraints: [string], citations: [string]}
 
 IMPORTANT:
 - Output MULTIPLE deliverables when asked (e.g., "create personas" = 4-6 persona blocks)
-- Each block is ONE deliverable item — the user inspects and approves each individually
+- Each block is ONE deliverable item - the user inspects and approves each individually
 - The user's approval commits the deliverable to the knowledge graph
 - Include verbose evidence: verbatim quotes, specific data points, named sources in every field
 - You can mix prose text with deliverable blocks (explain your reasoning, then output the blocks)
 
-SLIDE OUTPUT PROTOCOL — 18 TEMPLATES x 2 VISUAL BRANDS:
+SLIDE OUTPUT PROTOCOL - 18 TEMPLATES x 2 VISUAL BRANDS:
 
 When the user asks to create a slide (or set of slides), output ONE :::slide block per slide.
 Pick the template that best matches the content. Mark it on the fence: :::slide template=NAME
 
 VISUAL BRAND (chosen via hashtag in the user's prompt):
-  #NXT  → NXT Humans brand — teal sidebar (#115054), chartreuse accent (#CACA20), Archivo.  DEFAULT.
-  #NU   → Northeastern University brand — near-black sidebar (#141414), Huskies Red accent (#C8102E), Archivo.
+  #NXT  → NXT Humans brand - teal sidebar (#115054), chartreuse accent (#CACA20), Archivo.  DEFAULT.
+  #NU   → Northeastern University brand - near-black sidebar (#141414), Huskies Red accent (#C8102E), Archivo.
           Use #NU only when the user requests Northeastern-branded output.
 
 If the user's prompt contains #NU (or "Northeastern"), you MAY echo brand=nu on the fence:
@@ -578,7 +592,7 @@ If the user's prompt contains #NU (or "Northeastern"), you MAY echo brand=nu on 
     {...}
   :::
 Otherwise omit brand= on the fence and the renderer defaults to NXT.
-The hashtag in the user's prompt is authoritative — the parser will auto-apply the brand to every
+The hashtag in the user's prompt is authoritative - the parser will auto-apply the brand to every
 slide in your response even if you forget to set brand=. Do NOT mention the hashtag in the slide
 JSON itself; it's a routing directive, not content.
 
@@ -597,15 +611,15 @@ SEE:
   - /skills/nxt-visual-renderer/references/web-layouts.md       (field budgets + JSON examples)
   - /skills/nxt-visual-renderer/references/anti-slop-rules.md   (titles-as-quotes ban, meta-narration, etc.)
 
-A short index of the 18 templates (when to use each — the full density spec is in the
+A short index of the 18 templates (when to use each - the full density spec is in the
 render contract above):
 
 1.  persona-card        → user requests personas, archetypes, customer segments
 2.  recommendation      → user requests strategic actions, what to do, next steps
 3.  theme-cluster       → equal-weight horizontal columns (3-4 themes, parallel weight, default theme layout)
-3a. theme-spotlight     → ONE dominant theme + 2-3 supporting (asymmetric 60/40 hero layout — use when one theme leads)
+3a. theme-spotlight     → ONE dominant theme + 2-3 supporting (asymmetric 60/40 hero layout - use when one theme leads)
 3b. theme-arc           → narrative chain of 3-4 themes with progression arrows (use when themes build sequentially: cause → effect → response)
-3c. theme-mosaic        → 2x2 ivory grid of 4 parallel themes (uniform pale surface, hairline rules, chartreuse accent bar on the primary cell — restrained gallery rhythm for 4 co-equal themes)
+3c. theme-mosaic        → 2x2 ivory grid of 4 parallel themes (uniform pale surface, hairline rules, chartreuse accent bar on the primary cell - restrained gallery rhythm for 4 co-equal themes)
 4.  competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
 5.  block-quote         → user wants a single powerful verbatim quote highlighted
 6.  case-study          → user requests an example, real-world case, success/failure story
@@ -623,11 +637,11 @@ Universal contract (every slide):
 - "title": action title (complete sentence stating a conclusion with data)
 - "sources": [...]   ← required, never empty, deduplicated
 For per-template budgets + JSON shapes, read the render contract's
-references/web-layouts.md. The content budgets below are DEPRECATED —
+references/web-layouts.md. The content budgets below are DEPRECATED -
 DO NOT rely on them; read the skill spec instead.
 
 LEGACY CONTENT BUDGETS (kept temporarily for templates not yet migrated
-to the skill — timeline / section-divider / service-blueprint / gap-matrix /
+to the skill - timeline / section-divider / service-blueprint / gap-matrix /
 architecture-map / prd-feature / systems-inventory):
 
 Universal slots:
@@ -639,7 +653,7 @@ case-study, recommendation budgets moved to the render contract spec file.)
 
 (Full densified field budgets for theme-spotlight, theme-arc, theme-mosaic,
 stat-row, block-quote, recommendation, and case-study live in the render-contract
-references/web-layouts.md — do not restate them here.)
+references/web-layouts.md - do not restate them here.)
 
 Template-specific JSON shape examples (kept for templates not yet migrated to
 the render-contract reference file):
@@ -667,11 +681,11 @@ the render-contract reference file):
   "sources": ["Northeastern CRM Assessment", "Gartner Higher-Ed CRM Report 2025", "Cornell Advancement Annual Report 2025"],
   "recommendation": {
     "actionTitle": "Migrate Annual Giving, Major Gifts, and Reunion to a single Salesforce org by Q4",
-    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of advancement-officer time per the CRM Assessment. Cornell's 18-month consolidation lifted major-gift conversion 34% — that is the pattern to follow.",
+    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of advancement-officer time per the CRM Assessment. Cornell's 18-month consolidation lifted major-gift conversion 34% - that is the pattern to follow.",
     "supportingActions": [
       {"name":"Data audit","description":"Inventory all custom objects across the three orgs and map duplicates. Dedicated team runs this for 8 weeks before migration planning begins."},
       {"name":"Pilot migration","description":"Migrate Reunion (smallest dataset) first to validate model and process. Two-week instrumentation sprint follows cutover."},
-      {"name":"Training","description":"Run 5 sessions for the 80-person advancement team before cutover — job-role-specific, not generic product training."}
+      {"name":"Training","description":"Run 5 sessions for the 80-person advancement team before cutover - job-role-specific, not generic product training."}
     ],
     "impactGrid": {
       "baseline": "40% officer time on reconciliation across 3 orgs",
@@ -681,10 +695,10 @@ the render-contract reference file):
     },
     "impactMetric": {"value":"$2.4M","label":"annual recovered productivity"},
     "evidence": [
-      {"text":"I wouldn't know in our database right now that Andrew, you work with Rob — that's exactly the relationship that closes a major gift.","source":"NXT Stakeholder Interview","attribution":"Major Gifts Officer"},
-      {"text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.","source":"CASE 2024 panel","attribution":"VP Advancement Services, Cornell"}
+      {"text":"I wouldn't know in our database right now that Andrew, you work with Rob - that's exactly the relationship that closes a major gift.","source":"NXT Stakeholder Interview","attribution":"Major Gifts Officer"},
+      {"text":"Within six months we stopped asking 'do we know this donor?' - we already knew, and we knew the next best action.","source":"CASE 2024 panel","attribution":"VP Advancement Services, Cornell"}
     ],
-    "implication":"This is the unlock for every downstream Advancement initiative — prospect scoring, predictive outreach, and stewardship automation are all blocked by the fragmented data layer."
+    "implication":"This is the unlock for every downstream Advancement initiative - prospect scoring, predictive outreach, and stewardship automation are all blocked by the fragmented data layer."
   }
 }
 :::
@@ -705,12 +719,12 @@ the render-contract reference file):
 
 (Corpus-meta-commentary ban, titles-as-quotes ban, preferred-quote-source
 priority, quote-density rules, and theme-count minimums are in the render
-contract's references/anti-slop-rules.md and references/web-layouts.md — do
+contract's references/anti-slop-rules.md and references/web-layouts.md - do
 not restate them here.)
 
 :::slide template=theme-spotlight
 {
-  "title": "Trust erosion before contact dominates the dataset — 3 corroborating signals follow",
+  "title": "Trust erosion before contact dominates the dataset - 3 corroborating signals follow",
   "sources": ["r/NEU","Higher Ed Dive","CASE 2024","r/highereducation"],
   "themeCluster": {
     "themes": [
@@ -731,7 +745,7 @@ not restate them here.)
       {
         "name":"Political posture is now a giving variable",
         "insight":"Public university statements directly shape whether alumni open or close their wallets. CASE 2024 tracked a 12-point swing in giving intent tied to institutional political statements across 14 surveyed schools.",
-        "evidence":"President Aoun joins more than 320 university leaders in a joint statement — I'm canceling my monthly pledge until I see what this means.",
+        "evidence":"President Aoun joins more than 320 university leaders in a joint statement - I'm canceling my monthly pledge until I see what this means.",
         "source":"r/NEU",
         "signal":"12-pt giving-intent swing per political statement"
       }
@@ -743,7 +757,7 @@ not restate them here.)
 
 :::slide template=theme-arc
 {
-  "title": "Donor trust breaks in three sequential stages — enrollment, graduation, alumni",
+  "title": "Donor trust breaks in three sequential stages - enrollment, graduation, alumni",
   "sources": ["r/NEU","CASE 2024","Higher Ed Dive","Gartner Higher-Ed CRM 2025"],
   "themeCluster": {
     "themes": [
@@ -770,20 +784,20 @@ not restate them here.)
       },
       {
         "name":"Advancement loses visibility before it can act",
-        "insight":"Three separate Salesforce instances mean Advancement cannot see these signals until they surface as giving declines — by which point the trust has already left the building.",
+        "insight":"Three separate Salesforce instances mean Advancement cannot see these signals until they surface as giving declines - by which point the trust has already left the building.",
         "evidence":"I wouldn't know in our database that Andrew works with Rob.",
         "source":"NXT Stakeholder Interview",
         "signal":"3 disconnected orgs, zero cross-college visibility"
       }
     ],
-    "patternSignal":"Trust erosion is not one event — it is a four-stage cascade. Advancement today sees only stage four, and only as a lagging indicator."
+    "patternSignal":"Trust erosion is not one event - it is a four-stage cascade. Advancement today sees only stage four, and only as a lagging indicator."
   }
 }
 :::
 
 :::slide template=theme-mosaic
 {
-  "title": "Four parallel advancement frictions — each isolated, together compounding",
+  "title": "Four parallel advancement frictions - each isolated, together compounding",
   "sources": ["NXT Interview","CASE 2024","Gartner 2025","Cornell Annual Report 2025"],
   "themeCluster": {
     "themes": [
@@ -804,13 +818,13 @@ not restate them here.)
       {
         "name":"Mobile Giving Gap",
         "insight":"1.2% mobile conversion vs Columbia at 44%. The giving page was not rebuilt after the last platform migration.",
-        "evidence":"Mobile conversion sits at 1.2% — Columbia runs 44% on a rebuilt responsive page.",
+        "evidence":"Mobile conversion sits at 1.2% - Columbia runs 44% on a rebuilt responsive page.",
         "source":"Gartner 2025",
         "signal":"1.2% vs 44% peer mobile conversion"
       },
       {
         "name":"Stewardship Latency",
-        "insight":"Behavior-triggered outreach does not exist. Cadences are manual and batched monthly — peers run trigger-based daily.",
+        "insight":"Behavior-triggered outreach does not exist. Cadences are manual and batched monthly - peers run trigger-based daily.",
         "evidence":"Within six months we stopped asking do we know this donor.",
         "source":"Cornell Annual Report 2025",
         "signal":"0 triggered touchpoints; peers run 12+/quarter"
@@ -821,11 +835,11 @@ not restate them here.)
 }
 :::
 
-(All densified field budgets — character limits and required fields — are
+(All densified field budgets - character limits and required fields - are
 restated in references/web-layouts.md. The render contract auto-loads
 when slide intent is detected and acts as the authoritative spec.)
 
-Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (vendor-landscape analysis) — 5 named competitors, capability defs, scaleLabels, evidence per row, subject highlighted:
+Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (vendor-landscape analysis) - 5 named competitors, capability defs, scaleLabels, evidence per row, subject highlighted:
 
 :::slide template=competitive-matrix
 {
@@ -844,7 +858,7 @@ Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (ven
     ],
     "scaleMax": 5,
     "scaleLabels": ["Absent","Basic","Defined","Managed","World-class"],
-    "insight": "Outreach owns the widest workflow surface (5/5) but loses to Gong on the strategic wedge — AI call intelligence is where ~60% of 2025 buyer RFPs start. Closing that 2-point gap is worth an estimated 14% lift in competitive win rate per Gartner's 2025 quadrant movement."
+    "insight": "Outreach owns the widest workflow surface (5/5) but loses to Gong on the strategic wedge - AI call intelligence is where ~60% of 2025 buyer RFPs start. Closing that 2-point gap is worth an estimated 14% lift in competitive win rate per Gartner's 2025 quadrant movement."
   }
 }
 :::
@@ -876,23 +890,23 @@ Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (ven
   "title": "The advancement system that exists vs. the one staff describe",
   "sources": ["NXT Stakeholder Interview","CASE 2024","Gartner Higher-Ed CRM 2025"],
   "quote": {
-    "text": "I wouldn't know in our database right now that Andrew, you work with Rob — and that's exactly the relationship that closes a major gift. We have the data, we just can't see it across the three systems we're running.",
+    "text": "I wouldn't know in our database right now that Andrew, you work with Rob - and that's exactly the relationship that closes a major gift. We have the data, we just can't see it across the three systems we're running.",
     "attribution": "Anonymous Major Gifts Officer",
     "role": "20-year veteran, Northeastern Advancement",
     "source": "NXT Stakeholder Interview, March 2026",
     "context": "ON DATA FRAGMENTATION",
-    "contextParagraph":"This quote comes from a stakeholder interview conducted during the March 2026 CRM assessment. The officer is describing how three siloed Salesforce instances — one per college — prevent even basic relationship mapping across donor households. This is the single most-cited friction point across 14 stakeholder interviews.",
+    "contextParagraph":"This quote comes from a stakeholder interview conducted during the March 2026 CRM assessment. The officer is describing how three siloed Salesforce instances - one per college - prevent even basic relationship mapping across donor households. This is the single most-cited friction point across 14 stakeholder interviews.",
     "corroboratingData": [
       {"value":"40%","label":"of officer time spent on manual data reconciliation","source":"NXT Interview"},
       {"value":"-12%","label":"alumni participation since the last platform migration","source":"CASE 2024"},
       {"value":"L1","label":"Northeastern maturity tier vs. peer median of L4","source":"Gartner 2025"}
     ],
-    "implication":"Consolidating to a unified donor view is a prerequisite to every other advancement initiative — prospect scoring, predictive outreach, and stewardship automation all assume a single system of record."
+    "implication":"Consolidating to a unified donor view is a prerequisite to every other advancement initiative - prospect scoring, predictive outreach, and stewardship automation all assume a single system of record."
   }
 }
 :::
 
-Example of the same case-study pattern applied to a B2B SaaS corpus — note how subjectMeta, timeframe unit, investment unit, metrics, and quote attribution all shift with the domain while the structure stays identical:
+Example of the same case-study pattern applied to a B2B SaaS corpus - note how subjectMeta, timeframe unit, investment unit, metrics, and quote attribution all shift with the domain while the structure stays identical:
 
 :::slide template=case-study
 {
@@ -914,7 +928,7 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
       {"value":"9×","label":"ARR growth"}
     ],
     "pullQuote": {
-      "text":"The best-performing play we shipped wasn't a sequence — it was letting product usage decide who an AE called today.",
+      "text":"The best-performing play we shipped wasn't a sequence - it was letting product usage decide who an AE called today.",
       "attribution":"VP RevOps, Linear (SaaStr panel Q4 2024)"
     }
   }
@@ -930,9 +944,9 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
     "subjectMeta": "Ivy League · Ithaca, NY · 26K students · $2.4B endowment",
     "timeframe": "18 months (Q2 2023 → Q4 2024)",
     "investment": "$7.2M program cost · 14-person program team + 3 Salesforce SIs",
-    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges — each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
-    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration — smallest college first — with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
-    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk — reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
+    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges - each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
+    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration - smallest college first - with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
+    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk - reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
     "keyMetric": {"value":"+34%","label":"major-gift conversion rate, 12 months post-cutover"},
     "supportingMetrics": [
       {"value":"-90 days","label":"cycle time reduction"},
@@ -941,17 +955,17 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
       {"value":"2.1×","label":"program-cost ROI, Year 1"}
     ],
     "pullQuote": {
-      "text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.",
+      "text":"Within six months we stopped asking 'do we know this donor?' - we already knew, and we knew the next best action.",
       "attribution":"VP Advancement Services, Cornell",
       "role":"17-year Advancement veteran, CASE 2024 panelist"
     },
-    "lesson": "Consolidation pays back fastest when the smallest college migrates first — it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
+    "lesson": "Consolidation pays back fastest when the smallest college migrates first - it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
     "comparables": [
       {"name":"BU Advancement (2022)","outcome":"Consolidated 3 orgs → 1 in 14 months; 28% major-gift conversion lift","source":"CASE 2024"},
       {"name":"NYU (2023)","outcome":"Unified 6 colleges into single Salesforce org; +$18M annual giving year-over-year","source":"NYU Annual Report 2024"},
       {"name":"Michigan (2024)","outcome":"2.4× officer productivity post-consolidation, 12-month program","source":"Gartner Higher-Ed CRM 2025"}
     ],
-    "implication":"The pattern holds across every peer case: consolidation is not a CRM project — it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
+    "implication":"The pattern holds across every peer case: consolidation is not a CRM project - it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
   }
 }
 :::
@@ -964,7 +978,7 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
     "items": [
       {"name":"Donor view before tooling","description":"Every system decision is judged by whether it makes the unified donor view stronger or weaker."},
       {"name":"Migrate, don't accumulate","description":"New capability replaces old; we sunset legacy on every release."},
-      {"name":"Predictive over descriptive","description":"Reports must drive action — if a dashboard cannot trigger an outreach, it's not on the roadmap."},
+      {"name":"Predictive over descriptive","description":"Reports must drive action - if a dashboard cannot trigger an outreach, it's not on the roadmap."},
       {"name":"Officer time is sacred","description":"Any tool that increases manual entry is rejected, even if it adds analytical depth."},
       {"name":"Privacy is a moat","description":"Donor data discipline becomes a brand asset, not a compliance overhead."}
     ]
@@ -989,7 +1003,7 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
         "value":"3",
         "label":"separate Salesforce instances in production",
         "meaning":"Three disconnected orgs means prospect work at one college is invisible to every other college.",
-        "matters":"Cornell consolidated 4 → 1 and unlocked 34% conversion lift in 18 months — the window is closing as peers move.",
+        "matters":"Cornell consolidated 4 → 1 and unlocked 34% conversion lift in 18 months - the window is closing as peers move.",
         "source":"Northeastern CRM Assessment"
       },
       {
@@ -1000,7 +1014,7 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
         "source":"CASE 2024"
       }
     ],
-    "convergentInsight":"Three independent signals — officer time, system fragmentation, and participation decline — all point to the same root cause: Advancement is operating a platform, not a unified donor system. Fix the platform and the other two metrics move together.",
+    "convergentInsight":"Three independent signals - officer time, system fragmentation, and participation decline - all point to the same root cause: Advancement is operating a platform, not a unified donor system. Fix the platform and the other two metrics move together.",
     "patternSignal":"Peer institutions (Cornell, BU, NYU) that closed this gap in 12-18 months posted 30%+ major-gift conversion lifts within the first post-cutover year."
   }
 }
@@ -1032,20 +1046,20 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
 }
 :::
 
-Example of the same service-blueprint pattern applied to a B2B SaaS onboarding corpus — 4 stages, duration + emotion per stage, all four lanes, keyInsight quantified:
+Example of the same service-blueprint pattern applied to a B2B SaaS onboarding corpus - 4 stages, duration + emotion per stage, all four lanes, keyInsight quantified:
 
 :::slide template=service-blueprint
 {
   "title": "Two of four enterprise-onboarding stages are fail points, driving 22% of first-year churn",
-  "sources": ["Gainsight NRR Study 2025","internal customer-success interviews Q1 2026","Product analytics — Pendo, Q4 2025"],
+  "sources": ["Gainsight NRR Study 2025","internal customer-success interviews Q1 2026","Product analytics - Pendo, Q4 2025"],
   "serviceBlueprint": {
     "stages": [
       {"phase":"Kickoff","duration":"Day 0-7","emotion":"Hopeful","customerAction":"New admin joins kickoff call, shares goals + data schema","frontstage":"CSM-led 60-min kickoff, shared Notion runbook","backstage":"Salesforce opp converts to account, success plan generated","support":"Gainsight, Notion, Salesforce","painPoint":"CSM handoff from AE loses ~30% of stated goals in translation","failPoint":false},
       {"phase":"Data Integration","duration":"Week 2-5","emotion":"Frustrated","customerAction":"Customer eng team wires first data source","frontstage":"Integration wizard + API docs","backstage":"Webhook validation, schema inference runs in Airflow","support":"Airflow, dbt, Snowflake","painPoint":"Schema-inference fails on 38% of Oracle sources; integration takes 4× the advertised 2 weeks","failPoint":true},
-      {"phase":"First Value","duration":"Week 6-10","emotion":"Confused","customerAction":"Admin configures first report + shares with exec sponsor","frontstage":"Self-serve dashboard builder","backstage":"Query layer materialized views, RLS policies","support":"Looker-embed, Postgres","painPoint":"63% of first shared reports fail QA — execs lose trust before production rollout","failPoint":true},
-      {"phase":"Expansion","duration":"Month 3-6","emotion":"Satisfied","customerAction":"Adds second department, buys seats upsell","frontstage":"In-app expansion offer + CSM QBR","backstage":"Propensity model flags account for AE","support":"Gainsight, Salesforce, Gong","painPoint":"Expansion motion manual — CSM capacity limits trigger coverage to 40% of eligible accounts","failPoint":false}
+      {"phase":"First Value","duration":"Week 6-10","emotion":"Confused","customerAction":"Admin configures first report + shares with exec sponsor","frontstage":"Self-serve dashboard builder","backstage":"Query layer materialized views, RLS policies","support":"Looker-embed, Postgres","painPoint":"63% of first shared reports fail QA - execs lose trust before production rollout","failPoint":true},
+      {"phase":"Expansion","duration":"Month 3-6","emotion":"Satisfied","customerAction":"Adds second department, buys seats upsell","frontstage":"In-app expansion offer + CSM QBR","backstage":"Propensity model flags account for AE","support":"Gainsight, Salesforce, Gong","painPoint":"Expansion motion manual - CSM capacity limits trigger coverage to 40% of eligible accounts","failPoint":false}
     ],
-    "keyInsight": "The two fail stages (Data Integration + First Value) drive 22% of Year-1 churn at a blended $180K ACV — fixing schema inference + report QA would retain an estimated $4.0M ARR annually before adding a single CSM."
+    "keyInsight": "The two fail stages (Data Integration + First Value) drive 22% of Year-1 churn at a blended $180K ACV - fixing schema inference + report QA would retain an estimated $4.0M ARR annually before adding a single CSM."
   }
 }
 :::
@@ -1056,7 +1070,7 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
   "sources": ["NXT Stakeholder Interviews","Northeastern CRM Assessment","Google Analytics Q1 2026"],
   "serviceBlueprint": {
     "stages": [
-      {"phase":"Awareness","duration":"Week 1","emotion":"Curious","customerAction":"Alum opens segmented email appeal","frontstage":"Marketing Cloud journey w/ dynamic content","backstage":"Nightly Snowflake segmentation + ML scoring","support":"Snowflake, Marketing Cloud, ML service","painPoint":"Generic segmentation — open rate stuck at 40%","failPoint":false},
+      {"phase":"Awareness","duration":"Week 1","emotion":"Curious","customerAction":"Alum opens segmented email appeal","frontstage":"Marketing Cloud journey w/ dynamic content","backstage":"Nightly Snowflake segmentation + ML scoring","support":"Snowflake, Marketing Cloud, ML service","painPoint":"Generic segmentation - open rate stuck at 40%","failPoint":false},
       {"phase":"Consideration","duration":"Day 1-3","emotion":"Frustrated","customerAction":"Clicks 'Give Now', waits 7s for page","frontstage":"Static landing page, no personalization","backstage":"Pardot event tracker fires once","support":"Pardot, CDN","painPoint":"7s load time, no donor recognition, 28% bounce after click","failPoint":true},
       {"phase":"Gift","duration":"Minutes","emotion":"Confused","customerAction":"Enters card details in 4-field form","frontstage":"Legacy form, no Apple Pay / Google Pay","backstage":"Stripe tokenize → GL journal in Workday","support":"Stripe, Banner, Workday","painPoint":"Tokenization errors on 12% of mobile attempts","failPoint":true},
       {"phase":"Stewardship","duration":"Day 1-30","emotion":"Hopeful","customerAction":"Expects personalized thank-you","frontstage":"Template email + occasional gift-officer call","backstage":"Manual CRM entry, no trigger automation","support":"Salesforce, ZoomInfo","painPoint":"Only 8% of mid-gifts ($1k-$5k) receive any stewardship","failPoint":false}
@@ -1160,7 +1174,7 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 
 :::slide template=systems-inventory
 {
-  "title": "22 advancement systems — 9 are legacy and 4 carry critical risk",
+  "title": "22 advancement systems - 9 are legacy and 4 carry critical risk",
   "sources": ["Northeastern Tech Audit 2025","CRM Assessment"],
   "systemsInventory": {
     "systems": [
@@ -1178,11 +1192,11 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 }
 :::
 
-INTENT INFERENCE — map natural phrasing to the right template:
+INTENT INFERENCE - map natural phrasing to the right template:
 
 Users will ask for deliverables in many different ways. Infer intent from synonyms rather than demanding exact keywords. Examples:
 
-| User says…                                                       | Template to use        |
+| User says...                                                       | Template to use        |
 |------------------------------------------------------------------|------------------------|
 | "who are our audiences" / "customer types" / "archetypes"        | persona-card           |
 | "what should we do" / "next steps" / "play" / "prescription"     | recommendation         |
@@ -1200,20 +1214,20 @@ Users will ask for deliverables in many different ways. Infer intent from synony
 | "systems inventory" / "what tools" / "sunset candidates"         | systems-inventory      |
 | chapter break between sections                                    | section-divider        |
 
-Do NOT require the user to say the template name. If a question like "what customer types do we serve?" comes in, use persona-card — don't ask "do you want a persona slide?". Infer, commit, and produce the deliverable.
+Do NOT require the user to say the template name. If a question like "what customer types do we serve?" comes in, use persona-card - don't ask "do you want a persona slide?". Infer, commit, and produce the deliverable.
 
 UNIVERSAL SLIDE RULES:
 - Title is ALWAYS a conclusion sentence containing a number, named entity, or specific claim.
 - "sources" array is REQUIRED on every slide and must contain real source names from the corpus.
 - Never invent a competitor, statistic, or quote. If the data isn't there, say so and pick a different template.
 - One template per slide block. To build a multi-slide deck, emit multiple :::slide blocks.
-- For persona-card slides the system auto-generates a portrait — describe the person specifically (age range, attire, setting).
+- For persona-card slides the system auto-generates a portrait - describe the person specifically (age range, attire, setting).
 
 DENSITY DISCIPLINE (case-study, competitive-matrix, service-blueprint specifically):
 
 These three templates fail most often because generators produce sparse, under-evidenced content. Every time you emit one, you MUST:
 
-DOMAIN ADAPTATION — the examples below happen to be higher-ed advancement, but the PATTERN is what matters, not the vocabulary. Adapt entity types, units, scale labels, timeframes, and jargon to the domain of the ACTUAL research corpus. Translation guide:
+DOMAIN ADAPTATION - the examples below happen to be higher-ed advancement, but the PATTERN is what matters, not the vocabulary. Adapt entity types, units, scale labels, timeframes, and jargon to the domain of the ACTUAL research corpus. Translation guide:
 
   | Slot                 | Higher ed            | B2B SaaS             | Healthcare           | Retail / DTC         | Financial services   |
   |----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
@@ -1230,27 +1244,27 @@ The STRUCTURE (5 data vectors for case studies, 4+ named entities for matrices, 
 
 Then, every time you emit one, you MUST:
 
-CASE STUDY — the card has FIVE data vectors, not one:
+CASE STUDY - the card has FIVE data vectors, not one:
   1. subject + subjectMeta (industry/region/size/endowment/etc)
-  2. timeframe (explicit — "18 months", "Q2 2023 → Q4 2024")
+  2. timeframe (explicit - "18 months", "Q2 2023 → Q4 2024")
   3. investment (program cost + team size)
   4. challenge + approach + outcome, each with at least one quantified detail per block
   5. keyMetric PLUS 3-4 supportingMetrics PLUS optional pullQuote
   Refuse to emit a case study that has only one stat. If the corpus only has one stat, pick stat-row instead.
 
-COMPETITIVE MATRIX — matrices with fewer than 4 NAMED peers are rejected:
-  1. At least 4 named competitors (never "Peer Institutions (Collective)" or "Industry Average" — those are a failure mode)
+COMPETITIVE MATRIX - matrices with fewer than 4 NAMED peers are rejected:
+  1. At least 4 named competitors (never "Peer Institutions (Collective)" or "Industry Average" - those are a failure mode)
   2. Provide a columnDefs array defining each capability in ≤60 chars
   3. Provide scaleLabels like ["Absent","Ad-hoc","Defined","Managed","Optimized"]
   4. For every row, provide "note" with specific evidence and "source" with a named citation
   5. Set "subjectRow" to the client name so it highlights
   If the corpus does not name 4+ specific peers, use stat-row or theme-cluster instead.
 
-SERVICE BLUEPRINT — maximum 4 stages on a 16:9 slide (5+ overflows):
+SERVICE BLUEPRINT - maximum 4 stages on a 16:9 slide (5+ overflows):
   1. Cap stages at 4. If the journey is longer, split across multiple slides or consolidate phases.
   2. Every stage must include duration AND emotion (short labels: "Week 1", "Frustrated")
   3. Every stage needs all four lanes: customerAction, frontstage, backstage, support
-  4. Mark explicit failPoint:true only on stages where the process genuinely breaks — not every stage
+  4. Mark explicit failPoint:true only on stages where the process genuinely breaks - not every stage
   5. keyInsight must quantify the business cost of the fail points
 `;
 
@@ -1298,7 +1312,7 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
     const uploads = ctx.uploadedFileContents || '';
     const refs = ctx.sourceReferences || [];
 
-    // Total sizes (raw byte heuristic — chars / 1024)
+    // Total sizes (raw byte heuristic - chars / 1024)
     const uploadKB = Math.round((uploads.length || 0) / 1024);
     const corpusKB = Math.round((corpus.length || 0) / 1024);
 
@@ -1336,8 +1350,8 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
 
     const summary = [
         `Total corpus: ${totalKB}KB across ${refs.length} cataloged sources`,
-        `  Uploaded client docs: ${uploadKB}KB (${Math.round(uploadKB / totalKB * 100)}%) — ${buckets.upload} sources`,
-        `  External corpus: ${corpusKB}KB (${Math.round(corpusKB / totalKB * 100)}%) — ${externalRefCount} sources, broken down:`,
+        `  Uploaded client docs: ${uploadKB}KB (${Math.round(uploadKB / totalKB * 100)}%) - ${buckets.upload} sources`,
+        `  External corpus: ${corpusKB}KB (${Math.round(corpusKB / totalKB * 100)}%) - ${externalRefCount} sources, broken down:`,
         `    • RSS / news (Higher Ed Dive, IHE, Chronicle, EdSurge, etc.): ${buckets.rss} sources`,
         `    • Jina-reader web scrapes (institutional sites, peer URLs): ${buckets.jina} sources`,
         `    • YouTube alumni-engagement transcripts: ${buckets.youtube} sources`,
@@ -1366,26 +1380,26 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
 function buildCategoryRoster(ctx: ChatContext): string {
     const cats = ctx.activeCategories || [];
     if (cats.length === 0) {
-        return '(no active-category roster — cite from every source kind that appears in the corpus)';
+        return '(no active-category roster - cite from every source kind that appears in the corpus)';
     }
     // Add uploads as an active category if uploadedFiles are present
     const uploads = (ctx.uploadedFiles || []).map(f => f.name);
     const lines: string[] = [];
     if (uploads.length > 0) {
-        lines.push(`  • Uploaded client documents (${uploads.length} files): ${uploads.slice(0, 6).join(', ')}${uploads.length > 6 ? `, +${uploads.length - 6} more` : ''} — STATUS: HAS CONTENT (must cite)`);
+        lines.push(`  • Uploaded client documents (${uploads.length} files): ${uploads.slice(0, 6).join(', ')}${uploads.length > 6 ? `, +${uploads.length - 6} more` : ''} - STATUS: HAS CONTENT (must cite)`);
     }
     // Only list categories that HAVE content. Empty categories are
-    // silently omitted from the roster — the model no longer sees them
+    // silently omitted from the roster - the model no longer sees them
     // and therefore can't reference them as "gaps" in its response.
-    // 2026-05-11 (HiC-Reddit-Deep) — replaces the prior "must mark
+    // 2026-05-11 (HiC-Reddit-Deep) - replaces the prior "must mark
     // CATEGORY GAP" behavior, which leaked process notes into deliverables.
     for (const c of cats) {
         if (c.itemCount > 0) {
-            lines.push(`  • ${c.name}: HAS CONTENT (${c.itemCount} items — cite when relevant)`);
+            lines.push(`  • ${c.name}: HAS CONTENT (${c.itemCount} items - cite when relevant)`);
         }
     }
     if (lines.length === 0) {
-        return '(no categories with content yet — synthesize from any corpus passages the user provided)';
+        return '(no categories with content yet - synthesize from any corpus passages the user provided)';
     }
     return lines.join('\n');
 }
@@ -1397,7 +1411,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
     const modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
     const maxCorpus = modelConfig?.maxCorpusChars || 500000;
 
-    // 2026-05-27 — TURN SCOPING (fixes prior-deliverable bleed). The full
+    // 2026-05-27 - TURN SCOPING (fixes prior-deliverable bleed). The full
     // conversation history is fed to the model for continuity, but earlier
     // turns sometimes contained large deliverables (e.g. a 25-row "Issue / How
     // Might We" table). Without this guard the model led a NEW answer by
@@ -1413,14 +1427,33 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
     parts.push(`You are grounded in ALL of this data. Cite specific sources by name. If the data doesn't contain the answer, say so.`);
     parts.push('');
 
-    // Tier 1: Always loaded — brand, constraints, design system
+    // 2026-06-02 - CORPUS MANIFEST. Structural overview of the corpus (source
+    // mix, recency, tier quality, selected categories, uploaded docs) built
+    // from the same per-document metadata the wiki frontmatter carries. Lets
+    // the model understand corpus COMPOSITION rather than infer it from the
+    // concatenated bodies below. Shared with the Designer chat via the same
+    // buildCorpusManifest helper.
+    const corpusManifest = buildCorpusManifest({
+        researchGoal: ctx.researchGoal,
+        sourceReferences: ctx.sourceReferences,
+        activeCategories: ctx.activeCategories,
+        uploadedFiles: ctx.uploadedFiles,
+        sourceCount: ctx.sourceCount,
+        articleCount: ctx.articleCount,
+    });
+    if (corpusManifest) {
+        parts.push(corpusManifest);
+        parts.push('');
+    }
+
+    // Tier 1: Always loaded - brand, constraints, design system
     if (ctx.wikiBrand) {
         parts.push(`=== NXT BRAND & DESIGN SYSTEM ===`);
         parts.push(ctx.wikiBrand);
         parts.push('');
     }
     if (ctx.wikiLearnedConstraints) {
-        parts.push(`=== LEARNED CONSTRAINTS (from prior user feedback — apply to all output) ===`);
+        parts.push(`=== LEARNED CONSTRAINTS (from prior user feedback - apply to all output) ===`);
         parts.push(ctx.wikiLearnedConstraints);
         parts.push('');
     }
@@ -1430,7 +1463,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push('');
     }
 
-    // Tier 2: Initialization — benchmarks, evidence, methodologies
+    // Tier 2: Initialization - benchmarks, evidence, methodologies
     if (ctx.wikiBenchmarks) {
         parts.push(`=== INDUSTRY BENCHMARKS ===`);
         parts.push(ctx.wikiBenchmarks);
@@ -1452,7 +1485,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push('');
     }
 
-    // Knowledge Graph — the structural representation of all research relationships
+    // Knowledge Graph - the structural representation of all research relationships
     if (ctx.knowledgeGraph && ctx.knowledgeGraph.nodes.length > 0) {
         const kg = ctx.knowledgeGraph;
         const nodesByType: Record<string, any[]> = {};
@@ -1507,7 +1540,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
             parts.push('');
         }
 
-        // Key edges — show the relationships
+        // Key edges - show the relationships
         const edgeSummary: Record<string, number> = {};
         for (const e of kg.edges) {
             edgeSummary[e.type] = (edgeSummary[e.type] || 0) + 1;
@@ -1528,64 +1561,24 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push('');
     }
 
-    // Existing deliverable context (if any generated via chat or legacy pipeline)
-    if (ctx.themes?.length) {
-        parts.push(`=== THEMES (${ctx.themes.length}) ===`);
-        for (const t of ctx.themes) {
-            const citations = (t.citations || []).map((c: any) => c.sourceName || c.sourceFile || '').filter(Boolean).join(', ');
-            parts.push(`Theme: ${t.name}\nDescription: ${t.description}\nQuote: "${t.quote}"\nSources: ${citations}\n`);
-        }
-    }
-
-    if (ctx.personas?.length) {
-        parts.push(`=== PERSONAS (${ctx.personas.length}) ===`);
-        for (const p of ctx.personas) {
-            const pains = (p.painPoints || []).map((pp: any) => `${pp.label}: "${pp.quote}" (${pp.source || pp.citation?.sourceName || ''})`).join('; ');
-            parts.push(`Persona: ${p.name} (${p.role})\nJTBD: ${p.jtbd || ''}\nPain Points: ${pains}\nBio: ${p.bio || ''}\n`);
-        }
-    }
-
-    if (ctx.recommendations?.length) {
-        parts.push(`=== RECOMMENDATIONS (${ctx.recommendations.length}) ===`);
-        for (const r of ctx.recommendations) {
-            parts.push(`[${r.impactLevel}] ${r.title}: ${r.description}\nEvidence: ${r.evidenceBasis || ''}\nSources: ${(r.citations || []).join(', ')}\n`);
-        }
-    }
-
-    if (ctx.journeyStages?.length) {
-        parts.push(`=== SERVICE BLUEPRINT (${ctx.journeyStages.length} stages) ===`);
-        for (const s of ctx.journeyStages) {
-            parts.push(`Stage: ${s.phase} | Pain: ${s.painPoint} | Emotion: ${s.emotion} | Fail: ${s.fail_point || 'none'} | Sources: ${(s.citations || []).join(', ')}`);
-        }
-        parts.push('');
-    }
-
-    if (ctx.gapAnalysis) {
-        parts.push(`=== GAP ANALYSIS ===`);
-        for (const g of (ctx.gapAnalysis.gaps || [])) {
-            parts.push(`[${g.severity}] ${g.capability}: ${g.currentMaturity}/5 -> ${g.targetMaturity}/5 (gap ${g.gap}). Impact: ${g.impact}`);
-        }
-        parts.push('');
-    }
-
-    if (ctx.competitiveAnalysis) {
-        parts.push(`=== COMPETITIVE ANALYSIS ===`);
-        for (const p of (ctx.competitiveAnalysis.peers || [])) {
-            parts.push(`${p.name}: ${p.position}. Strengths: ${(p.strengths || []).join(', ')}. Weaknesses: ${(p.weaknesses || []).join(', ')}`);
-        }
-        parts.push('');
-    }
-
-    if (ctx.strategicReport) {
-        parts.push(`=== STRATEGIC REPORT ===`);
-        parts.push(`Diagnosis: ${ctx.strategicReport.diagnosis}`);
-        parts.push(`Guiding Policy: ${ctx.strategicReport.guidingPolicy}`);
-        parts.push(`Pillars: ${(ctx.strategicReport.strategicPillars || []).join('; ')}`);
-        for (const s of (ctx.strategicReport.sections || [])) {
-            parts.push(`\nSection ${s.sectionNumber}: ${s.title}\n${s.content?.substring(0, 800)}`);
-        }
-        parts.push('');
-    }
+    // Existing deliverable context (if any generated via chat or legacy
+    // pipeline). 2026-06-02 - now formatted by the shared intelligenceShaping
+    // helpers so the Analyst chat, Designer chat, and staged engine all inject
+    // the identical, pain-point-forward shape.
+    const themeBlock = shapeThemes(ctx.themes as any[]);
+    if (themeBlock) parts.push(themeBlock);
+    const personaBlock = shapePersonas(ctx.personas as any[]);
+    if (personaBlock) parts.push(personaBlock);
+    const recBlock = shapeRecommendations(ctx.recommendations as any[]);
+    if (recBlock) parts.push(recBlock);
+    const journeyBlock = shapeJourney(ctx.journeyStages as any[]);
+    if (journeyBlock) { parts.push(journeyBlock); parts.push(''); }
+    const gapBlock = shapeGap(ctx.gapAnalysis);
+    if (gapBlock) { parts.push(gapBlock); parts.push(''); }
+    const compBlock = shapeCompetitive(ctx.competitiveAnalysis);
+    if (compBlock) { parts.push(compBlock); parts.push(''); }
+    const stratBlock = shapeStrategic(ctx.strategicReport);
+    if (stratBlock) { parts.push(stratBlock); parts.push(''); }
 
     // Uploaded client documents
     if (ctx.uploadedFileContents && ctx.uploadedFileContents.trim().length > 10) {
@@ -1595,43 +1588,43 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push('');
     }
 
-    // VERIFIED SOURCE ARCHIVE — the ONLY source of truth for URLs
+    // VERIFIED SOURCE ARCHIVE - the ONLY source of truth for URLs
     // Prefer the wiki source archive (persisted, complete, verified URLs from actual API responses)
     // Fall back to in-memory sourceReferences if wiki archive not loaded
     if (ctx.wikiSourceArchive && ctx.wikiSourceArchive.length > 100) {
-        parts.push(`=== VERIFIED SOURCE ARCHIVE (ONLY use URLs from this archive — NEVER fabricate URLs) ===`);
+        parts.push(`=== VERIFIED SOURCE ARCHIVE (ONLY use URLs from this archive - NEVER fabricate URLs) ===`);
         parts.push(ctx.wikiSourceArchive);
         parts.push(`=== END VERIFIED SOURCE ARCHIVE ===`);
     } else if (ctx.sourceReferences?.length) {
-        parts.push(`=== SOURCE ARTICLE INDEX (${ctx.sourceReferences.length} articles — ONLY use URLs listed here) ===`);
+        parts.push(`=== SOURCE ARTICLE INDEX (${ctx.sourceReferences.length} articles - ONLY use URLs listed here) ===`);
         for (const ref of ctx.sourceReferences.slice(0, 500)) {
             parts.push(`[${ref.id}] ${ref.sourceName}: "${ref.title}"${ref.url ? ` | URL: ${ref.url}` : ''}${ref.date ? ` | ${ref.date}` : ''}`);
         }
         parts.push(`=== END SOURCE INDEX ===`);
     }
 
-    // Phase 1.8 — deep article bodies (wiki archive, lazy-loaded). These
+    // Phase 1.8 - deep article bodies (wiki archive, lazy-loaded). These
     // come pre-concatenated from the caller which pulled them by wikiPath
     // from evidence nodes. Insert them BEFORE the raw corpus so the LLM
     // sees the full-text extractions first when it reasons.
     if (ctx.wikiArticleBodies && ctx.wikiArticleBodies.length > 200) {
-        parts.push(`=== DEEP ARTICLE BODIES (from wiki archive — verbatim extracted text) ===`);
+        parts.push(`=== DEEP ARTICLE BODIES (from wiki archive - verbatim extracted text) ===`);
         parts.push(ctx.wikiArticleBodies);
         parts.push(`=== END DEEP ARTICLES ===`);
     }
 
-    // Phase 1-retrofit (2026-04-20) — WIKI INDEX MENU. Lightweight catalog
+    // Phase 1-retrofit (2026-04-20) - WIKI INDEX MENU. Lightweight catalog
     // of every archived article/transcript/upload. The AI uses this to
     // decide which bodies to request via the retrieval tool. Injected
     // AFTER deep bodies so the model sees "here's what you already have
     // full text for, and here's the menu of everything else".
     if (ctx.wikiIndexMenu && ctx.wikiIndexMenu.length > 50) {
-        parts.push(`=== WIKI ARCHIVE MENU (metadata only — request full bodies via retrieval tool if needed) ===`);
+        parts.push(`=== WIKI ARCHIVE MENU (metadata only - request full bodies via retrieval tool if needed) ===`);
         parts.push(ctx.wikiIndexMenu);
         parts.push(`=== END WIKI MENU ===`);
     }
 
-    // Phase 1-retrofit — PRE-FETCHED ARTICLE BODIES for this specific
+    // Phase 1-retrofit - PRE-FETCHED ARTICLE BODIES for this specific
     // user message. The caller keyword-matched the question against the
     // wiki index and pulled top-N bodies. Insert them near the top so the
     // AI treats them as primary evidence when it writes the response.
@@ -1643,7 +1636,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push(`=== END TOPIC-MATCHED ARTICLES ===`);
     }
 
-    // Phase 1.9 — prior-engagement memory. Synthesis artifacts from previous
+    // Phase 1.9 - prior-engagement memory. Synthesis artifacts from previous
     // research runs that semantically match the current goal. Gives the LLM
     // "memory" across engagements so it builds on prior findings rather than
     // re-synthesizing. Explicit directive to cite provenance so the user
@@ -1655,12 +1648,22 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push(`=== END PRIOR INSIGHTS ===`);
     }
 
-    // Raw corpus — model-specific cap
+    // Raw corpus - model-specific cap.
+    // 2026-05-30 - OBJECTIVE-RELEVANCE: when goal-blended pre-fetched article
+    // bodies are present (the fixed /api/wiki/fetch-articles cosine retrieval),
+    // DEMOTE the raw corpus to a small supplementary tail so it cannot drown the
+    // objective-relevant evidence (the old behavior dumped the entire corpus,
+    // making the retrieval merely additive). Only when retrieval returned nothing
+    // do we fall back to the full corpus, so the chat is never starved.
     if (ctx.corpusText) {
-        const corpus = ctx.corpusText.length > maxCorpus
-            ? ctx.corpusText.substring(0, maxCorpus) + `\n[CORPUS TRUNCATED TO ${Math.round(maxCorpus / 1000)}KB FOR ${model}]`
+        const haveRetrieval = !!(ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200);
+        const cap = haveRetrieval ? Math.min(maxCorpus, 40000) : maxCorpus;
+        const corpus = ctx.corpusText.length > cap
+            ? ctx.corpusText.substring(0, cap) + `\n[CORPUS ${haveRetrieval ? 'DEMOTED - objective-matched articles pre-fetched above are the primary evidence' : 'TRUNCATED'} AT ${Math.round(cap / 1000)}KB FOR ${model}]`
             : ctx.corpusText;
-        parts.push(`=== RAW RESEARCH CORPUS ===`);
+        parts.push(haveRetrieval
+            ? `=== RAW RESEARCH CORPUS (SUPPLEMENTARY - lead with the objective-matched pre-fetched articles above) ===`
+            : `=== RAW RESEARCH CORPUS ===`);
         parts.push(corpus);
         parts.push(`=== END CORPUS ===`);
     }
@@ -1669,7 +1672,7 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
 }
 
 /**
- * Phase 1.8 helper — lazy-load full article bodies from the wiki archive
+ * Phase 1.8 helper - lazy-load full article bodies from the wiki archive
  * for every evidence node in the graph that carries a wikiPath. Stitches
  * them into a single labeled block the chat grounding context can consume.
  *
@@ -1726,7 +1729,7 @@ export async function loadWikiArticleBodies(
 //   2. word-level tokenization (strip punctuation, split, stem plurals)
 //   3. exact-phrase bonus (multi-word triggers score higher than single words)
 //   4. overlap scoring (each trigger token that appears in the query contributes
-//      proportional to its length — longer = more specific = higher weight)
+//      proportional to its length - longer = more specific = higher weight)
 
 /** Map of intent keywords → canonical trigger terms the deliverable skills use. */
 const SYNONYM_MAP: Record<string, string[]> = {
@@ -1801,7 +1804,7 @@ function stem(word: string): string {
 /** Expand a user query with known synonyms to widen trigger overlap.
  *  Returns BOTH the expanded text (for trigger matching) AND the original
  *  normalized text (so the scorer can tell whether a trigger matched
- *  verbatim or only via synonym expansion). 2026-05-26 — added the
+ *  verbatim or only via synonym expansion). 2026-05-26 - added the
  *  `original` channel to fix the "Give Trailblazers Tools to Monitor" →
  *  tech-audit-inspector misroute: synonym matches now score lower than
  *  direct verbatim matches.
@@ -1828,7 +1831,7 @@ function expandQuery(query: string): { expanded: string; original: string } {
  *   - Stemmed match: 60% of trigger.length (partial signal)
  * Returns skills ranked by total score, highest first.
  */
-// 2026-05-26 — Hashtag-directive → owning-skill map. When the user types an
+// 2026-05-26 - Hashtag-directive → owning-skill map. When the user types an
 // explicit registered hashtag, that hashtag's owning skill DOMINATES the
 // keyword-matching scorer. This closes the regression where "Give Advisors
 // & Trailblazers Tools to Monitor" expanded `tools` → `systems inventory`
@@ -1856,6 +1859,7 @@ const HASHTAG_TO_SKILL_ID: Record<string, string> = {
     '#compete': 'competitive-analyst',
     '#strategy': 'strategy-author',
     '#case-study': 'case-study-analyst',
+    '#themes': 'theme-analyst',
     '#brief': 'html-deliverable-composer',
     '#explainer': 'html-deliverable-composer',
     '#report': 'strategic-report-writer',
@@ -1891,6 +1895,9 @@ const HASHTAG_ALIASES: Record<string, string> = {
     '#case-studies': '#case-study',
     '#casestudy': '#case-study',
     '#casestudies': '#case-study',
+    '#theme': '#themes',
+    '#themecluster': '#themes',
+    '#theme-cluster': '#themes',
     '#recs': '#recommendations',
     '#briefs': '#brief',
     '#explainers': '#explainer',
@@ -1905,7 +1912,7 @@ const HASHTAG_ALIASES: Record<string, string> = {
 };
 
 // Hashtags that are MODIFIERS, not directives. Their presence does NOT
-// select a skill — they decorate whichever directive was chosen.
+// select a skill - they decorate whichever directive was chosen.
 const HASHTAG_MODIFIERS = new Set([
     '#nxt', '#nu', '#slide', '#slides', '#preview', '#export-pptx',
     '#auto-open', '#dark', '#light', '#help', '#artifacts',
@@ -1915,7 +1922,7 @@ const HASHTAG_MODIFIERS = new Set([
  * Extract registered hashtag directives from a user message. Returns the
  * owning skill IDs in document order. Unrecognized hashtags are returned
  * separately so the caller can warn the user. When an unrecognized hashtag
- * has a strong fuzzy match in the registry (score >= 80 — id-prefix match),
+ * has a strong fuzzy match in the registry (score >= 80 - id-prefix match),
  * it is auto-promoted to the directive so the user's near-miss intent
  * still routes correctly. Borderline matches (score < 80) stay in the
  * unknown list with a "did you mean" suggestion.
@@ -1925,7 +1932,7 @@ export function extractHashtagDirectives(userMessage: string): {
     unknownHashtags: string[];
     fuzzyPromoted: Array<{ typed: string; resolved: string }>;
 } {
-    // 2026-05-26 — FIXED: was using Node `require('./hashtagRegistry')`
+    // 2026-05-26 - FIXED: was using Node `require('./hashtagRegistry')`
     // which breaks at runtime in the Vite browser bundle ("require is not
     // defined"). Replaced with synchronous module-scope import resolved
     // at the top of the file (hashtagRegistry.ts is leaf, no circular
@@ -1983,7 +1990,7 @@ export function extractHashtagDirectives(userMessage: string): {
 
 export function matchSkills(userMessage: string, manifest: SkillManifestEntry[]): SkillManifestEntry[] {
     // ─── HASHTAG DIRECTIVE DOMINANCE ───────────────────────────────────────
-    // 2026-05-26 — If the user typed any explicit registered hashtag, that
+    // 2026-05-26 - If the user typed any explicit registered hashtag, that
     // directive's owning skill wins. Synonym expansion of ordinary English
     // words ("tools", "stack", "platform") can no longer override an
     // explicit hashtag intent. The skill is returned FIRST in the ranked
@@ -2006,13 +2013,13 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
     const scored: Array<{ skill: SkillManifestEntry; score: number }> = [];
 
     for (const skill of manifest) {
-        // Skip skills the directive layer already promoted — they get prepended
+        // Skip skills the directive layer already promoted - they get prepended
         // below at the highest rank.
         if (directiveSkills.includes(skill)) continue;
         // Include content skills (research-deliverable), render contracts,
         // AND retrieval enhancers. Render contracts govern layout; retrieval
         // enhancers (wiki-query-expander, wiki-reranker, wiki-synthesizer)
-        // teach Claude how to exploit the semantic embedding layer — query
+        // teach Claude how to exploit the semantic embedding layer - query
         // variant expansion, cross-encoder reranking, multi-angle synthesis.
         if (
             skill.category !== 'research-deliverable'
@@ -2021,10 +2028,10 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
             && skill.category !== 'quality-enhancer'
         ) continue;
 
-        // 2026-05-26 — Hashtag-dominance corollary: if hashtag directives
+        // 2026-05-26 - Hashtag-dominance corollary: if hashtag directives
         // selected a primary content skill, do NOT also rank competing
         // research-deliverable skills via keyword fuzz. Render contracts,
-        // retrieval enhancers, and quality enhancers may still match — they
+        // retrieval enhancers, and quality enhancers may still match - they
         // are companions, not alternatives.
         if (directiveSkills.length > 0 && skill.category === 'research-deliverable') continue;
 
@@ -2035,7 +2042,7 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
 
             if (triggerWords.length > 1) {
                 // Multi-word trigger.
-                // 2026-05-26 — Direct verbatim match in the ORIGINAL message
+                // 2026-05-26 - Direct verbatim match in the ORIGINAL message
                 // beats synonym-expansion match. Prevents the regression where
                 // a colloquial verb ("Tools to Monitor") synonym-expanded into
                 // a noun-form skill trigger ("systems inventory") and outscored
@@ -2044,7 +2051,7 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
                     score += normTrigger.length * 2;
                     continue;
                 }
-                // Synonym-expansion match — score at parity with single-word
+                // Synonym-expansion match - score at parity with single-word
                 // direct, not at the 2x multi-word direct bonus.
                 if (expanded.includes(normTrigger)) {
                     score += normTrigger.length;
@@ -2085,18 +2092,18 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
  * companions + benchmarks. Uses the Vite dev server /skills/ route and wiki
  * fetch path.
  *
- * Caching: results memoize in _skillContextCache keyed by skill.id — so the
+ * Caching: results memoize in _skillContextCache keyed by skill.id - so the
  * first slide request pays the fetch latency (~10-30ms), every subsequent
  * request in the same session is a map lookup.
  */
 const _skillContextCache = new Map<string, SkillContext>();
 
-// 2026-05-26 — Inline skill templates. The skill-manifest registers some
+// 2026-05-26 - Inline skill templates. The skill-manifest registers some
 // skills with `path: "inline://<template-name>"` instead of a file path
 // (case-study-analyst, block-quote-template, benchmark-reporter,
 // stat-row-template, principles-template, section-divider-template).
 // These bodies live here so loadSkillContext can resolve them without a
-// fetch — browsers reject `fetch("inline://...")` as an unsupported
+// fetch - browsers reject `fetch("inline://...")` as an unsupported
 // URL scheme. When a new inline-path skill is added to the manifest,
 // add its body here. Falls back to a minimal stub if missing.
 const INLINE_SKILL_TEMPLATES: Record<string, string> = {
@@ -2107,7 +2114,7 @@ const INLINE_SKILL_TEMPLATES: Record<string, string> = {
         '',
         '- **Subject**: a named organization, institution, or person from the corpus (no synthetic / composite names)',
         '- **Context**: the situation that motivated the case (1-2 sentences, corpus-cited)',
-        '- **Intervention**: what was done — named program, tool, framework, or decision',
+        '- **Intervention**: what was done - named program, tool, framework, or decision',
         '- **Outcome**: quantified delta with a baseline and timeframe; cite the source by name',
         '- **Applicability**: a 1-sentence "how this maps to the user\'s situation" tied to the research goal',
         '- **Evidence**: 2-3 verbatim quotes from corpus with [CHUNK_XXX] markers AND named-source attribution',
@@ -2164,7 +2171,7 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     const cached = _skillContextCache.get(skill.id);
     if (cached) return cached;
 
-    // 2026-05-26 — Inline-template skills (path = "inline://<template-name>")
+    // 2026-05-26 - Inline-template skills (path = "inline://<template-name>")
     // are in-memory; do NOT fetch. The skill manifest uses inline:// for
     // skills whose body is embedded in the dispatcher (case-study-analyst,
     // block-quote, benchmark-reporter etc.). Calling fetch() on a custom
@@ -2187,7 +2194,7 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     );
 
     // Fetch skill-folder references (e.g. "references/web-layouts.md").
-    // Resolved relative to the skill path — skill.path is "/skills/<id>/SKILL.md"
+    // Resolved relative to the skill path - skill.path is "/skills/<id>/SKILL.md"
     // and references live under "/skills/<id>/<ref>".
     const skillFolder = skill.path.replace(/\/SKILL\.md$/i, '');
     for (const ref of (skill.skillReferences || [])) {
@@ -2367,7 +2374,7 @@ function _deliverableJsonToMarkdown(root: any): string {
 
 export function renderDeliverableJsonReply(text: string): string {
     if (!text) return text;
-    // Never touch fenced structured output — those have dedicated renderers.
+    // Never touch fenced structured output - those have dedicated renderers.
     if (/:::(deliverable|slide|nxt)/.test(text)) return text;
     const trimmed = text.trim();
     let candidate: string | null = null;
@@ -2412,7 +2419,7 @@ export async function sendChatMessage(
     const startTime = Date.now();
     const abortSignal = opts?.signal;
     const onProgress = opts?.onProgress;
-    // 2026-05-26 — Abort propagation. The chat tool loops can run for
+    // 2026-05-26 - Abort propagation. The chat tool loops can run for
     // minutes (5 iterations x 4-5 min each when the proxy is congested
     // by the main analysis pipeline). Users need an escape hatch.
     // Plumbing the signal into the global module scope so the tool-loop
@@ -2421,7 +2428,7 @@ export async function sendChatMessage(
     // Single-call-at-a-time chat is enforced upstream in CorpusChatPanel,
     // so module-level signal mutation is safe here.
     (globalThis as any).__hicChatAbortSignal = abortSignal;
-    // 2026-05-26 — Progress callback for the LiveProcessingIndicator.
+    // 2026-05-26 - Progress callback for the LiveProcessingIndicator.
     // Tool-loop iterations push "iter N/5 - <action>" status strings
     // through this so the user sees forward motion instead of a static
     // "Validating citations..." for minutes.
@@ -2433,7 +2440,7 @@ export async function sendChatMessage(
     };
     throwIfAborted();
 
-    // 2026-05-26 — Unknown-hashtag guard. If the user typed `#foo` and `foo`
+    // 2026-05-26 - Unknown-hashtag guard. If the user typed `#foo` and `foo`
     // is not a registered directive, surface a one-line warning ABOVE the
     // generation. This prevents the silent fall-through where a misspelled
     // hashtag (`#case`, `#audit2`, `#proto-deck`) gets ignored and the keyword
@@ -2447,7 +2454,7 @@ export async function sendChatMessage(
         console.info('[Chat] Fuzzy-promoted hashtag(s):', fuzzyPromoted.map(p => `${p.typed} → ${p.resolved}`).join(', '));
     }
 
-    // 2026-05-26 — Evidence-density pre-check. Before firing a research-
+    // 2026-05-26 - Evidence-density pre-check. Before firing a research-
     // deliverable skill against a thin corpus, predict whether the corpus
     // can support the deliverable. If not, prepend an UPSTREAM REMEDIATION
     // PREAMBLE to the chat prompt so the model fires wiki-query-expander
@@ -2476,7 +2483,7 @@ export async function sendChatMessage(
             `\n` +
             `Refusal phrasings BANNED. These violate the quality floor.\n` +
             `=== END EVIDENCE DENSITY PRE-CHECK ===\n`;
-        console.info(`[Chat] Evidence-density pre-check FIRED: ${corpusChunkCount} chunks / ${corpusByteCount} bytes — UPSTREAM remediation preamble injected.`);
+        console.info(`[Chat] Evidence-density pre-check FIRED: ${corpusChunkCount} chunks / ${corpusByteCount} bytes - UPSTREAM remediation preamble injected.`);
         const _prog0 = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
         _prog0?.(`Corpus is thin (${corpusChunkCount} chunks). Firing upstream wiki retrieval before drafting...`);
     }
@@ -2524,7 +2531,7 @@ export async function sendChatMessage(
                 retrieve: async (query: string, k: number) => {
                     // Cheap keyword scoring as fallback retrieve (proxy-side
                     // embedding retrieval is preferred but adds latency on
-                    // first chat turn — this delivers acceptable recall).
+                    // first chat turn - this delivers acceptable recall).
                     const queryTokenArr = query.toLowerCase().split(/\s+/).filter(t => t.length >= 4);
                     const queryTokenCount = queryTokenArr.length;
                     const scored = corpusChunks.map((c: any) => {
@@ -2582,11 +2589,11 @@ export async function sendChatMessage(
             console.log(`[chat] retrieval enhancers active: ${retrievalEnhancers.map(c => c.skill.id).join(', ')}`);
         }
 
-        // 2026-05-19 — Quality enhancers auto-load via composes_with.
+        // 2026-05-19 - Quality enhancers auto-load via composes_with.
         // When a deliverable skill is the top content skill, walk its
         // composes_with array and pull every referenced quality skill into
         // the same system prompt. The user does NOT have to type extra
-        // hashtags — every deliverable inherits its quality stack. One
+        // hashtags - every deliverable inherits its quality stack. One
         // LLM call carries all layered instructions (the quality skill
         // SKILL.md content gets concatenated into the prompt, not invoked
         // as a separate call), so cost stays ~prompt-token only.
@@ -2596,7 +2603,7 @@ export async function sendChatMessage(
             const composes = (src as any).composes_with as string[] | undefined;
             if (!Array.isArray(composes)) continue;
             for (const id of composes) {
-                // Skip composers already loaded via direct keyword match —
+                // Skip composers already loaded via direct keyword match -
                 // no double-loading.
                 if (id === topContentSkill?.id) continue;
                 if (matchedContracts.find(s => s.id === id)) continue;
@@ -2613,13 +2620,13 @@ export async function sendChatMessage(
         }
     }
 
-    // Phase 1-retrofit (2026-04-20) — WIKI PRE-FETCH. If the caller hasn't
+    // Phase 1-retrofit (2026-04-20) - WIKI PRE-FETCH. If the caller hasn't
     // already populated prefetchedArticlesBlock, best-effort pull the top
     // keyword-matching article bodies from the wiki archive. Non-blocking
     // by design: proxy outage or slow wiki returns an empty block and the
     // rest of the grounding context still carries the chat. Gated on the
     // user message having enough substance (≥12 chars) and no prior block
-    // already present — keeps double-loading at zero.
+    // already present - keeps double-loading at zero.
     if (!context.prefetchedArticlesBlock && userMessage && userMessage.trim().length >= 12) {
         try {
             const { prefetchArticlesForMessage, formatArticlesAsCorpusBlock } = await import('./wikiIndexService');
@@ -2631,7 +2638,7 @@ export async function sendChatMessage(
                 || (context as any)?.goal
                 || (context as any)?.brief
                 || undefined;
-            // 2026-05-20 — Pre-fetch budgets raised. Was limit:6 / 80KB total.
+            // 2026-05-20 - Pre-fetch budgets raised. Was limit:6 / 80KB total.
             // For a corpus with ~600 indexed chunks, 6 articles is a thin pre-roll
             // and the model would then have to spend turns on tool calls to fill
             // in the rest. New: 20 articles / 200KB block. Each turn now lands
@@ -2701,19 +2708,19 @@ ${re.skillContent}
 === END RETRIEVAL ENHANCER ===
 `;
     }
-    // 2026-05-19 — Quality enhancers come AFTER retrieval enhancers so they
+    // 2026-05-19 - Quality enhancers come AFTER retrieval enhancers so they
     // operate on top of the retrieval set the model just assembled. These
-    // are auto-loaded via composes_with on the active content skill — the
+    // are auto-loaded via composes_with on the active content skill - the
     // user does NOT have to opt in. Source-ranker disciplines citation
     // diversity; contradiction-finder forces engagement with counter-
     // evidence; second-order-thinker deepens recommendations; slide-title-
     // lab governs slide titles. The instructions are concatenated INTO this
-    // single generation call — zero extra LLM round-trips.
+    // single generation call - zero extra LLM round-trips.
     for (const qe of qualityEnhancers) {
         skillInstructions += `
 === QUALITY ENHANCER (auto-loaded via composes_with): ${qe.skill.name} ===
 The deliverable you are generating MUST internalize and apply the rules below.
-These are not optional — they are quality gates the runtime enforces post-hoc
+These are not optional - they are quality gates the runtime enforces post-hoc
 via slidePostProcessor + hic-output-qa. Applying them inline is cheaper than
 having your output rejected and regenerated.
 ${qe.skillContent}
@@ -2721,7 +2728,7 @@ ${qe.skillContent}
 `;
     }
 
-    // 2026-05-11 — Topic-model summary block. Compact: cluster names,
+    // 2026-05-11 - Topic-model summary block. Compact: cluster names,
     // sentiments, post counts, top terms, summaries. The model uses
     // query_topic_clusters(id_or_name) for representative-post deep dives.
     const topicModelBlock = buildTopicModelSummaryForPrompt(context);
@@ -2731,7 +2738,7 @@ ${qe.skillContent}
         ? `\nAVAILABLE CONSULTING SKILLS (activate by requesting the output type):\n${context.skillManifest.filter(s => s.category === 'research-deliverable').map(s => `- ${s.name}: ${s.description}`).join('\n')}\n`
         : '';
 
-    // 2026-05-11 — Wiki resource manifest. Compact directory of every
+    // 2026-05-11 - Wiki resource manifest. Compact directory of every
     // framework / anti-pattern / benchmark / methodology page available in
     // the wiki, one line each, ~70-150 tokens per entry. The model uses
     // fetch_wiki_resource(path) to load any of these on demand instead of
@@ -2755,7 +2762,7 @@ ${qe.skillContent}
     const corpusBreakdown = computeCorpusSourceBreakdown(context);
     const categoryRoster = buildCategoryRoster(context);
 
-    const systemPrompt = `You are a McKinsey-trained research intelligence analyst operating in the NXT Humans Chat-Driven Research Workbench.
+    let systemPrompt = `You are a McKinsey-trained research intelligence analyst operating in the NXT Humans Chat-Driven Research Workbench.
 You have access to ${context.sourceCount} data sources containing ${context.articleCount} articles collected for this research.
 The research goal is: "${context.researchGoal}"
 
@@ -2764,7 +2771,7 @@ The research goal is: "${context.researchGoal}"
 ================================================================================
 
 The user is an EXPERT RESEARCHER. Every source category in the list below was
-toggled ON deliberately. The user has reasons — including pulling cross-industry
+toggled ON deliberately. The user has reasons - including pulling cross-industry
 analogies, out-of-domain examples, and lateral evidence INTO the analysis. Your
 job is to honor that selection, NOT second-guess it.
 
@@ -2775,11 +2782,11 @@ ABSOLUTE RULES:
 2. Categories that yielded no usable content MUST be silently omitted from your
    response. NEVER write "CATEGORY GAP", "no content collected", "category
    omitted", or any other meta-narration about empty sources. The reader is an
-   executive consuming a finished artifact — they should not see the model's
+   executive consuming a finished artifact - they should not see the model's
    notes about which buckets came back empty. Just write the deliverable from
    the evidence that IS available.
 3. NEVER reason "this category seems off-topic" for categories that HAVE
-   content — the user is an expert; if they toggled it and there's evidence,
+   content - the user is an expert; if they toggled it and there's evidence,
    it's relevant.
 4. Out-of-domain evidence is a FEATURE, not a bug. Cross-industry analogies
    (retail loyalty patterns for alumni engagement, supply-chain orchestration
@@ -2798,33 +2805,33 @@ ${categoryRoster}
 
 === CORPUS SOURCE COMPOSITION ===
 The corpus below contains content from MULTIPLE source types. Every type is
-first-class evidence. You MUST cite from a balanced mix — not just uploads.
+first-class evidence. You MUST cite from a balanced mix - not just uploads.
 
 ${corpusBreakdown.summary}
 
 SOURCE-MIX DISCIPLINE (MANDATORY):
-- Uploads (client-provided PDFs, interviews, internal docs) provide CONTEXT — the client's POV, their data, their stakeholder voices
-- External sources (RSS articles, jina-reader web scrapes, YouTube transcripts, Reddit threads, OpenAlex/Crossref/Semantic Scholar papers, DOAJ open-access research) provide EVIDENCE — third-party validation, peer-institution comparisons, sector benchmarks
+- Uploads (client-provided PDFs, interviews, internal docs) provide CONTEXT - the client's POV, their data, their stakeholder voices
+- External sources (RSS articles, jina-reader web scrapes, YouTube transcripts, Reddit threads, OpenAlex/Crossref/Semantic Scholar papers, DOAJ open-access research) provide EVIDENCE - third-party validation, peer-institution comparisons, sector benchmarks
 - ≥40% of citations in any analysis MUST come from non-upload external sources
-- If your draft response leans >60% on uploads, you are FAILING the source-mix discipline — REVISE before delivering
-- Citations from "Higher Ed Dive", "Inside Higher Ed", "Chronicle of Higher Education", "EdSurge", "Diverse Issues in Higher Ed", YouTube alumni-engagement transcripts, OpenAlex papers, and topical Reddit threads are FIRST-CLASS evidence — not optional padding
-- For every theme/recommendation/persona, surface BOTH internal (upload) and external evidence — the convergence is the strategic insight
+- If your draft response leans >60% on uploads, you are FAILING the source-mix discipline - REVISE before delivering
+- Citations from "Higher Ed Dive", "Inside Higher Ed", "Chronicle of Higher Education", "EdSurge", "Diverse Issues in Higher Ed", YouTube alumni-engagement transcripts, OpenAlex papers, and topical Reddit threads are FIRST-CLASS evidence - not optional padding
+- For every theme/recommendation/persona, surface BOTH internal (upload) and external evidence - the convergence is the strategic insight
 
 CITATION FORMAT (MANDATORY):
 [SOURCE_NAME: "Article Title"]
-Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"], [YouTube: "Columbia Alumni Q&A — Donor Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
+Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"], [YouTube: "Columbia Alumni Q&A - Donor Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
 
 ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - Answer ONLY from evidence that EXISTS in the corpus below. Do not invent, fabricate, or extrapolate.
 - NEVER fabricate URLs. You may ONLY include a URL if it appears verbatim in the SOURCE PROVENANCE INDEX or the RAW RESEARCH CORPUS above. If no URL exists for a source, cite it by name only WITHOUT a URL.
-- NEVER invent case studies, institutions, dollar amounts, percentages, or quotes that are not explicitly present in the corpus. If the corpus contains 3 case studies, you have 3 case studies — not 10.
+- NEVER invent case studies, institutions, dollar amounts, percentages, or quotes that are not explicitly present in the corpus. If the corpus contains 3 case studies, you have 3 case studies - not 10.
 - NEVER generate plausible-looking article URLs by pattern (e.g., highereddive.com/news/fake-slug/123456). A fabricated URL is worse than no URL.
 - EVERY factual claim MUST include a [SOURCE_NAME: "Article Title"] citation matching an actual source in the provenance index.
 - When quoting, use EXACT words from the corpus. Do not paraphrase and present it as a quote.
 - If the corpus does not contain enough evidence to answer the question, say explicitly: "The collected data contains limited evidence on this topic. Here is what was found:" and cite ONLY what actually exists.
-- When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 — never pad to reach the requested number.
+- When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 - never pad to reach the requested number.
 
-ON-DEMAND WIKI RETRIEVAL (function-calling — used by Gemini Pro on this branch):
+ON-DEMAND WIKI RETRIEVAL (function-calling - used by Gemini Pro on this branch):
 You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE giving up on a claim, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
 
   - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 30) to pull 30 real bodies, then select the 3 best quotes. Synthesis tasks: use limit 40-60. Narrow factual lookups: 10-15.
@@ -2834,28 +2841,28 @@ You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by 
 
 
 TOPIC-MODELING RETRIEVAL (NEW 2026-05-11):
-If a TOPIC CLUSTERS section appears in this system prompt, the engagement also ran a BERTopic-style clustering pass over the deep-Reddit corpus. Treat those clusters as FIRST-CLASS sources of insight: they represent coherent conversation patterns the embedding+clustering pipeline discovered, then a frontier LLM (Claude Opus) named and summarized. They are complementary to the manually-synthesized themes in the knowledge graph — the KG themes capture cross-source patterns; the topic clusters capture pure social-conversation patterns.
+If a TOPIC CLUSTERS section appears in this system prompt, the engagement also ran a BERTopic-style clustering pass over the deep-Reddit corpus. Treat those clusters as FIRST-CLASS sources of insight: they represent coherent conversation patterns the embedding+clustering pipeline discovered, then a frontier LLM (Claude Opus) named and summarized. They are complementary to the manually-synthesized themes in the knowledge graph - the KG themes capture cross-source patterns; the topic clusters capture pure social-conversation patterns.
 
 When building deliverables, ACTIVELY weave topic-cluster insights in alongside KG-theme evidence:
   - For personas: a cluster's representative posts are real verbatim voice. Pull them via query_topic_clusters.
   - For strategy decks / slides: cite cluster names ("Microsoft AI Tooling Excitement", "Advisor Conflicts and Burnout") as themes the social data surfaced, alongside KG themes the synthesis pipeline named.
   - For journey maps: negative clusters often map to pain-point stages; positive clusters to moments of truth.
-  - For recommendations: cluster sentiment distribution is a forward-looking signal — a recommendation that addresses 3 negative clusters has stronger backing than one tied to a single anecdote.
+  - For recommendations: cluster sentiment distribution is a forward-looking signal - a recommendation that addresses 3 negative clusters has stronger backing than one tied to a single anecdote.
 
 Decision rule for which tool to call:
-  - User asks about a specific TOPIC CLUSTER (named or numbered in the prompt above) → query_topic_clusters(topic_id_or_name) — pulls representative posts with scores, comment counts, subreddits
+  - User asks about a specific TOPIC CLUSTER (named or numbered in the prompt above) → query_topic_clusters(topic_id_or_name) - pulls representative posts with scores, comment counts, subreddits
   - User asks an open-ended research question → fetch_wiki_articles (semantic search)
   - User asks for framework / anti-pattern / benchmark / brand standard → fetch_wiki_resource
 
 DIVERSE-KIND RETRIEVAL (CRITICAL for source-mix discipline):
-When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds — not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube alumni transcripts, interview transcripts), \`upload\` (client PDFs).
+When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds - not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube alumni transcripts, interview transcripts), \`upload\` (client PDFs).
   - For evidence/data sections: call fetch_wiki_articles(query, kind: "article") to retrieve external research first.
   - For human voice / lived-experience sections: call fetch_wiki_articles(query, kind: "transcript") to retrieve YouTube + interview content.
   - For client-context sections only: call fetch_wiki_articles(query, kind: "upload") to retrieve client PDFs.
   - DEFAULT: omit \`kind\` so all three are returned, then select balanced evidence across all of them.
-If your draft answer cites only uploads, that is a violation of source-mix discipline — make additional retrievals with kind="article" and kind="transcript" before responding.
+If your draft answer cites only uploads, that is a violation of source-mix discipline - make additional retrievals with kind="article" and kind="transcript" before responding.
 
-When tool results return empty or error, the archive genuinely doesn't have evidence for that claim — narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user — not a QA dashboard.
+When tool results return empty or error, the archive genuinely doesn't have evidence for that claim - narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user - not a QA dashboard.
 ${DELIVERABLE_PROTOCOL}
 ${manifestSummary}
 ${wikiResourceManifest}
@@ -2880,7 +2887,7 @@ Match the OUTPUT SIZE to what the user actually requested. Common signals:
 
   • "ALL technical details" / "ALL [X]" / "everything we know about" → enumerate
     exhaustively. List every model, every technique, every protocol, every
-    library, every command that appears in the corpus. Do not summarize — list.
+    library, every command that appears in the corpus. Do not summarize - list.
 
   • "code snippets where appropriate" / "show me how" / "with examples" → include
     actual runnable code in fenced blocks, not pseudocode. Show config files,
@@ -2891,7 +2898,7 @@ Match the OUTPUT SIZE to what the user actually requested. Common signals:
     stay tight. Don't pad. Match the requested register.
 
 When the user requests a long deliverable, DO NOT produce a thin citation-stuffed
-outline. Citations are evidence for claims — they are not the deliverable. The
+outline. Citations are evidence for claims - they are not the deliverable. The
 deliverable is the document the user asked for, written end-to-end, with citations
 woven in to support specific claims. A "technical manual" reads like a manual, not
 like an annotated bibliography.
@@ -2901,7 +2908,7 @@ EXPANSION DISCIPLINE for long-form requests:
   - Every claim that depends on the corpus should cite [Source: Title]
   - Code blocks should be complete and runnable, not "// implement this"
   - Lists should be exhaustive when "all" or "every" is requested, not truncated
-  - If you have evidence for 20 techniques, list 20 — not 5 with "and more"
+  - If you have evidence for 20 techniques, list 20 - not 5 with "and more"
 
 === CRITICAL OUTPUT FORMAT REMINDER (re-read before responding) ===
 Scan the CURRENT user message for these triggers BEFORE you respond:
@@ -2922,7 +2929,7 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
   4. Otherwise (the overwhelming majority of turns): PLAIN PROSE.
        → Answer the question. Cite named sources inline. Use markdown for readability.
        → NO fences. No :::slide. No :::deliverable:. No :::nxt:.
-       → The knowledge graph is already populated automatically — you don't need
+       → The knowledge graph is already populated automatically - you don't need
          to force cards just because the user asked about personas or themes.
        → For long-form requests (manual / specification / technical guide / N-page /
          comprehensive / detailed / "ALL"), apply the LENGTH & DEPTH DISCIPLINE above.
@@ -2931,24 +2938,24 @@ If none of triggers 1-3 are present, mode 4 (prose) is the answer. Do not guess.
 If triggers are ambiguous (e.g., user mentions "slides" in prose without #slide), stay in prose mode and OFFER to produce slides: "Add #slide if you'd like these formatted as slides."
 
 === ANTI-HALLUCINATION REMINDER (re-read before responding) ===
-BEFORE including any URL in your response, verify it exists VERBATIM in the SOURCE PROVENANCE INDEX above. If you cannot find the exact URL, DO NOT include one — cite by source name only.
+BEFORE including any URL in your response, verify it exists VERBATIM in the SOURCE PROVENANCE INDEX above. If you cannot find the exact URL, DO NOT include one - cite by source name only.
 BEFORE stating any statistic, dollar amount, or percentage, verify the EXACT number appears in the corpus text above. If you cannot find it, do not state it.
 BEFORE quoting anyone, verify the EXACT words appear in the corpus. If you cannot find the quote, paraphrase and label it as a paraphrase.
 If asked for N examples and the corpus only contains M < N, provide M and say "The corpus contains M examples on this topic."
 === END REMINDERS ===`;
 
     try {
-        // 2026-05-11 (HiC-Active-Loop #4) — stash the KG for the
+        // 2026-05-11 (HiC-Active-Loop #4) - stash the KG for the
         // query_knowledge_graph tool. Set early so any tool-loop iteration
         // can reach it. Cleared in the finally block at the end.
         setCurrentChatGraph((context as any)?.knowledgeGraph || null);
-        // 2026-05-11 — stash topic-model result for query_topic_clusters.
+        // 2026-05-11 - stash topic-model result for query_topic_clusters.
         setCurrentChatTopicModel((context as any)?.topicModelResult || null);
 
         // Determine thinking effort from skill or default
         const thinkingEffort: ThinkingEffort = skillContext?.skill.thinkingEffort || 'medium';
 
-        // 2026-05-11 (HiC-Active-Loop #3) — PreCompact mid-session.
+        // 2026-05-11 (HiC-Active-Loop #3) - PreCompact mid-session.
         // Before dispatching the new message, check if the history is large
         // enough to risk Context Representation Drift. If so, summarize the
         // older turns into a single digest and replace them. Recent turns
@@ -2969,10 +2976,10 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             })();
             const decision = shouldCompactHistory(conversationHistory, activeWindow);
             if (decision.shouldCompact) {
-                console.log(`[chat.precompact] ${decision.reason} — summarizing ${decision.olderCount} older turns, keeping ${decision.keepRecentCount} recent`);
+                console.log(`[chat.precompact] ${decision.reason} - summarizing ${decision.olderCount} older turns, keeping ${decision.keepRecentCount} recent`);
                 const olderTurns = conversationHistory.slice(0, decision.olderCount);
                 const recentTurns = conversationHistory.slice(decision.olderCount);
-                // Summarize via Gemini Pro — fast, reliable, follows structure.
+                // Summarize via Gemini Pro - fast, reliable, follows structure.
                 const summarizerPrompt = buildCompactionPrompt(olderTurns, context.researchGoal || '');
                 let digest = '';
                 try {
@@ -2997,21 +3004,41 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
         let responseText: string;
         let modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
-        // 2026-05-07 — Defensive: if the requested model isn't registered
+        // 2026-05-07 - Defensive: if the requested model isn't registered
         // (stale localStorage from legacy DeepSeek-only era, removed entry,
         // etc.), fall back to Gemini 3.1 Pro and warn.
         let activeModelId: string = model;
         if (!modelConfig) {
             const fallback = AVAILABLE_MODELS.find(m => m.id === 'gemini-3.1-pro-preview') || AVAILABLE_MODELS[0];
-            if (!fallback) throw new Error('No chat models registered — AVAILABLE_MODELS is empty');
+            if (!fallback) throw new Error('No chat models registered - AVAILABLE_MODELS is empty');
             console.warn(`[chat] Requested model ${JSON.stringify(model)} is not in AVAILABLE_MODELS; falling back to ${fallback.id}`);
             modelConfig = fallback;
             activeModelId = fallback.id;
         }
 
-        // 2026-05-07 — Multi-provider dispatch. Gemini 3.1 Pro is primary;
+        // 2026-06-01 - HARD SLIDE-MODE GATE. The prose contract relies on the
+        // model noticing "#slide"; users type "#slides" (plural) paired with a
+        // deliverable directive (#personas / #themes / ...). Literal models then
+        // answered "create personas" as MARKDOWN PROSE instead of emitting
+        // :::slide persona-card blocks (the renderer only draws cards from
+        // :::slide fences, so the user saw raw ###/>/* markdown). Enforce the
+        // contract at the code level so it cannot be argued away by the model.
+        if (/#slides?\b/i.test(userMessage)) {
+            const tplHint =
+                /#personas?\b/i.test(userMessage) ? 'persona-card'
+              : /#themes?\b/i.test(userMessage) ? 'theme-cluster'
+              : /(#recommendations?|#recs?)\b/i.test(userMessage) ? 'recommendation'
+              : /#compet/i.test(userMessage) ? 'competitive-matrix'
+              : /#case/i.test(userMessage) ? 'case-study'
+              : /#road/i.test(userMessage) ? 'timeline'
+              : '(pick the template that best matches the content)';
+            const brandHint = /#nu\b/i.test(userMessage) ? 'nu' : 'nxt';
+            systemPrompt += `\n\n========================================================================\nSLIDE MODE IS ACTIVE - the user's message contains #slide/#slides. You MUST respond with one or more :::slide fenced blocks per the SLIDE OUTPUT PROTOCOL above. Default template for THIS request: ${tplHint}; brand=${brandHint}. HARD RULES: (1) NEVER answer in markdown prose - no ###, no >, no * bullets; the renderer only draws cards from :::slide fences, so prose renders as raw markdown slop. (2) If the user named a count ("5 #personas", "8 #themes"), produce that many items - theme-cluster packs up to 4 themes per block, so 8 themes = 2 blocks. (3) Every slide's JSON must be valid and match the declared template schema.\n========================================================================`;
+        }
+
+        // 2026-05-07 - Multi-provider dispatch. Gemini 3.1 Pro is primary;
         // DeepSeek retained only as a legacy fallback.
-        // 2026-05-11 — Council mode (Sanhedrin) fans the prompt to 3 models
+        // 2026-05-11 - Council mode (Sanhedrin) fans the prompt to 3 models
         // in parallel and synthesizes. Caller opted in by selecting 'council'.
         if (activeModelId === 'council') {
             const { runCouncilSynthesis } = await import('./councilSynthesis');
@@ -3022,7 +3049,7 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                 if (m === 'gemini-3.1-pro-preview') return callGemini(systemPrompt, msg, hist, m);
                 if (m === 'deepseek-v4-flash' || m === 'deepseek-v4-pro') return callDeepSeek(systemPrompt, msg, hist, m);
                 if (m === 'gpt-5.5') return callOpenAI(systemPrompt, msg, hist, m);
-                // Default — Gemini Pro
+                // Default - Gemini Pro
                 return callGemini(systemPrompt, msg, hist, 'gemini-3.1-pro-preview');
             };
             const council = await runCouncilSynthesis({
@@ -3040,7 +3067,7 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         } else if (modelConfig.provider === 'openai') {
             responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else {
-            // (provider 'anthropic' — not currently registered, retained for future)
+            // (provider 'anthropic' - not currently registered, retained for future)
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 
@@ -3050,25 +3077,25 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // this layer guarantees they never reach the user.
         try {
             const { stripQAAnnotations, stripFormatTells } = await import('./slidePostProcessor');
-            // 2026-05-27 — Render bare deliverable-JSON replies (#prd / #gap /
+            // 2026-05-27 - Render bare deliverable-JSON replies (#prd / #gap /
             // #persona / #audit / #compete / #strategy / #case-study skill
             // outputs) into clean markdown prose and strip leaked [CHUNK_XXX]
             // markers. No-op for prose, tables, and fenced structured output.
             responseText = renderDeliverableJsonReply(responseText);
             responseText = stripQAAnnotations(responseText);
-            // 2026-05-26 — Em-dash hard-ban per .claude/CLAUDE.md ("Format
-            // Tells"). 2026-05-27 — extended to a HARD emoji ban too via
+            // 2026-05-26 - Em-dash hard-ban per .claude/CLAUDE.md ("Format
+            // Tells"). 2026-05-27 - extended to a HARD emoji ban too via
             // stripFormatTells (em-dash + emoji). Chat replies were letting
-            // "data—including" and model emoji ("Pong! 👋") reach users.
+            // "data-including" and model emoji ("Pong! ") reach users.
             // Applied unconditionally; ASCII hyphens + layout glyphs untouched.
             responseText = stripFormatTells(responseText);
         } catch (e) { /* non-blocking */ }
 
-        // 2026-05-26 — Surface unknown / fuzzy-promoted hashtag notices to the
+        // 2026-05-26 - Surface unknown / fuzzy-promoted hashtag notices to the
         // user. Two cases:
-        //   1) fuzzyPromoted — the directive WAS resolved via prefix match.
+        //   1) fuzzyPromoted - the directive WAS resolved via prefix match.
         //      Tell the user what we routed to so they can correct next time.
-        //   2) unknownHashtags — no resolution found. Suggest closest match.
+        //   2) unknownHashtags - no resolution found. Suggest closest match.
         // Both are emitted as plain-text leaders above the response so the
         // analyst sees the routing decision without reading logs.
         const notices: string[] = [];
@@ -3139,7 +3166,7 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 //     drawn on real body text pulled during the loop.
 
 const MAX_TOOL_ITER = 5;
-// 2026-05-26 — Wall-clock budget for chat tool loops. Caps the worst-case
+// 2026-05-26 - Wall-clock budget for chat tool loops. Caps the worst-case
 // at 3 minutes per turn (vs the 23-min case-study wait we observed during
 // pipeline contention). When the budget is exceeded, the loop short-circuits
 // and finalizes with whatever evidence was gathered so far. Quality preserved
@@ -3156,7 +3183,7 @@ The archive contains every article, transcript, and uploaded document collected 
 
 Good times to call:
   - The user asked for N verbatim quotes and you only see article titles in the in-prompt corpus
-  - You're about to omit a claim because the prompt didn't include body text — try a retrieval first
+  - You're about to omit a claim because the prompt didn't include body text - try a retrieval first
   - You need to cite a specific named competitor, case study, or peer institution
   - You need timestamped or dated text (transcripts, news articles)
 
@@ -3164,7 +3191,7 @@ Returns: array of articles with title, source, url, date, and body text (up to m
     input_schema: {
         type: 'object',
         properties: {
-            query: { type: 'string', description: 'Keyword search over article titles + summaries + sources. Use 3-8 concrete terms — names, entities, topics. Example: "Wyoming EverTrue donor experience revenue"' },
+            query: { type: 'string', description: 'Keyword search over article titles + summaries + sources. Use 3-8 concrete terms - names, entities, topics. Example: "Wyoming EverTrue donor experience revenue"' },
             ids: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: specific article IDs (10-char url_hash values from the WIKI ARCHIVE MENU). Use this when you already know which articles you want.' },
             wikiPaths: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: direct wiki paths (e.g. "articles/higher-ed-dive/ab12cd34ef.md"). Rarely needed; prefer ids or query.' },
             source: { type: 'string', description: 'OPTIONAL: substring filter on source name. Example: "Higher Ed Dive", "Reddit r/MBA", "EverTrue"' },
@@ -3176,7 +3203,7 @@ Returns: array of articles with title, source, url, date, and body text (up to m
     },
 };
 
-// 2026-05-11 — Companion tool to fetch_wiki_articles. Articles are
+// 2026-05-11 - Companion tool to fetch_wiki_articles. Articles are
 // research evidence (Reddit threads, RSS bodies, YouTube transcripts,
 // uploaded PDFs). Resources are structured wiki pages (frameworks,
 // anti-patterns, benchmarks, methodologies, brand standards, exemplars).
@@ -3186,7 +3213,7 @@ const FETCH_WIKI_RESOURCE_TOOL = {
     name: 'fetch_wiki_resource',
     description: `Read a specific wiki resource (framework, anti-pattern, benchmark, methodology, brand standard, exemplar, social-intelligence page, deep-research page, industry adaptation) on demand.
 
-Use this for STRUCTURED reference content — NOT for research articles. For article bodies, transcripts, or uploaded documents, use fetch_wiki_articles instead.
+Use this for STRUCTURED reference content - NOT for research articles. For article bodies, transcripts, or uploaded documents, use fetch_wiki_articles instead.
 
 The system prompt includes a WIKI MANIFEST listing every fetchable path with a 1-line summary. Call this tool with one of those exact paths. Common patterns:
   - You need the full framework spec for a deliverable: fetch_wiki_resource(path: "frameworks/PERSONAS.md")
@@ -3204,9 +3231,9 @@ The tool returns the full markdown body. Paths NOT in the manifest are rejected.
     },
 };
 
-// 2026-05-11 — Topic-modeling awareness for the chat. Compact summary
+// 2026-05-11 - Topic-modeling awareness for the chat. Compact summary
 // goes into the system prompt; deep dives into individual clusters use the
-// query_topic_clusters tool below. The model needs BOTH — the summary so
+// query_topic_clusters tool below. The model needs BOTH - the summary so
 // it knows topics exist and can reference them by name in deliverables,
 // the tool so it can pull representative posts when synthesizing depth.
 
@@ -3215,7 +3242,7 @@ function buildTopicModelSummaryForPrompt(ctx: ChatContext): string {
     if (!tm || !tm.topics || tm.topics.length === 0) return '';
     const lines: string[] = [];
     lines.push(`=== TOPIC CLUSTERS FROM REDDIT-DEEP CORPUS (${tm.topic_count} topics, ${tm.doc_count} posts, ${tm.noise_count} noise) ===`);
-    lines.push(`These clusters were discovered by BERTopic-style analysis (Gemini embeddings → UMAP → HDBSCAN → LLM-named). Each represents a coherent conversation pattern in the Reddit data the user pulled. Cite cluster names verbatim in deliverables — they are LLM-synthesized labels of real discussion clusters, not your own taxonomy.`);
+    lines.push(`These clusters were discovered by BERTopic-style analysis (Gemini embeddings → UMAP → HDBSCAN → LLM-named). Each represents a coherent conversation pattern in the Reddit data the user pulled. Cite cluster names verbatim in deliverables - they are LLM-synthesized labels of real discussion clusters, not your own taxonomy.`);
     lines.push('');
     // Group by sentiment for fast scanning
     const bySent = new Map<string, typeof tm.topics>();
@@ -3232,7 +3259,7 @@ function buildTopicModelSummaryForPrompt(ctx: ChatContext): string {
         for (const t of topics) {
             const terms = (t.top_terms || []).slice(0, 6).map(([w]) => w).join(', ');
             const summary = (t.summary || '').trim();
-            lines.push(`  • [Topic #${t.id}] "${t.name}" — ${t.post_count} posts | terms: ${terms}`);
+            lines.push(`  • [Topic #${t.id}] "${t.name}" - ${t.post_count} posts | terms: ${terms}`);
             if (summary) lines.push(`    ${summary.slice(0, 240)}`);
         }
         lines.push('');
@@ -3251,11 +3278,11 @@ Use this when you need:
   - Subreddit distribution within a cluster (where the conversation is happening)
   - Top-scoring posts for evidence in a slide or persona
 
-The cluster ID is the integer shown in the TOPIC CLUSTERS section of your system prompt (e.g., [Topic #3]). Alternatively, pass the cluster's name verbatim and we'll match. The summary, top terms, and sentiment are ALREADY in your system prompt — this tool returns the underlying posts only.`,
+The cluster ID is the integer shown in the TOPIC CLUSTERS section of your system prompt (e.g., [Topic #3]). Alternatively, pass the cluster's name verbatim and we'll match. The summary, top terms, and sentiment are ALREADY in your system prompt - this tool returns the underlying posts only.`,
     input_schema: {
         type: 'object',
         properties: {
-            topic_id: { type: 'number', description: 'Integer cluster id (preferred — exact match)' },
+            topic_id: { type: 'number', description: 'Integer cluster id (preferred - exact match)' },
             topic_name: { type: 'string', description: 'Cluster name (case-insensitive substring match if topic_id is omitted)' },
             limit: { type: 'number', description: 'Max posts to return. Default 10, max 30.' },
         },
@@ -3269,7 +3296,7 @@ async function executeQueryTopicClustersTool(input: any): Promise<string> {
     try {
         const tm = _currentChatTopicModel;
         if (!tm || !tm.topics?.length) {
-            return '(topic modeling has not run on this engagement — no clusters available)';
+            return '(topic modeling has not run on this engagement - no clusters available)';
         }
         const requestedId = typeof input?.topic_id === 'number' ? input.topic_id : null;
         const requestedName = String(input?.topic_name || '').trim().toLowerCase();
@@ -3320,7 +3347,7 @@ async function executeQueryTopicClustersTool(input: any): Promise<string> {
     }
 }
 
-// 2026-05-11 (HiC-Active-Loop #4) — Knowledge-graph-as-retrieval tool.
+// 2026-05-11 (HiC-Active-Loop #4) - Knowledge-graph-as-retrieval tool.
 // The KG nodes are already constructed at synthesis time (themes, evidence,
 // sources, personas, recommendations, gaps, journey stages). Letting the
 // chat model query the graph directly is graph-RAG: pin to a hub node,
@@ -3339,12 +3366,12 @@ Good times to call:
   - "Which themes did r/CareerAdvice drive?" → query_knowledge_graph(seed: "CareerAdvice", hops: 2)
   - "What recommendations address the donor-ghosting gap?" → query_knowledge_graph(seed: "ghosting", hops: 2)
 
-Returns the connected nodes (with evidence body excerpts) + edges. Falls back gracefully when the seed has no match — use fetch_wiki_articles for free-text searches instead.`,
+Returns the connected nodes (with evidence body excerpts) + edges. Falls back gracefully when the seed has no match - use fetch_wiki_articles for free-text searches instead.`,
     input_schema: {
         type: 'object',
         properties: {
             seed: { type: 'string', description: 'A theme name, persona name, source name, or topic term. Case-insensitive substring match. Example: "ghosting", "first-year readiness", "Higher Ed Dive".' },
-            hops: { type: 'number', description: 'How many graph hops to expand from the seed. 1 = direct neighbors only (fast, focused). 2 = neighbors-of-neighbors (DEFAULT — typical theme→evidence→source path). 3 = wide (use sparingly).' },
+            hops: { type: 'number', description: 'How many graph hops to expand from the seed. 1 = direct neighbors only (fast, focused). 2 = neighbors-of-neighbors (DEFAULT - typical theme→evidence→source path). 3 = wide (use sparingly).' },
             maxNodes: { type: 'number', description: 'Cap on returned nodes. Default 25, max 60. Lower for tight focused queries.' },
         },
         required: ['seed'],
@@ -3363,7 +3390,7 @@ async function executeQueryKGTool(input: any): Promise<string> {
         const seed = String(input?.seed || '').trim();
         if (!seed) return '(error: seed is required)';
         if (!_currentChatGraph || !_currentChatGraph.nodes?.length) {
-            return '(knowledge graph not yet built for this engagement — use fetch_wiki_articles or fetch_wiki_resource instead)';
+            return '(knowledge graph not yet built for this engagement - use fetch_wiki_articles or fetch_wiki_resource instead)';
         }
         const { queryKnowledgeGraph, renderKGResult } = await import('./kgRetrieval');
         const result = queryKnowledgeGraph(_currentChatGraph, seed, {
@@ -3407,9 +3434,9 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
         const timer = setTimeout(() => abort.abort(), TOOL_CALL_TIMEOUT_MS);
         let articles: any[] = [];
         try {
-            // 2026-05-20 — Budgets raised. Old: default 5, hard max 15,
+            // 2026-05-20 - Budgets raised. Old: default 5, hard max 15,
             // max chars 8K. Across 3 tool calls that's ~45 articles max from
-            // a 600-chunk corpus — chat-composed decks were citing 5-8% of
+            // a 600-chunk corpus - chat-composed decks were citing 5-8% of
             // the indexed evidence and the user could see the gap. New:
             // default 25 / hard max 80 / 12K chars per body. Proxy ceiling
             // is 250 chunks; we're still well under it for any single call.
@@ -3446,14 +3473,14 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
     }
 }
 
-// 2026-05-03 — callAnthropic / Anthropic chat path removed on this branch
+// 2026-05-03 - callAnthropic / Anthropic chat path removed on this branch
 // (HiC-Gemini-Primary). The primary dispatch is still callGemini / callOpenAI
 // / callDeepSeek through sendChatMessage; Anthropic is NOT a primary chat
-// option in the UI. But see the 2026-05-27 escape below — Claude is the
+// option in the UI. But see the 2026-05-27 escape below - Claude is the
 // FUNDED cross-provider finalize when any primary exhausts.
 
 // =================================================================
-// 2026-05-27 — Cross-provider Claude finalize escape (Issue 10 fix)
+// 2026-05-27 - Cross-provider Claude finalize escape (Issue 10 fix)
 // =================================================================
 // Architectural rule (per the user's directive): NO chat helper should die
 // from a single-provider failure. When the primary provider's retry budget
@@ -3582,14 +3609,14 @@ async function _finalizeChatViaClaude(
     return text;
 }
 
-// 2026-05-04 — Both call paths now respect the user's model selection AND
+// 2026-05-04 - Both call paths now respect the user's model selection AND
 // implement a fetch_wiki_articles tool-loop. The previous versions hardcoded
 // 'gpt-5.4' / 'gemini-2.5-flash' (silently bypassing the picker) and lacked
 // the tool registration entirely (the system prompt told the model to call
 // fetch_wiki_articles but the function was never declared, causing
 // hallucinations and "EVIDENCE GAP" placeholders).
 
-// 2026-05-05 — Azure DeepSeek-V4-Flash chat path. OpenAI-compatible
+// 2026-05-05 - Azure DeepSeek-V4-Flash chat path. OpenAI-compatible
 // chat-completions wire format with tool-loop. The proxy
 // (/api/ai/deepseek) handles the api-key header (NOT Authorization:
 // Bearer) and 429-Retry-After backoff. Uses max_tokens (DeepSeek does
@@ -3647,7 +3674,7 @@ async function callDeepSeek(
     const _deepseekLoopStart = Date.now();
     try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
-        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        // 2026-05-26 - Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
         if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
         if (Date.now() - _deepseekLoopStart > MAX_TOOL_WALLCLOCK_MS) {
@@ -3694,7 +3721,7 @@ async function callDeepSeek(
             let result = '';
             if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
                 try {
-                    // 2026-05-05 — DeepSeek V4 Flash sometimes emits whitespace-only
+                    // 2026-05-05 - DeepSeek V4 Flash sometimes emits whitespace-only
                     // or empty `arguments` strings for arg-less tools; trim first.
                     const rawArgs = (tc.function.arguments || '').trim();
                     const args = rawArgs ? JSON.parse(rawArgs) : {};
@@ -3800,7 +3827,7 @@ async function callOpenAI(
     const _gptLoopStart = Date.now();
     try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
-        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        // 2026-05-26 - Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
         if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
         if (Date.now() - _gptLoopStart > MAX_TOOL_WALLCLOCK_MS) {
@@ -3809,8 +3836,8 @@ async function callOpenAI(
         }
         const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
         _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (GPT)`);
-        // 2026-05-12 — Use shared retry client. OpenAI's API returns
-        // 429 (quota / rate-limit) and 5xx transients under load — both
+        // 2026-05-12 - Use shared retry client. OpenAI's API returns
+        // 429 (quota / rate-limit) and 5xx transients under load - both
         // are retryable with backoff. Previously a single failure killed
         // the chat turn; now we get three attempts with backoff.
         const { callAIWithRetry } = await import('./aiRetryClient');
@@ -3845,7 +3872,7 @@ async function callOpenAI(
             let result = '';
             if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
                 try {
-                    // 2026-05-05 — DeepSeek V4 Flash sometimes emits whitespace-only
+                    // 2026-05-05 - DeepSeek V4 Flash sometimes emits whitespace-only
                     // or empty `arguments` strings for arg-less tools; trim first.
                     const rawArgs = (tc.function.arguments || '').trim();
                     const args = rawArgs ? JSON.parse(rawArgs) : {};
@@ -3949,7 +3976,7 @@ async function callGemini(
     const _geminiLoopStart = Date.now();
     try {
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
-        // 2026-05-26 — Abort + wall-clock check at each iteration boundary
+        // 2026-05-26 - Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
         if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
         if (Date.now() - _geminiLoopStart > MAX_TOOL_WALLCLOCK_MS) {
@@ -3958,9 +3985,9 @@ async function callGemini(
         }
         const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
         _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (Gemini)`);
-        // 2026-05-26 — 429 fallback to DeepSeek-V4-Flash. When Gemini returns
+        // 2026-05-26 - 429 fallback to DeepSeek-V4-Flash. When Gemini returns
         // quota-exhausted (HTTP 429 or "Resource exhausted" message), don't
-        // grind through retries — immediately re-fire the same call through
+        // grind through retries - immediately re-fire the same call through
         // the proxy /api/ai/deepseek endpoint. DeepSeek is in the pipeline
         // and has separate Azure quota. The chat user sees zero downtime;
         // a one-line progress notice surfaces the fallback.
@@ -4033,7 +4060,7 @@ async function callGemini(
             const finalText = lastText || (response as any).text || '';
             if (finalText && finalText.trim().length > 0) return finalText;
 
-            // 2026-05-23 — Empty-response guard. Gemini sometimes returns a
+            // 2026-05-23 - Empty-response guard. Gemini sometimes returns a
             // response with no function calls AND no text after a long tool
             // chain (degraded API session, safety filter on a non-blocking
             // signal, or finishReason=OTHER). Previously we surfaced the
@@ -4060,7 +4087,7 @@ async function callGemini(
                     systemInstruction: system,
                     temperature: 0.2,
                     maxOutputTokens: 65536,
-                    // No tools on the retry — force a textual answer.
+                    // No tools on the retry - force a textual answer.
                 } as any,
             });
             const retryParts: GPart[] = (retryResp as any).candidates?.[0]?.content?.parts || [];
@@ -4071,7 +4098,7 @@ async function callGemini(
                 || (retryResp as any).text
                 || '';
             if (retryText.trim().length > 0) return retryText;
-            return 'Model returned an empty response after retrieving data. The API may be degraded — try again, or rephrase the question more narrowly.';
+            return 'Model returned an empty response after retrieving data. The API may be degraded - try again, or rephrase the question more narrowly.';
         }
 
         // Append assistant turn with all its parts (Gemini requires the model

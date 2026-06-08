@@ -2,7 +2,7 @@
 // TypeScript port of the four-layer multi-model resilience pattern from proxy/topic_modeling.py.
 // Per feedback_multi_model_resilience_pattern standing rule.
 //
-// 2026-05-24 — Phase 1.3 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 1.3 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 //
 // The four layers:
 //   1. Content-hash cache (provider-keyed)
@@ -193,7 +193,7 @@ export async function withResilience<T>(opts: ResilientCallOpts<T>): Promise<{
                 recordProvider429(provider);
                 continue; // try next fallback
             }
-            // Non-429 error — re-throw
+            // Non-429 error - re-throw
             throw err;
         }
     }
@@ -206,7 +206,7 @@ export async function withResilience<T>(opts: ResilientCallOpts<T>): Promise<{
 
 
 /**
- * Default 429 detector — checks error message for common throttle signals.
+ * Default 429 detector - checks error message for common throttle signals.
  */
 export function isThrottleError(err: unknown): boolean {
     const msg = String(err ?? '').toLowerCase();

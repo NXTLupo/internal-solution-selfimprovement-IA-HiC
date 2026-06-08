@@ -1,5 +1,5 @@
 /**
- * WikiArticleViewer — full-screen overlay that renders a wiki article
+ * WikiArticleViewer - full-screen overlay that renders a wiki article
  * body so the user can verify what the AI actually has access to.
  *
  * This is the accountability surface for the wiki-as-RAG architecture
@@ -173,7 +173,7 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                             fontSize: 30, lineHeight: 1.1, fontWeight: 600,
                             letterSpacing: '-0.01em', color: '#141414',
                         }}>
-                            {article?.title || (loading ? 'Loading…' : 'Article')}
+                            {article?.title || (loading ? 'Loading...' : 'Article')}
                         </div>
                         {/* Metadata chips */}
                         <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 8, fontSize: 11, color: '#4B4B4B' }}>
@@ -224,7 +224,7 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                     padding: '24px 32px 36px',
                 }}>
                     {loading && (
-                        <div style={{ color: '#888', fontSize: 13 }}>Fetching from wiki archive…</div>
+                        <div style={{ color: '#888', fontSize: 13 }}>Fetching from wiki archive...</div>
                     )}
                     {error && (
                         <div style={{

@@ -1,5 +1,5 @@
 /**
- * sourcePackResolver.ts (2026-05-29) — resolve selected source packs to the
+ * sourcePackResolver.ts (2026-05-29) - resolve selected source packs to the
  * union of their source IDs, for the pack-based landing-page selection UX.
  *
  * Packs are defined server-side (proxy SOURCE_PACKS) and resolve dynamically

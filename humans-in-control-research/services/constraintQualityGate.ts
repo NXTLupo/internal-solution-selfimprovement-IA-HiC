@@ -1,5 +1,5 @@
 /**
- * Constraint Quality Gate (Phase 1 — Second Brain Consolidation Overhaul, 2026-05-29)
+ * Constraint Quality Gate (Phase 1 - Second Brain Consolidation Overhaul, 2026-05-29)
  *
  * The self-improvement loop was writing constraints that were net-NEGATIVE:
  *   - 21 near-duplicate "quantify the business impact in dollars" rules that
@@ -56,7 +56,7 @@ const MASTER_RULE_DOLLAR_PATTERNS: RegExp[] = [
 
 /**
  * Constraints that mandate a naked number/percentage/statistic in a
- * title/heading/KPI/headline — also a direct master-rule violation.
+ * title/heading/KPI/headline - also a direct master-rule violation.
  */
 const MASTER_RULE_NAKED_NUMBER_PATTERNS: RegExp[] = [
     /(include|add|put|place|state|use|insert|lead with)[\s\S]{0,40}(percentage|percent|statistic|number|figure|metric|dollar)[\s\S]{0,40}(title|heading|headline|kpi|tile|label)/i,
@@ -85,7 +85,7 @@ const GENERIC_STUB_PATTERNS: RegExp[] = [
     /^["']?[^"']{0,40}["']?\s+(needs|requires|structure)/i, // "<field>" needs/requires ...
 ];
 
-/** Minimum useful length — anything shorter is a stub. */
+/** Minimum useful length - anything shorter is a stub. */
 const MIN_CONSTRAINT_CHARS = 40;
 
 /** Strip the "- CONSTRAINT [scope]:" prefix and trailing "(source: ...)" so we
@@ -108,7 +108,7 @@ export function normalizeConstraintKey(line: string): string {
 
 /**
  * Evaluate a single constraint. Pass either a raw "- CONSTRAINT: ..." line or
- * a bare rule sentence — both are normalized before testing.
+ * a bare rule sentence - both are normalized before testing.
  */
 export function evaluateConstraint(line: string): ConstraintVerdict {
     const body = extractRuleBody(line);

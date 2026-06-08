@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Journey Map: First co-op cycle (current state)</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  /* Journey-specific layout. CSS grid only, no absolute overlap, no SVG
+     connectors crossing nodes (per the graphic-collision bans). The emotion
+     baseline is a single grid row; each phase places one dot at a vertical
+     offset, joined by a hairline behind the row. */
+  .jm-grid {
+    display: grid;
+    grid-template-columns: 150px repeat(5, 1fr);
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    gap: 1px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .jm-cell { background: var(--bg-surface); padding: 12px 13px; }
+  .jm-corner { background: var(--ink-900); }
+  .jm-phase {
+    background: var(--ink-900);
+    color: var(--white);
+    padding: 13px;
+  }
+  .jm-phase.focal { background: var(--nu-red-600); }
+  .jm-phase__n { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .14em; color: rgba(255,255,255,.55); }
+  .jm-phase__name { font-family: var(--font-display); font-size: 17px; font-weight: 600; line-height: 1.1; margin-top: 3px; }
+  .jm-phase__sys { font-family: var(--font-mono); font-size: 8.5px; color: rgba(255,255,255,.55); margin-top: 5px; letter-spacing: .03em; }
+  .jm-lane {
+    background: var(--bg-subtle);
+    padding: 12px;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-strong);
+  }
+  .jm-lane .role { display: block; font-weight: 400; font-size: 9.5px; letter-spacing: .02em; text-transform: none; color: var(--fg-muted); margin-top: 5px; }
+  .jm-act { font-size: 12px; line-height: 1.42; color: var(--fg-default); }
+  .jm-cell.focal { background: var(--nu-red-tint); }
+  .jm-pain {
+    margin-top: 9px;
+    padding-left: 10px;
+    border-left: 2px solid var(--error-solid);
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--fg-default);
+  }
+  .jm-pain .q { font-family: var(--font-display); font-style: italic; color: var(--fg-strong); }
+  .jm-pain .src { display: block; margin-top: 3px; font-family: var(--font-mono); font-size: 9px; color: var(--fg-muted); letter-spacing: .02em; }
+  .jm-none { font-size: 11px; font-style: italic; color: var(--fg-subtle); }
+
+  /* Emotion baseline: grid row, dots at vertical offsets, hairline behind */
+  .jm-emotion {
+    display: grid;
+    grid-template-columns: 150px repeat(5, 1fr);
+    margin-top: 22px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+  }
+  .jm-emotion__label {
+    padding: 14px 12px;
+    font-weight: 600; font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--fg-strong);
+    border-right: 1px solid var(--border-subtle);
+    display: flex; align-items: center;
+  }
+  .jm-emo-cell { position: relative; height: 96px; }
+  .jm-emo-cell::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 48px;
+    border-top: 1px dashed var(--border-default);
+  }
+  .jm-dot {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 13px; height: 13px; border-radius: var(--radius-pill);
+    border: 2px solid var(--bg-surface);
+  }
+  .jm-dot.pos { background: var(--success-solid); }
+  .jm-dot.neu { background: var(--slate-400); }
+  .jm-dot.neg { background: var(--error-solid); }
+  .jm-emo-cap { position: absolute; left: 8px; right: 8px; bottom: 6px; text-align: center; font-family: var(--font-mono); font-size: 8.5px; color: var(--fg-muted); letter-spacing: .02em; }
+
+  .jm-opps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+  .jm-opp { border-top: 3px solid var(--success-solid); padding-top: 12px; }
+  .jm-opp h4 { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--fg-strong); line-height: 1.15; }
+  .jm-opp p { font-size: 12px; line-height: 1.45; color: var(--fg-default); margin-top: 7px; }
+  .jm-opp .stage { font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--nu-red-600); margin-top: 8px; display: block; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Journey synthesis · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Journey Map · Current state</div>
+    <h1 class="art-masthead__title" style="width: 560px">A first-year's qualified application is filtered out before a recruiter ever opens it, and the advisor finds out only after the cycle closes.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Scope</dt><dd>First co-op cycle</dd></div>
+    <div class="art-masthead__meta-block"><dt>Actors</dt><dd>Student · Advisor · Employer</dd></div>
+    <div class="art-masthead__meta-block"><dt>Phases</dt><dd>Five, triage to decision</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- Pattern strip: qualitative, names the pattern not the statistic -->
+  <div class="stat-strip" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+    <div class="stat">
+      <div class="stat__label">Resume readiness</div>
+      <div class="stat__value">Stale templates</div>
+      <div class="stat__delta">advisor examples trail current employer stacks</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Submission gate</div>
+      <div class="stat__value">Keyword screen</div>
+      <div class="stat__delta stat__delta--down">qualified students removed pre-review</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Advisor signal</div>
+      <div class="stat__value">Lagging</div>
+      <div class="stat__delta">stall is visible only after the cycle ends</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Trust path</div>
+      <div class="stat__value">Peer first</div>
+      <div class="stat__delta stat__delta--up">upperclassman answers before the portal</div>
+    </div>
+  </div>
+
+  <!-- Swimlane: 5 phases x 3 actors -->
+  <div class="jm-grid">
+    <div class="jm-corner"></div>
+    <div class="jm-phase"><div class="jm-phase__n">01</div><div class="jm-phase__name">Skill triage</div><div class="jm-phase__sys">NUworks profile · LinkedIn</div></div>
+    <div class="jm-phase"><div class="jm-phase__n">02</div><div class="jm-phase__name">Posting browse</div><div class="jm-phase__sys">NUworks · Handshake</div></div>
+    <div class="jm-phase focal"><div class="jm-phase__n">03</div><div class="jm-phase__name">Submission</div><div class="jm-phase__sys">Employer ATS · Workday</div></div>
+    <div class="jm-phase"><div class="jm-phase__n">04</div><div class="jm-phase__name">Interview cycle</div><div class="jm-phase__sys">Zoom · on-site</div></div>
+    <div class="jm-phase"><div class="jm-phase__n">05</div><div class="jm-phase__name">Decision</div><div class="jm-phase__sys">NUworks match · email</div></div>
+
+    <!-- Student lane -->
+    <div class="jm-lane">Student<span class="role">CS undergrad, second year</span></div>
+    <div class="jm-cell">
+      <div class="jm-act">Audits a resume against last year's posting examples and updates a single keyword set.</div>
+      <div class="jm-pain"><span class="q">"The templates we got still push Java and MERN, but every posting wants a Python data stack."</span><span class="src">Reddit r/NEU · co-op prep thread</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Scrolls NUworks and Handshake across two evenings and shortlists dozens of postings with no semantic filter.</div>
+      <div class="jm-pain"><span class="q">"There are thousands of listings and no way to sort by what I'm actually qualified for."</span><span class="src">Reddit r/cscareerquestions</span></div>
+    </div>
+    <div class="jm-cell focal">
+      <div class="jm-act">Submits a batch of applications during midterm weeks, then waits without visibility into what happened to them.</div>
+      <div class="jm-pain"><span class="q">"I applied to 60 co-ops and heard back from 4. No idea if a human ever saw the rest."</span><span class="src">Reddit r/NEU</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Takes first-round interviews in short remote blocks scheduled against the class timetable.</div>
+      <div class="jm-pain"><span class="q">"I had to skip a lecture for an interview that got moved twice in one day."</span><span class="src">Diary study · first-year cohort</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Accepts or declines inside the employer's response window, often with no competing offer to compare.</div>
+      <div class="jm-pain"><span class="q">"The deadline to accept landed the same week as finals. I just said yes."</span><span class="src">Reddit r/NEU</span></div>
+    </div>
+
+    <!-- Advisor lane -->
+    <div class="jm-lane">Advisor<span class="role">Co-op coordinator</span></div>
+    <div class="jm-cell">
+      <div class="jm-act">Runs prep workshops grouped by major and reviews one resume variant per student per cycle.</div>
+      <div class="jm-pain"><span class="q">"I want to give real feedback, but the slot is twenty minutes and I'm booked three weeks out."</span><span class="src">Coordinator field-note</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Points students at the posting boards and answers the same logistical questions repeatedly.</div>
+      <div class="jm-pain"><span class="q">"September is the same five questions, over and over, before anyone has even applied."</span><span class="src">Coordinator field-note</span></div>
+    </div>
+    <div class="jm-cell focal">
+      <div class="jm-act">Pushes deadline reminders by email and has no view into who has actually submitted.</div>
+      <div class="jm-pain"><span class="q">"I find out a student didn't apply when the cycle's already closed."</span><span class="src">Coordinator retrospective</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Mediates scheduling conflicts when students request class excuses for interviews.</div>
+      <div class="jm-none">light-touch in this phase</div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Confirms match outcomes and preps students for site logistics after the fact.</div>
+      <div class="jm-pain"><span class="q">"First-cycle CS placement trails the institutional average, and I can't see the stall coming."</span><span class="src">Advising load study</span></div>
+    </div>
+
+    <!-- Employer lane -->
+    <div class="jm-lane">Employer<span class="role">Recruiter · hiring manager</span></div>
+    <div class="jm-cell"><div class="jm-none">not active in this phase</div></div>
+    <div class="jm-cell">
+      <div class="jm-act">Posts requisitions and configures ATS filters by a required-keyword threshold tuned for senior roles.</div>
+      <div class="jm-pain"><span class="q">"The intern reqs inherit the same keyword gate we use for staff engineers."</span><span class="src">Employer partner interview</span></div>
+    </div>
+    <div class="jm-cell focal">
+      <div class="jm-act">Reviews only the ATS-surfaced shortlist and never sees the filtered-out qualified pool.</div>
+      <div class="jm-pain"><span class="q">"We review the top of the stack the system hands us. We don't go below it."</span><span class="src">Employer partner interview</span></div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Interviews a small ranked set, competing with the student's class schedule for slots.</div>
+      <div class="jm-none">scheduling friction shared with student</div>
+    </div>
+    <div class="jm-cell">
+      <div class="jm-act">Extends an offer with a short acceptance window driven by the partner's own headcount timeline.</div>
+      <div class="jm-pain"><span class="q">"Our window is tight because our own approvals are tight. It isn't built around the student."</span><span class="src">Employer partner interview</span></div>
+    </div>
+  </div>
+
+  <!-- Emotion baseline -->
+  <div class="jm-emotion">
+    <div class="jm-emotion__label">Student sentiment</div>
+    <div class="jm-emo-cell"><div class="jm-dot neu" style="top: 38px;"></div><div class="jm-emo-cap">cautious</div></div>
+    <div class="jm-emo-cell"><div class="jm-dot neu" style="top: 54px;"></div><div class="jm-emo-cap">overwhelmed</div></div>
+    <div class="jm-emo-cell"><div class="jm-dot neg" style="top: 74px;"></div><div class="jm-emo-cap">anxious, invisible</div></div>
+    <div class="jm-emo-cell"><div class="jm-dot neu" style="top: 44px;"></div><div class="jm-emo-cap">pressured</div></div>
+    <div class="jm-emo-cell"><div class="jm-dot pos" style="top: 22px;"></div><div class="jm-emo-cap">relieved or resigned</div></div>
+  </div>
+
+  <!-- Opportunities -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Where the journey can be redesigned</h2>
+      <span class="art-section__counter">opportunities anchored to a named friction above</span>
+    </div>
+    <div class="jm-opps">
+      <div class="jm-opp">
+        <h4>Make submission outcomes visible to the student</h4>
+        <p>Close the silence after submission. A status signal that distinguishes "filtered" from "under review" turns the most anxious phase into an actionable one, and gives the advisor an early-warning view they lack today.</p>
+        <span class="stage">Phase 03 · Submission</span>
+      </div>
+      <div class="jm-opp">
+        <h4>Refresh the readiness baseline against live postings</h4>
+        <p>Tie resume guidance to the skills current postings actually request, so a first-year is not optimizing against last year's keyword set. The gap is freshness, not effort.</p>
+        <span class="stage">Phase 01 · Skill triage</span>
+      </div>
+      <div class="jm-opp">
+        <h4>Formalize the peer-mentor channel students already trust</h4>
+        <p>Students reach an upperclassman before the portal. Scaffold that trust path with light structure instead of competing with it through another official email.</p>
+        <span class="stage">Spans all phases</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Sources cited inline</div>
+    <ol>
+      <li><b>Reddit r/NEU</b> · co-op prep + application threads, sampled 2026-Q1</li>
+      <li><b>Reddit r/cscareerquestions</b> · intern application funnel threads</li>
+      <li><b>First-year diary study</b> · 8-week cohort, 2026-03</li>
+      <li><b>Co-op coordinator field-notes + retrospective</b> · 2025-12</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>Employer partner interviews</b> · ATS + requisition configuration</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">JOURNEY MAP · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Brand: <code>NU</code> · stark-white document</div>
+  </div>
+</footer>
+
+</body>
+</html>

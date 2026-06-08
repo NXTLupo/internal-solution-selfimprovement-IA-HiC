@@ -1,8 +1,8 @@
 // presentationLibrary.ts
 //
-// 2026-05-09 — Library service for the persisted PresentationPayload
+// 2026-05-09 - Library service for the persisted PresentationPayload
 // objects emitted by the narrative composer (#presentation directives).
-// Backed by the proxy's /api/presentations endpoints — no client-side
+// Backed by the proxy's /api/presentations endpoints - no client-side
 // caching beyond the in-flight fetches; the library is the single
 // source of truth in wiki/presentations/{slug}.json.
 //
@@ -69,14 +69,14 @@ export async function deletePresentation(slug: string): Promise<boolean> {
 }
 
 /** Save (create or overwrite) a presentation. Used by the editPresentation
- *  flow after the composer emits a revised payload — the slug stays the
+ *  flow after the composer emits a revised payload - the slug stays the
  *  same so the URL is stable across edits.
  *
  *  2026-05-10: Client-side guards added BEFORE the POST so opaque proxy
  *  400s (e.g. "schemaVersion must be 1, got None") never bubble back to
  *  the user. Every caller gets the same defensive normalization. */
 export async function savePresentation(payload: PresentationPayload): Promise<PresentationSummary> {
-    // Defensive normalization — fix the well-known proxy-rejection causes
+    // Defensive normalization - fix the well-known proxy-rejection causes
     // before the request leaves the browser.
     const p = payload as any;
     if (!p) throw new Error('savePresentation: payload is null/undefined');
@@ -86,7 +86,7 @@ export async function savePresentation(payload: PresentationPayload): Promise<Pr
     if (!p.meta.brand) p.meta.brand = 'NXT';
     if (!p.meta.generatedAt) p.meta.generatedAt = new Date().toISOString();
 
-    // Hard preconditions the proxy enforces — fail fast with a clear
+    // Hard preconditions the proxy enforces - fail fast with a clear
     // message instead of a 400 round-trip.
     if (p.schemaVersion !== 1) {
         throw new Error(`savePresentation: schemaVersion must be 1, got ${p.schemaVersion}. The model returned an unexpected envelope.`);
@@ -95,7 +95,7 @@ export async function savePresentation(payload: PresentationPayload): Promise<Pr
         throw new Error('savePresentation: meta.slug is required.');
     }
     if (!Array.isArray(p.sections) || p.sections.length === 0) {
-        throw new Error('savePresentation: sections must be a non-empty array. The composer likely truncated or refused — try rephrasing.');
+        throw new Error('savePresentation: sections must be a non-empty array. The composer likely truncated or refused - try rephrasing.');
     }
 
     const resp = await fetch(`${PROXY_BASE}/api/presentations`, {
@@ -123,7 +123,7 @@ export async function savePresentation(payload: PresentationPayload): Promise<Pr
 /** Format a generatedAt ISO string for chip display. Returns "May 9, 2026"
  *  for recent dates; falls back to the raw string for malformed input. */
 export function formatPresentationDate(iso: string | undefined): string {
-    if (!iso) return '—';
+    if (!iso) return '-';
     try {
         const d = new Date(iso);
         if (isNaN(d.getTime())) return iso;

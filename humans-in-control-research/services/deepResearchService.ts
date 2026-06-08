@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Deep Research Service
  * Unified interface for live web research across all frontier AI models.
  *
  * Three modes:
- * 1. Quick Grounding (5-15s, ~$0.01-0.05) — fact-check, current data
- * 2. Focused Research (30-120s, ~$0.10-0.50) — topic exploration, evidence gathering
- * 3. Deep Research (5-30min, ~$2-5) — comprehensive landscape analysis via Gemini Interactions API
+ * 1. Quick Grounding (5-15s, ~$0.01-0.05) - fact-check, current data
+ * 2. Focused Research (30-120s, ~$0.10-0.50) - topic exploration, evidence gathering
+ * 3. Deep Research (5-30min, ~$2-5) - comprehensive landscape analysis via Gemini Interactions API
  */
 
 import { GoogleGenAI } from "@google/genai";
@@ -19,8 +19,8 @@ export interface ResearchConfig {
     query: string;
     maxSearches?: number;           // focused mode: 5-20, default 10
     searchContextSize?: 'low' | 'medium' | 'high';  // OpenAI
-    allowedDomains?: string[];      // (legacy field — was Claude-only; ignored on this branch)
-    blockedDomains?: string[];      // (legacy field — was Claude-only; ignored on this branch)
+    allowedDomains?: string[];      // (legacy field - was Claude-only; ignored on this branch)
+    blockedDomains?: string[];      // (legacy field - was Claude-only; ignored on this branch)
     searchRegion?: string;          // OpenAI: country code for localization
     thinkingBudget?: number;        // (legacy Claude field; ignored on this branch)
     preferredProvider?: 'gemini' | 'openai';  // user override
@@ -84,7 +84,7 @@ TASK: Find the most relevant, authoritative evidence for this SPECIFIC research 
 SOURCE QUALITY RULES:
 - Prioritize primary/official sources: government agencies, academic institutions, official reports, peer-reviewed research, authoritative industry analysis
 - Every source MUST be DIRECTLY relevant to the research objective above. Generic tech news, product announcements, or tangentially related content is IRRELEVANT and must be excluded.
-- If a claim cannot be verified, write "unspecified" — do not fabricate data
+- If a claim cannot be verified, write "unspecified" - do not fabricate data
 - Prefer sources with specific data points: statistics, percentages, dollar amounts, timelines, named stakeholders
 
 RELEVANCE FILTER (CRITICAL):
@@ -93,7 +93,7 @@ Before including ANY source or finding, apply this test:
 If NO → exclude it. If YES → include it with a specific data point.
 
 RESEARCH METHODOLOGY:
-A) Search for sources that DIRECTLY address the research objective — not the general topic area
+A) Search for sources that DIRECTLY address the research objective - not the general topic area
 B) For each source found, extract the SPECIFIC data point, statistic, or finding that is relevant
 C) Cite each finding with its source URL
 D) Synthesize findings into a coherent analysis organized by theme
@@ -107,10 +107,10 @@ ANTI-PATTERNS (these make the research useless):
 OUTPUT: Provide a structured synthesis with:
 1. Key findings organized by theme (each with specific data points)
 2. Source citations for every factual claim
-3. Gaps identified — what questions remain unanswered by available evidence`;
+3. Gaps identified - what questions remain unanswered by available evidence`;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.5-flash',
         contents: groundedPrompt,
         config: {
             tools: [{ googleSearch: {} }],
@@ -210,7 +210,7 @@ async function geminiDeepResearch(
 // claudeWebSearch and the 'claude' branch in executeResearch were removed
 // when this branch (HiC-Gemini-Primary) eliminated all Anthropic pipeline
 // paths. Web search now routes through Gemini grounding (default) or the
-// OpenAI web_search_preview tool — never through Anthropic.
+// OpenAI web_search_preview tool - never through Anthropic.
 
 // --- OPENAI WEB SEARCH ---
 
@@ -306,7 +306,7 @@ export async function executeResearch(
             case 'openai':
                 return await openaiWebSearch(config);
 
-            // 2026-05-03 — 'claude' branch removed on this branch
+            // 2026-05-03 - 'claude' branch removed on this branch
             // (HiC-Gemini-Primary). Anthropic web search is no longer
             // available; the 'preferredProvider' type also no longer
             // includes 'claude'.
@@ -339,14 +339,14 @@ export async function executeResearch(
 }
 
 function getDefaultProvider(mode: ResearchMode): string {
-    // 2026-05-03 — All modes default to Gemini on this branch
+    // 2026-05-03 - All modes default to Gemini on this branch
     // (HiC-Gemini-Primary). Anthropic provider was removed from the cascade
     // and from the preferredProvider type union.
     return 'gemini';
 }
 
 function getFallbackProvider(failed: string): string | null {
-    // 2026-05-03 — Two-provider cascade after Anthropic elimination.
+    // 2026-05-03 - Two-provider cascade after Anthropic elimination.
     // gemini → openai → null. Failures past openai surface as research errors.
     const cascade = ['gemini', 'openai'];
     const idx = cascade.indexOf(failed);
@@ -359,7 +359,7 @@ function getFallbackProvider(failed: string): string | null {
  * Check which research providers are available based on API keys.
  */
 export function getAvailableProviders(): { provider: string; modes: ResearchMode[] }[] {
-    // 2026-05-03 — Anthropic removed from the available providers list on
+    // 2026-05-03 - Anthropic removed from the available providers list on
     // this branch (HiC-Gemini-Primary). Only Google + OpenAI surface here.
     const results: { provider: string; modes: ResearchMode[] }[] = [];
     if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) {

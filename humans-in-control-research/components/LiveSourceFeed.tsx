@@ -1,5 +1,5 @@
 /**
- * LiveSourceFeed — Real-time visual evidence pulling during data collection.
+ * LiveSourceFeed - Real-time visual evidence pulling during data collection.
  * Shows sources appearing as cards with evidence snippets, credibility badges,
  * and relevance scores as the research proxy returns results.
  *
@@ -26,7 +26,7 @@ interface Props {
     totalCollected: number;
     totalSources: number;
     successfulSources: number;
-    /** Total connectors registered in the proxy registry. Dynamic — fetched from
+    /** Total connectors registered in the proxy registry. Dynamic - fetched from
      *  /api/sources at mount. Shown as "of Z" context so users can see the
      *  registry is growing. 0 = not yet loaded (suppresses the "of Z" suffix). */
     registryTotal?: number;
@@ -34,7 +34,7 @@ interface Props {
     phase: string;  // 'refining' | 'collecting' | 'filtering' | 'complete'
 }
 
-// Source type labels — NOT credibility judgments
+// Source type labels - NOT credibility judgments
 // Actual source value is determined POST-ANALYSIS based on contribution to research objective
 const TIER_CONFIG: Record<number, { label: string; color: string; bg: string }> = {
     1: { label: 'ACADEMIC', color: '#115054', bg: 'rgba(17, 80, 84, 0.1)' },
@@ -94,7 +94,7 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                         const isExpanded = expandedSource === src.sourceId;
                         const hasItems = src.items && src.items.length > 0;
 
-                        // X.4 — extraction depth breakdown per source. Classifies each
+                        // X.4 - extraction depth breakdown per source. Classifies each
                         // item by actual content length + `enriched` flag + `extractionMethod`
                         // and renders compact depth pips so the operator can see which
                         // sources yield real body text vs RSS blurbs.
@@ -171,25 +171,25 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                                     </div>
                                 )}
 
-                                {/* X.4 — extraction depth strip. Shows how many items
+                                {/* X.4 - extraction depth strip. Shows how many items
                                     from this source yielded full-text / PDF / transcript
                                     extractions vs RSS headlines. A source with 12 items
                                     of which 10 are full-text is high-signal; one with 15
-                                    all-headlines is shallow — the operator can tell at
+                                    all-headlines is shallow - the operator can tell at
                                     a glance. Only rendered when the source has items. */}
                                 {hasItems && (
                                     <div className="px-3 pb-2 flex items-center gap-2 flex-wrap" style={{ fontSize: 9 }}>
                                         {depth.transcript > 0 && (
-                                            <span title={`${depth.transcript} YouTube transcript(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>🎬 {depth.transcript}</span>
+                                            <span title={`${depth.transcript} YouTube transcript(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}> {depth.transcript}</span>
                                         )}
                                         {depth.pdf > 0 && (
-                                            <span title={`${depth.pdf} PDF(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>📑 {depth.pdf}</span>
+                                            <span title={`${depth.pdf} PDF(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}> {depth.pdf}</span>
                                         )}
                                         {depth.full > 0 && (
-                                            <span title={`${depth.full} full-text article(s) extracted via Jina`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>📄 {depth.full}</span>
+                                            <span title={`${depth.full} full-text article(s) extracted via Jina`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}> {depth.full}</span>
                                         )}
                                         {depth.snippet > 0 && (
-                                            <span title={`${depth.snippet} snippet(s) — partial body`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#666', border: '1px dashed #DDD', letterSpacing: 0.5 }}>📰 {depth.snippet}</span>
+                                            <span title={`${depth.snippet} snippet(s) - partial body`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#666', border: '1px dashed #DDD', letterSpacing: 0.5 }}> {depth.snippet}</span>
                                         )}
                                         {depth.headline > 0 && (
                                             <span title={`${depth.headline} headline-only (RSS blurb)`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#999', border: '1px dashed #DDD', letterSpacing: 0.5 }}>• {depth.headline}</span>
@@ -198,7 +198,7 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                                             <span title={`${depth.archived} item(s) persisted to wiki archive`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#00B7C3', fontWeight: 600, letterSpacing: 0.5 }}>⌘ {depth.archived}</span>
                                         )}
                                         {!hasDeep && depth.headline + depth.snippet > 3 && (
-                                            <span className="text-[var(--text-tertiary)] italic" title="No deep extractions yet — items are headline-level only">shallow</span>
+                                            <span className="text-[var(--text-tertiary)] italic" title="No deep extractions yet - items are headline-level only">shallow</span>
                                         )}
                                     </div>
                                 )}

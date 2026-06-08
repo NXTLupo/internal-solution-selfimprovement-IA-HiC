@@ -1,5 +1,5 @@
 /**
- * wikiCacheLoader.ts — 2026-05-14
+ * wikiCacheLoader.ts - 2026-05-14
  *
  * Phase B: surgical cache-hydration helpers for the Knowledge Library
  * selection. Each function is OPT-IN (only fires when the selection
@@ -94,17 +94,35 @@ function parseRedditPostMarkdown(text: string, subreddit: string): CachedRedditP
                 else if (key === 'author') out.author = val;
                 else if (key === 'created_utc' || key === 'created') out.created_utc = Number(val) || 0;
             });
-            // Body after the frontmatter — treat as selftext if it looks like prose,
+            // Body after the frontmatter - treat as selftext if it looks like prose,
             // not a structured comments dump. Strip ## headings + comment blocks.
             const body = text.slice(end + 3).trim();
             const beforeComments = body.split(/##\s*Comments?/i)[0] || '';
             out.selftext = beforeComments.trim().slice(0, 6000);
-            // Comments: best-effort parse — each comment block typically starts with
-            // "### author (score: N)" or similar. We just count them for now; the
-            // downstream topic-model and corpus use post + body, not full threads.
+            // Comments: 2026-06-03 - parse real comment BODIES, not just a count.
+            // Cached threads store comments as "- **author** (N↑): body" lines
+            // (nested replies indented). Previously we stored shape-only empty
+            // objects, so the downstream sentiment engine saw zero comment text
+            // and scored topics on OP text alone - which reads neutral/positive
+            // and left the Negative column empty even for co-op struggle threads.
+            // The commiseration ("I got rejected too") that carries the negative
+            // signal lives in the replies, so we now feed their bodies through.
             const commentsBlock = body.split(/##\s*Comments?/i)[1] || '';
-            const commentCount = (commentsBlock.match(/^[#>\-\*]/gm) || []).length;
-            out.comments = new Array(commentCount).fill({}); // shape-only; downstream uses length
+            const parsedComments: Array<{ author: string; score: number; body: string }> = [];
+            if (commentsBlock.trim()) {
+                // Split on a newline that begins a new comment marker, so a
+                // multi-line comment body stays with its header.
+                const blocks = commentsBlock.split(/\n(?=[ \t]*[-*]\s*\*\*)/);
+                for (const blk of blocks) {
+                    const m = blk.match(/^[ \t]*[-*]\s*\*\*(.+?)\*\*\s*\((\d+)/);
+                    if (!m) continue;
+                    const colon = blk.indexOf('):');
+                    const text = colon >= 0 ? blk.slice(colon + 2).trim() : '';
+                    if (text) parsedComments.push({ author: m[1], score: Number(m[2]) || 0, body: text.slice(0, 2000) });
+                    if (parsedComments.length >= 120) break;
+                }
+            }
+            out.comments = parsedComments;
         }
     }
     return out;
@@ -118,7 +136,7 @@ export interface RedditCacheLoadResult {
 }
 
 // =============================================================================
-// Engagement-bundle loader — read ALL persisted deliverables for an engagement
+// Engagement-bundle loader - read ALL persisted deliverables for an engagement
 // =============================================================================
 
 export interface CachedEngagementBundle {
@@ -170,7 +188,7 @@ export async function loadEngagementBundle(slug: string): Promise<CachedEngageme
         }
     });
     if (bundle.loaded_count > 0) {
-        console.log(`[CacheLoader] engagement bundle ${slug} HIT — ${bundle.loaded_count}/${DELIVERABLE_KINDS.length} deliverables loaded in ${Date.now() - t0}ms.`);
+        console.log(`[CacheLoader] engagement bundle ${slug} HIT - ${bundle.loaded_count}/${DELIVERABLE_KINDS.length} deliverables loaded in ${Date.now() - t0}ms.`);
     }
     return bundle;
 }
@@ -181,7 +199,7 @@ export async function loadEngagementBundles(slugs: string[]): Promise<CachedEnga
 }
 
 // =============================================================================
-// Cached-corpus assembly — turn library selections into a synthesis-ready
+// Cached-corpus assembly - turn library selections into a synthesis-ready
 // corpus string so the pipeline can run themes / personas / etc. on cached
 // inputs WITHOUT any live data collection.
 // =============================================================================
@@ -200,7 +218,7 @@ export async function loadSourceArchiveBody(archivePath: string): Promise<string
     }
 }
 
-/** Light frontmatter parser — just the fields we need (research_goal + title). */
+/** Light frontmatter parser - just the fields we need (research_goal + title). */
 function readFrontmatterField(text: string, field: string): string | null {
     if (!text || !text.startsWith('---')) return null;
     const end = text.indexOf('---', 3);
@@ -234,7 +252,7 @@ function scoreGoalSimilarity(a: string, b: string): number {
 }
 
 /**
- * 2026-05-14 — Resolve an engagement's source archive even when the file
+ * 2026-05-14 - Resolve an engagement's source archive even when the file
  * doesn't sit at the expected `sources/<slug>.md` path.
  *
  * Legacy engagements were archived under date-prefixed slugs (e.g.
@@ -260,7 +278,7 @@ export async function resolveEngagementSourceArchive(engagementSlug: string, eng
         const mdFiles = files.filter(f => typeof f === 'string' && f.endsWith('.md'));
         if (mdFiles.length === 0) return null;
 
-        // Read each candidate's frontmatter (cheap — just the first 1KB).
+        // Read each candidate's frontmatter (cheap - just the first 1KB).
         const candidates: Array<{ path: string; score: number; body: string }> = [];
         for (const file of mdFiles) {
             try {
@@ -276,7 +294,7 @@ export async function resolveEngagementSourceArchive(engagementSlug: string, eng
         candidates.sort((a, b) => b.score - a.score);
         const best = candidates[0];
         if (best.score < 0.20) {
-            console.log(`[CacheLoader] best source-archive match for engagement "${engagementSlug}" was ${best.path} (score=${best.score.toFixed(2)}) — too weak, treating as cache miss`);
+            console.log(`[CacheLoader] best source-archive match for engagement "${engagementSlug}" was ${best.path} (score=${best.score.toFixed(2)}) - too weak, treating as cache miss`);
             return null;
         }
         console.log(`[CacheLoader] resolved engagement "${engagementSlug}" -> ${best.path} via goal-match (score=${best.score.toFixed(2)})`);
@@ -297,7 +315,7 @@ export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promi
     if (!Array.isArray(clusterIds) || clusterIds.length === 0) {
         return { text: '', clusterCount: 0, filesScanned: 0 };
     }
-    // Cluster IDs look like "topics-tm_<job>_<hash>.json#<index>" — group by file
+    // Cluster IDs look like "topics-tm_<job>_<hash>.json#<index>" - group by file
     const byFile = new Map<string, Set<number>>();
     clusterIds.forEach(id => {
         const [file, indexStr] = id.split('#');
@@ -357,7 +375,7 @@ export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promi
     }
 
     if (clusterCount > 0) {
-        console.log(`[CacheLoader] theme-cluster corpus assembled — ${clusterCount} clusters from ${filesScanned} synthesis files.`);
+        console.log(`[CacheLoader] theme-cluster corpus assembled - ${clusterCount} clusters from ${filesScanned} synthesis files.`);
     }
     return { text: blocks.join('\n\n'), clusterCount, filesScanned };
 }
@@ -366,7 +384,7 @@ export interface AssembledCachedCorpus {
     text: string;
     /** How many distinct cached items contributed. */
     itemCount: number;
-    /** Total characters (rough corpus size — for cost estimation + UI). */
+    /** Total characters (rough corpus size - for cost estimation + UI). */
     chars: number;
     /** Per-axis breakdown for the thinking-stream log. */
     breakdown: {
@@ -388,7 +406,7 @@ export interface AssembledCachedCorpus {
  * freshly-collected corpus. Caller is responsible for setting it into state
  * and triggering the synthesis chain.
  *
- * Fails safe — any individual loader error is logged and that section is
+ * Fails safe - any individual loader error is logged and that section is
  * skipped; the rest of the corpus still assembles.
  */
 export async function assembleCachedCorpus(selection: {
@@ -404,7 +422,7 @@ export async function assembleCachedCorpus(selection: {
     let sourceCount = 0;
     let socialPostCount = 0;
 
-    // Engagement source archives — each engagement may have a source archive
+    // Engagement source archives - each engagement may have a source archive
     // at wiki/sources/<slug>.md that lists every source pulled during that run.
     // Legacy engagements were archived under date-prefixed paths that don't
     // match the slug; resolveEngagementSourceArchive falls back to a goal-
@@ -453,7 +471,7 @@ export async function assembleCachedCorpus(selection: {
         }
     }
 
-    // Social — turn cached posts into prose blocks
+    // Social - turn cached posts into prose blocks
     if (selection.socialSubreddits.length > 0) {
         const social = await loadCachedRedditPostsFromWiki(selection.socialSubreddits);
         if (social && social.posts.length > 0) {
@@ -473,7 +491,7 @@ export async function assembleCachedCorpus(selection: {
     const text = sections.join('\n\n');
     const elapsed = Date.now() - t0;
     const itemCount = engagementCount + themeClusterCount + sourceCount + socialPostCount;
-    console.log(`[CacheLoader] assembled cached corpus — ${text.length.toLocaleString()} chars from ${itemCount} items (${engagementCount} engagements, ${themeClusterCount} clusters, ${sourceCount} source archives, ${socialPostCount} social posts) in ${elapsed}ms.`);
+    console.log(`[CacheLoader] assembled cached corpus - ${text.length.toLocaleString()} chars from ${itemCount} items (${engagementCount} engagements, ${themeClusterCount} clusters, ${sourceCount} source archives, ${socialPostCount} social posts) in ${elapsed}ms.`);
     return {
         text,
         itemCount,
@@ -493,17 +511,36 @@ export async function assembleCachedCorpus(selection: {
  * if the cache miss happened across all selections (caller falls back to
  * live fetch).
  */
-export async function loadCachedRedditPostsFromWiki(subreddits: string[]): Promise<RedditCacheLoadResult | null> {
+export async function loadCachedRedditPostsFromWiki(subreddits: string[], goal: string = ''): Promise<RedditCacheLoadResult | null> {
     if (!Array.isArray(subreddits) || subreddits.length === 0) return null;
     const t0 = Date.now();
+    // 2026-05-31 (Phase E2) - Goal-relevance filter. The cache is keyed only on
+    // subreddit, so a prior unrelated run's posts (e.g. co-op posts persisted to
+    // r/artificial) get re-served for an unrelated objective. Drop cached posts
+    // with ZERO overlap to the objective's significant terms; keep anything
+    // plausibly relevant (the downstream domain gate handles finer filtering).
+    // No-starve: if the filter would empty a subreddit, keep its posts.
+    const STOP = new Set(['about','these','their','there','which','would','could','should','other','using','based','study','research','trends','emerging','identify']);
+    const goalTerms = Array.from(new Set((goal || '').toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 4 && !STOP.has(w))));
+    const onGoal = (p: CachedRedditPost): boolean => {
+        if (goalTerms.length === 0) return true;
+        const hay = `${p.title || ''} ${(p.selftext || '').slice(0, 1200)}`.toLowerCase();
+        return goalTerms.some(t => hay.includes(t));
+    };
     const perSub = await Promise.all(subreddits.map(async (subreddit) => {
         const files = await listSubredditFiles(subreddit);
         if (files.length === 0) return { subreddit, posts: [] as CachedRedditPost[] };
-        // Cap per-subreddit at 50 to mirror the live fetcher's default limit.
-        const slice = files.slice(0, 50);
+        // Read more than 50 so the goal filter has a pool, then cap kept at 50.
+        const slice = files.slice(0, 120);
         const posts = await Promise.all(slice.map(f => readSubredditPost(subreddit, f)));
         const cleaned = posts.filter((p): p is CachedRedditPost => p !== null && (!!p.id || !!p.title));
-        return { subreddit, posts: cleaned };
+        const filtered = cleaned.filter(onGoal);
+        // No-starve: if the goal filter dropped everything, fall back to unfiltered.
+        const kept = (filtered.length > 0 ? filtered : cleaned).slice(0, 50);
+        if (goalTerms.length && filtered.length < cleaned.length) {
+            console.log(`[CacheLoader] r/${subreddit}: goal-filtered ${cleaned.length} -> ${kept.length} on-objective cached posts`);
+        }
+        return { subreddit, posts: kept };
     }));
 
     const allPosts: CachedRedditPost[] = [];
@@ -519,7 +556,7 @@ export async function loadCachedRedditPostsFromWiki(subreddits: string[]): Promi
     const bytes = allPosts.reduce((n, p) => n + (p.selftext?.length || 0) + (p.title?.length || 0), 0);
     const elapsed = Date.now() - t0;
     if (allPosts.length > 0) {
-        console.log(`[CacheLoader] Reddit-deep cache HIT — ${allPosts.length} posts from ${subredditsLoaded.length} subreddit(s) in ${elapsed}ms (saved a live Reddit deep-fetch call).`);
+        console.log(`[CacheLoader] Reddit-deep cache HIT - ${allPosts.length} posts from ${subredditsLoaded.length} subreddit(s) in ${elapsed}ms (saved a live Reddit deep-fetch call).`);
     } else {
         console.log(`[CacheLoader] Reddit-deep cache MISS for selected subreddits: ${subreddits.join(', ')}`);
     }

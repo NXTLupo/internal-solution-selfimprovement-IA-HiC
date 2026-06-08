@@ -76,7 +76,7 @@ export const NxtDocViewer: React.FC<Props> = ({ artifact, tokens, onFieldEdit })
 
             <Section title="Pain Points" accent={accent}>
                 <ul style={{ paddingLeft: 20, margin: 0 }}>
-                    {artifact.painPoints.map((p, i) => (
+                    {(Array.isArray(artifact.painPoints) ? artifact.painPoints : []).map((p, i) => (
                         <li key={i} style={{ marginBottom: 8, lineHeight: 1.5, color: '#CC6644' }}>{p}</li>
                     ))}
                 </ul>
@@ -94,7 +94,7 @@ export const NxtDocViewer: React.FC<Props> = ({ artifact, tokens, onFieldEdit })
                         }}>
                             <div style={{ fontSize: 15 }}>"{q.text}"</div>
                             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, marginTop: 6, color: '#666' }}>
-                                {'—'} {q.source}
+                                {'-'} {q.source}
                             </div>
                         </blockquote>
                     ))}
@@ -106,7 +106,7 @@ export const NxtDocViewer: React.FC<Props> = ({ artifact, tokens, onFieldEdit })
                     <ul style={{ paddingLeft: 20, margin: 0, fontFamily: "'JetBrains Mono', monospace", fontSize: 12 }}>
                         {artifact.citations.map((c, i) => (
                             <li key={i} style={{ marginBottom: 4 }}>
-                                <strong>{c.label}</strong> {'—'} {c.source}
+                                <strong>{c.label}</strong> {'-'} {c.source}
                             </li>
                         ))}
                     </ul>

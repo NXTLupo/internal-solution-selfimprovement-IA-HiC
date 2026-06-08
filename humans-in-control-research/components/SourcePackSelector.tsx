@@ -1,5 +1,5 @@
 /**
- * SourcePackSelector.tsx (2026-05-29) — pack-based data-source selection.
+ * SourcePackSelector.tsx (2026-05-29) - pack-based data-source selection.
  *
  * Replaces the ~25 individual category toggles on the research landing page
  * with a small set of selectable "packs": industry verticals (Higher Ed,
@@ -69,7 +69,7 @@ export const SourcePackSelector: React.FC<Props> = ({
         onChange(next);
     };
 
-    if (loading) return <div className={className} style={{ opacity: 0.6, fontFamily: 'Archivo, sans-serif' }}>Loading source packs…</div>;
+    if (loading) return <div className={className} style={{ opacity: 0.6, fontFamily: 'Archivo, sans-serif' }}>Loading source packs...</div>;
     if (error) return <div className={className} style={{ color: 'var(--nxt-rust, #CC6644)' }}>Could not load packs: {error}</div>;
 
     const Card = (p: SourcePack, accentIdx: number) => {
@@ -90,7 +90,7 @@ export const SourcePackSelector: React.FC<Props> = ({
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
                     <span style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 700, fontSize: 14,
                         color: on ? ACCENTS[accentIdx % ACCENTS.length] : 'var(--nxt-text, #e8e8e8)' }}>
-                        {on ? '✓ ' : ''}{p.name}
+                        {on ? ' ' : ''}{p.name}
                     </span>
                     <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, opacity: 0.6 }}>
                         {p.sourceCount}

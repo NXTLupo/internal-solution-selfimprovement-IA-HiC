@@ -1,5 +1,5 @@
 /**
- * ResearchBibliography — the Reasoning Stream reimagined as a functional,
+ * ResearchBibliography - the Reasoning Stream reimagined as a functional,
  * navigable bibliography of collected research.
  *
  * This replaces the prior "thinkingEvents as a log of strings piped into a
@@ -12,7 +12,7 @@
  * the KG node it fed. Click a citation in chat → scroll here with breadcrumb
  * populated.
  *
- * This component is the SHELL. It renders progressively — if no EvidenceRecords
+ * This component is the SHELL. It renders progressively - if no EvidenceRecords
  * have been emitted by a connector yet (Tier 2 work), it falls back to a
  * legacy view built from liveSourceResults, so nothing breaks.
  */
@@ -74,7 +74,7 @@ const ResearchBibliography: React.FC<Props> = ({
     const [selectedRecordId, setSelectedRecordId] = useState<string | null>(null);
     const [breadcrumb, setBreadcrumb] = useState<Array<{ label: string; kind: 'question' | 'source' | 'record' }>>([]);
 
-    // Resolve the active record list — native records preferred; fall back to legacy.
+    // Resolve the active record list - native records preferred; fall back to legacy.
     const resolvedRecords: EvidenceRecord[] = useMemo(() => {
         if (records && records.length > 0) return records;
         if (!legacyLiveSources) return [];
@@ -151,7 +151,7 @@ const ResearchBibliography: React.FC<Props> = ({
         setSelectedRecordId(r.id);
         setBreadcrumb([
             { label: r.source, kind: 'source' },
-            { label: r.title.substring(0, 40) + (r.title.length > 40 ? '…' : ''), kind: 'record' },
+            { label: r.title.substring(0, 40) + (r.title.length > 40 ? '...' : ''), kind: 'record' },
         ]);
     };
 
@@ -215,7 +215,7 @@ const ResearchBibliography: React.FC<Props> = ({
                     type="text"
                     value={filter}
                     onChange={e => setFilter(e.target.value)}
-                    placeholder="Filter by title, excerpt, or source…"
+                    placeholder="Filter by title, excerpt, or source..."
                     style={{
                         width: '100%', padding: '5px 8px', fontSize: 10,
                         border: '1px solid #E0E0E0', fontFamily: "'Archivo', sans-serif",
@@ -267,7 +267,7 @@ const ResearchBibliography: React.FC<Props> = ({
                                             <EvidenceRow key={r.id} record={r} onOpen={openRecord} onHighlightKGNode={onHighlightKGNode} compact />
                                         ))}
                                         {qRecords.length > 8 && (
-                                            <div style={{ fontSize: 9, color: '#888', paddingLeft: 10 }}>…+{qRecords.length - 8} more</div>
+                                            <div style={{ fontSize: 9, color: '#888', paddingLeft: 10 }}>...+{qRecords.length - 8} more</div>
                                         )}
                                     </div>
                                 )}
@@ -290,7 +290,7 @@ const ResearchBibliography: React.FC<Props> = ({
                                         <span style={{ fontSize: 7, padding: '1px 5px', background: '#F0F0F0', color: '#666', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const }}>{cap.type.replace('_', '-')}</span>
                                         <span style={{ fontSize: 9, color: '#888', marginLeft: 'auto' }}>{grp.records.length} records</span>
                                     </div>
-                                    {/* Capability band — honest disclosure of filter honor + search mode + lookback */}
+                                    {/* Capability band - honest disclosure of filter honor + search mode + lookback */}
                                     <div style={{ padding: '6px 12px', background: '#FDFDFC', borderBottom: '1px solid #F5F5F5', display: 'flex', gap: 10, fontSize: 8, alignItems: 'center', flexWrap: 'wrap' as const }}>
                                         <span style={{ color: '#999', fontWeight: 700, letterSpacing: '1px' }}>SEARCH</span>
                                         <span style={{ color: '#444' }}>{cap.searchMode.replace('-', ' ')}</span>
@@ -306,7 +306,7 @@ const ResearchBibliography: React.FC<Props> = ({
                                     </div>
                                     {cap.knownLimitations.length > 0 && (
                                         <div style={{ padding: '4px 12px', background: '#FFFAF5', borderBottom: '1px solid #F5F5F5', fontSize: 8, color: '#886644', lineHeight: 1.4 }}>
-                                            ⚠ {cap.knownLimitations.join(' · ')}
+                                             {cap.knownLimitations.join(' · ')}
                                         </div>
                                     )}
                                     <div style={{ padding: '4px 8px' }}>
@@ -314,7 +314,7 @@ const ResearchBibliography: React.FC<Props> = ({
                                             <EvidenceRow key={r.id} record={r} onOpen={openRecord} onHighlightKGNode={onHighlightKGNode} compact />
                                         ))}
                                         {grp.records.length > 10 && (
-                                            <div style={{ fontSize: 9, color: '#888', padding: '4px 10px' }}>…+{grp.records.length - 10} more</div>
+                                            <div style={{ fontSize: 9, color: '#888', padding: '4px 10px' }}>...+{grp.records.length - 10} more</div>
                                         )}
                                     </div>
                                 </div>
@@ -434,7 +434,7 @@ const EvidenceRow: React.FC<{
             <div style={{ fontSize: compact ? 9 : 10, fontWeight: 500, color: '#0D0D0D', lineHeight: 1.3, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const, whiteSpace: 'nowrap' as const }}>
                 {record.title}
             </div>
-            {!compact && <div style={{ fontSize: 9, color: '#555', lineHeight: 1.4, marginTop: 2 }}>{record.excerpt.substring(0, 180)}…</div>}
+            {!compact && <div style={{ fontSize: 9, color: '#555', lineHeight: 1.4, marginTop: 2 }}>{record.excerpt.substring(0, 180)}...</div>}
             <div style={{ fontSize: 8, color: '#888', marginTop: 2, display: 'flex', gap: 6 }}>
                 <span>{record.source}</span>
                 {record.publishedDate && <span>· {record.publishedDate.substring(0, 10)}</span>}

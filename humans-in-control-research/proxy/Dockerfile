@@ -64,6 +64,29 @@ COPY requirements.txt /tmp/requirements.txt
 # them in a long-running server).
 RUN pip install --no-cache-dir --no-compile -r /tmp/requirements.txt
 
+# 2026-05-30 — Headless Chromium for slide-export fidelity. Renders the real
+# .nxt-slide frames so PNG/PDF exports are pixel-faithful to the CSS preview
+# (generic over every design-system block). The earlier apt layer ran
+# `rm -rf /var/lib/apt/lists/*`, so `playwright install --with-deps` (which
+# shells to apt-get install) finds no package lists and fails. Run apt-get
+# update first, install the OS deps, then fetch the browser binary, then clean.
+# `playwright install-deps` assumes Ubuntu and pulls ttf-unifont /
+# ttf-ubuntu-font-family, which do not exist on Debian slim (python:3.11-slim
+# is Debian bookworm). Install the headless-Chromium runtime libraries by their
+# Debian names instead, then fetch only the browser binary.
+RUN apt-get update -qq \
+ && apt-get install -y --no-install-recommends \
+        libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
+        libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 \
+        libgbm1 libpango-1.0-0 libcairo2 libasound2 libatspi2.0-0 \
+        libx11-6 libxcb1 libxext6 libxi6 fonts-liberation \
+ && playwright install chromium \
+ && rm -rf /var/lib/apt/lists/*
+# Bake the brand fonts into the OS font path so Chromium renders Saira
+# Condensed + Archivo identically to the CSS preview.
+COPY fonts/static/*.ttf /usr/share/fonts/truetype/nxt/
+RUN fc-cache -f 2>/dev/null || true
+
 # The proxy listens on 5012 inside the container (compose maps host port).
 ENV PORT=5012
 EXPOSE 5012

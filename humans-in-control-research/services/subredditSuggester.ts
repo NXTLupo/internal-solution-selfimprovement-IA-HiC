@@ -1,10 +1,10 @@
-/**
- * subredditSuggester.ts — Gemini Flash-powered subreddit recommender.
+﻿/**
+ * subredditSuggester.ts - Gemini Flash-powered subreddit recommender.
  *
  * Takes a research goal + optional file context + an existing comma-separated
  * subreddit list, returns the 5-10 most relevant subreddits with a one-line
  * rationale each. The downstream Reddit deep-fetcher consumes whatever ends
- * up in the input — this just helps the user populate it well from a goal.
+ * up in the input - this just helps the user populate it well from a goal.
  *
  * Distinct from promptEnhancer: that REWRITES an existing prompt, this
  * GENERATES a list from contextual signals.
@@ -26,21 +26,21 @@ export interface SubredditSuggestResult {
 
 export interface SubredditSuggestOptions {
     researchGoal: string;
-    existingSubreddits?: string;       // comma-separated current input — we exclude these from suggestions
+    existingSubreddits?: string;       // comma-separated current input - we exclude these from suggestions
     fileContext?: string;              // names of uploaded files for added context
     maxSuggestions?: number;           // default 8
 }
 
-const SUGGESTER_MODEL = 'gemini-2.5-flash';
+const SUGGESTER_MODEL = 'gemini-3.5-flash';
 
 const SYSTEM_PROMPT = `<role>
-You recommend Reddit communities most likely to surface authentic user voice on a research topic. The downstream pipeline fetches every post + comment tree from these subreddits and feeds them into theme modeling, persona generation, and competitive analysis — so the quality of the list directly drives evidence quality.
+You recommend Reddit communities most likely to surface authentic user voice on a research topic. The downstream pipeline fetches every post + comment tree from these subreddits and feeds them into theme modeling, persona generation, and competitive analysis - so the quality of the list directly drives evidence quality.
 </role>
 
 <selection_criteria>
 Pick subreddits that:
 1. Have active discussion of the specific population/topic in the research goal (not tangentially related).
-2. Have signal density — real first-person experience reports beat news aggregators.
+2. Have signal density - real first-person experience reports beat news aggregators.
 3. Cover a range of perspectives if the topic warrants it (e.g., the user-side AND the practitioner-side; multiple roles in an industry).
 4. Are not banned, archived, or known to be sparse.
 
@@ -52,13 +52,13 @@ Avoid:
 
 <signal_grading>
 estimated_signal:
-  • high   — the subreddit's primary purpose IS this topic; very high post-level relevance.
-  • medium — the topic shows up regularly in a wider community; some filtering needed.
-  • low    — adjacent community where occasional relevant posts appear.
+  • high   - the subreddit's primary purpose IS this topic; very high post-level relevance.
+  • medium - the topic shows up regularly in a wider community; some filtering needed.
+  • low    - adjacent community where occasional relevant posts appear.
 </signal_grading>
 
 <output_format>
-Return a single JSON object — no prose before or after, no code fence:
+Return a single JSON object - no prose before or after, no code fence:
 
 {
   "suggestions": [
@@ -137,7 +137,7 @@ export async function suggestSubreddits(opts: SubredditSuggestOptions): Promise<
     }
 
     const suggestions = parseResponse(text);
-    // De-dupe slugs vs existing (defensive — system prompt should have done this)
+    // De-dupe slugs vs existing (defensive - system prompt should have done this)
     const existingSet = new Set(existing);
     const deduped = suggestions.filter(s => !existingSet.has(s.slug));
 

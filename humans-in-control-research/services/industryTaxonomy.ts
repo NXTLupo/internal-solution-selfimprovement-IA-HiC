@@ -1,11 +1,11 @@
 /**
- * Industry Taxonomy (added 2026-05-29 — industry-aware second brain).
+ * Industry Taxonomy (added 2026-05-29 - industry-aware second brain).
  *
  * The second brain is organized by industry vertical as a MULTI-VALUED tag
  * dimension (not a folder partition), so cross-over content belongs to several
  * verticals at once and the chunk-store path keys stay intact.
  *
- * Canonical vertical list mirrors `KNOWN_VERTICALS` in briefParser.ts — kept
+ * Canonical vertical list mirrors `KNOWN_VERTICALS` in briefParser.ts - kept
  * here as the dependency-free source of truth for tagging/classification so
  * the compiler, retrieval, and UI can import it without pulling in the brief
  * parser. If you add a vertical, add it in BOTH places (briefParser.ts +

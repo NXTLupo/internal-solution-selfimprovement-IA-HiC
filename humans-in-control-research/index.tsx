@@ -3,6 +3,62 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { DesignDesk } from './design-desk';
 import { installChunkLoadGuard } from './services/chunkLoadGuard';
+import { AppErrorBoundary } from './components/AppErrorBoundary';
+
+// 2026-06-03 — UNIVERSAL ERROR SURFACING. Deliverable-generation failures were
+// reported as SILENT resets to landing. Two root causes: (1) no React error
+// boundary (a render crash unmounted the whole tree), now fixed by wrapping the
+// app in <AppErrorBoundary>; (2) unhandled promise rejections showed only as
+// "Uncaught (in promise)" with no detail. These listeners log the FULL reason +
+// stack for every rejection and window error, so nothing a deliverable path
+// throws is ever silent again. (The chunkLoadGuard's own listeners still handle
+// stale-bundle recovery; these are additive, log-only, and never reload.)
+if (typeof window !== 'undefined') {
+    window.addEventListener('unhandledrejection', (e: PromiseRejectionEvent) => {
+        const r: any = e?.reason;
+        console.error('[GLOBAL] unhandledrejection:', r?.name || '', r?.message || r, '\n', r?.stack || '(no stack)');
+    });
+    window.addEventListener('error', (e: ErrorEvent) => {
+        if (e?.error || e?.message) console.error('[GLOBAL] window error:', e.message, '\n', e.error?.stack || '(no stack)');
+    });
+
+    // 2026-06-05 — html2canvas CORS log-noise filter. html2canvas tries to
+    // INLINE every linked stylesheet so its offscreen render uses the same
+    // CSS as the live DOM. For cross-origin stylesheets (Google Fonts,
+    // FontAwesome CDN) the browser's CSSOM blocks access via SecurityError;
+    // html2canvas FALLS BACK GRACEFULLY (uses what it can read) — the only
+    // user-visible artifact is screen-spam in the console that drowns out
+    // real errors and panics users who think the export is broken. This
+    // filter downgrades those specific known-benign errors to console.debug
+    // (still findable via DevTools filter, no longer red in the default view).
+    // ANY other error/warning passes through unmodified, so real problems
+    // remain visible. Generic: pattern-matches the html2canvas log strings,
+    // works regardless of which call site fires (deliverable cards, slides,
+    // diagrams, recommendations thumbnails).
+    const BENIGN_CSS_PATTERNS = [
+        /Error inlining remote css file/i,
+        /Error loading remote stylesheet/i,
+        /Error while reading CSS rules from https:\/\/fonts\.googleapis\.com/i,
+        /Error while reading CSS rules from https:\/\/cdnjs\.cloudflare\.com/i,
+        /Error while reading CSS rules from https:\/\/use\.fontawesome\.com/i,
+        /Failed to read the 'cssRules' property from 'CSSStyleSheet'/i,
+    ];
+    const _origConsoleError = console.error.bind(console);
+    console.error = (...args: any[]) => {
+        try {
+            const first = args[0];
+            const msg = typeof first === 'string'
+                ? first
+                : (first && (first.message || String(first))) || '';
+            if (typeof msg === 'string' && BENIGN_CSS_PATTERNS.some(p => p.test(msg))) {
+                // Quiet downgrade — still findable via debug filter for forensics.
+                console.debug('[html2canvas/benign-cors]', ...args);
+                return;
+            }
+        } catch { /* never let the filter break real logging */ }
+        _origConsoleError(...args);
+    };
+}
 
 // Install chunk-load guard BEFORE React renders. The guard catches
 // stale-bundle chunk-load 404s across all ~85 dynamic-import sites in the
@@ -140,14 +196,16 @@ const isDesignerWindow = new URLSearchParams(window.location.search).get('design
 
 root.render(
   <React.StrictMode>
-    {isDesignerWindow ? (
-      <DesignDesk
-        corpusText=""
-        standalone
-        onClose={() => { try { window.close(); } catch { /* some browsers block */ } }}
-      />
-    ) : (
-      <App />
-    )}
+    <AppErrorBoundary>
+      {isDesignerWindow ? (
+        <DesignDesk
+          corpusText=""
+          standalone
+          onClose={() => { try { window.close(); } catch { /* some browsers block */ } }}
+        />
+      ) : (
+        <App />
+      )}
+    </AppErrorBoundary>
   </React.StrictMode>
 );

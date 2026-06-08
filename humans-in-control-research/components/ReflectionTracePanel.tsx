@@ -1,5 +1,5 @@
 // components/ReflectionTracePanel.tsx
-// 2026-05-26 — Live reflection-trace renderer for HiC Deep Research.
+// 2026-05-26 - Live reflection-trace renderer for HiC Deep Research.
 // Streams researchPlanRunner trace entries as they land. Per row: iter
 // number, sub-question, evidence count, verdict pill, elapsed ms, notes.
 // Pause / abort affordance lives in the parent ResearchPlanEditor.

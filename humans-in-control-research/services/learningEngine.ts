@@ -1,15 +1,15 @@
 /**
- * Learning Engine — Loop 4 (async pattern detection + improvement routing).
+ * Learning Engine - Loop 4 (async pattern detection + improvement routing).
  *
  * Reads the feedback event stream, clusters events by (deliverable_type,
  * section_scope, signal_polarity), and routes patterns crossing the
  * threshold to one of five improvement targets:
  *
  *   1. Constraint store    (wiki/synthesis/learned-constraints.md)
- *   2. Skill patch         (.claude/skills/<name>/SKILL.md — via proxy)
- *   3. Framework page      (wiki/frameworks/<type>.md — diff queued)
- *   4. Anti-pattern entry  (wiki/anti-patterns/<type>.md — auto-applied)
- *   5. Exemplar update     (wiki/exemplars/<type>.md — positive signals)
+ *   2. Skill patch         (.claude/skills/<name>/SKILL.md - via proxy)
+ *   3. Framework page      (wiki/frameworks/<type>.md - diff queued)
+ *   4. Anti-pattern entry  (wiki/anti-patterns/<type>.md - auto-applied)
+ *   5. Exemplar update     (wiki/exemplars/<type>.md - positive signals)
  *
  * Also computes constraint effectiveness so under-performing constraints
  * can be retired.
@@ -23,7 +23,7 @@ import { evaluateConstraint } from './constraintQualityGate';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
-// 2026-05-23 — Feedback patterns that signal a chunking-config change, not a
+// 2026-05-23 - Feedback patterns that signal a chunking-config change, not a
 // constraint or skill patch. Kept in sync with the live classifier in
 // feedbackService.ts so the same complaint that bumps the current run also
 // promotes to a persistent override after 3+ clusters.
@@ -134,7 +134,7 @@ function classifyPolarity(event: FeedbackSummary): SignalPolarity {
         return 'positive';
     }
     // Pure text signals without vote/stars are treated as negative (user took
-    // the time to write something — likely a correction).
+    // the time to write something - likely a correction).
     if (event.text_excerpt) return 'negative';
     return 'neutral';
 }
@@ -188,7 +188,7 @@ function routeCluster(cluster: FeedbackCluster): ImprovementTarget {
     // Positive signal -> always exemplar.
     if (cluster.polarity === 'positive') return 'exemplar';
 
-    // 2026-05-23 — Chunking-complaint detection takes precedence over the
+    // 2026-05-23 - Chunking-complaint detection takes precedence over the
     // constraint/skill-patch routes. A user saying "only got 5 of 20 slides"
     // is not asking for a wording constraint; they're asking for a deeper
     // chunk plan on the artifact type. We promote to chunk-config when the
@@ -200,7 +200,7 @@ function routeCluster(cluster: FeedbackCluster): ImprovementTarget {
         return 'chunk-config';
     }
 
-    // Negative signal — choose the most surgical target.
+    // Negative signal - choose the most surgical target.
     // - section-scoped + text feedback     -> constraint (narrow)
     // - section-scoped + no text           -> anti-pattern (named failure mode)
     // - global (no section) + text         -> skill patch (structural change)
@@ -230,8 +230,8 @@ function estimateConfidence(cluster: FeedbackCluster, target: ImprovementTarget)
 // --- PAYLOAD GENERATION ---
 
 async function generatePayload(cluster: FeedbackCluster, target: ImprovementTarget): Promise<string> {
-    // 2026-05-23 — chunk-config payloads are deterministic JSON descriptions
-    // of the chunk-plan override. No LLM call needed — the signal is concrete.
+    // 2026-05-23 - chunk-config payloads are deterministic JSON descriptions
+    // of the chunk-plan override. No LLM call needed - the signal is concrete.
     if (target === 'chunk-config') {
         const complaint = classifyChunkingComplaint(cluster.distinctTextFragments);
         const artifactType = DELIVERABLE_TO_ARTIFACT_TYPE[cluster.deliverableType.toLowerCase()];
@@ -276,7 +276,7 @@ async function generatePayload(cluster: FeedbackCluster, target: ImprovementTarg
     }
     const prompt = `${instruction}\n\nUSER SIGNALS (${polarityLabel}):\n- ${fragments || '(no text provided; vote/star-only signals)'}\n\nDeliverable type: ${cluster.deliverableType}\nSection scope: ${scopeLabel}`;
 
-    // 2026-05-22 — Model selection. The learning engine is an agentic loop
+    // 2026-05-22 - Model selection. The learning engine is an agentic loop
     // (cluster -> route -> generate payload -> apply). Gemini 3.5 Flash is
     // positioned as Google's most-capable agentic + coding model at
     // ~1/10th the cost of Opus and lower latency than Haiku. The payload
@@ -326,7 +326,7 @@ function fallbackPayload(cluster: FeedbackCluster, target: ImprovementTarget): s
 async function applyConstraint(candidate: ImprovementCandidate): Promise<boolean> {
     // QUALITY GATE (Phase 1, 2026-05-29): the LLM that synthesizes the payload
     // can re-emit a master-rule violation (e.g. "quantify in dollars") or a
-    // generic stub. Never append one to the constraint store — that is exactly
+    // generic stub. Never append one to the constraint store - that is exactly
     // how learned-constraints.md accreted 21 duplicate dollar-quantification
     // rules that contradict the master Quantitative Claim Rule.
     const verdict = evaluateConstraint(candidate.payload);
@@ -351,7 +351,7 @@ async function applyAntiPattern(candidate: ImprovementCandidate): Promise<boolea
 
 async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: boolean; skillName?: string }> {
     // Map deliverable type to the responsible skill. This is a best-effort
-    // table — the deliverable-type vocabulary used by feedback widgets is
+    // table - the deliverable-type vocabulary used by feedback widgets is
     // a superset of the skill name vocabulary.
     const skillNameMap: Record<string, string> = {
         'personas': 'persona-architect',
@@ -392,7 +392,7 @@ async function patchSkillFile(skillName: string, candidate: ImprovementCandidate
     try {
         const resp = await fetch(`${PROXY_BASE}/api/skill/read?name=${encodeURIComponent(skillName)}`);
         if (!resp.ok) {
-            // The skill-read endpoint may not exist yet — fall back to
+            // The skill-read endpoint may not exist yet - fall back to
             // appending the learned behavior to the wiki's skill-improvements
             // log so we don't lose the signal.
             return await appendToPage('synthesis/skill-improvements.md', `\n## ${new Date().toISOString().split('T')[0]} | ${skillName}\n${candidate.payload}\n(source: ${candidate.cluster.count} signals, confidence ${candidate.confidence.toFixed(2)})\n`);
@@ -451,7 +451,7 @@ function patchSkillContent(oldContent: string, patch: string, newVersion: string
 }
 
 /**
- * 2026-05-23 — Karpathy Phase 2.3 self-improvement loop hook.
+ * 2026-05-23 - Karpathy Phase 2.3 self-improvement loop hook.
  * Reads every wiki/known-gaps/*.md file (cross-engagement shortfall log written
  * by knowledgeGapFinder.persistGapsToKnownGaps) and surfaces the top recurring
  * shortfall topics so the source-discovery scheduler can bias future fetches
@@ -497,7 +497,7 @@ export async function getRecurringShortfallTopics(): Promise<Array<{ topic: stri
 }
 
 async function applyChunkConfigPromotion(candidate: ImprovementCandidate): Promise<{ ok: boolean; artifactType?: string }> {
-    // 2026-05-23 — Promote a per-run chunking bump to a persisted override
+    // 2026-05-23 - Promote a per-run chunking bump to a persisted override
     // in wiki/synthesis/chunk-config.json. Reads the current default plan
     // and bumps either chunk count, per-chunk budget, or both, depending on
     // the feedback signal pattern. The override applies on every subsequent
@@ -511,7 +511,7 @@ async function applyChunkConfigPromotion(candidate: ImprovementCandidate): Promi
 
     // Conservative promotion: use the per-run bump factor but rounded to
     // integers, so the persisted override is durable without runaway growth.
-    // We do not read the current overrides to "stack" — persistChunkOverride
+    // We do not read the current overrides to "stack" - persistChunkOverride
     // does shallow merge with existing record.
     const override: Record<string, any> = {};
     let hasIncomplete = false;
@@ -522,7 +522,7 @@ async function applyChunkConfigPromotion(candidate: ImprovementCandidate): Promi
     }
 
     // Encode as relative bumps so the calculator's defaults still own the base
-    // numbers. We persist as absolute adjustments — small bumps so 5 separate
+    // numbers. We persist as absolute adjustments - small bumps so 5 separate
     // promotions don't compound destructively.
     if (hasIncomplete) {
         override.chunkCountBump = 1;          // +1 chunk durable
@@ -542,7 +542,7 @@ async function applyChunkConfigPromotion(candidate: ImprovementCandidate): Promi
 async function applyExemplar(candidate: ImprovementCandidate): Promise<boolean> {
     const today = new Date().toISOString().split('T')[0];
     const sample = candidate.cluster.distinctTextFragments[0] || '(positive vote/star-only signal)';
-    const entry = `\n## EXEMPLAR (${today}) — from ${candidate.cluster.count} positive signals\n${candidate.payload}\n\nUser-cited praise: "${sample.slice(0, 200)}"\n`;
+    const entry = `\n## EXEMPLAR (${today}) - from ${candidate.cluster.count} positive signals\n${candidate.payload}\n\nUser-cited praise: "${sample.slice(0, 200)}"\n`;
     return appendToPage(`exemplars/${candidate.cluster.deliverableType}.md`, entry);
 }
 

@@ -1,5 +1,5 @@
 /**
- * Verbalized Confidence — the R1 layer of the Reinforcement-Inference uplift.
+ * Verbalized Confidence - the R1 layer of the Reinforcement-Inference uplift.
  *
  * Reusable utilities for asking any deliverable-generating model call to
  * (a) emit a per-claim confidence on each atomic output it produces, and
@@ -11,17 +11,17 @@
  * production for Gemini, Claude, or OpenAI chat completions. We do have
  * a model that can verbalize a metacognitive judgment when asked.
  *
- * The directive is a free-standing string. It is prompt-system-agnostic —
+ * The directive is a free-standing string. It is prompt-system-agnostic -
  * any Gemini, Claude, or OpenAI call can append it to its existing prompt.
  *
  * Sites that adopt this in R1:
- *   - Theme synthesis (Pass 1 BREADTH)             — generateThemes()
- *   - Cross-cutting synthesis                       — generateCrossCuttingSynthesis()
- *   - Persona roster (Phase A) + enrichment (Phase B) — generatePersonas()
- *   - Recommendations                               — generateRecommendations()
+ *   - Theme synthesis (Pass 1 BREADTH)             - generateThemes()
+ *   - Cross-cutting synthesis                       - generateCrossCuttingSynthesis()
+ *   - Persona roster (Phase A) + enrichment (Phase B) - generatePersonas()
+ *   - Recommendations                               - generateRecommendations()
  *   - Journey map, PRD, roadmap, gap analysis,
- *     competitive analysis, strategic report        — corresponding generate*()
- *   - Prototype Stage 1-4                           — services/prototypeBuilder.ts
+ *     competitive analysis, strategic report        - corresponding generate*()
+ *   - Prototype Stage 1-4                           - services/prototypeBuilder.ts
  *
  * See `.claude/skills/reinforcement-inference/SKILL.md` for the technique.
  * See `humans-in-control-research/plans/reinforcement-inference-uplift.md`
@@ -39,14 +39,14 @@ export interface VerbalizedConfidenceOptions {
      */
     deliverable: string;
     /**
-     * Singular noun for atomic claims in the payload — "theme", "persona",
+     * Singular noun for atomic claims in the payload - "theme", "persona",
      * "recommendation", "slide", "stage decision", etc. Used in the rationale
      * shape ("identify the 1-3 themes you would expect a senior partner to
      * push back on").
      */
     claimNoun: string;
     /**
-     * The plural form of claimNoun — "themes", "personas", etc.
+     * The plural form of claimNoun - "themes", "personas", etc.
      */
     claimNounPlural: string;
     /**
@@ -59,7 +59,7 @@ export interface VerbalizedConfidenceOptions {
     maxHighFraction?: number;
     /**
      * Per-deliverable extension axes when the simple high/medium/low scale is
-     * not specific enough — e.g. prototype Stage 3 wants visual_originality,
+     * not specific enough - e.g. prototype Stage 3 wants visual_originality,
      * brand_fidelity, hierarchy_clarity, accessibility. When provided, the
      * directive prompts the model for one rating per axis instead of (or in
      * addition to) the single overall scale.
@@ -98,22 +98,22 @@ ${axisBlock}
        "overallConfidence": "high" | "medium" | "low",
        "leastDefensibleClaims": [ <1-3 short descriptors or IDs of the ${claimNounPlural}
                                    you would most expect senior pushback on> ],
-       "rationale": "<1-2 sentences naming the SPECIFIC weakness — evidence thin,
+       "rationale": "<1-2 sentences naming the SPECIFIC weakness - evidence thin,
                      segment overgeneralized, citation indirect, claim extrapolated.
                      Do NOT use generic phrases (\\"limited data\\", \\"more research
                      needed\\") and do NOT use QA-annotation strings (\\"evidence gap\\",
-                     \\"TBD\\", \\"[needs baseline]\\") — those are stripped by the
+                     \\"TBD\\", \\"[needs baseline]\\") - those are stripped by the
                      post-processor and degrade output trust.>"
      }
 
    leastDefensibleClaims MAY be an empty array, but ONLY if you genuinely
    cannot identify a single weakest link. Across a typical ${deliverable}, that
-   is rare — most have a weakest claim.
+   is rare - most have a weakest claim.
 
 CALIBRATION DISCIPLINE (the load-bearing rule):
    No more than ${Math.round(maxHighFraction * 100)}% of your ${claimNounPlural} may carry
    "confidence": "high". If you would naturally rate every ${claimNoun} as "high",
-   you are not calibrated — most synthesis tasks have weaker and stronger
+   you are not calibrated - most synthesis tasks have weaker and stronger
    claims, and an honest distribution will span the scale. Force yourself to
    pick the relatively weakest ${claimNounPlural} and mark them "medium" or "low",
    even if their absolute quality is acceptable.
@@ -201,7 +201,7 @@ export function inspectCalibration(
     );
     if (calibrationStatus === 'collapsed-high') {
         console.warn(
-            `[VerbalizedConfidence:${deliverable}] calibration COLLAPSED — ` +
+            `[VerbalizedConfidence:${deliverable}] calibration COLLAPSED - ` +
             `${(highFraction * 100).toFixed(0)}% of ${claims.length} ${deliverable} claims came back "high" ` +
             `(max allowed ${(maxHighFraction * 100).toFixed(0)}% + 10pp grace). ` +
             `The directive's calibration rule is being ignored. ` +
@@ -245,7 +245,7 @@ export function sanitizeRationale(rationale: string | undefined): string {
 /**
  * Normalize a raw model self-assessment into the strict SelfAssessment shape.
  * Drops malformed fields silently and returns undefined if the input is
- * non-object or missing all required fields — callers should treat that as
+ * non-object or missing all required fields - callers should treat that as
  * "no self-assessment produced this run" and skip RI triggering.
  */
 export function normalizeSelfAssessment(raw: unknown): SelfAssessment | undefined {

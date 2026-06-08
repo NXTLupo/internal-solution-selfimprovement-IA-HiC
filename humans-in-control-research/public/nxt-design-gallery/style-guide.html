@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT Artifact System — Style Guide</title>
+<link rel="stylesheet" href="nxt-artifact-system.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 3-5 6-5s6 1.5 6 5"/><path d="M15 20c0-2.5 2-3.5 4-3.5s2.5.8 2.5 3.5"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></symbol>
+  <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M12 7.2 6.5 16M12 7.2 17.5 16M7 18h10"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="5"/><rect x="12" y="8" width="3" height="9"/><rect x="17" y="5" width="3" height="12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="9" width="6" height="6"/><rect x="15" y="9" width="6" height="6"/><path d="M9 12h6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-idea" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.8.8 1 1.4 1 3h6c0-1.6.2-2.2 1-3a6 6 0 0 0-4-10z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16"/><path d="M4 9h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 17l9 5 9-5" opacity=".6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></symbol>
+</svg>
+
+<header class="nxt-masthead">
+  <span class="nxt-logo" aria-label="NXT HUMANS">NXT HUMANS</span>
+  <span class="nxt-masthead__label">Design System / Artifact UI Library</span>
+</header>
+
+<nav class="nxt-tabs" data-tabs>
+  <button class="nxt-tab" data-tab="atoms" aria-selected="true">Atoms</button>
+  <button class="nxt-tab" data-tab="modules">Artifact Modules</button>
+  <button class="nxt-tab" data-tab="info">Infographics &amp; Diagrams</button>
+  <button class="nxt-tab" data-tab="slides">Slide Library</button>
+</nav>
+
+<div data-tabs-scope>
+
+<!-- ===================== ATOMS ===================== -->
+<section class="nxt-panel" data-panel="atoms" data-active="true">
+
+  <div class="nxt-hero nxt-wrap">
+    <p class="nxt-eyebrow">NXT Humans · Design System 2026</p>
+    <h1 class="nxt-hero__title">A stark-white, flat component library every deliverable is built from.</h1>
+    <p class="nxt-hero__standfirst">Dark ink on white. WCAG AA contrast. The real NXT HUMANS wordmark. Working interactions. One system, applied across all eighteen artifacts.</p>
+  </div>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Logo</p>
+    <h2 class="nxt-h2">Wordmark</h2>
+    <div style="display:flex;gap:40px;align-items:center;flex-wrap:wrap;">
+      <span class="nxt-logo nxt-logo--lg" aria-label="NXT HUMANS">NXT HUMANS</span>
+      <span class="nxt-logo" aria-label="NXT HUMANS">NXT HUMANS</span>
+      <span class="nxt-logo nxt-logo--sm" aria-label="NXT HUMANS">NXT HUMANS</span>
+    </div>
+    <div class="nxt-block nxt-block--ink" style="margin-top:20px;">
+      <span class="nxt-logo nxt-logo--white" aria-label="NXT HUMANS">NXT HUMANS</span>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Type</p>
+    <h2 class="nxt-h2">Headings &amp; prose</h2>
+    <p class="nxt-display" style="font-size:72px;">SECTION DISPLAY</p>
+    <h2 class="nxt-h2">Archivo ExtraLight section heading</h2>
+    <h3 class="nxt-h3">Archivo sub-heading</h3>
+    <p class="nxt-prose">Body prose in Archivo Light, dark ink on white, set at a comfortable measure. Every sentence earns its place; no decoration, no hedging, no slop.</p>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Containers</p>
+    <h2 class="nxt-h2">Cards &amp; tiles</h2>
+    <div class="nxt-grid nxt-grid--3">
+      <div class="nxt-card"><p class="nxt-card__label">Strategy</p><p class="nxt-card__title">Diagnose the central challenge</p><p class="nxt-card__body">Set a guiding policy grounded in evidence, not aspiration.</p></div>
+      <div class="nxt-card"><p class="nxt-card__label">Build</p><p class="nxt-card__title">Stand up the systems</p><p class="nxt-card__body">The data and interfaces that make the strategy real.</p></div>
+      <div class="nxt-card"><p class="nxt-card__label">Activation</p><p class="nxt-card__title">Move into new behaviors</p><p class="nxt-card__body">So the change holds after the engagement ends.</p></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Metrics (opt-in) &amp; quotes</p>
+    <h2 class="nxt-h2">Stat tiles &amp; pull quote</h2>
+    <div class="nxt-grid nxt-grid--3" style="margin-bottom:28px;">
+      <div class="nxt-stat"><div class="nxt-stat__fig">4 of 5</div><div class="nxt-stat__label">campuses report active AI use</div><div class="nxt-stat__src">Source: CSU Survey 2025</div></div>
+      <div class="nxt-stat"><div class="nxt-stat__fig">11 wk</div><div class="nxt-stat__label">median co-op search</div><div class="nxt-stat__src">Source: NU Student Survey</div></div>
+      <div class="nxt-stat"><div class="nxt-stat__fig">200:1</div><div class="nxt-stat__label">student-to-advisor ratio</div><div class="nxt-stat__src">Source: PAI Roadmap</div></div>
+    </div>
+    <blockquote class="nxt-quote"><p class="nxt-quote__text">I applied to sixty co-ops and heard back from four.</p><p class="nxt-quote__cite">Source: Reddit r/NEU</p></blockquote>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Labels</p>
+    <h2 class="nxt-h2">Chips</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <span class="nxt-chip nxt-chip--status">High Priority</span>
+      <span class="nxt-chip nxt-chip--accent">Convergent</span>
+      <span class="nxt-chip">Legacy</span>
+      <span class="nxt-chip nxt-chip--source">Higher Ed Dive: AI on campus</span>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Intentional color</p>
+    <h2 class="nxt-h2">Color blocks (AA-enforced)</h2>
+    <div class="nxt-block nxt-block--teal" style="margin-bottom:16px;">
+      <p class="nxt-eyebrow">Services &amp; Solutions</p>
+      <p class="nxt-display">AI-NATIVE ENABLEMENT</p>
+    </div>
+    <div class="nxt-block nxt-block--lime" style="margin-bottom:16px;">
+      <p class="nxt-display">HIGHER EDUCATION</p>
+    </div>
+    <div class="nxt-block nxt-block--ink">
+      <p class="nxt-eyebrow">Our Mission</p>
+      <p class="nxt-display">HUMANS IN CONTROL OF AI</p>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Data</p>
+    <h2 class="nxt-h2">Table (light header, never a black bar)</h2>
+    <table class="nxt-table">
+      <thead><tr><th>System</th><th>Type</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>NUworks job board</td><td>Custom portal</td><td><span class="nxt-chip">Legacy</span></td></tr>
+        <tr><td>Co-op placement CRM</td><td>SaaS</td><td><span class="nxt-chip nxt-chip--status">Active</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Layout &amp; sources</p>
+    <h2 class="nxt-h2">Sidebar layout + source index</h2>
+    <div class="nxt-layout">
+      <aside class="nxt-rail">
+        <div class="nxt-rail__item"><div class="nxt-rail__k">Methodology</div><div class="nxt-rail__v">Evidence-grounded synthesis</div></div>
+        <div class="nxt-rail__item"><div class="nxt-rail__k">Primary source</div><div class="nxt-rail__v">NU Co-op Roadmap</div></div>
+      </aside>
+      <div class="nxt-source-index">
+        <ul>
+          <li><span class="sname">PAI Vision Report.</span> Institutional AI strategy and co-op modernization.</li>
+          <li><span class="sname">Reddit r/NEU.</span> First-person student accounts of the co-op search.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Iconography</p>
+    <h2 class="nxt-h2">Flat line icons (currentColor)</h2>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center;">
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-user"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-team"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-building"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-data"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-gear"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-network"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-chart"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-search"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-target"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-shield"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-idea"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-doc"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-chat"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-layers"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-clock"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-check"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-arrow"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-alert"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-grid"></use></svg>
+      <svg class="nxt-ico nxt-ico--lg"><use href="#i-calendar"></use></svg>
+    </div>
+  </section>
+</section>
+
+<!-- ===================== INFOGRAPHICS & DIAGRAMS ===================== -->
+<section class="nxt-panel" data-panel="info">
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Process</p><h2 class="nxt-h2">Numbered process flow</h2>
+    <div class="nxt-process">
+      <div class="nxt-process__step"><div class="nxt-process__num">1</div><div class="nxt-process__label">Diagnose</div><div class="nxt-process__sub">Name the central challenge</div></div>
+      <div class="nxt-process__step"><div class="nxt-process__num">2</div><div class="nxt-process__label">Shortlist</div><div class="nxt-process__sub">AI readiness layer</div></div>
+      <div class="nxt-process__step"><div class="nxt-process__num">3</div><div class="nxt-process__label">Triage</div><div class="nxt-process__sub">Advisor co-pilot</div></div>
+      <div class="nxt-process__step"><div class="nxt-process__num">4</div><div class="nxt-process__label">Match</div><div class="nxt-process__sub">Employer side</div></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Matrix</p><h2 class="nxt-h2">2x2 quadrant + maturity bars</h2>
+    <div class="nxt-grid nxt-grid--2">
+      <div class="nxt-quadrant">
+        <div class="nxt-quadrant__cell nxt-quadrant__cell--hi">High impact, ready now</div>
+        <div class="nxt-quadrant__cell">High impact, needs build</div>
+        <div class="nxt-quadrant__cell">Low impact, quick</div>
+        <div class="nxt-quadrant__cell">Low impact, deferred</div>
+      </div>
+      <div class="nxt-bars">
+        <div class="nxt-bar"><span class="nxt-bar__label">Co-op matching</span><span class="nxt-bar__track"><span class="nxt-bar__fill" style="width:85%"></span></span><span class="nxt-bar__val">Leading</span></div>
+        <div class="nxt-bar"><span class="nxt-bar__label">AI advising</span><span class="nxt-bar__track"><span class="nxt-bar__fill nxt-bar__fill--lime" style="width:55%"></span></span><span class="nxt-bar__val">Emerging</span></div>
+        <div class="nxt-bar"><span class="nxt-bar__label">Employer network</span><span class="nxt-bar__track"><span class="nxt-bar__fill" style="width:72%"></span></span><span class="nxt-bar__val">Strong</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Composition &amp; stages</p><h2 class="nxt-h2">Donut, funnel, tiers</h2>
+    <div class="nxt-grid nxt-grid--3" style="align-items:start;">
+      <div style="display:flex;gap:20px;align-items:center;">
+        <div class="nxt-donut" style="--a:55%;--b:80%;"><div class="nxt-donut__hole">3 of 5</div></div>
+        <div class="nxt-legend">
+          <div class="nxt-legend__row"><span class="nxt-legend__sw" style="background:#115054"></span>Active</div>
+          <div class="nxt-legend__row"><span class="nxt-legend__sw" style="background:#CACA20"></span>Piloting</div>
+          <div class="nxt-legend__row"><span class="nxt-legend__sw" style="background:#EAEAEA"></span>None</div>
+        </div>
+      </div>
+      <div class="nxt-funnel">
+        <div class="nxt-funnel__band">Applies</div>
+        <div class="nxt-funnel__band">Shortlisted</div>
+        <div class="nxt-funnel__band">Interviews</div>
+        <div class="nxt-funnel__band">Offer</div>
+      </div>
+      <div class="nxt-tiers">
+        <div class="nxt-tier">Transform</div>
+        <div class="nxt-tier">Optimize</div>
+        <div class="nxt-tier">Standardize</div>
+        <div class="nxt-tier">Ad hoc</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Stats &amp; comparison</p><h2 class="nxt-h2">Icon-stats, before/after, big-number list</h2>
+    <div class="nxt-grid nxt-grid--3" style="margin-bottom:24px;">
+      <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-team"></use></svg><div><div class="nxt-iconstat__fig">200:1</div><div class="nxt-iconstat__label">student-to-advisor</div></div></div>
+      <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-clock"></use></svg><div><div class="nxt-iconstat__fig">11 wk</div><div class="nxt-iconstat__label">median search</div></div></div>
+      <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-network"></use></svg><div><div class="nxt-iconstat__fig">5 systems</div><div class="nxt-iconstat__label">disconnected</div></div></div>
+    </div>
+    <div class="nxt-grid nxt-grid--2" style="margin-bottom:24px;">
+      <div class="nxt-compare">
+        <div class="nxt-compare__col nxt-compare__col--before"><div class="nxt-compare__tag">Before</div><p class="nxt-card__body">Advisors manually triage every profile at intake.</p></div>
+        <div class="nxt-compare__col nxt-compare__col--after"><div class="nxt-compare__tag">After</div><p class="nxt-card__body">AI pre-triage routes; advisors spend time on judgment.</p></div>
+      </div>
+      <div class="nxt-numlist">
+        <div class="nxt-numlist__item"><div>Stand up the AI readiness layer in front of NUworks.</div></div>
+        <div class="nxt-numlist__item"><div>Give advisors a triage co-pilot.</div></div>
+        <div class="nxt-numlist__item"><div>Open employer-side matching.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Tech diagrams</p><h2 class="nxt-h2">Flow / pipeline &amp; hub-and-spoke</h2>
+    <div class="nxt-flow" style="margin-bottom:28px;">
+      <div class="nxt-flow__node">Student profile</div>
+      <div class="nxt-flow__arrow"></div>
+      <div class="nxt-flow__node">Matching engine</div>
+      <div class="nxt-flow__arrow"></div>
+      <div class="nxt-flow__node">Advisor co-pilot</div>
+      <div class="nxt-flow__arrow"></div>
+      <div class="nxt-flow__node">Employer match</div>
+    </div>
+    <div class="nxt-hub">
+      <div class="nxt-hub__spoke">NUworks</div>
+      <div class="nxt-hub__center">Readiness layer</div>
+      <div class="nxt-hub__spoke">SIS</div>
+      <div class="nxt-hub__spoke">Career Center</div>
+      <div></div>
+      <div class="nxt-hub__spoke">Employer CRM</div>
+    </div>
+  </section>
+</section>
+
+<!-- ===================== ARTIFACT MODULES ===================== -->
+<section class="nxt-panel" data-panel="modules">
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Journey</p><h2 class="nxt-h2">Phase timeline</h2>
+    <div class="nxt-timeline">
+      <div class="nxt-phase"><div class="nxt-phase__n">01</div><div class="nxt-phase__name">Application</div><p class="nxt-card__body">Student assembles materials and submits through the portal.</p><span class="nxt-phase__emotion">Anxious · unclear bar</span></div>
+      <div class="nxt-phase"><div class="nxt-phase__n">02</div><div class="nxt-phase__name">Search</div><p class="nxt-card__body">Filters an unfilterable feed of postings without guidance.</p><span class="nxt-phase__emotion">Overwhelmed</span></div>
+      <div class="nxt-phase"><div class="nxt-phase__n">03</div><div class="nxt-phase__name">Interview</div><p class="nxt-card__body">Prepares alone with little employer-specific signal.</p><span class="nxt-phase__emotion">Underprepared</span></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Service Blueprint</p><h2 class="nxt-h2">Swimlane grid</h2>
+    <div class="nxt-swimlane">
+      <div class="nxt-swimlane__row"><div class="nxt-swimlane__lane">Evidence</div><div class="nxt-swimlane__cell">Portal</div><div class="nxt-swimlane__cell">Job feed</div><div class="nxt-swimlane__cell">Email</div></div>
+      <div class="nxt-swimlane__row"><div class="nxt-swimlane__lane">Customer</div><div class="nxt-swimlane__cell">Submits profile</div><div class="nxt-swimlane__cell nxt-failpoint">Filters feed</div><div class="nxt-swimlane__cell">Awaits reply</div></div>
+      <div class="nxt-divider-line">Line of Visibility</div>
+      <div class="nxt-swimlane__row"><div class="nxt-swimlane__lane">Backstage</div><div class="nxt-swimlane__cell">Advisor triage</div><div class="nxt-swimlane__cell">Employer match</div><div class="nxt-swimlane__cell">Status update</div></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Competitive</p><h2 class="nxt-h2">Comparison matrix (real named players)</h2>
+    <table class="nxt-matrix">
+      <thead><tr><th>Institution</th><th>AI advising</th><th>Co-op matching</th><th>Employer network</th></tr></thead>
+      <tbody>
+        <tr><th>Northeastern</th><td><span class="nxt-strength nxt-strength--parity"><i></i></span></td><td><span class="nxt-strength nxt-strength--leader"><i></i></span></td><td><span class="nxt-strength nxt-strength--leader"><i></i></span></td></tr>
+        <tr><th>Drexel</th><td><span class="nxt-strength nxt-strength--gap"><i></i></span></td><td><span class="nxt-strength nxt-strength--parity"><i></i></span></td><td><span class="nxt-strength nxt-strength--parity"><i></i></span></td></tr>
+        <tr><th>Waterloo</th><td><span class="nxt-strength nxt-strength--parity"><i></i></span></td><td><span class="nxt-strength nxt-strength--leader"><i></i></span></td><td><span class="nxt-strength nxt-strength--parity"><i></i></span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Tech Architecture</p><h2 class="nxt-h2">Layer bands</h2>
+    <div class="nxt-layer"><div class="nxt-layer__name">Experience</div><div class="nxt-grid nxt-grid--3"><div class="nxt-component">Student portal</div><div class="nxt-component">Advisor console</div><div class="nxt-component">Mobile app</div></div></div>
+    <div class="nxt-layer"><div class="nxt-layer__name">Data &amp; Integration</div><div class="nxt-grid nxt-grid--3"><div class="nxt-component">Profile store</div><div class="nxt-component">Matching engine</div><div class="nxt-component">SIS connector</div></div></div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Personas</p><h2 class="nxt-h2">Persona card (no slop icon)</h2>
+    <div class="nxt-persona">
+      <div class="nxt-persona__avatar">MJ</div>
+      <div>
+        <div class="nxt-persona__name">Maya, first-year exploring co-op</div>
+        <div class="nxt-persona__arch">The Overwhelmed Applicant</div>
+        <div class="nxt-persona__k">Goals</div><p class="nxt-card__body">Land a first co-op without a network to lean on.</p>
+        <div class="nxt-persona__k">Verbatim</div><blockquote class="nxt-quote"><p class="nxt-quote__text">I didn't even know what a good posting looked like.</p><p class="nxt-quote__cite">Source: Stakeholder Interview</p></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">PRD</p><h2 class="nxt-h2">User stories &amp; requirements</h2>
+    <div class="nxt-userstory"><div class="nxt-userstory__role">As a first-year student</div><div class="nxt-userstory__text">I want a shortlist of postings matched to my profile so that I stop guessing which to chase.</div><div class="nxt-userstory__ac">Acceptance: shortlist ranks ≥10 postings by fit; each shows why it matched.</div></div>
+    <table class="nxt-table"><thead><tr><th>Requirement</th><th>Priority</th><th>Acceptance</th></tr></thead><tbody><tr><td>Profile-to-posting match score</td><td><span class="nxt-chip nxt-chip--status">P0</span></td><td>Score visible on every posting</td></tr></tbody></table>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Roadmap</p><h2 class="nxt-h2">Horizons</h2>
+    <div class="nxt-horizons">
+      <div class="nxt-horizon"><div class="nxt-horizon__head">Now</div><div class="nxt-horizon__item">Pilot AI shortlist for first-years. Success: 60% engage; baseline 0; by end of term.</div></div>
+      <div class="nxt-horizon"><div class="nxt-horizon__head">Next</div><div class="nxt-horizon__item">Advisor co-pilot triage. Success: triage time halved vs current manual baseline.</div></div>
+      <div class="nxt-horizon"><div class="nxt-horizon__head">Later</div><div class="nxt-horizon__item">Employer-side matching. Success: response rate up vs prior cycle.</div></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Gap Analysis</p><h2 class="nxt-h2">Current vs target</h2>
+    <div class="nxt-gap"><div class="nxt-gap__cur">Advisors manually triage every profile; the Co-op Office cannot keep pace at intake.</div><div class="nxt-gap__tgt">AI pre-triage routes profiles; advisors spend time on judgment, not sorting.</div></div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Org Chart</p><h2 class="nxt-h2">Hierarchy (renders the chart)</h2>
+    <div class="nxt-org">
+      <div class="nxt-org__row"><div class="nxt-org__node"><div class="nxt-org__name">VP, Experiential</div><div class="nxt-org__role">Sponsor</div></div></div>
+      <div class="nxt-org__connector"></div>
+      <div class="nxt-org__row">
+        <div class="nxt-org__node"><div class="nxt-org__name">Co-op Office</div><div class="nxt-org__role">Delivery</div></div>
+        <div class="nxt-org__node"><div class="nxt-org__name">PAI / AI</div><div class="nxt-org__role">Platform</div></div>
+        <div class="nxt-org__node"><div class="nxt-org__name">Career Center</div><div class="nxt-org__role">Support</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Strategy</p><h2 class="nxt-h2">Rumelt kernel</h2>
+    <div class="nxt-kernel">
+      <div class="nxt-kernel__step"><div class="nxt-kernel__k">Diagnosis</div><p class="nxt-prose">One overstretched advisor cannot carry a first-year through the co-op search alone.</p></div>
+      <div class="nxt-kernel__step"><div class="nxt-kernel__k">Guiding Policy</div><p class="nxt-prose">Put an AI readiness layer in front of the search, advisors on judgment.</p></div>
+      <div class="nxt-kernel__step"><div class="nxt-kernel__k">Coherent Actions</div><p class="nxt-prose">Shortlist, triage co-pilot, employer matching, measured each term.</p></div>
+    </div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Recommendations</p><h2 class="nxt-h2">Prioritized</h2>
+    <div class="nxt-rec"><div class="nxt-rec__n">01</div><div><div class="nxt-rec__title">Stand up an AI readiness layer in front of NUworks</div><p class="nxt-card__body">Cuts the cold-start problem for first-years. <span class="nxt-chip nxt-chip--accent">High impact</span></p></div></div>
+  </section>
+
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">Mindmap / Meta-themes / Dialog</p><h2 class="nxt-h2">Callouts, themes, dialog</h2>
+    <div class="nxt-grid nxt-grid--3" style="margin-bottom:24px;">
+      <div class="nxt-callout"><div class="nxt-callout__title">Fragmentation</div><p class="nxt-card__body">Tools assess, build, advise in isolation.</p></div>
+      <div class="nxt-theme"><span class="nxt-theme__tag">Convergent</span><p class="nxt-card__body">AI-enabled personalized support across the co-op journey.</p></div>
+      <div class="nxt-callout"><div class="nxt-callout__title">Access</div><p class="nxt-card__body">Democratize what only networked students get today.</p></div>
+    </div>
+    <div class="nxt-dialog">
+      <div class="nxt-bubble nxt-bubble--q"><div class="nxt-bubble__role">Question</div>What outcome defines success in the first term?</div>
+      <div class="nxt-bubble nxt-bubble--a"><div class="nxt-bubble__role">Brief</div>Every first-year reaches a real interview, not just an application count.</div>
+    </div>
+  </section>
+</section>
+
+<!-- ===================== SLIDE LIBRARY ===================== -->
+<section class="nxt-panel" data-panel="slides">
+  <section class="nxt-section nxt-wrap">
+    <p class="nxt-eyebrow">#slides — deck templates</p><h2 class="nxt-h2">Slide library</h2>
+
+    <!-- 1 Title -->
+    <div class="nxt-slide nxt-slide--title">
+      <span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Northeastern Co-op Strategy</p>
+      <h2 class="nxt-slide__title">Humans in control of the co-op search</h2>
+      <p class="nxt-slide__body">An AI readiness layer that puts advisors on judgment and first-years on a real path to a first co-op.</p>
+    </div>
+
+    <!-- 2 Agenda -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Agenda</p>
+      <h2 class="nxt-slide__title">What we will cover</h2>
+      <div class="nxt-numlist" style="margin-top:18px;max-width:680px;">
+        <div class="nxt-numlist__item"><div>The diagnosis: where the co-op search breaks</div></div>
+        <div class="nxt-numlist__item"><div>The guiding policy</div></div>
+        <div class="nxt-numlist__item"><div>What we recommend, and in what order</div></div>
+      </div>
+    </div>
+
+    <!-- 3 Section divider -->
+    <div class="nxt-slide nxt-slide--divider">
+      <p class="nxt-slide__kicker">Section 01</p>
+      <h2 class="nxt-slide__title">The diagnosis</h2>
+    </div>
+
+    <!-- 4 Simple content -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Diagnosis</p>
+      <h2 class="nxt-slide__title">One advisor cannot carry a first-year alone</h2>
+      <p class="nxt-slide__body">The search is fragmented across tools that do not talk to each other, and the students without a network feel it first.</p>
+    </div>
+
+    <!-- 5 Bullet / list -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Where it breaks</p>
+      <h2 class="nxt-slide__title">Three failure points</h2>
+      <div class="nxt-numlist" style="margin-top:16px;max-width:720px;">
+        <div class="nxt-numlist__item"><div><strong>Fragmented tools</strong> assess, build and advise in isolation.</div></div>
+        <div class="nxt-numlist__item"><div><strong>Unfilterable feed</strong> of postings with no guidance.</div></div>
+        <div class="nxt-numlist__item"><div><strong>No network</strong> for the students who need one most.</div></div>
+      </div>
+    </div>
+
+    <!-- 6 Two-column content -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Two views</p>
+      <h2 class="nxt-slide__title">Problem and response, side by side</h2>
+      <div class="nxt-grid nxt-grid--2" style="margin-top:18px;">
+        <div class="nxt-card"><p class="nxt-card__label">Today</p><p class="nxt-card__body">Manual triage cannot keep pace at intake.</p></div>
+        <div class="nxt-card"><p class="nxt-card__label">Proposed</p><p class="nxt-card__body">AI pre-triage routes profiles to the right advisor.</p></div>
+      </div>
+    </div>
+
+    <!-- 7 Case study -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Case study</p>
+      <h2 class="nxt-slide__title">First-year readiness roadmap</h2>
+      <div class="nxt-grid nxt-grid--3" style="margin-top:18px;">
+        <div class="nxt-card"><p class="nxt-card__label">Problem</p><p class="nxt-card__body">First-years apply blind, without a sense of fit.</p></div>
+        <div class="nxt-card"><p class="nxt-card__label">Approach</p><p class="nxt-card__body">LLM matches resume + major to employer skills.</p></div>
+        <div class="nxt-card"><p class="nxt-card__label">Outcome</p><p class="nxt-card__body">Earlier skill-gap signals; better matches.</p></div>
+      </div>
+    </div>
+
+    <!-- 8 Table -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Systems</p>
+      <h2 class="nxt-slide__title">What we audited</h2>
+      <table class="nxt-table" style="margin-top:14px;">
+        <thead><tr><th>System</th><th>Role</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>NUworks</td><td>Job board</td><td><span class="nxt-chip">Legacy</span></td></tr>
+          <tr><td>Co-op CRM</td><td>Placement</td><td><span class="nxt-chip nxt-chip--status">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9 Infographic -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">How it works</p>
+      <h2 class="nxt-slide__title">From profile to placement</h2>
+      <div class="nxt-process" style="margin-top:28px;">
+        <div class="nxt-process__step"><div class="nxt-process__num">1</div><div class="nxt-process__label">Profile</div></div>
+        <div class="nxt-process__step"><div class="nxt-process__num">2</div><div class="nxt-process__label">Shortlist</div></div>
+        <div class="nxt-process__step"><div class="nxt-process__num">3</div><div class="nxt-process__label">Triage</div></div>
+        <div class="nxt-process__step"><div class="nxt-process__num">4</div><div class="nxt-process__label">Match</div></div>
+      </div>
+    </div>
+
+    <!-- 10 Pull quote -->
+    <div class="nxt-slide nxt-slide--quote">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <blockquote class="nxt-quote"><p class="nxt-quote__text">I applied to sixty co-ops and heard back from four.</p><p class="nxt-quote__cite">Source: Reddit r/NEU</p></blockquote>
+    </div>
+
+    <!-- 11 Image -->
+    <div class="nxt-slide nxt-slide--image">
+      <div class="nxt-img-ph">Image</div>
+    </div>
+
+    <!-- 12 Split image + text -->
+    <div class="nxt-slide nxt-slide--split">
+      <div class="nxt-slide__pane">
+        <p class="nxt-slide__kicker">In practice</p>
+        <h2 class="nxt-slide__title" style="font-size:34px;">Advisors on judgment, not sorting</h2>
+        <p class="nxt-slide__body">The co-pilot clears the queue so the human conversation can happen.</p>
+      </div>
+      <div class="nxt-slide__pane nxt-slide__pane--img"><div class="nxt-img-ph">Image</div></div>
+    </div>
+
+    <!-- 13 KPI / metrics -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Signals</p>
+      <h2 class="nxt-slide__title">What the corpus shows</h2>
+      <div class="nxt-grid nxt-grid--3" style="margin-top:18px;">
+        <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-team"></use></svg><div><div class="nxt-iconstat__fig">200:1</div><div class="nxt-iconstat__label">student-to-advisor</div></div></div>
+        <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-clock"></use></svg><div><div class="nxt-iconstat__fig">11 wk</div><div class="nxt-iconstat__label">median search</div></div></div>
+        <div class="nxt-iconstat"><svg class="nxt-ico"><use href="#i-network"></use></svg><div><div class="nxt-iconstat__fig">5</div><div class="nxt-iconstat__label">disconnected systems</div></div></div>
+      </div>
+    </div>
+
+    <!-- 14 Comparison -->
+    <div class="nxt-slide">
+      <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">Before / after</p>
+      <h2 class="nxt-slide__title">What changes for the student</h2>
+      <div class="nxt-compare" style="margin-top:18px;">
+        <div class="nxt-compare__col nxt-compare__col--before"><div class="nxt-compare__tag">Before</div><p class="nxt-card__body">Sixty applications, four replies, no read on fit.</p></div>
+        <div class="nxt-compare__col nxt-compare__col--after"><div class="nxt-compare__tag">After</div><p class="nxt-card__body">A ranked shortlist that explains why each posting fits.</p></div>
+      </div>
+    </div>
+
+    <!-- 15 Closing / CTA -->
+    <div class="nxt-slide nxt-slide--closing">
+      <span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span>
+      <p class="nxt-slide__kicker">What's NXT</p>
+      <h2 class="nxt-slide__title">Put humans in control of the co-op search</h2>
+      <p class="nxt-slide__body">Start with the readiness layer this term.</p>
+    </div>
+
+    <!-- ===== 2026-06-01 dedicated templates ===== -->
+    <p class="nxt-eyebrow" style="margin-top:40px;">Dedicated 16:9 templates (2026-06-01)</p>
+
+    <!-- TOC -->
+    <div class="nxt-slide nxt-slide--flow">
+      <p class="nxt-slide__kicker">Agenda</p><h2 class="nxt-slide__title">What this deck covers</h2>
+      <div class="nxt-toc">
+        <div class="nxt-toc__item"><span class="nxt-toc__n">01</span><span class="nxt-toc__t">The shift<small>from concepting to production</small></span></div>
+        <div class="nxt-toc__item"><span class="nxt-toc__n">02</span><span class="nxt-toc__t">Operator skills<small>judgment over pixels</small></span></div>
+        <div class="nxt-toc__item"><span class="nxt-toc__n">03</span><span class="nxt-toc__t">Governance<small>the groundedness gate</small></span></div>
+        <div class="nxt-toc__item"><span class="nxt-toc__n">04</span><span class="nxt-toc__t">Roadmap<small>now / next / later</small></span></div>
+      </div>
+    </div>
+
+    <!-- Hero stat -->
+    <div class="nxt-slide nxt-slide--stat">
+      <div class="nxt-stat"><div class="nxt-stat__fig">3x</div>
+        <p class="nxt-stat__cap">"Intentional operators ship roughly three times the usable output of autopilot users."</p>
+        <p class="nxt-stat__src">Source: r/uxdesign</p></div>
+    </div>
+
+    <!-- Case study (Problem / Approach / Result) -->
+    <div class="nxt-slide nxt-slide--flow">
+      <p class="nxt-slide__kicker">Case study</p><h2 class="nxt-slide__title">A team that governed its model garden</h2>
+      <div class="nxt-case">
+        <div class="nxt-case__band"><p class="nxt-case__k">Problem</p><p class="nxt-case__body">Ad-hoc AI tools caused brand drift across assets.</p></div>
+        <div class="nxt-case__band"><p class="nxt-case__k">Approach</p><p class="nxt-case__body">Centralized a prompt library and a governed model garden.</p></div>
+        <div class="nxt-case__band nxt-case__band--result"><p class="nxt-case__k">Result</p><p class="nxt-case__body">Consistent output with a groundedness gate before ship.</p></div>
+      </div>
+    </div>
+
+    <!-- Bulleted content -->
+    <div class="nxt-slide nxt-slide--flow">
+      <p class="nxt-slide__kicker">Findings</p><h2 class="nxt-slide__title">Four forces reshape design work</h2>
+      <ul class="nxt-bullets">
+        <li>Drafting collapses to minutes; judgment becomes the bottleneck.</li>
+        <li>Design systems become the contract for agentic AI.</li>
+        <li>Tool sprawl pushes teams toward governed platforms.</li>
+        <li>Accessibility shifts left into generation.</li>
+      </ul>
+    </div>
+
+    <!-- Content + image (two-column) -->
+    <div class="nxt-slide nxt-slide--cols">
+      <div class="nxt-slide__col"><p class="nxt-slide__kicker">Platform</p><h2 class="nxt-slide__title">Production runs on a controlled stack</h2><p class="nxt-slide__body">Model garden, prompt library, RAG, and a content-safety gate.</p></div>
+      <div class="nxt-slide__col nxt-slide__col--img"><div class="nxt-img-ph">system map</div></div>
+    </div>
+
+    <!-- ===== NU brand — SAME templates restyled ===== -->
+    <p class="nxt-eyebrow" style="margin-top:40px;">NU brand — same templates, restyled (wrap in <code>class="nxt-nu"</code>)</p>
+    <div class="nxt-nu">
+      <div class="nxt-slide nxt-slide--title">
+        <span class="nxt-logo nxt-logo--white nxt-slide__logo">NORTHEASTERN</span>
+        <p class="nxt-slide__kicker">Co-op Strategy</p>
+        <h2 class="nxt-slide__title">An AI readiness layer for the co-op search</h2>
+        <p class="nxt-slide__body">Huskies red and ink navy, Spectral display, Roboto body.</p>
+      </div>
+      <div class="nxt-slide nxt-slide--divider"><p class="nxt-slide__kicker">Section 01</p><h2 class="nxt-slide__title">The diagnosis</h2></div>
+      <div class="nxt-slide nxt-slide--stat"><div class="nxt-stat"><div class="nxt-stat__fig">2x</div><p class="nxt-stat__cap">"Readiness scoring doubled advisor throughput in the pilot."</p><p class="nxt-stat__src">Source: NU Pilot 2026</p></div></div>
+      <div class="nxt-slide nxt-slide--flow"><p class="nxt-slide__kicker">Findings</p><h2 class="nxt-slide__title">Three forces</h2><ul class="nxt-bullets"><li>Crawlers expand employer supply.</li><li>Matching reduces discovery friction.</li><li>Advisors get time-sensitive alerts.</li></ul></div>
+    </div>
+
+  </section>
+</section>
+
+</div>
+
+<footer class="nxt-footer">
+  <span class="nxt-logo nxt-logo--sm" aria-label="NXT HUMANS">NXT HUMANS</span>
+  <span>Artifact UI Library · Stark-white · WCAG AA</span>
+</footer>
+
+<script src="nxt-artifact-system.js"></script>
+</body>
+</html>

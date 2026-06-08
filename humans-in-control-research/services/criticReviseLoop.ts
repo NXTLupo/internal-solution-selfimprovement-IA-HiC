@@ -1,8 +1,8 @@
-// services/criticReviseLoop.ts
+﻿// services/criticReviseLoop.ts
 // The architectural primitive that wraps any deliverable in a generator → critic → revisor loop.
 // See .claude/skills/critic-revise-loop/SKILL.md for the full contract.
 //
-// 2026-05-24 — Phase 3 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 3 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import {
@@ -146,16 +146,16 @@ function removeAtPath(obj: any, path: string): void {
  * Validate that a target_path is safe to apply against a deliverable.
  * Returns null if safe, or a reason string if it must be rejected.
  *
- * 2026-05-25 — Critical safety. When the deliverable is a FreeformArtifact
+ * 2026-05-25 - Critical safety. When the deliverable is a FreeformArtifact
  * (kind=journey/blueprint/org/arch/roadmap with html as a string), critics
- * frequently emit paths like "html.grid.lane-row[0].cell[1].emo" — trying
+ * frequently emit paths like "html.grid.lane-row[0].cell[1].emo" - trying
  * to navigate INTO the html string as if it were a JSON tree. This corrupts
  * the artifact (5+ failed edits, em-dashes go UP not down, artifact
  * shrinks because setAtPath replaces parts of the deliverable). Reject any
  * path that dives into a string-valued field BEFORE applyEdits attempts it.
  */
 // Top-level fields that hold the rendered deliverable content for freeform
-// artifacts. Critics must NEVER replace these directly — the optimization
+// artifacts. Critics must NEVER replace these directly - the optimization
 // loop is supposed to edit the SKILL document (offline), not the deliverable
 // itself (online). A critic that emits {op: 'replace', target_path: 'html',
 // new_value: 'some critic rationale prose'} would destroy the artifact.
@@ -170,7 +170,7 @@ function isPathSafeForDeliverable(deliverable: any, target_path: string): string
     const parts = parsePath(target_path);
     if (parts.length === 0) return 'empty path after parse';
 
-    // 2026-05-25 fix #2 — Reject any single-segment edit that targets a
+    // 2026-05-25 fix #2 - Reject any single-segment edit that targets a
     // protected top-level content field on a string-typed deliverable. This
     // was the actual production failure mode: critics emitting
     // {target_path: "html", action: "replace", new_value: "<critic prose>"}
@@ -186,9 +186,9 @@ function isPathSafeForDeliverable(deliverable: any, target_path: string): string
     let cur: any = deliverable;
     for (let i = 0; i < parts.length - 1; i++) {
         const p = parts[i];
-        if (cur === null || cur === undefined) return null; // path traverses missing branch; setAtPath would create it — allowed
+        if (cur === null || cur === undefined) return null; // path traverses missing branch; setAtPath would create it - allowed
         if (typeof cur === 'string') {
-            return `cannot dive into string field at segment "${parts.slice(0, i).join('.')}" — path "${target_path}" treats a string as an object`;
+            return `cannot dive into string field at segment "${parts.slice(0, i).join('.')}" - path "${target_path}" treats a string as an object`;
         }
         cur = cur[p as any];
     }
@@ -205,7 +205,7 @@ function isPathSafeForDeliverable(deliverable: any, target_path: string): string
  * Apply structured edits to a deliverable. Pure function.
  * Used by the revisor AND by tests.
  *
- * 2026-05-25 — Safety hardening:
+ * 2026-05-25 - Safety hardening:
  *   1. Path-safety pre-check rejects edits that try to dive into a string
  *      field (the failure mode that corrupted freeform-HTML journey artifacts).
  *   2. The `$ROOT` sentinel now properly returns the new_value as the entire
@@ -216,7 +216,7 @@ function isPathSafeForDeliverable(deliverable: any, target_path: string): string
 export function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
     let draft = JSON.parse(JSON.stringify(deliverable)) as T;
     for (const edit of edits) {
-        // 2026-05-25 — $ROOT sentinel handler. When a critic returns an edit
+        // 2026-05-25 - $ROOT sentinel handler. When a critic returns an edit
         // with target_path='$ROOT' and action='replace', new_value replaces
         // the entire deliverable. Used by the universal hygiene strip
         // (em-dash + slop substitution) which needs to replace every string
@@ -228,7 +228,7 @@ export function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
             }
             continue;
         }
-        // 2026-05-25 — Pre-validate the path. Critics on freeform-HTML
+        // 2026-05-25 - Pre-validate the path. Critics on freeform-HTML
         // artifacts often emit paths that try to dive into the html string;
         // those edits would corrupt the artifact, so reject early.
         const rejection = isPathSafeForDeliverable(draft, edit.target_path);
@@ -251,7 +251,7 @@ export function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
                     break;
             }
         } catch (err) {
-            // Log but don't throw — bad edit shouldn't kill the loop
+            // Log but don't throw - bad edit shouldn't kill the loop
             if (typeof console !== 'undefined') {
                 console.warn(
                     `[criticReviseLoop] edit failed for path "${edit.target_path}" action="${edit.action}": ${String(err).slice(0, 120)}`
@@ -264,7 +264,7 @@ export function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// Default critic invoker — uses the proxy AI endpoints
+// Default critic invoker - uses the proxy AI endpoints
 // ──────────────────────────────────────────────────────────────────────────
 
 const CRITIC_PROMPT_TEMPLATE = `You are a critic skill. Your job is to evaluate the deliverable below against the discipline specified in your skill spec at .claude/skills/{{SKILL_NAME}}/SKILL.md.
@@ -330,7 +330,7 @@ export const defaultCriticInvoker: CriticInvoker = async ({
                     messages: [{ role: 'user', content: prompt }],
                 }
                 : {
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-3.5-flash',
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: { temperature: 0, responseMimeType: 'application/json' },
                 };
@@ -359,7 +359,7 @@ export const defaultCriticInvoker: CriticInvoker = async ({
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// The revisor — applies edits via the deterministic applyEdits function
+// The revisor - applies edits via the deterministic applyEdits function
 // (We do NOT use an LLM revisor by default; applyEdits is mechanical and
 // deterministic. The skill spec mentions an LLM revisor as an option for
 // future use when edits need more interpretation.)

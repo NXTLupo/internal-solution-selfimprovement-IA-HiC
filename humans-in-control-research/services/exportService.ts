@@ -1,5 +1,5 @@
 /**
- * Export Service — Production-Grade Deliverable Export Engine
+ * Export Service - Production-Grade Deliverable Export Engine
  *
  * Formats: PPTX (Strategy Decks), JSON (Structured Data), HTML (Heuristic Reports)
  * PDF export remains in ResultsView.tsx (uses html2canvas which needs DOM access)
@@ -9,8 +9,29 @@
 
 import PptxGenJS from 'pptxgenjs';
 import { AnalysisResult, Slide, SlideLayout, Persona, Theme, ServiceBlueprintStage, TechnicalArchitecture, PRD, StrategicRoadmap, StrategicRecommendation } from '../types';
-import { stripMarkdown, resolveCitations, removeMetaNarration } from './slidePostProcessor';
+import { stripMarkdown, resolveCitations, removeMetaNarration, stripFormatTells } from './slidePostProcessor';
 import { getChunkSourceMap } from './researchFabricOrchestrator';
+
+// 2026-06-03 - Export-layer text hygiene chokepoint (mirrors pptx.ts). Wrap a
+// slide's addText so every text frame has em-dashes (U+2014, HARD BAN) and
+// emoji stripped as the guaranteed last line of defense, regardless of which
+// upstream path filled the slide data. Handles plain-string + rich-text runs.
+function sanitizeAddText<T = any>(s: T): T {
+    const slide = s as any;
+    if (!slide || typeof slide.addText !== 'function' || slide.__sanitized) return s;
+    const raw = slide.addText.bind(slide);
+    const clean = (v: any): any => {
+        if (typeof v === 'string') return stripFormatTells(v);
+        if (Array.isArray(v)) return v.map((run) =>
+            run && typeof run === 'object' && typeof run.text === 'string'
+                ? { ...run, text: stripFormatTells(run.text) }
+                : clean(run));
+        return v;
+    };
+    slide.addText = (textArg: any, opts?: any) => raw(clean(textArg), opts);
+    slide.__sanitized = true;
+    return s;
+}
 
 // --- BRAND CONSTANTS (NXT Humans Design Token System v1.0) ---
 const BRAND = {
@@ -40,8 +61,8 @@ const BRAND = {
     gray: '525252',
     lightGray: 'E5E5E5',
     bgGray: 'FAFAFA',
-    // Typography — 2026-05-29: was Helvetica Neue/Arial (the audit's #1 preview-
-    // vs-export divergence — the deck preview uses Archivo/Bebas, the PPTX used
+    // Typography - 2026-05-29: was Helvetica Neue/Arial (the audit's #1 preview-
+    // vs-export divergence - the deck preview uses Archivo/Bebas, the PPTX used
     // Arial). Now the brand faces. Text stays editable; on a machine with the
     // fonts it matches the preview, and the DOM-walker export path embeds them.
     fontFamily: 'Archivo',
@@ -63,12 +84,12 @@ function wordSafeCut(input: string, maxChars: number): string {
     const slice = s.slice(0, maxChars);
     const lastSpace = slice.lastIndexOf(' ');
     const cut = lastSpace > Math.floor(maxChars * 0.6) ? slice.slice(0, lastSpace) : slice;
-    return cut.replace(/[,;:.\-\s]+$/, '') + '…';
+    return cut.replace(/[,;:.\-\s]+$/, '') + '...';
 }
 
 /**
  * Approximate PPTX text-box height in inches for the given character count,
- * point size, and rendered width (inches). Conservative — errors on the side
+ * point size, and rendered width (inches). Conservative - errors on the side
  * of allocating MORE vertical space so we never overlap the next element.
  *
  * Empirical: ~1.7 chars per em at standard pptx body weight, em ≈ pt / 72 inches.
@@ -105,7 +126,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     pptx.company = 'NXT Humans';
     pptx.subject = 'Research Analysis';
     pptx.title = result.themes?.[0]?.name ? `Research: ${result.themes[0].name}` : 'HiC Research Export';
-    // 16:9 widescreen format — matches browser rendering exactly
+    // 16:9 widescreen format - matches browser rendering exactly
     pptx.layout = 'LAYOUT_WIDE'; // 13.33" x 7.5"
     const SW = 13.33; // slide width
     const SH = 7.5;   // slide height
@@ -148,7 +169,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     const totalSlides = (slides?.length || 0) + 3; // +3 for title, closing, appendix
 
     // ====== TITLE SLIDE (Archetype 1) ======
-    const titleSlide = pptx.addSlide();
+    const titleSlide = sanitizeAddText(pptx.addSlide());
     titleSlide.background = { color: BRAND.white };
     titleSlide.addText((result.selectedOutputs?.[0] || 'STRATEGIC ANALYSIS').replace(/_/g, ' '), {
         x: PX, y: SH * 0.55, w: 5, h: 0.25,
@@ -178,7 +199,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
         for (let i = 0; i < slides.length; i++) {
             const slide = slides[i];
             const layout = normalizeLayout(slide.layout);
-            const s = pptx.addSlide();
+            const s = sanitizeAddText(pptx.addSlide());
             s.background = { color: layout === 'SECTION_HEADER' ? '0D0D0D' : BRAND.white };
             const slideNum = i + 2; // +1 for title slide, +1 for 1-indexing
 
@@ -196,7 +217,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                 addSlideNumber(s, slideNum, totalSlides, '404040');
 
             } else {
-                // ====== ADAPTIVE BODY SLIDE — One flexible renderer for all content types ======
+                // ====== ADAPTIVE BODY SLIDE - One flexible renderer for all content types ======
                 // Mirrors the HTML renderer in ResultsView.tsx: content drives layout, not archetype.
                 // If metrics or bentoCells exist, render 55/45 split; otherwise full-width.
 
@@ -229,7 +250,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     leftY += 0.32;
                 }
 
-                // BUG #2 FIX: title — clamp + measure, accumulate by actual height
+                // BUG #2 FIX: title - clamp + measure, accumulate by actual height
                 const titleClamped = wordSafeCut(cleanText(slide.title), 140);
                 const titleH = Math.max(0.55, Math.min(1.4, estimateTextHeight(titleClamped.length, 22, leftW)));
                 s.addText(titleClamped, {
@@ -241,7 +262,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
 
                 // BUG #3 FIX: truncate each bullet to its content budget (200 chars per .claude/CLAUDE.md)
                 // BUG #2 FIX: measure rendered height instead of fixed 0.55 per bullet
-                // Cap at 6 visible bullets — partner-test decks never need more on a single slide.
+                // Cap at 6 visible bullets - partner-test decks never need more on a single slide.
                 const rawBullets = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
                 const bullets = rawBullets.slice(0, 6).map(b => wordSafeCut(b, 200));
                 if (bullets.length > 0) {
@@ -322,7 +343,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     }
                 }
 
-                // BUG #2 FIX: left-side quote — height from measured content (cap at 250 chars per CLAUDE.md budget)
+                // BUG #2 FIX: left-side quote - height from measured content (cap at 250 chars per CLAUDE.md budget)
                 if (slide.quote && !metrics.length) {
                     const qText = wordSafeCut(cleanText(slide.quote), 250);
                     const qH = Math.max(0.6, Math.min(1.6, estimateTextHeight(qText.length + 2, 12, leftW - 0.3, 1.35)));
@@ -338,7 +359,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     leftY += qH + 0.15;
                 }
 
-                // BUG #2 FIX: persona card — fixed footprint + truncated text fields so the card never overflows below the slide boundary
+                // BUG #2 FIX: persona card - fixed footprint + truncated text fields so the card never overflows below the slide boundary
                 if (slide.personaName) {
                     const pCardW = Math.min(leftW, 4);
                     const pQuoteRaw = slide.personaQuote ? cleanText(slide.personaQuote) : '';
@@ -503,7 +524,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     }
 
     // ====== CLOSING SLIDE ======
-    const closeSlide = pptx.addSlide();
+    const closeSlide = sanitizeAddText(pptx.addSlide());
     closeSlide.background = { color: '0D0D0D' };
     closeSlide.addText('NXT Humans', {
         x: PX, y: SH * 0.4, w: SW - PX * 2, h: 1.0,
@@ -517,7 +538,7 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
     });
 
     // ====== APPENDIX: Evidence Base ======
-    const appendixSlide = pptx.addSlide();
+    const appendixSlide = sanitizeAddText(pptx.addSlide());
     appendixSlide.background = { color: BRAND.white };
     appendixSlide.addText('APPENDIX', {
         x: PX, y: PY, w: 3, h: 0.25,
@@ -731,7 +752,7 @@ export function exportStrategicReportHTML(report: any): void {
             html += `<div style="font-size:10px;color:#888;margin-top:4px;">-- ${s.keyQuote.attribution} (${s.keyQuote.source})</div>`;
             html += `</div>`;
         }
-        // evidenceGap badge intentionally suppressed — delivered output must never expose
+        // evidenceGap badge intentionally suppressed - delivered output must never expose
         // QA-style annotations to the reader (per user directive 2026-05-05).
         if (s.citations?.length) {
             html += `<div style="margin-top:12px;font-size:9px;color:#999;">Sources: ${s.citations.join(' | ')}</div>`;

@@ -37,6 +37,92 @@ from pydantic import BaseModel
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
+import re  # hoisted: needed by the secret-redaction patterns below (re is also imported later)
+import hmac  # A1 auth: constant-time token comparison
+
+# 2026-06-05 — Provider-aware adaptive rate-limit pacer (replaces the
+# per-provider asyncio.Semaphore pattern at lines 2024-2049). Each provider
+# gets its own token bucket; a 429 on Gemini shrinks Gemini's concurrency
+# by 50% and triggers backoff+retry, but does NOT touch OpenAI/Anthropic.
+# Composed inside the existing AI proxy endpoints — pacer handles backoff,
+# the existing DeepSeek fallback fires only after pacer exhaustion.
+from rate_limit_pacer import (
+    with_rate_limit as _pacer_with_rate_limit,
+    acquire_slot as _pacer_acquire_slot,
+    release_slot as _pacer_release_slot,
+    record_success as _pacer_record_success,
+    record_rate_limit as _pacer_record_rate_limit,
+    httpx_response_is_rate_limited as _pacer_httpx_response_is_rate_limited,
+    httpx_exception_is_rate_limited as _pacer_httpx_exception_is_rate_limited,
+    snapshot as _pacer_snapshot,
+)
+# ─── A2 (P0): secret redaction in logs (2026-06-02) ──────────────────────────
+# Provider keys were leaking into logs because (a) httpx logs request URLs at INFO
+# and several call sites put the key in the URL query string (?key=...), and (b)
+# Authorization/x-api-key/x-goog-api-key headers can appear in tracebacks. This
+# filter scrubs known secret patterns from EVERY log record (app + httpx +
+# uvicorn-access) before it is emitted. It is defense-in-depth alongside the
+# keys-to-headers migration below; even if a key reaches a URL again, it never
+# lands in a log. Targeted patterns only, so normal logs are untouched.
+_SECRET_LOG_PATTERNS = [
+    re.compile(r'(?i)(\bkey=)[A-Za-z0-9_\-]{6,}'),                      # ?key=AIza...
+    re.compile(r'(?i)(x-goog-api-key["\']?\s*[:=]\s*["\']?)[A-Za-z0-9_\-]{6,}'),
+    re.compile(r'(?i)(x-api-key["\']?\s*[:=]\s*["\']?)[A-Za-z0-9_\-]{6,}'),
+    re.compile(r'(?i)(authorization["\']?\s*[:=]\s*["\']?)(bearer\s+)?[A-Za-z0-9_\-\.]{8,}'),
+    re.compile(r'\b(AIza[0-9A-Za-z_\-]{10,})'),                          # Google API key shape
+    re.compile(r'\b(sk-[A-Za-z0-9_\-]{12,})'),                           # OpenAI-style key shape
+]
+
+
+def _redact_secret(s: str) -> str:
+    if not s:
+        return s
+    out = s
+    out = _SECRET_LOG_PATTERNS[0].sub(r'\1REDACTED', out)
+    out = _SECRET_LOG_PATTERNS[1].sub(r'\1REDACTED', out)
+    out = _SECRET_LOG_PATTERNS[2].sub(r'\1REDACTED', out)
+    out = _SECRET_LOG_PATTERNS[3].sub(lambda m: m.group(1) + (m.group(2) or '') + 'REDACTED', out)
+    out = _SECRET_LOG_PATTERNS[4].sub('AIza-REDACTED', out)
+    out = _SECRET_LOG_PATTERNS[5].sub('sk-REDACTED', out)
+    return out
+
+
+class _SecretRedactingFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        try:
+            if isinstance(record.msg, str):
+                record.msg = _redact_secret(record.msg)
+            if record.args:
+                if isinstance(record.args, dict):
+                    record.args = {k: (_redact_secret(v) if isinstance(v, str) else v)
+                                   for k, v in record.args.items()}
+                else:
+                    record.args = tuple(_redact_secret(a) if isinstance(a, str) else a
+                                        for a in record.args)
+        except Exception:
+            pass  # logging must never raise
+        return True
+
+
+# Attach to the ROOT logger so app + httpx + uvicorn.access records are all scrubbed.
+_redaction_filter = _SecretRedactingFilter()
+logging.getLogger().addFilter(_redaction_filter)
+for _h in logging.getLogger().handlers:
+    _h.addFilter(_redaction_filter)
+for _ln in ("httpx", "uvicorn.access", "uvicorn.error", "uvicorn"):
+    logging.getLogger(_ln).addFilter(_redaction_filter)
+
+
+def _goog_key_headers(api_key: str, extra: dict | None = None) -> dict:
+    """A2 (P0): Google's guidance is to pass the API key in the `x-goog-api-key`
+    HEADER, never the `?key=` URL query param (which leaks via URL scans, logs,
+    referrers). All Gemini REST call sites use this so the key never enters a URL."""
+    h = {"Content-Type": "application/json", "x-goog-api-key": api_key}
+    if extra:
+        h.update(extra)
+    return h
+
 app = FastAPI(title="HiC Research Data Proxy v2")
 
 app.add_middleware(
@@ -46,6 +132,46 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# ─── A1 (P0): env-gated auth on /api/* (2026-06-02) ──────────────────────────
+# The proxy holds all provider keys and the full client corpus and currently has
+# no authn/authz. On the host it is published loopback-only (127.0.0.1:5012 in
+# docker-compose-all.yml), but anything on the host or the docker bridge can call
+# it unauthenticated. This middleware adds a bearer/token gate that is:
+#   - DEFAULT-OFF (PROXY_AUTH_TOKEN unset) so the live SPA + sibling services keep
+#     working unchanged today; a one-time warning is logged so the gap is visible.
+#   - A HARD default-deny gate when PROXY_AUTH_TOKEN is set: every /api/* request
+#     must present `Authorization: Bearer <token>` or `x-proxy-token: <token>`.
+# Enablement is then a deploy decision (set the env + distribute the token to the
+# SPA build and sibling services), not a code change — and it covers EVERY route,
+# including future ones, so it can't be forgotten on a new endpoint.
+_PROXY_AUTH_TOKEN = os.environ.get("PROXY_AUTH_TOKEN", "").strip()
+# Paths always allowed without a token (health checks + CORS preflight handled below).
+_AUTH_EXEMPT_PATHS = {"/health", "/favicon.ico", "/api/ai/status"}
+if not _PROXY_AUTH_TOKEN:
+    logger.warning("[A1] PROXY AUTH DISABLED — set PROXY_AUTH_TOKEN to require a bearer token on /api/*. "
+                   "Proxy is currently open to anything that can reach it (host loopback + docker bridge).")
+else:
+    logger.info("[A1] Proxy auth ENABLED — /api/* requires a bearer/x-proxy-token.")
+
+
+@app.middleware("http")
+async def _proxy_auth_mw(request: Request, call_next):
+    if _PROXY_AUTH_TOKEN:
+        path = request.url.path
+        # Allow CORS preflight (no auth header is sent on OPTIONS) + exempt paths.
+        if request.method != "OPTIONS" and path.startswith("/api/") and path not in _AUTH_EXEMPT_PATHS:
+            supplied = ""
+            authz = request.headers.get("authorization", "")
+            if authz.lower().startswith("bearer "):
+                supplied = authz[7:].strip()
+            if not supplied:
+                supplied = request.headers.get("x-proxy-token", "").strip()
+            if not hmac.compare_digest(supplied, _PROXY_AUTH_TOKEN):
+                return JSONResponse({"error": "unauthorized"}, status_code=401)
+    return await call_next(request)
+
 
 TIMEOUT = 30.0
 # Browser-compatible User-Agent — required by Cloudflare / Akamai / many WAF-protected
@@ -2185,6 +2311,23 @@ async def _expand_rss_items(items: List[Dict[str, Any]], max_concurrent: int = 8
 async def health():
     return {"status": "healthy", "service": "research-proxy-v2", "sources": len(SOURCES)}
 
+
+@app.get("/api/pacer/status")
+async def pacer_status():
+    """Telemetry surface for the rate-limit pacer (per-provider bucket state).
+    Read by the quota-monitor subagent + Reasoning Stream so the user can see
+    live concurrency, success streaks, total 429s, and time since last 429 for
+    every provider that has had at least one call."""
+    return JSONResponse({"buckets": _pacer_snapshot()})
+
+
+@app.get("/favicon.ico")
+async def favicon():
+    # Browsers auto-request /favicon.ico on every full-page view (e.g. the
+    # journey-map launcher at /api/journey-map/view/<id>). Without a handler
+    # the proxy returns 404 and logs console noise. Answer 204 No Content.
+    return Response(status_code=204)
+
 # ================================================================
 # DEEP REDDIT FETCHER — 2026-05-10 (HiC-Reddit-Deep branch)
 # ================================================================
@@ -2474,6 +2617,16 @@ async def _run_topic_job(job_id: str, items: list, research_goal: str, min_clust
     restarted before completion'. Driven by the Northeastern 2026-05-24
     failure where two job IDs returned bare 404."""
     _write_topic_sentinel(job_id, research_goal, len(items), "running")
+    # H1 RunReceipt (2026-06-02) — keyed to job_id so the receipt and the topic
+    # job share one id. Captures v2->v1 pipeline fallback, the U4 sentiment
+    # degradation (RoBERTa->VADER), quality-gate drops, and job failure.
+    import time as _time
+    try:
+        from run_receipt import RunReceipt as _RunReceipt
+        _rcpt = _RunReceipt(kind="topic-model", goal=research_goal, source="topic-model", run_id=job_id)
+    except Exception:
+        _rcpt = None
+    _t0 = _time.time()
     try:
         # 2026-05-24 — Use run_pipeline_v2 for the HiC-optimized smart
         # architecture (source-stratified clustering with cross-type merge,
@@ -2503,9 +2656,30 @@ async def _run_topic_job(job_id: str, items: list, research_goal: str, min_clust
             )
         except Exception as v2_err:
             print(f"[topic_model] v2 pipeline failed ({v2_err}); falling back to v1")
+            if _rcpt:
+                try: _rcpt.add_degradation("topic_pipeline_v2_failed", f"v2 errored; ran v1: {str(v2_err)[:200]}", severity="warn")
+                except Exception: pass
             result = await run_pipeline(items, research_goal=research_goal, min_cluster_size=min_cluster_size)
             result["pipeline_version"] = "v1_fallback"
             result["v2_error"] = str(v2_err)[:300]
+
+        # H1 — fold the pipeline's own health signals into the receipt.
+        if _rcpt:
+            try:
+                _rcpt.record_attempt(model=str(result.get("pipeline_version") or "bertopic"), provider="local",
+                                     ok=True, latency_ms=int((_time.time() - _t0) * 1000))
+                _sh = result.get("sentiment_health") or {}
+                if _sh.get("degraded"):
+                    _rcpt.add_degradation("sentiment_degraded", _sh.get("reason") or f"engine={_sh.get('engine')}", severity="warn")
+                _dropped = result.get("dropped_by_quality_gates")
+                _rcpt.set_coverage(topic_count=result.get("topic_count"), doc_count=result.get("doc_count"),
+                                   noise_count=result.get("noise_count"), dropped_by_quality_gates=_dropped,
+                                   sentiment_engine=_sh.get("engine"))
+                if result.get("topic_count") == 0:
+                    _rcpt.add_degradation("zero_topics", "topic modeling produced no topics", severity="error")
+                _rcpt.finalize(); _rcpt.persist()
+            except Exception:
+                pass
 
         _topic_jobs[job_id]["progress"] = 100
         _topic_jobs[job_id]["status"] = "completed"
@@ -2546,9 +2720,217 @@ async def _run_topic_job(job_id: str, items: list, research_goal: str, min_clust
         _topic_jobs[job_id]["status"] = "failed"
         _topic_jobs[job_id]["error"] = err_text
         _topic_jobs[job_id]["progress"] = 0
+        if _rcpt:
+            try:
+                _rcpt.add_degradation("topic_job_failed", err_text, severity="error")
+                _rcpt.finalize(); _rcpt.persist()
+            except Exception:
+                pass
         # 2026-05-24 — Persist the failure to the sentinel so /status/<id>
         # can return a structured error after proxy restart instead of bare 404.
         _write_topic_sentinel(job_id, research_goal, len(items), "failed", err=err_text)
+
+
+def _read_wiki_page_body(wp: str) -> str:
+    """Read a wiki page body by manifest wikiPath, stripping YAML frontmatter. Best-effort."""
+    try:
+        p = os.path.join(WIKI_BASE, wp)
+        if not os.path.isfile(p):
+            return ""
+        with open(p, "r", encoding="utf-8") as f:
+            txt = f.read()
+        if txt.startswith("---"):
+            end = txt.find("\n---", 3)
+            if end != -1:
+                txt = txt[end + 4:]
+        return txt.strip()
+    except Exception:
+        return ""
+
+
+def _parse_wiki_post_metadata_and_comments(raw: str) -> tuple[dict, list, str]:
+    """Parse a reddit-deep wiki .md file into (frontmatter, comments, op_body).
+
+    Wiki format (per hic-workspace/wiki/social-intelligence/reddit-deep/*/*.md):
+      ---
+      url: "..."
+      subreddit: "advice"
+      title: "..."
+      score: 2046
+      num_comments: 780
+      ...
+      ---
+      # Title
+      Source: [...]
+      Posted by **author** · **N↑** · **C comments**
+      <op body paragraphs>
+
+      ## Comments
+      - **author1** (61↑): comment body
+        - **author2** (25↑): nested reply
+      ...
+
+    Returns:
+      frontmatter: dict of parsed YAML keys
+      comments:    list of {body, score, author, depth}
+      op_body:     OP text (frontmatter stripped, ## Comments and below stripped)
+    """
+    if not raw or not raw.startswith("---"):
+        return {}, [], raw
+    end = raw.find("\n---", 4)
+    if end < 0:
+        return {}, [], raw
+    fm_block = raw[4:end]
+    body_full = raw[end + 4:].lstrip("\n")
+
+    # Crude YAML parser sufficient for reddit-deep frontmatter (flat key:value pairs)
+    fm: dict = {}
+    for line in fm_block.splitlines():
+        if ":" not in line:
+            continue
+        k, _, v = line.partition(":")
+        k = k.strip()
+        v = v.strip()
+        if v.startswith('"') and v.endswith('"'):
+            v = v[1:-1]
+        # Coerce numerics for the fields topic-modeling consumes
+        if k in ("score", "num_comments", "comments_collected"):
+            try: fm[k] = int(v)
+            except ValueError:
+                try: fm[k] = float(v)
+                except ValueError: fm[k] = v
+        elif k == "upvote_ratio":
+            try: fm[k] = float(v)
+            except ValueError: fm[k] = v
+        else:
+            fm[k] = v
+
+    # Split OP body from comments section
+    comments_idx = body_full.find("\n## Comments")
+    if comments_idx < 0:
+        op_body = body_full
+        comments_block = ""
+    else:
+        op_body = body_full[:comments_idx]
+        comments_block = body_full[comments_idx + len("\n## Comments"):]
+
+    # Parse comment list — markdown bullets with optional nesting (depth = leading-space // 2)
+    comments: list = []
+    if comments_block.strip():
+        # Match: optional leading spaces, '- **author** (Nx upvote arrow): body'
+        # Score arrow may be '↑' or 'x' — be lenient.
+        comment_re = re.compile(
+            r"^(?P<indent> *)- \*\*(?P<author>[^*]+)\*\* \((?P<score>-?\d+)[^)]*\):\s*(?P<body>.+?)$",
+            re.MULTILINE,
+        )
+        for m in comment_re.finditer(comments_block):
+            try:
+                indent = len(m.group("indent") or "")
+                depth = max(0, indent // 2)
+                comments.append({
+                    "author": (m.group("author") or "").strip(),
+                    "score": int(m.group("score") or 0),
+                    "body": (m.group("body") or "").strip(),
+                    "depth": depth,
+                })
+            except (TypeError, ValueError):
+                continue
+
+    return fm, comments, op_body
+
+
+def _assemble_scope_items(spec: dict) -> list:
+    """Assemble topic-model documents from the persistent manifest SCOPE (budget-aware, no fixed
+    per-source cap), mirroring /api/corpus/scope selection. This is how a consumer draws from the
+    whole corpus instead of a capped side-channel array (volume-to-insight step 5).
+
+    2026-06-05 FIX (BUG-1 + BUG-1b in user's audit): the prior version returned only
+    {id, title, content} per item — STRIPPING the Reddit metadata (num_comments, score,
+    subreddit, url, comments array) the topic-model panel reads for the "N posts · M comments"
+    display and that _weighted_cluster_sentiment uses for OP-vs-comments 70/30 blending.
+    Two visible symptoms: every topic card showed "0 comments", and sentiment scoring was
+    skewed because comments couldn't be pulled into their own pool. Both are fixed by parsing
+    the wiki frontmatter + ## Comments section for kind=social-post items and emitting the
+    full _socialMeta shape topic_modeling.py expects.
+    """
+    records = _manifest_load()  # {wikiPath: rec}
+    types = set(spec.get("types") or ["social-post", "article"])
+    industries = set(str(i).lower() for i in (spec.get("industries") or []))
+    engagement = str(spec.get("engagement") or "").strip().lower()
+    min_rel = int(spec.get("min_relevance") or 0)
+    # 2026-06-06 — Default raised from 600 to 100000. The user's NO FLOORS
+    # rule: every item declared in the manifest must reach BERTopic. The 600
+    # default was a silent drop for any KL selection > 600. Callers can still
+    # explicitly cap by passing max_count; the default no longer truncates.
+    max_count = int(spec.get("max_count") or 100000)
+    cand = []
+    for wp, rec in records.items():
+        if types and rec.get("type") not in types:
+            continue
+        if min_rel and int(rec.get("relevance") or 0) < min_rel:
+            continue
+        if industries:
+            ri = set(str(x).lower() for x in (rec.get("industries") or []))
+            if not (ri & industries):
+                continue
+        if engagement and engagement not in wp.lower() and engagement not in str(rec.get("title", "")).lower():
+            continue
+        cand.append((wp, rec))
+    cand.sort(key=lambda kv: (-(int(kv[1].get("relevance") or 0)), -(int(kv[1].get("chars") or 0)), kv[0]))
+    if max_count:
+        cand = cand[:max_count]
+    out = []
+    for wp, rec in cand:
+        rec_type = rec.get("type") or ""
+        # For social-posts (and articles that happen to be reddit-deep), parse the
+        # markdown frontmatter + comments so topic_modeling has the full surface.
+        try:
+            body_path = os.path.join(WIKI_BASE, wp)
+            with open(body_path, "r", encoding="utf-8") as f:
+                raw = f.read()
+        except Exception:
+            raw = ""
+
+        if rec_type == "social-post" and raw:
+            fm, comments, op_body = _parse_wiki_post_metadata_and_comments(raw)
+            content_text = (op_body or rec.get("summary") or "").strip()
+            if not content_text:
+                continue
+            item: dict = {
+                "id": wp,
+                "title": str(fm.get("title") or rec.get("title") or wp),
+                "content": content_text[:8000],
+                "selftext": content_text[:8000],
+                "url": fm.get("url") or "",
+                # comments are also surfaced at the top level — the sentiment scorer
+                # checks both `it.get("comments")` and `meta.get("comments")`
+                "comments": comments,
+                "_socialMeta": {
+                    "score": int(fm.get("score") or 0),
+                    "numComments": int(fm.get("num_comments") or len(comments)),
+                    "subreddit": str(fm.get("subreddit") or ""),
+                    "author": str(fm.get("author") or ""),
+                    "url": fm.get("url") or "",
+                    "upvote_ratio": fm.get("upvote_ratio"),
+                    "comments": comments,
+                },
+            }
+            out.append(item)
+        else:
+            # Non-Reddit article: keep the lean shape since comments / scores
+            # are not applicable. (Future improvement: extract article snippet
+            # metadata if/when articles carry it in frontmatter.)
+            body = _read_wiki_page_body(wp) if not raw else _extract_wiki_body(raw, max_chars=8000)
+            if not body or len(body.strip()) < 40:
+                body = str(rec.get("summary") or "")
+            if not body.strip():
+                continue
+            out.append({
+                "id": wp,
+                "title": str(rec.get("title") or wp),
+                "content": body[:8000],
+            })
+    return out
 
 
 @app.post("/api/topic-model/analyze")
@@ -2583,8 +2965,31 @@ async def topic_model_analyze(req: Request):
         except (TypeError, ValueError):
             pass
 
+    # Step 5 (volume-to-insight): SUBSTRATE SOURCING. When the caller passes a `scope`
+    # object instead of / alongside `items`, assemble documents from the persistent manifest
+    # scope server-side (budget-aware, NO 50/subreddit cap) so social-posts AND articles are
+    # first-class topic-model input. Merge with any explicit items, dedup. This is the repoint
+    # off the capped `redditDeepItems` side-channel.
+    scope_spec = body.get("scope")
+    if isinstance(scope_spec, dict):
+        try:
+            scoped_items = _assemble_scope_items(scope_spec)
+            seen_keys = set()
+            merged: list = []
+            for it in (list(items) + scoped_items):
+                k = it.get("id") or it.get("title")
+                if k and k in seen_keys:
+                    continue
+                if k:
+                    seen_keys.add(k)
+                merged.append(it)
+            items = merged
+            logger.info(f"[topic-model] scope-sourced {len(scoped_items)} docs from manifest; merged total {len(items)}")
+        except Exception as e:
+            logger.warning(f"[topic-model] scope sourcing failed (using items only): {e}")
+
     if not isinstance(items, list) or not items:
-        return JSONResponse({"error": "items must be a non-empty array"}, status_code=400)
+        return JSONResponse({"error": "items must be a non-empty array (or a non-empty 'scope')"}, status_code=400)
 
     import uuid
     job_id = f"tm_{int(time.time())}_{uuid.uuid4().hex[:8]}"
@@ -2599,9 +3004,32 @@ async def topic_model_analyze(req: Request):
         "created_at": datetime.utcnow().isoformat() + "Z",
     }
 
-    # Fire-and-forget background task. FastAPI's BackgroundTasks ties to a
-    # specific response lifecycle; asyncio.create_task survives the request.
-    asyncio.create_task(_run_topic_job(job_id, items, research_goal, min_cluster_size))
+    # 2026-06-03 — Run the topic job in a DEDICATED THREAD with its own event
+    # loop, NOT asyncio.create_task on the main loop. Live reproduction proved
+    # the job's inline CPU work (c-TF-IDF, the per-doc cosine relevance filter
+    # over hundreds of 768-dim vectors, payload building) blocks the single
+    # proxy event loop for long stretches; under a real 262-doc run, that
+    # starved EVERY concurrent endpoint (/status -> 502 storm, plus /embed,
+    # /api/ai/gemini, /api/ai/anthropic, /api/wiki/* -> ERR_EMPTY_RESPONSE),
+    # which in turn made theme archive-retrieval return 0 articles and collapse
+    # to 14 themes. The pipeline uses only loop-local async primitives
+    # (asyncio.to_thread, per-call httpx clients, an in-function Semaphore), so
+    # a fresh loop on a worker thread is safe and keeps the main loop free.
+    # _topic_jobs dict updates across threads are GIL-atomic for simple set/get.
+    def _run_topic_job_threaded():
+        _loop = asyncio.new_event_loop()
+        try:
+            _loop.run_until_complete(_run_topic_job(job_id, items, research_goal, min_cluster_size))
+        except Exception as _e:
+            logger.error(f"[topic-model] threaded job {job_id} crashed: {_e}")
+            try:
+                _write_topic_sentinel(job_id, research_goal, len(items), "failed", err=str(_e)[:300])
+            except Exception:
+                pass
+        finally:
+            try: _loop.close()
+            except Exception: pass
+    threading.Thread(target=_run_topic_job_threaded, name=f"topic-{job_id}", daemon=True).start()
 
     return {"job_id": job_id, "status": "queued", "doc_count": len(items)}
 
@@ -2657,14 +3085,41 @@ async def topic_model_status(job_id: str = Path(...)):
                         "remediation": "Inspect the proxy logs near the timestamp above for the traceback; the topic_modeling pipeline raised an exception.",
                         "sentinel": sentinel,
                     }, status_code=500)
-                # status == 'queued' or 'running' but in-memory dict has no entry
-                # → proxy was restarted mid-flight
+                # status == 'queued' or 'running' but THIS worker's in-memory
+                # dict has no entry. 2026-06-03 — ROOT CAUSE of the 502 storm:
+                # the proxy runs uvicorn with 4 WORKER PROCESSES, each with its
+                # own `_topic_jobs` dict. The analyze POST created the job in
+                # worker A; status polls round-robin, so ~3 of 4 land on a
+                # worker that never had the entry. That is NORMAL multi-worker
+                # behavior, NOT a restart. A "running"/"queued" sentinel whose
+                # updated_at is recent means the job is alive in a sibling
+                # worker — return 200 running so the poll loop continues until
+                # the disk result (completed) or a "failed" sentinel appears.
+                # Only a STALE sentinel (older than the 420s job timeout + slack)
+                # indicates a genuine loss.
+                age_s = 1e9
+                try:
+                    _upd = sentinel.get("updated_at") or sentinel.get("created_at") or ""
+                    if _upd:
+                        _dt = datetime.fromisoformat(_upd.replace("Z", "+00:00"))
+                        age_s = (datetime.now(timezone.utc) - _dt).total_seconds()
+                except Exception:
+                    age_s = 1e9
+                if age_s < 900:  # 15 min > 420s job timeout: job is alive elsewhere
+                    return {
+                        "job_id": job_id,
+                        "status": "running",
+                        "progress": sentinel.get("progress", 10),
+                        "message": sentinel.get("message", "Computing topics…"),
+                        "research_goal": sentinel.get("research_goal", ""),
+                        "from_sentinel": True,
+                    }
                 return JSONResponse({
                     "error": "job_lost_to_proxy_restart",
-                    "error_detail": "Job sentinel found on disk but in-memory state is gone — proxy was restarted while this job was running.",
+                    "error_detail": "Job sentinel is stale (older than the job timeout) and no result was persisted — the proxy likely restarted mid-flight.",
                     "job_id": job_id,
                     "research_goal": sentinel.get("research_goal", ""),
-                    "remediation": "Re-submit the topic-model job. Consider increasing proxy memory or persisting in-flight state more aggressively.",
+                    "remediation": "Re-submit the topic-model job.",
                     "sentinel": sentinel,
                 }, status_code=502)
             except Exception as sentinel_err:
@@ -3008,8 +3463,7 @@ async def session_save(req: Request):
                 continue
         path = os.path.join(folder, SESSION_SECTION_FILES[key])
         try:
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump(payload, f, ensure_ascii=False, indent=2)
+            _robust_write_text_sync(path, json.dumps(payload, ensure_ascii=False, indent=2))
             written.append(key)
         except Exception as e:
             return JSONResponse({"error": f"write {key} failed: {e}"}, status_code=500)
@@ -3143,6 +3597,468 @@ async def session_health(slug: str = Path(...)):
 
 
 # ================================================================
+# TRACE RECORDER — Meta-Harness uplift M1 (2026-06-05)
+# ----------------------------------------------------------------
+# Persists per-turn synthesis trajectories (composed prompt, model output,
+# elapsed wall-time, retry/fallback chain, validator scores) to
+# /hic-workspace/sessions/<slug>/traces/<step>-<turn>-<model>.json so the
+# Step-7 epoch proposer can read them via cat/grep the way Meta-Harness's
+# proposer reads prior harness execution traces. Per Meta-Harness Table 3:
+# full traces beat scores+summary by 15+ accuracy points.
+#
+# Designed to be UNBLOCKING: failures here must never propagate to the SPA.
+# We swallow filesystem errors and return 200 with a soft-error payload so
+# the SPA's trace POST is genuinely fire-and-forget.
+# ================================================================
+
+@app.post("/api/sessions/trace/append")
+async def session_trace_append(req: Request):
+    """Append one synthesis turn to the engagement's trace directory.
+
+    Body shape (matches services/traceRecorder.ts::TraceTurn):
+      {
+        started_at: int (UTC ms),
+        finished_at: int (UTC ms),
+        elapsed_ms: int,
+        step_label: str,                    # e.g. 'Themes', 'Personas', 'PRD'
+        turn_index: int,                    # monotonic per-session counter
+        model_id: str,                      # final model after fallbacks
+        fallback_chain?: list[str],
+        prompt: str,                        # composed prompt (verbatim)
+        response: str,                      # raw model output (verbatim)
+        attempts: int,
+        temperature?: float,
+        seed?: int,
+        validator_scores?: dict,
+        fallback_fired?: bool,
+        failed?: bool,
+        error?: str,
+        engagement?: str,                   # session slug for routing
+        goal?: str,                         # first 80 chars of research goal
+        note?: str,
+      }
+
+    Filename: <step_safe>-<turn_index_padded>-<model_safe>.json
+    e.g. themes-pass-1-breadth-pro-000142-gemini-3-1-pro-preview.json
+    Lexical sort = chronological sort, which makes the epoch proposer's
+    cat/grep workflow intuitive.
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return {"ok": False, "error": "Invalid JSON body"}
+
+    if not isinstance(body, dict):
+        return {"ok": False, "error": "body must be an object"}
+
+    # Engagement slug from the body, OR fall back to a synthetic shared bucket
+    # so traces from a session without a slug (e.g. pre-engagement testing)
+    # still land somewhere readable.
+    raw_slug = (body.get("engagement") or "").strip()
+    if raw_slug:
+        slug = _safe_session_slug(raw_slug)
+    else:
+        slug = "_unassigned"
+
+    folder = os.path.join(SESSIONS_BASE, slug, "traces")
+    try:
+        os.makedirs(folder, exist_ok=True)
+    except Exception as e:
+        return {"ok": False, "error": f"could not create traces dir: {e}"}
+
+    # Derive a stable filename from step_label + turn_index + model_id.
+    def _slug(s: str, max_len: int = 60) -> str:
+        s = (s or "").lower()
+        # Replace anything non-alnum-or-dash with '-'
+        s = re.sub(r"[^a-z0-9-]+", "-", s).strip("-")
+        return (s[:max_len] or "turn")
+
+    step_safe = _slug(str(body.get("step_label") or "turn"))
+    model_safe = _slug(str(body.get("model_id") or "unknown"))
+    try:
+        turn_index = int(body.get("turn_index") or 0)
+    except (TypeError, ValueError):
+        turn_index = 0
+    turn_padded = f"{turn_index:06d}"
+    fname = f"{step_safe}-{turn_padded}-{model_safe}.json"
+    fpath = os.path.join(folder, fname)
+
+    # Stamp server-side received_at so the proxy clock is the source of truth
+    # for ordering even when browsers across machines disagree.
+    out = dict(body)
+    out["_received_at"] = datetime.utcnow().isoformat() + "Z"
+    out["_filename"] = fname
+
+    try:
+        with open(fpath, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        # Soft failure: the SPA's call is fire-and-forget, so we return 200
+        # with an error payload rather than letting the failure surface as
+        # a 5xx the browser will try to retry.
+        return {"ok": False, "error": f"write failed: {type(e).__name__}: {e}"}
+
+    return {"ok": True, "slug": slug, "filename": fname, "bytes": os.path.getsize(fpath)}
+
+
+# ---------------------------------------------------------------------------
+# Epoch outcome tracker (C6 of 2026-06-06 architecture build)
+# ---------------------------------------------------------------------------
+# Persists per-epoch outcome records that the epochOutcomeTracker.ts service
+# writes to. The epoch-proposer's next-round verdict reads them back here.
+# Outcomes append to hic-workspace/wiki/synthesis/epoch-outcomes/{epoch_id}.jsonl
+# JSONL append-only — each line one EpochOutcome. The verdict aggregator
+# computes median + dominate_rate + regression_rate over the most recent N.
+
+EPOCH_OUTCOMES_DIR = "/hic-workspace/wiki/synthesis/epoch-outcomes"
+
+
+@app.post("/api/epochs/{epoch_id}/outcome")
+async def append_epoch_outcome(epoch_id: int = Path(...), req: Request = None):
+    """Append one EpochOutcome to the epoch's JSONL file."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    if not isinstance(body, dict):
+        return JSONResponse({"error": "body must be an object"}, status_code=400)
+
+    os.makedirs(EPOCH_OUTCOMES_DIR, exist_ok=True)
+    path = os.path.join(EPOCH_OUTCOMES_DIR, f"{epoch_id}.jsonl")
+    try:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(body) + "\n")
+    except Exception as e:
+        logger.error(f"[epoch-outcome] write failed for {epoch_id}: {e}")
+        return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
+    return {"ok": True, "epoch_id": epoch_id, "path": path}
+
+
+@app.get("/api/epochs/{epoch_id}/outcomes")
+async def read_epoch_outcomes(epoch_id: int = Path(...), limit: int = 100):
+    """Read up to `limit` most-recent EpochOutcome records for an epoch.
+    Used by epochOutcomeTracker.computeEpochVerdict to aggregate."""
+    path = os.path.join(EPOCH_OUTCOMES_DIR, f"{epoch_id}.jsonl")
+    if not os.path.isfile(path):
+        return JSONResponse({"outcomes": []})
+    outcomes = []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        for line in lines[-limit:]:
+            try:
+                outcomes.append(json.loads(line))
+            except Exception:
+                continue
+    except Exception as e:
+        logger.warning(f"[epoch-outcome] read failed for {epoch_id}: {e}")
+    return JSONResponse({"epoch_id": epoch_id, "outcomes": outcomes, "count": len(outcomes)})
+
+
+# ---------------------------------------------------------------------------
+# User-level Knowledge Library selection (2026-06-06, architectural correction)
+# ---------------------------------------------------------------------------
+# Per the user's standing rule: KL selection follows the USER, not the
+# engagement. When the user curates items in the Knowledge Library and changes
+# the research goal, the selection still applies to the new run. Previously
+# we stored cached_selection only in the engagement manifest, so any goal
+# change orphaned the selection. Now we dual-write: user-level store is the
+# LIVE source-of-truth (loadGenerationContext reads it first); engagement
+# manifest gets a snapshot for audit + replay.
+#
+# Store: /hic-workspace/wiki/user-selections/active.json (singleton).
+# Shape: { engagement_slugs[], theme_cluster_ids[], source_archive_paths[],
+#          social_subreddits[], article_sources[], selected_at_ms,
+#          source_engagement_slug (the engagement the selection was curated in) }
+
+USER_SELECTION_PATH = "/hic-workspace/wiki/user-selections/active.json"
+
+
+@app.get("/api/user-selection/active")
+async def get_active_user_selection():
+    """Read the user's current Knowledge Library selection. Returns
+    {provider: null, _uncommitted: true} shape when no selection exists so
+    the SPA can treat 'no curation' as a normal state (mirrors the
+    commitment endpoint contract).
+
+    2026-06-06 — IDs-only. The bodies for selected themes live in the wiki
+    synthesis files (synthesis/<file>.json) where they were originally
+    generated. Each theme ID encodes its source as "<file>#<index>" so the
+    loader can resolve IDs to bodies at generation time. This is the
+    manifest -> wiki architecture: pointers in the manifest, content in
+    the wiki, single source of truth."""
+    if not os.path.isfile(USER_SELECTION_PATH):
+        return JSONResponse({
+            "engagement_slugs": [],
+            "theme_cluster_ids": [],
+            "source_archive_paths": [],
+            "social_subreddits": [],
+            "article_sources": [],
+            "selected_at_ms": 0,
+            "_uncommitted": True,
+        })
+    try:
+        with open(USER_SELECTION_PATH, "r", encoding="utf-8") as f:
+            return JSONResponse(json.load(f))
+    except Exception as e:
+        logger.warning(f"[user-selection] read failed: {e}")
+        return JSONResponse(
+            {"error": f"read failed: {e}", "_uncommitted": True},
+            status_code=500,
+        )
+
+
+@app.post("/api/user-selection/active")
+async def set_active_user_selection(req: Request):
+    """Persist the user's KL selection (IDs only). The engagement manifest
+    gets a parallel snapshot via writeEngagementManifest so each engagement's
+    manifest frontmatter declares which cached items the generator should
+    draw from. Bodies live in the wiki, not here."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    if not isinstance(body, dict):
+        return JSONResponse({"error": "body must be an object"}, status_code=400)
+
+    os.makedirs(os.path.dirname(USER_SELECTION_PATH), exist_ok=True)
+    record = {
+        "engagement_slugs": list(body.get("engagement_slugs") or []),
+        "theme_cluster_ids": list(body.get("theme_cluster_ids") or []),
+        "source_archive_paths": list(body.get("source_archive_paths") or []),
+        "social_subreddits": list(body.get("social_subreddits") or []),
+        "article_sources": list(body.get("article_sources") or []),
+        "selected_at_ms": int(body.get("selected_at_ms") or (time.time() * 1000)),
+        "source_engagement_slug": str(body.get("source_engagement_slug") or ""),
+    }
+    tmp = USER_SELECTION_PATH + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(record, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, USER_SELECTION_PATH)
+    except Exception as e:
+        logger.error(f"[user-selection] write failed: {e}")
+        return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
+
+    total = (
+        len(record["theme_cluster_ids"])
+        + len(record["article_sources"])
+        + len(record["engagement_slugs"])
+        + len(record["social_subreddits"])
+        + len(record["source_archive_paths"])
+    )
+    logger.info(f"[user-selection] persisted active selection: {total} item(s)")
+    return JSONResponse({"ok": True, "path": USER_SELECTION_PATH, "total": total})
+
+
+@app.delete("/api/user-selection/active")
+async def clear_active_user_selection():
+    """Clear the user's active KL selection. The engagement manifest snapshot
+    is preserved as an audit trail."""
+    if os.path.isfile(USER_SELECTION_PATH):
+        try:
+            os.remove(USER_SELECTION_PATH)
+        except Exception as e:
+            return JSONResponse({"error": f"clear failed: {e}"}, status_code=500)
+    return JSONResponse({"ok": True})
+
+
+# ---------------------------------------------------------------------------
+# Engagement provider commitment (drift-catcher C1, 2026-06-05)
+# ---------------------------------------------------------------------------
+# Persists at sessions/<slug>/manifest.json field `committed_provider`. SPA
+# layer (services/engagementCommitment.ts) reads + writes; proxy AI endpoints
+# also write here when their internal DeepSeek fallback fires (so commitment
+# survives even when the SPA didn't initiate the switch).
+#
+# Shape of stored commitment:
+#   { provider: "deepseek"|"anthropic"|"openai"|"gemini",
+#     reason: "<short string>", set_at_ms: <int>,
+#     previous_provider?: <string> }
+# Lives at manifest.committed_provider so a single manifest read returns the
+# full engagement state.
+
+def _manifest_path(slug: str) -> str:
+    safe = _safe_session_slug(slug)
+    folder = os.path.join(SESSIONS_BASE, safe)
+    os.makedirs(folder, exist_ok=True)
+    return os.path.join(folder, "manifest.json")
+
+
+def _read_manifest(slug: str) -> dict:
+    path = _manifest_path(slug)
+    if not os.path.isfile(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f) or {}
+    except Exception as e:
+        logger.warning(f"[commitment] manifest read failed for {slug}: {e}")
+        return {}
+
+
+def _write_manifest(slug: str, manifest: dict) -> None:
+    path = _manifest_path(slug)
+    tmp_path = path + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, path)  # atomic swap
+
+
+@app.get("/api/sessions/{slug}/commitment")
+async def get_session_commitment(slug: str = Path(...)):
+    """Return the engagement's committed_provider. When no commitment is set,
+    returns 200 with provider=null (NOT 404) so cold-engagement reads don't
+    produce console-noise 404 logs in the browser devtools. The SPA reads
+    `provider === null` as the "no commitment yet" signal."""
+    manifest = _read_manifest(slug)
+    commit = manifest.get("committed_provider") if isinstance(manifest, dict) else None
+    if not commit:
+        return JSONResponse({
+            "provider": None,
+            "reason": "",
+            "set_at_ms": 0,
+            "previous_provider": None,
+            "_uncommitted": True,
+        })
+    return JSONResponse(commit)
+
+
+@app.post("/api/sessions/{slug}/commitment")
+async def set_session_commitment(slug: str = Path(...), req: Request = None):
+    """Persist the engagement's committed_provider. Merges the manifest so
+    sibling fields (research_goal, brand, etc.) are preserved."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    if not isinstance(body, dict):
+        return JSONResponse({"error": "body must be an object"}, status_code=400)
+
+    provider = (body.get("provider") or "").strip().lower()
+    if provider not in {"gemini", "openai", "anthropic", "deepseek"}:
+        return JSONResponse(
+            {"error": f"provider must be one of gemini|openai|anthropic|deepseek (got: {provider!r})"},
+            status_code=400,
+        )
+
+    manifest = _read_manifest(slug)
+    if not isinstance(manifest, dict):
+        manifest = {}
+    prior = manifest.get("committed_provider") or {}
+    prev_provider = prior.get("provider") if isinstance(prior, dict) else None
+
+    rec = {
+        "provider": provider,
+        "reason": (body.get("reason") or "")[:240],
+        "set_at_ms": int(body.get("set_at_ms") or (time.time() * 1000)),
+        "previous_provider": prev_provider,
+    }
+    manifest["committed_provider"] = rec
+    # Touch a history list so the epoch proposer can see commitment churn
+    # across the engagement (limit to 25 entries to bound file growth).
+    history = manifest.get("commitment_history")
+    if not isinstance(history, list):
+        history = []
+    history.append({"at_ms": rec["set_at_ms"], "from": prev_provider, "to": provider,
+                    "reason": rec["reason"]})
+    manifest["commitment_history"] = history[-25:]
+
+    try:
+        _write_manifest(slug, manifest)
+    except Exception as e:
+        logger.error(f"[commitment] manifest write failed for {slug}: {e}")
+        return JSONResponse({"error": f"manifest write failed: {e}"}, status_code=500)
+
+    logger.info(f"[commitment] {slug}: {prev_provider} -> {provider} reason={rec['reason'][:120]}")
+    return JSONResponse({"ok": True, "slug": slug, "commitment": rec})
+
+
+def _proxy_write_commitment(slug: str, provider: str, reason: str) -> None:
+    """Internal helper for the AI proxy endpoints to record a commitment
+    when their server-side DeepSeek fallback fires. Synchronous (uses the
+    same _write_manifest path) so callers don't need to await an HTTP loop.
+    Swallows errors — never breaks the user-visible call."""
+    try:
+        if not slug:
+            return
+        manifest = _read_manifest(slug)
+        if not isinstance(manifest, dict):
+            manifest = {}
+        prior = manifest.get("committed_provider") or {}
+        prev = prior.get("provider") if isinstance(prior, dict) else None
+        if prev == provider:
+            return  # no-op
+        rec = {
+            "provider": provider,
+            "reason": (reason or "")[:240],
+            "set_at_ms": int(time.time() * 1000),
+            "previous_provider": prev,
+        }
+        manifest["committed_provider"] = rec
+        hist = manifest.get("commitment_history")
+        if not isinstance(hist, list):
+            hist = []
+        hist.append({"at_ms": rec["set_at_ms"], "from": prev, "to": provider, "reason": rec["reason"]})
+        manifest["commitment_history"] = hist[-25:]
+        _write_manifest(slug, manifest)
+        logger.info(f"[commitment/proxy-fallback] {slug}: {prev} -> {provider} reason={rec['reason'][:120]}")
+    except Exception as e:
+        logger.warning(f"[commitment/proxy-fallback] write failed for {slug}: {e}")
+
+
+@app.get("/api/sessions/{slug}/traces")
+async def session_traces_list(slug: str = Path(...), limit: int = 200, since: int = 0):
+    """List trace files for a session (most-recent first up to `limit`).
+    Returns just filenames + sizes + timestamps so the epoch proposer can
+    decide which traces to cat in full. `since`, if non-zero, filters to
+    traces with `_received_at` >= this UTC-ms threshold.
+    """
+    safe = _safe_session_slug(slug)
+    folder = os.path.join(SESSIONS_BASE, safe, "traces")
+    if not os.path.isdir(folder):
+        return {"slug": safe, "total": 0, "traces": []}
+    items = []
+    try:
+        for fn in os.listdir(folder):
+            if not fn.endswith(".json"):
+                continue
+            fp = os.path.join(folder, fn)
+            try:
+                st = os.stat(fp)
+            except Exception:
+                continue
+            mtime_ms = int(st.st_mtime * 1000)
+            if since and mtime_ms < since:
+                continue
+            items.append({"filename": fn, "bytes": st.st_size, "mtime_ms": mtime_ms})
+    except Exception as e:
+        return {"slug": safe, "error": f"list failed: {e}", "total": 0, "traces": []}
+    items.sort(key=lambda x: x["filename"], reverse=True)
+    items = items[: max(1, min(int(limit or 200), 2000))]
+    return {"slug": safe, "total": len(items), "traces": items}
+
+
+@app.get("/api/sessions/{slug}/traces/{filename}")
+async def session_trace_read(slug: str = Path(...), filename: str = Path(...)):
+    """Read one trace file. Filename must end with .json and contain no path separators."""
+    safe = _safe_session_slug(slug)
+    if "/" in filename or "\\" in filename or ".." in filename or not filename.endswith(".json"):
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail="invalid filename")
+    fpath = os.path.join(SESSIONS_BASE, safe, "traces", filename)
+    if not os.path.isfile(fpath):
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="trace not found")
+    try:
+        with open(fpath, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=500, detail=f"read failed: {e}")
+
+
+# ================================================================
 # EXPERIENCE PROTOTYPES — 2026-05-11 (HiC-Experience-Designer)
 # ================================================================
 #
@@ -3231,8 +4147,7 @@ async def prototype_save(req: Request):
     }
 
     try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
+        _robust_write_text_sync(file_path, json.dumps(payload, ensure_ascii=False, indent=2))
     except Exception as e:
         return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
 
@@ -3919,8 +4834,7 @@ async def artifact_save(request: Request):
         "updated_at": now_iso,
     }
     try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
+        _robust_write_text_sync(file_path, json.dumps(payload, ensure_ascii=False, indent=2))
     except Exception as e:
         return JSONResponse({"error": f"save failed: {e}"}, status_code=500)
     return {
@@ -4038,8 +4952,7 @@ async def artifact_promote_variant(slug: str = Path(...), request: Request = Non
             "promoted_from_variant": variant_index,
         }
         p["updated_at"] = datetime.now(timezone.utc).isoformat()
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(p, f, ensure_ascii=False, indent=2)
+        _robust_write_text_sync(path, json.dumps(p, ensure_ascii=False, indent=2))
         return {"ok": True, "slug": safe_slug, "promoted_variant_index": variant_index, "view_url": f"/api/artifacts/{safe_slug}/view"}
     except Exception as e:
         return JSONResponse({"error": f"promote failed: {e}"}, status_code=500)
@@ -4093,6 +5006,18 @@ async def artifact_view(slug: str = Path(...)):
     # depth: this runs at the render endpoint (here), at the freeform parser,
     # and at the artifact save site in CorpusChatPanel.
     html_body = strip_vs_thinking(html_body)
+
+    # 2026-05-31 — COVERAGE FIX: this HTML-deliverable view path previously
+    # bypassed _apply_brand_and_anti_slop entirely, so artifacts served here kept
+    # em-dashes (87 in one observed brief), leaked-artifact quotes,
+    # synthesis-as-source citations, and never got the NXT design-system
+    # injection. Route it through the SAME universal chokepoint every other
+    # artifact path uses, so output hygiene + brand are consistent across the
+    # whole lifecycle (end-to-end lifecycle assessment 2026-05-31, Phase C3).
+    try:
+        html_body = _apply_brand_and_anti_slop(html_body, (brand or "nxt").lower())
+    except Exception as _slop_err:
+        logger.warning(f"[artifact_view] anti-slop pass failed (non-fatal): {_slop_err}")
 
     # If the artifact body is already a full document (starts with <!DOCTYPE
     # or <html), serve it verbatim — assume the model wrote a complete page.
@@ -4412,25 +5337,21 @@ async def artifact_view(slug: str = Path(...)):
               slides.push({{ kind: 'hero', title: heroTitle, subtitle: heroSubtitle }});
             }}
 
-            // --- SECTION SLIDES — cascade h2 → h3 → h4, first non-empty wins.
-            var sectionLevel = '';
-            var sectionHeadings = [];
-            var levelCandidates = ['h2', 'h3', 'h4'];
-            for (var li = 0; li < levelCandidates.length; li++) {{
-              var lvl = levelCandidates[li];
-              var found = Array.prototype.slice.call(main.querySelectorAll(lvl));
-              if (found.length > 0) {{
-                sectionLevel = lvl;
-                sectionHeadings = found;
-                break;
-              }}
+            // --- SECTION SLIDES — collect h2 AND h3 as PEER section anchors.
+            // 2026-06-01 — was "first non-empty level wins", which picked
+            // h2-only and SILENTLY DROPPED every section whose heading is an h3.
+            // In a whitepaper the eyebrow ("04 / KEY FINDINGS") is a <div> and
+            // the real section heading is an <h3>, so the densest sections
+            // (Key Findings, Critical Assessment) never made it to the deck.
+            // Treating h2+h3 as peer boundaries (document order) recovers them.
+            var sectionHeadings = Array.prototype.slice.call(main.querySelectorAll('h2, h3'));
+            var sectionLevel = 'h2,h3';
+            var stopTags = {{ H1: 1, H2: 1, H3: 1 }};
+            if (sectionHeadings.length === 0) {{
+              sectionHeadings = Array.prototype.slice.call(main.querySelectorAll('h4'));
+              sectionLevel = 'h4';
+              stopTags = {{ H1: 1, H2: 1, H3: 1, H4: 1 }};
             }}
-            // The set of heading tags that should ALSO terminate a section walk
-            // (heading at the section's own level OR higher in the hierarchy).
-            var stopTags = {{}};
-            if (sectionLevel === 'h2') {{ stopTags = {{ H1: 1, H2: 1 }}; }}
-            else if (sectionLevel === 'h3') {{ stopTags = {{ H1: 1, H2: 1, H3: 1 }}; }}
-            else if (sectionLevel === 'h4') {{ stopTags = {{ H1: 1, H2: 1, H3: 1, H4: 1 }}; }}
 
             for (var i = 0; i < sectionHeadings.length; i++) {{
               var sh = sectionHeadings[i];
@@ -4466,18 +5387,27 @@ async def artifact_view(slug: str = Path(...)):
                   // own wrappers still surface their content.
                   var innerPs = cursor.querySelectorAll('p');
                   for (var pi = 0; pi < innerPs.length; pi++) {{
-                    var ipt = (innerPs[pi].textContent || '').trim();
+                    var ipt = stripDashes((innerPs[pi].textContent || '').trim());
                     if (ipt) paragraphs.push(ipt);
                   }}
                   var innerQs = cursor.querySelectorAll('blockquote');
                   for (var qi = 0; qi < innerQs.length; qi++) {{
-                    var iqt = (innerQs[qi].textContent || '').trim();
+                    var iqt = stripDashes((innerQs[qi].textContent || '').trim());
                     if (iqt) quotes.push(iqt);
                   }}
                   var innerLis = cursor.querySelectorAll('ul li, ol li');
                   for (var liI = 0; liI < innerLis.length; liI++) {{
                     var ilt = (innerLis[liI].textContent || '').trim();
                     if (ilt) paragraphs.push('• ' + ilt);
+                  }}
+                  // 2026-06-01 — text-node fallback. Cards like the "MINI CASE
+                  // STUDY" block are <div><strong>label</strong> bare-text</div>
+                  // with NO <p> wrapper, so the selectors above capture nothing
+                  // and the prose is dropped. When a container yielded no
+                  // structured children, harvest its own trimmed textContent.
+                  if (innerPs.length === 0 && innerQs.length === 0 && innerLis.length === 0) {{
+                    var ownText = stripDashes((cursor.textContent || '').trim());
+                    if (ownText && ownText.length > 24) paragraphs.push(ownText);
                   }}
                 }}
                 cursor = cursor.nextElementSibling;
@@ -4967,6 +5897,14 @@ async def artifact_view(slug: str = Path(...)):
             if (!s || typeof s !== 'string') return s;
             return s
               .replace(/\\s*[\\u2013\\u2014]\\s*/g, ' ')   // inline rhetorical em/en dashes  ' '
+              // 2026-06-01 — strip synthesis-as-source attributions + leaked
+              // pipeline metadata that the model baked into quote bodies. These
+              // are the #1 AI-slop tells on exported decks ("Source: Tri-Model
+              // Research Synthesis", "*Goal alignment: 94/100 · status: ...*").
+              .replace(/\\s*\\(?\\s*(?:Source\\s*:\\s*)?(?:Tri-?Model\\s+Research\\s+Synthesis|HiC\\s+Theme\\s+Synthesis|Tri-?Model\\s+Synthesis)\\s*,?[^.\\n]*\\)?/gi, '')
+              .replace(/\\*?\\s*Goal\\s+alignment\\s*:[^*\\n]*\\*?/gi, '')
+              .replace(/\\*?\\s*status\\s*:\\s*(validated|emerging|hypothesis)\\s*\\*?/gi, '')
+              .replace(/\\[INSIGHT\\]\\s*/gi, '')
               .replace(/\\s\\s+/g, ' ')                    // collapse double spaces created
               .trim();
           }}
@@ -5578,7 +6516,7 @@ async def artifact_view(slug: str = Path(...)):
             // Footer
             slide.addText((meta.title || 'HiC Artifact').toUpperCase() + '  ·  ' + (T.isNU ? 'NU' : 'NXT'), {{
               x: 0.60, y: 6.85, w: 12.13, h: 0.30,
-              fontSize: TYPE.FOOTER, fontFace: fontBody, color: T.accent,
+              fontSize: TYPE.FOOTER, fontFace: T.fontBody, color: T.accent,
               charSpacing: 2, valign: 'middle',
             }});
           }}
@@ -7322,6 +8260,15 @@ async def proxy_anthropic(request: Request):
     try:
         body = await request.json()
         model = body.get("model", "claude-opus-4-8")
+        # HARDENING (2026-06-02) — opus-4-7/4-8/4-9 reject `temperature` with a 400
+        # ("temperature is deprecated for this model"). Strip it at this chokepoint
+        # so NO client-side deliverable that routes opus through this proxy can 400
+        # (it previously failed the primary attempt on every such call).
+        if isinstance(body, dict) and "temperature" in body and re.search(r"opus-4-[789]", str(model)):
+            body.pop("temperature", None)
+            for _k in ("config", "generationConfig"):
+                if isinstance(body.get(_k), dict):
+                    body[_k].pop("temperature", None)
         content_size = len(json.dumps(body))
         logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars")
 
@@ -7330,22 +8277,36 @@ async def proxy_anthropic(request: Request):
             "anthropic-version": "2023-06-01",
             "Content-Type": "application/json",
         }
-        # 2026-05-26 — Per-provider Anthropic-chat semaphore.
-        async with _get_anthropic_chat_semaphore():
+        # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
+        # rate-limit pacer. The pacer auto-shrinks Anthropic concurrency on
+        # 429 and retries with exponential backoff before the request
+        # surfaces back to the caller.
+        async def _do_anthropic_post():
             async with httpx.AsyncClient() as client:
-                resp = await client.post(
+                return await client.post(
                     "https://api.anthropic.com/v1/messages",
                     json=body,
                     headers=headers,
                     timeout=300.0,
                 )
-                try:
-                    result = resp.json()
-                except Exception:
-                    result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
-                if resp.status_code != 200:
-                    logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
-                return JSONResponse(result, status_code=resp.status_code)
+        try:
+            resp = await _pacer_with_rate_limit(
+                "anthropic", _do_anthropic_post,
+                is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
+            )
+        except RuntimeError as pacer_err:
+            logger.warning(f"Anthropic pacer exhausted: {pacer_err}")
+            return JSONResponse(
+                {"error": f"Anthropic rate limited after retries: {str(pacer_err)[:200]}"},
+                status_code=429,
+            )
+        try:
+            result = resp.json()
+        except Exception:
+            result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
+        if resp.status_code != 200:
+            logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
+        return JSONResponse(result, status_code=resp.status_code)
     except httpx.TimeoutException:
         logger.error("Anthropic proxy timeout")
         return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
@@ -7423,7 +8384,7 @@ async def proxy_gemini(request: Request):
         if body.get("systemInstruction"):
             gemini_body["systemInstruction"] = body["systemInstruction"]
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"  # A2: key in header
 
         # 2026-05-19 — Surrogate-pair sanitization. Observed in the wild:
         # corpus text occasionally contains LONE SURROGATES (e.g. '\ud83e'
@@ -7453,71 +8414,107 @@ async def proxy_gemini(request: Request):
         logger.info(f"Gemini proxy: model={model}, content_size={content_size:,} chars")
 
         # 2026-05-20 — Timeout raised 300s → 540s (matches gemini-compat path).
-        # 2026-05-26 — Wrapped in per-provider Gemini-chat semaphore so a
-        # burst of generateContent calls from one feature can't starve
-        # parallel embedding or chat work in another. See _get_gemini_chat_semaphore.
-        async with _get_gemini_chat_semaphore():
+        # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
+        # rate-limit pacer. Pacer auto-shrinks concurrency on 429 and retries
+        # with exponential backoff. Only after pacer exhaustion do we escalate
+        # to the DeepSeek-V4-Flash fallback (last resort, preserves existing
+        # downstream parser contract via _fallback_provider tag).
+        async def _do_gemini_post():
             async with httpx.AsyncClient() as client:
-                resp = await client.post(url, json=gemini_body, headers={"Content-Type": "application/json"}, timeout=540.0)
-                result = resp.json()
-                if resp.status_code != 200:
-                    logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
-                # 2026-05-26 — 429 fallback to DeepSeek-V4-Flash. When
-                # Gemini returns quota-exhausted, immediately re-route to
-                # DeepSeek with translated payload. The caller sees a
-                # Gemini-shaped response with _fallback_provider set, so
-                # downstream parsers stay unchanged. Avoids grinding
-                # retries against an exhausted provider.
-                if resp.status_code == 429:
-                    logger.warning("Gemini 429 — falling back to DeepSeek-V4-Flash")
-                    ds_messages = [{"role": "system", "content": "You are a helpful research synthesis assistant."}]
-                    # Translate Gemini contents → messages
-                    if isinstance(contents, list):
-                        for turn in contents:
-                            role = "assistant" if turn.get("role") == "model" else "user"
-                            text_parts = []
-                            for part in turn.get("parts", []):
-                                if isinstance(part, dict) and "text" in part:
-                                    text_parts.append(part["text"])
-                            if text_parts:
-                                ds_messages.append({"role": role, "content": "\n".join(text_parts)})
-                    elif isinstance(contents, str):
-                        ds_messages.append({"role": "user", "content": contents})
-                    # Call DeepSeek endpoint same-process
-                    try:
-                        ds_resp = await client.post(
-                            "http://127.0.0.1:5012/api/ai/deepseek",
-                            json={
-                                "model": "deepseek-v4-flash",
-                                "messages": ds_messages,
-                                "max_tokens": gen_config.get("maxOutputTokens", 32000),
-                                "temperature": gen_config.get("temperature", 0.2),
-                                "stream": False,
-                            },
-                            timeout=300.0,
-                        )
-                        ds_data = ds_resp.json()
-                        ds_text = ds_data.get("choices", [{}])[0].get("message", {}).get("content", "")
-                        # Synthesize a Gemini-shaped response
-                        return JSONResponse({
-                            "candidates": [{
-                                "content": {"parts": [{"text": ds_text}]},
-                                "finishReason": ds_data.get("choices", [{}])[0].get("finish_reason", "STOP"),
-                            }],
-                            "text": ds_text,
-                            "_fallback_provider": "deepseek-v4-flash",
-                            "_original_error": "gemini 429 quota-exhausted",
-                        }, status_code=200)
-                    except Exception as ds_err:
-                        logger.error(f"DeepSeek fallback also failed: {ds_err}")
-                        # fall through to return the original 429 below
+                return await client.post(
+                    url, json=gemini_body, headers=_goog_key_headers(api_key), timeout=540.0,
+                )
+        pacer_exhausted = False
+        resp = None
+        try:
+            resp = await _pacer_with_rate_limit(
+                "gemini", _do_gemini_post,
+                is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
+            )
+        except RuntimeError as pacer_err:
+            logger.warning(f"Gemini pacer exhausted: {pacer_err} — escalating to DeepSeek fallback")
+            pacer_exhausted = True
+
+        if resp is not None:
+            result = resp.json()
+            if resp.status_code != 200:
+                logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
+            # Even though the pacer retries app-level 429s, a final 429 here
+            # means the pacer exhausted attempts. Escalate to DeepSeek same
+            # as before.
+            if resp.status_code != 429:
                 return JSONResponse(result, status_code=resp.status_code)
+            pacer_exhausted = True
+
+        if pacer_exhausted:
+            logger.warning("Gemini 429 (pacer exhausted) — falling back to DeepSeek-V4-Flash")
+            ds_messages = [{"role": "system", "content": "You are a helpful research synthesis assistant."}]
+            if isinstance(contents, list):
+                for turn in contents:
+                    role = "assistant" if turn.get("role") == "model" else "user"
+                    text_parts = []
+                    for part in turn.get("parts", []):
+                        if isinstance(part, dict) and "text" in part:
+                            text_parts.append(part["text"])
+                    if text_parts:
+                        ds_messages.append({"role": role, "content": "\n".join(text_parts)})
+            elif isinstance(contents, str):
+                ds_messages.append({"role": "user", "content": contents})
+            try:
+                async with httpx.AsyncClient() as ds_client:
+                    ds_resp = await ds_client.post(
+                        "http://127.0.0.1:5012/api/ai/deepseek",
+                        json={
+                            "model": "deepseek-v4-flash",
+                            "messages": ds_messages,
+                            "max_tokens": gen_config.get("maxOutputTokens", 32000),
+                            "temperature": gen_config.get("temperature", 0.2),
+                            "stream": False,
+                        },
+                        timeout=300.0,
+                    )
+                ds_data = ds_resp.json()
+                ds_text = ds_data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                # 2026-06-05 — drift-catcher C1: commit the engagement to
+                # DeepSeek so subsequent calls in this session route here
+                # FIRST (no provider drift across turns; cache warmth where
+                # the provider supports it).
+                sess_slug = request.headers.get("x-hic-session", "")
+                if sess_slug:
+                    _proxy_write_commitment(sess_slug, "deepseek",
+                                            "gemini 429 pacer-exhausted (proxy fallback)")
+                return JSONResponse({
+                    "candidates": [{
+                        "content": {"parts": [{"text": ds_text}]},
+                        "finishReason": ds_data.get("choices", [{}])[0].get("finish_reason", "STOP"),
+                    }],
+                    "text": ds_text,
+                    "_fallback_provider": "deepseek-v4-flash",
+                    "_original_error": "gemini 429 (pacer exhausted)",
+                    "_engagement_committed_to": "deepseek" if sess_slug else None,
+                }, status_code=200)
+            except Exception as ds_err:
+                logger.error(f"DeepSeek fallback also failed: {ds_err}")
+                if resp is not None:
+                    return JSONResponse(resp.json(), status_code=resp.status_code)
+                return JSONResponse(
+                    {"error": "Gemini rate limited; DeepSeek fallback failed"},
+                    status_code=429,
+                )
     except httpx.TimeoutException:
         logger.error("Gemini proxy timeout (540s)")
         return JSONResponse({"error": "Gemini API timeout (540s)"}, status_code=504)
     except Exception as e:
-        logger.error(f"Gemini proxy error: {e}")
-        return JSONResponse({"error": f"Gemini proxy error: {str(e)[:200]}"}, status_code=502)
+        # 2026-06-05 — Include the exception TYPE name + repr so diagnostics
+        # survive when str(e) is empty. The 2026-06-05 console log showed
+        # "Gemini proxy error: " with nothing after the colon — the upstream
+        # error message had been silently swallowed. Type+repr fall-through
+        # ensures the user always sees what class of error fired.
+        err_type = type(e).__name__
+        err_str = str(e).strip() or repr(e)
+        composed = f"{err_type}: {err_str[:400]}"
+        logger.error(f"Gemini proxy error: {composed}")
+        return JSONResponse({"error": f"Gemini proxy error: {composed[:480]}"}, status_code=502)
 
 
 @app.post("/api/ai/openai")
@@ -7541,13 +8538,86 @@ async def proxy_openai(request: Request):
             "Authorization": f"Bearer {api_key}",
         }
 
-        # 2026-05-26 — Per-provider OpenAI-chat semaphore.
-        async with _get_openai_chat_semaphore():
+        # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
+        # rate-limit pacer. Pacer retries 429s with backoff before the
+        # DeepSeek fallback fires (last resort for insufficient_quota,
+        # which the pacer can't fix by waiting).
+        async def _do_openai_post():
             async with httpx.AsyncClient() as client:
-                resp = await client.post(url, json=body, headers=headers, timeout=300.0)
-                if resp.status_code >= 400:
-                    logger.error(f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}")
+                return await client.post(url, json=body, headers=headers, timeout=300.0)
+        pacer_exhausted = False
+        resp = None
+        try:
+            resp = await _pacer_with_rate_limit(
+                "openai", _do_openai_post,
+                is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
+            )
+        except RuntimeError as pacer_err:
+            logger.warning(f"OpenAI pacer exhausted: {pacer_err} — escalating to DeepSeek fallback")
+            pacer_exhausted = True
+
+        if resp is not None:
+            if resp.status_code >= 400:
+                logger.error(
+                    f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}"
+                )
+            if resp.status_code != 429:
                 return JSONResponse(resp.json(), status_code=resp.status_code)
+            pacer_exhausted = True
+
+        if pacer_exhausted:
+            logger.warning("OpenAI 429 (pacer exhausted) — falling back to DeepSeek-V4-Flash")
+            ds_messages = body.get("messages")
+            if not ds_messages:
+                ds_messages = []
+                instr = body.get("instructions")
+                if instr:
+                    ds_messages.append({"role": "system", "content": instr})
+                inp = body.get("input")
+                if isinstance(inp, str):
+                    ds_messages.append({"role": "user", "content": inp})
+                elif isinstance(inp, list):
+                    for m in inp:
+                        if isinstance(m, dict):
+                            c = m.get("content")
+                            if isinstance(c, list):
+                                c = " ".join(p.get("text", "") for p in c if isinstance(p, dict))
+                            ds_messages.append({"role": m.get("role", "user"), "content": c or ""})
+            if not ds_messages:
+                ds_messages = [{"role": "user", "content": json.dumps(body)[:8000]}]
+            try:
+                async with httpx.AsyncClient() as ds_client:
+                    ds_resp = await ds_client.post(
+                        "http://127.0.0.1:5012/api/ai/deepseek",
+                        json={
+                            "model": "deepseek-v4-flash",
+                            "messages": ds_messages,
+                            "max_tokens": body.get("max_tokens") or body.get("max_output_tokens") or 16000,
+                            "temperature": body.get("temperature", 0.2),
+                            "stream": False,
+                        },
+                        timeout=300.0,
+                    )
+                ds_data = ds_resp.json()
+                ds_text = ds_data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                ds_data["output_text"] = ds_text
+                ds_data["_fallback_provider"] = "deepseek-v4-flash"
+                ds_data["_original_error"] = "openai 429 (pacer exhausted)"
+                # 2026-06-05 — drift-catcher C1: commit engagement to DeepSeek.
+                sess_slug = request.headers.get("x-hic-session", "")
+                if sess_slug:
+                    _proxy_write_commitment(sess_slug, "deepseek",
+                                            "openai 429 pacer-exhausted (proxy fallback)")
+                    ds_data["_engagement_committed_to"] = "deepseek"
+                return JSONResponse(ds_data, status_code=200)
+            except Exception as ds_err:
+                logger.error(f"DeepSeek fallback (from OpenAI 429) also failed: {ds_err}")
+                if resp is not None:
+                    return JSONResponse(resp.json(), status_code=resp.status_code)
+                return JSONResponse(
+                    {"error": "OpenAI rate limited; DeepSeek fallback failed"},
+                    status_code=429,
+                )
     except httpx.TimeoutException:
         logger.error("OpenAI proxy timeout")
         return JSONResponse({"error": "OpenAI API timeout (300s)"}, status_code=504)
@@ -8186,16 +9256,102 @@ async def skill_rollback(req: SkillWriteRequest):
         return JSONResponse({"error": f"Rollback failed: {e}"}, status_code=500)
 
 
+# 2026-06-03 — Robust filesystem write. Docker Desktop Windows bind mounts throw
+# intermittent [Errno 22] EINVAL when many files are written concurrently — seen
+# as a /api/wiki/write + write-article 500 storm during reddit-deep 50-post
+# persistence bursts. Left unaddressed it resurfaces for ANY high-volume write
+# (themes, evidence, analyst-desk engagement manifests, embeddings). Two
+# mitigations applied to every corpus/wiki/engagement write:
+#   1. A global semaphore caps concurrent mount writes so the burst never forms.
+#   2. Per-write retry with exponential backoff absorbs residual EINVAL.
+# makedirs runs INSIDE the retry so a transient EINVAL on directory creation is
+# also retried (it was previously unguarded, outside the try).
+_FS_WRITE_SEM = asyncio.Semaphore(6)
+
+async def _robust_write_text(safe_path: str, content: str, retries: int = 6) -> int:
+    """makedirs + write text, bounded-concurrency + EINVAL-tolerant. Returns
+    chars written. Raises the last OSError only if every attempt fails."""
+    last_err = None
+    async with _FS_WRITE_SEM:
+        for attempt in range(retries):
+            try:
+                parent = os.path.dirname(safe_path)
+                if parent:
+                    os.makedirs(parent, exist_ok=True)
+                with open(safe_path, "w", encoding="utf-8") as f:
+                    f.write(content)
+                return len(content)
+            except OSError as e:
+                last_err = e
+                await asyncio.sleep(min(0.05 * (2 ** attempt), 0.8))
+    raise last_err if last_err else OSError(f"write failed: {safe_path}")
+
+async def _robust_write_json(safe_path: str, obj, retries: int = 6) -> int:
+    return await _robust_write_text(safe_path, json.dumps(obj, ensure_ascii=False, indent=2), retries=retries)
+
+async def _robust_append_text(safe_path: str, content: str, retries: int = 6) -> None:
+    """TRUE append (open 'a') with bounded concurrency + EINVAL retry. Avoids the
+    read-entire-file-then-rewrite pattern that made the hot log.md EINVAL on a
+    Windows bind mount: every wiki op appends to log.md, so concurrent reads of
+    a growing file collided and threw [Errno 22] persistently. True append writes
+    only the delta and never reads."""
+    last_err = None
+    async with _FS_WRITE_SEM:
+        for attempt in range(retries):
+            try:
+                parent = os.path.dirname(safe_path)
+                if parent:
+                    os.makedirs(parent, exist_ok=True)
+                with open(safe_path, "a", encoding="utf-8") as f:
+                    f.write(content)
+                return
+            except OSError as e:
+                last_err = e
+                await asyncio.sleep(min(0.05 * (2 ** attempt), 0.8))
+    raise last_err if last_err else OSError(f"append failed: {safe_path}")
+
+async def _robust_read_text(safe_path: str, retries: int = 4) -> str:
+    """Read with EINVAL retry for hot bind-mounted files; '' if missing."""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            with open(safe_path, "r", encoding="utf-8") as f:
+                return f.read()
+        except FileNotFoundError:
+            return ""
+        except OSError as e:
+            last_err = e
+            await asyncio.sleep(min(0.05 * (2 ** attempt), 0.5))
+    raise last_err if last_err else OSError(f"read failed: {safe_path}")
+
+def _robust_write_text_sync(safe_path: str, content: str, retries: int = 6) -> int:
+    """Synchronous sibling of _robust_write_text for non-async write sites
+    (engagement manifests, embedding caches). Same EINVAL retry; no semaphore
+    (sync call sites are not part of the concurrent-burst path)."""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            parent = os.path.dirname(safe_path)
+            if parent:
+                os.makedirs(parent, exist_ok=True)
+            with open(safe_path, "w", encoding="utf-8") as f:
+                f.write(content)
+            return len(content)
+        except OSError as e:
+            last_err = e
+            time.sleep(min(0.05 * (2 ** attempt), 0.8))
+    raise last_err if last_err else OSError(f"write failed: {safe_path}")
+
+
 @app.post("/api/wiki/write")
 async def wiki_write(req: WikiWriteRequest):
     """Write (overwrite) a wiki page. Used for full page updates."""
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, req.path))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
-    os.makedirs(os.path.dirname(safe_path), exist_ok=True)
     try:
-        with open(safe_path, "w", encoding="utf-8") as f:
-            f.write(req.content)
+        await _robust_write_text(safe_path, req.content)
+        _manifest_upsert(req.path, text=req.content)  # 2026-06-03 incremental manifest
         logger.info(f"Wiki write: {req.path} ({len(req.content)} chars)")
         return {"status": "ok", "path": req.path, "chars": len(req.content)}
     except Exception as e:
@@ -8208,29 +9364,33 @@ async def wiki_append(req: WikiAppendRequest):
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, req.path))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
-    os.makedirs(os.path.dirname(safe_path), exist_ok=True)
     try:
-        existing = ""
-        if os.path.exists(safe_path):
-            with open(safe_path, "r", encoding="utf-8") as f:
-                existing = f.read()
-
-        if req.section and req.section in existing:
-            # Append under the specified section header
-            section_idx = existing.index(req.section) + len(req.section)
-            # Find the next section header or end of file
-            next_section = existing.find("\n## ", section_idx + 1)
-            if next_section == -1:
-                next_section = existing.find("\n# ", section_idx + 1)
-            insert_at = next_section if next_section != -1 else len(existing)
-            updated = existing[:insert_at].rstrip() + "\n" + req.content + "\n" + existing[insert_at:]
+        # 2026-06-03 — Two paths. A SECTIONED append needs read-modify-write
+        # (insert under a header). A PLAIN append (the common case: log.md and
+        # other append-only logs) uses TRUE append mode — no full-file read, no
+        # rewrite — which is what was EINVAL-ing on the hot, constantly-growing
+        # log.md under a Windows bind mount.
+        exists = os.path.exists(safe_path)
+        if req.section:
+            existing = await _robust_read_text(safe_path) if exists else ""
+            if req.section in existing:
+                section_idx = existing.index(req.section) + len(req.section)
+                next_section = existing.find("\n## ", section_idx + 1)
+                if next_section == -1:
+                    next_section = existing.find("\n# ", section_idx + 1)
+                insert_at = next_section if next_section != -1 else len(existing)
+                updated = existing[:insert_at].rstrip() + "\n" + req.content + "\n" + existing[insert_at:]
+            else:
+                updated = existing.rstrip() + "\n\n" + req.content + "\n"
+            await _robust_write_text(safe_path, updated)
+            total = len(updated)
         else:
-            updated = existing.rstrip() + "\n\n" + req.content + "\n"
-
-        with open(safe_path, "w", encoding="utf-8") as f:
-            f.write(updated)
+            delta = ("\n\n" if exists else "") + req.content.rstrip() + "\n"
+            await _robust_append_text(safe_path, delta)
+            total = len(req.content)
+        _manifest_upsert(req.path)  # 2026-06-03 incremental manifest (re-read head)
         logger.info(f"Wiki append: {req.path} (+{len(req.content)} chars)")
-        return {"status": "ok", "path": req.path, "totalChars": len(updated)}
+        return {"status": "ok", "path": req.path, "totalChars": total}
     except Exception as e:
         logger.error(f"Wiki append failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
@@ -8414,27 +9574,70 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
     try:
-        os.makedirs(os.path.dirname(safe_path), exist_ok=True)
         chars = len(req.content)
         frontmatter = _build_article_frontmatter(req, h, path_rel, chars)
         body = f"{frontmatter}\n\n# {req.title or req.source or 'Untitled'}\n\n"
         if req.url:
             body += f"Source: [{req.source or req.url}]({req.url})\n\n"
         body += req.content.strip() + "\n"
-        with open(safe_path, "w", encoding="utf-8") as f:
-            f.write(body)
+
+        # 2026-06-06 — Manifest-pointer chunking at ingest. Every wiki page
+        # that carries a body MUST carry a frontmatter chunks: block so the
+        # manifest layer can address sub-document spans by pointer at
+        # generation time (instead of bulk-injecting whole article bodies).
+        # The chunker is deterministic + idempotent; if chunks already exist
+        # in this content they get replaced cleanly. Lazy-import keeps
+        # chunker out of the hot path for callers that don't reach this
+        # code branch.
+        try:
+            from wiki_chunker import chunk_for_manifest, upsert_chunks_into_frontmatter
+            _chunks_for_ptr = chunk_for_manifest(body, path_rel)
+            if _chunks_for_ptr:
+                body = upsert_chunks_into_frontmatter(body, _chunks_for_ptr, page_id=path_rel)
+                logger.info(
+                    f"[wiki-write-article] chunked {path_rel} into "
+                    f"{len(_chunks_for_ptr)} manifest pointer(s)"
+                )
+        except Exception as _chunk_err:
+            # Non-fatal: the write proceeds without chunk frontmatter. The
+            # retrofit pass will pick this page up on the next sweep.
+            logger.warning(f"[wiki-write-article] chunk_for_manifest failed for {path_rel}: {_chunk_err}")
+
+        await _robust_write_text(safe_path, body)
         logger.info(f"Wiki article write: {path_rel} ({chars} chars, kind={req.kind})")
 
         # Auto-embed the new article for semantic retrieval. Failures are
         # logged but never surface — the write is already durable, and the
         # embedding can be rebuilt later via POST /api/wiki/embed-backfill.
+        # 2026-05-31 (Phase A1/A2/A3) — Full-fidelity write-time embed. Previously
+        # this embedded only content[:1200] (one truncated chunk), stored chars=0,
+        # carried no kind/tier/relevance/engagement_goal/wikiPath, and keyed on
+        # url_hash (duplicating the backfill's wikiPath-keyed rows). That made a
+        # fresh run's tail content unretrievable and was the ROOT of the chars=0
+        # minChars bug. Now: embed the FULL body, carry complete metadata, and key
+        # on wikiPath so write-time and backfill rows are the same row.
+        try:
+            _tier_int = int(req.tier) if (req.tier is not None and str(req.tier).strip() != "") else 0
+        except Exception:
+            _tier_int = 0
         embed_entry = {
+            "wikiPath": path_rel,
+            "url": req.url or "",
             "title": req.title or "",
             "source": req.source or "",
             "date": req.date or "",
-            "summary": req.content[:EMBED_BODY_CHARS] if req.content else "",
+            "kind": req.kind or "article",
+            "tier": _tier_int,
+            "chars": chars,
+            "relevance": (int(req.relevanceScore) if req.relevanceScore is not None else None),
+            "engagement_goal": req.engagementGoal or "",
+            "summary": (req.content[:EMBED_BODY_CHARS] if req.content else ""),
         }
-        embedded = _embed_and_cache_article(h, embed_entry, body=req.content[:EMBED_BODY_CHARS] if req.content else "")
+        embedded = _embed_and_cache_article(h, embed_entry, body=(req.content or ""))
+
+        # 2026-06-03 — incremental manifest upsert at ingest (the body text is in
+        # hand, so no re-read). Best-effort; never fails the write.
+        _manifest_upsert(path_rel, text=body)
 
         return {
             "status": "ok",
@@ -8476,6 +9679,90 @@ async def wiki_read_article(hash_or_path: str):
                 with open(candidate, "r", encoding="utf-8") as f:
                     return {"wikiPath": rel, "content": f.read()}
     return JSONResponse({"error": "Hash not found", "urlHash": h}, status_code=404)
+
+# 2026-06-08 — SOURCE LINK-BACK RESOLVER. Theme citations carry a sourceFile
+# basename (e.g. "1krfosj.md") + sourceName but an EMPTY url; the real online URL
+# lives in the source wiki file's frontmatter. This resolves basenames ->
+# {url, wikiPath, kind, title, author, date} so the Analyst Desk theme deep-dive
+# links back to the actual online sources (reddit posts, articles, youtube, etc.)
+# even in cached-only mode (where there are no live source nodes carrying urls).
+# A basename->relpath index is built once over the source dirs and cached 10 min.
+_SOURCE_INDEX = {}
+_SOURCE_INDEX_BUILT_AT = 0.0
+_SOURCE_DIRS = ('social-intelligence', 'articles', 'transcripts', 'uploads', 'sources', 'videos')
+
+def _build_source_index():
+    global _SOURCE_INDEX, _SOURCE_INDEX_BUILT_AT
+    idx = {}
+    for d in _SOURCE_DIRS:
+        root = os.path.join(WIKI_BASE, d)
+        if not os.path.isdir(root):
+            continue
+        for dirpath, _dirs, files in os.walk(root):
+            for fn in files:
+                if fn.endswith('.md'):
+                    rel = os.path.relpath(os.path.join(dirpath, fn), WIKI_BASE).replace(os.sep, '/')
+                    idx.setdefault(fn, rel)   # first writer wins; basename collisions rare
+    _SOURCE_INDEX = idx
+    _SOURCE_INDEX_BUILT_AT = time.time()
+
+def _parse_frontmatter_fields(raw, keys):
+    out = {}
+    if not raw or not raw.startswith('---'):
+        return out
+    end = raw.find('\n---', 4)
+    if end < 0:
+        return out
+    for line in raw[4:end].splitlines():
+        if ':' not in line:
+            continue
+        k, _, v = line.partition(':')
+        k = k.strip(); v = v.strip()
+        if len(v) >= 2 and v[0] == '"' and v[-1] == '"':
+            v = v[1:-1]
+        if k in keys:
+            out[k] = v
+    return out
+
+@app.post("/api/source/resolve")
+async def source_resolve(request: Request):
+    """Resolve a list of citation sourceFile basenames to their archived wiki
+    path + original online URL (from frontmatter). Returns {resolved: {file: {...}|null}}."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    files = body.get("files") if isinstance(body, dict) else None
+    if not isinstance(files, list):
+        files = []
+    if not _SOURCE_INDEX or (time.time() - _SOURCE_INDEX_BUILT_AT) > 600:
+        _build_source_index()
+    out = {}
+    for f in files[:300]:
+        if not isinstance(f, str) or not f.strip():
+            continue
+        base = f.strip().split('/')[-1]
+        rel = _SOURCE_INDEX.get(base) or _SOURCE_INDEX.get(base + '.md')
+        if not rel:
+            out[f] = None
+            continue
+        try:
+            with open(os.path.join(WIKI_BASE, rel), 'r', encoding='utf-8') as fh:
+                raw = fh.read(8000)   # frontmatter lives at the top
+            fm = _parse_frontmatter_fields(raw, {'url', 'kind', 'title', 'author', 'date', 'source', 'subreddit'})
+            out[f] = {
+                'url': fm.get('url', ''),
+                'wikiPath': rel,
+                'kind': fm.get('kind', ''),
+                'title': fm.get('title', ''),
+                'author': fm.get('author', ''),
+                'date': fm.get('date', ''),
+                'sourceName': fm.get('source', ''),
+                'subreddit': fm.get('subreddit', ''),
+            }
+        except Exception:
+            out[f] = {'wikiPath': rel}
+    return {"resolved": out, "index_size": len(_SOURCE_INDEX)}
 
 @app.get("/api/wiki/check-article")
 async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP):
@@ -8570,6 +9857,317 @@ def _extract_wiki_body(text: str, max_chars: int = 200) -> str:
         return body
     return body[:max_chars]
 
+# =========================================================================
+# PERSISTENT CONTENT MANIFEST (2026-06-03)
+# One record per content piece, written incrementally at ingest, covering
+# EVERY content type. Replaces the O(13k-file) enumeration walk with an O(1)
+# single-file read. This is the root-level fix for: the /api/wiki/index +
+# fetch-articles enumeration timeouts (which starved theme/synthesis retrieval),
+# and the manifest-coverage gap (the old index only saw articles/transcripts/
+# uploads, omitting reddit-deep social, synthesis, evidence, exemplars, design).
+# The manifest is a dotfile so the legacy walks skip it. Records carry the
+# uniform AGENTS.md-aligned frontmatter incl `type` and `industries`.
+# =========================================================================
+MANIFEST_FILE = os.path.join(WIKI_BASE, ".manifest.json")
+# Append-only incremental journal. Upserts append ONE line here (O(1)) instead of
+# rewriting the whole 13k-record base file (which during a 50-post reddit burst
+# would reintroduce the very stall this manifest is meant to remove). The loader
+# reads the base + replays the journal (last write per wikiPath wins); backfill
+# compacts the journal back into the base.
+MANIFEST_JOURNAL = os.path.join(WIKI_BASE, ".manifest.journal.jsonl")
+_MANIFEST_CACHE: dict = {"records": None, "base_mtime": 0.0, "jrnl_mtime": 0.0, "jrnl_size": 0}
+
+# Every content namespace the manifest covers (the old walk saw only the first 3).
+_MANIFEST_NAMESPACES = (
+    'articles', 'transcripts', 'uploads', 'synthesis', 'evidence', 'exemplars',
+    'design-system', 'inspiration-hub', 'frameworks', 'anti-patterns', 'benchmarks',
+    'brand', 'methodologies', 'mentors', 'known-gaps', 'industries', 'sources',
+    'sources-registry', 'deep-research', 'social-intelligence', 'engagements',
+)
+# Folder -> AGENTS.md page `type` default when frontmatter lacks an explicit one.
+_MANIFEST_TYPE_BY_NS = {
+    'articles': 'article', 'transcripts': 'transcript', 'uploads': 'upload',
+    'synthesis': 'synthesis', 'evidence': 'evidence', 'exemplars': 'exemplar',
+    'design-system': 'design', 'inspiration-hub': 'design', 'frameworks': 'framework',
+    'anti-patterns': 'anti-pattern', 'benchmarks': 'benchmark', 'brand': 'brand',
+    'methodologies': 'methodology', 'mentors': 'mentor', 'known-gaps': 'known-gap',
+    'industries': 'industry', 'sources': 'source-summary', 'sources-registry': 'source-summary',
+    'deep-research': 'deep-research', 'social-intelligence': 'social-post',
+    'engagements': 'engagement',
+}
+
+def _manifest_infer_type(rel: str, fm: dict) -> str:
+    """AGENTS.md `type` for a piece: explicit frontmatter `type`/`kind` wins,
+    else inferred from the top-level namespace folder."""
+    t = (fm.get('type') or fm.get('kind') or '').strip()
+    if t:
+        return t
+    ns = rel.split('/', 1)[0]
+    return _MANIFEST_TYPE_BY_NS.get(ns, 'page')
+
+def _manifest_parse_industries(fm: dict) -> list:
+    """Parse the multi-valued `industries:` frontmatter field into a list.
+    Accepts `[a, b]`, `a, b`, or a single token. Empty -> []."""
+    raw = (fm.get('industries') or '').strip()
+    if not raw:
+        return []
+    raw = raw.strip('[]')
+    return [t.strip().strip('"').strip("'") for t in raw.split(',') if t.strip()]
+
+# High-precision keyword -> vertical map (mirrors KNOWN_VERTICALS in
+# services/industryTaxonomy.ts). Used ONLY when frontmatter lacks `industries`,
+# so the manifest's industries field is genuinely populated rather than empty.
+# Conservative by design: only strong, unambiguous signals tag a vertical;
+# genuinely ambiguous content stays untagged rather than being mislabeled
+# (per the no-fabrication rule).
+_INDUSTRY_KEYWORDS = {
+    'higher_ed': ('co-op', 'coop', 'university', 'undergrad', 'student', 'campus', 'faculty', 'admissions', 'northeastern', 'college', 'academic advisor', 'tuition', 'enrollment'),
+    'fundraising': ('donor', 'advancement', 'gift officer', 'philanthropy', 'alumni giving', 'capital campaign', 'stewardship'),
+    'workforce': ('internship', 'career', 'hiring', 'recruiter', 'job search', 'resume', 'employer', 'placement', 'upskilling', 'layoff'),
+    'financial_services': ('financial advice', 'advisor', 'wealth', 'portfolio', 'investing', 'roi of financial', 'retirement', 'robo-advisor', 'fee compression', '401k', 'bogleheads'),
+    'healthcare': ('patient', 'clinical', 'hospital', 'provider network', 'ehr', 'telehealth'),
+    'saas': ('saas', 'onboarding flow', 'churn', 'product-led', 'free trial', 'mrr', 'arr'),
+    'nonprofit': ('nonprofit', 'ngo', 'mission-driven', 'grantmaking'),
+    'ai_research': ('llm', 'gpt', 'claude', 'gemini', 'machine learning', 'neural', 'rag', 'fine-tune', 'agentic'),
+    'government': ('public sector', 'government agency', 'federal', 'municipal', 'policy maker'),
+    'retail': ('retail', 'ecommerce', 'shopper', 'storefront', 'merchandising'),
+}
+
+def _manifest_infer_industries(blob: str, max_tags: int = 3) -> list:
+    """Infer 0-3 verticals from a text blob via high-precision keywords. Returns
+    [] when no strong signal (never guesses cross_industry)."""
+    if not blob:
+        return []
+    b = blob.lower()
+    scored = []
+    for vert, kws in _INDUSTRY_KEYWORDS.items():
+        hits = sum(1 for kw in kws if kw in b)
+        if hits > 0:
+            scored.append((hits, vert))
+    scored.sort(reverse=True)
+    return [v for _h, v in scored[:max_tags]]
+
+def _manifest_record(rel: str, mtime: float, text: str) -> dict:
+    """Build a uniform manifest record from a file's head text.
+
+    2026-06-06 — Added `chunk_count` so the manifest knows whether a page
+    has been retrofitted with the new manifest-pointer chunks: frontmatter
+    block. Resolvers use `chunk_count > 0` as the gate for chunk-pointer
+    retrieval vs. legacy whole-body inject. The actual chunk IDs are NOT
+    stored in the manifest record (they can run to 16KB+ on long
+    transcripts and would overflow the 8KB head-read budget). The
+    resolver reads chunks: directly from the page's frontmatter when
+    needed (cheap, single-file read)."""
+    fm = _parse_wiki_frontmatter(text)
+    summary = _extract_wiki_body(text, max_chars=200)
+    # Count chunks declared in frontmatter. Cheap regex; runs only on the
+    # head-read text, so a page with 100+ chunks past the head still
+    # reports its head-visible count (acceptable for the manifest's role
+    # as a coarse pre-filter).
+    try:
+        import re as _re_chunks_count
+        _chunk_count = len(_re_chunks_count.findall(r"^\s*- id:\s", text or "", flags=_re_chunks_count.MULTILINE))
+    except Exception:
+        _chunk_count = 0
+    try:
+        chars_fm = int(fm.get('chars', '0') or '0')
+    except ValueError:
+        chars_fm = 0
+    rel_int = None
+    rr = fm.get('relevance')
+    if rr is not None and str(rr).strip() != '':
+        try:
+            rel_int = max(0, min(100, int(str(rr).strip())))
+        except (TypeError, ValueError):
+            rel_int = None
+    industries = _manifest_parse_industries(fm)
+    if not industries:
+        # Frontmatter lacked industries: infer conservatively from the strongest
+        # text signals (title + summary + source + engagement goal).
+        blob = ' '.join([
+            fm.get('title') or '', summary or '', fm.get('source') or '',
+            fm.get('engagement_goal') or fm.get('research_goal') or '', fm.get('subreddit') or '',
+        ])
+        industries = _manifest_infer_industries(blob)
+    return {
+        'id': fm.get('url_hash') or rel.rsplit('/', 1)[-1].replace('.md', ''),
+        'wikiPath': rel,
+        'type': _manifest_infer_type(rel, fm),
+        'kind': fm.get('kind') or _manifest_infer_type(rel, fm),
+        'title': fm.get('title') or '',
+        'source': fm.get('source') or '',
+        'url': fm.get('url') or '',
+        'date': fm.get('date') or '',
+        'author': fm.get('author') or '',
+        'subreddit': fm.get('subreddit') or '',
+        'tier': fm.get('tier') or '',
+        'method': fm.get('method') or fm.get('extraction_method') or '',
+        'channel': fm.get('channel') or '',
+        'engagement': fm.get('engagement') or '',
+        'engagement_goal': fm.get('engagement_goal') or fm.get('research_goal') or '',
+        'industries': industries,
+        'confidence': fm.get('confidence') or '',
+        'status': fm.get('status') or '',
+        'chars': chars_fm or max(0, len(text) - 400),
+        'mtime': mtime,
+        'summary': summary,
+        'relevance': rel_int,
+        'relevance_reason': fm.get('relevance_reason') or '',
+        'chunk_count': _chunk_count,
+    }
+
+_MANIFEST_LOCK = threading.Lock()
+
+def _manifest_load() -> dict:
+    """Return the merged manifest {wikiPath: record} = base JSON + replayed
+    journal (last write per wikiPath wins). One base read + a small journal read;
+    cached and invalidated by both files' mtime/size. O(1)-ish in steady state."""
+    try:
+        base_mt = os.path.getmtime(MANIFEST_FILE) if os.path.exists(MANIFEST_FILE) else 0.0
+        jr_mt = os.path.getmtime(MANIFEST_JOURNAL) if os.path.exists(MANIFEST_JOURNAL) else 0.0
+        jr_sz = os.path.getsize(MANIFEST_JOURNAL) if os.path.exists(MANIFEST_JOURNAL) else 0
+        c = _MANIFEST_CACHE
+        if (c.get('records') is not None and c.get('base_mtime') == base_mt
+                and c.get('jrnl_mtime') == jr_mt and c.get('jrnl_size') == jr_sz):
+            return c['records']
+        records: dict = {}
+        if base_mt:
+            with open(MANIFEST_FILE, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            records = (data.get('records', data) if isinstance(data, dict) else {}) or {}
+        if jr_sz:
+            with open(MANIFEST_JOURNAL, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        rec = json.loads(line)
+                        wp = rec.get('wikiPath')
+                        if wp:
+                            records[wp] = rec
+                    except Exception:
+                        continue
+        _MANIFEST_CACHE.update({'records': records, 'base_mtime': base_mt,
+                                'jrnl_mtime': jr_mt, 'jrnl_size': jr_sz})
+        return records
+    except Exception as e:
+        logger.warning(f"[manifest] load failed: {e}")
+        return _MANIFEST_CACHE.get('records') or {}
+
+def _manifest_save_base(records: dict) -> None:
+    """Atomic write of the BASE manifest + truncate the journal (compaction).
+    Called only by backfill, never per-upsert."""
+    tmp = f"{MANIFEST_FILE}.tmp.{uuid.uuid4().hex}"
+    with open(tmp, 'w', encoding='utf-8') as f:
+        json.dump({'version': 1, 'count': len(records), 'records': records}, f, ensure_ascii=False)
+    os.replace(tmp, MANIFEST_FILE)
+    try:
+        with open(MANIFEST_JOURNAL, 'w', encoding='utf-8') as f:
+            f.write('')  # truncate: journal is now folded into base
+    except OSError:
+        pass
+    # Invalidate cache so the next load re-reads the compacted base.
+    _MANIFEST_CACHE.update({'records': None, 'base_mtime': 0.0, 'jrnl_mtime': 0.0, 'jrnl_size': 0})
+
+def _manifest_upsert(rel: str, text: str = None, abs_path: str = None) -> None:
+    """Insert/update ONE record at ingest by APPENDING a line to the journal
+    (O(1), no full rewrite). Best-effort: never raise into the caller's write
+    path. Reads only the file head if text not supplied. When the journal grows
+    large, trigger a background compaction (backfill) to fold it into the base."""
+    try:
+        if not rel:
+            return
+        rel = rel.replace(os.sep, '/').lstrip('/')
+        if rel.startswith('.'):  # never index the sidecars themselves
+            return
+        ap = abs_path or os.path.normpath(os.path.join(WIKI_BASE, rel))
+        if text is None:
+            try:
+                with open(ap, 'r', encoding='utf-8') as f:
+                    text = f.read(8000)
+            except Exception:
+                return
+        try:
+            mtime = os.path.getmtime(ap)
+        except OSError:
+            mtime = 0.0
+        rec = _manifest_record(rel, mtime, text[:8000])
+        line = json.dumps(rec, ensure_ascii=False) + '\n'
+        with _MANIFEST_LOCK:
+            with open(MANIFEST_JOURNAL, 'a', encoding='utf-8') as f:
+                f.write(line)
+    except Exception as e:
+        logger.warning(f"[manifest] upsert skipped for {rel}: {e}")
+
+def _manifest_walk_all():
+    """Yield (abs, rel, mtime) for every .md under ALL content namespaces.
+    Skips dotfiles + the sidecars. Used by the one-time backfill."""
+    for ns in _MANIFEST_NAMESPACES:
+        ns_root = os.path.join(WIKI_BASE, ns)
+        if not os.path.isdir(ns_root):
+            continue
+        for dirpath, dirnames, filenames in os.walk(ns_root):
+            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
+            for fn in filenames:
+                if not fn.endswith('.md') or fn.startswith('.'):
+                    continue
+                ap = os.path.join(dirpath, fn)
+                try:
+                    mt = os.path.getmtime(ap)
+                except OSError:
+                    continue
+                rel = os.path.relpath(ap, WIKI_BASE).replace(os.sep, '/')
+                yield ap, rel, mt
+
+def _manifest_backfill() -> dict:
+    """One-time (or on-demand) rebuild of the manifest from disk across ALL
+    content types, parallel head-reads. Merges relevance metadata from the
+    embeddings sidecar where present. Returns counts by type."""
+    from concurrent.futures import ThreadPoolExecutor
+    files = list(_manifest_walk_all())
+
+    def _read(item):
+        ap, rel, mt = item
+        try:
+            with open(ap, 'r', encoding='utf-8') as f:
+                return (rel, mt, f.read(8000))
+        except Exception:
+            return None
+
+    with ThreadPoolExecutor(max_workers=16) as ex:
+        results = list(ex.map(_read, files))
+
+    # Embeddings sidecar = supplemental metadata (relevance, engagement_goal)
+    try:
+        emb = _load_embeddings()
+        emb_by_path = {}
+        for v in (emb or {}).values():
+            wp = (v or {}).get('wikiPath')
+            if wp:
+                emb_by_path[wp] = v
+    except Exception:
+        emb_by_path = {}
+
+    records: dict = {}
+    counts: dict = {}
+    for res in results:
+        if not res:
+            continue
+        rel, mt, text = res
+        rec = _manifest_record(rel, mt, text)
+        ev = emb_by_path.get(rel)
+        if ev:
+            if rec.get('relevance') is None and ev.get('relevance') is not None:
+                rec['relevance'] = ev.get('relevance')
+            if not rec.get('engagement_goal') and ev.get('engagement_goal'):
+                rec['engagement_goal'] = ev.get('engagement_goal')
+        records[rel] = rec
+        counts[rec['type']] = counts.get(rec['type'], 0) + 1
+    _manifest_save_base(records)
+    logger.info(f"[manifest] backfill complete: {len(records)} records across {len(counts)} types {counts}")
+    return counts
+
 def _walk_wiki_archive():
     """Yield (abs_path, rel_path, mtime) for every .md file under the
     articles/, transcripts/, uploads/ namespaces. Skips dotfiles and dirs."""
@@ -8598,14 +10196,34 @@ def _build_wiki_index(summary_len: int = 200) -> list:
     """Walk the wiki archive and construct the metadata index. Each entry
     is a dict safe for JSON serialization and small enough to fit 10,000
     entries into a ~3MB payload."""
-    entries: list = []
-    for abs_path, rel, mtime in _walk_wiki_archive():
+    # 2026-06-03 — HEAD-ONLY + PARALLEL read. Building the index over ~5k article
+    # files by reading each FULL body sequentially on a Windows bind mount
+    # exceeded the frontend's 60s timeout (Wiki Archive Browser showed "0
+    # archived items"). Two fixes: (1) read only the 8KB head (frontmatter + the
+    # 200-char summary live in the first ~2KB); (2) read in parallel via a thread
+    # pool, since this is I/O-bound on a slow mount. `chars` comes from
+    # frontmatter (always set by write-article); the len(text) fallback is an
+    # approximation only for legacy files.
+    from concurrent.futures import ThreadPoolExecutor
+    file_list = list(_walk_wiki_archive())
+
+    def _read_head(item):
+        abs_path, rel, mtime = item
         try:
             with open(abs_path, 'r', encoding='utf-8') as f:
-                text = f.read()
+                return (rel, mtime, f.read(8000))
         except Exception as e:
             logger.warning(f"Wiki index: failed to read {rel}: {e}")
+            return None
+
+    with ThreadPoolExecutor(max_workers=16) as _ex:
+        read_results = list(_ex.map(_read_head, file_list))
+
+    entries: list = []
+    for res in read_results:
+        if res is None:
             continue
+        rel, mtime, text = res
         fm = _parse_wiki_frontmatter(text)
         summary = _extract_wiki_body(text, max_chars=summary_len)
         chars_from_fm = 0
@@ -8653,36 +10271,32 @@ def _build_wiki_index(summary_len: int = 200) -> list:
     return entries
 
 def _get_wiki_index_cached(summary_len: int = 200, force_rebuild: bool = False) -> list:
-    """Return the cached wiki index, rebuilding if TTL expired, forced, or
-    any file under the archive has changed since the last build."""
+    """Return the wiki index. 2026-06-03 — MANIFEST-BACKED: reads the persisted
+    `.manifest.json` sidecar (one file read, O(1)) instead of walking 13k files.
+    The manifest is kept fresh by incremental `_manifest_upsert` at every ingest.
+    If the manifest is absent (fresh deploy) or force_rebuild is set, do a one-
+    time `_manifest_backfill()` then read it. The legacy `_build_wiki_index`
+    walk remains only as a last-resort fallback if the manifest can't be built.
+    Covers ALL content types (the old walk saw only articles/transcripts/uploads)."""
     global _WIKI_INDEX_CACHE
-    # 2026-05-06 — Defensive: the goal-regrade endpoint busts the cache by
-    # assigning `_WIKI_INDEX_CACHE = None` (line ~5707). On the next call,
-    # the original code did `_WIKI_INDEX_CACHE.get('built_at', 0.0)` which
-    # crashed with "NoneType has no attribute 'get'", surfacing as HTTP 500
-    # on /api/wiki/fetch-articles. Treat None / non-dict cache values as
-    # "no cache, rebuild from scratch" so the regrade bust path is safe.
     if not isinstance(_WIKI_INDEX_CACHE, dict):
         _WIKI_INDEX_CACHE = {}
+    try:
+        if force_rebuild or not os.path.exists(MANIFEST_FILE):
+            _manifest_backfill()
+        records = _manifest_load()
+        if records:
+            entries = sorted(records.values(), key=lambda e: e.get('mtime', 0), reverse=True)
+            return entries
+    except Exception as e:
+        logger.warning(f"[manifest] index read failed, falling back to walk: {e}")
+    # Last-resort fallback: the legacy article-only walk (fast head/parallel).
     now = _now_wiki_index()
     age = now - _WIKI_INDEX_CACHE.get('built_at', 0.0)
     if not force_rebuild and age < _WIKI_INDEX_TTL_SEC and _WIKI_INDEX_CACHE.get('entries'):
-        # Quick mtime scan — if any file is newer than cache, rebuild
-        newest = _WIKI_INDEX_CACHE.get('mtime_scan', 0.0)
-        stale = False
-        for _abs, _rel, mtime in _walk_wiki_archive():
-            if mtime > newest:
-                stale = True
-                break
-        if not stale:
-            return _WIKI_INDEX_CACHE['entries']
+        return _WIKI_INDEX_CACHE['entries']
     entries = _build_wiki_index(summary_len=summary_len)
-    max_mtime = max((e.get('mtime', 0.0) for e in entries), default=0.0)
-    _WIKI_INDEX_CACHE = {
-        'built_at': now,
-        'mtime_scan': max_mtime,
-        'entries': entries,
-    }
+    _WIKI_INDEX_CACHE = {'built_at': now, 'mtime_scan': 0.0, 'entries': entries}
     return entries
 
 @app.get("/api/wiki/index")
@@ -8699,7 +10313,11 @@ async def wiki_index_endpoint(
     controls how many body chars are included per entry (0 = omit).
     The index itself is cached for ~30s with file-mtime invalidation."""
     try:
-        entries = _get_wiki_index_cached(summary_len=summary_len, force_rebuild=bool(force_rebuild))
+        # 2026-06-03 — offload the (blocking, file-I/O-heavy) index build to a
+        # worker thread so it can't stall this worker's event loop while it walks
+        # ~5k files. Combined with the head-only read this keeps /api/wiki/index
+        # under the frontend's 60s timeout.
+        entries = await asyncio.to_thread(_get_wiki_index_cached, summary_len, bool(force_rebuild))
     except Exception as e:
         logger.error(f"Wiki index build failed: {e}")
         return JSONResponse({"error": str(e), "entries": []}, status_code=500)
@@ -8721,6 +10339,45 @@ async def wiki_index_endpoint(
         'built_at': _WIKI_INDEX_CACHE.get('built_at'),
         'entries': filtered,
     }
+
+
+@app.post("/api/wiki/manifest/rebuild")
+async def wiki_manifest_rebuild():
+    """Force a full manifest backfill across every content type. Returns counts
+    by type. Use after a bulk import or to repair the sidecar."""
+    try:
+        counts = await asyncio.to_thread(_manifest_backfill)
+        total = sum(counts.values())
+        return {"status": "ok", "total": total, "by_type": counts}
+    except Exception as e:
+        logger.error(f"[manifest] rebuild failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.get("/api/wiki/manifest")
+async def wiki_manifest_stats(limit: int = 0, kind: Optional[str] = None):
+    """Manifest stats + optional record listing. Confirms every content type is
+    covered. Builds the manifest on first call if absent."""
+    try:
+        records = await asyncio.to_thread(_manifest_load)
+        if not records:
+            await asyncio.to_thread(_manifest_backfill)
+            records = await asyncio.to_thread(_manifest_load)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+    by_type: dict = {}
+    by_industry: dict = {}
+    for r in records.values():
+        by_type[r.get('type', 'page')] = by_type.get(r.get('type', 'page'), 0) + 1
+        for ind in (r.get('industries') or ['(untagged)']):
+            by_industry[ind] = by_industry.get(ind, 0) + 1
+    out = {"total": len(records), "by_type": by_type, "by_industry": by_industry}
+    if limit > 0:
+        recs = list(records.values())
+        if kind:
+            recs = [r for r in recs if r.get('type') == kind or r.get('kind') == kind]
+        out["sample"] = sorted(recs, key=lambda e: e.get('mtime', 0), reverse=True)[:limit]
+    return out
 
 
 class WikiFetchArticlesRequest(BaseModel):
@@ -8754,6 +10411,14 @@ class WikiFetchArticlesRequest(BaseModel):
     # opts in by setting includeSynthesis=true or kind='synthesis'.
     # Rule: synthesis is rules-substrate, not evidence-substrate.
     includeSynthesis: Optional[bool] = False        # set True to allow synthesis articles in result
+    # 2026-06-05 — Bug 2 fix. The themes archive-aug path was pulling uploads
+    # from PRIOR unrelated engagements (alumni, fundraising, billing themes
+    # leaking into a co-op engagement), even with goalBlendWeight=0.40 the
+    # bias persisted because client-uploaded PDFs have strong topical signal.
+    # When set true, the proxy filters out kind=='upload' entries before
+    # retrieval. Default false to preserve existing semantics for all other
+    # callers (notebookRetrieval, chat tools, etc.).
+    excludeUploads: Optional[bool] = False
 
 
 def _score_article_for_query(entry: dict, query_tokens: list) -> float:
@@ -8843,6 +10508,15 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
                 isinstance(req.kind, str) and 'synthesis' in req.kind.lower()
             )
         )
+        # 2026-06-05 — Bug 2: caller can request that uploaded client docs
+        # (from this OR prior engagements) be excluded from cross-engagement
+        # archive retrieval. Used by themes archive-aug to stop alumni /
+        # fundraising / enrollment uploads from prior runs leaking into the
+        # current co-op engagement's theme breadth.
+        _exclude_uploads = bool(getattr(req, 'excludeUploads', False))
+        _exclude_list: list[str] = []
+        if _exclude_synthesis: _exclude_list.append('synthesis')
+        if _exclude_uploads: _exclude_list.append('upload')
         chunked_results = _search_chunked_articles(
             req.query,
             kind=req.kind,
@@ -8851,7 +10525,7 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             chunks_per_article=6,
             engagement_goal=req.engagementGoal,
             goal_blend_weight=req.goalBlendWeight if req.goalBlendWeight is not None else 0.30,
-            exclude_kinds=['synthesis'] if _exclude_synthesis else None,
+            exclude_kinds=_exclude_list or None,
         )
         if chunked_results is not None:
             # 2026-05-23 — Apply synthesis exclusion DURING chunked admission,
@@ -8870,22 +10544,63 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             wiki_path_to_entry = {e.get("wikiPath"): e for e in entries}
             dropped_synthesis = 0
             for r in chunked_results:
-                wp = r.get("wiki_path")
-                if not wp or wp in used_paths:
+                wp = r.get("wiki_path") or ""
+                # 2026-05-30 — Stable dedup key. Real path when present, else the
+                # chunk store's own article id, so empty-path articles (social
+                # Reddit content embedded without a wikiPath) neither collide on
+                # '' nor get dropped by a `not wp` guard.
+                key = wp if wp else f"chunkstore::{r.get('article_id')}"
+                if not key or key in used_paths:
                     continue
-                e = wiki_path_to_entry.get(wp)
+                e = wiki_path_to_entry.get(wp) if wp else None
                 if not e:
-                    # Stale chunk store entry (file deleted between embed-time
-                    # and now) — skip silently.
-                    continue
-                if req.minChars and req.minChars > 0 and int(e.get('chars') or 0) < req.minChars:
+                    # 2026-05-30 — ROOT-CAUSE FIX for admitted=0. The chunk's path
+                    # is not in the index walk (empty wikiPath, or a namespace
+                    # _walk_wiki_archive does not cover, e.g. social-intelligence).
+                    # Previously these were dropped as "stale", discarding nearly
+                    # all cosine-relevant chunks and starving generation of
+                    # goal-relevant evidence — which forced fallback to the
+                    # session corpus (the co-op contamination of unrelated
+                    # objectives). The chunk store is self-describing, so build the
+                    # entry from the chunk result itself instead of dropping it.
+                    e = {
+                        'id': r.get('article_id'),
+                        'wikiPath': wp,
+                        'url': r.get('url') or '',
+                        'title': r.get('title') or '',
+                        'source': r.get('source') or '',
+                        'date': r.get('date') or '',
+                        'kind': r.get('kind') or 'article',
+                        'tier': r.get('tier') or '',
+                        'chars': r.get('chars') or 0,
+                    }
+                # 2026-05-31 — minChars must measure the ACTUAL retrievable text,
+                # not the `chars` metadata field. Empty-path / social chunk-store
+                # articles often carry chars=0 in the articles table, so the old
+                # check (`int(e.get('chars') or 0) < minChars`) silently dropped
+                # EVERY cosine-relevant social/design article — zeroing the design
+                # evidence and forcing fallback to the in-session co-op corpus.
+                # This is the systemic cause of thin themes + off-objective
+                # journeys. Derive effective length from the matched chunk text
+                # when the metadata count is missing/zero.
+                _chunks_for_len = r.get("chunks", []) or []
+                _eff_chars = int(e.get('chars') or 0)
+                if _eff_chars <= 0:
+                    _eff_chars = sum(len((c.get('text') or '')) for c in _chunks_for_len)
+                if req.minChars and req.minChars > 0 and _eff_chars < req.minChars:
                     continue
                 if not _want_synthesis_early and 'synthesis' in (e.get('kind') or '').lower():
                     dropped_synthesis += 1
                     continue
+                # Copy so the per-request _chunk_key tag never mutates the shared
+                # cached index entry.
+                e = dict(e)
+                if int(e.get('chars') or 0) <= 0:
+                    e['chars'] = _eff_chars  # carry effective length downstream
+                e['_chunk_key'] = key
                 selected.append(e)
-                used_paths.add(wp)
-                matched_chunks_by_path[wp] = r.get("chunks", [])
+                used_paths.add(key)
+                matched_chunks_by_path[key] = r.get("chunks", [])
             logger.info(
                 f"Wiki retrieval (chunked): query={req.query[:60]!r} "
                 f"chunked_hits={len(chunked_results)} admitted={len(selected)} "
@@ -8942,16 +10657,30 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
     # Read bodies and assemble response
     articles = []
     for e in selected[:limit]:
-        safe_path = os.path.normpath(os.path.join(WIKI_BASE, e.get('wikiPath') or ''))
-        if not safe_path.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(safe_path):
+        # 2026-05-30 — Look up matched chunks by the per-request dedup key
+        # (real path, or chunkstore::<id> for empty-path articles) so empty-path
+        # entries don't all collide on '' and lose their chunks.
+        ck = e.get('_chunk_key') or e.get('wikiPath') or ''
+        chunks = matched_chunks_by_path.get(ck)
+        wp = e.get('wikiPath') or ''
+        body = ''
+        if wp:
+            safe_path = os.path.normpath(os.path.join(WIKI_BASE, wp))
+            if safe_path.startswith(os.path.normpath(WIKI_BASE)) and os.path.exists(safe_path):
+                try:
+                    with open(safe_path, 'r', encoding='utf-8') as f:
+                        body = _extract_wiki_body(f.read(), max_chars=max_chars)
+                except Exception as err:
+                    logger.warning(f"Wiki fetch-articles: read fail {wp}: {err}")
+                    body = ''
+        if not body and chunks:
+            # 2026-05-30 — No readable file (empty/unmapped wikiPath, e.g. social
+            # Reddit content embedded without a path). The matched chunk passages
+            # ARE the relevant evidence — return them as the body so cosine-relevant
+            # content is no longer silently dropped at response-build time.
+            body = "\n\n".join(c.get('text', '') for c in chunks if c.get('text'))[:max_chars]
+        if not body:
             continue
-        try:
-            with open(safe_path, 'r', encoding='utf-8') as f:
-                raw = f.read()
-        except Exception as err:
-            logger.warning(f"Wiki fetch-articles: read fail {e.get('wikiPath')}: {err}")
-            continue
-        body = _extract_wiki_body(raw, max_chars=max_chars)
         article_dict = {
             'id': e.get('id'),
             'wikiPath': e.get('wikiPath'),
@@ -8974,7 +10703,6 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         # Phase 2 enrichment: if the chunk store surfaced this article, carry
         # the matched chunks (precise passages with section context) so the
         # LLM can cite the right paragraph instead of re-reading the whole body.
-        chunks = matched_chunks_by_path.get(e.get('wikiPath'))
         if chunks:
             article_dict['matched_chunks'] = chunks
         articles.append(article_dict)
@@ -9051,6 +10779,16 @@ EMBED_PROVIDERS = {
         "key_env": "VOYAGE_API_KEY",
         "batch": 128,
     },
+    # 2026-06-03 — LOCAL provider: the social-research-backend's sentence-
+    # transformer (all-mpnet-base-v2, 768-dim). NO API quota -> retrieval never
+    # starves on Gemini/OpenAI 429 "Resource exhausted". key_env empty (no key).
+    "local": {
+        "model": "all-mpnet-base-v2",
+        "dim": 768,
+        "url": os.environ.get("EMBED_LOCAL_URL", "http://social-research-backend:8081/api/embed"),
+        "key_env": "",
+        "batch": 256,
+    },
 }
 
 # 2026-05-19 — Default flipped from openai → gemini. The OpenAI account has
@@ -9058,17 +10796,27 @@ EMBED_PROVIDERS = {
 # logs: every batch returns 429). Gemini text-embedding-004 is healthy and
 # uses the same GEMINI_API_KEY already configured for chat/research. To
 # revert, set EMBED_PROVIDER=openai in the environment.
-EMBED_PROVIDER = os.environ.get("EMBED_PROVIDER", "gemini").lower()
+# 2026-06-03 — default flipped gemini → local. The Gemini embed API was hitting
+# 429 "Resource exhausted", which timed out wiki retrieval and starved theme
+# generation. The local sentence-transformer has no quota and works every run.
+# To revert: set EMBED_PROVIDER=gemini in the environment.
+EMBED_PROVIDER = os.environ.get("EMBED_PROVIDER", "local").lower()
 if EMBED_PROVIDER not in EMBED_PROVIDERS:
-    logger.warning(f"Unknown EMBED_PROVIDER={EMBED_PROVIDER!r}, defaulting to gemini")
-    EMBED_PROVIDER = "gemini"
+    logger.warning(f"Unknown EMBED_PROVIDER={EMBED_PROVIDER!r}, defaulting to local")
+    EMBED_PROVIDER = "local"
 
 EMBED_MODEL = EMBED_PROVIDERS[EMBED_PROVIDER]["model"]
 EMBED_DIM = EMBED_PROVIDERS[EMBED_PROVIDER]["dim"]
 EMBED_MAX_TEXT_CHARS = 8000       # ~2K tokens — safely under most providers' caps
 EMBED_BODY_CHARS = 1200           # body excerpt included in the embed text
 EMBED_BATCH = EMBED_PROVIDERS[EMBED_PROVIDER]["batch"]
-EMBED_FILE = os.path.join(WIKI_BASE, ".embeddings.json")
+# 2026-06-03 — PROVIDER-TAGGED index paths. Different providers occupy different
+# vector spaces; tagging the sidecar + chunk-store filenames by provider+dim
+# means switching providers uses a FRESH index (no silent mixing of, e.g.,
+# gemini-768 with local-768) and the prior index is preserved for reversibility.
+# gemini keeps the legacy untagged paths for backward compatibility.
+_EMBED_PATH_TAG = "" if EMBED_PROVIDER == "gemini" else f".{EMBED_PROVIDER}-{EMBED_DIM}"
+EMBED_FILE = os.path.join(WIKI_BASE, f".embeddings{_EMBED_PATH_TAG}.json")
 _EMBEDDINGS_CACHE: dict = {"by_id": {}, "loaded": False, "dim": EMBED_DIM, "provider": EMBED_PROVIDER, "model": EMBED_MODEL}
 
 
@@ -9176,7 +10924,7 @@ def _embed_via_gemini(texts: list, cfg: dict) -> list:
     key = os.environ.get(cfg["key_env"], "")
     if not key:
         raise RuntimeError(f"{cfg['key_env']} not configured")
-    url = f"{cfg['url']}?key={key}"
+    url = cfg['url']  # A2: key in x-goog-api-key header
     body = {
         "requests": [
             {
@@ -9190,7 +10938,7 @@ def _embed_via_gemini(texts: list, cfg: dict) -> list:
         ]
     }
     with httpx.Client(timeout=60.0) as c:
-        r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+        r = c.post(url, json=body, headers=_goog_key_headers(key))
     if r.status_code >= 400:
         raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
     data = r.json()
@@ -9220,11 +10968,25 @@ def _embed_via_voyage(texts: list, cfg: dict) -> list:
     return [d.get("embedding") or [] for d in (data.get("data") or [])]
 
 
+def _embed_via_local(texts: list, cfg: dict) -> list:
+    """Local sentence-transformer endpoint on the social-research-backend.
+    Quota-free; no key. Same shape as the other providers (list of float lists).
+    No query/document distinction (mpnet is symmetric) — _embed_texts routes
+    both task types here via the default dispatch path."""
+    with httpx.Client(timeout=180.0) as c:
+        r = c.post(cfg["url"], json={"texts": texts})
+    if r.status_code >= 400:
+        raise RuntimeError(f"local embed HTTP {r.status_code}: {r.text[:300]}")
+    embs = r.json().get("embeddings") or []
+    return embs
+
+
 _EMBED_DISPATCH = {
     "openai": _embed_via_openai,
     "openai-large": _embed_via_openai,
     "gemini": _embed_via_gemini,
     "voyage": _embed_via_voyage,
+    "local": _embed_via_local,
 }
 
 
@@ -9259,7 +11021,7 @@ def _embed_texts(texts: list, task_type: str = "document") -> list:
         key = os.environ.get(cfg["key_env"], "")
         if not key:
             raise RuntimeError(f"{cfg['key_env']} not configured")
-        url = f"{cfg['url']}?key={key}"
+        url = cfg['url']  # A2: key in x-goog-api-key header
         body = {
             "requests": [
                 {
@@ -9276,7 +11038,7 @@ def _embed_texts(texts: list, task_type: str = "document") -> list:
             ]
         }
         with httpx.Client(timeout=60.0) as c:
-            r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+            r = c.post(url, json=body, headers=_goog_key_headers(key))
         if r.status_code >= 400:
             raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
         embeddings = (r.json().get("embeddings") or [])
@@ -9329,7 +11091,7 @@ def _embed_texts_via_provider(provider_id: str, texts: list, task_type: str = "d
         key = os.environ.get(cfg["key_env"], "")
         if not key:
             raise RuntimeError(f"{cfg['key_env']} not configured")
-        url = f"{cfg['url']}?key={key}"
+        url = cfg['url']  # A2: key in x-goog-api-key header
         body = {
             "requests": [
                 {
@@ -9341,7 +11103,7 @@ def _embed_texts_via_provider(provider_id: str, texts: list, task_type: str = "d
             ]
         }
         with httpx.Client(timeout=60.0) as c:
-            r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+            r = c.post(url, json=body, headers=_goog_key_headers(key))
         if r.status_code >= 400:
             raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
         return [e.get("values") or [] for e in (r.json().get("embeddings") or [])]
@@ -9477,7 +11239,7 @@ def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool
 # importable, fetch-articles uses chunk retrieval. Otherwise falls back
 # transparently to the legacy `.embeddings.json` keyword+semantic blend.
 
-CHUNK_STORE_PATH = os.path.join(WIKI_BASE, ".vectors.db")
+CHUNK_STORE_PATH = os.path.join(WIKI_BASE, f".vectors{_EMBED_PATH_TAG}.db")
 _chunk_store_singleton = None
 
 
@@ -9581,6 +11343,23 @@ def _get_chunk_store():
 # only after a research run silently degrades. With this, the boot log says
 # exactly what's right and what needs attention, so dim/provider issues are
 # caught at deploy time instead of mid-run.
+@app.on_event("startup")
+async def _validate_model_registry() -> None:
+    """H1/I2 drift guard — verify the proxy's default model literals are still
+    active at boot, so a vendor sunset is a loud startup alarm not a silent 400."""
+    try:
+        from model_registry import assert_startup
+        # The model IDs the proxy itself defaults to across its generation paths.
+        assert_startup([
+            "claude-sonnet-4-6",        # artifact-generate default
+            "claude-opus-4-8",          # deep-reasoning / journey-mapper dispatch
+            "gemini-3.1-pro-preview",   # deliverable router primary
+            "gemini-2.5-flash",         # fast-tier / fallback
+        ])
+    except Exception as e:
+        logger.warning(f"[model-registry] startup validation skipped: {e}")
+
+
 @app.on_event("startup")
 async def _validate_embed_config() -> None:
     logger.info(
@@ -9717,7 +11496,8 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
     try:
         return store.search_articles(qvec, limit=limit, kind=kind, source=source,
                                      chunks_per_article=chunks_per_article,
-                                     exclude_kinds=exclude_kinds)
+                                     exclude_kinds=exclude_kinds,
+                                     prefer_engagement_goal=engagement_goal)
     except Exception as e:
         logger.warning(f"Chunk store search failed, falling back: {e}")
         return None
@@ -10323,6 +12103,232 @@ async def youtube_discover_by_channels(req: YouTubeDiscoverRequest):
 
 
 # ================================================================
+# SkillOpt trajectory writer (2026-06-06)
+# All self-improvement signals — hook rejections, artifact-engine
+# auditor verdicts, deliverable-auditor subagent verdicts, user
+# feedback (edits, thumbs-down, regenerate-with-feedback), export
+# failures — flow into hook-rejection-log.md so SkillOpt's validation
+# gate + epoch-proposer mine them in ONE place.
+# ================================================================
+
+@app.post("/api/skillopt/trajectory")
+async def skillopt_trajectory_append(req: Request):
+    """Append one structured record to the unified SkillOpt trajectory log."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    if not isinstance(body, dict):
+        return JSONResponse({"error": "body must be object"}, status_code=400)
+    try:
+        log_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "..", "hic-workspace", "wiki", "synthesis", "hook-rejection-log.md",
+        )
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        body.setdefault("ts_ms", int(time.time() * 1000))
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(body, ensure_ascii=False) + "\n")
+        return {"ok": True}
+    except Exception as e:
+        logger.warning(f"[skillopt-trajectory] append failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+# ================================================================
+# Manifest -> wiki chunk pointers (2026-06-06)
+# Returns the list of chunk pointers visible to an engagement. The
+# resolver in services/wikiPointerResolver.ts dereferences each pointer
+# to its text span by reading the source wiki page's chunks: frontmatter.
+# This is the QUERY side of the manifest-pointer retrieval contract —
+# the generator asks "what chunks are in my corpus?", picks the relevant
+# subset, then resolves only those (not the full body of every page).
+# ================================================================
+
+@app.get("/api/manifest/chunks")
+async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article", min_relevance: int = 0):
+    """Return every chunk-pointer the manifest knows about for an engagement.
+
+    Query params:
+      engagement       — engagement slug (filters to records whose wikiPath
+                         or title contains the slug). Empty = whole wiki.
+      types            — comma-separated record types to include. Default:
+                         "social-post,article" (the two types that the
+                         theme + persona pipelines actually consume).
+      min_relevance    — drop records below this manifest-recorded relevance
+                         score (0-100). Default 0 (include everything).
+
+    Returns:
+      {
+        "engagement": "<slug>",
+        "source_count": N,           # distinct wiki pages contributing chunks
+        "chunk_id_count": M,         # total chunk pointers
+        "chunk_ids": [<pointer>, ...]
+      }
+
+    The chunk_ids are <wikiPath>#c<idx>. Pair with the resolver's
+    resolveChunks(ids[]) to dereference. Pointers come from the manifest
+    journal's chunk_count field — pages without chunk_count > 0 don't
+    contribute (haven't been retrofitted yet).
+    """
+    records = _manifest_load()  # {wikiPath: rec}
+    want_types = set(t.strip() for t in (types or "").split(",") if t.strip())
+    eng = (engagement or "").strip().lower()
+    seen_paths: set[str] = set()
+    chunk_ids: list[str] = []
+    for wp, rec in records.items():
+        chunk_count = int(rec.get("chunk_count") or 0)
+        if chunk_count <= 0:
+            continue
+        if want_types and rec.get("type") not in want_types:
+            continue
+        rel_score = rec.get("relevance")
+        try:
+            rs = int(rel_score) if rel_score is not None else 0
+        except (TypeError, ValueError):
+            rs = 0
+        if min_relevance and rs < int(min_relevance):
+            continue
+        if eng and eng not in wp.lower() and eng not in str(rec.get("title", "")).lower() and eng not in str(rec.get("engagement", "")).lower():
+            continue
+        seen_paths.add(wp)
+        for i in range(chunk_count):
+            chunk_ids.append(f"{wp}#c{i}")
+    return {
+        "engagement": engagement,
+        "source_count": len(seen_paths),
+        "chunk_id_count": len(chunk_ids),
+        "chunk_ids": chunk_ids,
+    }
+
+
+@app.post("/api/manifest/chunks-from-selection")
+async def manifest_chunks_from_selection(payload: dict):
+    """2026-06-07 (Phase 2.0, intent-realization-plan) — chunk catalog scoped to
+    the user's KL SELECTION, for cached-only runs.
+
+    Root cause this fixes: the engagement-scoped /api/manifest/chunks filters
+    records by `eng in wikiPath/title`, so a FRESH goal slug matches no page and
+    returns catalog=0 -> manifest-chunk-retrieval no-ops -> generators fall back
+    to bulk RAG. But the KL-selected pages (subreddits / source ids / archive
+    paths) DO carry chunk_count>0. This resolves the selection to those pages and
+    returns their chunk pointers so pickChunksForPrompt can serve the
+    manifest-chunk contract on the cached corpus.
+
+    Body: same selection shape as /api/corpus/from-selection. theme_cluster_ids
+    are intentionally IGNORED here — they are topic-identity pointers
+    (topics-tm_*.json#N) resolved by loadGenerationContext, NOT page chunks.
+    """
+    subreddits = [str(s).lower().strip() for s in (payload.get("social_subreddits") or []) if s]
+    source_ids = [str(s).lower().strip() for s in (payload.get("article_sources") or []) if s]
+    archive_paths = set(str(a) for a in (payload.get("source_archive_paths") or []) if a)
+    records = _manifest_load()
+
+    pats: list[str] = []
+    for s in subreddits:
+        pats += [f"articles/reddit-{s}/", f"articles/reddit-deep-r-{s}/",
+                 f"social-intelligence/reddit-deep/{s}/", f"social-intelligence/reddit/{s}/"]
+    for s in source_ids:
+        pats += [f"articles/{s}/", f"social-intelligence/{s}/"]
+
+    chunk_ids: list[str] = []
+    pages: dict = {}
+    for wp, rec in records.items():
+        cc = int(rec.get("chunk_count") or 0)
+        if cc <= 0:
+            continue
+        wpl = wp.lower()
+        if not (any(p in wpl for p in pats) or wp in archive_paths):
+            continue
+        # Page-level key_terms + relevance so the client can PRE-RANK cheaply
+        # (without resolving every chunk — the resolve-flood that caused
+        # ERR_INSUFFICIENT_RESOURCES on a 9k-chunk catalog). The client scores
+        # candidates on these, then resolves ONLY the top-budget shortlist.
+        kt = rec.get("key_terms") or []
+        if not isinstance(kt, list):
+            kt = []
+        try:
+            rel = int(rec.get("relevance") or 0)
+        except (TypeError, ValueError):
+            rel = 0
+        # title is the cheap goal-specific pre-rank signal that ALWAYS exists in
+        # the manifest (page key_terms are empty for social-post/article records);
+        # the client tokenizes it when key_terms is empty.
+        pages[wp] = {"key_terms": [str(t) for t in kt[:24]], "relevance": rel, "chunk_count": cc, "title": str(rec.get("title") or "")}
+        for i in range(cc):
+            chunk_ids.append(f"{wp}#c{i}")
+    return {
+        "source_count": len(pages),
+        "chunk_id_count": len(chunk_ids),
+        "chunk_ids": chunk_ids,
+        "pages": pages,
+    }
+
+
+# ================================================================
+# Manifest-pointer chunk retrofit (2026-06-06)
+# Walks every .md/.markdown wiki page that lacks a `chunks:` frontmatter
+# block and adds one. Idempotent — re-running skips pages already chunked
+# unless force=1 is passed (used when bumping the chunker version).
+# This is the ONE-TIME bridge between the legacy wiki and the new manifest-
+# pointer retrieval architecture. Going forward, wiki_write_article chunks
+# pages at ingest time so this endpoint only needs to run for backfill.
+# ================================================================
+
+@app.post("/api/wiki/retrofit-chunks")
+async def wiki_retrofit_chunks(force: int = 0):
+    """Backfill manifest-pointer `chunks:` frontmatter across the wiki.
+
+    Query params:
+      force=1     — re-chunk pages that already have chunks: (use after
+                    bumping the chunker version). Default: skip them.
+
+    Returns a JSON summary with counts (walked / chunked / skipped /
+    errors) and a duration_seconds field. Synchronous; for very large
+    wikis the response can take a minute or two. The browser-side caller
+    should treat this as a long-poll request and bump its fetch timeout.
+
+    Composes with:
+      - wiki_chunker.chunk_for_manifest (the chunker)
+      - wiki_chunker.upsert_chunks_into_frontmatter (frontmatter writer)
+      - wiki_chunker.has_chunks_frontmatter (idempotency check)
+    """
+    try:
+        from wiki_retrofit import retrofit_wiki_sync
+    except Exception as e:
+        return JSONResponse(
+            {"error": f"wiki_retrofit import failed: {e}"},
+            status_code=500,
+        )
+    started = time.time()
+    try:
+        result = retrofit_wiki_sync(WIKI_BASE, force=bool(int(force)))
+    except Exception as e:
+        logger.exception(f"[wiki-retrofit] failed: {e}")
+        return JSONResponse(
+            {"error": f"retrofit failed: {e}"},
+            status_code=500,
+        )
+    elapsed = time.time() - started
+    stats = result.get("stats", {})
+    logger.info(
+        f"[wiki-retrofit] complete in {elapsed:.1f}s: "
+        f"walked={stats.get('walked')} chunked={stats.get('chunked')} "
+        f"skip_already={stats.get('skipped_already')} "
+        f"skip_empty={stats.get('skipped_empty')} "
+        f"skip_oversize={stats.get('skipped_oversize')} "
+        f"errors={stats.get('write_errors')} "
+        f"chunks_added={stats.get('total_chunks_added')}"
+    )
+    return {
+        "ok": True,
+        "duration_seconds": round(elapsed, 2),
+        "stats": stats,
+        "error": result.get("error"),
+    }
+
+
+# ================================================================
 # Chunked-embedding rebuild (Phase 2)
 # ================================================================
 
@@ -10368,6 +12374,566 @@ async def wiki_embed_rebuild(scopes: str = "articles,transcripts,uploads,sources
 # ================================================================
 # PPTX export — RenderSpec[] → native editable PowerPoint
 # ================================================================
+
+@app.post("/api/corpus/retrieve")
+async def corpus_retrieve(payload: dict):
+    """Step 4 of the volume-to-insight substrate: MULTI-ANGLE retrieval as the default
+    (the documented NotebookLM ~50% satisfaction lift). Expand the goal into N fixed,
+    DETERMINISTIC sub-query angles, retrieve top-k per angle via the existing
+    /api/wiki/fetch-articles primitive, then round-robin merge + dedup so the returned set
+    SPANS the angles (coverage) instead of over-representing one neighborhood. Composes with
+    the manifest scope filters (kind/source). Determinism: fixed angle templates + stable merge.
+
+    Payload: {goal:str, sub_queries?:[str], angles?:int(<=6, default 5), per_angle?:int(default 8),
+              max_total?:int(default 24), kind?:str, source?:str, maxCharsPerArticle?:int}
+    Returns: {goal, angles:[str], per_angle_counts:{angle:n}, scoped_in, returned, articles:[...]}
+    """
+    goal = str(payload.get("goal") or "").strip()
+    if not goal:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail="payload must include non-empty 'goal'")
+    n_angles = max(1, min(int(payload.get("angles") or 5), 6))
+    sub_queries = payload.get("sub_queries")
+    if not (isinstance(sub_queries, list) and sub_queries):
+        # Fixed deterministic angle templates (same goal -> same sub-queries -> same set).
+        templates = [
+            "{g}",
+            "challenges and pain points in {g}",
+            "evidence, data and named sources about {g}",
+            "examples and case studies of {g}",
+            "stakeholders, roles and impacts in {g}",
+            "contradictions, tensions and counter-evidence on {g}",
+        ]
+        sub_queries = [t.format(g=goal) for t in templates[:n_angles]]
+    else:
+        sub_queries = [str(s) for s in sub_queries][:n_angles]
+
+    per_angle = max(1, int(payload.get("per_angle") or 8))
+    max_total = max(1, int(payload.get("max_total") or 24))
+    kind = payload.get("kind")
+    source = payload.get("source")
+    max_chars = int(payload.get("maxCharsPerArticle") or 20000)
+
+    per_angle_results: list[list[dict]] = []
+    per_angle_counts: dict = {}
+    scoped_in = 0
+    for sq in sub_queries:
+        try:
+            req_i = WikiFetchArticlesRequest(
+                query=sq, kind=kind, source=source, limit=per_angle,
+                maxCharsPerArticle=max_chars, engagementGoal=goal, goalBlendWeight=0.30,
+            )
+            res = await wiki_fetch_articles(req_i)
+            if isinstance(res, dict):
+                arts = res.get("articles") or []
+            else:  # JSONResponse
+                try:
+                    arts = json.loads(bytes(res.body).decode("utf-8")).get("articles") or []
+                except Exception:
+                    arts = []
+        except Exception as e:
+            logger.warning(f"[corpus/retrieve] angle '{sq[:40]}' failed: {e}")
+            arts = []
+        per_angle_results.append(arts)
+        per_angle_counts[sq] = len(arts)
+        scoped_in += len(arts)
+
+    # Round-robin merge across angles + dedup by wikiPath (or id), so the set spans angles.
+    merged: list[dict] = []
+    seen: set = set()
+    cursors = [0] * len(per_angle_results)
+    while len(merged) < max_total:
+        progressed = False
+        for ai, arts in enumerate(per_angle_results):
+            if len(merged) >= max_total:
+                break
+            c = cursors[ai]
+            if c < len(arts):
+                progressed = True
+                cursors[ai] = c + 1
+                a = arts[c]
+                key = a.get("wikiPath") or a.get("id") or a.get("path") or a.get("title")
+                if key and key not in seen:
+                    seen.add(key)
+                    merged.append(a)
+        if not progressed:
+            break
+
+    return {
+        "goal": goal, "angles": sub_queries, "per_angle_counts": per_angle_counts,
+        "scoped_in": scoped_in, "returned": len(merged), "articles": merged,
+    }
+
+
+@app.post("/api/corpus/scope")
+async def corpus_scope(payload: dict):
+    """Step 3 of the volume-to-insight substrate (plans/volume-to-insight-substrate-2026-06-03.md):
+    budget-aware manifest SCOPING with NO fixed per-source caps. Filter the persistent corpus
+    manifest by type / industry / engagement / min-relevance, rank by manifest relevance
+    (deterministic, stable sort), and return up to a COUNT and/or CHAR budget. Replaces the
+    50/subreddit arbitrary cap with relevance-ranked selection over the WHOLE corpus, so volume
+    of insight can scale with volume of data. Deterministic: same inputs -> same candidate set.
+
+    Payload: {types?:[], industries?:[], engagement?:str, min_relevance?:int,
+              max_count?:int (0=uncapped), max_chars?:int (0=uncapped)}
+    Returns: {scope_size, returned, total_chars, budget, filters, records:[...]}
+    """
+    records = _manifest_load()  # {wikiPath: rec}
+    types = set(payload.get("types") or [])
+    industries = set(str(i).lower() for i in (payload.get("industries") or []))
+    engagement = str(payload.get("engagement") or "").strip().lower()
+    min_rel = int(payload.get("min_relevance") or 0)
+    max_count = int(payload.get("max_count") or 0)   # 0 = no count cap
+    max_chars = int(payload.get("max_chars") or 0)   # 0 = no char budget
+
+    cand = []
+    for wp, rec in records.items():
+        if types and rec.get("type") not in types:
+            continue
+        if min_rel and int(rec.get("relevance") or 0) < min_rel:
+            continue
+        if industries:
+            rec_inds = set(str(x).lower() for x in (rec.get("industries") or []))
+            if not (rec_inds & industries):
+                continue
+        if engagement and engagement not in wp.lower() and engagement not in str(rec.get("title", "")).lower():
+            continue
+        cand.append((wp, rec))
+    scope_size = len(cand)
+    # Deterministic rank: relevance desc, then richer (more chars) first, then wikiPath asc.
+    cand.sort(key=lambda kv: (-(int(kv[1].get("relevance") or 0)), -(int(kv[1].get("chars") or 0)), kv[0]))
+
+    out = []
+    total_chars = 0
+    for wp, rec in cand:
+        if max_count and len(out) >= max_count:
+            break
+        ch = int(rec.get("chars") or 0)
+        if max_chars and out and (total_chars + ch) > max_chars:
+            break
+        total_chars += ch
+        out.append({
+            "wikiPath": wp, "type": rec.get("type"), "title": rec.get("title"),
+            "relevance": int(rec.get("relevance") or 0), "chars": ch,
+            "industries": rec.get("industries") or [], "summary": rec.get("summary") or "",
+        })
+    return {
+        "scope_size": scope_size, "returned": len(out), "total_chars": total_chars,
+        "budget": {"max_count": max_count, "max_chars": max_chars, "min_relevance": min_rel},
+        "filters": {"types": sorted(types), "industries": sorted(industries), "engagement": engagement},
+        "records": out,
+    }
+
+
+@app.post("/api/corpus/from-selection")
+async def corpus_from_selection(payload: dict):
+    """2026-06-06 — Resolve the user's KL selection (subreddits, source IDs,
+    archive paths, theme cluster IDs) to a full-body article corpus for
+    cached-only synthesis. Honors the user's filter EXACTLY — no
+    relevance-rank fallback that pulls in non-selected content.
+
+    Request body (all optional, all merged):
+      {
+        social_subreddits: ["careerguidance","internships","neu",...],
+        article_sources:   ["reddit-coop","reddit-deep-r-uwaterloo",...],
+        source_archive_paths: ["sources/<file>.md", ...],
+        theme_cluster_ids: ["topics-tm_<ts>_<hash>.json#<cluster>", ...],
+        max_chars_per_article: 18000,
+        max_articles: 200
+      }
+
+    Returns:
+      {
+        articles: [{wikiPath, title, source, url, body, kind}],
+        stats: {by_subreddit: {...}, by_source: {...}, archive: N, themes: N}
+      }
+    """
+    subreddits = [str(s).lower().strip() for s in (payload.get("social_subreddits") or []) if s]
+    source_ids = [str(s).lower().strip() for s in (payload.get("article_sources") or []) if s]
+    archive_paths = list(payload.get("source_archive_paths") or [])
+    max_chars = max(500, min(50_000, int(payload.get("max_chars_per_article") or 15_000)))
+    max_articles = max(10, min(500, int(payload.get("max_articles") or 200)))
+
+    records = _manifest_load()  # {wikiPath: rec}
+    selected_paths: list = []
+    seen: set = set()
+    stats_by_subreddit: dict = {s: 0 for s in subreddits}
+    stats_by_source: dict = {s: 0 for s in source_ids}
+
+    # Match function: a wikiPath matches a subreddit if any of these patterns hit.
+    # Reddit content is sharded across two prefixes historically:
+    #   articles/reddit-<sub>/...           (lightweight collector)
+    #   articles/reddit-deep-r-<sub>/...    (deep collector with comments)
+    #   social-intelligence/reddit-deep/<sub>/...  (newer storage scheme)
+    def _subreddit_patterns(sub: str) -> list:
+        sub = sub.lower().strip()
+        return [
+            f"articles/reddit-{sub}/",
+            f"articles/reddit-deep-r-{sub}/",
+            f"social-intelligence/reddit-deep/{sub}/",
+            f"social-intelligence/reddit/{sub}/",
+        ]
+    def _source_patterns(src: str) -> list:
+        src = src.lower().strip()
+        return [
+            f"articles/{src}/",
+            f"social-intelligence/{src}/",
+        ]
+
+    sub_pats: list = []
+    for s in subreddits:
+        for p in _subreddit_patterns(s):
+            sub_pats.append((p, s))
+    src_pats: list = []
+    for s in source_ids:
+        for p in _source_patterns(s):
+            src_pats.append((p, s))
+
+    for wp in records.keys():
+        if wp in seen:
+            continue
+        wp_lower = wp.lower()
+        matched = False
+        for pat, sub in sub_pats:
+            if pat in wp_lower:
+                stats_by_subreddit[sub] = stats_by_subreddit.get(sub, 0) + 1
+                matched = True
+                break
+        if not matched:
+            for pat, src in src_pats:
+                if pat in wp_lower:
+                    stats_by_source[src] = stats_by_source.get(src, 0) + 1
+                    matched = True
+                    break
+        if matched:
+            selected_paths.append(wp)
+            seen.add(wp)
+
+    # Direct archive paths — bypass filter, always included.
+    archive_hit = 0
+    for ap in archive_paths:
+        if ap and ap not in seen:
+            selected_paths.append(ap)
+            seen.add(ap)
+            archive_hit += 1
+
+    # Sort by manifest relevance desc so highest-signal content gets the budget first.
+    def _rel(wp: str) -> int:
+        try:
+            return int((records.get(wp) or {}).get("relevance") or 0)
+        except Exception:
+            return 0
+    selected_paths.sort(key=lambda wp: (-_rel(wp), wp))
+    if len(selected_paths) > max_articles:
+        selected_paths = selected_paths[:max_articles]
+
+    # Read bodies.
+    articles: list = []
+    for wp in selected_paths:
+        try:
+            body_path = os.path.join(WIKI_BASE, wp)
+            with open(body_path, "r", encoding="utf-8") as f:
+                raw = f.read()
+            rec = records.get(wp) or {}
+            kind = rec.get("type") or ""
+            title = rec.get("title") or wp
+            source = rec.get("source") or ""
+            url = ""
+            body_text = raw
+            if kind == "social-post":
+                fm, comments, op_body = _parse_wiki_post_metadata_and_comments(raw)
+                title = str(fm.get("title") or title)
+                url = fm.get("url") or ""
+                source = f"reddit: r/{fm.get('subreddit') or ''}".strip()
+                # Combine OP body + top-N comments for richer voice.
+                parts = []
+                if op_body: parts.append(f"OP POST:\n{op_body.strip()[:max_chars // 2]}")
+                if comments:
+                    cmt_text = []
+                    for c in comments[:8]:
+                        if isinstance(c, dict):
+                            cmt_text.append(f"COMMENT (score={c.get('score','?')}): {str(c.get('body',''))[:600]}")
+                    if cmt_text:
+                        parts.append("\n".join(cmt_text))
+                body_text = "\n\n".join(parts) if parts else op_body or raw
+            else:
+                # Strip frontmatter; cap to budget.
+                body_text = _extract_wiki_body(raw, max_chars=max_chars)
+            if not body_text or len(body_text.strip()) < 40:
+                continue
+            articles.append({
+                "wikiPath": wp,
+                "title": title,
+                "source": source,
+                "url": url,
+                "kind": kind,
+                "body": body_text[:max_chars],
+            })
+        except Exception as e:
+            logger.warning(f"[corpus-from-selection] read failed for {wp}: {e}")
+            continue
+
+    return {
+        "articles": articles,
+        "total_candidates": len(selected_paths),
+        "stats": {
+            "by_subreddit": stats_by_subreddit,
+            "by_source": stats_by_source,
+            "archive_hits": archive_hit,
+            "manifest_size": len(records),
+        },
+    }
+
+
+@app.get("/api/epochs/status")
+async def epochs_status(threshold: int = 5):
+    """Step-7 epoch trigger — disk-authoritative readiness check.
+
+    Computes `jobs_since_last_epoch` by:
+      1. Reading wiki/synthesis/improvement-epochs.md to find the most recent
+         epoch record's timestamp + the highest epoch id seen.
+      2. Counting completed research jobs (engagements with a manifest.json)
+         whose manifest mtime is newer than the last epoch timestamp.
+
+    Returns `{due, jobs_since_last_epoch, threshold, last_epoch_at,
+              next_epoch_id, computed_at}` matching services/epochTrigger.ts
+    EpochStatus shape.
+
+    Disk-authoritative: never trusts in-memory state; survives uvicorn worker
+    splits (the same pattern that fixed the topic-model 502s).
+    """
+    threshold = max(1, min(int(threshold or 5), 100))
+    ledger_path = "/hic-workspace/wiki/synthesis/improvement-epochs.md"
+    engagement_root = "/hic-workspace/wiki/engagements"
+
+    last_epoch_at_iso: str | None = None
+    last_epoch_at_ts: float = 0.0
+    next_epoch_id: int = 1
+    if os.path.exists(ledger_path):
+        try:
+            with open(ledger_path, "r", encoding="utf-8") as f:
+                text = f.read()
+            # Parse "## Epoch <id> — <YYYY-MM-DD HH:MM UTC>" lines.
+            # Match the id and the timestamp; pick the most recent by timestamp.
+            heading_re = re.compile(
+                r"^##\s+Epoch\s+(\d+)\s+[—-]\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(?::\d{2})?)\s*UTC",
+                re.MULTILINE,
+            )
+            best_ts = 0.0
+            best_id = 0
+            best_iso: str | None = None
+            for m in heading_re.finditer(text):
+                eid = int(m.group(1))
+                ts_str = m.group(2)
+                try:
+                    from datetime import datetime
+                    parsed = datetime.strptime(ts_str, "%Y-%m-%d %H:%M:%S") if len(ts_str) > 16 \
+                        else datetime.strptime(ts_str, "%Y-%m-%d %H:%M")
+                    ts = parsed.timestamp()
+                except Exception:
+                    continue
+                if ts > best_ts:
+                    best_ts = ts
+                    best_iso = ts_str
+                if eid > best_id:
+                    best_id = eid
+            if best_iso is not None:
+                last_epoch_at_iso = best_iso + "Z"
+                last_epoch_at_ts = best_ts
+            next_epoch_id = best_id + 1
+        except Exception as e:
+            logger.warning(f"[epochs/status] ledger parse failed (will treat as no prior epoch): {e}")
+
+    # Count engagements completed AFTER the last epoch timestamp.
+    jobs_since: int = 0
+    if os.path.isdir(engagement_root):
+        try:
+            for slug in os.listdir(engagement_root):
+                slug_dir = os.path.join(engagement_root, slug)
+                if not os.path.isdir(slug_dir):
+                    continue
+                manifest = os.path.join(slug_dir, "manifest.json")
+                if not os.path.exists(manifest):
+                    continue
+                try:
+                    mtime = os.path.getmtime(manifest)
+                except OSError:
+                    continue
+                if mtime > last_epoch_at_ts:
+                    jobs_since += 1
+        except Exception as e:
+            logger.warning(f"[epochs/status] engagement enumeration failed: {e}")
+
+    from datetime import datetime
+    return {
+        "due": jobs_since >= threshold,
+        "jobs_since_last_epoch": jobs_since,
+        "threshold": threshold,
+        "last_epoch_at": last_epoch_at_iso,
+        "next_epoch_id": next_epoch_id,
+        "computed_at": datetime.utcnow().isoformat() + "Z",
+    }
+
+
+@app.get("/api/golden-set/failure-corpus")
+async def golden_set_failure_corpus(n: int = 10, kinds: str = ""):
+    """Enumerate N random failure-corpus deliverables (cached *.json under
+    hic-workspace/wiki/engagements/) for the M3 goldenSetRunner.
+
+    Step-7 epoch gate scores these to ensure proposed harness edits don't
+    raise the failure-corpus mean (the discrimination acceptance rule in
+    wiki/eval/golden-set.json). Deterministic sampling: same seed + same
+    repo state -> same sample, so two gate runs at the same epoch can be
+    compared honestly.
+
+    Query params:
+      n      (int, default 10, max 50) — sample size
+      kinds  (csv, optional) — restrict to deliverable kinds, e.g.
+             'recs,gap,themes'. Empty = all kinds except 'manifest'.
+    """
+    import random
+    from fastapi import HTTPException
+
+    n = max(1, min(int(n or 10), 50))
+    kind_filter = set(k.strip().lower() for k in (kinds or "").split(",") if k.strip())
+    engagement_root = "/hic-workspace/wiki/engagements"
+    if not os.path.isdir(engagement_root):
+        raise HTTPException(status_code=500, detail=f"engagement_root not found: {engagement_root}")
+
+    members = []
+    try:
+        for slug in sorted(os.listdir(engagement_root)):
+            slug_dir = os.path.join(engagement_root, slug)
+            if not os.path.isdir(slug_dir):
+                continue
+            for fn in sorted(os.listdir(slug_dir)):
+                if not fn.endswith(".json"):
+                    continue
+                kind = fn[:-5].lower()
+                if kind == "manifest":
+                    continue
+                if kind_filter and kind not in kind_filter:
+                    continue
+                fp = os.path.join(slug_dir, fn)
+                try:
+                    sz = os.path.getsize(fp)
+                except OSError:
+                    continue
+                # Return paths in the canonical `hic-workspace/...` form so
+                # the SPA static mount at /hic-workspace/ serves them directly
+                # (the runner just prepends '/'). Mirror the convention used
+                # by the wiki article paths elsewhere.
+                norm = fp.replace("\\", "/")
+                if norm.startswith("/hic-workspace/"):
+                    norm = "hic-workspace/" + norm[len("/hic-workspace/"):]
+                members.append({
+                    "engagement": slug,
+                    "kind": kind,
+                    "path": norm,
+                    "bytes": sz,
+                })
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"enumerate failed: {e}")
+
+    # Deterministic sample: seed by (n + kind_filter) so the gate is
+    # reproducible within one repo state.
+    rng = random.Random(hash((n, tuple(sorted(kind_filter)))) & 0xFFFFFFFF)
+    sample = rng.sample(members, min(n, len(members)))
+
+    return {
+        "total_population": len(members),
+        "sample_size": len(sample),
+        "kinds_filter": sorted(kind_filter) if kind_filter else None,
+        "members": sample,
+    }
+
+
+@app.post("/api/gold/export-pptx-multi")
+async def gold_export_pptx_multi(payload: dict):
+    """Convert a LIST of #stage 1920x1080 HTML docs into ONE editable N-slide .pptx.
+
+    This is the structural primitive behind the chat's "Export Deck PPTX" button. The
+    template-pptxgenjs renderer in components/slideTemplates/pptx.ts is being replaced by
+    a capture-from-DOM-then-gold flow: the chat preview (slideTemplates/web.tsx) is the
+    SOURCE OF TRUTH for layout; the SPA captures each slide's rendered DOM at native
+    1920x1080, wraps each in a #stage shell, and posts the array to THIS route. One
+    renderer, one set of brand tokens, no drift between chat preview and exported PPTX.
+
+    Payload: { "slides": ["<full #stage html 1>", "<full #stage html 2>", ...],
+               "filename": "deck-nxt.pptx" (optional) }
+
+    Returns: binary .pptx (application/vnd.openxmlformats-officedocument.presentationml.presentation)
+    with N slides; per-slide run counts available in the X-Slide-Runs header for diagnostics.
+    """
+    import asyncio
+    import tempfile
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+
+    stages = payload.get("slides")
+    if not isinstance(stages, list) or len(stages) == 0:
+        raise HTTPException(status_code=400, detail="payload must include non-empty 'slides' (list of #stage HTML strings)")
+    for i, h in enumerate(stages):
+        if not isinstance(h, str) or not h.strip():
+            raise HTTPException(status_code=400, detail=f"slides[{i}] must be a non-empty HTML string")
+
+    filename = payload.get("filename") or "gold-deck-export.pptx"
+    if not filename.endswith(".pptx"):
+        filename = filename + ".pptx"
+    out_dir = tempfile.mkdtemp(prefix="hic-gold-deck-pptx-")
+    out_path = os.path.join(out_dir, filename)
+
+    try:
+        from gold_pptx_export import html_list_to_editable_pptx
+        rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
+        runs_per_slide = ",".join(str(s.get("runs", 0)) for s in rep.get("slides", []))
+        logger.info("gold pptx-multi export: %d slides, runs=%s -> %s",
+                    len(stages), runs_per_slide, filename)
+    except Exception as e:
+        logger.exception("gold pptx-multi export failed")
+        raise HTTPException(status_code=500, detail=f"gold deck export failed: {e}")
+
+    return FileResponse(
+        out_path, filename=filename,
+        media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        headers={"X-Slide-Count": str(len(stages)), "X-Slide-Runs": runs_per_slide},
+    )
+
+
+@app.post("/api/gold/export-pptx")
+async def gold_export_pptx(payload: dict):
+    """Convert GOLD-language HTML (a self-contained 1920x1080 #stage document) into an
+    EDITABLE .pptx: pixel-exact graphic background (text hidden) + real editable PowerPoint
+    text, deterministically sized to fit, with the gold fonts embedded. "graphics graphics,
+    text text." Payload: { "html": "<full gold html>", "filename": "gap-nu.pptx" (optional) }.
+    Used by the Analyst Desk chat to export a hashtag deliverable rendered in the gold language.
+    """
+    import asyncio
+    import tempfile
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+
+    html = payload.get("html")
+    if not isinstance(html, str) or not html.strip():
+        raise HTTPException(status_code=400, detail="payload must include non-empty 'html'")
+    filename = payload.get("filename") or "gold-export.pptx"
+    if not filename.endswith(".pptx"):
+        filename = filename + ".pptx"
+    out_dir = tempfile.mkdtemp(prefix="hic-gold-pptx-")
+    out_path = os.path.join(out_dir, filename)
+    try:
+        from gold_pptx_export import html_to_editable_pptx
+        # sync Playwright cannot run inside the asyncio loop -> run in a worker thread.
+        rep = await asyncio.to_thread(html_to_editable_pptx, html, out_path)
+        logger.info("gold pptx export: %s editable runs -> %s", rep.get("runs"), filename)
+    except Exception as e:
+        logger.exception("gold pptx export failed")
+        raise HTTPException(status_code=500, detail=f"gold export failed: {e}")
+    return FileResponse(
+        out_path, filename=filename,
+        media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    )
+
 
 @app.post("/api/export-pptx")
 async def export_pptx(payload: dict):
@@ -10453,12 +13019,99 @@ async def export_pptx(payload: dict):
         result.get("file_size", 0),
     )
 
+    # 2026-06-06 — Header transport fix. The prior `X-Render-Counts` value was
+    # a JSON-serialized dict (e.g. `{"text":250,"rect":50}`). HTTP headers do
+    # not tolerate quote characters well; some transport layer (uvicorn / nginx
+    # / browser fetch) was stripping the header, causing the SPA-side guard in
+    # exportFreeformPptx to receive `null` and block valid exports as "empty."
+    # Switching to safe primitive integer headers (no quotes, no JSON) so the
+    # transport always preserves them. Per-type breakdown moved to body for
+    # diagnostics, header carries just the totals.
+    _rendered = result.get("rendered", {}) or {}
+    _rendered_total = sum(v for v in _rendered.values() if isinstance(v, int))
+    _skipped_total = len(result.get("skipped", []) or [])
     return FileResponse(
         out_path,
         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
         filename=filename,
-        headers={"X-Render-Counts": json.dumps(result.get("rendered", {}))},
+        headers={
+            "X-Render-Total": str(_rendered_total),
+            "X-Render-Skipped": str(_skipped_total),
+            "X-Render-SpecCount": str(result.get("total_specs", 0)),
+            "X-Render-SlideCount": str(result.get("slide_count", 1)),
+            "X-Render-FileSize": str(result.get("file_size", 0)),
+        },
     )
+
+
+@app.post("/api/artifact/export-slides")
+async def export_slides(payload: dict):
+    """Export a SLIDE-MODE artifact (a sequence of .nxt-slide frames) to an
+    editable PPTX, a PNG set, or a PDF, browser-free, from the artifact HTML.
+
+    Body: { html?: str, artifact_id?: str, format: 'pptx'|'pdf'|'png', filename?: str }
+    Each .nxt-slide frame becomes one output slide/page. PPTX keeps text EDITABLE
+    (real text boxes, never rasterized). PNG/PDF render the same frame model so all
+    three formats are mutually consistent and match the CSS preview.
+    """
+    import tempfile, uuid as _uuid
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+    import nxt_slide_export as _sx
+
+    fmt = (payload.get("format") or "pptx").lower()
+    if fmt not in ("pptx", "pdf", "png"):
+        raise HTTPException(status_code=400, detail="format must be pptx, pdf, or png")
+    html = payload.get("html") or ""
+    if not html and payload.get("artifact_id"):
+        aid = re.sub(r"[^a-f0-9]", "", str(payload["artifact_id"]))[:64]
+        for d in (ARTIFACT_PERSIST_DIR, JOURNEY_MAPPER_PERSIST_DIR):
+            p = os.path.join(d, f"{aid}.html")
+            if os.path.exists(p):
+                html = open(p, encoding="utf-8").read()
+                break
+    if not html:
+        raise HTTPException(status_code=400, detail="provide html or a known artifact_id")
+
+    frames = _sx.parse_frames(html)
+    if not frames:
+        raise HTTPException(status_code=422, detail="no .nxt-slide frames found; artifact is not slide-mode")
+
+    out_dir = tempfile.mkdtemp(prefix="hic-slides-")
+    base = re.sub(r"[^A-Za-z0-9_-]", "", (payload.get("filename") or "nxt-slides"))[:60] or "nxt-slides"
+    import asyncio
+    try:
+        if fmt == "pptx":
+            out = os.path.join(out_dir, base + ".pptx")
+            # 2026-06-01 — pass html so frames_to_pptx measures real DOM geometry
+            # via Chromium (pixel-accurate + editable). Threaded: Playwright sync
+            # API raises inside the asyncio loop. Falls back to template-offset
+            # exporter if measurement unavailable.
+            await asyncio.to_thread(_sx.frames_to_pptx, frames, out, html)
+            return FileResponse(out, filename=base + ".pptx",
+                                media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                headers={"X-Slide-Count": str(len(frames))})
+        if fmt == "pdf":
+            out = os.path.join(out_dir, base + ".pdf")
+            # MUST run in a thread: render_frames_playwright uses the Playwright
+            # SYNC api, which raises if called inside the asyncio event loop.
+            await asyncio.to_thread(_sx.frames_to_pdf, frames, out, html)
+            return FileResponse(out, filename=base + ".pdf", media_type="application/pdf",
+                                headers={"X-Slide-Count": str(len(frames))})
+        # png -> zipped set (true Chromium render via thread; Pillow fallback)
+        import zipfile
+        paths = await asyncio.to_thread(_sx.frames_to_png, frames, out_dir, html)
+        zp = os.path.join(out_dir, base + "-png.zip")
+        with zipfile.ZipFile(zp, "w") as z:
+            for p in paths:
+                z.write(p, os.path.basename(p))
+        return FileResponse(zp, filename=base + "-png.zip", media_type="application/zip",
+                            headers={"X-Slide-Count": str(len(frames))})
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception("export-slides failed")
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
 
 
 # ================================================================
@@ -10876,11 +13529,20 @@ async def wiki_regrade_relevance(payload: dict):
                 })
             continue
 
-        # Call Gemini via the proxy's existing handler (in-process loopback)
+        # Call Gemini via the proxy's existing handler (in-process loopback).
+        # 2026-06-05 — Added per-batch RETRY with exponential backoff. The
+        # prior version counted ALL 25 articles in a batch as errors on a
+        # single Gemini 502, then moved on. That's the root cause of the
+        # 2026-06-05 "0/218 regraded, errors=50" disaster: ONE transient
+        # Gemini hiccup at the start of the regrade lost 50 articles.
+        # Now: up to 4 retries with exponential backoff + jitter. Only
+        # after exhausted retries do we mark the batch as errors. Telemetry
+        # via logger.warning includes the attempt number so the failure mode
+        # remains visible.
         try:
             gemini_url = (
                 f"https://generativelanguage.googleapis.com/v1beta/models/"
-                f"gemini-2.5-flash:generateContent?key={api_key}"
+                f"gemini-2.5-flash:generateContent"
             )
             gemini_body = {
                 "contents": [{"parts": [{"text": prompt}]}],
@@ -10890,10 +13552,61 @@ async def wiki_regrade_relevance(payload: dict):
                     "responseMimeType": "application/json",
                 },
             }
-            async with httpx.AsyncClient() as client:
-                resp = await client.post(gemini_url, json=gemini_body, timeout=120.0)
-            if resp.status_code != 200:
-                logger.warning(f"regrade gemini batch {batch_start} HTTP {resp.status_code}: {resp.text[:200]}")
+            resp = None
+            last_err: str | None = None
+            MAX_RETRIES = 4
+            for attempt in range(1, MAX_RETRIES + 1):
+                # 2026-06-05 — Acquire a "gemini" bucket slot per attempt so
+                # regrade batches share the same provider-isolation pool as the
+                # /api/ai/gemini chat endpoint. A 429 spike on one path will
+                # shrink concurrency for the other automatically (single
+                # bucket, shared state). The per-batch retry below still owns
+                # backoff; the pacer only owns concurrency + outcome telemetry.
+                bucket = await _pacer_acquire_slot("gemini")
+                try:
+                    async with httpx.AsyncClient() as client:
+                        resp = await client.post(
+                            gemini_url, json=gemini_body,
+                            headers=_goog_key_headers(api_key), timeout=120.0,
+                        )
+                    if resp.status_code == 200:
+                        await _pacer_record_success(bucket)
+                        break
+                    # Transient HTTP codes — retry with exponential backoff.
+                    if resp.status_code in (408, 429, 500, 502, 503, 504):
+                        last_err = f"HTTP {resp.status_code}: {(resp.text or '')[:200]}"
+                        if resp.status_code == 429:
+                            await _pacer_record_rate_limit(bucket, status=429, detail=last_err)
+                        if attempt < MAX_RETRIES:
+                            retry_after_hdr = resp.headers.get("Retry-After")
+                            try:
+                                wait_s = int(retry_after_hdr) if retry_after_hdr else (2 ** attempt)
+                            except (TypeError, ValueError):
+                                wait_s = 2 ** attempt
+                            wait_s = min(30, wait_s) + random.random()
+                            logger.warning(
+                                f"regrade gemini batch {batch_start} attempt {attempt}/{MAX_RETRIES} "
+                                f"transient {last_err} — sleeping {wait_s:.1f}s")
+                            await asyncio.sleep(wait_s)
+                            continue
+                    # Non-transient HTTP — break and surface as error.
+                    last_err = f"HTTP {resp.status_code}: {(resp.text or '')[:200]}"
+                    break
+                except Exception as net_e:
+                    last_err = f"{type(net_e).__name__}: {net_e}"
+                    if attempt < MAX_RETRIES:
+                        wait_s = min(30, 2 ** attempt) + random.random()
+                        logger.warning(
+                            f"regrade gemini batch {batch_start} attempt {attempt}/{MAX_RETRIES} "
+                            f"network error {last_err} — sleeping {wait_s:.1f}s")
+                        await asyncio.sleep(wait_s)
+                        continue
+                    break
+                finally:
+                    _pacer_release_slot(bucket)
+            if resp is None or resp.status_code != 200:
+                logger.warning(
+                    f"regrade gemini batch {batch_start} EXHAUSTED after {MAX_RETRIES} retries: {last_err}")
                 errors += len(batch)
                 continue
             ai_body = resp.json()
@@ -11607,6 +14320,34 @@ _EMOJI_RE = re.compile(
 # and the .claude/CLAUDE.md reporting-depth-metadata bans, ported so the JM
 # artifacts (which bypass slidePostProcessor) get the same protection.
 _META_NARRATION_SUBS = [
+    # 2026-06-06 — UNIVERSAL self-referential prose strip. Any sentence whose
+    # subject is the artifact itself ("this release", "this PRD", "this brief",
+    # "this report", "this analysis", "this deck", "this slide", "this version",
+    # "this artifact", "this deliverable", "this document", "this output",
+    # "this page", "this chart") is META-NARRATION about the artifact's own
+    # scope/structure. A finished consulting artifact never explains why its
+    # own sections exist. Drop the entire sentence (period-to-period).
+    # User flagged 2026-06-06 on the PRD: "this release stays focused on..."
+    # and "Sign-off pairs each role to the part of the assistant it owns so no
+    # feature ships..." -- self-justification, not insight.
+    (re.compile(
+        r"(?:^|(?<=[.!?]\s))[^.!?<>]*?\bthis\s+"
+        r"(?:release|version|artifact|deliverable|document|output|report|analysis|brief|prd|deck|slide|page|chart|matrix|map|blueprint|persona|persona\s+set|journey|roadmap|gap|audit|chapter|section|summary|recap|exhibit|table|view|frame|panel|tab|view\s+model|note|recommendation\s+set)\b[^.!?<>]*?[.!?]\s*",
+        re.I,
+    ), ""),
+    # 2026-06-06 — "X is/are deferred (so|so that) <meta-justification>" pattern.
+    # Any "so this <artifact-noun>" / "so we" / "so no feature ships" tail is
+    # self-justifying chrome. Keep the deferred item, drop the justification.
+    (re.compile(
+        r"(\bis\s+deferred|\bare\s+deferred|\bis\s+out\s+of\s+scope|\bare\s+out\s+of\s+scope)\s+so\s+[^.<>]{1,200}?[.!?]\s*",
+        re.I,
+    ), r"\1. "),
+    # 2026-06-06 — "Sign-off pairs X to Y, so no Z ships..." and similar
+    # explanation-of-table-existence prose. Drop the whole "so + tail".
+    (re.compile(
+        r",\s*so\s+no\s+(?:feature|item|line|deliverable|release|artifact)\s+(?:ships|goes\s+out|moves\s+forward|gets\s+approved)[^.<>]{0,200}?(?=[.!?<])",
+        re.I,
+    ), ""),
     # Self-referential sourcing: "(the|our) corpus/data/research/evidence/findings
     # (already )(suggests|shows|reveals|indicates|tells us)(that)" -> strip the framing,
     # keep the surrounding words (e.g. "What the corpus suggests will work" -> "What will work").
@@ -11651,17 +14392,122 @@ _META_NARRATION_SUBS = [
 ]
 
 
+_SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>", re.DOTALL | re.IGNORECASE)
+
+
 def _strip_meta_narration(html: str) -> str:
-    """Apply the deterministic meta-narration / reporting-metadata strip. Then
-    tidy any orphaned punctuation/whitespace the removals leave behind."""
+    """Apply the deterministic meta-narration / reporting-metadata strip to
+    PROSE only, then tidy orphaned punctuation/whitespace the removals leave.
+
+    <script> and <style> blocks are stashed out before the tidy and restored
+    verbatim afterward. Reason (2026-05-29): the empty-paren tidy below
+    (`re.sub(r"\\(\\s*\\)", "")`) and the whitespace collapse corrupt valid
+    JavaScript and CSS when run document-wide. It silently rewrote
+    `(function(){` -> `(function{`, `.focus()` -> `.focus`,
+    `e.preventDefault()` -> `e.preventDefault`, and `})()` -> `})`, producing
+    `Uncaught SyntaxError: Unexpected token '{'` in every generated journey's
+    rail-step navigation script. The meta-narration substitutions are also
+    prose-targeted, so protecting code blocks from them too is correct."""
     out = html
+
+    # Stash script/style blocks behind sentinel placeholders.
+    _protected: list[str] = []
+
+    def _stash(m: "re.Match") -> str:
+        _protected.append(m.group(0))
+        return f"\x00PROT{len(_protected) - 1}\x00"
+
+    out = _SCRIPT_STYLE_RE.sub(_stash, out)
+
     for pat, sub in _META_NARRATION_SUBS:
         out = pat.sub(sub, out)
     # Tidy artifacts of removal: leading commas/colons, doubled spaces, empty
-    # eyebrow separators like ">, " or "> , ".
+    # eyebrow separators like ">, " or "> , ". (Code blocks are stashed.)
     out = re.sub(r">\s*[,;:]\s*", ">", out)
     out = re.sub(r"[ \t]{2,}", " ", out)
     out = re.sub(r"\(\s*\)", "", out)
+
+    # Restore protected blocks verbatim.
+    for i, blk in enumerate(_protected):
+        out = out.replace(f"\x00PROT{i}\x00", blk)
+    return out
+
+
+# 2026-05-31 — Deterministic leaked-artifact + synthesis-citation backstop.
+# Runs on EVERY artifact that passes through _apply_brand_and_anti_slop (the
+# universal JM-routed chokepoint: journey, blueprint, org, competitive, persona,
+# tech-arch, roadmap, gap, prd...). Prompts are bypassable; this is not. Targets
+# the CRITICAL/HIGH defects found in the 2026-05-31 journey-deck audit:
+#   - LLM continuation/error strings rendered as pull quotes
+#     ("please provide the content of Part 2/3 of the research corpus")
+#   - the pipeline citing its OWN synthesis pass as a source
+#     ("Source: Tri-Model Synthesis / Highlights / Gaps section")
+#   - "Evidence gap:" / QA-annotation rows
+#   - internal severity-stamp chrome ("Pain, PERSISTENT and identity-shaking")
+# These are CLEAN structural removals (whole quote block / row / chip prefix),
+# never mid-sentence prose surgery (self-referential prose is fixed upstream by
+# not feeding synthesis/gap content into the corpus + the artifact prompt rules).
+
+# Citation strings that mean "the model cited its own pipeline, not a real source".
+_BANNED_CITE_RE = re.compile(
+    r'(tri-?model\s+synthesis|tri-?model|,\s*highlights\b|gaps?\s+section|'
+    r'intelligence_sources|the\s+corpus|the\s+record\b|synthesis,\s*(?:highlights|gaps))',
+    re.IGNORECASE,
+)
+# Text that is an LLM artifact, never voice-of-user.
+_LEAKED_QUOTE_TEXT_RE = re.compile(
+    r'(please\s+provide|part\s*\d\s*/\s*\d|content\s+of\s+(?:the\s+|part\s+).{0,40}corpus|'
+    r'provide\s+the\s+content|as\s+an\s+ai\b|i\s+cannot\b|i\'m\s+an\s+ai\b|'
+    r'continue\s+the\s+(?:analysis|response|synthesis)|here\s+is\s+(?:part|the\s+(?:next|remaining)))',
+    re.IGNORECASE,
+)
+
+
+def _strip_leaked_artifacts(html: str) -> str:
+    if not html or not isinstance(html, str):
+        return html
+    out = html
+
+    def _bad(block: str) -> bool:
+        return bool(_LEAKED_QUOTE_TEXT_RE.search(block) or _BANNED_CITE_RE.search(block))
+
+    # 1. Drop entire QUOTE SLIDES whose quote is a leaked artifact or
+    #    synthesis-cited (else an empty quote slide is left behind).
+    out = re.sub(
+        r'<section[^>]*nxt-slide--quote[^>]*>.*?</section>',
+        lambda m: '' if _bad(m.group(0)) else m.group(0),
+        out, flags=re.DOTALL | re.IGNORECASE,
+    )
+    # 2. Drop individual quote blocks inside content slides (nxt-quote has no
+    #    nested divs in the templates, so .*? to the first </div> is correct).
+    out = re.sub(
+        r'<div class="nxt-quote">.*?</div>',
+        lambda m: '' if _bad(m.group(0)) else m.group(0),
+        out, flags=re.DOTALL | re.IGNORECASE,
+    )
+    # 3. Legacy JM blockquotes.
+    out = re.sub(
+        r'<blockquote\b.*?</blockquote>',
+        lambda m: '' if _bad(m.group(0)) else m.group(0),
+        out, flags=re.DOTALL | re.IGNORECASE,
+    )
+    # 4. Drop table rows that render a QA annotation ("Evidence gap", "TBD").
+    out = re.sub(
+        r'<tr>(?:(?!</tr>).)*?(?:evidence\s+gap|\bTBD\b|needs\s+baseline)(?:(?!</tr>).)*?</tr>',
+        '', out, flags=re.DOTALL | re.IGNORECASE,
+    )
+    # 5. Drop source-index / list entries that cite the model's own synthesis pass.
+    out = re.sub(
+        r'<li>(?:(?!</li>).)*?tri-?model\s+synthesis(?:(?!</li>).)*?</li>',
+        '', out, flags=re.DOTALL | re.IGNORECASE,
+    )
+    # 6. Normalize internal severity-stamp chrome inside status chips:
+    #    "Pain, PERSISTENT and identity-shaking" -> "Pain". The human-readable
+    #    consequence prose lives OUTSIDE the chip and is preserved.
+    out = re.sub(
+        r'(<span class="nxt-chip nxt-chip--status">)\s*Pain[,:][^<]*(</span>)',
+        r'\1Pain\2', out, flags=re.IGNORECASE,
+    )
     return out
 
 
@@ -11683,6 +14529,23 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
         return html
     out = html
 
+    # ─── 0. Strip JM-service-local asset references ───────────────────────
+    # The JM service injects <link>/<script src="/static/..."> for its in-page
+    # editor + CSV export. Those paths only resolve on the JM origin (:8080);
+    # when HiC re-serves the persisted HTML from the proxy (:5012) the browser
+    # 404s on hide_exports.css / journey_editor_improved.js /
+    # journey_export_csv.js. The branded artifact does not use the JM editor,
+    # so remove them. Also drop the inline window.journeyMapId config blocks
+    # (editor-only state, sometimes duplicated). Defensive: the JM /api/analyze
+    # path now gates these on `brand`, but older cached HTML and any future
+    # regression are caught here so the served page never 404s.
+    out = re.sub(r'<link[^>]*href="/static/[^"]*"[^>]*>\s*', "", out, flags=re.IGNORECASE)
+    out = re.sub(r'<script[^>]*src="/static/[^"]*"[^>]*>\s*</script>\s*', "", out, flags=re.IGNORECASE)
+    out = re.sub(
+        r'<script>\s*(?://[^\n]*\n\s*)?window\.journeyMapId\s*=\s*[\'"][^\'"]*[\'"]\s*;?\s*</script>\s*',
+        "", out, flags=re.IGNORECASE,
+    )
+
     # ─── 1-3. Slop hygiene ────────────────────────────────────────────────
     out = re.sub(r"\s+—\s+", ", ", out)
     out = re.sub(r"(\w)—(\w)", r"\1-\2", out)
@@ -11702,9 +14565,34 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     # are bypassable by phrasing; this chokepoint is not. (User flagged these
     # repeatedly 2026-05-26.)
     out = _strip_meta_narration(out)
+    # ─── 3c. Leaked-artifact + synthesis-citation backstop (2026-05-31) ────
+    # Runs for BOTH brands (before the NXT early-return) so every artifact is
+    # covered. Removes leaked LLM strings, synthesis-as-source citations,
+    # QA-annotation rows, and severity-stamp chrome.
+    out = _strip_leaked_artifacts(out)
+    # ─── 3d. Inline citation-marker resolution (2026-06-02) ───────────────
+    # Strip bare placeholder markers ([source], [citation needed], [CHUNK_017])
+    # and humanize leaked internal source IDs ([NXT_..._roadmap-options] ->
+    # "(Source: ... roadmap options)"). Cleans the STORED html so the PPTX/PDF
+    # export path is also marker-free, not just the live view.
+    out = _resolve_inline_citation_markers(out)
 
     is_nu = (brand or "nxt").lower() == "nu"
     tokens = _BRAND_TOKENS.get((brand or "nxt").lower(), _BRAND_TOKENS["nxt"])
+
+    # ─── 3d. NU SLIDE-MODE → design-system template path (2026-06-01) ─────
+    # When an NU artifact is SLIDE-MODE (carries .nxt-slide frames), route it
+    # through the same design-system injection as NXT but in NU brand (nxt-nu
+    # theme: Huskies red + ink navy + Spectral/Roboto), so NU gets the full
+    # restyled slide-template set. Scoped to slide-mode so NU document artifacts
+    # keep their legacy brand path unchanged. The measured PPTX exporter reads
+    # the resulting NU computed colors/fonts, so NU exports correctly too.
+    if is_nu and "nxt-slide" in out:
+        try:
+            import nxt_design_system as _nxt_ds
+            return _nxt_ds.inject_nxt_system(out, brand="nu")
+        except Exception as _nu_err:
+            logger.warning(f"[brand] NU slide design-system injection failed, legacy path: {_nu_err}")
 
     # ─── 4. AGGRESSIVE HEX REPLACEMENT ────────────────────────────────────
     # JM's stock palette (from dynamic_journey_mapper.py fallback HTML +
@@ -11751,7 +14639,24 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     out = re.sub(r"rgb\(\s*86\s*,\s*103\s*,\s*254\s*\)", tokens["primary"], out)
     out = re.sub(r"rgb\(\s*93\s*,\s*253\s*,\s*203\s*\)", tokens["secondary"], out)
 
-    # ─── 5. BRAND-TOKEN STYLE OVERRIDE ────────────────────────────────────
+    # ─── 5. NXT: deterministic Design System injection (2026-05-30) ───────
+    # For the NXT brand, the legacy "brand_override" below (Bebas Neue +
+    # chartreuse + dark-navy flatten with [class*=title]{font-family:Bebas
+    # !important}) is SUPERSEDED by the NXT Artifact Design System: the real
+    # stark-white component library (public/nxt-design-gallery), injected as
+    # CSS + JS + icon sprite + logo, plus a Python whitening pass that kills
+    # dark-on-dark and a banned-chrome strip. This is what makes the artifacts
+    # actually match the brand instead of merely being asked to. NU keeps the
+    # legacy override path unchanged.
+    if not is_nu:
+        try:
+            import nxt_design_system as _nxt_ds
+            out = _nxt_ds.inject_nxt_system(out)
+            return out.replace("—", ",")
+        except Exception as _ds_err:
+            logger.warning(f"[brand] NXT design-system injection failed, falling back to legacy override: {_ds_err}")
+
+    # ─── 5b. BRAND-TOKEN STYLE OVERRIDE (NU + NXT fallback) ───────────────
     eyebrow_text = "NU · HUMANS IN CONTROL" if is_nu else "NXT HUMANS · HUMANS IN CONTROL"
     # Inject a Google Fonts <link> for the brand fonts so they actually load
     fonts_link = (
@@ -11895,7 +14800,7 @@ async def _generate_gemini_image(prompt: str, brand: str) -> str:
     )
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{_GEMINI_IMAGE_MODEL}:generateContent?key={api_key}"
+        f"{_GEMINI_IMAGE_MODEL}:generateContent"  # A2: key in header
     )
     payload = {
         "contents": [{"parts": [{"text": full_prompt}]}],
@@ -11903,7 +14808,7 @@ async def _generate_gemini_image(prompt: str, brand: str) -> str:
     }
     try:
         async with httpx.AsyncClient() as client:
-            resp = await client.post(url, json=payload, timeout=120.0)
+            resp = await client.post(url, json=payload, headers=_goog_key_headers(api_key), timeout=120.0)
         if resp.status_code != 200:
             logger.warning(f"[persona-img] HTTP {resp.status_code}: {resp.text[:200]}")
             return ""
@@ -12025,6 +14930,14 @@ async def journey_map_generate(req: Request):
     if _orig_len != len(corpus):
         logger.info(f"[journey-map] pre-extracted corpus: {_orig_len} → {len(corpus)} chars (stripped HiC markers for JM's NLP step)")
 
+    # 2026-05-31 (Phase D) — Prepend learned constraints so the JM-routed
+    # journey/blueprint path also benefits from the self-improvement loop
+    # (previously it received none). Placed at the TOP so it survives the
+    # head-trim below; JM's citation-integrity rule prevents it being cited.
+    _lc_journey = _wiki_learned_constraints_block()
+    if _lc_journey:
+        corpus = _lc_journey + "\n\n" + corpus
+
     # Trim corpus to JM's sweet spot. HiC sometimes hands us 200KB+ — JM's
     # prompt embedding would truncate mid-content. Take the first N bytes
     # (HiC already orders chunks by relevance) at a clean line boundary.
@@ -12109,6 +15022,15 @@ async def journey_map_generate(req: Request):
                         html = await _inject_persona_images(html, brand)
                     except Exception as img_err:
                         logger.warning(f"[journey-map] persona image injection failed (non-fatal): {img_err}")
+                # 2026-06-03 — Run the generalized accessibility + reporting-depth
+                # guard on the journey HTML BEFORE persist, so the dark-on-dark
+                # active-tab contrast violation (and any R-NN metadata) can never
+                # ship from the journey path. Previously this guard ran only on
+                # the generic artifact-view path, not on journeys.
+                try:
+                    html = _inject_a11y_overrides(html)
+                except Exception as _a11y_err:
+                    logger.warning(f"[journey-map] a11y guard failed (non-fatal): {_a11y_err}")
                 logger.info(f"[journey-map] success: {len(html)} chars, journey_id={journey_id}, brand={brand}")
 
                 # ─── Persist the rendered HTML for the launcher pattern ──
@@ -12226,6 +15148,13 @@ async def journey_map_view(journey_id: str):
     try:
         with open(persist_path, "r", encoding="utf-8") as f:
             html = f.read()
+        # 2026-06-03 — run the a11y + metadata guard at SERVE time too, so
+        # journeys persisted BEFORE this fix (the dark-on-dark tab the user saw)
+        # are corrected on view without needing regeneration.
+        try:
+            html = _inject_a11y_overrides(html)
+        except Exception:
+            pass
         return HTMLResponse(content=html)
     except Exception as e:
         logger.exception("journey-map view failed: %s", journey_id)
@@ -12428,26 +15357,286 @@ KIND_TO_SKILL_PATH = {
     "brief-dialog":   "/skills/brief-dialog/SKILL.md",
     "meta-themes":    "/skills/meta-themes/SKILL.md",
     "research-plan":  "/skills/research-planner/SKILL.md",
+    # 2026-06-01 — gap-fill: every generated kind (incl. plural/alias forms)
+    # MUST load its expert consulting skill. Previously these fell through to
+    # skill_md="" → generic, strategically-shallow output (AI slop). Aliases map
+    # to the same expert as their canonical kind; genuinely-new kinds get the
+    # closest expert voice.
+    "themes":         "/skills/theme-analyst/SKILL.md",
+    "theme":          "/skills/theme-analyst/SKILL.md",
+    "personas":       "/skills/persona-architect/SKILL.md",
+    "recommendations":"/skills/recommendation-architect/SKILL.md",
+    "compete":        "/skills/competitive-analyst/SKILL.md",
+    "gap":            "/skills/gap-analysis-evaluator/SKILL.md",
+    "report":         "/skills/strategic-report-writer/SKILL.md",
+    "whitepaper":     "/skills/strategic-report-writer/SKILL.md",
+    "explainer":      "/skills/html-deliverable-composer/SKILL.md",
+    "heuristic-ux":   "/skills/strategic-report-writer/SKILL.md",
 }
 
 
+# ============================================================================
+# C3+C5 (2026-06-06) — Positive structural contract per deliverable kind.
+#
+# Per the pipeline audit's Gap 6: the artifact engine's per-kind layout hints
+# were 1-2 sentences of prose. Models read POSITIVE STRUCTURAL CONTRACTS more
+# reliably than negative ban lists. _KIND_REQUIRED_MODULES enumerates the
+# .nxt-* CSS classes that MUST appear in the emitted HTML for a kind to be
+# considered structurally valid. The auditor function below grep-checks the
+# emitted HTML for each required class; missing >half of them triggers
+# advance-to-next-model in the fallback chain.
+#
+# Conservative rule: each kind's REQUIRED list is short (3-6 classes) and
+# strictly load-bearing for that artifact's recognizability. Optional richer
+# classes (.nxt-quote, .nxt-stat, etc.) are NOT required — only the modules
+# that make the artifact identifiable as its kind.
+# ============================================================================
+
+_KIND_REQUIRED_MODULES: dict[str, list[str]] = {
+    # Cards/grids are the most common modules. Each kind picks the
+    # 3-6 classes that no version of that kind should ever miss.
+    "journey":          ["nxt-phase", "nxt-timeline"],
+    "blueprint":        ["nxt-swimlane", "nxt-phase"],
+    "persona":          ["nxt-persona", "nxt-quote"],
+    "personas":         ["nxt-persona", "nxt-quote"],
+    "prd":              ["nxt-userstory", "nxt-table"],
+    "roadmap":          ["nxt-horizons", "nxt-horizon"],
+    "recommendation":   ["nxt-rec", "nxt-grid"],
+    "recommendations":  ["nxt-rec", "nxt-grid"],
+    "strategy":         ["nxt-kernel", "nxt-section"],
+    "strategy-slide":   ["nxt-slide", "nxt-slide__title"],
+    "brief":            ["nxt-section", "nxt-h2"],
+    "org":              ["nxt-org"],
+    "arch":             ["nxt-flow", "nxt-flow__node"],
+    "gap":              ["nxt-gap", "nxt-section"],
+    "gap-analysis":     ["nxt-gap", "nxt-section"],
+    "tech-audit":       ["nxt-layer", "nxt-component"],
+    "competitive":      ["nxt-matrix", "nxt-strength"],
+    "compete":          ["nxt-matrix", "nxt-strength"],
+    "themes":           ["nxt-theme", "nxt-card"],
+    "theme":            ["nxt-theme", "nxt-card"],
+    "presentation":     ["nxt-slide", "nxt-slide__title"],
+    "mindmap":          ["nxt-flow"],
+    "brief-dialog":     ["nxt-dialog", "nxt-bubble"],
+    "meta-themes":      ["nxt-theme", "nxt-card"],
+    "research-plan":    ["nxt-process", "nxt-section"],
+    "report":           ["nxt-section", "nxt-h2"],
+    "whitepaper":       ["nxt-section", "nxt-h2"],
+    "explainer":        ["nxt-section", "nxt-prose"],
+    "heuristic-ux":     ["nxt-card", "nxt-section"],
+    "case-study":       ["nxt-section", "nxt-quote"],
+}
+
+# Slop tells that the auditor catches in the HTML BEFORE storage. Conservative
+# - these have all been observed in user-flagged failures (PRD 2026-06-06).
+_AUDIT_SLOP_PATTERNS = [
+    re.compile(r"\bthis\s+(?:release|version|artifact|deliverable|document|output|report|analysis|brief|prd|deck|slide|page|chart|matrix|map|blueprint|persona|persona\s+set|journey|roadmap|gap|audit)\b", re.I),
+    re.compile(r"\bso\s+no\s+(?:feature|item|line|deliverable|release|artifact)\s+(?:ships|goes\s+out|moves\s+forward|gets\s+approved)\b", re.I),
+    re.compile(r"\b(?:is|are)\s+(?:deferred|out\s+of\s+scope)\s+so\b", re.I),
+]
+
+
+def _audit_artifact_structure(kind: str, html: str) -> dict:
+    """Deterministic per-kind structural + slop check on emitted artifact HTML.
+
+    Returns:
+        {
+            "verdict":         "accept" | "advance" | "warn",
+            "missing_modules": [...],
+            "present_modules": [...],
+            "slop_hits":       [...],
+            "reason":          str,
+        }
+
+    Logic:
+      - For the kind's REQUIRED_MODULES list, grep the HTML for each class.
+      - If MORE THAN HALF are missing -> verdict=advance (caller skips to
+        next model in the fallback chain).
+      - If any slop pattern matches -> verdict=advance.
+      - Else if some are missing or low slop -> verdict=warn (logged, not
+        blocking).
+      - Else verdict=accept.
+
+    Conservative: when the kind isn't in _KIND_REQUIRED_MODULES, returns
+    verdict=accept (no structural check possible). The artifact still
+    flows through _apply_brand_and_anti_slop downstream regardless.
+    """
+    required = _KIND_REQUIRED_MODULES.get(kind, [])
+    if not html or not isinstance(html, str):
+        return {"verdict": "accept", "missing_modules": [], "present_modules": [],
+                "slop_hits": [], "reason": "empty html (will fail elsewhere)"}
+    present: list[str] = []
+    missing: list[str] = []
+    for cls in required:
+        # Match either "class=...nxt-X..." or just class name as a whole token
+        if re.search(rf'class\s*=\s*["\'][^"\']*\b{re.escape(cls)}\b', html):
+            present.append(cls)
+        else:
+            missing.append(cls)
+    slop_hits: list[str] = []
+    for pat in _AUDIT_SLOP_PATTERNS:
+        m = pat.search(html)
+        if m:
+            slop_hits.append(m.group(0)[:80])
+            if len(slop_hits) >= 5:
+                break
+    half = max(1, len(required) // 2)
+    if required and len(missing) >= max(1, len(required) - 1) and not present:
+        # Almost nothing required is present — likely a totally off-kind output.
+        return {"verdict": "advance", "missing_modules": missing,
+                "present_modules": present, "slop_hits": slop_hits,
+                "reason": f"artifact missing {len(missing)}/{len(required)} required modules — structurally not a {kind}"}
+    if slop_hits:
+        return {"verdict": "advance", "missing_modules": missing,
+                "present_modules": present, "slop_hits": slop_hits,
+                "reason": f"artifact contains {len(slop_hits)} slop pattern hit(s); first: {slop_hits[0]!r}"}
+    if missing:
+        return {"verdict": "warn", "missing_modules": missing,
+                "present_modules": present, "slop_hits": [],
+                "reason": f"artifact missing {len(missing)} of {len(required)} required modules (warning only)"}
+    return {"verdict": "accept", "missing_modules": [], "present_modules": present,
+            "slop_hits": [], "reason": "all required modules present, no slop hits"}
+
+
 def _load_skill_md(kind: str) -> str:
-    """Read the kind-specific skill markdown from the local file system."""
+    """Read the kind-specific expert-skill markdown. Every artifact MUST be
+    strategically crafted by its consulting skill; a miss here = generic AI slop,
+    so misses are logged loudly rather than failing silently."""
     skill_rel = KIND_TO_SKILL_PATH.get(kind)
     if not skill_rel:
+        logger.warning(f"[artifact/{kind}] NO EXPERT SKILL MAPPED — output will be generic. "
+                       f"Add '{kind}' to KIND_TO_SKILL_PATH.")
         return ""
     candidates = [f"/skills{skill_rel.split('/skills', 1)[1]}", "/skills" + skill_rel]
     for path in candidates:
         if os.path.exists(path):
             try:
                 with open(path, "r", encoding="utf-8") as f:
-                    return f.read()[:15000]
+                    md = f.read()[:15000]
+                logger.info(f"[artifact/{kind}] expert skill loaded: {skill_rel} ({len(md)} chars)")
+                return md
             except Exception:
                 continue
+    logger.warning(f"[artifact/{kind}] skill mapped to {skill_rel} but file NOT FOUND on disk — generic fallback.")
     return ""
 
 
-def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, skill_md: str) -> str:
+def _slide_mode_contract(kind: str, render_mode: str, slide_count: int) -> str:
+    """Slide-deck layout contract (NXT). Turns the artifact into a sequence of
+    .nxt-slide frames (design-system templates) instead of a continuous page.
+    'slide' = a tight executive summary (3-5 frames); 'slides' = a full deck.
+    Each frame is a fixed 16:9 box that exports 1:1 to an editable PPTX slide."""
+    if render_mode not in ("slide", "slides"):
+        return ""
+    if render_mode == "slide":
+        count_rule = ("Produce a TIGHT executive summary deck of 3 to 5 .nxt-slide frames: "
+                      "a title frame, 1 to 3 substance frames carrying the single most important "
+                      "finding and its support, and a closing frame. Summarize hard, one idea per frame.")
+    else:
+        n = slide_count if slide_count and 4 <= slide_count <= 30 else 0
+        target = f"EXACTLY {n}" if n else "8 to 14"
+        count_rule = (f"Produce a full deck of {target} .nxt-slide frames. One idea per frame, "
+                      f"summarized to its essence (no dense paragraphs). Open with a title frame, "
+                      f"use section-divider frames between movements, close with a closing frame.")
+    return f"""
+*** SLIDE-DECK MODE (OVERRIDES THE CONTINUOUS-PAGE LAYOUT) ***
+Render this {kind} as a SLIDE DECK using the design-system .nxt-slide frames, NOT one scrolling
+document. Same evidence and rigor, SUMMARIZED to slide density. {count_rule}
+
+EACH FRAME is <section class="nxt-slide ...">...</section> (a fixed 16:9 box). Use the frame
+variants and put a small <span class="nxt-logo nxt-slide__logo">NXT HUMANS</span> on content frames:
+- Title: <section class="nxt-slide nxt-slide--title"><span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">CONTEXT</p><h2 class="nxt-slide__title">Action title (a judgment)</h2><p class="nxt-slide__body">One standfirst line.</p></section>
+- Section divider: <section class="nxt-slide nxt-slide--divider"><p class="nxt-slide__kicker">Section</p><h2 class="nxt-slide__title">Movement name</h2></section>
+- Content: <section class="nxt-slide"><span class="nxt-logo nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">LABEL</p><h2 class="nxt-slide__title">Point</h2><p class="nxt-slide__body">One tight paragraph.</p></section>
+- For lists use .nxt-numlist; for comparisons .nxt-compare; for steps .nxt-process; for stats a .nxt-grid of .nxt-iconstat; for evidence a .nxt-slide--quote with a .nxt-quote; for data a .nxt-table; for cards .nxt-grid of .nxt-card. Pick the RIGHT template per frame; vary them.
+- Closing: <section class="nxt-slide nxt-slide--closing"><span class="nxt-logo nxt-logo--white nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">What's NXT</p><h2 class="nxt-slide__title">The one thing to do next</h2></section>
+
+RULES: ONE idea per frame; never overfill a frame (if it would overflow, split into two frames).
+Slide titles are action-title judgments, not topic labels. Numbers ONLY inside cited quotes.
+Keep the masthead/tabs OUT of slide mode (no document chrome); each frame stands alone.
+Still emit a final source-index frame listing the named sources.
+SUMMARIZE for slides: use slide-scale blocks (.nxt-numlist, .nxt-card grids of 2-4, .nxt-process,
+.nxt-compare, .nxt-iconstat, .nxt-quote, a compact .nxt-table of <=4 rows). Do NOT cram a full
+document module into one frame: no .nxt-swimlane, no full .nxt-matrix, no .nxt-layer stack, no
+.nxt-org, no multi-row .nxt-gap on a single slide. If the source artifact has a big matrix/swimlane,
+distill it into a few cards, a comparison, or a process across one or two frames instead.
+
+*** CONTENT DENSITY (fill every template richly, never sparse) ***
+A frame is not done when it has a title and one line. Each content frame should carry the SUPPORTING
+detail its template affords, without crowding: a content frame = action-title + a 1-2 sentence
+standfirst + the module (cards/list/process/etc.) + at least one verbatim cited quote where evidence
+exists. A journey/process step is not a bare label: each step gets a one-line ACTION, a named
+TOUCHPOINT, a PAIN (with severity word), an EMOTION word, and a verbatim QUOTE where the corpus
+supports it. A persona card fills GOALS, BEHAVIORS, PAIN POINTS, NEEDS plus a pull quote. A roadmap
+item names a metric + timeframe. Aim to fill ~70-85% of the frame; if a frame would be mostly empty,
+ADD the next supporting detail (a quote, a touchpoint, an annotation), and if it would overflow,
+split into two frames. Sparse frames and crammed frames are both failures.
+
+Rich journey-phase example (annotations + pain + emotion + quote, not just a marker):
+<section class="nxt-slide nxt-slide--flow"><span class="nxt-logo nxt-slide__logo">NXT HUMANS</span><p class="nxt-slide__kicker">PHASE 02 · IDEATION</p><h2 class="nxt-slide__title">Access to AI no longer separates strong teams; deliberate operation does</h2><div class="nxt-process"><div class="nxt-process__step"><div class="nxt-process__num">1</div><div class="nxt-process__label">Generate options</div><div class="nxt-process__sub">AI drafts directions from a brief, not a blank page.</div></div><div class="nxt-process__step"><div class="nxt-process__num">2</div><div class="nxt-process__label">Steer deliberately</div><div class="nxt-process__sub">Structured prompting replaces autopilot defaults.</div></div></div><p><span class="nxt-chip nxt-chip--accent">Touchpoint: practitioner communities (r/uxdesign)</span></p><p><span class="nxt-chip nxt-chip--status">Pain: WIDESPREAD — autopilot output meets no specific goal</span></p><div class="nxt-quote"><p class="nxt-quote__text">"The gap is less AI vs no AI and more intentional operators vs autopilot users."</p><p class="nxt-quote__cite">Source: r/careeradvice</p></div></section>
+
+*** EXTENDED TEMPLATE LIBRARY (pick the template that fits the frame's job) ***
+- Table of contents / agenda: <section class="nxt-slide nxt-slide--flow"><p class="nxt-slide__kicker">AGENDA</p><h2 class="nxt-slide__title">What this deck covers</h2><div class="nxt-toc"><div class="nxt-toc__item"><span class="nxt-toc__n">01</span><span class="nxt-toc__t">Section name<small>one-line gloss</small></span></div>...</div></section>
+- Hero stat (figure only INSIDE a cited context): <section class="nxt-slide nxt-slide--stat"><div class="nxt-stat"><div class="nxt-stat__fig">3x</div><p class="nxt-stat__cap">"verbatim sentence carrying the figure"</p><p class="nxt-stat__src">Source: Named Source</p></div></section>
+- Case study (Problem/Approach/Result): <section class="nxt-slide nxt-slide--flow"><p class="nxt-slide__kicker">CASE STUDY</p><h2 class="nxt-slide__title">Named example, the outcome it proves</h2><div class="nxt-case"><div class="nxt-case__band"><p class="nxt-case__k">Problem</p><p class="nxt-case__body">...</p></div><div class="nxt-case__band"><p class="nxt-case__k">Approach</p><p class="nxt-case__body">...</p></div><div class="nxt-case__band nxt-case__band--result"><p class="nxt-case__k">Result</p><p class="nxt-case__body">...</p></div></div></section>
+- Bulleted content: <ul class="nxt-bullets"><li>point</li>...</ul> inside a content frame (use for non-sequential points; .nxt-numlist for ordered/ranked).
+- Content + image: <section class="nxt-slide nxt-slide--cols"><div class="nxt-slide__col"><p class="nxt-slide__kicker">LABEL</p><h2 class="nxt-slide__title">Point</h2><p class="nxt-slide__body">...</p></div><div class="nxt-slide__col nxt-slide__col--img"><div class="nxt-img-ph">visual</div></div></section>
+
+*** TEMPLATE MAP — favor these per deliverable kind (kind = {kind}) ***
+- themes: one theme-spotlight per frame (action-title + .nxt-slide__body + a .nxt-quote of the defining verbatim quote); a .nxt-card grid for the theme set overview.
+- recommendations: one .nxt-rec / numbered .nxt-card per recommendation (title + impact + the evidence it cites); a .nxt-compare for consensus-vs-bet.
+- personas: ONE .nxt-persona monogram card per persona frame (avatar initials, GOALS/PAINS/NEEDS as .nxt-persona__k blocks, a verbatim pull .nxt-quote). Never an AI photo.
+- journey/blueprint: a .nxt-process (4-6 steps) per phase band, with a pain + a verbatim quote per step; one phase or two per frame.
+- roadmap: .nxt-horizons (Now/Next/Later) split across frames; each item names a metric + timeframe.
+- prd: a .nxt-card grid of features (MoSCoW label + user story + acceptance criteria).
+- org: a compact .nxt-org tree of the FUNCTIONAL UNITS the corpus names (one or two levels per frame).
+- gap-analysis: .nxt-gap rows or a .nxt-compare (current vs target) with the named impact per gap.
+- competitive: a compact .nxt-table or .nxt-matrix of <=4 NAMED rivals x <=4 dimensions, or .nxt-compare.
+- case-study / strategy / report: lead with a .nxt-slide--stat or .nxt-case, then findings as cards/quotes.
+"""
+
+
+_LEARNED_CONSTRAINTS_CACHE: dict = {"ts": 0.0, "text": ""}
+
+
+def _wiki_learned_constraints_block() -> str:
+    """Read wiki/synthesis/learned-constraints.md (the self-improvement loop's
+    durable output), strip frontmatter + the changelog blockquote, and return a
+    compact GENERATION CONSTRAINTS block. Cached 5 min. Returns '' if absent or
+    empty so callers can prepend unconditionally. (Phase D, 2026-05-31.)"""
+    try:
+        now = _now_wiki_index()
+    except Exception:
+        import time as _t
+        now = _t.time()
+    if now - _LEARNED_CONSTRAINTS_CACHE["ts"] < 300 and _LEARNED_CONSTRAINTS_CACHE["text"] is not None:
+        if _LEARNED_CONSTRAINTS_CACHE["ts"] > 0:
+            return _LEARNED_CONSTRAINTS_CACHE["text"]
+    text = ""
+    try:
+        p = os.path.join(WIKI_BASE, "synthesis", "learned-constraints.md")
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                raw = f.read()
+            # Drop YAML frontmatter and any > blockquote changelog lines; keep
+            # only the actual constraint bullet lines / prose.
+            raw = re.sub(r"^---.*?---\s*", "", raw, count=1, flags=re.DOTALL)
+            lines = [ln for ln in raw.splitlines() if not ln.strip().startswith(">")]
+            body = "\n".join(lines).strip()
+            if len(body) > 80:
+                text = ("=== LEARNED CONSTRAINTS (from prior user feedback, apply these) ===\n"
+                        + body[:4000]
+                        + "\n=== END LEARNED CONSTRAINTS ===")
+    except Exception as e:
+        logger.warning(f"[learned-constraints] read failed (non-fatal): {e}")
+        text = ""
+    _LEARNED_CONSTRAINTS_CACHE["ts"] = now
+    _LEARNED_CONSTRAINTS_CACHE["text"] = text
+    return text
+
+
+def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, skill_md: str,
+                                render_mode: str = "document", slide_count: int = 0) -> str:
     """Build the Claude prompt for generating a kind-specific HTML report.
 
     Mirrors the JM dynamic_journey_mapper.py prompt structure but generalized:
@@ -12461,9 +15650,118 @@ def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, s
     """
     w, h = KIND_DIMENSIONS.get(kind, (1280, 1800))
     is_nu = brand.lower() == "nu"
-    accent = "NU red (#C8102E)" if is_nu else "NXT chartreuse (#B8B800)"
-    font_display = "Roboto Condensed" if is_nu else "Bebas Neue"
-    font_body = "Open Sans" if is_nu else "Archivo"
+
+    # ─── NXT: build with the injected Design System (2026-05-30) ──────────
+    # The stark-white component CSS + tabs JS + icon sprite + real wordmark are
+    # AUTO-INJECTED post-generation by _apply_brand_and_anti_slop. So the model
+    # must NOT write its own theme; it emits semantic HTML using the nxt- classes.
+    # This mirrors the JM service _brand_style_block so JM-routed and proxy-routed
+    # artifacts share one design language.
+    if not is_nu:
+        return f"""**INSTRUCTION**: You are a MASTER {kind.upper().replace('-', ' ')} ANALYST. Activate extended thinking. Produce the most detailed, evidence-grounded {kind} possible as ONE complete HTML document.
+
+PRIMARY DIRECTIVE: build a {kind.upper().replace('-', ' ')}, the specific artifact type, using the module defined in KIND-SPECIFIC STRUCTURE below. That structure is the layout spec; the domain skill further down is REFERENCE for depth/quality, NOT a license to produce a generic strategy narrative. The research goal supplies the SUBJECT MATTER, not the artifact format. A {kind} that comes out as a strategy essay is WRONG.
+
+CRITICAL: Return ONLY a complete HTML document: <!DOCTYPE html><html><head>...</head><body>...</body></html>. No markdown fences, no prose outside the HTML.
+
+*** BUILD WITH THE NXT ARTIFACT DESIGN SYSTEM (2026), STARK-WHITE ***
+A complete stark-white stylesheet, an icon sprite, the real NXT HUMANS wordmark, and a
+working-tabs script are AUTOMATICALLY INJECTED into your output. So:
+- Do NOT write your own <style> theme, do NOT set inline/background colors, do NOT load fonts,
+  do NOT write your own tab JavaScript. The system styles everything. If you emit a dark theme
+  it WILL be stripped, leaving broken output. BUILD ON THE SYSTEM, do not fight it.
+- The ENTIRE document is WHITE (#FFFFFF) with near-black ink (#141414). NO dark dashboards,
+  NO dark cards, NO dark panels. Dark appears ONLY via the intentional .nxt-block--ink/--teal
+  classes (which carry white text automatically). NEVER dark text on a dark background.
+- NEVER invent a tiny "N" / "NXT" box logo. Use the provided wordmark span.
+
+REQUIRED DOCUMENT SHELL (use verbatim class names):
+<header class="nxt-masthead"><span class="nxt-logo">NXT HUMANS</span><span class="nxt-masthead__label">{kind.upper().replace('-', ' ')}</span></header>
+For artifacts with distinct VIEWS (tech-audit, arch, org, meta-themes), add working tabs:
+<nav class="nxt-tabs" data-tabs><button class="nxt-tab" data-tab="a" aria-selected="true">View A</button>...</nav>
+<div data-tabs-scope><section class="nxt-panel" data-panel="a" data-active="true">...</section>...</div>
+Then a hero: <section class="nxt-hero nxt-wrap"><p class="nxt-eyebrow">LABEL</p><h1 class="nxt-hero__title">Action title (a judgment, no naked number)</h1><p class="nxt-hero__standfirst">One standfirst sentence.</p></section>
+Wrap each content block in <section class="nxt-section nxt-wrap">...</section>.
+End with a source index <section class="nxt-section nxt-wrap nxt-source-index"><ul><li><span class="sname">Source.</span> what it is</li>...</ul></section> and <footer class="nxt-footer"><span class="nxt-logo nxt-logo--sm">NXT HUMANS</span><span>{kind.upper().replace('-', ' ')}</span></footer>.
+
+COMPONENT VOCABULARY (use these exact classes; never invent dark equivalents):
+- text: .nxt-h2 .nxt-h3 .nxt-eyebrow .nxt-display .nxt-prose
+- cards: .nxt-card (.nxt-card__label/__title/__body) in .nxt-grid.nxt-grid--2|3|4
+- stats (opt-in only): .nxt-stat (__fig/__label/__src) | quote: .nxt-quote (__text/__cite)
+- chips: .nxt-chip .nxt-chip--status .nxt-chip--accent .nxt-chip--source
+- table: .nxt-table (LIGHT header, never a black bar)
+- intentional color (ONLY dark allowed): .nxt-block.nxt-block--teal|--ink|--lime
+- icons: <svg class="nxt-ico"><use href="#i-NAME"></use></svg>  NAME in: user team building data gear network chart search target flow shield idea calendar doc chat arrow check layers clock alert grid
+- infographics: .nxt-process .nxt-quadrant .nxt-bars/.nxt-bar .nxt-donut .nxt-funnel .nxt-tiers .nxt-iconstat .nxt-compare .nxt-numlist
+- tech diagrams: .nxt-flow(+__node/__arrow) .nxt-hub(+__center/__spoke) .nxt-layer(+ .nxt-component)
+- modules: .nxt-timeline/.nxt-phase .nxt-swimlane .nxt-matrix/.nxt-strength .nxt-persona .nxt-userstory .nxt-horizons/.nxt-horizon .nxt-gap .nxt-org .nxt-kernel .nxt-rec .nxt-callout .nxt-dialog/.nxt-bubble .nxt-theme
+- slides: .nxt-slide(+--title/--divider/--closing/--quote/--image/--split) .nxt-slide__kicker/__title/__body/__logo
+
+RULES: no naked numbers (a digit/%/ratio/$ appears ONLY inside a cited verbatim quote, never in
+titles/headings/prose/tiles); no metadata chrome (no Plan Hash, Version, HUMAN CHECKPOINT,
+"N selected from M", methodology names, run ids); no self-referential language about the artifact
+itself, ENUMERATED HARD-BAN of these phrases anywhere in any text content (a sentence with any of
+these is REJECTED at the chokepoint and your output will fail validation):
+  - "this release..." (the model's commonest tell when writing a PRD scope section)
+  - "this artifact..." / "this deliverable..." / "this document..." / "this output..."
+  - "this report..." / "this analysis..." / "this brief..." / "this PRD..." / "this deck..."
+  - "this slide..." / "this page..." / "this section..." / "this chart..." / "this matrix..."
+  - "this map..." / "this blueprint..." / "this journey..." / "this roadmap..." / "this gap..."
+  - "this persona..." / "this persona set..." / "this audit..." / "this recommendation set..."
+  - "this view..." / "this frame..." / "this panel..." / "this tab..." / "this exhibit..."
+  - "the corpus shows" / "the research indicates" / "the data reveals" / "based on the corpus"
+  - "this <artifact-noun> stays focused on..." (self-justification of scope)
+  - "X is deferred so this <artifact-noun>..." (self-justification of out-of-scope)
+  - "so no feature ships without..." (self-justification of sign-off / approval prose)
+A real consulting deliverable never explains why its OWN sections exist. State the insight or
+list the items. Do NOT wrap each section in an explanation of what the section does. For an "Out
+of scope" section, list the items in tile/bullet form WITHOUT a tail sentence justifying why they
+are deferred. For a "Stakeholder sign-off" matrix, render the matrix. Do NOT add a sentence
+explaining what sign-off accomplishes.
+Other format rules: no em-dash (U+2014); no emoji; describe the EVIDENCE, lead with the insight.
+
+═══════════════════════════════════════════════════════════════
+DOMAIN EXPERTISE FROM THE {kind.upper()} SKILL (apply rigorously)
+═══════════════════════════════════════════════════════════════
+{skill_md[:12000]}
+
+═══════════════════════════════════════════════════════════════
+RESEARCH GOAL
+═══════════════════════════════════════════════════════════════
+{goal[:1500]}
+
+═══════════════════════════════════════════════════════════════
+SOURCE DATA (corpus from HiC Analyst Desk)
+═══════════════════════════════════════════════════════════════
+{corpus[:50000]}
+
+═══════════════════════════════════════════════════════════════
+ANTI-FABRICATION
+═══════════════════════════════════════════════════════════════
+- Never invent numbers, statistics, named entities, or quotes. Verbatim quotes only.
+- Use real source names (Higher Ed Dive, OpenAlex, Reddit, Inside Higher Ed, etc.) in citations.
+- If the corpus does not evidence a claim, omit it and narrow the section around what IS evidenced.
+
+═══════════════════════════════════════════════════════════════
+KIND-SPECIFIC STRUCTURE ({kind}) — FINAL AUTHORITY ON LAYOUT
+═══════════════════════════════════════════════════════════════
+STRUCTURE AUTHORITY: this section OVERRIDES any layout, format, or section list implied by
+the skill above or by the research goal. The goal supplies CONTENT; this supplies STRUCTURE.
+Build EXACTLY the module named here, using its exact classes. Do NOT substitute a generic
+strategy/narrative document. If this says render an org chart, you MUST emit visible
+.nxt-org nodes and connectors (never prose-only). If it says persona cards, emit .nxt-persona
+monogram cards (never an archetype essay or a "how this was built" methodology section).
+{_kind_layout_hint(kind)}
+{_slide_mode_contract(kind, render_mode, slide_count)}
+
+REMEMBER: COMPLETE HTML using the nxt- classes. The KIND STRUCTURE above is mandatory. NO own
+<style> theme. NO methodology/"how this was built" section. NO em-dashes. NO placeholders.
+"""
+
+    # ─── NU: legacy brand prompt (unchanged) ──────────────────────────────
+    accent = "NU red (#C8102E)"
+    font_display = "Roboto Condensed"
+    font_body = "Open Sans"
 
     return f"""**INSTRUCTION**: You are a MASTER {kind.upper().replace('-', ' ')} REPORT ANALYST with exceptional data analysis and HTML visualization skills. Activate extended thinking. Produce the most detailed, evidence-grounded {kind} analysis possible.
 
@@ -12527,27 +15825,33 @@ def _kind_layout_hint(kind: str) -> str:
     """Per-kind layout guidance. Adapted from JM's journey-specific patterns
     so each artifact kind has structural defaults appropriate to its shape."""
     hints = {
-        "journey": "Horizontal timeline of phases left-to-right. KPI dashboard with personas, overall pain points, strategic opportunities at the top. Per-stage cells with verbatim quotes + emotion intensity + named touchpoints.",
-        "blueprint": "Same horizontal grid as journey, but future-state framing. Replace .pain rows with .gain rows. Add intervention markers + projected impact metrics.",
-        "persona": "Document-shaped: persona portrait area, JTBD statement, fiveWs grid (who/what/when-where/why), motivations/painPoints/opportunities with verbatim quote evidence per row. Demographics shown as supporting context, not primary identifier.",
-        "prd": "Sectioned document: Problem framing, User stories, Acceptance criteria per feature, Technical considerations, Success metrics. MoSCoW prioritization legend at top.",
-        "roadmap": "Three horizontal horizons (NOW / NEXT / LATER) with stacked cards per horizon. Each card has title + quantified success metric (baseline + target + timeframe).",
-        "recommendation": "Numbered stack of recommendations. Each: title, description, impact level, action items, evidence citations.",
-        "strategy-slide": "Rumelt's Kernel three sections (Diagnosis / Guiding Policy / Coherent Actions). Action-title heading. 5-7 coherent actions.",
-        "strategy": "Long-form strategic whitepaper. 15 sections: executive summary, diagnosis, guiding policy, coherent actions, evidence base, risk register, success metrics, etc.",
-        "brief": "Three-section consulting brief: Situation / Complication / Resolution (SCQA). Hero stat at top. 3-5 supporting evidence quotes.",
-        "org": "Org chart hierarchy. Nodes with role + name + responsibility. Reporting lines as SVG paths.",
-        "arch": "C4-model tier diagram: presentation / application / data / external layers. System boxes with data-flow arrows annotated by protocol.",
-        "gap-analysis": "Capability grid with current maturity (1-5) vs target maturity per row. Severity badge + DOLLAR-quantified business impact per gap. Quick wins listed at bottom.",
-        "tech-audit": "Systems inventory table + integration map + capability matrix + consolidation opportunities. Cost-per-system column.",
-        "competitive": "Archetype quadrant + benchmark scoring table + maturity matrix + gap summary across 5-8 named competitors.",
-        "presentation": "Multi-section scrolling narrative. Hero/section dividers + 8-15 content slides woven via Minto Pyramid. Action-title headings.",
-        "mindmap": "Nested d3-style mind map. Center node = goal. Branches = themes. Sub-branches = sub-themes with chunk_id references.",
-        "brief-dialog": "Two-column dialogue between Skeptical Partner and Curious Strategist on the finding. 600-900 words. Citations per line.",
-        "meta-themes": "Recurring portfolio patterns across engagements. Themes that appear in 3+ engagements get a 'platform pattern' treatment.",
-        "research-plan": "Plan-act-reflect format: research goal, sub-questions, named institutions, source strategy, expected theme count, reflection threshold.",
+        "journey": ".nxt-timeline of 4-6 .nxt-phase cards left-to-right; each phase: activities, named pain (severity+frequency), emotion label, touchpoint, 2-3 verbatim .nxt-quote. Overall pains + opportunities as .nxt-grid of .nxt-card.",
+        "blueprint": ".nxt-swimlane CSS grid: rows=layers (Evidence/Customer/[Line of Visibility]/Frontstage/[Line of Internal Interaction]/Backstage/Support), cols=service steps. Mark fail points with .nxt-failpoint.",
+        "persona": "2-4 .nxt-persona cards, each with a MONOGRAM .nxt-persona__avatar (initials, NO photo/icon), goals-first name, archetype, GOALS/BEHAVIORS/PAINS/NEEDS blocks, and 2-3 verbatim .nxt-quote. No persona numbering, no segment-size stat.",
+        "prd": "REAL PRD: 5-8 .nxt-userstory ('As a <role> I want <capability> so that <outcome>' + Acceptance), a .nxt-table of requirements (Requirement|Priority chip|Acceptance), non-functional cards, out-of-scope, dependencies. Not an essay.",
+        "roadmap": ".nxt-horizons (Now/Next/Later); each .nxt-horizon__item names a success metric with a NAMED BASELINE + TIMEFRAME (numbers only inside cited quotes).",
+        "recommendation": "4-6 .nxt-rec cards (number, action title, rationale, .nxt-chip--accent impact, the named pain/evidence it resolves). Sequence them.",
+        "strategy-slide": ".nxt-kernel: Diagnosis / Guiding Policy / Coherent Actions (5-7 actions). Action-title heading.",
+        "strategy": ".nxt-kernel (diagnosis/guiding policy/coherent actions) + evidence .nxt-quote + trade-offs cards. Lead with the diagnosis.",
+        "brief": ("A strategic brief FRAMES THE SPACE, it is not a thin field list. REQUIRED: (1) a diagnostic "
+                  "action-title naming the central shift/tension; (2) FRAME THE SPACE section (3-5 sentences + cards) "
+                  "on where the field is and where it is heading; (3) 4-6 KEY FINDINGS, each a claim + 2-3 sentences "
+                  "of substance + a VERBATIM cited .nxt-quote from a named external source; (4) 3-5 OPPORTUNITIES tied "
+                  "to named findings; (5) 3-5 CHALLENGES/RISKS with why they bite; (6) 3-5 reinforcing RECOMMENDED MOVES. "
+                  "EVIDENCE FLOOR: >=8 verbatim cited quotes from >=5 distinct external sources. SELF-CHECK: if any section "
+                  "is a stub or the space is not framed or the floor is unmet, EXPAND before returning. A thin brief is a failure."),
+        "org": "MUST RENDER an operating-model chart with .nxt-org (NOT a strategy narrative, NOT prose): .nxt-org__row of .nxt-org__node (unit name + mandate) across 2-4 levels joined by .nxt-org__connector. Build it from the FUNCTIONAL UNITS the corpus names (e.g. Co-op Office, Career Center, the AI/PAI platform team, faculty advisors, employer partners, the student) even when individual people are not named, never collapse to one generic node and never invent reporting lines the corpus does not support. 8-14 nodes. Add a small RACI .nxt-table for the key functions. If you find yourself writing 'strategy', 'diagnosis', or 'recommended path', STOP, you are building the wrong artifact.",
+        "arch": "3+ stacked .nxt-layer bands (Experience/Application/Data/Infrastructure), each with .nxt-component cards naming real systems. Integration via .nxt-flow (collision-free), not absolute SVG. Working tabs if multiple views.",
+        "gap-analysis": "5-8 .nxt-gap rows (current vs target). Each gap names the AFFECTED SYSTEM/TEAM and the OPERATIONAL CONSEQUENCE (no dollar figures except inside cited quotes). Optional .nxt-quadrant for prioritization.",
+        "tech-audit": "Working .nxt-tabs: Systems Inventory (.nxt-table, light header) | Integration Map (.nxt-flow or .nxt-hub) | Capability Matrix (.nxt-bars) | Consolidation & Actions. Name 6+ real systems with state chips.",
+        "competitive": ".nxt-matrix: ROWS = 4-7 REAL NAMED institutions/rivals from the corpus (mandatory, never 'Competitor A'); COLS = decision dimensions; cells use .nxt-strength bars (leader/parity/gap). Positioning read + white-space list.",
+        "presentation": "Sequence of .nxt-slide frames (title, divider, content, infographic, quote, kpi, comparison, closing). One idea per slide. Action-title headings.",
+        "mindmap": ".nxt-hub center+branches OR .nxt-grid of .nxt-callout LIGHT tiles. 1 center, 4-6 branches, 2-4 evidenced leaves each. Never dark-on-dark.",
+        "brief-dialog": ".nxt-dialog of .nxt-bubble--q / --a exchanges (6-10), light bubbles, dark text. Each answer substantive with citations.",
+        "meta-themes": ".nxt-grid of 5-8 .nxt-theme cards (each .nxt-theme__tag Convergent/Divergent/Emerging + evidenced description). Lead with a 2-3 sentence executive synthesis.",
+        "research-plan": "Stark-white .nxt-card sub-questions (5-8, with type+priority chips) + source-strategy .nxt-table + execution sequence. NO pipeline chrome.",
     }
-    return hints.get(kind, "Document-shaped HTML report with sections, evidence quotes, and visual hierarchy appropriate to the artifact kind.")
+    return hints.get(kind, "Document built from the nxt- component classes: masthead, hero, .nxt-section blocks of .nxt-card/.nxt-table/.nxt-quote, source index, footer.")
 
 
 def _artifact_revision_prompt(kind: str, brand: str, current_html: str, revision_instruction: str) -> str:
@@ -12659,9 +15963,9 @@ async def _call_gemini_for_artifact(prompt: str, model: str, max_tokens: int) ->
     api_key = os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("API_KEY", "").strip()
     if not api_key:
         raise RuntimeError("GEMINI_API_KEY missing")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"  # A2: key in header
     async with httpx.AsyncClient(timeout=900.0) as client:
-        resp = await client.post(url, json={
+        resp = await client.post(url, headers=_goog_key_headers(api_key), json={
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.3, "maxOutputTokens": max_tokens},
         })
@@ -12681,16 +15985,127 @@ def _is_transient_artifact_err(msg: str) -> bool:
     ))
 
 
+def _assess_evidence_density(prompt: str, kind: str) -> dict:
+    """C4 (2026-06-06) — pre-generation evidence-density precheck.
+
+    Reads the prompt for evidence-tell density: distinct named sources
+    mentioned, total chunk pointers cited in the CORPUS block, total chars
+    of the corpus block. Returns:
+
+        {
+            "density":              0..1 (1 = rich, 0 = thin),
+            "named_sources":        list[str],
+            "chunk_pointers_count": int,
+            "corpus_chars":         int,
+            "deficit_dimensions":   list[str],   # what's missing
+            "should_remediate":     bool,
+        }
+
+    Floors (for ALL deliverable kinds; kind-specific tuning later):
+      - >= 6 distinct named sources
+      - >= 12 chunk pointers in the CORPUS block
+      - >= 8KB corpus chars
+
+    When `should_remediate` is True the caller logs a degradation event
+    and proceeds (we don't BLOCK generation — the standing quality-first
+    rule says: meet floors upstream, surface to user when not possible,
+    never silently relax).
+    """
+    if not prompt:
+        return {"density": 0.0, "named_sources": [], "chunk_pointers_count": 0,
+                "corpus_chars": 0, "deficit_dimensions": ["empty_prompt"],
+                "should_remediate": True}
+
+    # Corpus block: between "=== CORPUS" and "=== END CORPUS" if present;
+    # otherwise the whole prompt.
+    corpus_m = re.search(r"===\s*CORPUS[^\n]*===(.*?)===\s*END\s*CORPUS\s*===", prompt, re.DOTALL | re.IGNORECASE)
+    corpus_text = corpus_m.group(1) if corpus_m else prompt
+    corpus_chars = len(corpus_text)
+
+    # Chunk pointer count.
+    chunk_ptrs = re.findall(r"\[([A-Za-z0-9_./\-]+\.(?:md|markdown)#c\d+)\]", corpus_text)
+    chunk_ptr_count = len(set(chunk_ptrs))
+
+    # Named source heuristic: distinct source-path prefixes in the chunk
+    # pointers (e.g. "articles/openalex" vs "social-intelligence/r-neu").
+    named_sources = sorted(set(p.rsplit("/", 1)[0] for p in chunk_ptrs))
+
+    # Density score: weighted average, capped at 1.0.
+    f_sources = min(1.0, len(named_sources) / 6.0)
+    f_chunks  = min(1.0, chunk_ptr_count / 12.0)
+    f_chars   = min(1.0, corpus_chars / 8000.0)
+    density = (f_sources + f_chunks + f_chars) / 3.0
+
+    deficit: list[str] = []
+    if len(named_sources) < 6:
+        deficit.append(f"named_sources_below_floor (have {len(named_sources)}, floor 6)")
+    if chunk_ptr_count < 12:
+        deficit.append(f"chunk_pointers_below_floor (have {chunk_ptr_count}, floor 12)")
+    if corpus_chars < 8000:
+        deficit.append(f"corpus_chars_below_floor (have {corpus_chars}, floor 8000)")
+
+    return {
+        "density": round(density, 3),
+        "named_sources": named_sources,
+        "chunk_pointers_count": chunk_ptr_count,
+        "corpus_chars": corpus_chars,
+        "deficit_dimensions": deficit,
+        "should_remediate": bool(deficit),
+    }
+
+
 async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: int = 64000,
                                            preferred: str | None = None):
-    """Walk the per-kind cross-provider model chain until one model returns.
-    Records provider cooldown on transient (429/529/5xx/timeout) failures so the
-    NEXT call routes around the throttled provider. Returns (html, model_used).
-    Raises only if EVERY model in the chain fails."""
+    """Walk the per-kind cross-provider model chain until one model returns
+    AND passes the structural auditor. Records provider cooldown on transient
+    failures so the NEXT call routes around the throttled provider. Returns
+    (html, model_used). Raises only if EVERY model in the chain fails.
+
+    2026-06-06 (C3+C5) — Added structural auditor between model response
+    and return. When the auditor verdicts 'advance' (missing required
+    modules OR slop pattern hit), the next model in the chain runs as if
+    the current model had failed transiently. Verdicts (advance/warn) are
+    logged to hook-rejection-log.md so SkillOpt's epoch-proposer can mine
+    which kinds keep failing the structural contract and propose SKILL.md
+    improvements automatically.
+
+    2026-06-06 (C4) — Pre-generation evidence-density precheck. If the
+    corpus assembled into the prompt fails density floors (named sources,
+    chunk pointer count, corpus chars), a degradation event is logged so
+    the user sees a 'thin evidence' surface and SkillOpt sees the deficit
+    dimensions in the trajectory log. Generation still proceeds (per the
+    standing quality-first rule: surface thin evidence honestly rather
+    than blocking the user)."""
+    # C4 precheck (non-blocking).
+    _density = _assess_evidence_density(prompt, kind)
+    if _density.get("should_remediate"):
+        try:
+            log_path = os.path.join(
+                os.path.dirname(os.path.abspath(__file__)),
+                "..", "hic-workspace", "wiki", "synthesis", "hook-rejection-log.md",
+            )
+            os.makedirs(os.path.dirname(log_path), exist_ok=True)
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "ts_ms": int(time.time() * 1000),
+                    "source": "evidence_density_precheck",
+                    "deliverable": f"#{kind}",
+                    "verdict": "warn",
+                    "reason": f"Evidence density {_density['density']:.2f} below floor before generation",
+                    "detail": _density,
+                }) + "\n")
+            logger.warning(
+                f"[artifact/{kind}] evidence-density precheck flagged thin corpus: "
+                f"density={_density['density']:.2f}, deficits={_density['deficit_dimensions']}"
+            )
+        except Exception:
+            pass
+
     chain = _resolve_artifact_chain(kind, preferred)
     if not chain:
         raise RuntimeError("no reachable artifact models (check ANTHROPIC_API_KEY / GEMINI_API_KEY)")
     last_err = None
+    audit_history: list[dict] = []
     for i, model in enumerate(chain):
         provider = _artifact_model_provider(model)
         try:
@@ -12702,6 +16117,17 @@ async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: i
                 continue
             if not (html or "").strip():
                 raise RuntimeError("empty response")
+
+            # Structural + slop audit on the emitted HTML before returning.
+            audit = _audit_artifact_structure(kind, html)
+            audit_history.append({"model": model, "verdict": audit["verdict"], "reason": audit["reason"]})
+            _log_artifact_audit_verdict(kind, model, prompt[:200], audit)
+            if audit["verdict"] == "advance" and i < len(chain) - 1:
+                logger.warning(
+                    f"[artifact/{kind}] {model} produced structurally-invalid output, "
+                    f"advancing to next model: {audit['reason']}"
+                )
+                continue
             if i > 0:
                 logger.info(f"[artifact/{kind}] recovered on fallback model {model} (chain position {i})")
             return html, model
@@ -12714,7 +16140,37 @@ async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: i
             else:
                 logger.warning(f"[artifact/{kind}] {model} failed (non-transient), advancing: {msg[:160]}")
             continue
-    raise RuntimeError(f"all artifact models exhausted for {kind}: {last_err}")
+    raise RuntimeError(f"all artifact models exhausted for {kind}: {last_err}; audit_history={audit_history}")
+
+
+def _log_artifact_audit_verdict(kind: str, model: str, prompt_excerpt: str, audit: dict) -> None:
+    """Best-effort append the auditor verdict to the unified hook-rejection
+    log so SkillOpt's epoch-proposer + the audit-mining pipeline see audit
+    verdicts in the same place as hook rejections and user-feedback signals.
+    Closes the user-noted self-improvement loop: post-generation audits +
+    user feedback both flow into the same SkillOpt trajectory store."""
+    try:
+        log_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "..", "hic-workspace", "wiki", "synthesis", "hook-rejection-log.md",
+        )
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        rec = {
+            "ts_ms": int(time.time() * 1000),
+            "source": "artifact_engine_auditor",
+            "deliverable": f"#{kind}",
+            "model": model,
+            "verdict": audit.get("verdict"),
+            "reason": audit.get("reason"),
+            "missing_modules": audit.get("missing_modules", []),
+            "present_modules": audit.get("present_modules", []),
+            "slop_hits": audit.get("slop_hits", []),
+            "prompt_excerpt": prompt_excerpt,
+        }
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec) + "\n")
+    except Exception:
+        pass
 
 
 async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6", max_tokens: int = 32000) -> str:
@@ -12722,6 +16178,15 @@ async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not anthropic_key:
         raise RuntimeError("ANTHROPIC_API_KEY missing — cannot generate artifact")
+    # opus-4-7/4-8/4-9 REJECT the `temperature` param with a 400 ("temperature is
+    # deprecated for this model"); only send it for models that accept it.
+    payload = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    if not re.search(r"opus-4-[789]", model or ""):
+        payload["temperature"] = 0.3
     async with httpx.AsyncClient(timeout=900.0) as client:
         resp = await client.post(
             "https://api.anthropic.com/v1/messages",
@@ -12730,12 +16195,7 @@ async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6
                 "anthropic-version": "2023-06-01",
                 "Content-Type": "application/json",
             },
-            json={
-                "model": model,
-                "max_tokens": max_tokens,
-                "temperature": 0.3,
-                "messages": [{"role": "user", "content": prompt}],
-            },
+            json=payload,
         )
         if resp.status_code != 200:
             raise RuntimeError(f"Anthropic returned {resp.status_code}: {resp.text[:300]}")
@@ -12843,6 +16303,117 @@ async def journey_map_revise(req: Request):
     }
 
 
+# ─── EMPTY-CORPUS GATE constants + renderers (2026-06-02) ────────────────────
+# Below HARD: refuse (honest notice, no model call). HARD..SOFT: degrade (generate
+# with the no-fabrication directive). >= SOFT: normal. Tuned to the observed gap
+# between goal-only fallback (~115 chars) and a real engagement corpus (~39K).
+_MIN_CORPUS_HARD = 800
+_MIN_CORPUS_SOFT = 3000
+
+_NO_FABRICATION_DIRECTIVE = (
+    "EVIDENCE DISCIPLINE (THIN CORPUS): The attached research corpus is small. "
+    "Do NOT invent facts to fill the template. Specifically: do not name competitors, "
+    "products, organizations, people, or tools that are not present in the corpus; do "
+    "not assert metrics, percentages, dollar figures, dates, or counts that are not "
+    "carried by a verbatim quote with an attributed source; do not assign Leader/Gap/"
+    "Parity/maturity ratings you cannot ground in the corpus. If a required section is "
+    "not supported by the corpus, write it narrowly around what IS evidenced, or omit "
+    "it -- never pad with plausible-sounding invention. A shorter, fully-grounded "
+    "artifact is correct; a complete-looking fabricated one is a failure."
+)
+
+
+def _render_insufficient_corpus_html(kind: str, brand: str, goal: str, corpus_len: int) -> str:
+    """Honest, on-brand 'needs a research corpus' notice. Rendered INSTEAD of a
+    fabricated deliverable when the corpus is below the hard floor. Goes through
+    _apply_brand_and_anti_slop downstream, which injects the design system, so
+    this only needs the semantic skeleton (masthead + hero + notice block)."""
+    import html as _html
+    _friendly = {
+        "competitive": "Competitive Analysis", "compete": "Competitive Analysis",
+        "gap": "Gap Analysis", "gap-analysis": "Gap Analysis", "arch": "Technical Architecture",
+        "tech-audit": "Technical Audit", "org": "Org Chart", "prd": "Product Requirements",
+        "roadmap": "Roadmap", "personas": "Personas", "persona": "Personas",
+        "recommendations": "Recommendations", "recommendation": "Recommendations",
+        "blueprint": "Service Blueprint", "themes": "Themes", "meta-themes": "Meta-Themes",
+        "report": "Strategic Report", "whitepaper": "Whitepaper", "strategy": "Strategy Deck",
+        "mindmap": "Mind Map", "research-plan": "Research Plan", "heuristic-ux": "Heuristic UX Audit",
+        "brief-dialog": "Brief Dialog", "explainer": "Explainer", "presentation": "Presentation",
+    }
+    label = _friendly.get(kind, kind.replace("-", " ").replace("_", " ").title())
+    safe_goal = _html.escape((goal or "").strip()[:240])
+    wordmark = "NORTHEASTERN" if brand == "nu" else "NXT HUMANS"
+    return (
+        "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
+        f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>{label}</title></head>"
+        "<body>"
+        "<header class=\"nxt-masthead\"><span class=\"nxt-logo\">" + wordmark + "</span>"
+        f"<span class=\"nxt-masthead__label\">{_html.escape(label)}</span></header>"
+        "<main><section class=\"nxt-hero nxt-wrap\">"
+        f"<p class=\"nxt-eyebrow\">{_html.escape(label)}</p>"
+        f"<h1 class=\"nxt-hero__title\">This {_html.escape(label.lower())} is ready to build once research is attached</h1>"
+        "<p class=\"nxt-hero__standfirst\">A grounded deliverable needs source material. Attach client documents or "
+        "run source collection for this objective, then regenerate. Until then, the engine will not fabricate "
+        "named competitors, metrics, or personas to fill the layout.</p>"
+        "</section>"
+        "<section class=\"nxt-section nxt-wrap\"><div class=\"nxt-block nxt-block--ink\">"
+        "<p class=\"nxt-eyebrow\">Objective on file</p>"
+        f"<p class=\"nxt-prose\">{safe_goal or 'No objective text provided.'}</p>"
+        "</div></section>"
+        "<section class=\"nxt-section nxt-wrap\">"
+        "<p class=\"nxt-eyebrow\">Next step</p>"
+        "<div class=\"nxt-row\">"
+        "<div class=\"nxt-col-4\"><p class=\"nxt-prose\"><strong>1. Attach evidence.</strong> Upload client "
+        "documents, or select sources from the research fabric for this objective.</p></div>"
+        "<div class=\"nxt-col-4\"><p class=\"nxt-prose\"><strong>2. Collect.</strong> Let source collection "
+        "run so the corpus reaches working depth.</p></div>"
+        "<div class=\"nxt-col-4\"><p class=\"nxt-prose\"><strong>3. Regenerate.</strong> Re-issue the same "
+        "request; the deliverable will build from the attached evidence.</p></div>"
+        "</div></section>"
+        "</main></body></html>"
+    )
+
+
+async def _run_visual_qa(kind: str, html: str) -> dict | None:
+    """Render the artifact headless and run the structural defect detector. Returns
+    the QA report (or None). Always non-fatal -- a QA failure must never block a
+    generation. Playwright sync API must run off the event loop, hence to_thread."""
+    try:
+        import asyncio
+        import artifact_visual_qa as _vqa
+        report = await asyncio.to_thread(_vqa.audit_html, html)
+        if not report.get("available"):
+            logger.info(f"[artifact/{kind}] visual QA unavailable: {report.get('reason')}")
+        elif report.get("passed"):
+            logger.info(f"[artifact/{kind}] visual QA PASSED (no structural defects)")
+        else:
+            logger.warning(
+                f"[artifact/{kind}] visual QA DEFECTS {report.get('defects')} | "
+                f"{str(report.get('detail'))[:400]}")
+        return report
+    except Exception as e:
+        logger.warning(f"[artifact/{kind}] visual QA error: {e}")
+        return {"available": False, "reason": str(e)}
+
+
+@app.post("/api/artifact/audit")
+async def artifact_audit(payload: dict):
+    """On-demand visual-QA audit of an artifact's HTML or a stored artifact_id.
+    Body: { html?: str, artifact_id?: str }. Returns the structural defect report."""
+    html = payload.get("html") or ""
+    if not html and payload.get("artifact_id"):
+        aid = re.sub(r"[^a-f0-9-]", "", str(payload["artifact_id"]))[:64]
+        for d in (ARTIFACT_PERSIST_DIR, JOURNEY_MAPPER_PERSIST_DIR):
+            p = os.path.join(d, f"{aid}.html")
+            if os.path.exists(p):
+                html = open(p, encoding="utf-8").read()
+                break
+    if not html:
+        return JSONResponse({"error": "provide html or a known artifact_id"}, status_code=400)
+    report = await _run_visual_qa(payload.get("kind") or "audit", html)
+    return report or {"available": False}
+
+
 @app.post("/api/artifact/generate")
 async def artifact_generate(req: Request):
     """Generic kind-aware HTML report generator. Mirrors JM's depth pattern
@@ -12864,17 +16435,89 @@ async def artifact_generate(req: Request):
     goal = (body.get("goal") or "").strip()
     corpus = (body.get("corpus") or "").strip()
     model = body.get("llm_model") or "claude-sonnet-4-6"
+    # 2026-05-30 — slide-mode summarization. render_mode: 'document' (default),
+    # 'slide' (#slide: a tight 3-5 frame executive summary), or 'slides'
+    # (#slides: a full summarized deck). slide_count optionally caps the deck
+    # ("15 #recommendations ... #slides" -> 15). Frames use the .nxt-slide
+    # design-system templates; export walks each frame to an editable PPTX slide.
+    render_mode = (body.get("render_mode") or "document").lower()
+    if render_mode not in ("document", "slide", "slides"):
+        render_mode = "document"
+    try:
+        slide_count = int(body.get("slide_count") or 0)
+    except (TypeError, ValueError):
+        slide_count = 0
 
     if not kind or kind not in KIND_TO_SKILL_PATH:
         return JSONResponse({"error": f"unsupported kind: {kind!r}; supported: {sorted(KIND_TO_SKILL_PATH.keys())}"}, status_code=400)
     if not goal:
         return JSONResponse({"error": "goal is required"}, status_code=400)
-    if not corpus:
-        # 2026-05-29 — generate from whatever is selected/collected, complete or
-        # not. Empty corpus falls back to the goal rather than a 400, so every
-        # hashtag deliverable is invocable during/after collection.
-        corpus = goal
-        logger.info(f"[artifact/{kind}] empty corpus -> falling back to goal as minimal corpus")
+
+    # ─── H1 RunReceipt (2026-06-02) ───────────────────────────────────────
+    # One structured, fail-loud record per artifact generation: which model
+    # actually served, latency, and EVERY degradation (insufficient/thin corpus,
+    # provider fallback, generation failure). Persisted to the session dir and
+    # returned as run_id/run_status so the operator sees WHY a run degraded
+    # without docker-log archaeology. Telemetry must never break a run -> all
+    # receipt calls are best-effort.
+    import time as _time
+    from run_receipt import RunReceipt
+    _rcpt = RunReceipt(kind=kind, goal=goal, source="artifact-engine")
+    _t_start = _time.time()
+    # Drift guard: flag (do not block) a requested model that is sunset/unknown.
+    try:
+        _req_model = body.get("llm_model")
+        if _req_model:
+            from model_registry import check_model as _check_model
+            _ok, _st, _detail = _check_model(_req_model)
+            if not _ok:
+                _rcpt.add_degradation("model_not_active", f"requested {_detail}", severity="warn")
+    except Exception:
+        pass
+
+    # ─── EMPTY-CORPUS GATE (2026-06-02) ───────────────────────────────────
+    # The old behavior fell back to corpus=goal when no corpus was attached, so
+    # the model fabricated a full, confident deliverable (named competitors,
+    # Leader/Gap/Parity labels, metrics, personas) from a single sentence -- the
+    # "confident hollow" slop the user flagged ("devoid of content"). Replace
+    # fabrication with refuse/degrade:
+    #   < HARD floor  -> do NOT call the model; render an honest branded notice
+    #                    that the deliverable needs a research corpus.
+    #   < SOFT floor  -> generate, but inject a hard NO-FABRICATION directive so
+    #                    the model only asserts what the (thin) corpus supports.
+    corpus_len = len(corpus)
+    thin_corpus = False
+    if corpus_len < _MIN_CORPUS_HARD:
+        logger.info(f"[artifact/{kind}] corpus {corpus_len} chars < hard floor {_MIN_CORPUS_HARD} -> honest insufficient-evidence notice (no fabrication)")
+        html = _render_insufficient_corpus_html(kind, brand, goal, corpus_len)
+        html = _apply_brand_and_anti_slop(html, brand)
+        import uuid as _uuid
+        artifact_id = _uuid.uuid4().hex
+        try:
+            os.makedirs(ARTIFACT_PERSIST_DIR, exist_ok=True)
+            with open(os.path.join(ARTIFACT_PERSIST_DIR, f"{artifact_id}.html"), "w", encoding="utf-8") as f:
+                f.write(html)
+        except Exception as e:
+            logger.warning(f"[artifact/{kind}] insufficient-corpus persist failed: {e}")
+        try:
+            _rcpt.set_coverage(corpus_chars=corpus_len, render_mode=render_mode, brand=brand, artifact_id=artifact_id)
+            _rcpt.add_degradation("insufficient_corpus", f"corpus {corpus_len} chars < hard floor {_MIN_CORPUS_HARD}; refused to fabricate", severity="error")
+            _rcpt.finalize(); _rcpt.persist()
+        except Exception:
+            pass
+        return {
+            "ok": True, "html": html, "artifact_id": artifact_id, "kind": kind,
+            "brand": brand, "model": "none", "degraded": "insufficient_corpus",
+            "launcher_url": f"/api/artifact/view/{artifact_id}", "source": "artifact-engine",
+            "run_id": _rcpt.run_id, "run_status": _rcpt.status,
+        }
+    if corpus_len < _MIN_CORPUS_SOFT:
+        thin_corpus = True
+        logger.info(f"[artifact/{kind}] corpus {corpus_len} chars < soft floor {_MIN_CORPUS_SOFT} -> generating with NO-FABRICATION directive")
+        try:
+            _rcpt.add_degradation("thin_corpus", f"corpus {corpus_len} chars < soft floor {_MIN_CORPUS_SOFT}; NO-FABRICATION directive injected", severity="warn")
+        except Exception:
+            pass
 
     # Special-case: journey routes through the IA service for native depth
     if kind == "journey":
@@ -12884,7 +16527,17 @@ async def artifact_generate(req: Request):
 
     # Generic path: load skill, build prompt, call Claude
     skill_md = _load_skill_md(kind)
-    prompt = _artifact_generation_prompt(kind, brand, goal, corpus, skill_md)
+    prompt = _artifact_generation_prompt(kind, brand, goal, corpus, skill_md,
+                                         render_mode=render_mode, slide_count=slide_count)
+    # 2026-05-31 (Phase D) — Close the self-improvement loop for proxy-routed
+    # artifacts: inject the wiki learned-constraints (the loop's durable output)
+    # so user-feedback-derived rules reach these artifacts. Previously only the
+    # in-SPA Gemini path saw constraints; #brief/#report/etc. got none.
+    _lc = _wiki_learned_constraints_block()
+    if _lc:
+        prompt = _lc + "\n\n" + prompt
+    if thin_corpus:
+        prompt = _NO_FABRICATION_DIRECTIVE + "\n\n" + prompt
     logger.info(f"[artifact/{kind}] generating ({len(corpus)} corpus chars, preferred={body.get('llm_model') or 'auto'})")
     try:
         # Cross-provider, per-kind optimal model with automatic 429/timeout
@@ -12894,9 +16547,27 @@ async def artifact_generate(req: Request):
             kind, prompt, max_tokens=64000, preferred=body.get("llm_model"))
         html = _ensure_complete_html(html)
         html = _apply_brand_and_anti_slop(html, brand)
+        try:
+            _prov = ("anthropic" if "claude" in (model or "") else
+                     "google" if "gemini" in (model or "") else
+                     "openai" if ("gpt" in (model or "") or "o1" in (model or "")) else "unknown")
+            _rcpt.record_attempt(model=model or "unknown", provider=_prov, ok=True,
+                                 latency_ms=int((_time.time() - _t_start) * 1000))
+            _preferred = body.get("llm_model")
+            if _preferred and _preferred != model:
+                _rcpt.add_degradation("provider_fallback", f"preferred {_preferred} did not answer; served {model}", severity="warn")
+        except Exception:
+            pass
     except Exception as e:
         logger.exception(f"artifact generate failed for {kind}")
-        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=502)
+        try:
+            _rcpt.record_attempt(model=model or "unknown", provider="unknown", ok=False,
+                                 latency_ms=int((_time.time() - _t_start) * 1000), error=f"{type(e).__name__}: {e}")
+            _rcpt.add_degradation("generation_failed", f"{type(e).__name__}: {e}", severity="error")
+            _rcpt.finalize(); _rcpt.persist()
+        except Exception:
+            pass
+        return JSONResponse({"error": f"{type(e).__name__}: {e}", "run_id": _rcpt.run_id, "run_status": _rcpt.status}, status_code=502)
 
     import uuid
     artifact_id = uuid.uuid4().hex
@@ -12928,6 +16599,20 @@ async def artifact_generate(req: Request):
     except Exception as st_err:
         logger.warning(f"[skillopt-autotrigger] non-fatal: {st_err}")
 
+    # ─── AUTOMATED VISUAL-QA GATE (2026-06-02; made non-blocking 2026-06-02) ──
+    # CRITICAL FIX: this previously ran headless Chromium INLINE (awaited) on every
+    # generation. With the proxy already saturated by concurrent source collection,
+    # launching Chromium in the request path hung/killed the worker, dropping the
+    # connection so the SPA reset to the landing page ("crashes, no errors"). The
+    # audit must NEVER block or destabilize a generation. It is now opt-in only via
+    # POST /api/artifact/audit (on-demand). The generation path does not touch it.
+    try:
+        _rcpt.set_coverage(corpus_chars=corpus_len, render_mode=render_mode, brand=brand,
+                           artifact_id=artifact_id, html_chars=len(html), thin_corpus=thin_corpus)
+        _rcpt.finalize(); _rcpt.persist()
+    except Exception:
+        pass
+
     return {
         "ok": True,
         "html": html,
@@ -12937,6 +16622,9 @@ async def artifact_generate(req: Request):
         "model": model,
         "launcher_url": f"/api/artifact/view/{artifact_id}",
         "source": "artifact-engine",
+        "run_id": _rcpt.run_id,
+        "run_status": _rcpt.status,
+        "degradations": _rcpt.degradations,
     }
 
 
@@ -13000,6 +16688,165 @@ async def artifact_revise(req: Request):
     }
 
 
+# 2026-06-02 — Inline citation-marker resolution on the artifact render path.
+# Raw markers leaked unresolved into artifact HTML: bare placeholders ([source],
+# [citation needed], [CHUNK_017]) and internal source IDs
+# ([NXT_Northeastern_coop_roadmap-options]). Per .claude/CLAUDE.md the reader of a
+# finished artifact must never see generic refs or raw markers. Strip the empty
+# placeholders; humanize ID-style tokens to a clean "(Source: Name)" the way
+# [filename.pdf] resolves. Conservative: only touches bracketed tokens that are
+# clearly markers (placeholder words, or underscore/CHUNK IDs) -- ordinary prose
+# brackets like [sic] or a bare [2024] are left untouched. Idempotent.
+_CITE_PLACEHOLDER_RE = re.compile(
+    r'\s*\[\s*(?:sources?|citations?|citation\s+needed|cites?|refs?|references?|'
+    r'chunk[_\s-]?\d+|insight|data|evidence|tbd|n/?a)\s*\]',
+    re.IGNORECASE,
+)
+# ID-style token: contains an underscore (or is CHUNK_NNN), no inner spaces, looks
+# like a filename / internal source key rather than prose.
+_CITE_IDTOKEN_RE = re.compile(r'\[([A-Za-z0-9][A-Za-z0-9_.\-]{4,89})\]')
+
+
+def _humanize_source_id(token: str) -> str:
+    t = token.strip()
+    # drop a leading brand/system prefix (NXT_, NU_, src_, doc_)
+    t = re.sub(r'^(?:nxt|nu|src|doc|file|source)[_\-]', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\.(?:pdf|txt|docx?|md|csv|json|html?)$', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'[_\-.]+', ' ', t).strip()
+    t = re.sub(r'\s+', ' ', t)
+    return t
+
+
+def _resolve_inline_citation_markers(html: str) -> str:
+    if not html or '[' not in html:
+        return html
+    out = _CITE_PLACEHOLDER_RE.sub('', html)
+
+    def _id_sub(m):
+        inner = m.group(1)
+        # only treat as a source ID when it has an underscore OR is a CHUNK marker;
+        # this avoids touching things like [2024], [A], [i], [Figure 3].
+        if '_' not in inner and not re.match(r'(?i)chunk\d', inner):
+            return m.group(0)
+        if re.match(r'(?i)^chunk[_\s-]?\d+$', inner):
+            return ''  # unresolvable chunk id -> drop
+        name = _humanize_source_id(inner)
+        return f'(Source: {name})' if name else ''
+
+    out = _CITE_IDTOKEN_RE.sub(_id_sub, out)
+    # tidy doubled spaces / space-before-punctuation introduced by removals
+    out = re.sub(r'[ \t]{2,}', ' ', out)
+    out = re.sub(r'\s+([.,;:])', r'\1', out)
+    return out
+
+
+# 2026-06-02 — Serve-time WCAG override. Artifacts generated before the
+# enforcement fix have the old (or a model-embedded dark-bg) .nxt-tab[aria-selected]
+# rule baked into their stored HTML, so re-viewing them still showed teal-on-near-black
+# (~2:1, fails AA). Appending this LAST (after the baked CSS + any model style), with
+# !important, forces the selected tab back to the intended accessible underline-tab
+# (teal/brand text on the white tab bar = 8.7:1) for EVERY served artifact, old or new.
+_A11Y_OVERRIDE_STYLE = (
+    '<style id="nxt-a11y-serve">'
+    '.nxt-tab[aria-selected="true"]{background:transparent!important;color:var(--nxt-teal,#115054)!important;'
+    'border-bottom-color:var(--nxt-lime,#CACA20)!important;}'
+    '.nxt-tab:focus,.nxt-tab:focus-visible{outline:2px solid var(--nxt-cyan,#00B7C3)!important;outline-offset:2px!important;background:transparent!important;}'
+    # 2026-06-03 — GENERALIZED contrast guard. The .nxt-tab rule above only
+    # catches design-system tabs; LLM-authored journeys/artifacts emit their
+    # OWN tab markup (e.g. <div class="phase-tab active"> or role="tab"
+    # aria-selected) and produced the dark-navy-bg + dark-text active tab the
+    # user flagged (fails WCAG, ~1.3:1). We cannot know the model's class name,
+    # but the SELECTED-STATE CONTRACT is stable: aria-selected="true",
+    # data-active="true", role="tab".active/.selected. Force ANY such selected
+    # element to a known-accessible pairing (brand-dark bg + pure white text,
+    # >7:1) regardless of the baked CSS. This is class-agnostic, so it survives
+    # the model emitting novel tab markup — the thing a class-specific rule
+    # could not do.
+    '[role="tab"][aria-selected="true"],[role="tab"].active,[role="tab"].selected,'
+    '[data-active="true"][role="tab"],[aria-selected="true"].tab,[aria-selected="true"].phase-tab,'
+    '.tab.active,.tab.selected,.phase-tab.active,.phase-tab.selected,.tab-active,.is-active[role="tab"]'
+    '{background:var(--ink-900,#0B1326)!important;color:#FFFFFF!important;}'
+    # And any descendant text inside those selected tabs inherits white, so a
+    # nested <span> the model colored dark cannot re-break the contrast.
+    '[role="tab"][aria-selected="true"] *,[role="tab"].active *,.tab.active *,.phase-tab.active *,'
+    '.tab.selected *,.phase-tab.selected *{color:#FFFFFF!important;}'
+    # 2026-06-03 — DARK-MASTHEAD HEADING GUARD. The competitive-analysis (and
+    # other) artifacts render a dark hero band (.masthead / .art-masthead /
+    # .nxt-masthead, bg ~#0B1326) where the eyebrow + sub-text are explicitly
+    # light but the H1 title carries NO color, so it inherits the dark body ink
+    # and renders near-black on the dark band (invisible). The brand contract is
+    # "dark band => 100% white text". Force every heading/title/paragraph inside
+    # a masthead band to white. Mastheads in this system are dark by design (the
+    # sub-text is already light), so this is safe and matches intent.
+    '.masthead,.masthead h1,.masthead h2,.masthead h3,.masthead p,.masthead .title,'
+    '.masthead [class*="title"],.masthead .kicker,.masthead .eyebrow,'
+    '.art-masthead h1,.art-masthead h2,.art-masthead .art-masthead__title,'
+    '.nxt-masthead h1,.nxt-masthead h2,.nxt-masthead .nxt-hero__title,'
+    '[class*="masthead"] h1,[class*="masthead"] h2'
+    '{color:#FFFFFF!important;}'
+    # 2026-06-03 — WARNING/URGENCY CHIP contrast. Playwright contrast audit
+    # found white text on the mid-amber warning-solid (#B07908 ~rgb(176,121,8))
+    # at 3.76:1, below the 4.5:1 AA floor for small text. Darken these chips to
+    # the warning-fg tone (#7A4410) where white text passes (~6.5:1). Covers the
+    # design-system urgency/warning chip class variants.
+    '.urg,.urg.near,[class*="urg"],.chip-warning,.pill--warning,.badge-warning'
+    '{background:#7A4410!important;color:#FFFFFF!important;}'
+    '</style>'
+)
+
+# 2026-06-03 — Reporting-depth metadata stripper for RENDERED HTML. The
+# .claude/CLAUDE.md Hard Ban forbids run-ID-style identifiers (R-01, the "ID"
+# column, cross-refs like "R-04 mitig.") in user-visible artifact text. The
+# recommendations artifact shipped with an ID column + R-NN ids + R-NN risk
+# cross-references. Strip the visible chrome at serve time; the data can live
+# in data-* attributes but never as on-screen text.
+_REC_ID_CELL_RE = re.compile(r'<div[^>]*class="[^"]*rec__id[^"]*"[^>]*>\s*R-\d+\s*</div>', re.I)
+_REC_ID_HEADER_RE = re.compile(r'<div>\s*ID\s*</div>')
+_RNN_CROSSREF_RE = re.compile(r'\bR-\d{1,2}\b(\s+(?:mitig\.?|FERPA|trust|and|in|phase))?', re.I)
+
+def _strip_reporting_metadata(html: str) -> str:
+    if not html:
+        return html
+    html = _REC_ID_CELL_RE.sub('<div class="rec__id"></div>', html)
+    html = _REC_ID_HEADER_RE.sub('<div></div>', html)
+    # Remove bare R-NN run-id references in body text (keep surrounding words).
+    html = _RNN_CROSSREF_RE.sub(lambda m: (m.group(1) or '').strip(), html)
+    return html
+
+
+def _inject_a11y_overrides(html: str) -> str:
+    if not html:
+        return html
+    # 2026-06-03 — strip reporting-depth metadata (R-NN ids, ID column, cross-refs)
+    # before anything else so it never reaches the viewer.
+    html = _strip_reporting_metadata(html)
+    # 2026-06-02 — strip banned persona-type/confidence/composite meta badges
+    # (Mainstream / Non-Obvious / Partially Evidenced / Composite voice...) that
+    # leaked into stored artifacts and overlapped headings. Idempotent + safe to
+    # run on already-clean docs. Done at serve time so the existing artifacts are
+    # corrected on view, not just newly-generated ones.
+    grid_style = ""
+    try:
+        import nxt_design_system as _nxt_ds
+        html = _nxt_ds.strip_meta_badges(html)
+        html = _resolve_inline_citation_markers(html)
+        # 2026-06-02 — inject the layout grid at serve time (highest-precedence,
+        # end of <body>) so the existing artifacts get the consistent left margin
+        # / shared centered page box without a payload rebuild.
+        grid_style = '<style id="nxt-grid-serve">' + _nxt_ds._NXT_GRID_CSS_BODY + '</style>'
+    except Exception as _e:
+        logger.warning(f"[a11y-serve] strip/grid failed: {_e}")
+    tail = grid_style + _A11Y_OVERRIDE_STYLE
+    if "nxt-a11y-serve" in html:
+        # a11y already present; still ensure grid is injected once
+        if "nxt-grid-serve" in html or not grid_style:
+            return html
+        return html.replace("</body>", grid_style + "</body>", 1) if "</body>" in html else html + grid_style
+    if "</body>" in html:
+        return html.replace("</body>", tail + "</body>", 1)
+    return html + tail
+
+
 @app.get("/api/artifact/view/{artifact_id}")
 async def artifact_view(artifact_id: str):
     """Launcher endpoint for generic artifact HTML."""
@@ -13011,7 +16858,7 @@ async def artifact_view(artifact_id: str):
         if os.path.exists(path):
             try:
                 with open(path, "r", encoding="utf-8") as f:
-                    return HTMLResponse(content=f.read())
+                    return HTMLResponse(content=_inject_a11y_overrides(f.read()))
             except Exception as e:
                 return JSONResponse({"error": str(e)}, status_code=500)
     return JSONResponse({"error": f"artifact {artifact_id} not found"}, status_code=404)
@@ -13036,6 +16883,44 @@ async def artifact_list():
                     "launcher_url": (f"/api/journey-map/view/{fn[:-5]}" if kind_hint == "journey" else f"/api/artifact/view/{fn[:-5]}"),
                 })
     return {"artifacts": items[:100]}
+
+
+# ─── H1 RunReceipt read endpoints (2026-06-02) ────────────────────────────
+# Let the operator inspect why a run degraded without reading docker logs.
+@app.get("/api/run-receipts")
+async def run_receipts_list(limit: int = 50):
+    """Most-recent run receipts (compact view): id, kind, status, degradations."""
+    try:
+        from run_receipt import list_receipts
+        return {"receipts": list_receipts(limit=limit)}
+    except Exception as e:
+        return JSONResponse({"error": f"{type(e).__name__}: {e}", "receipts": []}, status_code=500)
+
+
+@app.get("/api/models/registry")
+async def models_registry():
+    """The canonical model set + lifecycle status (drift guard). Lets the
+    operator/SPA see which models are active vs sunset without reading code."""
+    try:
+        from model_registry import KNOWN_MODELS, active_models
+        return {"models": KNOWN_MODELS, "active": active_models()}
+    except Exception as e:
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+
+@app.get("/api/run-receipts/{run_id}")
+async def run_receipt_get(run_id: str):
+    """Full receipt for one run: attempts, degradations, coverage, totals."""
+    if not re.match(r"^[a-f0-9-]+$", run_id):
+        return JSONResponse({"error": "invalid run_id"}, status_code=400)
+    try:
+        from run_receipt import load_receipt
+        rec = load_receipt(run_id)
+        if rec is None:
+            return JSONResponse({"error": f"run {run_id} not found"}, status_code=404)
+        return rec
+    except Exception as e:
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
 
 
 if __name__ == "__main__":

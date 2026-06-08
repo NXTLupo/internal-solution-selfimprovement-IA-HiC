@@ -1,5 +1,5 @@
 /**
- * Artifact exporter — renders the artifact OFF-SCREEN at native 1808x870
+ * Artifact exporter - renders the artifact OFF-SCREEN at native 1808x870
  * resolution (16:9 body area inside a 1920x1080 slide), triggers reactflow
  * fit-view so all nodes are in frame, captures via html-to-image, then
  * composites slide chrome (title, accent strip, footer) programmatically:
@@ -122,26 +122,134 @@ async function exportFreeformPdf(artifact: Artifact): Promise<void> {
     pdf.save(`${(artifact as any).kind ?? 'freeform'}-${artifact.id}.pdf`);
 }
 
+/**
+ * C1 (2026-06-06) - PPTX EXPORT-PREP DOM TRANSFORM.
+ *
+ * Per the pipeline audit's Gap 1: the DOM walker harvests all tabs + all
+ * panels because isVisible() only rejects display:none / visibility:hidden /
+ * opacity<0.05. The NXT design system styles inactive tabs/panels with
+ * aria-selected and CSS-var color changes only - inactive panels remain in
+ * flow as full-size visible boxes with aria-selected="false". The walker
+ * captures them and emits sibling text frames at native coordinates,
+ * producing scattered tiny labels with color swatches (the org chart PPTX
+ * failure observed 2026-06-06).
+ *
+ * Fix: before walking, transform an OFF-SCREEN CLONE of the iframe document
+ * to: (a) expand every [data-tabs-scope] vertically - each panel becomes
+ * its own logical section, tabs nav hidden; (b) set body[data-export-mode]
+ * so any export-only CSS the design system carries can apply. The live
+ * preview iframe is untouched.
+ */
+function prepareIframeForExport(srcIframe: HTMLIFrameElement): HTMLIFrameElement | null {
+    const srcDoc = srcIframe.contentDocument;
+    if (!srcDoc || !srcDoc.documentElement) return null;
+    // Clone the whole document into a detached off-screen iframe sized to
+    // 1920 wide; the height grows naturally as panels stack.
+    const cloneIframe = document.createElement('iframe');
+    cloneIframe.style.position = 'fixed';
+    cloneIframe.style.left = '-99999px';
+    cloneIframe.style.top = '0';
+    cloneIframe.style.width = '1920px';
+    cloneIframe.style.height = '5000px';  // large enough for any panel stack
+    cloneIframe.style.border = '0';
+    cloneIframe.setAttribute('data-export-clone', 'true');
+    cloneIframe.setAttribute('aria-hidden', 'true');
+    cloneIframe.setAttribute('sandbox', 'allow-same-origin');
+    cloneIframe.srcdoc = '<!DOCTYPE html>' + srcDoc.documentElement.outerHTML;
+    document.body.appendChild(cloneIframe);
+    return cloneIframe;
+}
+
+async function waitForCloneReady(iframe: HTMLIFrameElement): Promise<Document | null> {
+    await new Promise<void>((resolve) => {
+        if (iframe.contentDocument?.readyState === 'complete') return resolve();
+        iframe.addEventListener('load', () => resolve(), { once: true });
+        setTimeout(() => resolve(), 4000); // hard deadline so we never wedge
+    });
+    const doc = iframe.contentDocument;
+    if (!doc) return null;
+    try { await (doc.fonts?.ready ?? Promise.resolve()); } catch { /* non-fatal */ }
+    // Expand every tabs-scope so all panels are visible vertically.
+    try {
+        // Mark export mode so any export-only CSS the design system carries applies.
+        doc.body?.setAttribute('data-export-mode', '1');
+        // Hide tab navs entirely - they don't translate to a stacked-panel layout.
+        const tabNavs = doc.querySelectorAll<HTMLElement>('[data-tabs], nav.nxt-tabs');
+        tabNavs.forEach((nav) => { nav.style.display = 'none'; });
+        // Force every panel to be visible and stacked vertically.
+        const panels = doc.querySelectorAll<HTMLElement>('[data-panel], [data-tabs-scope] > section');
+        panels.forEach((p) => {
+            p.setAttribute('data-active', 'true');
+            p.setAttribute('aria-hidden', 'false');
+            p.style.display = 'block';
+            p.style.position = 'static';
+            p.style.opacity = '1';
+            p.style.visibility = 'visible';
+            p.style.height = 'auto';
+            p.style.maxHeight = 'none';
+            p.style.overflow = 'visible';
+            p.style.marginBottom = '24px';  // visual gap between stacked panels
+        });
+    } catch (e) {
+        console.warn('[prepareIframeForExport] DOM transform failed (non-fatal):', e);
+    }
+    // Two RAFs so layout has settled.
+    await new Promise<void>(r => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+    return doc;
+}
+
 async function exportFreeformPptx(artifact: Artifact): Promise<void> {
     const iframe = findFreeformIframe(artifact.id);
     if (!iframe) throw new Error(`freeform export: iframe not found for artifact ${artifact.id}`);
     await waitForIframeReady(iframe);
 
+    // GOLD path (2026-06-05): if the rendered artifact is gold-language HTML (a self-contained
+    // 1920x1080 #stage document), export it through the proven gold exporter
+    // (/api/gold/export-pptx): pixel-exact graphic background + REAL editable text + embedded
+    // gold fonts, deterministically sized so nothing collides. This is the clean editable twin
+    // path. Non-gold freeform artifacts fall through to the legacy DOM-walk below.
+    try {
+        const doc = iframe.contentDocument;
+        const stage = doc?.querySelector('#stage');
+        if (stage) {
+            const html = '<!DOCTYPE html>' + (doc!.documentElement?.outerHTML || '');
+            const { exportGoldPptx } = await import('../../services/goldArtifact');
+            const filename = `${(artifact as any).kind ?? 'gold'}-${(artifact as any).brand ?? ''}-${artifact.id}.pptx`;
+            await exportGoldPptx(html, filename);
+            console.info('[exportFreeformPptx] gold editable export via /api/gold/export-pptx', artifact.id);
+            return;
+        }
+    } catch (e) {
+        console.warn('[exportFreeformPptx] gold export path failed, falling back to DOM-walk:', e);
+    }
+
     // NATIVE-PPTX path (HiC-PPTX-Native). Walk the rendered DOM and emit a
     // stream of RenderSpecs for every visible element. Each spec maps to a
     // native PPTX primitive: rect / oval / line / text / customGeom path /
-    // gradient. NO rasterization of the slide as a whole — every box, line,
+    // gradient. NO rasterization of the slide as a whole - every box, line,
     // node, label, and atmospheric overlay is editable in PowerPoint.
     //
     // Skip the .grain overlay (it's a tiny SVG noise pattern that's purely
     // decorative; converting its individual tiles would inflate the PPTX
     // significantly without visual benefit).
-    // Skip purely decorative atmospheric layers — they exist to add visual
+    // Skip purely decorative atmospheric layers - they exist to add visual
     // depth in the canvas preview but PPTX exports are intentionally flat
     // clean minimal (per user direction). Skipping them produces smaller
     // files and cleaner native-shape output. Iconography (<use> elements)
     // is preserved via rasterizeElement → small embedded PNG per icon.
-    const specs = await walkDocumentToSpecs(iframe, {
+    //
+    // C1 (2026-06-06) - Run the walk over an OFF-SCREEN CLONE of the iframe
+    // with all tab panels expanded vertically + tab navs hidden. Closes
+    // the org-chart PPTX failure where inactive panels were captured as
+    // visible elements (per Gap 1 in the pipeline audit). The live preview
+    // iframe is never touched.
+    const _cloneIframe = prepareIframeForExport(iframe);
+    const _cloneDoc = _cloneIframe ? await waitForCloneReady(_cloneIframe) : null;
+    const _walkTarget = (_cloneIframe && _cloneDoc) ? _cloneIframe : iframe;
+    if (_cloneIframe && _cloneDoc) {
+        console.info('[exportFreeformPptx] using export-prep clone with expanded panels');
+    }
+    const specs = await walkDocumentToSpecs(_walkTarget, {
         skipSelectors: [
             '.grain',           // SVG noise pattern
             '.atmos-violet-tr', // top-right radial blob
@@ -180,10 +288,10 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
 
     // POST RenderSpec[] to the proxy, which renders OOXML directly via
     // python-pptx + lxml and embeds EOT-wrapped brand fonts (Archivo, Fraunces,
-    // Inter, JetBrains Mono). This bypasses PptxGenJS entirely — every OOXML
+    // Inter, JetBrains Mono). This bypasses PptxGenJS entirely - every OOXML
     // bug we fought (empty <a:ln></a:ln>, charSpacing units, malformed
     // custGeom, theme drop shadows, font substitution to Arial) is gone.
-    // The walker stays — only the backend emit changes.
+    // The walker stays - only the backend emit changes.
     const PROXY_BASE = 'http://127.0.0.1:5012';
     const filename = `${(artifact as any).kind ?? 'freeform'}-${artifact.id}.pptx`;
 
@@ -202,12 +310,54 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
         throw new Error(`PPTX export failed (${response.status}): ${errText}`);
     }
 
-    const renderCounts = response.headers.get('X-Render-Counts');
+    // 2026-06-06 - Read SAFE primitive integer headers (the prior JSON-as-
+    // header `X-Render-Counts` was being stripped in transport). Header names
+    // changed in proxy/app.py /api/export-pptx; falling back to legacy header
+    // for backward compat in case proxy is older than this SPA.
+    const renderTotal = parseInt(response.headers.get('X-Render-Total') || '', 10);
+    const renderSkipped = parseInt(response.headers.get('X-Render-Skipped') || '', 10);
+    const renderSpecCount = parseInt(response.headers.get('X-Render-SpecCount') || '', 10);
+    const legacyCounts = response.headers.get('X-Render-Counts');  // kept for old proxy
+    const blob = await response.blob();
+
+    // Three-tier guard (now distinguishes "transport stripped header" from
+    // "proxy actually rendered nothing"):
+    //   1. specs walked > 0 (otherwise the SPA-side export was empty)
+    //   2. EITHER the new safe header has a positive integer, OR the legacy
+    //      header is present (meaning we're on an older proxy)
+    //   3. blob >= 20KB (a real PPTX with content is ~30KB+)
+    const hasNewHeader = !Number.isNaN(renderTotal);
+    const proxyRenderedNothing = hasNewHeader && renderTotal === 0;
+    const probablyEmptyBlob = blob.size < 20_000;
+    const looksEmpty =
+        specs.length === 0 ||
+        (hasNewHeader && proxyRenderedNothing && probablyEmptyBlob) ||
+        (!hasNewHeader && !legacyCounts && probablyEmptyBlob);
+
+    if (looksEmpty) {
+        const reason = [
+            specs.length === 0 ? `specs.length=0` : null,
+            hasNewHeader && proxyRenderedNothing
+                ? `proxy rendered 0/${renderSpecCount} specs (all skipped: ${renderSkipped}) - likely walker emitted unrecognized spec types`
+                : null,
+            probablyEmptyBlob ? `blob=${blob.size}B (< 20KB minimum)` : null,
+        ].filter(Boolean).join('; ');
+        console.error(
+            `[exportFreeformPptx] EMPTY EXPORT BLOCKED - ${reason} | specs=${specs.length} | render_total=${renderTotal} | artifact=${artifact.id}`
+        );
+        throw new Error(
+            `Journey PPTX export returned an empty file (${reason}). ` +
+            `If proxy rendered 0 specs, the walker likely emitted spec types ` +
+            `the python exporter doesn't recognize; check pptx_export.py _DISPATCH ` +
+            `vs the spec.type values in the walker. ` +
+            `If specs=0, the artifact DOM was empty at export time.`
+        );
+    }
+
     console.info(
-        `[exportFreeformPptx] specs walked=${specs.length} | proxy rendered=${renderCounts} | artifact=${artifact.id}`,
+        `[exportFreeformPptx] specs walked=${specs.length} | proxy rendered=${renderTotal}/${renderSpecCount} (skipped=${renderSkipped}) | blob=${blob.size}B | artifact=${artifact.id}`,
     );
 
-    const blob = await response.blob();
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -216,6 +366,11 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+
+    // C1 (2026-06-06) - Tear down the off-screen export-prep clone iframe.
+    if (_cloneIframe && _cloneIframe.parentElement) {
+        try { _cloneIframe.parentElement.removeChild(_cloneIframe); } catch { /* non-fatal */ }
+    }
 }
 
 // ============================================================================
@@ -247,12 +402,12 @@ function emitSpec(pptx: any, slide: any, spec: RenderSpec): void {
         case 'line':     if (toggles.line !== false) emitLine(pptx, slide, spec); return;
         case 'text':     if (toggles.text !== false) emitText(slide, spec); return;
         case 'path':     if (toggles.path !== false) emitPath(pptx, slide, spec); return;
-        case 'gradient': /* always off — per user direction */ return;
+        case 'gradient': /* always off - per user direction */ return;
         case 'image':    if (toggles.image !== false) emitImage(slide, spec); return;
     }
 }
 
-// Slide bounds — anything outside these dimensions is clipped or skipped.
+// Slide bounds - anything outside these dimensions is clipped or skipped.
 const SLIDE_MAX_X = SLIDE_W_IN;
 const SLIDE_MAX_Y = SLIDE_H_IN;
 
@@ -271,7 +426,7 @@ function outOfBounds(x: number, y: number, w: number, h: number): boolean {
 
 /**
  * Build a fill object. Mirrors the LEGACY pattern from `exportPptx` (which
- * works) — every shape gets a fill, even if it's `{ type: 'none' }` for
+ * works) - every shape gets a fill, even if it's `{ type: 'none' }` for
  * "transparent". Empty/undefined fill objects produce malformed OOXML in
  * PptxGenJS 3.12.x, triggering PowerPoint's "found a problem with content"
  * repair dialog.
@@ -283,7 +438,7 @@ function buildFill(hex: string | undefined, alpha: number | undefined): any {
 }
 
 /**
- * Build a line object. Always returns a line — `{ width: 0 }` for "no border"
+ * Build a line object. Always returns a line - `{ width: 0 }` for "no border"
  * matches the legacy pattern. Omitting `line` entirely produces malformed
  * OOXML (the legacy `exportPptx` always passes both fill AND line, even
  * with width=0 for borderless shapes).
@@ -372,7 +527,7 @@ function emitText(slide: any, s: TextSpec): void {
 
     // Build PptxGenJS multi-run text array. For a frame with 1 run this is
     // identical to a single-string addText. For inline-formatted text (h1
-    // with em, p with b inserts) each run carries its own style — italic
+    // with em, p with b inserts) each run carries its own style - italic
     // Fraunces phrases, bold inserts, smaller sub-lines all retain fidelity.
     const runArray: any[] = [];
     for (const r of s.runs) {
@@ -395,7 +550,7 @@ function emitText(slide: any, s: TextSpec): void {
     if (runArray.length === 0) return;
 
     // CRITICAL: explicit `line` + `fill` together (legacy pattern). Without
-    // an explicit line option PptxGenJS emits empty `<a:ln></a:ln>` —
+    // an explicit line option PptxGenJS emits empty `<a:ln></a:ln>` -
     // invalid OOXML that triggers the repair dialog at high frame counts.
     const frameOpts: any = {
         x, y, w, h,
@@ -413,7 +568,7 @@ function emitText(slide: any, s: TextSpec): void {
 /**
  * Emit a path as a sequence of native PPTX line segments. We deliberately
  * avoid `custGeom` (PptxGenJS support is incomplete and produces invalid
- * OOXML in 3.12.x — PowerPoint shows a "found a problem with content"
+ * OOXML in 3.12.x - PowerPoint shows a "found a problem with content"
  * repair dialog). The line-segment fallback is robust and keeps every
  * segment editable in PowerPoint. Curves are sampled into a polyline.
  */
@@ -511,7 +666,7 @@ function emitGradient(pptx: any, slide: any, s: GradientSpec): void {
 }
 
 function emitImage(slide: any, s: ImageSpec): void {
-    if (!s.dataUrl) return; // Rasterization failed — silently drop
+    if (!s.dataUrl) return; // Rasterization failed - silently drop
     slide.addImage({ data: s.dataUrl, x: s.x, y: s.y, w: s.w, h: s.h });
 }
 
@@ -602,7 +757,7 @@ async function captureArtifactBodyAtNative(
         root.render(element);
 
         // Wait for the React tree + reactflow / persona doc to fully lay out.
-        // Reactflow needs more time than 300ms — dagre layout + node measure + fit-view
+        // Reactflow needs more time than 300ms - dagre layout + node measure + fit-view
         // can each take a frame. Wait long enough for two paint cycles.
         await waitForLayout(600);
 
@@ -613,7 +768,7 @@ async function captureArtifactBodyAtNative(
         }
 
         // Capture
-        // skipFonts: true is REQUIRED — html-to-image otherwise tries to read
+        // skipFonts: true is REQUIRED - html-to-image otherwise tries to read
         // .cssRules on every <link rel="stylesheet">, and Google Fonts /
         // FontAwesome CDN sheets throw SecurityError (cross-origin), aborting
         // the entire capture to blank. Substituted system fonts render fine.
@@ -693,7 +848,7 @@ async function composeFullSlideImage(artifact: Artifact, tokens: DesignTokens): 
     ctx.fillStyle = accent;
     ctx.font = 'bold 18px Archivo, sans-serif';
     ctx.textBaseline = 'middle';
-    ctx.fillText(`${brandLabel.toUpperCase()} — SLIDE`, BODY_INSET_PX, 42);
+    ctx.fillText(`${brandLabel.toUpperCase()} - SLIDE`, BODY_INSET_PX, 42);
 
     // Header action title
     ctx.fillStyle = primary;
@@ -755,7 +910,7 @@ export async function exportPdf(artifact: Artifact, tokens: DesignTokens): Promi
 /**
  * SlideSpec → native PPTX. Schema-valid by construction. NO DOM walking.
  * Reads the typed spec the model produced and emits one PPTX primitive per
- * spec object — text frames stay multi-run, shapes stay native, lines stay
+ * spec object - text frames stay multi-run, shapes stay native, lines stay
  * directional with arrowheads.
  */
 async function exportSlideSpecPptx(artifact: any): Promise<void> {
@@ -828,7 +983,7 @@ export async function exportPptx(artifact: Artifact, tokens: DesignTokens): Prom
         x: 0, y: 0.92, w: 13.333, h: 0.06,
         fill: { color: accentHex }, line: { color: accentHex, width: 0 },
     });
-    slide.addText(`${brandLabel.toUpperCase()} — SLIDE`, {
+    slide.addText(`${brandLabel.toUpperCase()} - SLIDE`, {
         x: 0.4, y: 0.18, w: 12.5, h: 0.25,
         fontFace: 'Archivo', fontSize: 9, bold: true, color: accentHex,
         charSpacing: 2, valign: 'middle',
@@ -855,7 +1010,7 @@ export async function exportPptx(artifact: Artifact, tokens: DesignTokens): Prom
         align: 'right', valign: 'middle', charSpacing: 1,
     });
 
-    // Body — capture at native body resolution and embed
+    // Body - capture at native body resolution and embed
     const bodyTopIn = 1.05;
     const bodyHeightIn = 5.85;
     const bodyWidthIn = 12.6;

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Research Plan · NU co-op placement Deep Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;min-height:1080px;background:#FFFFFF;color:#1A1A1A;font-family:'Open Sans',sans-serif}
+  .rp-frame{width:1920px;padding:56px 80px}
+  .rp-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .rp-title{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:44px;line-height:1;color:#0D0D0D;margin-bottom:6px}
+  .rp-goal{font-size:16px;color:#B8B800;max-width:1500px;margin-bottom:24px;line-height:1.45}
+  .rp-rail{width:56px;height:4px;background:#B8B800;margin-bottom:24px}
+  .rp-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+  .rp-section-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:12px}
+  .rp-sq{margin-bottom:14px;padding:12px 16px;background:#F8F8F4;border-left:3px solid #0091B6}
+  .rp-sq.high{border-left-color:#B8B800}
+  .rp-sq.low{border-left-color:#DDD}
+  .rp-sq-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+  .rp-sq-id{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;color:#888}
+  .rp-sq-prio{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 6px;border-radius:1px}
+  .rp-sq-prio.high{background:#B8B800;color:#FFFFFF}
+  .rp-sq-prio.medium{background:#FFFFFF;color:#B8B800;border:1px solid #B8B800}
+  .rp-sq-prio.low{background:#EFEFEF;color:#888}
+  .rp-sq-q{font-size:14px;line-height:1.45;color:#1A1A1A;margin-bottom:6px}
+  .rp-sq-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .rp-tag{display:inline-block;padding:2px 6px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.8px;background:#FFFFFF;color:#0091B6;border:1px solid #E0E0E0;border-radius:1px}
+  .rp-tag.angle{color:#B8B800}
+  .rp-tag.entity{color:#555}
+  .rp-budget-card{padding:22px;background:#F8F8F4;border:1px solid #E0E0E0;margin-bottom:20px}
+  .rp-budget-stat{margin-bottom:14px}
+  .rp-budget-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px}
+  .rp-budget-value{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:26px;color:#B8B800;line-height:1}
+  .rp-source-list{font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.7;color:#333}
+  .rp-source-list li{margin-bottom:8px;padding-left:10px;border-left:2px solid #E0E0E0;list-style:none}
+  .rp-source-list b{color:#0091B6}
+  .rp-help{margin-top:28px;padding:16px 20px;background:rgba(200,16,46,.06);border-left:3px solid #B8B800;font-size:13px;line-height:1.55;color:#333}
+  .rp-help b{color:#B8B800}
+</style>
+</head>
+<body>
+<div class="rp-frame">
+  <div class="rp-kicker">HiC Deep Research · Plan v1 · NU</div>
+  <h1 class="rp-title">Research Plan</h1>
+  <div class="rp-goal">Diagnose the friction in Northeastern's first-cycle co-op placement and recommend interventions that lift CS first-cycle match from 38% to 55% by 2030.</div>
+  <div class="rp-rail"></div>
+
+  <div class="rp-grid">
+    <div>
+      <div class="rp-section-label">Sub-Questions (8)</div>
+
+      <div class="rp-sq high">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-01 · <span style="color:#B8B800">evidence</span></span><span class="rp-sq-prio high">High</span></div>
+        <div class="rp-sq-q">What is the institutional ATS-reject rate for first-cycle CS applicants, and how does it decompose by skill-band vs keyword-signal?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">evidence</span><span class="rp-tag">academic</span><span class="rp-tag">government</span><span class="rp-tag entity">Higher Ed Dive</span><span class="rp-tag entity">BLS</span></div>
+      </div>
+
+      <div class="rp-sq high">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-02 · <span style="color:#B8B800">mechanism</span></span><span class="rp-sq-prio high">High</span></div>
+        <div class="rp-sq-q">How is the keyword-threshold tuned on employer ATS systems, and who controls the tuning calibration?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">mechanism</span><span class="rp-tag">academic</span><span class="rp-tag">client</span><span class="rp-tag entity">Workday</span><span class="rp-tag entity">Greenhouse</span></div>
+      </div>
+
+      <div class="rp-sq high">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-03 · <span style="color:#B8B800">named_entities</span></span><span class="rp-sq-prio high">High</span></div>
+        <div class="rp-sq-q">Which peer co-op programs have institutional ownership of the candidate-quality signal, and how is the signal injected into the employer pipeline?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">named_entities</span><span class="rp-tag">academic</span><span class="rp-tag entity">Waterloo CECA</span><span class="rp-tag entity">Drexel</span><span class="rp-tag entity">Cincinnati</span></div>
+      </div>
+
+      <div class="rp-sq">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-04 · <span style="color:#B8B800">definition</span></span><span class="rp-sq-prio medium">Medium</span></div>
+        <div class="rp-sq-q">What does "first-generation student" mean in NU's data, and how does the cohort definition affect the at-risk flagging algorithm?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">definition</span><span class="rp-tag">client</span><span class="rp-tag entity">NU Student Affairs</span></div>
+      </div>
+
+      <div class="rp-sq">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-05 · <span style="color:#B8B800">counter_evidence</span></span><span class="rp-sq-prio medium">Medium</span></div>
+        <div class="rp-sq-q">Where do skills-bench assessments fail or produce false-positives (e.g., disparate impact, gaming, test-prep markets) in adjacent industries?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">counter_evidence</span><span class="rp-tag">academic</span><span class="rp-tag">news</span><span class="rp-tag entity">CodeSignal</span><span class="rp-tag entity">HackerRank</span></div>
+      </div>
+
+      <div class="rp-sq">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-06 · <span style="color:#B8B800">second_order</span></span><span class="rp-sq-prio medium">Medium</span></div>
+        <div class="rp-sq-q">If NU owns the screening layer, what employer-relationship dynamics shift, and does the brand strength of the bench-score depend on employer adoption rates?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">second_order</span><span class="rp-tag">academic</span><span class="rp-tag">client</span><span class="rp-tag entity">CECCA Employer Council</span></div>
+      </div>
+
+      <div class="rp-sq low">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-07 · <span style="color:#B8B800">evidence</span></span><span class="rp-sq-prio low">Low</span></div>
+        <div class="rp-sq-q">What is the cycle-to-cycle wage delta for first-cycle CS students at top-quartile vs median match outcomes?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">evidence</span><span class="rp-tag">client</span><span class="rp-tag entity">NU CECCA Outcomes</span></div>
+      </div>
+
+      <div class="rp-sq low">
+        <div class="rp-sq-head"><span class="rp-sq-id">SQ-08 · <span style="color:#B8B800">counter_evidence</span></span><span class="rp-sq-prio low">Low</span></div>
+        <div class="rp-sq-q">Are there documented cases where moving the submission window failed (e.g., employer pushback, advisor disruption)?</div>
+        <div class="rp-sq-tags"><span class="rp-tag angle">counter_evidence</span><span class="rp-tag">academic</span><span class="rp-tag">news</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="rp-budget-card">
+        <div class="rp-budget-stat"><div class="rp-budget-label">Budget cap</div><div class="rp-budget-value">$8.00</div></div>
+        <div class="rp-budget-stat"><div class="rp-budget-label">Target theme count</div><div class="rp-budget-value">22</div></div>
+        <div class="rp-budget-stat"><div class="rp-budget-label">Reflection threshold</div><div class="rp-budget-value">75%</div></div>
+        <div class="rp-budget-stat"><div class="rp-budget-label">Max iterations</div><div class="rp-budget-value">6</div></div>
+      </div>
+
+      <div class="rp-section-label">Named institutions</div>
+      <div style="margin-bottom:20px">
+        <span class="rp-tag entity" style="margin-right:6px">Northeastern</span>
+        <span class="rp-tag entity" style="margin-right:6px">Waterloo</span>
+        <span class="rp-tag entity" style="margin-right:6px">Drexel</span>
+        <span class="rp-tag entity" style="margin-right:6px">Cincinnati</span>
+        <span class="rp-tag entity" style="margin-right:6px">RIT</span>
+        <span class="rp-tag entity" style="margin-right:6px">Antioch</span>
+      </div>
+
+      <div class="rp-section-label">Source strategy</div>
+      <ul class="rp-source-list">
+        <li><b>openalex</b> → SQ-01, SQ-02, SQ-05 · ~40 items<br/><span style="color:#888">Academic literature on ATS hiring bias and skills-bench efficacy.</span></li>
+        <li><b>higher_ed_dive</b> → SQ-01, SQ-03, SQ-04 · ~30 items<br/><span style="color:#888">Cross-institution co-op program coverage; named-institution comparisons.</span></li>
+        <li><b>reddit</b> → SQ-01, SQ-02 · ~60 items<br/><span style="color:#888">r/NEU, r/cscareerquestions, r/Northeastern, student-voice corpus.</span></li>
+        <li><b>nu_internal</b> → SQ-04, SQ-06, SQ-07 · ~12 items<br/><span style="color:#888">CECCA Outcomes Dashboard, Student Affairs pulse, Provost calendar data.</span></li>
+        <li><b>arxiv</b> → SQ-05 · ~10 items<br/><span style="color:#888">Fair-hiring and bias-detection research on skills assessments.</span></li>
+        <li><b>ckan_bls</b> → SQ-01 · ~6 items<br/><span style="color:#888">BLS entry-level hiring funnel; college-graduate-outcomes data.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-help">
+    <b>You are in control.</b> This plan steers the next collection run. To edit: reply with what to change, "remove SQ-07", "raise budget to 12", "add MIT to named institutions". The planner regenerates against your edits. When satisfied, say <b>"approve plan"</b> and the reflector loop runs against the approved version.
+  </div>
+</div>
+</body>
+</html>

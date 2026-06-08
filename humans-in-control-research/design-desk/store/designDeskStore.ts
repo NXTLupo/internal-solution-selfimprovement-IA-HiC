@@ -67,7 +67,7 @@ function openIdb(): Promise<IDBDatabase | null> {
                 resolve(null);
             };
             req.onblocked = () => {
-                console.warn('[designDeskStore] IDB open blocked — another tab holds an upgrade transaction');
+                console.warn('[designDeskStore] IDB open blocked - another tab holds an upgrade transaction');
             };
         } catch (err) {
             console.error('[designDeskStore] IDB open threw', err);
@@ -171,7 +171,7 @@ function persist(state: PersistedShape) {
         const kind = (a as any).kind ?? a.type;
         return `${kind}:${(bytes / 1024).toFixed(1)}KB`;
     }).join(', ');
-    console.info(`[designDeskStore] persist#${seq} — ${state.artifacts.length} artifact(s); breakdown=[${breakdown}]; active=${state.activeArtifactId}`);
+    console.info(`[designDeskStore] persist#${seq} - ${state.artifacts.length} artifact(s); breakdown=[${breakdown}]; active=${state.activeArtifactId}`);
 
     // Broadcast IMMEDIATELY (synchronously) so peers see the update without
     // waiting on the IDB write. BroadcastChannel has no quota, no payload-size
@@ -184,19 +184,19 @@ function persist(state: PersistedShape) {
                 artifacts: state.artifacts,
                 activeArtifactId: state.activeArtifactId,
             });
-            console.info(`[designDeskStore] persist#${seq} — BroadcastChannel post SUCCESS`);
+            console.info(`[designDeskStore] persist#${seq} - BroadcastChannel post SUCCESS`);
         } catch (bcErr) {
-            console.warn(`[designDeskStore] persist#${seq} — BroadcastChannel post failed`, bcErr);
+            console.warn(`[designDeskStore] persist#${seq} - BroadcastChannel post failed`, bcErr);
         }
     }
 
-    // IDB write is async but we don't await — the store mutation has already
+    // IDB write is async but we don't await - the store mutation has already
     // happened in memory; persistence is for hydration on next boot.
     idbPut(state).then(ok => {
         if (ok) {
-            console.info(`[designDeskStore] persist#${seq} — IndexedDB write SUCCESS`);
+            console.info(`[designDeskStore] persist#${seq} - IndexedDB write SUCCESS`);
         } else {
-            console.error(`[designDeskStore] persist#${seq} — IndexedDB write FAILED — peers still notified via BroadcastChannel, but boot hydration may miss this update`);
+            console.error(`[designDeskStore] persist#${seq} - IndexedDB write FAILED - peers still notified via BroadcastChannel, but boot hydration may miss this update`);
         }
     });
 }
@@ -214,7 +214,7 @@ let initialState: PersistedShape = { artifacts: [], activeArtifactId: null };
         // legacy localStorage. If it's also empty, we boot empty.
         hydrated = await migrateLegacyLocalStorage();
     } else {
-        // IDB already populated — also clean up any leftover legacy entry so
+        // IDB already populated - also clean up any leftover legacy entry so
         // it stops eating localStorage quota for other writers.
         try { localStorage.removeItem(LEGACY_STORAGE_KEY); } catch { /* ignore */ }
     }
@@ -336,7 +336,7 @@ if (typeof window !== 'undefined') {
     const windowLabel = window.location.search.includes('designer=1') ? 'DESIGNER' : 'MAIN';
     console.info(`[designDeskStore] cross-window sync REGISTERED (channel="${BROADCAST_CHANNEL}", window=${windowLabel}, broadcastChannel=${broadcastChannel ? 'available' : 'UNAVAILABLE'}, indexedDB=${typeof indexedDB !== 'undefined' ? 'available' : 'UNAVAILABLE'})`);
 
-    // PRIMARY: BroadcastChannel — fires immediately on every peer postMessage,
+    // PRIMARY: BroadcastChannel - fires immediately on every peer postMessage,
     // no quota, no payload-size limit.
     if (broadcastChannel) {
         broadcastChannel.addEventListener('message', (e) => {

@@ -1,5 +1,5 @@
 /**
- * NXT Output Renderer — Parses :::nxt:TYPE blocks from AI responses
+ * NXT Output Renderer - Parses :::nxt:TYPE blocks from AI responses
  * and renders them as NXT Design System styled React components.
  *
  * Block protocol:
@@ -138,7 +138,7 @@ export function parseNxtBlocks(text: string): ParsedSegment[] {
         if (remaining) segments.push({ type: 'text', content: remaining });
     }
 
-    // No blocks found — return entire text
+    // No blocks found - return entire text
     if (segments.length === 0) {
         segments.push({ type: 'text', content: text });
     }

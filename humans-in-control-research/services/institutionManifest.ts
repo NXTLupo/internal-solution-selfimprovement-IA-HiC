@@ -1,5 +1,5 @@
 /**
- * Institution Manifest Loader — Sprint 1 (S1) foundation layer.
+ * Institution Manifest Loader - Sprint 1 (S1) foundation layer.
  *
  * Produced by S0 + S1: a curated registry of 30 higher-ed institutions,
  * each with stable identifiers (US EIN, Canadian BN, or state-instrumentality
@@ -16,7 +16,7 @@
  * URLs get prepended to the collection set as Tier 0 sources.
  *
  * Singleton cache: the manifest is fetched once per app session and memoized.
- * The artifact is ~72 KB — trivial to hold in memory.
+ * The artifact is ~72 KB - trivial to hold in memory.
  */
 
 // --- Identifier kinds (polymorphic to cover edge cases in the 30-institution set) ---
@@ -133,7 +133,7 @@ let inflight: Promise<InstitutionManifest | null> | null = null;
 
 /**
  * Load the institution manifest. Cached after the first successful fetch.
- * Returns null if the artifact is missing or unparseable — callers should
+ * Returns null if the artifact is missing or unparseable - callers should
  * treat that as "no institutions available" and proceed without prepending
  * Tier 0 sources.
  */
@@ -150,7 +150,7 @@ export async function loadInstitutionManifest(): Promise<InstitutionManifest | n
             }
             const data = (await resp.json()) as InstitutionManifest;
             if (!data || !Array.isArray(data.institutions)) {
-                console.warn('[InstitutionManifest] malformed manifest — missing institutions array');
+                console.warn('[InstitutionManifest] malformed manifest - missing institutions array');
                 return null;
             }
             cachedManifest = data;
@@ -194,7 +194,7 @@ function normalize(s: string): string {
  *      wins (more specific match).
  *
  * Returns null if no match is confident enough. Callers should NOT guess
- * — if the parser produces the entity "Boston", matching to "Boston
+ * - if the parser produces the entity "Boston", matching to "Boston
  * University" would be wrong (could be Boston College). We prefer
  * precision over recall at this layer.
  */
@@ -268,7 +268,7 @@ export function resolveInstitutions(
 
 /**
  * Expand an institution to its peer group. Used by S2 query fabric for
- * "vs peers" expansion — when a brief says "Northeastern vs its peers",
+ * "vs peers" expansion - when a brief says "Northeastern vs its peers",
  * this returns Northeastern plus its boston_private peer set.
  */
 export function expandWithPeers(

@@ -1,7 +1,7 @@
 // semanticUiSearch.ts -- 2026-05-20
 //
 // Reusable semantic-search engine for in-memory UI lists (topics, themes,
-// nodes, sources, recommendations — anything with searchable text). Backs
+// nodes, sources, recommendations - anything with searchable text). Backs
 // the Topic Modeling search + Analyst Desk search with the same Gemini
 // embedding endpoint that powers NotebookLM-style theme retrieval, so
 // "co-op problems" matches "internship difficulties" the way the user
@@ -22,7 +22,7 @@
 //      results so search never goes blank.
 //
 // React integration: useSemanticSearch hook returns { filtered, isComputing,
-// usedSemantic } — UI can render a tiny "semantic" indicator while
+// usedSemantic } - UI can render a tiny "semantic" indicator while
 // re-embedding so the user knows what they're seeing.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -31,19 +31,19 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 const DEBOUNCE_MS = 300;
 const QUERY_CACHE_MAX = 50;
 const ITEM_BATCH_SIZE = 64;
-// 2026-05-20 — Settled at 0.42 after two over-corrections:
+// 2026-05-20 - Settled at 0.42 after two over-corrections:
 //   • 0.30 was too loose (everything passed; "finance" returned cybersecurity themes).
 //   • 0.55 was too tight (short-text items like theme labels never crossed it;
 //     "AI" returned 0 themes even when AI-prefixed themes existed).
 // Gemini gemini-embedding-001 baseline pair similarity in higher-ed institutional
-// corpora clusters around 0.35–0.50. The 0.42 inflection lets adjacent-topic
+// corpora clusters around 0.35-0.50. The 0.42 inflection lets adjacent-topic
 // matches surface for short-text items (themes, recommendations) while still
 // filtering noise for long-text items (sources, evidence). Per-call overrides
-// are still honored — long-text consumers should pass minSimilarity: 0.50+ and
-// short-text consumers should pass 0.40–0.42.
+// are still honored - long-text consumers should pass minSimilarity: 0.50+ and
+// short-text consumers should pass 0.40-0.42.
 const LITERAL_BONUS = 1.5;   // multiplicative boost when item text literally contains the query
 const EMBED_TIMEOUT_MS = 15_000;
-// 2026-05-20 — Top-N cap. Even when many items pass the floor,
+// 2026-05-20 - Top-N cap. Even when many items pass the floor,
 // surfacing >TOP_N items per panel reintroduces noise. NotebookLM-style:
 // rank-then-cap. UI can still page beyond this if it wants to.
 const DEFAULT_TOP_N = 25;
@@ -129,7 +129,7 @@ function cosineSimilarity(a: number[], b: number[]): number {
 }
 
 // ============================================================================
-// Batch item embedding (idempotent — only embeds keys not already cached)
+// Batch item embedding (idempotent - only embeds keys not already cached)
 // ============================================================================
 
 async function ensureItemEmbeddings<T>(
@@ -157,7 +157,7 @@ async function ensureItemEmbeddings<T>(
             });
         } catch (err: any) {
             console.warn('[semanticUiSearch] item batch embed failed (non-fatal):', err?.message || err);
-            // Continue to next batch — partial coverage is better than zero.
+            // Continue to next batch - partial coverage is better than zero.
         }
     }
 }
@@ -190,7 +190,7 @@ function substringMatches(text: string, tokens: string[]): boolean {
 }
 
 // ============================================================================
-// Public ranking — pure function, no debounce / no React
+// Public ranking - pure function, no debounce / no React
 // ============================================================================
 
 export interface RankedItem<T> {
@@ -250,20 +250,20 @@ export function rankBySimilarity<T>(
     // Primary pass: items at or above the floor (or with a literal token match).
     let kept = scored.filter(s => s.literalMatch || s.similarity >= minSim);
 
-    // Fallback: query produced no above-floor results — surface the top FALLBACK_N
+    // Fallback: query produced no above-floor results - surface the top FALLBACK_N
     // so the panel doesn't go blank. Caller can inspect literalMatch / similarity
     // to render a "weak match" indicator.
     if (kept.length === 0 && queryVec && scored.length > 0) {
         kept = scored.slice(0, fallbackTopN);
     }
 
-    // Cap to topN — even when many items pass the floor, only the most
+    // Cap to topN - even when many items pass the floor, only the most
     // similar ones are useful in a treemap/list panel.
     return kept.slice(0, topN);
 }
 
 // ============================================================================
-// React hook — debounced, async-safe, returns filtered subset
+// React hook - debounced, async-safe, returns filtered subset
 // ============================================================================
 
 export interface UseSemanticSearchResult<T> {
@@ -278,7 +278,7 @@ export interface UseSemanticSearchResult<T> {
     /** Per-item similarity scores for the items in `filtered`, same order.
      *  Useful when UI wants to surface "best match" indicators. */
     similarities: number[];
-    /** 2026-05-20 — Exposed so consumers can do per-type bucketing without a
+    /** 2026-05-20 - Exposed so consumers can do per-type bucketing without a
      *  second embedding round-trip. Pass it to rankBySimilarity() with a
      *  pre-bucketed item list to get per-type top-K results. Null while
      *  the query is still being embedded or when the query is empty. */
@@ -349,7 +349,7 @@ export function useSemanticSearch<T>(
         return () => { cancelled = true; };
     }, [debouncedQuery, enabled]);
 
-    // Embed items whenever the list changes. Idempotent — only new items
+    // Embed items whenever the list changes. Idempotent - only new items
     // hit /api/embed. Bumps embeddingTick when done so memoized filter
     // re-runs once vectors are available.
     useEffect(() => {

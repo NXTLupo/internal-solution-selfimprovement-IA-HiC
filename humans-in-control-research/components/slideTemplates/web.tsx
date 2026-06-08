@@ -1,5 +1,5 @@
 /**
- * SLIDE TEMPLATES — Web (React) renderers for all 10 NXT Humans templates.
+ * SLIDE TEMPLATES - Web (React) renderers for all 10 NXT Humans templates.
  *
  * Each renderer fills the content panel right of the brand sidebar (and,
  * optionally, the image panel). Templates favor restraint: massive negative
@@ -15,6 +15,7 @@ import type {
     ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
 } from './types';
 import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
+import type { JourneyBrief } from '../../services/journeyBriefExporter';
 
 // Renderers fall back to the nxt brand when no brand prop is supplied.
 // When a brand is supplied, we use its token values so `T.TEAL` semantic slots
@@ -50,7 +51,7 @@ export const SlideShell: React.FC<ShellProps> = ({ children, imageUrl, imagePane
                 {Array(9).fill(0).map((_, i) => <span key={i} style={{ width: 5, height: 5, background: hex(T.CHARTREUSE_BRIGHT) }} />)}
             </div>
         </div>
-        {/* IMAGE PANEL — 35% (1/3) when present */}
+        {/* IMAGE PANEL - 35% (1/3) when present */}
         {(imagePanel || imageUrl) && (
             <div style={{ width: '35%', height: '100%', overflow: 'hidden', flexShrink: 0, background: hex(T.BLACK) }}>
                 {imagePanel || (
@@ -73,7 +74,7 @@ export const SlideShell: React.FC<ShellProps> = ({ children, imageUrl, imagePane
 // Every template that shows an oversized display number uses these to pick a
 // font size that won't overflow its column, regardless of whether the AI emits
 // "42" or "Steady" or "$2.4M" or "-12%". Returns size in pixels (web) or pt
-// (PPTX — same number, different unit consumer).
+// (PPTX - same number, different unit consumer).
 export function heroNumberSize(value: string, opts?: { max?: number; min?: number; baseChars?: number }): number {
     const v = (value || '').trim();
     const max = opts?.max ?? 64;
@@ -88,18 +89,18 @@ export function heroNumberSize(value: string, opts?: { max?: number; min?: numbe
 }
 
 /**
- * Truncate text WITHOUT ever appending an ellipsis ("..." or "…") and
+ * Truncate text WITHOUT ever appending an ellipsis ("..." or "...") and
  * WITHOUT cutting mid-sentence. Strategy:
  *   1. If text fits, return verbatim.
- *   2. Look FORWARD up to 2× max for the next sentence end — if found,
+ *   2. Look FORWARD up to 2× max for the next sentence end - if found,
  *      return the full thought. A 90-char sentence that needed budget
  *      120 finishes cleanly instead of being chopped.
  *   3. Look BACKWARD inside max for the most recent sentence end at
- *      ≥ 30% of budget — use that.
+ *      ≥ 30% of budget - use that.
  *   4. Look BACKWARD for the most recent clause boundary (comma + space)
- *      at ≥ 50% — end there with a period (NOT an ellipsis).
+ *      at ≥ 50% - end there with a period (NOT an ellipsis).
  *   5. Last resort: drop the trailing fragment at the last word boundary.
- *      NO ellipsis is ever emitted — ellipsis hides valuable information.
+ *      NO ellipsis is ever emitted - ellipsis hides valuable information.
  */
 export function truncate(text: string | undefined, max: number): string {
     if (!text) return '';
@@ -157,7 +158,7 @@ const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources,
 };
 
 /**
- * QuoteStack — renders either a singular `evidence` quote OR a variable-length
+ * QuoteStack - renders either a singular `evidence` quote OR a variable-length
  * `quotes[]` array with consistent styling. The caller controls size/tone via
  * the `size` prop ('hero' | 'body' | 'compact'). This is the primitive that
  * makes multi-quote density work across every theme template.
@@ -165,7 +166,7 @@ const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources,
 interface QuoteLike { text: string; source?: string; attribution?: string; date?: string; role?: string; }
 
 /**
- * Smart quote truncation — NEVER cut mid-clause and NEVER append ellipsis.
+ * Smart quote truncation - NEVER cut mid-clause and NEVER append ellipsis.
  * Strategy:
  *   1. If quote fits, return verbatim.
  *   2. Look forward up to 1.5× for the next sentence end (preserve full thought).
@@ -190,7 +191,7 @@ function smartQuoteClip(text: string, maxChars: number): string {
     const lastSentence = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
     if (lastSentence > maxChars * 0.5) return t.slice(0, lastSentence + 1).trim();
 
-    // Backward clause boundary — end with period, no ellipsis
+    // Backward clause boundary - end with period, no ellipsis
     const lastClause = slice.lastIndexOf(', ');
     if (lastClause > maxChars * 0.6) return t.slice(0, lastClause).trim() + '.';
 
@@ -219,7 +220,7 @@ const QuoteStack: React.FC<{
     accent?: string;
     /** Override text color for dark surfaces */
     ink?: string;
-    /** Soft max characters per quote — smart-clipped at sentence boundary */
+    /** Soft max characters per quote - smart-clipped at sentence boundary */
     maxChars?: number;
 }> = ({ quotes, size = 'body', brand, accent, ink, maxChars }) => {
     const T = resolveT(brand);
@@ -275,7 +276,7 @@ function resolveThemeQuotes(theme: { evidence?: string; source?: string; quotes?
 }
 
 // === 1. PERSONA CARD (persona-architect) ===
-// 2026-05-23 — Refactored to NU artifact primitives. A single persona on
+// 2026-05-23 - Refactored to NU artifact primitives. A single persona on
 // the slide stage maps to the NU `.persona` card structure (GUIDE.md §6.1).
 // Two-column layout: identity + JTBD + goals on the left; pain points +
 // motivations on the right. Verbatim quote uses brand-red Spectral italic
@@ -301,7 +302,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                 </div>
             </header>
             <div style={{ padding: '4px 28px 8px', flex: 1, display: 'grid', gridTemplateColumns: hasImage ? '1fr' : '1.05fr 1fr', gap: 18, minHeight: 0, overflow: 'hidden' }}>
-                {/* LEFT column — quote + JTBD + Cooper goals */}
+                {/* LEFT column - quote + JTBD + Cooper goals */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
                     {p.quote && (
                         <blockquote
@@ -340,7 +341,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                         </dl>
                     )}
                 </div>
-                {/* RIGHT column — pain points + motivations */}
+                {/* RIGHT column - pain points + motivations */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
                     {p.painPoints && p.painPoints.length > 0 && (
                         <div>
@@ -378,7 +379,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
 };
 
 // === 2. RECOMMENDATION (strategy-author) ===
-// 2026-05-23 — Refactored to NU artifact primitives (.rec pattern from
+// 2026-05-23 - Refactored to NU artifact primitives (.rec pattern from
 // recommendations.html). Layout: ink-900 kernel band → action title with
 // brand-red left rule → supporting actions (auto-numbered) + side panel
 // (impact grid / hero metric / strip / image) → footer implication line.
@@ -411,7 +412,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                 </div>
             </header>
             <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 22, minHeight: 0, overflow: 'hidden' }}>
-                {/* LEFT — action title + rationale + supporting actions + evidence */}
+                {/* LEFT - action title + rationale + supporting actions + evidence */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, overflow: 'hidden' }}>
                     <h2 className="art-finding" style={{ fontSize: 17, borderLeft: '3px solid var(--nu-red-600)', paddingLeft: 12 }}>
                         {data.actionTitle}
@@ -446,7 +447,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                         </div>
                     )}
                 </div>
-                {/* RIGHT — hero image | impact grid | impact strip | hero metric */}
+                {/* RIGHT - hero image | impact grid | impact strip | hero metric */}
                 <div className="art-card" style={{ padding: 14, borderTop: '3px solid var(--nu-red-600)', minWidth: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                     {hasImage ? (
                         <>
@@ -524,7 +525,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
 };
 
 // === 3. THEME CLUSTER (theme-analyst) ===
-// 2026-05-23 — Refactored to NU .theme-grid + .theme tiles (themes.html §6.2).
+// 2026-05-23 - Refactored to NU .theme-grid + .theme tiles (themes.html §6.2).
 // Equal-weight horizontal columns (3-4 themes), each tile a complete-sentence
 // finding with insight, quote, source. Primary theme (index 0) opens with
 // brand-red number per "red is a scalpel".
@@ -577,7 +578,7 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
     );
 };
 
-// 2026-05-23 — Refactored to NU primitives. Spotlight = hero theme card with
+// 2026-05-23 - Refactored to NU primitives. Spotlight = hero theme card with
 // brand-red rule + supporting signals list. Patterns: .art-finding for hero
 // title, .pq for hero quote, .signal--blue for the pattern strip.
 export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
@@ -652,7 +653,7 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
     );
 };
 
-// 2026-05-23 — Refactored. Narrative chain: Spectral display numbers with
+// 2026-05-23 - Refactored. Narrative chain: Spectral display numbers with
 // ink-700 connector arrows, columns separated by hairline rules, signal mono
 // rows in lieu of brand-red badges (red is reserved for the pattern callout).
 export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
@@ -712,7 +713,7 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
     );
 };
 
-// 2026-05-23 — Refactored. 2x2 ivory grid, hairline rules; primary cell
+// 2026-05-23 - Refactored. 2x2 ivory grid, hairline rules; primary cell
 // (index 0) gets brand-red top accent. NU primitive composition only.
 export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const themes = data.themes.slice(0, 4);
@@ -778,7 +779,7 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
 // === 4. COMPETITIVE MATRIX (competitive-analyst) ===
 // Expanded density: column definitions under each header, per-row evidence line,
 // scale legend at bottom (Absent → Optimized), subject row highlighted.
-// 2026-05-23 — Refactored to NU .dtable + .nu-col shading
+// 2026-05-23 - Refactored to NU .dtable + .nu-col shading
 // (competitive-analysis.html §6.4). NU subject row gets brand-red wash + 2px
 // left border so it stands out across the matrix without re-scanning.
 export const CompetitiveMatrixSlide: React.FC<{ title: string; data: CompetitiveMatrixData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
@@ -865,8 +866,8 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
     );
 };
 
-// === 5. BLOCK QUOTE (evidence-curator) — denser with context + corroborating data ===
-// 2026-05-23 — Refactored to NU .pq pull-quote primitive (GUIDE §5).
+// === 5. BLOCK QUOTE (evidence-curator) - denser with context + corroborating data ===
+// 2026-05-23 - Refactored to NU .pq pull-quote primitive (GUIDE §5).
 // Spectral italic with brand-red left rule, attribution row below, optional
 // corroborating-data .art-card sidebar, implication line in footer.
 export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[]; brand?: Brand }> = ({ data, sources = [], brand }) => {
@@ -949,11 +950,11 @@ export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[
 };
 
 // === 6. CASE STUDY (case-study-analyst) ===
-// 2026-05-23 — Refactored to NU primitives. Three Challenge/Approach/Outcome
+// 2026-05-23 - Refactored to NU primitives. Three Challenge/Approach/Outcome
 // rows as .art-card stripes with brand-red left rule for CHALLENGE only;
 // right ink-900 .art-card panel carries hero metric + supporting .stat-strip
 // + comparables + pull quote. LESSON row uses chartreuse-equivalent muted
-// border (per "red as scalpel" — only one critical accent per page).
+// border (per "red as scalpel" - only one critical accent per page).
 export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const hasRightPanel = !!(data.keyMetric || data.supportingMetrics?.length || data.pullQuote || data.comparables?.length);
     return (
@@ -976,7 +977,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                 </div>
             )}
             <div style={{ flex: 1, padding: '8px 30px', display: 'grid', gridTemplateColumns: hasRightPanel ? '1.9fr 1fr' : '1fr', gap: 18, minHeight: 0, overflow: 'hidden' }}>
-                {/* LEFT — three narrative blocks */}
+                {/* LEFT - three narrative blocks */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
                     {[
                         { label: 'Challenge', text: data.challenge, accent: 'var(--nu-red-600)' },
@@ -995,7 +996,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                         </div>
                     )}
                 </div>
-                {/* RIGHT — ink-900 dashboard */}
+                {/* RIGHT - ink-900 dashboard */}
                 {hasRightPanel && (
                     <aside className="art-card art-card--ink" style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, overflow: 'hidden', background: 'var(--ink-900)' }}>
                         {data.keyMetric && (
@@ -1020,7 +1021,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                             </div>
                         )}
                         {data.comparables && data.comparables.length > 0 && (
-                            // 2026-05-25 — minWidth:0 + overflow:hidden so long
+                            // 2026-05-25 - minWidth:0 + overflow:hidden so long
                             // comparable names truncate inside the panel instead of
                             // bleeding through the quote stack underneath. Capped
                             // at 2 entries (was 3) so the pullQuote can always fit
@@ -1036,7 +1037,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                             </div>
                         )}
                         {data.pullQuote && (
-                            // 2026-05-25 — replaced marginTop:'auto' with a fixed
+                            // 2026-05-25 - replaced marginTop:'auto' with a fixed
                             // marginTop:10. The 'auto' pushed the quote to the
                             // panel bottom; when html2canvas re-measured the
                             // parent at fallback-font widths, the comparables
@@ -1047,7 +1048,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                                     “{smartQuoteClip(data.pullQuote.text, 200)}”
                                 </blockquote>
                                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 5, paddingLeft: 12, letterSpacing: '.04em' }}>
-                                    — {data.pullQuote.attribution}{data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}
+                                    - {data.pullQuote.attribution}{data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}
                                 </div>
                             </div>
                         )}
@@ -1060,11 +1061,11 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
 };
 
 // === 7. PRINCIPLES (strategy-author) ===
-// 2026-05-23 — Refactored to NU artifact primitives. Each principle becomes
+// 2026-05-23 - Refactored to NU artifact primitives. Each principle becomes
 // an .art-card with a Spectral display number (token-driven, brand-red),
 // .art-finding for the principle name (complete-sentence finding per
 // GUIDE.md §1 "sentence-case findings"), and small body for the description.
-// Layout: vertical list separated by 1-px rules (no card chrome — matches
+// Layout: vertical list separated by 1-px rules (no card chrome - matches
 // the NU document density rule).
 export const PrinciplesSlide: React.FC<{ title: string; data: PrinciplesData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const items = data.items.slice(0, 5);
@@ -1123,20 +1124,20 @@ export const PrinciplesSlide: React.FC<{ title: string; data: PrinciplesData; so
 };
 
 // === 8. STAT ROW (benchmark-reporter) ===
-// 2026-05-23 — Refactored to NU artifact primitives (.stat-strip, .stat,
+// 2026-05-23 - Refactored to NU artifact primitives (.stat-strip, .stat,
 // .stat__label, .stat__value, .art-card, .nu-artifact-stage--slide).
 // Pattern: each renderer wraps in `.nu-artifact-stage nu-artifact-stage--slide`
 // so the shared CSS resets + slide-size overrides apply locally, then composes
 // only NU classes for layout/typography. Token references resolve via
-// var(--*) — no hex colors hard-coded. PPTX exporter in pptx.ts is unchanged
+// var(--*) - no hex colors hard-coded. PPTX exporter in pptx.ts is unchanged
 // (it draws shapes from data, not CSS classes).
 //
-// Per GUIDE.md §5: stat-strip = 3–6 stats; .stat__value carries Spectral Light
+// Per GUIDE.md §5: stat-strip = 3-6 stats; .stat__value carries Spectral Light
 // 300 hero number; .stat__label is 10px uppercase; .stat__delta--up/--down
 // adds the triangle + directional color.
 export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const stats = data.stats.slice(0, 4);
-    // Brand kicker — NU shows "By the numbers · {brand}", NXT keeps minimal.
+    // Brand kicker - NU shows "By the numbers · {brand}", NXT keeps minimal.
     const kicker = 'By the numbers';
     return (
         <div
@@ -1209,7 +1210,7 @@ export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?
 };
 
 // === 9. TIMELINE (roadmap-builder) ===
-// 2026-05-23 — Refactored. NU roadmap-style .horizon columns: each phase is
+// 2026-05-23 - Refactored. NU roadmap-style .horizon columns: each phase is
 // a column with a ringed-dot marker on a hairline rule; first phase carries
 // brand-red dot; item list uses NU bullet markers.
 export const TimelineSlide: React.FC<{ title: string; data: TimelineData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
@@ -1261,7 +1262,7 @@ export const TimelineSlide: React.FC<{ title: string; data: TimelineData; source
 };
 
 // === 10. SECTION DIVIDER (deck-narrative-composer) ===
-// 2026-05-23 — Refactored to NU's "arc-section" archetype (strategy-deck.html
+// 2026-05-23 - Refactored to NU's "arc-section" archetype (strategy-deck.html
 // §02): ink-900 background with ghost type, Spectral display title, mono
 // section counter, brand-red detail accent. Goes full-bleed; no masthead.
 export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand?: Brand }> = ({ data, brand }) => {
@@ -1276,7 +1277,7 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
                 display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             }}
         >
-            {/* Ghost number — large faded Spectral display behind the foreground */}
+            {/* Ghost number - large faded Spectral display behind the foreground */}
             <div
                 aria-hidden="true"
                 style={{
@@ -1295,14 +1296,14 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
             >
                 {data.number}
             </div>
-            {/* Top — SECTION kicker + brand red rule */}
+            {/* Top - SECTION kicker + brand red rule */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, position: 'relative' }}>
                 <div style={{ width: 36, height: 2, background: 'var(--nu-red-600)' }} />
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 600, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--nu-red-100)' }}>
                     Section · {data.number}
                 </span>
             </div>
-            {/* Bottom — title + subtitle in Spectral display */}
+            {/* Bottom - title + subtitle in Spectral display */}
             <div style={{ maxWidth: '92%', position: 'relative' }}>
                 <h1 style={{
                     fontFamily: 'var(--font-display)',
@@ -1330,7 +1331,7 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
 };
 
 // === 11. SERVICE BLUEPRINT (service-blueprint-mapper / journey_stage) ===
-// 2026-05-23 — Refactored to NU .blueprint / .bp-row / .bp-cell pattern
+// 2026-05-23 - Refactored to NU .blueprint / .bp-row / .bp-cell pattern
 // (service-blueprint.html §6.3). Bitner 5-lane model:
 // Customer (highlighted, brand-red rule) → Frontstage → Backstage → Support
 // → Fail points (brand-red top border, NU red wash on fail cells). Mood
@@ -1351,7 +1352,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
         if (low.includes('delight') || low.includes('satisf') || low.includes('hope') || low.includes('excited') || low.includes('curious')) return 'signal signal--green';
         return 'signal signal--yellow';
     };
-    // 2026-05-25 — JM-depth: detect whether the new dashboard/voice fields exist
+    // 2026-05-25 - JM-depth: detect whether the new dashboard/voice fields exist
     const hasDashboard = !!(data.personas?.length || data.overallPainPoints?.length || data.overallOpportunities?.length || data.kpiTiles?.length);
     const hasVoiceQuotes = stages.some(s => s.voiceQuote);
     const kicker = data.journeyType
@@ -1402,7 +1403,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
                     overflow: 'hidden',
                 }}
             >
-                {/* Phase header row — ink-900 inverse */}
+                {/* Phase header row - ink-900 inverse */}
                 <div style={{ padding: '6px 10px', fontFamily: 'var(--font-mono)', fontSize: 9, fontWeight: 600, letterSpacing: '.16em', color: 'var(--white)', background: 'var(--ink-900)', textTransform: 'uppercase', display: 'flex', alignItems: 'center' }}>Phase</div>
                 {stages.map((st, i) => (
                     <div key={`ph-${i}`} style={{ padding: '6px 10px', fontWeight: 700, fontSize: 11, color: 'var(--white)', background: 'var(--ink-900)', borderLeft: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center' }}>{truncate(st.phase, 28)}</div>
@@ -1410,7 +1411,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
                 {/* Duration / mood row */}
                 <div style={{ padding: '2px 10px', fontFamily: 'var(--font-mono)', fontSize: 9, fontWeight: 600, letterSpacing: '.12em', color: 'var(--fg-muted)', textTransform: 'uppercase', background: 'var(--bg-subtle)', display: 'flex', alignItems: 'center' }}>Duration · mood</div>
                 {stages.map((st, i) => {
-                    // 2026-05-25 — Display emotion + intensity in the duration row.
+                    // 2026-05-25 - Display emotion + intensity in the duration row.
                     // Normalize legacy 1-5 scale (<=5) to 0-100 for the bar display.
                     const intensityRaw = st.emotionIntensity;
                     const normalized = typeof intensityRaw === 'number'
@@ -1449,7 +1450,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
                                 alignItems: 'flex-start',
                             }}>
                                 <span style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis' }}>
-                                    {truncate(txt, 110) || '—'}
+                                    {truncate(txt, 110) || '-'}
                                 </span>
                             </div>
                         );
@@ -1472,7 +1473,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
                         display: 'flex', alignItems: 'flex-start', overflow: 'hidden',
                     }}>
                         <span style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis' }}>
-                            {st.failPoint && <span className="signal signal--red" style={{ marginRight: 4 }}></span>}{truncate(st.painPoint, 110) || '—'}
+                            {st.failPoint && <span className="signal signal--red" style={{ marginRight: 4 }}></span>}{truncate(st.painPoint, 110) || '-'}
                         </span>
                     </div>
                 ))}
@@ -1493,7 +1494,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
                                     )}
                                 </blockquote>
                             ) : (
-                                <span style={{ fontSize: 8, color: 'var(--fg-muted)' }}>—</span>
+                                <span style={{ fontSize: 8, color: 'var(--fg-muted)' }}>-</span>
                             )}
                         </div>
                     ))}
@@ -1510,7 +1511,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
 };
 
 // === 12. GAP MATRIX (gap-analysis-evaluator / gap) ===
-// 2026-05-23 — Refactored to NU .matbar primitive (gap-analysis.html §6.5).
+// 2026-05-23 - Refactored to NU .matbar primitive (gap-analysis.html §6.5).
 // .matbar__track holds .matbar__current (ink fill) + .matbar__target (red
 // pin). Severity uses NU .pill variants (--error/--warning/--special).
 export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
@@ -1581,8 +1582,103 @@ export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sour
     );
 };
 
+// === JOURNEY BRIEF (journeyBriefExporter) ===
+// 2026-06-02 - Web preview renderer added to reach parity with the PPTX
+// exporter (exportJourneyBrief in pptx.ts). Mirrors that layout exactly:
+// eyebrow + diagnostic title + persona line, a tabular stage grid (header row +
+// PAIN row + OPPORTUNITY row), two-column cross-cutting pains / strategic
+// opportunities, KPI tiles, closing quote. CSS grid keeps the stage table
+// collision-free (no absolute coordinates).
+export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
+    const stages = (data.stages || []).slice(0, 6);
+    const gridCols = `110px repeat(${Math.max(stages.length, 1)}, 1fr)`;
+    const kpis = (data.kpis || []).slice(0, 4);
+    const truncate = (s: string, n: number) => (s && s.length > n ? s.slice(0, n - 1).trimEnd() + '...' : (s || ''));
+    return (
+        <div
+            className="nu-artifact-stage nu-artifact-stage--slide"
+            data-brand={brand || 'nu'}
+            style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+        >
+            <header className="art-masthead" style={{ paddingBottom: 8 }}>
+                <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                    <div className="art-masthead__kicker">Journey brief / {(data.journey_type || 'general').toUpperCase()}</div>
+                    <h1 className="art-masthead__title">{data.diagnostic_title || title}</h1>
+                </div>
+            </header>
+            <div style={{ flex: 1, padding: '0 28px', display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0, overflow: 'hidden' }}>
+                {data.persona_line && (
+                    <div style={{ fontSize: 10, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', borderBottom: '1px solid var(--border-subtle)', paddingBottom: 6 }}>{data.persona_line}</div>
+                )}
+
+                {/* Stage grid: header row + PAIN row + OPPORTUNITY row */}
+                {stages.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: gridCols, border: '1px solid var(--border-subtle)' }}>
+                        {/* header row */}
+                        <div style={{ background: 'transparent' }} />
+                        {stages.map((st, i) => (
+                            <div key={`h${i}`} style={{ background: 'var(--ink-900, #115054)', color: 'var(--white, #fff)', fontSize: 9, fontWeight: 700, letterSpacing: '.04em', padding: '6px 8px', textAlign: 'center', lineHeight: 1.15, borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.18)' }}>{truncate(st.name, 46)}</div>
+                        ))}
+                        {/* PAIN row */}
+                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--nu-red-600, #cc4422)', borderTop: '1px solid var(--border-subtle)', fontSize: 8, fontWeight: 700, letterSpacing: '.08em', color: 'var(--nu-red-700, #cc4422)', padding: '6px 8px' }}>PAIN</div>
+                        {stages.map((st, i) => (
+                            <div key={`p${i}`} style={{ background: '#fff5f5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: 8.5, color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_pain || '', 160)}</div>
+                        ))}
+                        {/* OPPORTUNITY row */}
+                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--success, #0cce6b)', borderTop: '1px solid var(--border-subtle)', fontSize: 8, fontWeight: 700, letterSpacing: '.08em', color: '#0a8f4d', padding: '6px 8px' }}>OPPORTUNITY</div>
+                        {stages.map((st, i) => (
+                            <div key={`o${i}`} style={{ background: '#f0fbf5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: 8.5, color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_opportunity || '', 160)}</div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Cross-cutting pains | strategic opportunities */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+                    {([
+                        { label: 'CROSS-CUTTING PAINS', items: data.cross_cutting_pains, color: 'var(--nu-red-700, #cc4422)' },
+                        { label: 'STRATEGIC OPPORTUNITIES', items: data.strategic_opportunities, color: '#0a8f4d' },
+                    ] as const).map((col, ci) => (
+                        <div key={ci}>
+                            <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: '.12em', color: col.color, marginBottom: 6 }}>{col.label}</div>
+                            {(col.items || []).slice(0, 3).map((it, i) => (
+                                <div key={i} style={{ display: 'flex', gap: 6, fontSize: 9, color: 'var(--fg-strong)', lineHeight: 1.3, marginBottom: 4 }}>
+                                    <span style={{ fontWeight: 700, color: col.color }}>{i + 1}.</span>
+                                    <span>{truncate(it, 180)}</span>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
+                {/* KPI tiles */}
+                {kpis.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: `repeat(${kpis.length}, 1fr)`, gap: 10, marginTop: 2 }}>
+                        {kpis.map((k, i) => (
+                            <div key={i} style={{ background: i === 0 ? 'var(--ink-900, #115054)' : 'var(--bg-subtle, #f6f6f4)', padding: '8px 10px' }}>
+                                <div style={{ fontSize: 22, fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display, Archivo)', color: i === 0 ? 'var(--white, #fff)' : 'var(--fg-strong)', letterSpacing: '-.02em' }}>{k.value}</div>
+                                <div style={{ fontSize: 8, color: i === 0 ? '#f0f0f0' : 'var(--fg-muted)', marginTop: 4, lineHeight: 1.25 }}>{truncate(k.label, 60)}</div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Closing quote */}
+                {data.closing_quote && data.closing_quote.text && (
+                    <div style={{ display: 'flex', gap: 10, borderLeft: '4px solid var(--accent, #caca20)', paddingLeft: 12, marginTop: 2 }}>
+                        <div>
+                            <div style={{ fontSize: 10, fontStyle: 'italic', color: 'var(--fg-strong)', lineHeight: 1.35 }}>"{truncate(data.closing_quote.text, 200)}"</div>
+                            <div style={{ fontSize: 8, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', marginTop: 3 }}>{truncate(data.closing_quote.attribution || '', 90)}</div>
+                        </div>
+                    </div>
+                )}
+            </div>
+            <SourceFooter sources={sources.length ? sources : (data.sources || [])} brand={brand} />
+        </div>
+    );
+};
+
 // === 13. ARCHITECTURE MAP (tech-arch-generator / tech_node) ===
-// 2026-05-23 — Refactored to NU c4-canvas pattern (tech-architecture.html §6.11).
+// 2026-05-23 - Refactored to NU c4-canvas pattern (tech-architecture.html §6.11).
 // Each C4 layer is a row with an ink-900 label panel + flex node strip; nodes
 // use .art-card with left-border color by type (--user, --app, --db, --integ,
 // --ext, --ai). Brand-red reserved for layer 1 (most upstream).
@@ -1641,11 +1737,11 @@ export const ArchitectureMapSlide: React.FC<{ title: string; data: ArchitectureM
     );
 };
 
-// 2026-05-23 — Refactored to NU primitives (prd.html §6.9). Priority becomes
+// 2026-05-23 - Refactored to NU primitives (prd.html §6.9). Priority becomes
 // NU .pill variant. Two modes preserved: DEEP for single feature with rich
 // narrative, COMPACT for 2-3 side-by-side cards. Both share .art-card
 // chrome with a top accent that maps priority to brand red (must) or muted
-// (others) — staying inside "red as scalpel".
+// (others) - staying inside "red as scalpel".
 export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const allFeatures = Array.isArray(data?.features) ? data.features : [];
     const prioPill = (p: string) => p === 'must' ? 'pill pill--error' : p === 'should' ? 'pill pill--warning' : p === 'could' ? 'pill pill--progress' : 'pill pill--outline';
@@ -1681,7 +1777,7 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 6).map((c, ci) => (
                                     <li key={ci} style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 14, position: 'relative', marginBottom: 4 }}>
-                                        <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}>✓</span>{c}
+                                        <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}></span>{c}
                                     </li>
                                 ))}
                             </ul>
@@ -1750,7 +1846,7 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 5).map((c, ci) => (
                                     <li key={ci} style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 12, position: 'relative', marginBottom: 4 }}>
-                                        <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}>✓</span>{c}
+                                        <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}></span>{c}
                                     </li>
                                 ))}
                             </ul>
@@ -1763,7 +1859,7 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
     );
 };
 
-// 2026-05-23 — Refactored to NU .dtable + NU .pill primitives
+// 2026-05-23 - Refactored to NU .dtable + NU .pill primitives
 // (tech-audit.html §6.12). Status + risk become NU pill variants; row hover
 // + striping handled by the shared .dtable layer.
 export const SystemsInventorySlide: React.FC<{ title: string; data: SystemsInventoryData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {

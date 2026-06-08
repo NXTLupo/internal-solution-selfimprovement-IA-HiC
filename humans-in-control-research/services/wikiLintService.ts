@@ -1,5 +1,5 @@
 /**
- * Wiki Lint Service — Loop 5 of the Self-Improvement Architecture
+ * Wiki Lint Service - Loop 5 of the Self-Improvement Architecture
  *
  * Runs structural and semantic health checks on the wiki, writes a
  * dated report, and surfaces findings to the constraint pipeline.
@@ -343,7 +343,7 @@ function checkBrokenLinks(pages: PageRecord[]): LintFinding[] {
 
 function checkReferenceSymmetry(pages: PageRecord[]): LintFinding[] {
     // Heuristic: if Page A is in frameworks/ and links to Page B in evidence/,
-    // we expect evidence/B to also link back to A. This is a soft expectation —
+    // we expect evidence/B to also link back to A. This is a soft expectation -
     // we report asymmetry as info, not warn.
     const findings: LintFinding[] = [];
     const linksFrom = new Map<string, Set<string>>();
@@ -453,9 +453,9 @@ function checkFrameworkCompleteness(pages: PageRecord[]): LintFinding[] {
     return findings;
 }
 
-// 2026-05-24 — Patterns that match AUTO-GENERATED synthesis files (logs,
+// 2026-05-24 - Patterns that match AUTO-GENERATED synthesis files (logs,
 // telemetry, history, lint output). These pages do not contain knowledge
-// claims that can be contradicted — they contain machine-emitted records.
+// claims that can be contradicted - they contain machine-emitted records.
 // Including them in the contradiction scan was the root cause of the 18,708
 // false-positive findings observed on the Northeastern 2026-05-24 run (the
 // scan re-read prior lint reports and flagged citation tuples like
@@ -488,7 +488,7 @@ async function checkContradictions(pages: PageRecord[]): Promise<LintFinding[]> 
     // contradictory claims. Cost-controlled: only checks frameworks + synthesis
     // pages, only pairs within the same broad topic family.
     //
-    // 2026-05-24 — EXCLUDE auto-generated synthesis (lint reports, curator
+    // 2026-05-24 - EXCLUDE auto-generated synthesis (lint reports, curator
     // logs, telemetry, history). See note above AUTO_GENERATED_SYNTHESIS_PATTERNS.
     const findings: LintFinding[] = [];
     const cutoff = Date.now() - CONTRADICTION_WINDOW_DAYS * 24 * 60 * 60 * 1000;
@@ -576,11 +576,11 @@ ${b.body.slice(0, 4000)}
 Return STRICT JSON only. Schema:
 {
   "has_conflict": boolean,
-  "summary": "string — one sentence describing the specific conflict, or empty if has_conflict is false",
-  "suggested_resolution": "string — concrete action: cite a third source, reconcile, mark one as superseded, etc. Or empty if no conflict."
+  "summary": "string - one sentence describing the specific conflict, or empty if has_conflict is false",
+  "suggested_resolution": "string - concrete action: cite a third source, reconcile, mark one as superseded, etc. Or empty if no conflict."
 }
 
-A conflict exists only when both pages make claims about the same specific fact AND those claims are mutually exclusive. Differences in scope, framing, or detail are NOT conflicts. Be conservative — false positives waste reviewer time.`;
+A conflict exists only when both pages make claims about the same specific fact AND those claims are mutually exclusive. Differences in scope, framing, or detail are NOT conflicts. Be conservative - false positives waste reviewer time.`;
 
     const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
         method: 'POST',
@@ -680,7 +680,7 @@ export async function runWikiLint(opts: LintOptions = {}): Promise<LintReport> {
     const runId = `lint_${startedAt.getTime()}`;
     const pages = await loadAllPages();
 
-    // 2026-05-26 — push-spread pattern (`findings.push(...arr)`) was throwing
+    // 2026-05-26 - push-spread pattern (`findings.push(...arr)`) was throwing
     // RangeError: Maximum call stack size exceeded when arr exceeded V8's
     // spread-arg limit (~125k entries). The broken-link checker had 17,775
     // findings against the current wiki, well below that ceiling, but on
@@ -884,7 +884,7 @@ export async function shouldAutoLint(): Promise<boolean> {
 /**
  * Convenience: run lint if it has been >=7 days since the last run.
  * Returns the report if run, null if skipped. Safe to call on every session
- * start — only fires when due.
+ * start - only fires when due.
  */
 export async function runIfDue(opts: LintOptions = {}): Promise<LintReport | null> {
     if (!await shouldAutoLint()) return null;

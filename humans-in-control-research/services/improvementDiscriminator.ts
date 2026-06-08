@@ -19,7 +19,7 @@
 //      "Here's what changed since the last generation".
 //
 // Detection lists (banned phrases, meta-narration regexes) are NOT duplicated
-// here — we import the existing detectOutputAntiPatterns + detectMetaNarration
+// here - we import the existing detectOutputAntiPatterns + detectMetaNarration
 // from slidePostProcessor.ts so the slop policy stays single-sourced.
 
 import { detectMetaNarration, detectOutputAntiPatterns } from './slidePostProcessor';
@@ -83,7 +83,7 @@ export interface ImprovementLineageRecord {
 }
 
 // ============================================================================
-// Scoring — per dimension
+// Scoring - per dimension
 // ============================================================================
 
 function scoreBannedPhraseAbsence(text: string, kind: string): number {
@@ -397,7 +397,7 @@ function autoDismissBadConstraints(attributions: ConstraintAttribution[]): strin
 
     addDismissedConstraints(toDismiss.map(a => ({
         constraint: a.constraint,
-        reason: `Auto-dismissed after ${a.sampleCount} samples with running score ${a.runningScore.toFixed(2)} — consistently negative quality impact.`,
+        reason: `Auto-dismissed after ${a.sampleCount} samples with running score ${a.runningScore.toFixed(2)} - consistently negative quality impact.`,
         runningScore: a.runningScore,
         sampleCount: a.sampleCount,
     })));
@@ -430,7 +430,7 @@ function autoDismissBadConstraints(attributions: ConstraintAttribution[]): strin
 
 function buildHeadline(currentScore: number, priorScore: number | null, newlyActive: string[]): string {
     if (priorScore === null) {
-        return `First generation of this artifact — quality baseline established at ${currentScore}/100.`;
+        return `First generation of this artifact - quality baseline established at ${currentScore}/100.`;
     }
     const delta = currentScore - priorScore;
     if (Math.abs(delta) < 2) {
@@ -440,11 +440,11 @@ function buildHeadline(currentScore: number, priorScore: number | null, newlyAct
     }
     if (delta > 0) {
         return newlyActive.length > 0
-            ? `Quality up ${delta} points (now ${currentScore}/100) — ${newlyActive.length} new rule(s) earned credit.`
-            : `Quality up ${delta} points (now ${currentScore}/100) — improvement attributable to corpus or context shift.`;
+            ? `Quality up ${delta} points (now ${currentScore}/100) - ${newlyActive.length} new rule(s) earned credit.`
+            : `Quality up ${delta} points (now ${currentScore}/100) - improvement attributable to corpus or context shift.`;
     }
     return newlyActive.length > 0
-        ? `Quality down ${Math.abs(delta)} points (now ${currentScore}/100) — investigating ${newlyActive.length} newly-applied rule(s).`
+        ? `Quality down ${Math.abs(delta)} points (now ${currentScore}/100) - investigating ${newlyActive.length} newly-applied rule(s).`
         : `Quality down ${Math.abs(delta)} points (now ${currentScore}/100). No new rules this run; corpus or context regressed.`;
 }
 
@@ -486,7 +486,7 @@ function buildNarrative(
     }
 
     if (carried.length > 0 && carried.length <= 5) {
-        lines.push(`Carried-over rules (${carried.length}): ${carried.slice(0, 3).join('; ')}${carried.length > 3 ? '…' : ''}.`);
+        lines.push(`Carried-over rules (${carried.length}): ${carried.slice(0, 3).join('; ')}${carried.length > 3 ? '...' : ''}.`);
     } else if (carried.length > 5) {
         lines.push(`Carried-over rules from prior runs: ${carried.length} active.`);
     }
@@ -494,15 +494,15 @@ function buildNarrative(
     const positivelyAttributed = attributions.filter(a => a.delta > 0.1);
     const negativelyAttributed = attributions.filter(a => a.delta < -0.1);
     if (positivelyAttributed.length > 0) {
-        lines.push(`Rules earning credit this run: ${positivelyAttributed.map(a => `"${a.constraint.slice(0, 60)}${a.constraint.length > 60 ? '…' : ''}" (+${a.delta.toFixed(2)})`).join('; ')}.`);
+        lines.push(`Rules earning credit this run: ${positivelyAttributed.map(a => `"${a.constraint.slice(0, 60)}${a.constraint.length > 60 ? '...' : ''}" (+${a.delta.toFixed(2)})`).join('; ')}.`);
     }
     if (negativelyAttributed.length > 0) {
-        lines.push(`Rules under suspicion: ${negativelyAttributed.map(a => `"${a.constraint.slice(0, 60)}${a.constraint.length > 60 ? '…' : ''}" (${a.delta.toFixed(2)}, ${a.sampleCount} sample(s))`).join('; ')}.`);
+        lines.push(`Rules under suspicion: ${negativelyAttributed.map(a => `"${a.constraint.slice(0, 60)}${a.constraint.length > 60 ? '...' : ''}" (${a.delta.toFixed(2)}, ${a.sampleCount} sample(s))`).join('; ')}.`);
     }
 
     if (dismissed.length > 0) {
         lines.push(`Auto-dismissed after persistent negative impact:`);
-        for (const c of dismissed) lines.push(`  ✗ ${c}`);
+        for (const c of dismissed) lines.push(`   ${c}`);
     }
 
     if (lines.length === 0) {

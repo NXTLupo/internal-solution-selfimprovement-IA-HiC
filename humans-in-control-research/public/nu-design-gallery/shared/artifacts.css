@@ -680,3 +680,21 @@ hr { border: 0; border-top: 1px solid var(--border-subtle); margin: 0; }
   .art-masthead, .art-card, .stat, .dtable { box-shadow: none !important; }
   .no-print { display: none !important; }
 }
+
+/* =========================================================================
+   2026-06-03 — WCAG AA CONTRAST FLOOR (appended last, !important).
+   A Playwright computed-contrast audit across all 20 deliverables found the
+   muted/subtle micro-label text (slate-400/500 on white, ~2.5-4.3:1) failing
+   the 4.5:1 AA floor, and amber warning chips (~3.5:1) failing. These rules
+   are class-targeted with !important so they win over per-artifact inline
+   styles too. Muted/subtle text -> slate-600 (6.4:1); warning chips -> a darker
+   amber where white passes. Borders/dividers/signal-dots are unaffected (they
+   are background swatches, not text).
+   ========================================================================= */
+.art-masthead__meta dt,.art-eyebrow--num,.art-section__counter,.cite,.source-item,
+.art-footer,.art-footer code,[class*="__meta"] dt,.art-card__eyebrow{
+  color: var(--slate-600) !important;
+}
+.pill--warning,.chip-warning,.badge-warning,.urg,.urg.near{
+  background: var(--warning-fg) !important; color: #FFFFFF !important;
+}

@@ -2,34 +2,34 @@
 //
 // Detects #presentation directives in user chat messages and extracts the
 // brand variant, theme, and any modifier hashtags. The parser does NOT
-// consume the rest of the message — it only extracts directives. The
+// consume the rest of the message - it only extracts directives. The
 // stripped message (hashtags removed) is returned as `narrativeRequest`
 // for handing to the narrative composer.
 //
 // Supported directives:
-//   #presentation            — required trigger
-//   #NXT                     — brand: NXT Humans (default)
-//   #NU                      — brand: Northeastern University
-//   #dark                    — theme: dark (default)
-//   #light                   — theme: light
-//   #model=gpt5.5            — alias for gpt-5.5 (default 2026-05-03)
-//   #model=gemini            — opt into gemini-3.1-pro-preview (currently
-//                              produces empty section data — schema bug;
+//   #presentation            - required trigger
+//   #NXT                     - brand: NXT Humans (default)
+//   #NU                      - brand: Northeastern University
+//   #dark                    - theme: dark (default)
+//   #light                   - theme: light
+//   #model=gpt5.5            - alias for gpt-5.5 (default 2026-05-03)
+//   #model=gemini            - opt into gemini-3.1-pro-preview (currently
+//                              produces empty section data - schema bug;
 //                              kept for follow-up testing only)
 //
-// 2026-05-03 — Claude / Opus aliases removed on this branch. Only Google
+// 2026-05-03 - Claude / Opus aliases removed on this branch. Only Google
 // (Gemini) and OpenAI (GPT-5.5) composer models are accepted.
 // Default flipped to GPT-5.5 because Gemini's OpenAI-compat function-calling
 // emits empty `data: {}` for sections (loose-schema serialization bug).
-//   #hero="Custom Headline." — override the composed hero title
-//   #sections=themes,personas,recs   — restrict to listed section kinds
-//   #preview                 — render but do not persist (ephemeral)
-//   #export-pptx             — also produce matching .pptx via exportService
-//   #auto-open               — synchronous window.open() workaround for popups
+//   #hero="Custom Headline." - override the composed hero title
+//   #sections=themes,personas,recs   - restrict to listed section kinds
+//   #preview                 - render but do not persist (ephemeral)
+//   #export-pptx             - also produce matching .pptx via exportService
+//   #auto-open               - synchronous window.open() workaround for popups
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
 
-// 2026-05-07 — Composer migrated to Gemini 3.1 Pro. DeepSeek V4 Flash
+// 2026-05-07 - Composer migrated to Gemini 3.1 Pro. DeepSeek V4 Flash
 // produced jargon-heavy, hyperbolic, AI-slop narratives; Gemini 3.1 Pro at
 // 1M context follows multi-step rules reliably and produces descriptive,
 // professional prose. Composer routes via /api/ai/gemini-compat (Google's
@@ -50,13 +50,13 @@ export interface PresentationDirective {
   /**
    * The user's narrative request with all known directive hashtags removed.
    * This is the verbatim thesis handed to the composer. Unknown hashtags
-   * (e.g. domain tags like #fundraising) are intentionally preserved —
+   * (e.g. domain tags like #fundraising) are intentionally preserved -
    * they may be part of the thesis the user wants the composer to address.
    */
   narrativeRequest: string;
 }
 
-// Regex helpers — case-insensitive.
+// Regex helpers - case-insensitive.
 // Brand tags (#NU, #NXT) match even when the user types possessive-without-
 // apostrophe ("#NUs"), with apostrophe ("#NU's"), or with trailing punctuation
 // ("#NU,"). They do NOT match mid-word ("#NUmber" is not #NU).
@@ -78,7 +78,7 @@ function extractValue(message: string, key: string): string | undefined {
 }
 
 function stripDirectives(message: string): string {
-  // Remove all known directive hashtags — leave domain/topic hashtags intact.
+  // Remove all known directive hashtags - leave domain/topic hashtags intact.
   // Brand tags swallow trailing 's or s (so "frame #NUs challenges" becomes
   // "frame challenges" rather than "frame s challenges").
   const knownDirectives = [
@@ -123,7 +123,7 @@ function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined 
 }
 
 function parseModel(raw: string | undefined): ComposerModelChoice {
-  // 2026-05-27 — Composer DEFAULT is now Gemini 3.5 Flash. The composer's
+  // 2026-05-27 - Composer DEFAULT is now Gemini 3.5 Flash. The composer's
   // `submit_presentation` section schema was flattened (oneOf → merged
   // permissive object, narrativeComposerTools.ts) so Google's OpenAI-compat
   // layer accepts it. Gemini is funded + healthy + NOT Azure-content-filtered,
@@ -150,7 +150,7 @@ function parseModel(raw: string | undefined): ComposerModelChoice {
 
 /**
  * Parse a chat message for presentation directives. Returns a directive
- * object with `triggered: false` if `#presentation` is not present —
+ * object with `triggered: false` if `#presentation` is not present -
  * callers should branch on this and proceed with normal chat flow when
  * untriggered.
  */
@@ -203,7 +203,7 @@ export function parsePresentationDirective(message: string): PresentationDirecti
   };
 }
 
-// 2026-05-11 (HiC-Experience-Designer) — #proto directive.
+// 2026-05-11 (HiC-Experience-Designer) - #proto directive.
 // `#proto <free-form concept>` triggers the 5-stage builder pipeline.
 // `#proto #NXT` / `#proto #NU` selects the brand. Default NXT.
 export interface PrototypeDirective {
@@ -233,13 +233,13 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
   return { triggered: true, brand, concept, basedOn };
 }
 
-// 2026-05-12 (Sprint H2 + H4) — HTML deliverable directives.
+// 2026-05-12 (Sprint H2 + H4) - HTML deliverable directives.
 // `#brief`, `#explainer`, `#report`, `#playground`, `#approaches` all
 // produce HTML artifacts via /api/artifacts. `#artifacts` (plural) lists
 // the library. `#help` produces the hashtag reference guide. `#refine`
 // targets an existing artifact slug. All accept `--variants k` (2-6).
 
-// 2026-05-23 — P1.5 (Sprint H3): added `#whitepaper` for the strategic-report
+// 2026-05-23 - P1.5 (Sprint H3): added `#whitepaper` for the strategic-report
 // HTML output. The previous strategic-report pipeline emitted slide-deck JSON
 // only; the whitepaper directive composes a consulting-grade HTML long-form
 // document using the same html-deliverable-composer skill plus a whitepaper-
@@ -295,17 +295,17 @@ export const parsePlaygroundDirective = buildArtifactParser('#playground');
 export const parseApproachesDirective = buildArtifactParser('#approaches');
 export const parseWhitepaperDirective = buildArtifactParser('#whitepaper');
 
-/** Help directive — bare hashtag, no topic needed. */
+/** Help directive - bare hashtag, no topic needed. */
 export function parseHelpDirective(message: string): { triggered: boolean } {
     return { triggered: /(?:^|\s)#help(?=\s|$|[.,;:!?'"])/i.test(message) };
 }
 
-/** Artifact library directive — bare hashtag. */
+/** Artifact library directive - bare hashtag. */
 export function parseArtifactsLibraryDirective(message: string): { triggered: boolean } {
     return { triggered: /(?:^|\s)#artifacts(?=\s|$|[.,;:!?'"])/i.test(message) };
 }
 
-/** Refine directive — targets an existing slug. */
+/** Refine directive - targets an existing slug. */
 export interface RefineDirective {
     triggered: boolean;
     slug: string;             // the slug to refine
@@ -314,7 +314,7 @@ export interface RefineDirective {
 export function parseRefineDirective(message: string): RefineDirective {
     // Match: #refine <slug>[: <instruction>]
     //        or #refine #name=<slug> <instruction>
-    const m = message.match(/(?:^|\s)#refine\s+(?:#name=)?([a-z0-9_-]+)(?:\s*[:—\-]\s*(.+))?/i);
+    const m = message.match(/(?:^|\s)#refine\s+(?:#name=)?([a-z0-9_-]+)(?:\s*[:\-]\s*(.+))?/i);
     if (!m) return { triggered: false, slug: '', instruction: '' };
     return {
         triggered: true,

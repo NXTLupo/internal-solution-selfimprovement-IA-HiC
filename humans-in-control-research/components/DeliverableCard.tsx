@@ -1,5 +1,5 @@
 /**
- * DeliverableCard — Inspectable, approvable tiles for chat-generated research artifacts.
+ * DeliverableCard - Inspectable, approvable tiles for chat-generated research artifacts.
  *
  * When the AI generates a deliverable (theme, persona, recommendation, journey stage, etc.)
  * through conversation, it renders as a styled card the user can:
@@ -81,7 +81,7 @@ function renderPersonaDetail(data: any) {
                 </div>
             </div>
             {data.jtbd && <div style={{ fontSize: 11, color: '#333', marginTop: 8, background: '#F5F5F0', padding: '6px 10px' }}>JTBD: {data.jtbd}</div>}
-            {data.painPoints?.length > 0 && (
+            {Array.isArray(data.painPoints) && data.painPoints.length > 0 && (
                 <div style={{ marginTop: 8 }}>
                     <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1px', color: '#CC6644', marginBottom: 4 }}>PAIN POINTS</div>
                     {data.painPoints.map((pp: any, i: number) => (
@@ -235,7 +235,7 @@ export const DeliverableCard: React.FC<Props> = ({ item, onApprove, onReject, on
             fontFamily: "'Archivo', sans-serif",
             transition: 'all 0.15s',
         }}>
-            {/* Header — always visible */}
+            {/* Header - always visible */}
             <div
                 onClick={() => setExpanded(!expanded)}
                 style={{

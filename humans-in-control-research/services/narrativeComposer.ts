@@ -46,7 +46,7 @@ export interface ComposeRequest {
   executor: ToolExecutor;
   /**
    * Recent chat history that the user developed BEFORE invoking #presentation.
-   * The composer treats these as the PRIMARY source material — packaging the
+   * The composer treats these as the PRIMARY source material - packaging the
    * conversation rather than re-researching from scratch. Tools are reserved
    * for filling specific evidence gaps the chat didn't cover.
    *
@@ -85,16 +85,16 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
   const startedAt = Date.now();
   const { narrativeRequest, brand, theme, model, executor, onProgress, onToolCall } = request;
 
-  // 2026-05-10 — Reset the DeepSeek content_filter sticky flag at the start
-  // of each compose() call. Filter triggers are prompt-dependent — a fresh
+  // 2026-05-10 - Reset the DeepSeek content_filter sticky flag at the start
+  // of each compose() call. Filter triggers are prompt-dependent - a fresh
   // edit attempt with rephrased text deserves a fresh shot at DeepSeek
   // before we route it to GPT-5.5.
   _composerDeepSeekContentFilterTripped = false;
   _composerContentFilterWarned = false;
 
   // Mode detection: when the chat has substantial prior content, we're in
-  // PACKAGE mode — the chat IS the source. When the chat is thin, we're in
-  // RESEARCH mode — the model retrieves from scratch via tools.
+  // PACKAGE mode - the chat IS the source. When the chat is thin, we're in
+  // RESEARCH mode - the model retrieves from scratch via tools.
   // Package mode dramatically tightens the iteration cap and the prompt
   // priorities to prevent the model from drifting off-topic.
   const isPackageMode = computePackageMode(request.priorConversation, narrativeRequest);
@@ -114,7 +114,7 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
     onToolCall?.(name, args, summary);
   };
 
-  // 2026-05-03 — Anthropic loop removed on this branch (HiC-Gemini-Primary).
+  // 2026-05-03 - Anthropic loop removed on this branch (HiC-Gemini-Primary).
   // All composer traffic goes through runOpenAILoop, which routes to either
   // OpenAI or Google's OpenAI-compatible endpoint based on model prefix:
   //   gpt-*    → /api/ai/openai
@@ -123,10 +123,10 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
   // both providers. To restore Anthropic, re-add the runAnthropicLoop branch.
   const loopArgs: LoopArgs = { systemPrompt, narrativeRequest, executor: trackedExecutor, onTool, isPackageMode, model };
 
-  // 2026-05-27 — Cross-provider Claude fallback (Issue 10 fix). When the
+  // 2026-05-27 - Cross-provider Claude fallback (Issue 10 fix). When the
   // current provider (Gemini-compat / OpenAI / DeepSeek) exhausts after its
   // in-chain retries, hand the same systemPrompt + narrativeRequest to Claude
-  // Sonnet 4.6 in ONE single-shot call. Claude has no tools on this path —
+  // Sonnet 4.6 in ONE single-shot call. Claude has no tools on this path -
   // it composes the PresentationPayload from training + the conversation
   // context + the systemPrompt's brand/schema/voice rules. Graceful
   // degradation: a deck (less evidence-grounded) instead of an error.
@@ -155,14 +155,14 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
 }
 
 // ============================================================================
-// 2026-05-27 — CROSS-PROVIDER CLAUDE FALLBACK (Issue 10 fix)
+// 2026-05-27 - CROSS-PROVIDER CLAUDE FALLBACK (Issue 10 fix)
 // ============================================================================
 // Detection + single-shot Claude composition for when the primary provider
 // exhausts. Mirrors the pattern in corpusChatService._finalizeChatViaClaude
 // for the deliverable path. Claude is the ONLY funded escape on this
 // platform (ANTHROPIC_API_KEY is the platform's primary required key);
 // GPT is currently dry (insufficient_quota). The composer's normal tool
-// loop is not ported to Claude here — this is graceful degradation that
+// loop is not ported to Claude here - this is graceful degradation that
 // produces a coherent deck instead of an outright error.
 
 function _isComposerExhaustionError(e: unknown): boolean {
@@ -174,7 +174,7 @@ async function composeViaClaudeSingleShot(args: LoopArgs): Promise<unknown> {
   const { callAIWithRetry } = await import('./aiRetryClient');
 
   // Append an output-format directive to the system prompt. We do NOT modify
-  // the brand / voice / schema rules already baked in — we just tell Claude
+  // the brand / voice / schema rules already baked in - we just tell Claude
   // it's on the fallback path and how to emit the payload without tools.
   const fallbackSystem = `${args.systemPrompt}
 
@@ -184,11 +184,11 @@ ANTHROPIC FALLBACK PATH (2026-05-27)
 You are operating as the cross-provider fallback. Corpus-search tools are
 NOT available here. Compose the PresentationPayload using:
 1. The narrative request and any prior conversation context.
-2. Your own knowledge — but ONLY where it is defensible. Where you would
+2. Your own knowledge - but ONLY where it is defensible. Where you would
    normally cite the corpus, prefer naming the institution or framework
    directly without inventing a chunk id.
 3. All brand, schema, voice, and banned-phrase rules from the system
-   prompt above — they remain in force.
+   prompt above - they remain in force.
 
 OUTPUT FORMAT:
 Return EXACTLY one JSON object inside a single \`\`\`json code fence. No
@@ -245,7 +245,7 @@ section kinds; \`data\` follows the per-kind shape described above).`;
 // ============================================================================
 
 // Prompt template is now inlined (see narrativeComposerPrompt.ts).
-// Skills are fetched at runtime — /skills/ is volume-mounted into the
+// Skills are fetched at runtime - /skills/ is volume-mounted into the
 // research-generator nginx container and serves correctly.
 const NXT_VISUAL_RENDERER_SKILL_PATH = '/skills/nxt-visual-renderer/SKILL.md';
 const DECK_NARRATIVE_COMPOSER_SKILL_PATH = '/skills/deck-narrative-composer/SKILL.md';
@@ -261,7 +261,7 @@ const DECK_NARRATIVE_COMPOSER_SKILL_PATH = '/skills/deck-narrative-composer/SKIL
  */
 /**
  * Phrases in the user's NEW narrative request that explicitly demand fresh
- * retrieval — e.g., "competitive analysis OUTSIDE of Northeastern", "find
+ * retrieval - e.g., "competitive analysis OUTSIDE of Northeastern", "find
  * external benchmarks", "research industry trends". When any of these appear
  * in the new request, package mode is the wrong choice even if there's prior
  * chat content: the user is asking for material the chat does NOT contain.
@@ -294,7 +294,7 @@ function computePackageMode(
 ): boolean {
   // If the new request explicitly asks for fresh/external/competitive material,
   // override package mode. The chat history doesn't contain what the user is
-  // asking for — retrieval is mandatory.
+  // asking for - retrieval is mandatory.
   if (hasResearchIntent(narrativeRequest)) return false;
 
   if (!messages || messages.length === 0) return false;
@@ -307,7 +307,7 @@ function computePackageMode(
 /**
  * Topic anchor: the FIRST substantial user intent + the FIRST substantial
  * analyst response, both verbatim. This is what the composer's prompt
- * uses to lock the topic — preventing the model from drifting off into
+ * uses to lock the topic - preventing the model from drifting off into
  * unrelated wiki content via search_corpus.
  */
 function extractTopicAnchor(
@@ -341,7 +341,7 @@ async function buildSystemPrompt(
   modeContext: { isPackageMode: boolean; topicAnchor: string | null },
 ): Promise<string> {
   // Prompt template is inlined as a TS module (see narrativeComposerPrompt.ts
-  // for why — the previous fetch path was broken by nginx SPA-fallback).
+  // for why - the previous fetch path was broken by nginx SPA-fallback).
   // Skill files are still fetched because /skills/ IS volume-mounted in the
   // Docker container and serves correctly.
   const template = NARRATIVE_COMPOSER_PROMPT;
@@ -355,7 +355,7 @@ async function buildSystemPrompt(
 
   const priorConversationBlock = formatPriorConversation(request.priorConversation);
   const modeHeader = buildModeHeader(modeContext.isPackageMode, modeContext.topicAnchor);
-  const topicAnchorBlock = modeContext.topicAnchor || '(no prior conversation — fresh research request)';
+  const topicAnchorBlock = modeContext.topicAnchor || '(no prior conversation - fresh research request)';
 
   const filled = template
     .replace(/{{MODE_HEADER}}/g, modeHeader)
@@ -375,7 +375,7 @@ async function buildSystemPrompt(
     .replace(/{{DECK_NARRATIVE_COMPOSER_SKILL}}/g, stripFrontmatter(deckNarrative))
     .replace(/{{OUTPUT_SCHEMA}}/g, getOutputSchemaText());
 
-  // 2026-05-08 — Prepend the universal tone rules. DeepSeek (current
+  // 2026-05-08 - Prepend the universal tone rules. DeepSeek (current
   // composer model) defaults to deficit-only / catastrophizing framing
   // when given Rumelt's diagnosis-first structure. The tone block at the
   // very top of the prompt forces balanced framing, opportunity-led
@@ -396,7 +396,7 @@ function buildModeHeader(isPackageMode: boolean, topicAnchor: string | null): st
   return [
     `# MODE: PACKAGE`,
     ``,
-    `# ⚠ CRITICAL: THE CHAT CONVERSATION BELOW IS YOUR ONLY SOURCE.`,
+    `#  CRITICAL: THE CHAT CONVERSATION BELOW IS YOUR ONLY SOURCE.`,
     `# DO NOT CHANGE TOPIC. DO NOT RESEARCH FROM SCRATCH.`,
     ``,
     `The user has been developing this narrative with you in the AI Analyst chat.`,
@@ -404,14 +404,14 @@ function buildModeHeader(isPackageMode: boolean, topicAnchor: string | null): st
     `the analyst's prior responses into the PresentationPayload format and call`,
     `submit_presentation. Treat the conversation as the authoritative draft.`,
     ``,
-    `## TOPIC LOCK (the deck MUST be about this — not anything else)`,
+    `## TOPIC LOCK (the deck MUST be about this - not anything else)`,
     ``,
     topicAnchor || '(missing)',
     ``,
     `## TOOL USE IN PACKAGE MODE`,
     ``,
-    `⚠ CRITICAL CORPUS HYGIENE: The wiki at /api/wiki/fetch-articles contains content`,
-    `from ALL engagements — past and present. A "challenges and opportunities" query`,
+    ` CRITICAL CORPUS HYGIENE: The wiki at /api/wiki/fetch-articles contains content`,
+    `from ALL engagements - past and present. A "challenges and opportunities" query`,
     `will retrieve articles from completely unrelated engagements (NXT's own brand`,
     `thesis content, prior client work, etc.) and the model will WEAVE THEM IN as if`,
     `they belonged. This is how decks change topic. DO NOT RUN GENERAL QUERIES.`,
@@ -440,7 +440,7 @@ function buildModeHeader(isPackageMode: boolean, topicAnchor: string | null): st
     ``,
     `Then map them onto sections (hero, context, evidence, themes, quotes, recommendations,`,
     `roadmap as appropriate). Keep the analyst's exact phrasings and exact citations.`,
-    `Do not paraphrase or "improve" them — the user has already approved them.`,
+    `Do not paraphrase or "improve" them - the user has already approved them.`,
     ``,
     `===== END MODE HEADER =====`,
   ].join('\n');
@@ -459,7 +459,7 @@ function formatPriorConversation(
   messages?: Array<{ role: 'user' | 'assistant' | 'system'; content: string }>,
 ): string {
   if (!messages || messages.length === 0) {
-    return '(no prior conversation — this is a fresh narrative request; use tools to research from scratch)';
+    return '(no prior conversation - this is a fresh narrative request; use tools to research from scratch)';
   }
   const PER_MSG_CAP = 2000;
   const lines: string[] = [];
@@ -514,7 +514,7 @@ function getOutputSchemaText(): string {
         type: 'object',
         required: ['diagnosis', 'guidingPolicy', 'arcRationale', 'sectionMap'],
         properties: {
-          // Lengths raised for scrolling-format depth — diagnosis and policy
+          // Lengths raised for scrolling-format depth - diagnosis and policy
           // can now hold a multi-sentence argument with named evidence
           // instead of a one-sentence summary.
           diagnosis: { type: 'string', maxLength: 800 },
@@ -525,7 +525,7 @@ function getOutputSchemaText(): string {
       },
       sections: {
         type: 'array',
-        // Raised to 16 — prompt now targets 10-12 sections for engagements
+        // Raised to 16 - prompt now targets 10-12 sections for engagements
         // with rich analysis (≥10 themes / ≥50 external articles); a hard
         // cap of 12 was clipping the convergence section + roadmap split.
         minItems: 6,
@@ -553,25 +553,25 @@ function getOutputSchemaText(): string {
 // ============================================================================
 // COMPOSER TOOL-USE LOOP
 // ============================================================================
-// 2026-05-03 — Anthropic loop / proxy URL / message types removed on this
+// 2026-05-03 - Anthropic loop / proxy URL / message types removed on this
 // branch (HiC-Gemini-Primary). All composer traffic flows through
 // runOpenAILoop, which dispatches to OpenAI or Google's OpenAI-compatible
 // endpoint based on model prefix.
 
 const OPENAI_PROXY_URL = 'http://127.0.0.1:5012/api/ai/openai';
 const GEMINI_OPENAI_COMPAT_PROXY_URL = 'http://127.0.0.1:5012/api/ai/gemini-compat';
-// 2026-05-05 — Azure DeepSeek-V4-Flash. OpenAI-compatible chat-completions
+// 2026-05-05 - Azure DeepSeek-V4-Flash. OpenAI-compatible chat-completions
 // schema, accessed via the proxy at /api/ai/deepseek (auth uses api-key
-// header — proxy handles that detail). 256K context, tool-use confirmed
+// header - proxy handles that detail). 256K context, tool-use confirmed
 // against discriminated-union schema.
 const DEEPSEEK_PROXY_URL = 'http://127.0.0.1:5012/api/ai/deepseek';
 // 8 iterations × ~1.7 parallel tool calls per turn = ~14 actual tool invocations
 // in the worst case. Anything more bloats the context past the point where the
-// model can produce a clean submit_presentation payload — that was the failure
+// model can produce a clean submit_presentation payload - that was the failure
 // mode in the 20-tool-call run that emitted a meta-less payload.
 const COMPOSER_MAX_ITERATIONS = 8;
 const COMPOSER_MAX_TOKENS = 16000;
-// 2026-05-08 — Bumped from 180s → 420s (7 min). The per-call AbortSignal
+// 2026-05-08 - Bumped from 180s → 420s (7 min). The per-call AbortSignal
 // fired during submit_presentation on heavy composes (7-slide payload with
 // strict source-restriction directives + UNIVERSAL_TONE_RULES + USER
 // OVERRIDE block). The proxy itself waits 600s for DeepSeek; only the
@@ -584,7 +584,7 @@ const COMPOSER_REQUEST_TIMEOUT_MS = 420_000;
 const COMPOSER_FORCE_SUBMIT_AT_ITER = 5;
 
 // ============================================================================
-// HTTP RETRY HELPER — 3 attempts with exponential backoff for transient errors
+// HTTP RETRY HELPER - 3 attempts with exponential backoff for transient errors
 // ============================================================================
 
 interface RetriableHttpError extends Error {
@@ -605,7 +605,7 @@ async function withRetry<T>(
       lastErr = e;
       const err = e as RetriableHttpError;
       const status = err.status;
-      // 2026-05-20 — Added 'Failed to fetch' (Chrome TypeError) and
+      // 2026-05-20 - Added 'Failed to fetch' (Chrome TypeError) and
       // 'NetworkError' (Firefox) and 'AbortError' (signal-aborted) to the
       // transient set. These three are how browsers surface mid-flight TCP
       // resets / proxy-side connection drops on long composer runs.
@@ -642,7 +642,7 @@ interface LoopArgs {
   /** When true, force-converge to submit_presentation after just 1-2 turns. */
   isPackageMode: boolean;
   /**
-   * 2026-05-03 — Model id passed by the dispatcher. runOpenAILoop accepts
+   * 2026-05-03 - Model id passed by the dispatcher. runOpenAILoop accepts
    * either gpt-* (routed to OpenAI) or gemini-* (routed to Google's
    * OpenAI-compatible endpoint). Optional: omitted callers default to gpt-5.5.
    */
@@ -650,7 +650,7 @@ interface LoopArgs {
 }
 
 // Force-convergence threshold:
-//   Package mode: after 1 turn, force submit (the chat IS the source — no
+//   Package mode: after 1 turn, force submit (the chat IS the source - no
 //                 need for retrieval; if the model wants to do 1 lookup,
 //                 fine, but turn 2 must be submit).
 //   Research mode: after 8 turns, force submit (existing behavior).
@@ -690,7 +690,7 @@ interface OpenAIResponse {
 }
 
 async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
-  // 2026-05-04 — Per-compose tool-call dedup cache. Lives for the duration
+  // 2026-05-04 - Per-compose tool-call dedup cache. Lives for the duration
   // of this loop only; identical (tool, args) calls return the cached
   // promise instead of re-executing.
   const toolCache: ToolCache = new Map();
@@ -699,7 +699,7 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     { role: 'user', content: args.narrativeRequest },
   ];
 
-  // 2026-05-27 — For Gemini models, strip JSON-Schema keywords Gemini's
+  // 2026-05-27 - For Gemini models, strip JSON-Schema keywords Gemini's
   // function-declaration parser rejects (proven root cause of the submit_
   // presentation 400 INVALID_ARGUMENT). DeepSeek/GPT get the full schema.
   const isGeminiComposer = (args.model || 'gemini-3.5-flash').startsWith('gemini-');
@@ -733,7 +733,7 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     let toolChoice: unknown;
     let availableTools = tools;
 
-    // 2026-05-27 — Gemini's OpenAI-compat layer 400s (INVALID_ARGUMENT) on
+    // 2026-05-27 - Gemini's OpenAI-compat layer 400s (INVALID_ARGUMENT) on
     // tool_choice:"required" once the conversation has multi-turn tool history
     // (proven by the composer e2e test: round 0 forced-function worked, the
     // next "required" round failed). It handles "auto" reliably. The
@@ -754,11 +754,11 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
       toolChoice = anyToolChoice;
     }
 
-    // 2026-05-27 — Default loop model is funded Gemini 3.5 Flash (was gpt-5.5,
+    // 2026-05-27 - Default loop model is funded Gemini 3.5 Flash (was gpt-5.5,
     // now out of quota). The section schema was flattened so Gemini-compat
     // accepts it. callers pass args.model from parseModel (defaults to gemini).
     const loopModel = args.model || 'gemini-3.5-flash';
-    // 2026-05-04 — GPT-5 family deprecated `max_tokens` and requires
+    // 2026-05-04 - GPT-5 family deprecated `max_tokens` and requires
     // `max_completion_tokens`. Gemini's OpenAI-compat endpoint still
     // accepts `max_tokens` natively. Branch by model prefix.
     const tokenCapField = loopModel.startsWith('gpt-') ? 'max_completion_tokens' : 'max_tokens';
@@ -773,7 +773,7 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     const choice = response.choices[0];
     if (!choice) throw new Error('OpenAI returned no choices');
 
-    // 2026-05-27 — Re-append the assistant message, preserving Gemini's
+    // 2026-05-27 - Re-append the assistant message, preserving Gemini's
     // provider fields (extra_content.google.thought_signature is REQUIRED on
     // re-send, proven by the composer e2e test) but coercing a NULL content to
     // an empty string. Gemini's OpenAI-compat layer rejects an assistant
@@ -797,8 +797,22 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
         // layer guarantees they never reach the renderer or wiki archive.
         const finalize = async (raw: any) => {
           try {
-            const { stripQAAnnotationsDeep } = await import('./slidePostProcessor');
-            return stripQAAnnotationsDeep(raw);
+            const { stripQAAnnotationsDeep, stripEmDashes, stripEmoji } = await import('./slidePostProcessor');
+            // stripQAAnnotationsDeep covers QA-annotations + meta-narration +
+            // process-references, but NOT em-dashes or emoji - which were leaking
+            // into the :5014 renderer + PPTX (2026-05-31). Add a deep pass for
+            // those so #presentation gets the same hard bans as every other path.
+            let cleaned = stripQAAnnotationsDeep(raw);
+            const deepStrip = (v: any): any => {
+              if (typeof v === 'string') return stripEmoji(stripEmDashes(v));
+              if (Array.isArray(v)) return v.map(deepStrip);
+              if (v && typeof v === 'object') {
+                for (const k of Object.keys(v)) { if (!k.startsWith('_')) v[k] = deepStrip(v[k]); }
+                return v;
+              }
+              return v;
+            };
+            return deepStrip(cleaned);
           } catch (e) { return raw; }
         };
         try {
@@ -814,7 +828,7 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
             args.onTool('submit_presentation', { sections: cleaned?.sections?.length }, 'final payload submitted (repaired)');
             return cleaned;
           } catch {
-            // 2026-05-04 — Don't throw fatally. Push a corrective user message
+            // 2026-05-04 - Don't throw fatally. Push a corrective user message
             // and let the model re-emit on the next iteration. Composer's
             // MAX_MISSING_SUBMIT_RETRIES (~2) will eventually give up if the
             // model keeps emitting unparseable JSON, but in practice one
@@ -878,13 +892,13 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
   throw new Error(`Composer exceeded ${COMPOSER_MAX_ITERATIONS} iterations without calling submit_presentation`);
 }
 
-// 2026-05-10 — Sticky DeepSeek content_filter fallback. Set to true the
+// 2026-05-10 - Sticky DeepSeek content_filter fallback. Set to true the
 // first time Azure DeepSeek's Microsoft content management policy
 // rejects a prompt (HTTP 422 from the proxy). For the rest of the
 // compose() session, every deepseek-* dispatch silently rewrites the
 // model to gpt-5.5 and routes to /api/ai/openai. Reset at the start of
 // each compose() so a new edit attempt gets a fresh shot at DeepSeek
-// (the filter is prompt-dependent — rephrasing may pass).
+// (the filter is prompt-dependent - rephrasing may pass).
 let _composerDeepSeekContentFilterTripped = false;
 let _composerContentFilterWarned = false;
 
@@ -894,11 +908,11 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
   // Sticky fallback: route subsequent deepseek-* calls in this session to
   // funded Gemini once Azure's Microsoft content filter has tripped, rather
   // than wasting another withRetry budget on the same blocked prompt.
-  // 2026-05-27 — target changed gpt-5.5 → gemini-3.5-flash (GPT is out of
+  // 2026-05-27 - target changed gpt-5.5 → gemini-3.5-flash (GPT is out of
   // quota; Gemini is funded, healthy, and not Azure-content-filtered).
   if (modelStr.startsWith('deepseek-') && _composerDeepSeekContentFilterTripped) {
     body.model = 'gemini-3.5-flash';
-    return callOpenAI(body); // recurse — dispatches to Gemini-compat branch below
+    return callOpenAI(body); // recurse - dispatches to Gemini-compat branch below
   }
 
   let url: string;
@@ -928,7 +942,7 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
       }, COMPOSER_REQUEST_TIMEOUT_MS);
       if (!res.ok) {
         const errText = await res.text().catch(() => '');
-        // 2026-05-27 — DIAGNOSTIC: on a 400, dump a STRUCTURAL summary of the
+        // 2026-05-27 - DIAGNOSTIC: on a 400, dump a STRUCTURAL summary of the
         // request so we can pinpoint which argument Gemini-compat rejects
         // (Google returns a generic "invalid argument" with no field).
         if (res.status === 400 && (process.env as any).COMPOSER_DEBUG) {
@@ -953,9 +967,9 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
         }
         const err: RetriableHttpError = new Error(`${providerLabel} API ${res.status}: ${errText.slice(0, 300)}`);
         err.status = res.status;
-        // content_filter is non-retryable — the same prompt will trigger the
+        // content_filter is non-retryable - the same prompt will trigger the
         // same filter on every retry. Mark it so withRetry surfaces immediately
-        // and the outer try/catch can fall back. 2026-05-27 — Azure returns
+        // and the outer try/catch can fall back. 2026-05-27 - Azure returns
         // this as BOTH 400 and 422 depending on path; match either.
         if ((res.status === 422 || res.status === 400) && /content_filter|ResponsibleAI|block action/i.test(errText)) {
           err.isTransient = false;
@@ -987,7 +1001,7 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
   }
 }
 
-// 2026-05-04 — Per-compose() tool-call dedup cache. The composer can fire
+// 2026-05-04 - Per-compose() tool-call dedup cache. The composer can fire
 // `search_corpus` 4-6 times with identical query strings across iterations,
 // each time bloating context and pushing the model toward the meta-less-
 // submit failure mode (May 2 incident). Caching identical (tool, args)
@@ -1001,7 +1015,7 @@ async function executeToolForOpenAI(
   onTool: LoopArgs['onTool'],
   cache: ToolCache,
 ): Promise<{ serialized: string; isError: boolean }> {
-  // 2026-05-05 — Tolerate empty / whitespace `arguments` strings.
+  // 2026-05-05 - Tolerate empty / whitespace `arguments` strings.
   // DeepSeek V4 Flash emits arguments as "" (instead of "{}") for tools
   // with no required parameters (e.g. get_themes, get_personas, the
   // arg-less retrieval tools). OpenAI's strict mode emits "{}" for the
@@ -1012,15 +1026,15 @@ async function executeToolForOpenAI(
   const cached = cache.get(cacheKey);
   if (cached) {
     // Re-await the cached promise so we can inspect isError. Don't return
-    // an error result from the cache — let the model see a fresh attempt
+    // an error result from the cache - let the model see a fresh attempt
     // (errors should not be sticky; the prior failure may have been
     // transient or a different tool path can succeed).
     const cachedResult = await cached;
     if (!cachedResult.isError) {
-      onTool(call.function.name, rawArgs, '(dedup hit — cached result)');
+      onTool(call.function.name, rawArgs, '(dedup hit - cached result)');
       return cachedResult;
     }
-    // Error path — fall through to re-execute. Cache key is overwritten
+    // Error path - fall through to re-execute. Cache key is overwritten
     // below so subsequent identical calls also re-execute until success.
   }
   const promise = (async () => {
@@ -1040,7 +1054,7 @@ async function executeToolForOpenAI(
 }
 
 // ============================================================================
-// TOOL DISPATCH — single switch shared by both providers
+// TOOL DISPATCH - single switch shared by both providers
 // ============================================================================
 
 async function dispatchTool(executor: ToolExecutor, name: string, input: unknown): Promise<unknown> {
@@ -1153,7 +1167,7 @@ function validateAndFinalize(
       const parsed = tryUnstringify(p[key]);
       if (parsed !== p[key] && parsed && typeof parsed === 'object') {
         // eslint-disable-next-line no-console
-        console.warn(`[narrativeComposer] Model double-encoded '${key}' as JSON string — unstringifying.`);
+        console.warn(`[narrativeComposer] Model double-encoded '${key}' as JSON string - unstringifying.`);
         (p as Record<string, unknown>)[key] = parsed;
         unstringifiedAny = true;
       }
@@ -1161,7 +1175,7 @@ function validateAndFinalize(
   }
   if (unstringifiedAny) {
     // eslint-disable-next-line no-console
-    console.warn('[narrativeComposer] Recovered from JSON stringification — payload should validate now.');
+    console.warn('[narrativeComposer] Recovered from JSON stringification - payload should validate now.');
   }
 
   // ====== UNWRAP TOLERANCE ======
@@ -1177,7 +1191,7 @@ function validateAndFinalize(
         const c = candidate as Partial<PresentationPayload>;
         if (c.meta && typeof c.meta === 'object') {
           // eslint-disable-next-line no-console
-          console.warn(`[narrativeComposer] Model wrapped payload in '${wrapper}' key — unwrapping.`);
+          console.warn(`[narrativeComposer] Model wrapped payload in '${wrapper}' key - unwrapping.`);
           p = c as Partial<PresentationPayload> & { [k: string]: unknown };
           break;
         }
@@ -1185,7 +1199,7 @@ function validateAndFinalize(
     }
   }
 
-  // Schema shape validation — enforce required top-level fields with diagnostics
+  // Schema shape validation - enforce required top-level fields with diagnostics
   if (!p.meta || typeof p.meta !== 'object') {
     const topKeys = Object.keys(raw as object).slice(0, 20);
     const sample = JSON.stringify(raw).slice(0, 400);
@@ -1198,7 +1212,7 @@ function validateAndFinalize(
     // Be tolerant: some models forget narrativeArc but produce sections.
     // Synthesize a minimal narrativeArc rather than failing.
     // eslint-disable-next-line no-console
-    console.warn('[narrativeComposer] Model did not produce narrativeArc — synthesizing minimal block.');
+    console.warn('[narrativeComposer] Model did not produce narrativeArc - synthesizing minimal block.');
     p.narrativeArc = {
       diagnosis: '',
       guidingPolicy: '',
@@ -1212,13 +1226,13 @@ function validateAndFinalize(
     );
   }
 
-  // 2026-05-04 — Per-kind data-shape validation. Drops sections whose `data`
+  // 2026-05-04 - Per-kind data-shape validation. Drops sections whose `data`
   // doesn't have the minimum required content for the section kind. This
   // catches schema slippage where the model emits e.g. {kind:'recommendations',
   // data:{themes:[...]}} (cross-kind contamination) or {kind:'hero', data:{}}
-  // (empty data — was the Gemini-via-OpenAI-compat failure mode).
+  // (empty data - was the Gemini-via-OpenAI-compat failure mode).
   // The composer's submit_presentation tool now uses a discriminated-union
-  // JSON Schema that should prevent most of this — this validator is
+  // JSON Schema that should prevent most of this - this validator is
   // defense-in-depth.
   const SHAPE_REQUIRED_FIELDS: Record<string, string[]> = {
     hero: ['title'],
@@ -1238,7 +1252,7 @@ function validateAndFinalize(
     team: ['members'],
     competitive: ['layers'],
   };
-  // 2026-05-27 — Salvage the hero (title slide) before validation. The model
+  // 2026-05-27 - Salvage the hero (title slide) before validation. The model
   // sometimes emits {kind:'hero', data:{...no title...}} while still providing
   // p.meta.title; dropping the hero loses the deck's title slide entirely.
   // Backfill the hero title from meta.title (or the narrative request) so the

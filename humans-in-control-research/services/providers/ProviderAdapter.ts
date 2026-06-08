@@ -1,5 +1,5 @@
 /**
- * Provider Adapter Interface — Provider-agnostic AI layer
+ * Provider Adapter Interface - Provider-agnostic AI layer
  *
  * Every AI provider (Gemini, Claude, OpenAI) implements this interface.
  * The method executors call adapters without knowing which provider runs the request.
@@ -79,16 +79,16 @@ export interface ProviderAdapter {
     name: string;
     capabilities: ProviderCapabilities;
 
-    /** Text analysis — returns raw text */
+    /** Text analysis - returns raw text */
     analyze(request: AnalysisRequest): Promise<AnalysisResponse>;
 
-    /** Structured output — returns parsed JSON matching schema */
+    /** Structured output - returns parsed JSON matching schema */
     analyzeStructured<T>(request: StructuredRequest<T>): Promise<StructuredResponse<T>>;
 
-    /** Vision analysis — analyzes images */
+    /** Vision analysis - analyzes images */
     analyzeVision(request: AnalysisRequest): Promise<AnalysisResponse>;
 
-    /** Grounded web search — searches the web and synthesizes */
+    /** Grounded web search - searches the web and synthesizes */
     groundedSearch(request: GroundedSearchRequest): Promise<AnalysisResponse>;
 
     /** Check if this provider is available (API key configured) */
@@ -96,7 +96,7 @@ export interface ProviderAdapter {
 }
 
 /**
- * Provider Registry — manages available providers and selection
+ * Provider Registry - manages available providers and selection
  */
 export class ProviderRegistry {
     private adapters: Map<string, ProviderAdapter> = new Map();

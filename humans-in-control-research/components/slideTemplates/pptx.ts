@@ -1,5 +1,37 @@
 /**
- * SLIDE TEMPLATES — PPTX renderers for all 10 NXT Humans templates.
+ * SLIDE TEMPLATES - LEGACY pptxgenjs renderers, kept as fallback only.
+ *
+ * 2026-06-05 - DEPRECATION NOTICE.
+ *
+ * This file used to be the canonical PPTX renderer for HiC's 18 slide templates.
+ * It was a SECOND renderer, parallel to slideTemplates/web.tsx (which renders
+ * the chat preview). N-renderer drift is unavoidable in that shape: every
+ * template change had to land in BOTH files, computed dimensions varied between
+ * pptxgenjs and CSS, font fallbacks diverged, text overflow handling differed.
+ * The symptom users saw: chat preview and exported PPTX never matched.
+ *
+ * THE STRUCTURAL FIX (2026-06-05): chat preview (slideTemplates/web.tsx) is the
+ * SINGLE SOURCE OF TRUTH for slide layout. Every PPTX export now routes through
+ * the gold pipeline (proxy/gold_pptx_export.py via /api/gold/export-pptx-multi).
+ * Each slide's rendered DOM is captured at native 1920x1080, wrapped as a
+ * #stage HTML doc, sent to Playwright on the proxy, and emerges as editable
+ * text + pixel-accurate background. Same renderer for preview and export, by
+ * construction. Zero drift possible.
+ *
+ * See:
+ *   - services/goldArtifact.ts::exportGoldDeckPptx + captureSlideAsStageHtml
+ *   - proxy/gold_pptx_export.py::html_list_to_editable_pptx
+ *   - components/CorpusChatPanel.tsx::handleExportDeckPPTX (the rewired site)
+ *
+ * This file is kept for one release as a FALLBACK only - for code paths that
+ * import exportSlideToPPTX / exportDeckToPPTX directly without going through
+ * the chat's handleExportDeckPPTX (e.g., the per-tile recommendation export
+ * at CorpusChatPanel.tsx:3252 and design-desk/components/ExportMenu.tsx).
+ * Those call sites should migrate to the gold pipeline in the next iteration.
+ *
+ * DO NOT add new export paths against this file. Use exportGoldDeckPptx.
+ *
+ * --- Original header preserved below for diff continuity ---
  *
  * Each renderer produces NATIVE editable PowerPoint elements (text boxes,
  * shapes, lines) matching the web preview pixel-for-pixel. No screenshots,
@@ -16,12 +48,13 @@ import type {
 } from './types';
 import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
 import type { JourneyBrief } from '../../services/journeyBriefExporter';
+import { stripFormatTells } from '../../services/slidePostProcessor';
 
-// Default brand — used unless exportSlideToPPTX is called with an explicit brand.
+// Default brand - used unless exportSlideToPPTX is called with an explicit brand.
 // Inside this file, every reference to `T` resolves through the active brand
 // set at the top of exportSlideToPPTX, so color values swap cleanly per brand.
 let T: Brand = nxtBrand;
-// 2026-05-26 — Font-role accessors derived from the ACTIVE brand. Replaces
+// 2026-05-26 - Font-role accessors derived from the ACTIVE brand. Replaces
 // the single `const FONT = TOKENS.FONT` (which was the body face, applied
 // to titles + numbers + everything, causing the preview-vs-PPTX serif/sans
 // drift). Every addText now picks the role-appropriate face via these,
@@ -30,10 +63,10 @@ let T: Brand = nxtBrand;
 // exportSlideToPPTX. `FONT` is retained as the body alias for backward
 // compatibility but should NOT be used for display/title/number text.
 const FONT = TOKENS.FONT;                       // body alias (legacy)
-const fDisplay = () => fontForRole('display', T); // Spectral — titles, hero numbers
-const fBody = () => fontForRole('body', T);       // Roboto — prose
-const fLabel = () => fontForRole('label', T);     // Roboto Mono — eyebrow labels
-const fMono = () => fontForRole('mono', T);       // Roboto Mono — sources, codes
+const fDisplay = () => fontForRole('display', T); // Spectral - titles, hero numbers
+const fBody = () => fontForRole('body', T);       // Roboto - prose
+const fLabel = () => fontForRole('label', T);     // Roboto Mono - eyebrow labels
+const fMono = () => fontForRole('mono', T);       // Roboto Mono - sources, codes
 
 // Responsive hero-number sizing identical to web.tsx so PPTX exports never
 // overflow their column when the AI emits a long value like "Steady" or "$2.4M".
@@ -45,7 +78,7 @@ function heroPt(value: string, max = 56, min = 28, baseChars = 4): number {
 }
 /** Truncate WITHOUT ever appending an ellipsis. Mirrors web.tsx::truncate.
  *  Looks forward up to 2× max for next sentence end, else backward to last
- *  sentence end, else to last clause boundary (period — not ellipsis), else
+ *  sentence end, else to last clause boundary (period - not ellipsis), else
  *  drops trailing fragment at last word boundary. */
 function truncate(text: string | undefined, max: number): string {
     if (!text) return '';
@@ -76,7 +109,7 @@ function truncate(text: string | undefined, max: number): string {
     return slice.trim();
 }
 
-/** Smart quote truncation — no mid-clause cuts, NO ellipsis. Mirrors web.tsx::smartQuoteClip. */
+/** Smart quote truncation - no mid-clause cuts, NO ellipsis. Mirrors web.tsx::smartQuoteClip. */
 function smartQuoteClip(text: string, maxChars: number): string {
     if (!text) return '';
     const t = text.trim();
@@ -97,7 +130,7 @@ function smartQuoteClip(text: string, maxChars: number): string {
     return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim();
 }
 
-/** Clean a quote object — runs the transcript cleaner for transcript-sourced
+/** Clean a quote object - runs the transcript cleaner for transcript-sourced
  *  quotes, passes others through. Returns null if nothing substantive remains. */
 function prepQuote<Q extends { text: string; source?: string; attribution?: string }>(q: Q): Q | null {
     if (!q || !q.text) return null;
@@ -127,7 +160,7 @@ function attributionLine(q: { attribution?: string; role?: string; source?: stri
     return q.date ? `${head}, ${q.date}` : head;
 }
 
-// === IMAGE PREPROCESSOR — guarantees object-fit:cover behavior in PPTX ===
+// === IMAGE PREPROCESSOR - guarantees object-fit:cover behavior in PPTX ===
 export async function preprocessImageCover(dataUrl: string, targetW: number, targetH: number): Promise<string> {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -158,6 +191,31 @@ export async function preprocessImageCover(dataUrl: string, targetW: number, tar
         img.onerror = () => reject(new Error('image load failed'));
         img.src = dataUrl;
     });
+}
+
+// === EXPORT-LAYER TEXT HYGIENE (last line of defense) ===
+// 2026-06-03 - Wrap a slide's addText so EVERY text frame across all 18
+// templates is sanitized at a single chokepoint: em-dashes (U+2014, the #1
+// AI-writing tell - HARD BAN per .claude/CLAUDE.md) and emoji are stripped
+// here, regardless of which generation path produced the slide data. The
+// staged-deck path runs slidePostProcessor.stripEmDashes upstream, but the
+// chat #slides path parses :::slide blocks straight into template data and
+// never hit that strip - so an em-dash typed in a title or returned by the
+// model leaked into the .pptx. This makes the export the guaranteed last
+// line of defense. Handles both plain-string and rich-text-run-array calls.
+function sanitizeAddText(s: any) {
+    if (!s || typeof s.addText !== 'function' || (s as any).__sanitized) return;
+    const raw = s.addText.bind(s);
+    const clean = (v: any): any => {
+        if (typeof v === 'string') return stripFormatTells(v);
+        if (Array.isArray(v)) return v.map((run) =>
+            run && typeof run === 'object' && typeof run.text === 'string'
+                ? { ...run, text: stripFormatTells(run.text) }
+                : clean(run));
+        return v;
+    };
+    s.addText = (textArg: any, opts?: any) => raw(clean(textArg), opts);
+    (s as any).__sanitized = true;
 }
 
 // === SHARED CHROME ===
@@ -208,7 +266,7 @@ export async function addBaseShell(
 
 // === MICRO-PRIMITIVES ===
 
-// 2026-05-26 — Eyebrow labels use the MONO face (matches web --font-mono)
+// 2026-05-26 - Eyebrow labels use the MONO face (matches web --font-mono)
 // and charSpacing reduced 4 → 2. The old charSpacing:4 + a narrow box was
 // the root cause of the "CHALLENG\nE" / "APPROAC\nH" mid-word wraps in the
 // PPTX export: tracked caps overflowed the fixed box width. 2pt tracking
@@ -216,11 +274,20 @@ export async function addBaseShell(
 const tag = (s: any, x: number, y: number, w: number, text: string, color = T.CHARTREUSE_BRIGHT) =>
     s.addText(text, { x, y, w, h: 0.2, fontSize: 9, color, fontFace: fLabel(), bold: true, charSpacing: 2, valign: 'top', wrap: false });
 
-// 2026-05-26 — Titles use the DISPLAY face (Spectral), matching web's
+// 2026-05-26 - Titles use the DISPLAY face (Spectral), matching web's
 // var(--font-display). Was using the body face (Roboto), which is why the
 // PPTX title looked heavy-sans while the preview was elegant serif.
+// 2026-06-01 - Shared title-height estimator. Several template exporters drew
+// the title then advanced y by a FIXED amount (e.g. y += 0.85), so a title that
+// wrapped to 3 lines overlapped the content below it (the theme-cluster PPTX
+// misalignment). Callers should advance y by titleH(...) instead of a constant.
+const titleH = (text: string, w: number, size = 28): number => {
+    const cpl = Math.max(Math.floor((w * 72) / (size * 0.52)), 20);
+    const lines = Math.max(1, Math.ceil((text || '').length / cpl));
+    return Math.max((lines * size * 1.1) / 72 + 0.05, 0.6);
+};
 const title = (s: any, x: number, y: number, w: number, text: string, size = 28) =>
-    s.addText(text, { x, y, w, h: Math.max((Math.ceil(text.length / Math.max(Math.floor((w * 72) / (size * 0.52)), 20)) * size * 1.1) / 72 + 0.05, 0.6), fontSize: size, color: T.INK, fontFace: fDisplay(), bold: true, valign: 'top', lineSpacingMultiple: 1.05, charSpacing: -2 });
+    s.addText(text, { x, y, w, h: titleH(text, w, size), fontSize: size, color: T.INK, fontFace: fDisplay(), bold: true, valign: 'top', lineSpacingMultiple: 1.05, charSpacing: -2 });
 
 const sourceFooter = (s: any, x: number, w: number, sources?: string[]) => {
     if (!sources || sources.length === 0) return;
@@ -238,7 +305,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
     const tx = geom.contentX + 0.32;
     const tw = geom.contentW - 0.64;
     const hasImg = geom.imgW > 0;
-    const MAX_Y = 6.95; // hard floor — must not cross the source footer at 7.10"
+    const MAX_Y = 6.95; // hard floor - must not cross the source footer at 7.10"
 
     // Helper: estimate text height in inches for given text, font size (pt), width, line spacing
     const estH = (text: string, fontPt: number, widthIn: number, lineMul = 1.4) => {
@@ -267,7 +334,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
     s.addText(data.role + (data.demographics ? `  |  ${data.demographics}` : ''), { x: tx, y, w: tw, h: 0.26, fontSize: 11, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
     y += 0.32;
 
-    // QUOTE — dynamic height
+    // QUOTE - dynamic height
     if (data.quote) {
         const qText = trunc(data.quote, 200);
         const qH = Math.max(0.4, estH(qText, 10, tw - 0.2, 1.4));
@@ -276,7 +343,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
         y += qH + 0.08;
     }
 
-    // JTBD — dynamic height with panel
+    // JTBD - dynamic height with panel
     if (data.jtbd) {
         const jText = trunc(data.jtbd, 220);
         const jH = Math.max(0.38, estH(`JTBD: ${jText}`, 9, tw - 0.3, 1.4));
@@ -288,7 +355,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
         y += jH + 0.08;
     }
 
-    // GOALS — compute per-column height from tallest goal, cap at 3 lines
+    // GOALS - compute per-column height from tallest goal, cap at 3 lines
     if (data.goals) {
         const gEntries = Object.entries(data.goals).filter(([, v]) => v) as Array<[string, string]>;
         if (gEntries.length > 0) {
@@ -316,7 +383,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
         }
     }
 
-    // PAIN POINTS & MOTIVATIONS — cap to 2 items each, dynamic heights, stop if overflowing
+    // PAIN POINTS & MOTIVATIONS - cap to 2 items each, dynamic heights, stop if overflowing
     const renderItems = (items: Array<{ label: string; quote: string; source: string }>, label: string, color: string) => {
         if (!items || items.length === 0) return;
         if (y + 0.4 > MAX_Y) return; // no room even for header
@@ -345,7 +412,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
 }
 
 // 2. RECOMMENDATION
-// 2026-05-12 — REWRITE with strict band reservation. Previous version used
+// 2026-05-12 - REWRITE with strict band reservation. Previous version used
 // hardcoded Y positions (evidence at 5.65, whyMatters at 6.4, implication at
 // 6.7) which produced massive overlap when tile-sourced rec slides carried
 // all the optional fields (personaContext, heroImage, impactStrip, evidence,
@@ -397,7 +464,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     y = 0.64;
     title(s, tx, y, tw, slideTitle, 22);
     y = 1.22;
-    // Persona eyebrow — ONE LINE, hard-clipped at ~110 chars (well under tw at 8pt)
+    // Persona eyebrow - ONE LINE, hard-clipped at ~110 chars (well under tw at 8pt)
     if (data.personaContext) {
         s.addText(truncate(data.personaContext, 110), {
             x: tx, y, w: tw, h: 0.22,
@@ -407,7 +474,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     }
 
     // ============================================================
-    // BODY BAND (1.55 → 5.95)  — two columns, each with its own y cursor
+    // BODY BAND (1.55 → 5.95)  - two columns, each with its own y cursor
     // ============================================================
     const heroImageSrc = (data.heroImage && data.heroImage.src) || imageUrl;
     const hasImage = !!heroImageSrc;
@@ -443,7 +510,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
         ly += rH + 0.10;
     }
 
-    // Supporting actions — cap at 4, then evidence (if remaining height allows)
+    // Supporting actions - cap at 4, then evidence (if remaining height allows)
     const acts = (data.supportingActions || []).slice(0, 4);
     if (acts.length > 0) {
         s.addText(actionsLabelText, {
@@ -483,7 +550,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
         ly += acts.length * perActionH;
     }
 
-    // Evidence strip — only render if there's room left in the body band
+    // Evidence strip - only render if there's room left in the body band
     if (hasEvidence && (BODY_BOTTOM - ly) >= 0.60) {
         const evY = ly + 0.04;
         s.addShape('line' as any, { x: tx, y: evY - 0.04, w: leftW, h: 0, line: { color: T.RULE, width: 0.5 } });
@@ -524,7 +591,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
                     data: heroImageSrc, x: rightX, y: imgY, w: rightW, h: imgH,
                     sizing: { type: 'cover', w: rightW, h: imgH } as any,
                 });
-            } catch (e) { /* graceful fallback — accent strip stays */ }
+            } catch (e) { /* graceful fallback - accent strip stays */ }
 
             if (data.heroImage?.caption) {
                 s.addText(truncate(data.heroImage.caption, 50), {
@@ -574,7 +641,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
                 });
             }
         } else if (hasStrip) {
-            // Impact strip alone — fills the full right panel
+            // Impact strip alone - fills the full right panel
             s.addShape('rect' as any, { x: rightX, y: panelY + 0.06, w: rightW, h: panelH - 0.06, fill: { color: T.PALE } });
             s.addText('IMPACT PROFILE', {
                 x: rightX + 0.22, y: panelY + 0.28, w: rightW - 0.44, h: 0.22,
@@ -609,7 +676,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
                 }
             });
         } else if (hasGrid || hasMetric) {
-            // Strategy-author paths — render PALE panel + PROJECTED IMPACT header
+            // Strategy-author paths - render PALE panel + PROJECTED IMPACT header
             s.addShape('rect' as any, { x: rightX, y: panelY + 0.06, w: rightW, h: panelH - 0.06, fill: { color: T.PALE } });
             s.addText('PROJECTED IMPACT', {
                 x: rightX + 0.22, y: panelY + 0.28, w: rightW - 0.44, h: 0.22,
@@ -632,7 +699,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
                 const cy = gridY + Math.floor(i / 2) * (cellH + 0.10);
                 if (cy + cellH > panelBottom - 0.10) return;
                 s.addText(c.k, { x: cx, y: cy, w: cellW, h: 0.2, fontSize: 7, color: c.color, fontFace: FONT, bold: true, charSpacing: 2 });
-                s.addText(c.v ? truncate(c.v, 60) : '—', { x: cx, y: cy + 0.22, w: cellW, h: cellH - 0.26, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3 });
+                s.addText(c.v ? truncate(c.v, 60) : '-', { x: cx, y: cy + 0.22, w: cellW, h: cellH - 0.26, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3 });
             });
             if (data.impactMetric) {
                 const mY = panelBottom - 0.95;
@@ -649,7 +716,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     }
 
     // ============================================================
-    // FOOTER BAND (6.20 → 7.10) — ONE closing line, period.
+    // FOOTER BAND (6.20 → 7.10) - ONE closing line, period.
     // Priority: implication > whyMatters. Drop the other to avoid overlap.
     // ============================================================
     const footerText = data.implication || data.whyMatters || '';
@@ -669,7 +736,7 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     }
 
     // ============================================================
-    // SOURCES FOOTER (handled by helper — places itself at slide bottom)
+    // SOURCES FOOTER (handled by helper - places itself at slide bottom)
     // ============================================================
     sourceFooter(s, tx, tw, sources);
 }
@@ -682,7 +749,9 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
     tag(s, tx, y, tw, 'EMERGING THEMES');
     y += 0.28;
     title(s, tx, y, tw, slideTitle, 26);
-    y += 0.85;
+    // 2026-06-01 - advance by the REAL wrapped title height (was a fixed 0.85
+    // that let a 3-line title collide into the columns below).
+    y += titleH(slideTitle, tw, 26) + 0.16;
 
     const themes = data.themes.slice(0, 4);
     const colW = (tw - 0.04 * (themes.length - 1)) / themes.length;
@@ -697,9 +766,11 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
         let cy = blockY + 0.1;
         s.addText(String(i + 1).padStart(2, '0'), { x: cx + 0.08, y: cy, w: colW - 0.16, h: 0.5, fontSize: 32, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -3 });
         cy += 0.55;
-        s.addText(th.name, { x: cx + 0.08, y: cy, w: colW - 0.16, h: 0.4, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        s.addText(truncate(th.name, 64), { x: cx + 0.08, y: cy, w: colW - 0.16, h: 0.4, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
         cy += 0.5;
-        s.addText(th.insight, { x: cx + 0.08, y: cy, w: colW - 0.16, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        // 2026-06-01 - clamp insight to its box so a long body can't overflow
+        // down into the quote (fixed cy advance below assumes ~1.4" of text).
+        s.addText(truncate(th.insight, 240), { x: cx + 0.08, y: cy, w: colW - 0.16, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
         cy += 1.45;
         const clusterQs = themeQuotes(th);
         if (clusterQs.length > 0) {
@@ -712,15 +783,14 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3a. THEME SPOTLIGHT (hero + supporting tiles) — v3.2 DENSIFIED
+// 3a. THEME SPOTLIGHT (hero + supporting tiles) - v3.2 DENSIFIED
 function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.4;
     const tw = geom.contentW - 0.8;
     let y = 0.34;
-    tag(s, tx, y, tw, 'EMERGING THEME — SPOTLIGHT');
+    tag(s, tx, y, tw, 'EMERGING THEME - SPOTLIGHT');
     y += 0.26;
-    title(s, tx, y, tw, slideTitle, 20);
-    y += 0.72;
+    title(s, tx, y, tw, slideTitle, 20); y += titleH(slideTitle, tw, 20) + 0.16;
 
     const all = data.themes.slice(0, 4);
     const hero = all[0];
@@ -742,7 +812,7 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     // Insight (expanded)
     s.addText(truncate(hero.insight, 420), { x: tx, y: hy, w: heroW, h: 1.6, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
     hy += 1.7;
-    // Hero quote — smart-clipped, transcript-cleaned
+    // Hero quote - smart-clipped, transcript-cleaned
     const heroQs = themeQuotes(hero);
     if (heroQs.length > 0) {
         const heroQuoteText = smartQuoteClip(heroQs[0].text, 280);
@@ -768,7 +838,7 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
         s.addText(`Source: ${truncate(hero.source, 80)}`, { x: tx, y: y + blockH - 0.26, w: heroW, h: 0.2, fontSize: 7.5, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
     }
 
-    // Supporting signals — 2-sentence insight + SIGNAL metric per tile
+    // Supporting signals - 2-sentence insight + SIGNAL metric per tile
     s.addText('SUPPORTING SIGNALS', { x: supX, y, w: supW, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2.5 });
     let sy = y + 0.32;
     const supItemH = (blockH - 0.32) / Math.max(supporting.length, 1);
@@ -795,15 +865,14 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3b. THEME ARC (numbered chain with progression connectors) — v3.2 DENSIFIED
+// 3b. THEME ARC (numbered chain with progression connectors) - v3.2 DENSIFIED
 function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.44;
     const tw = geom.contentW - 0.88;
     let y = 0.36;
     tag(s, tx, y, tw, 'THEMATIC ARC');
     y += 0.24;
-    title(s, tx, y, tw, slideTitle, 20);
-    y += 0.72;
+    title(s, tx, y, tw, slideTitle, 20); y += titleH(slideTitle, tw, 20) + 0.16;
 
     const themes = data.themes.slice(0, 4);
     const n = themes.length;
@@ -824,7 +893,7 @@ function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sour
         }
     });
 
-    // Body row — expanded insight, SIGNAL tag per step
+    // Body row - expanded insight, SIGNAL tag per step
     const bodyY = y + 0.75;
     const patternFooterH = data.patternSignal ? 0.7 : 0;
     const bodyH = 7.5 - bodyY - 0.52 - patternFooterH;
@@ -841,7 +910,7 @@ function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sour
             s.addShape('rect' as any, { x: cx + 0.06, y: cy, w: 0.03, h: 0.7, fill: { color: T.CHARTREUSE_BRIGHT } });
             s.addText(`"${smartQuoteClip(arcQs[0].text, 140)}"`, { x: cx + 0.13, y: cy, w: cellW - 0.18, h: 0.7, fontSize: 8.5, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
         }
-        // SIGNAL metric tag — concrete proof the step is real
+        // SIGNAL metric tag - concrete proof the step is real
         const footerY = bodyY + bodyH - 0.22;
         if (t.signal) {
             s.addShape('line' as any, { x: cx + 0.06, y: footerY - 0.06, w: cellW - 0.12, h: 0, line: { color: T.RULE, width: 0.5 } });
@@ -865,7 +934,7 @@ function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sour
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3c. THEME MOSAIC (2x2 grid) — v3.2 REDESIGNED
+// 3c. THEME MOSAIC (2x2 grid) - v3.2 REDESIGNED
 // Killed the B&W inverse-checkerboard. All 4 cells sit on a uniform ivory
 // (PALE) surface, separated by hairline rules, with a single chartreuse
 // accent bar on the PRIMARY cell (index 0). Order intentionally.
@@ -875,8 +944,7 @@ function exportThemeMosaic(s: any, slideTitle: string, data: ThemeClusterData, s
     let y = 0.28;
     tag(s, tx, y, tw, 'THEMATIC MOSAIC');
     y += 0.22;
-    title(s, tx, y, tw, slideTitle, 20);
-    y += 0.68;
+    title(s, tx, y, tw, slideTitle, 20); y += titleH(slideTitle, tw, 20) + 0.16;
 
     const themes = data.themes.slice(0, 4);
     while (themes.length < 4) themes.push({ name: '', insight: '', evidence: '', source: '' });
@@ -945,8 +1013,7 @@ function exportCompetitiveMatrix(s: any, slideTitle: string, data: CompetitiveMa
     let y = 0.32;
     tag(s, tx, y, tw, 'COMPETITIVE LANDSCAPE');
     y += 0.24;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.82;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
 
     const max = data.scaleMax || 5;
     const rows = data.rows.slice(0, 7);
@@ -1041,7 +1108,7 @@ function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sour
         s.addText(truncate(data.context, 90), { x: tx + 0.5, y, w: leftW - 0.5, h: 0.25, fontSize: 9, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3, valign: 'top' });
         y += 0.3;
     }
-    // Quote text — smart-clipped, transcript-cleaned
+    // Quote text - smart-clipped, transcript-cleaned
     const qLen = (data.text || '').length;
     const quoteText = smartQuoteClip(data.text, hasSidebar ? 460 : 520);
     const quoteFs = hasSidebar
@@ -1050,7 +1117,7 @@ function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sour
     s.addText(quoteText, { x: tx, y, w: leftW, h: 2.6, fontSize: quoteFs, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4, charSpacing: -1 });
     y += 2.7;
 
-    // CONTEXT paragraph — 3-4 sentences of who/when/why
+    // CONTEXT paragraph - 3-4 sentences of who/when/why
     if (data.contextParagraph) {
         s.addShape('line' as any, { x: tx, y, w: 0.03, h: 1.0, fill: { color: T.RULE }, line: { color: T.RULE, width: 0.5 } });
         s.addText(truncate(data.contextParagraph, 480), { x: tx + 0.16, y, w: leftW - 0.16, h: 1.2, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
@@ -1065,7 +1132,7 @@ function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sour
         s.addText(data.role, { x: tx + 0.62, y: attY + 0.28, w: leftW - 0.62, h: 0.24, fontSize: 10, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
     }
 
-    // CORROBORATING DATA sidebar — 2-3 supporting stats from OTHER sources
+    // CORROBORATING DATA sidebar - 2-3 supporting stats from OTHER sources
     if (hasSidebar) {
         const panelY = 0.82;
         const panelH = 5.4;
@@ -1093,7 +1160,7 @@ function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sour
         s.addText(truncate(data.implication, 260), { x: tx + 1.24, y: 6.5, w: tw - 1.24, h: 0.4, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
     }
 
-    // Source footer (deduplicated — data.source + any other sources not equal to it)
+    // Source footer (deduplicated - data.source + any other sources not equal to it)
     const srcY = 7.0;
     s.addShape('line' as any, { x: tx, y: srcY, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
     const uniqueOtherSources = sources.filter(s => s !== data.source);
@@ -1108,8 +1175,7 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
     let y = 0.32;
     tag(s, tx, y, tw, `CASE STUDY  /  ${data.subject.toUpperCase()}`);
     y += 0.24;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.75;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
 
     // Subject meta strip
     const metaParts: string[] = [];
@@ -1147,7 +1213,7 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
         by += blockH + 0.06;
     });
 
-    // LESSON FOR ADVANCEMENT — footer row synthesizing the takeaway
+    // LESSON FOR ADVANCEMENT - footer row synthesizing the takeaway
     if (hasLesson) {
         s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: lessonH, fill: { color: T.PALE } });
         s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: lessonH, fill: { color: T.CHARTREUSE_BRIGHT } });
@@ -1192,7 +1258,7 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
             });
             ry += Math.ceil(sms.length / cols) * (cellH + 0.1) + 0.1;
         }
-        // COMPARABLES strip — 2-3 peer orgs
+        // COMPARABLES strip - 2-3 peer orgs
         if (data.comparables && data.comparables.length > 0) {
             s.addShape('line' as any, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
             ry += 0.08;
@@ -1207,13 +1273,13 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
                 }
             });
         }
-        // Pull quote pinned near bottom — role included when available
+        // Pull quote pinned near bottom - role included when available
         if (data.pullQuote) {
             const qy = panelY + panelH - 0.82;
             s.addShape('line' as any, { x: rightX + 0.22, y: qy - 0.08, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
             s.addShape('rect' as any, { x: rightX + 0.22, y: qy, w: 0.04, h: 0.4, fill: { color: T.CHARTREUSE_BRIGHT } });
             s.addText(`"${smartQuoteClip(data.pullQuote.text, 200)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.45, fontSize: 9, color: 'F0F0F0', fontFace: fontForRole('quote', T), italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
-            const pqAttr = `— ${data.pullQuote.attribution}${data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}`;
+            const pqAttr = `- ${data.pullQuote.attribution}${data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}`;
             s.addText(truncate(pqAttr, 110), { x: rightX + 0.32, y: qy + 0.48, w: rightW - 0.54, h: 0.3, fontSize: 8, color: 'B0C4C5', fontFace: fMono(), valign: 'top', lineSpacingMultiple: 1.35 });
         }
     }
@@ -1227,8 +1293,7 @@ function exportPrinciples(s: any, slideTitle: string, data: PrinciplesData, sour
     let y = 0.4;
     tag(s, tx, y, tw, 'GUIDING PRINCIPLES');
     y += 0.28;
-    title(s, tx, y, tw, slideTitle, 26);
-    y += 0.85;
+    title(s, tx, y, tw, slideTitle, 26); y += titleH(slideTitle, tw, 26) + 0.16;
 
     const items = data.items.slice(0, 5);
     const totalH = 7.05 - y - 0.45;
@@ -1250,8 +1315,7 @@ function exportStatRow(s: any, slideTitle: string, data: StatRowData, sources: s
     let y = 0.36;
     tag(s, tx, y, tw, 'BY THE NUMBERS');
     y += 0.24;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.74;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
 
     const stats = data.stats.slice(0, 4);
     const accents = [T.CHARTREUSE_BRIGHT, T.CYAN, T.RUST, T.TEAL];
@@ -1288,7 +1352,7 @@ function exportStatRow(s: any, slideTitle: string, data: StatRowData, sources: s
         s.addText(truncate(st.source, 60), { x: cx + 0.22, y: y + statBlockH - 0.26, w: colW - 0.32, h: 0.2, fontSize: 7.5, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
     });
 
-    // CONVERGENT INSIGHT row — synthesis across all stats
+    // CONVERGENT INSIGHT row - synthesis across all stats
     if (hasConvergent) {
         const ciY = y + statBlockH + 0.12;
         s.addShape('rect' as any, { x: tx, y: ciY, w: tw, h: convergentH, fill: { color: T.PALE } });
@@ -1342,16 +1406,16 @@ function exportTimeline(s: any, slideTitle: string, data: TimelineData, sources:
     sourceFooter(s, tx, tw, sources);
 }
 
-// 10. SECTION DIVIDER (full bleed — overrides shell)
+// 10. SECTION DIVIDER (full bleed - overrides shell)
 function exportSectionDivider(s: any, data: SectionDividerData) {
     s.addShape('rect' as any, { x: 0, y: 0, w: T.PPTX_W, h: T.PPTX_H, fill: { color: T.TEAL } });
-    // Big number top-left — shrinks for 3+ digit section numbers (100+)
+    // Big number top-left - shrinks for 3+ digit section numbers (100+)
     const numSize = heroPt(data.number, 160, 72, 2);
     s.addText(data.number, { x: 0.7, y: 0.45, w: 4.5, h: 2.6, fontSize: numSize, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -6 });
     // SECTION label
     s.addText('SECTION', { x: 5.4, y: 0.85, w: 2.5, h: 0.25, fontSize: 10, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 4 });
     s.addShape('line' as any, { x: 5.4, y: 1.15, w: 1.1, h: 0, line: { color: T.CHARTREUSE_BRIGHT, width: 1 } });
-    // Title bottom-left — size scales down for long titles
+    // Title bottom-left - size scales down for long titles
     const titleSize = data.title.length > 40 ? 42 : data.title.length > 28 ? 50 : 56;
     s.addText(data.title, { x: 0.7, y: 4.5, w: T.PPTX_W - 1.4, h: 1.9, fontSize: titleSize, color: T.WHITE, fontFace: FONT, bold: true, valign: 'bottom', lineSpacingMultiple: 1.05, charSpacing: -2 });
     if (data.subtitle) {
@@ -1367,14 +1431,14 @@ function exportSectionDivider(s: any, data: SectionDividerData) {
 
 // === TEMPLATE EXPORTERS (11-15: classic-deliverable completions) ===
 
-// 11. SERVICE BLUEPRINT — grid with explicit heights so lanes can't collapse.
+// 11. SERVICE BLUEPRINT - grid with explicit heights so lanes can't collapse.
 // Capped to 4 stages. Duration + emotion strip under phase header. Per-cell truncate.
 function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBlueprintData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.32;
     const tw = geom.contentW - 0.64;
     let y = 0.28;
     tag(s, tx, y, tw, 'SERVICE BLUEPRINT'); y += 0.24;
-    title(s, tx, y, tw, slideTitle, 22); y += 0.72;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
 
     const stages = data.stages.slice(0, 4);
     const labelW = 1.05;
@@ -1398,10 +1462,10 @@ function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBluepri
     const emoji = (e?: string) => {
         if (!e) return '';
         const lw = e.toLowerCase();
-        if (lw.includes('frustrat') || lw.includes('confus') || lw.includes('angry')) return '😟';
-        if (lw.includes('hope') || lw.includes('excit') || lw.includes('curious')) return '🙂';
-        if (lw.includes('disappoint') || lw.includes('abandon')) return '☹️';
-        if (lw.includes('delight') || lw.includes('satisf')) return '😀';
+        if (lw.includes('frustrat') || lw.includes('confus') || lw.includes('angry')) return '';
+        if (lw.includes('hope') || lw.includes('excit') || lw.includes('curious')) return '';
+        if (lw.includes('disappoint') || lw.includes('abandon')) return '️';
+        if (lw.includes('delight') || lw.includes('satisf')) return '';
         return '•';
     };
 
@@ -1421,7 +1485,7 @@ function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBluepri
         if (st.emotion) parts.push(`${emoji(st.emotion)} ${st.emotion}`);
         if (st.duration) parts.push(st.duration);
         const txt = parts.join('   ·   ');
-        s.addText(txt || '—', { x: tx + labelW + i * stageW + 0.08, y, w: stageW - 0.16, h: metaH, fontSize: 8, color: T.SECONDARY, fontFace: FONT, valign: 'middle' });
+        s.addText(txt || '-', { x: tx + labelW + i * stageW + 0.08, y, w: stageW - 0.16, h: metaH, fontSize: 8, color: T.SECONDARY, fontFace: FONT, valign: 'middle' });
     });
     y += metaH;
 
@@ -1435,7 +1499,7 @@ function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBluepri
             const cellX = tx + labelW + i * stageW;
             if (lane.isHero) s.addShape('rect' as any, { x: cellX, y, w: stageW, h: laneH, fill: { color: T.PALE } });
             s.addShape('line' as any, { x: cellX, y, w: 0, h: laneH, line: { color: T.RULE, width: 0.5 } });
-            s.addText(truncate(txt, 110) || '—', { x: cellX + 0.1, y: y + 0.08, w: stageW - 0.2, h: laneH - 0.12, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            s.addText(truncate(txt, 110) || '-', { x: cellX + 0.1, y: y + 0.08, w: stageW - 0.2, h: laneH - 0.12, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
         });
         y += laneH;
     });
@@ -1445,8 +1509,8 @@ function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBluepri
     s.addShape('rect' as any, { x: tx, y, w: labelW, h: failH, fill: { color: 'FBEAEA' } });
     s.addText('FAIL\nPOINTS', { x: tx + 0.1, y: y + 0.06, w: labelW - 0.16, h: failH - 0.08, fontSize: 8, color: T.RED, fontFace: FONT, bold: true, charSpacing: 2, valign: 'top', lineSpacingMultiple: 1.15 });
     stages.forEach((st, i) => {
-        const txt = st.painPoint || '—';
-        const prefix = st.failPoint ? '⚠  ' : '';
+        const txt = st.painPoint || '-';
+        const prefix = st.failPoint ? '  ' : '';
         const cellX = tx + labelW + i * stageW;
         if (st.failPoint) s.addShape('rect' as any, { x: cellX, y, w: stageW, h: failH, fill: { color: 'FBEAEA' } });
         s.addShape('line' as any, { x: cellX, y, w: 0, h: failH, line: { color: T.RULE, width: 0.5 } });
@@ -1468,7 +1532,7 @@ function exportGapMatrix(s: any, slideTitle: string, data: GapMatrixData, source
     const tw = geom.contentW - 0.96;
     let y = 0.4;
     tag(s, tx, y, tw, 'MATURITY GAP ANALYSIS'); y += 0.28;
-    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+    title(s, tx, y, tw, slideTitle, 24); y += titleH(slideTitle, tw, 24) + 0.16;
 
     const max = data.scaleMax || 5;
     const rows = data.gaps.slice(0, 6);
@@ -1526,7 +1590,7 @@ function exportArchitectureMap(s: any, slideTitle: string, data: ArchitectureMap
     const tw = geom.contentW - 0.8;
     let y = 0.35;
     tag(s, tx, y, tw, 'SYSTEM ARCHITECTURE'); y += 0.26;
-    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+    title(s, tx, y, tw, slideTitle, 24); y += titleH(slideTitle, tw, 24) + 0.16;
 
     const layers = data.layers.slice(0, 5);
     const bottomReserve = data.flowSummary ? 0.7 : 0.35;
@@ -1582,7 +1646,7 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
     const allFeatures = Array.isArray(data?.features) ? data.features : [];
     const prio = (p: string) => p === 'must' ? T.RED : p === 'should' ? T.CHARTREUSE_BRIGHT : p === 'could' ? T.CYAN : T.MUTED;
 
-    // 2026-05-06 — DEEP-mode detection (matches the web renderer): single
+    // 2026-05-06 - DEEP-mode detection (matches the web renderer): single
     // feature with rich narrative fields → full-slide layout that renders
     // technical details, problem solved, stakeholders, and verbatim
     // evidence quotes. Multi-feature payloads keep the original 3-card
@@ -1592,7 +1656,7 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
 
     if (isDeep && single) {
         const f = single;
-        title(s, tx, y, tw, slideTitle, 20); y += 0.7;
+        title(s, tx, y, tw, slideTitle, 20); y += titleH(slideTitle, tw, 20) + 0.16;
 
         // Two-column layout: left = user story + criteria; right = problem/tech/stakeholders/evidence
         const colGap = 0.3;
@@ -1618,7 +1682,7 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
         ly += 0.24;
         (Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 6).forEach(c => {
             s.addText([
-                { text: '✓  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
+                { text: '  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
                 { text: c, options: { color: T.BODY, fontSize: 8.5, fontFace: FONT } },
             ], { x: lx, y: ly, w: colW, h: 0.45, valign: 'top', lineSpacingMultiple: 1.35 });
             ly += 0.42;
@@ -1653,8 +1717,8 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
         return;
     }
 
-    // COMPACT mode (default) — multi-feature side-by-side
-    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+    // COMPACT mode (default) - multi-feature side-by-side
+    title(s, tx, y, tw, slideTitle, 24); y += titleH(slideTitle, tw, 24) + 0.16;
     const features = allFeatures.slice(0, 3);
     if (features.length === 0) { sourceFooter(s, tx, tw, sources); return; }
     const cardW = (tw - 0.2 * (features.length - 1)) / features.length;
@@ -1680,7 +1744,7 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
         let ay = cardY + 2.32;
         (Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 5).forEach(c => {
             s.addText([
-                { text: '✓  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
+                { text: '  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
                 { text: c, options: { color: T.BODY, fontSize: 9, fontFace: FONT } },
             ], { x: cx + 0.2, y: ay, w: cardW - 0.4, h: 0.4, valign: 'top', lineSpacingMultiple: 1.4 });
             ay += 0.38;
@@ -1695,7 +1759,7 @@ function exportSystemsInventory(s: any, slideTitle: string, data: SystemsInvento
     const tw = geom.contentW - 0.8;
     let y = 0.35;
     tag(s, tx, y, tw, 'SYSTEMS INVENTORY'); y += 0.26;
-    title(s, tx, y, tw, slideTitle, 24); y += 0.8;
+    title(s, tx, y, tw, slideTitle, 24); y += titleH(slideTitle, tw, 24) + 0.16;
 
     const rows = data.systems.slice(0, 8);
     const nameW = tw * 0.40;
@@ -1746,7 +1810,7 @@ function exportSystemsInventory(s: any, slideTitle: string, data: SystemsInvento
 }
 
 // === MAIN DISPATCHER ===
-// JOURNEY BRIEF — 2026-05-26
+// JOURNEY BRIEF - 2026-05-26
 // Renders a reasoning-model-distilled journey summary as a CLEAN TABULAR
 // slide. Per the user directive: use the blueprint tabular layout (rect +
 // text cells, NO SVG emotion curve, NO stretched theme boxes) to avoid the
@@ -1770,7 +1834,7 @@ function exportJourneyBrief(s: any, slideTitle: string, brief: JourneyBrief, sou
         y += 0.34;
     }
 
-    // === STAGE GRID (tabular — header row + PAIN row + OPPORTUNITY row) ===
+    // === STAGE GRID (tabular - header row + PAIN row + OPPORTUNITY row) ===
     const stages = (brief.stages || []).slice(0, 6);
     if (stages.length > 0) {
         const labelColW = 1.15;
@@ -1852,7 +1916,7 @@ function exportJourneyBrief(s: any, slideTitle: string, brief: JourneyBrief, sou
     if (brief.closing_quote && brief.closing_quote.text) {
         s.addShape('rect' as any, { x: tx, y, w: 0.05, h: 0.5, fill: { color: T.CHARTREUSE_BRIGHT } });
         s.addText(`"${truncate(brief.closing_quote.text, 200)}"`, { x: tx + 0.16, y, w: tw - 0.3, h: 0.32, fontSize: 10, color: T.INK, fontFace: fontForRole('quote', T), italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
-        s.addText(`— ${truncate(brief.closing_quote.attribution, 90)}`, { x: tx + 0.16, y: y + 0.34, w: tw - 0.3, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: fMono(), valign: 'top' });
+        s.addText(`- ${truncate(brief.closing_quote.attribution, 90)}`, { x: tx + 0.16, y: y + 0.34, w: tw - 0.3, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: fMono(), valign: 'top' });
     }
 
     sourceFooter(s, tx, tw, sources.length > 0 ? sources : brief.sources);
@@ -1890,6 +1954,7 @@ export interface ExportSlideArgs {
 export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
     T = args.brand || nxtBrand;
     const s = pptx.addSlide();
+    sanitizeAddText(s);
     const sources = args.sources || [];
 
     if (args.template === 'section-divider' && args.sectionDivider) {
@@ -1897,7 +1962,7 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
         return;
     }
 
-    // 2026-05-12 — Persona cards bake the image into the left-hand panel via
+    // 2026-05-12 - Persona cards bake the image into the left-hand panel via
     // addBaseShell; tile-sourced recommendation slides render the image on
     // the right side via exportRecommendation, so we DO NOT want the base
     // shell to consume it. Only persona-card triggers shell-baked image.
@@ -1982,7 +2047,7 @@ export async function exportDeckToPPTX(slides: ExportSlideArgs[], deckName?: str
     const pptx = new PptxGenJS();
     pptx.defineLayout({ name: 'WIDE', width: TOKENS.PPTX_W, height: TOKENS.PPTX_H });
     pptx.layout = 'WIDE' as any;
-    // Render sequentially — image preprocessing is async and PptxGenJS serializes shape order per slide
+    // Render sequentially - image preprocessing is async and PptxGenJS serializes shape order per slide
     for (const slide of slides) {
         await renderSlideInto(pptx, slide);
     }

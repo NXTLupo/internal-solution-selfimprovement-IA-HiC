@@ -1,11 +1,11 @@
 // services/researchPlanRenderer.ts
 // Renders a ResearchPlan (from researchPlanner.buildResearchPlan) into a
 // brand-styled, read-only 1920×1080 HTML artifact for the FreeformViewer.
-// Edits happen at the chat layer — user iterates by typing "remove Q3, raise
+// Edits happen at the chat layer - user iterates by typing "remove Q3, raise
 // budget to 10" and the planner regenerates. A first-class form editor with
 // drag/edit semantics lands in a follow-up that lives outside the iframe.
 //
-// 2026-05-24 — Phase 5 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 5 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import type { ResearchPlan } from './researchPlanner';
 
@@ -184,7 +184,7 @@ export function renderResearchPlanHtml(input: ResearchPlanRenderInput): string {
     </div>
   </div>
   <div class="rp-help">
-    <b>You are in control.</b> This plan steers the next collection run. To edit: reply in chat with what to change — "remove Q3", "raise budget to 10", "add MIT to named institutions". The planner will emit a new plan. When you're satisfied, say <b>"approve plan"</b> and the reflector loop runs against the approved version.
+    <b>You are in control.</b> This plan steers the next collection run. To edit: reply in chat with what to change - "remove Q3", "raise budget to 10", "add MIT to named institutions". The planner will emit a new plan. When you're satisfied, say <b>"approve plan"</b> and the reflector loop runs against the approved version.
   </div>
 </div>
 </body>

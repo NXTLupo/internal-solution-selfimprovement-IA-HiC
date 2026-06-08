@@ -1,4 +1,4 @@
-
+﻿
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
 import { tryRepairJson } from './aiRouter';
@@ -6,6 +6,11 @@ import { getActiveConstraints } from './promptImprovementEngine';
 import { buildEvidenceCatalogBlock, loadDeliverableContext, renderDeliverableContextBlock } from './evidenceCatalogBuilder';
 import { buildVerbalizedConfidenceDirective, inspectCalibration, normalizeSelfAssessment } from './verbalizedConfidence';
 import { buildReinforceFeedbackString, shouldReinforce, appendUncertaintyLedger } from './reinforcementInference';
+import { shapeUpstreamForRecs } from './intelligenceShaping';
+import { verifyDeliverableCitations } from './citationGrounding';
+import { discriminate, snapshotActiveConstraints } from './improvementDiscriminator';
+import { scoreDeliverable, type DeliverableKind as ScorerKind } from './deliverableScorer';
+import { resolveDeliverableBodies, manifestPointerBlock, currentEngagementSlug } from './wikiPointerResolver';
 
 // --- CONSTANTS ---
 const DEFAULT_STYLE: SlideStyle = {
@@ -70,7 +75,7 @@ async function withRetry<T>(
 
 // --- IMAGE GENERATION HELPERS ---
 
-// Global visualization style — set by App.tsx when user selects a style
+// Global visualization style - set by App.tsx when user selects a style
 let _activeVisStyleId: string = 'photorealistic';
 export function setActiveVisualizationStyle(styleId: string) { _activeVisStyleId = styleId; }
 export function getActiveVisualizationStyle(): string { return _activeVisStyleId; }
@@ -79,13 +84,13 @@ export function getActiveVisualizationStyle(): string { return _activeVisStyleId
  * Heuristic detection for personal names (First, First Last, First M. Last).
  * Used to defend against the model emitting "Sarah Chen" or "Marcus Johnson"
  * as a persona archetype title. Returns true ONLY when the string looks
- * unambiguously like a personal name — short (<= 4 tokens), all tokens
+ * unambiguously like a personal name - short (<= 4 tokens), all tokens
  * Capitalized, contains no role/posture words, and matches the
  * single-given-name + optional-surname shape.
  *
  * False positives are acceptable here: if the model returns something
  * borderline like "Sarah the Skeptic", we'd rather replace with a generic
- * archetype than ship a personal name. False negatives are NOT — a missed
+ * archetype than ship a personal name. False negatives are NOT - a missed
  * "Sarah Chen" reaches the user.
  */
 function isLikelyPersonalName(s: string): boolean {
@@ -107,16 +112,16 @@ function isLikelyPersonalName(s: string): boolean {
 
 /**
  * Generate a photorealistic portrait using Imagen 4.
- * Bypasses the NXT Design System style prompts — portraits must be photorealistic, not flat geometric.
+ * Bypasses the NXT Design System style prompts - portraits must be photorealistic, not flat geometric.
  * CSS grayscale filter is applied at render time, not at generation time.
  */
 export const generatePortrait = async (prompt: string): Promise<string | undefined> => {
     // Use the SAME model and config that works for all other image generation
-    // gemini-2.5-flash-image with imageConfig — the proven working approach
+    // gemini-3.1-flash-image-preview with imageConfig - the proven working approach
     try {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await withRetry<GenerateContentResponse>(() => ai.models.generateContent({
-            model: 'gemini-2.5-flash-image',
+            model: 'gemini-3.1-flash-image-preview',
             contents: { parts: [{ text: prompt }] },
             config: {
                 imageConfig: { aspectRatio: '1:1' as any }
@@ -141,11 +146,11 @@ export const generateImage = async (prompt: string, aspectRatio: string = "16:9"
     let finalPrompt: string;
 
     if (openPrompt) {
-        // Open prompt mode — no NXT style restrictions. User describes whatever they want.
+        // Open prompt mode - no NXT style restrictions. User describes whatever they want.
         const noTextConstraint = 'Do NOT include any text, words, letters, numbers, or labels in this image.';
         finalPrompt = `${prompt}. Professional quality, high resolution. ${noTextConstraint}`;
     } else {
-        // NXT style mode — flat geometric business minimalism
+        // NXT style mode - flat geometric business minimalism
         const { getStyleById } = await import('./visualizationStyles');
         const style = getStyleById(_activeVisStyleId);
         const context = (aspectRatio === "1:1" || aspectRatio === "3:4") ? 'portrait' : 'scene';
@@ -171,7 +176,7 @@ export const generateImage = async (prompt: string, aspectRatio: string = "16:9"
     }
 
     const response = await withRetry<GenerateContentResponse>(() => ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
+      model: 'gemini-3.1-flash-image-preview',
       contents: {
         parts: parts
       },
@@ -326,11 +331,11 @@ export class GenAISession {
     private goal: string;
     private approach: string;
     private selectedOutputs: OutputOption[];
-    // 2026-05-03 — Stored for the GPT fallback path (see executeStepViaGPT).
+    // 2026-05-03 - Stored for the GPT fallback path (see executeStepViaGPT).
     // Gemini Flash repetition-collapses on structured JSON when the corpus
     // contains any repeated token pattern (filenames, port numbers like 8080,
     // dollar figures, etc.). The RepetitionGuard truncates at 20K chars,
-    // leaving downstream JSON parsing to salvage fragments — often yielding
+    // leaving downstream JSON parsing to salvage fragments - often yielding
     // 0-1 items instead of the evidence-warranted count. Claude Opus 4.7 does
     // not have this failure mode on long structured output, so synthesis
     // steps (themes, personas, recommendations, gap analysis, service
@@ -338,17 +343,61 @@ export class GenAISession {
     private systemInstructionCached: string = '';
     private accumulatedContext: Array<{ label: string; payload: string }> = [];
     private corpusContextCached: string = '';
-    // 2026-04-29 — Two-pass theme architecture (consulting-grade).
+    // 2026-04-29 - Two-pass theme architecture (consulting-grade).
     // Pass 1 BREADTH calls Gemini 3.1 Pro outside the chat session (one-shot)
     // for a fresh, unanchored corpus pass. We cache the original ingestion
     // file parts so the Pro call can re-feed the same corpus (binaries +
     // text) into a separate context window. Pass 2 DEPTH then fans out to
-    // Claude Opus 4.7 per-theme — those calls don't need the corpus, only
+    // Claude Opus 4.7 per-theme - those calls don't need the corpus, only
     // the breadth-theme payload (name/description/quote/citations).
     private corpusFileParts: any[] = [];
     private corpusUploadedFileCount: number = 0;
     private corpusHasIntelligence: boolean = false;
-    // 2026-05-05 — Phase 0 (depth-maximization): every deliverable generator
+    // U3 - concatenated corpus text for citation-faithfulness verification.
+    private corpusGroundingText: string = '';
+
+    // 2026-06-07 (Phase 1, intent-realization-plan) - corpus-identity contract.
+    // The grounding corpus MUST be a superset of every text any generator was
+    // actually shown. Before this, corpusGroundingText held only the ingestion
+    // fileParts, so deliverables generated from OTHER text (themes from archive
+    // passages + topic clusters; personas from goal-evidence + 150-char citation
+    // snippets) were verified against text the model never saw -> the 0/26 persona
+    // and 6/58 theme "grounding" artifact. Every evidence-injection site now
+    // registers the text it injects here, so a verbatim quote drawn from that
+    // evidence verifies legitimately. This raises match rates by ALIGNING corpora,
+    // NEVER by relaxing the grounding bar (the GROUNDING_MISMATCH_FLOOR stays).
+    // Verification-only: this string is never sent to a model, so growth carries
+    // ZERO token-budget cost (that is Phase 2's separate concern). Capped for
+    // memory only; oldest evidence is dropped first if the cap is hit.
+    private registerGroundingText(text: string | undefined | null): void {
+        if (!text || typeof text !== 'string') return;
+        const t = text.trim();
+        if (t.length < 24) return;
+        if (this.corpusGroundingText.includes(t)) return;   // cheap exact-block dedupe
+        const CAP = 8_000_000;                               // ~8MB, memory guard only
+        if (this.corpusGroundingText.length + t.length > CAP) {
+            const overflow = (this.corpusGroundingText.length + t.length) - CAP;
+            this.corpusGroundingText = this.corpusGroundingText.slice(overflow);
+        }
+        this.corpusGroundingText += '\n' + t;
+    }
+    // 2026-06-02 - Deterministic topic clusters (BERTopic-style) wired into the
+    // theme stage so themes are GROUNDED in the corpus's actual cluster structure
+    // rather than free-associated. App sets either the resolved result or the
+    // in-flight job promise; generateThemes awaits the promise (bounded) so a
+    // parallel topic job that finishes in time enriches themes.
+    public topicClusters: any | null = null;
+    public topicClustersPromise: Promise<any> | null = null;
+    // 2026-06-02 (U1 - cognitive chain): the synthesis chain runs themes ->
+    // personas -> recommendations on the SAME session, but generateRecommendations
+    // never received the run's themes/personas though its prompt claims to "review
+    // ALL themes and ALL persona pain points". It re-derived (and could fabricate)
+    // them from raw sources. Store the actual results here as they're produced so
+    // recommendations build on the run's real analysis. Empty for standalone calls
+    // (graceful: the chain block is simply omitted).
+    private lastThemes: any[] = [];
+    private lastPersonas: any[] = [];
+    // 2026-05-05 - Phase 0 (depth-maximization): every deliverable generator
     // now receives the same rawSources catalog that generateStrategicReport
     // already consumed. App.tsx calls setRawSources() once per run, after
     // research collection and curation, before deliverable generation kicks
@@ -361,7 +410,7 @@ export class GenAISession {
         this.rawSources = Array.isArray(sources) ? sources : [];
     }
 
-    // 2026-05-19 — NotebookLM-style goal-filtered evidence pack.
+    // 2026-05-19 - NotebookLM-style goal-filtered evidence pack.
     // Computed lazily on first request, cached for the session lifetime.
     // Used by ALL generate*() methods (themes, personas, journey,
     // recommendations, gap, roadmap, prd, blueprint, tech-arch, tech-audit,
@@ -369,12 +418,71 @@ export class GenAISession {
     // chunks to their system prompt. Cuts noise from the off-topic 60%
     // of the corpus without losing fallback access to the full corpus.
     private goalEvidencePackPromise: Promise<string> | null = null;
-    // 2026-05-19 — Track whether the cached promise contains a real evidence
+    // 2026-05-19 - Track whether the cached promise contains a real evidence
     // pack vs. an empty fallback. Empty results should NOT poison the cache
-    // for the whole session — the next generation call gets a fresh attempt.
+    // for the whole session - the next generation call gets a fresh attempt.
     // Otherwise a single retrieval timeout disables NotebookLM retrieval for
     // every subsequent artifact in that session.
     private goalEvidenceCachedNonEmpty: boolean = false;
+
+    // 2026-06-07 (Phase 2, intent-realization-plan) - manifest-chunk-retrieval.
+    // When true, generators draw evidence via the MANDATORY chunk-pointer
+    // contract (pickChunksForPrompt -> resolveChunks -> assembleChunkCorpus at a
+    // 30K-token budget, KL selection auto-pinned) instead of the BANNED bulk
+    // body injection (corpusFileParts) + the NOT-THE-CONTRACT embedding-RAG pack
+    // (notebookRetrieval). The chunk corpus is ~30K tokens, cited by pointer, and
+    // validated by the validate_chunk_citations.py Stop hook. Flag-gated so a
+    // sparse-manifest engagement can fall back to the legacy bulk path rather
+    // than generate from nothing.
+    private useMcrCorpus: boolean = true;
+    /** Chunk-id set resolved into the last MCR corpus block - for citation validation. */
+    private lastCorpusChunkIds: string[] = [];
+
+    // 2026-06-08 - LIVE THEME STREAMING. Set by App.tsx before generateThemes so
+    // each sharded breadth WAVE pushes its accumulated themes out immediately. The
+    // consumer merges with cached themes and updates themesResult (-> Research
+    // Browser + Analyst chat context) and persists (-> themes.json corpus +
+    // manifest count) as the re-synthesis pours in, instead of only at the end.
+    private onThemeProgress?: (themes: any[]) => void;
+    setThemeProgressCallback(cb?: (themes: any[]) => void): void { this.onThemeProgress = cb; }
+
+    /**
+     * Build a chunk-addressed CORPUS block per the manifest-chunk-retrieval
+     * contract. Returns '' on empty catalog (caller falls back / flags); never
+     * throws into a generation path. Stores resolved ids on lastCorpusChunkIds.
+     */
+    private async buildChunkCorpusBlock(promptText: string, opts: { tokenBudget?: number; excludeIds?: string[]; skipAutoPin?: boolean } = {}): Promise<string> {
+        try {
+            const { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions, DEFAULT_CORPUS_TOKEN_BUDGET } = await import('./chunkRetrieval');
+            const { resolveChunks } = await import('./wikiPointerResolver');
+            const slug = (this.goal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'default';
+            const picked = await pickChunksForPrompt(promptText, slug, {
+                tokenBudget: opts.tokenBudget ?? DEFAULT_CORPUS_TOKEN_BUDGET,
+                extraContext: this.goal || '',
+                excludeIds: opts.excludeIds,       // shard window: skip prior-shard chunks
+                skipAutoPin: opts.skipAutoPin,     // shards 1..K do not re-pin cached selection
+            });
+            if (!picked.chunkIds.length) {
+                console.warn(`[MCR] no chunks selected for slug "${slug}" (catalog=${picked.catalogSize}) - corpus block empty; caller falls back to legacy path`);
+                this.lastCorpusChunkIds = [];
+                return '';
+            }
+            const resolved = await resolveChunks(picked.chunkIds);
+            this.lastCorpusChunkIds = resolved.chunks.map(c => c.id);
+            // Phase 1<->2 integration: the resolved chunks ARE the generation
+            // corpus, so register them as the verification corpus too. Without
+            // this, grounding checks the old fileParts snapshot and blanks
+            // legitimate quotes (the observed 9/40 grounded, 31 blanked).
+            this.registerGroundingText(resolved.chunks.map(c => c.text).join('\n\n'));
+            const block = `${assembleChunkCorpus(resolved.chunks)}\n\n${chunkCitationInstructions()}`;
+            console.log(`[MCR] corpus block: ${resolved.chunks.length} chunks, ~${picked.estimatedTokens} tok (budget ${picked.tokenBudget}, catalog ${picked.catalogSize}) slug=${slug}`);
+            return block;
+        } catch (e: any) {
+            console.warn('[MCR] buildChunkCorpusBlock failed (non-fatal, falling back to legacy bulk path):', e?.message || e);
+            this.lastCorpusChunkIds = [];
+            return '';
+        }
+    }
 
     private async getGoalEvidenceBlock(): Promise<string> {
         // Reuse the cached pack only if it's non-empty. Empty result = retry
@@ -385,7 +493,7 @@ export class GenAISession {
         this.goalEvidencePackPromise = (async () => {
             try {
                 const { retrieveGoalRelevantEvidence, describeRetrievalStats } = await import('./notebookRetrieval');
-                // 2026-05-20 — Budget raised: 40→120 chunks, 4K→7K chars/article.
+                // 2026-05-20 - Budget raised: 40→120 chunks, 4K→7K chars/article.
                 // On 14-source corpora with ~600 evidence chunks, 40 left ~85%
                 // of indexed evidence untouched. Themes/personas/strategies
                 // were synthesizing from a thin slice. With 1M-token models
@@ -397,15 +505,18 @@ export class GenAISession {
                     goalBlendWeight: 1.0,
                 });
                 if (pack.stats.retrieved === 0) {
-                    console.warn(`[NotebookLM] no goal-relevant chunks retrieved for "${this.goal.slice(0, 60)}..." — will retry on next artifact call`);
+                    console.warn(`[NotebookLM] no goal-relevant chunks retrieved for "${this.goal.slice(0, 60)}..." - will retry on next artifact call`);
                     this.goalEvidenceCachedNonEmpty = false;
                     return '';
                 }
                 this.goalEvidenceCachedNonEmpty = true;
                 console.log(`[NotebookLM] goal-evidence pack: ${describeRetrievalStats(pack)}`);
+                // Phase 1 corpus-identity: personas/themes/recs quote VERBATIM from
+                // this pack, so it must be part of the verification corpus.
+                this.registerGroundingText(pack.promptBlock);
                 return pack.promptBlock;
             } catch (err: any) {
-                console.warn('[NotebookLM] retrieval skipped — will retry on next artifact call:', err?.message || err);
+                console.warn('[NotebookLM] retrieval skipped - will retry on next artifact call:', err?.message || err);
                 this.goalEvidenceCachedNonEmpty = false;
                 return '';
             }
@@ -413,11 +524,64 @@ export class GenAISession {
         return this.goalEvidencePackPromise;
     }
 
-    /** Invalidate the cached evidence pack — call when the research goal
+    /** Invalidate the cached evidence pack - call when the research goal
      *  changes mid-session (rare) or when new sources are ingested. */
     invalidateGoalEvidence(): void {
         this.goalEvidencePackPromise = null;
         this.goalEvidenceCachedNonEmpty = false;
+        this.substrateEvidencePromise = null;
+        this.substrateEvidenceCachedNonEmpty = false;
+    }
+
+    // 2026-06-05 (Step 5, volume-to-insight) - SUBSTRATE EVIDENCE BLOCK.
+    // Parallel to getGoalEvidenceBlock() (single-angle wiki retrieval) but
+    // sourced from the multi-angle /api/corpus/retrieve substrate endpoint.
+    // Both blocks are injected together in executeStep / executeStepViaGPT /
+    // _runBreadthPass so EVERY consumer (themes, personas, journey, roadmap,
+    // recommendations, gap, PRD, blueprint, tech-arch, tech-audit,
+    // competitive, strategic-report) sees a coverage-spanning evidence set
+    // in addition to the focus-narrowed goal-evidence pack. NotebookLM
+    // Pattern 4 (round-robin merge across 6 fixed deterministic angles)
+    // ensures the set SPANS the semantic neighborhood instead of
+    // over-representing one cluster. Determinism: fixed angle templates +
+    // stable merge -> same goal -> same block across runs.
+    private substrateEvidencePromise: Promise<string> | null = null;
+    private substrateEvidenceCachedNonEmpty: boolean = false;
+
+    private async getSubstrateEvidenceBlock(): Promise<string> {
+        if (this.substrateEvidencePromise && this.substrateEvidenceCachedNonEmpty) {
+            return this.substrateEvidencePromise;
+        }
+        this.substrateEvidencePromise = (async () => {
+            try {
+                const { prefetchSubstrateForDeliverable } = await import('./corpusSubstrate');
+                const engagementSlug = (typeof window !== 'undefined'
+                    ? (window as any).__hicCurrentEngagementSlug
+                    : undefined) || undefined;
+                const pre = await prefetchSubstrateForDeliverable({
+                    consumer: 'session',
+                    goal: this.goal,
+                    engagement: engagementSlug,
+                    angles: 6,
+                    perAngle: 6,
+                    maxTotal: 18,
+                    maxCharsPerArticle: 6500,
+                });
+                if (pre.starved || !pre.block) {
+                    console.warn(`[Substrate] no coverage articles for "${this.goal.slice(0, 60)}..." - will retry on next artifact call`);
+                    this.substrateEvidenceCachedNonEmpty = false;
+                    return '';
+                }
+                this.substrateEvidenceCachedNonEmpty = true;
+                console.log(`[Substrate] coverage block: ${pre.articles.length} articles across ${pre.angles.length} fixed angles`);
+                return pre.block;
+            } catch (err: any) {
+                console.warn('[Substrate] retrieval skipped - will retry on next artifact call:', err?.message || err);
+                this.substrateEvidenceCachedNonEmpty = false;
+                return '';
+            }
+        })();
+        return this.substrateEvidencePromise;
     }
 
     constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '', wikiKnowledge: string = '') {
@@ -460,7 +624,7 @@ export class GenAISession {
             ${wikiKnowledge ? `
 === COMPILED KNOWLEDGE FROM WIKI (persistent, compounding) ===
 The following knowledge has been compiled from the NXT Humans wiki layer.
-This is NOT generated from scratch — it represents accumulated consulting
+This is NOT generated from scratch - it represents accumulated consulting
 methodology, anti-patterns, benchmark data, and brand standards that have
 been refined across multiple engagements. ALWAYS prefer this compiled
 knowledge over re-deriving from training data.
@@ -492,17 +656,17 @@ ${wikiKnowledge}
             - ALWAYS output valid JSON. No markdown code fences, no trailing commas, no comments.
             - The "methodology" field should be 1-3 sentences (brief reasoning transparency).
             - For theme/ingestion steps: keep individual field values concise (under 60 words each).
-            - For persona steps: generate COMPLETE, DETAILED output — personas require rich data across all fields. Do NOT truncate personas. Generate 4-6 fully populated personas.
-            - For recommendation/roadmap steps: be thorough — every recommendation needs full detail.
+            - For persona steps: generate COMPLETE, DETAILED output - personas require rich data across all fields. Do NOT truncate personas. Generate 4-6 fully populated personas.
+            - For recommendation/roadmap steps: be thorough - every recommendation needs full detail.
 
             CRITICAL TRANSPARENCY AND CITATION RULES:
             - Streaming Reasoning: For every step, output a "methodology" string inside the JSON object.
             - Include [PHASE], [QUESTION], [HYPOTHESIS], [INSIGHT] tags in the methodology.
             - CITATION REQUIREMENT: Every factual claim MUST cite its source using [CHUNK_XXX] format.
             - The research corpus contains items tagged as [CHUNK_001], [CHUNK_002], etc.
-            - Each chunk header shows "SOURCE: [source name]" — use this source name when citing.
+            - Each chunk header shows "SOURCE: [source name]" - use this source name when citing.
             - When generating themes: include full citation objects with sourceFile, sourceName, text, and url.
-            - The "sourceName" field is CRITICAL — it MUST match the SOURCE header (e.g. "Higher Ed Dive", "OpenAlex", "Reddit: r/highereducation"). This is what humans read.
+            - The "sourceName" field is CRITICAL - it MUST match the SOURCE header (e.g. "Higher Ed Dive", "OpenAlex", "Reddit: r/highereducation"). This is what humans read.
             - The "text" field MUST be a VERBATIM quote copy-pasted from the chunk (10-30 words exactly as written).
             - When generating persona pain points: cite the specific chunk AND source name that evidences each pain point.
             - When generating recommendations: cite the chunks that support each recommendation.
@@ -526,7 +690,7 @@ ${wikiKnowledge}
         // Token budget protection: send a COMPACT summary instead of full JSON.
         // Full JSON per stage can be 50-100KB. After 8 stages + step responses,
         // the accumulated chat history would exceed Gemini's 1M token limit.
-        // Cap at 8KB per update — enough for the model to track edits.
+        // Cap at 8KB per update - enough for the model to track edits.
         const fullJson = JSON.stringify(data);
         let contextPayload: string;
         if (fullJson.length <= 8000) {
@@ -620,7 +784,7 @@ ${wikiKnowledge}
                         const wordBlocks = readable.match(/[A-Za-z][A-Za-z0-9\s,.;:!?'-]{20,}/g);
                         if (wordBlocks && wordBlocks.length > 5) {
                             const extractedText = wordBlocks.join(' ').substring(0, 30000);
-                            fileParts.push({ text: `\n[BACKUP TEXT EXTRACTION FROM ${file.name} — ensuring no content is missed by binary parsing:]\n${extractedText}` });
+                            fileParts.push({ text: `\n[BACKUP TEXT EXTRACTION FROM ${file.name} - ensuring no content is missed by binary parsing:]\n${extractedText}` });
                         }
                     } catch (e) { /* Binary extraction failed, rely on inline data */ }
                 }
@@ -639,7 +803,7 @@ ${wikiKnowledge}
                     // Only use extracted text if it contains meaningful content (>200 chars of actual words)
                     const wordCount = textContent.split(/\s+/).filter(w => w.length > 3).length;
                     if (wordCount > 30) {
-                        fileParts.push({ text: `[EXTRACTED TEXT FROM ${file.name} — Office document, partial extraction. Some formatting may be lost.]\n\n${textContent.substring(0, 50000)}` });
+                        fileParts.push({ text: `[EXTRACTED TEXT FROM ${file.name} - Office document, partial extraction. Some formatting may be lost.]\n\n${textContent.substring(0, 50000)}` });
                     } else {
                         // Fallback: send as PDF-like inline data and hope Gemini can handle it
                         fileParts.push({ inlineData: { mimeType: 'application/pdf', data: file.data } });
@@ -647,7 +811,7 @@ ${wikiKnowledge}
                     }
                 } catch (e) {
                     fileParts.push({ inlineData: { mimeType: 'application/pdf', data: file.data } });
-                    fileParts.push({ text: `[NOTE: ${file.name} — Office document sent as binary. Content may need manual verification.]` });
+                    fileParts.push({ text: `[NOTE: ${file.name} - Office document sent as binary. Content may need manual verification.]` });
                 }
             } else {
                 fileParts.push({ text: `[Unsupported file type: ${file.name}. Please convert to PDF or TXT for full content extraction.]` });
@@ -661,7 +825,7 @@ ${wikiKnowledge}
 
         const prompt = `STEP 1: DEEP INGESTION AND CONTEXT SYNTHESIS.
 
-You are performing the INGEST operation from a persistent knowledge architecture. Your job is NOT to skim — it is to deeply read, extract, and synthesize ALL provided evidence IN SERVICE OF THE USER'S RESEARCH OBJECTIVE.
+You are performing the INGEST operation from a persistent knowledge architecture. Your job is NOT to skim - it is to deeply read, extract, and synthesize ALL provided evidence IN SERVICE OF THE USER'S RESEARCH OBJECTIVE.
 
 THE USER'S RESEARCH OBJECTIVE:
 "${this.goal}"
@@ -672,16 +836,16 @@ Everything you read, extract, and synthesize must be evaluated through this lens
 
 WHAT YOU HAVE RECEIVED:
 
-PRIORITY 1 — CLIENT-UPLOADED DOCUMENTS (${uploadedFileCount} files):
-These are the client's OWN materials — proposals, SOWs, transcripts, strategies, budgets.
+PRIORITY 1 - CLIENT-UPLOADED DOCUMENTS (${uploadedFileCount} files):
+These are the client's OWN materials - proposals, SOWs, transcripts, strategies, budgets.
 They represent the SPECIFIC organizational context that no external source can provide.
 READ THESE FIRST. READ EVERY PAGE. These define the project scope, stakeholders, goals,
 constraints, and organizational reality. The client uploaded them because they are essential.
 If the document is a proposal or SOW, extract: project scope, deliverables, timeline,
 stakeholders, budget, strategic goals, and any specific organizational challenges mentioned.
-DO NOT claim these documents are absent or missing — they are right here in the file list.
+DO NOT claim these documents are absent or missing - they are right here in the file list.
 
-${hasIntelligenceCorpus ? `PRIORITY 2 — INTELLIGENCE CORPUS (from 100+ external sources):
+${hasIntelligenceCorpus ? `PRIORITY 2 - INTELLIGENCE CORPUS (from 100+ external sources):
 Items tagged as [CHUNK_001], [CHUNK_002], etc. with source attribution.
 These provide external context, benchmarks, industry trends, and evidence to COMPLEMENT
 the client documents. Use them to validate, challenge, or enrich what the client documents say.` : ''}
@@ -689,7 +853,7 @@ the client documents. Use them to validate, challenge, or enrich what the client
 Total files passed to you: ${totalFileCount}
 
 YOUR TASK:
-1. Read EVERY uploaded client document FIRST and THOROUGHLY — extract every detail about the project, stakeholders, goals, and constraints
+1. Read EVERY uploaded client document FIRST and THOROUGHLY - extract every detail about the project, stakeholders, goals, and constraints
 2. Synthesize a comprehensive research context summary (what is this project about, what are the key challenges, what does the evidence reveal)
 3. Identify ALL key stakeholders mentioned across ALL sources
 4. Identify ALL data types present (proposals, transcripts, financial data, research papers, news articles, social data, etc.)
@@ -715,7 +879,7 @@ YOUR TASK:
    This helps the self-improvement engine learn which sources to prioritize next time.
 
 CITATION REQUIREMENT: Reference specific chunks [CHUNK_XXX] when describing key findings.
-Cite chunks from across the FULL corpus range — not just the first 50.
+Cite chunks from across the FULL corpus range - not just the first 50.
 
 Output JSON.`;
 
@@ -754,11 +918,21 @@ Output JSON.`;
         this.corpusFileParts = fileParts;
         this.corpusUploadedFileCount = uploadedFileCount;
         this.corpusHasIntelligence = hasIntelligenceCorpus;
+        // U3 - capture the concatenated TEXT of the corpus (intelligence corpus +
+        // text uploads; binary PDF/image parts are not verifiable) as the ground
+        // truth for citation-faithfulness checks in generateThemes. Binary-only
+        // corpora leave this short, in which case grounding fails-open (loudly).
+        try {
+            this.corpusGroundingText = fileParts
+                .filter((p: any) => typeof p?.text === 'string')
+                .map((p: any) => p.text)
+                .join('\n');
+        } catch { this.corpusGroundingText = ''; }
 
-        // 2026-05-25 — ingestContext was the ONLY remaining synthesis call that used
+        // 2026-05-25 - ingestContext was the ONLY remaining synthesis call that used
         // raw executeStep instead of executeStepResilient. The live session aborted
         // the entire KG Auto-Synthesis chain when Gemini Flash repetition-collapsed
-        // ("000000000000000050000000000000…" × 21). Now that ingest also goes
+        // ("000000000000000050000000000000..." × 21). Now that ingest also goes
         // through the resilient runner, the same GPT-5.5 fallback path that
         // protects themes/personas/recs protects ingestion too.
         const result = await this.executeStepResilient<StepResult_Ingestion>(prompt, schema, fileParts, onStream, 'IngestContext');
@@ -769,21 +943,107 @@ Output JSON.`;
         return result;
     }
 
+    /**
+     * 2026-05-30 - Domain-relevance gate for themes. cosine goalAlignment cannot
+     * tell "AI for co-op job search" from "AI for design production" (both score
+     * high on the shared "AI" buzzword), so a model judgment removes off-DOMAIN
+     * themes the cosine scorer lets through. Returns the on-objective subset.
+     * Failure-safe: returns the input unchanged on any error or if 0 would
+     * survive (logs a hard warning rather than emptying - 0 survivors means the
+     * COLLECTED corpus does not match the objective).
+     */
+    // Continuous objective-relevance helper, available to ranking + depth + display.
+    // The SINGLE lever for theme selection (per owner directive 2026-06-08:
+    // "the lever is the research objective relevance, not some arbitrary cap number").
+    // Prefers the LLM-scored objectiveRelevance; falls back to the embedding-based
+    // goalAlignment; finally a neutral 50 so an unscored theme is never silently cut.
+    private _relevanceOf(t: any): number {
+        if (typeof t?.objectiveRelevance === 'number') return t.objectiveRelevance;
+        if (typeof t?.metadata?.objectiveRelevance === 'number') return t.metadata.objectiveRelevance;
+        if (typeof t?.goalAlignment === 'number') return t.goalAlignment;
+        return 50;
+    }
+
+    // 2026-06-08 - REPLACES the binary domain-relevance gate. The old gate CUT
+    // themes keep/drop via one Flash call, and dropped on-objective co-op barriers
+    // ("Visa Restrictions", "Financial Exclusion") that the user wanted. Per the
+    // owner directive, relevance is a CONTINUOUS LEVER, not a cut: this scores EACH
+    // theme 0-100 on objective relevance, writes it onto theme.objectiveRelevance,
+    // and KEEPS EVERY THEME. Relevance then drives ranking, the in-deliverable
+    // threshold, depth-enrichment order, and display order downstream. Nothing is
+    // dropped here ("I want to see everything returned"); low-relevance themes
+    // simply sink in the relevance ranking.
+    private async _scoreThemesByObjectiveRelevance(themes: any[], onStream: (t: string) => void): Promise<any[]> {
+        const cand = Array.isArray(themes) ? themes : [];
+        if (!this.goal || cand.length < 2) return cand;
+        try {
+            const list = cand.map((t: any, i: number) =>
+                `${i}. ${String(t.name || '').slice(0, 90)} - ${String(t.description || '').slice(0, 160)}`
+            ).join('\n');
+            const resp = await this.ai.models.generateContent({
+                model: 'gemini-3.5-flash',
+                contents: `RESEARCH OBJECTIVE: "${this.goal}"\n\n` +
+                    `Score EACH candidate theme 0-100 on how directly it helps answer this research ` +
+                    `objective. Use the FULL range:\n` +
+                    `  90-100 = squarely on the objective's core subject AND problem.\n` +
+                    `  60-89  = clearly relevant: a sub-aspect, driver, consequence, or affected ` +
+                    `population of the objective.\n` +
+                    `  30-59  = adjacent / transferable: a cross-industry ANALOGUE solving the SAME ` +
+                    `underlying problem, or a related contextual factor. Analogues are VALUABLE evidence; ` +
+                    `score them here, do NOT zero them.\n` +
+                    `  1-29   = weakly related: shares only a buzzword or broad domain, little transferable lesson.\n` +
+                    `  0      = genuinely irrelevant: a different problem in a different domain, no transferable lesson.\n` +
+                    `Judge by SUBJECT and PROBLEM, not a shared buzzword (e.g. "AI"). Relevance is the ONLY ` +
+                    `axis: do NOT penalize a theme for being single-source or thin. When uncertain, score HIGHER.\n\n` +
+                    `THEMES:\n${list}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`,
+                config: { temperature: 0, responseMimeType: 'application/json' } as any,
+            });
+            let txt = (resp.text || '').trim();
+            if (txt.includes('```')) txt = txt.replace(/```json|```/g, '').trim();
+            const pg = JSON.parse(txt);
+            const scores: Record<number, number> = {};
+            if (Array.isArray(pg?.scores)) {
+                for (const s of pg.scores) {
+                    const i = Number(s?.i), r = Number(s?.r);
+                    if (Number.isInteger(i) && i >= 0 && i < cand.length && Number.isFinite(r)) {
+                        scores[i] = Math.max(0, Math.min(100, r));
+                    }
+                }
+            }
+            let scored = 0;
+            cand.forEach((t: any, i: number) => {
+                if (scores[i] !== undefined) {
+                    t.objectiveRelevance = scores[i];
+                    t.metadata = { ...(t.metadata || {}), objectiveRelevance: scores[i] };
+                    scored++;
+                }
+            });
+            const core = cand.filter((t: any) => this._relevanceOf(t) >= 60).length;
+            const adjacent = cand.filter((t: any) => { const r = this._relevanceOf(t); return r >= 30 && r < 60; }).length;
+            console.log(`[Themes] objective-relevance scoring: scored ${scored}/${cand.length} (KEEP ALL); ${core} core (>=60), ${adjacent} adjacent (30-59). Relevance drives ranking + depth + in-deliverable threshold, NOT a count cap.`);
+            if (typeof onStream === 'function') onStream(`[Themes] Scored ${scored} themes by objective relevance (${core} core, ${adjacent} adjacent); keeping ALL, ranked by relevance.`);
+            return cand;
+        } catch (e: any) {
+            console.warn('[Themes] objective-relevance scoring skipped (non-fatal):', e?.message || e);
+            return cand;
+        }
+    }
+
     async generateThemes(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Themes> {
         // Load Agent Skill for theme analysis
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('THEMES'); } catch (e) { /* skill unavailable */ }
 
-        // 2026-05-12 — VS REVERTED for themes (Sprint 1 rollback).
+        // 2026-05-12 - VS REVERTED for themes (Sprint 1 rollback).
         //
         // Verbalized Sampling was originally applied here to surface "non-
         // obvious tail themes". In practice, that produced 20 themes with 1
-        // evidence each and 100% source concentration — thin slop, not real
+        // evidence each and 100% source concentration - thin slop, not real
         // themes. The bug was structural:
         //
         //   • VS forces probability < 0.10 ("anti-modal sampling")
         //   • Themes are EMPIRICAL CLUSTERS, defined by CONVERGENT evidence
-        //     across multiple sources — the opposite of anti-modal
+        //     across multiple sources - the opposite of anti-modal
         //   • The downstream ranking `1/p × evidence_density` boosts rare-but-
         //     thin themes over convergent-but-modal ones (the 1/p multiplier
         //     outweighs evidence_density at low p)
@@ -791,14 +1051,14 @@ Output JSON.`;
         //     from single mentions to hit the count at the right rarity
         //
         // VS stays in production for #recommendations, prototype Stage 1, and
-        // html-deliverable layout/IA picks — surfaces where ideation is the
+        // html-deliverable layout/IA picks - surfaces where ideation is the
         // value proposition. Theme extraction is empirical, not creative.
         //
-        // Verbalized Confidence (R1) stays — that's a different mechanic
+        // Verbalized Confidence (R1) stays - that's a different mechanic
         // (per-claim uncertainty surfacing, doesn't force tail sampling) and
         // remains correct for themes.
 
-        // Tier B1 + B2 (2026-04-28) — multi-angle, cross-engagement archive
+        // Tier B1 + B2 (2026-04-28) - multi-angle, cross-engagement archive
         // augmentation BEFORE constructing the theme prompt.
         //
         // The chat session's accumulated context only contains THIS engagement's
@@ -806,17 +1066,22 @@ Output JSON.`;
         // intelligence indexed in the chunked vector store. Goal-blended retrieval
         // (Phase 2.5) surfaces archive content the LLM would otherwise never see.
         //
-        // B2 — multi-angle: instead of one goal-only retrieval, decompose the
+        // B2 - multi-angle: instead of one goal-only retrieval, decompose the
         // goal into 3-4 conceptual angles and fetch goal-fit chunks per angle
         // in parallel. Dedupe by article_id, concatenate into the archive block.
         // Effect: each angle hits a different semantic neighborhood, so total
         // archive coverage is ~2-3x what a single retrieval would surface.
         let archiveBlock = '';
-        try {
+        // Phase 2 MCR - the archive augmentation bulk-injects cross-engagement
+        // article BODIES (the BANNED pattern) and fires live /api/wiki/fetch-
+        // articles even in cached-only mode (the Phase 4 intent-b violation).
+        // When the chunk-pointer contract is active, the engagement's own pinned
+        // chunks ARE the corpus, so skip the archive bulk entirely.
+        if (!this.useMcrCorpus) try {
             const { fetchWikiArticles } = await import('./wikiIndexService');
 
             // Generate 3-4 research angles from the goal. Falls back to
-            // [goal] on any failure — we still get B1's behavior.
+            // [goal] on any failure - we still get B1's behavior.
             let angles: string[] = [];
             try {
                 const angleResp = await this.ai.models.generateContent({
@@ -846,7 +1111,7 @@ NO commentary, NO markdown, JUST the JSON array.`,
                     angles = parsed.filter(s => typeof s === 'string' && s.trim().length > 0).slice(0, 4);
                 }
             } catch (e: any) {
-                // P0.4 — surface the fallback so the user sees that multi-angle
+                // P0.4 - surface the fallback so the user sees that multi-angle
                 // retrieval was skipped (theme breadth may be reduced).
                 const msg = e?.message || String(e);
                 console.warn('[generateThemes] angle generation failed:', msg);
@@ -855,20 +1120,30 @@ NO commentary, NO markdown, JUST the JSON array.`,
                 }
             }
             if (angles.length === 0) angles = [this.goal];
+            // 2026-05-30 - Always LEAD with the raw research objective as a broad
+            // angle. The LLM-decomposed angles are frequently too narrow (on the
+            // AI-design corpus, 2 of 4 returned 0 archive hits), whereas the broad
+            // objective query reliably surfaces the on-objective archive content
+            // the in-session collection missed. This is the evidence slice theme
+            // synthesis MUST anchor to, so it leads and gets the largest budget.
+            {
+                const broadGoal = (this.goal || '').slice(0, 300).trim();
+                if (broadGoal) angles = [broadGoal, ...angles.filter(a => a.trim() !== broadGoal)].slice(0, 5);
+            }
             console.log(`[generateThemes] multi-angle retrieval: ${angles.length} angles`,
                 angles.map(a => a.slice(0, 60)));
 
             // Fetch goal-fit chunks per angle in parallel. Each angle is the
             // primary query; the engagement goal biases ranking via Phase 2.5
-            // blended retrieval (weight 0.40 — angle dominates, goal scaffolds).
+            // blended retrieval (weight 0.40 - angle dominates, goal scaffolds).
             //
-            // 2026-05-23 — Per-angle timeout raised 8s → 25s. After the
+            // 2026-05-23 - Per-angle timeout raised 8s → 25s. After the
             // Phase-2 chunk store rebuild at 25K chunks, the FIRST cold
             // query against sqlite-vec takes 3-6s; 8s was too tight and
             // ALL four angles intermittently timed out, silently zeroing
             // the archive block. With 25s we tolerate cold-cache warmup
             // while still failing fast when the proxy is truly down.
-            const PER_ANGLE_LIMIT = angles.length === 1 ? 30 : 14;
+            const PER_ANGLE_LIMIT = angles.length === 1 ? 40 : 22;
             const angleTimings: Array<{ angle: string; ms: number; count: number }> = [];
             const perAngleResults = await Promise.all(
                 angles.map(async (angle) => {
@@ -878,10 +1153,22 @@ NO commentary, NO markdown, JUST the JSON array.`,
                             fetchWikiArticles({
                                 query: angle,
                                 engagementGoal: this.goal,
-                                goalBlendWeight: angles.length === 1 ? 1.0 : 0.40,
+                                // 2026-06-05 - Bug 2: bumped goalBlendWeight 0.40 → 0.55
+                                // so the current goal dominates angle-query in retrieval
+                                // ranking, reducing pull-in of off-objective prior-
+                                // engagement artifacts. The single-angle fallback case
+                                // (1.0) is unchanged.
+                                goalBlendWeight: angles.length === 1 ? 1.0 : 0.55,
                                 limit: PER_ANGLE_LIMIT,
                                 maxCharsPerArticle: 7000,
                                 minChars: 500,
+                                // 2026-06-05 - Bug 2: filter out kind='upload' so prior
+                                // engagements' client PDFs (alumni, fundraising, billing)
+                                // don't pollute the current engagement's theme breadth.
+                                // Articles + transcripts + synthesis (where opted in)
+                                // remain eligible; only uploaded client docs are blocked
+                                // on this specific cross-engagement retrieval path.
+                                excludeUploads: true,
                             }),
                             new Promise<any[]>(resolve => setTimeout(() => resolve([]), 25000)),
                         ]);
@@ -915,16 +1202,76 @@ NO commentary, NO markdown, JUST the JSON array.`,
                 const summary = angleTimings.map(t => `"${t.angle}" → ${t.count} articles in ${t.ms}ms`).join(' | ');
                 const totalArchived = archived.length;
                 if (totalArchived === 0) {
-                    console.warn(`[generateThemes] archive augmentation produced 0 articles across ${angles.length} angles. ${summary}. Pass 1 BREADTH will run on in-session corpus only — theme breadth may suffer.`);
+                    console.warn(`[generateThemes] archive augmentation produced 0 articles across ${angles.length} angles. ${summary}. Pass 1 BREADTH will run on in-session corpus only - theme breadth may suffer.`);
                 } else {
                     console.log(`[generateThemes] archive angle timing: ${summary} → ${totalArchived} unique articles after dedupe`);
                 }
             }
 
+            // 2026-06-05 (Step 5, volume-to-insight) - STARVATION FALLBACK.
+            // The LLM-decomposed angles can return 0 articles when they're too
+            // narrow OR when every angle hits the 25s per-angle timeout (cold
+            // sqlite-vec cache). Before giving up, fire ONE deterministic
+            // /api/corpus/retrieve pass - it uses 6 fixed templates
+            // (goal, challenges, evidence, examples, stakeholders, contradictions)
+            // and the same fetch-articles primitive, so it surfaces archive
+            // content whenever any of those 6 framings has goal-fit chunks.
+            // Determinism: fixed templates + stable merge -> reproducible.
+            if (archived.length === 0) {
+                try {
+                    const { retrieveCoverage, recordYieldEvent } = await import('./corpusSubstrate');
+                    const sub = await retrieveCoverage({
+                        goal: this.goal,
+                        angles: 6,
+                        per_angle: 8,
+                        max_total: 30,
+                        maxCharsPerArticle: 7000,
+                    });
+                    const subArts = sub.articles || [];
+                    recordYieldEvent({
+                        consumer: 'themes.archive-aug.fallback',
+                        goal: (this.goal || '').slice(0, 80),
+                        scope_size: sub.scoped_in,
+                        retrieved: subArts.length,
+                        note: subArts.length === 0
+                            ? 'substrate fallback also returned 0 - corpus has no goal-fit archive content'
+                            : `substrate fallback recovered ${subArts.length} articles after LLM-angle starvation`,
+                    });
+                    if (subArts.length > 0) {
+                        for (const a of subArts) {
+                            const key = a.id || a.wikiPath;
+                            if (key && !byId[key]) byId[key] = a;
+                        }
+                        const recovered = Object.values(byId);
+                        archived.length = 0;
+                        archived.push(...recovered);
+                        console.log(`[generateThemes] starvation fallback (substrate) recovered ${recovered.length} articles via ${sub.angles.length} fixed angles`);
+                        if (typeof onStream === 'function') {
+                            onStream(`[Themes] Substrate fallback recovered ${recovered.length} archive articles after the LLM-angle retrieval returned 0. Determinism preserved (6 fixed templates).`);
+                        }
+                    }
+                } catch (e: any) {
+                    console.warn('[generateThemes] substrate fallback failed:', e?.message || e);
+                }
+            }
+
+            // 2026-06-05 - Yield-ledger emission for the SUCCESSFUL path too.
+            try {
+                const { recordYieldEvent } = await import('./corpusSubstrate');
+                recordYieldEvent({
+                    consumer: 'themes.archive-aug',
+                    goal: (this.goal || '').slice(0, 80),
+                    retrieved: archived.length,
+                    note: archived.length === 0
+                        ? 'starvation: 0 articles after LLM-angles + substrate fallback'
+                        : `coverage: ${archived.length} articles across ${angles.length} LLM-angles`,
+                });
+            } catch { /* non-fatal */ }
+
             if (archived.length > 0) {
                 const blocks: string[] = [];
                 let totalChars = 0;
-                const ARCHIVE_BUDGET = 120_000;  // ~30K tokens
+                const ARCHIVE_BUDGET = 220_000;  // ~55K tokens - objective-relevant archive is PRIMARY evidence for themes; give it enough room to counterweight the raw in-session corpus
                 for (let i = 0; i < archived.length; i++) {
                     const a: any = archived[i];
                     const matched = Array.isArray(a.matched_chunks) && a.matched_chunks.length > 0
@@ -941,14 +1288,14 @@ NO commentary, NO markdown, JUST the JSON array.`,
                     totalChars += block.length;
                 }
                 if (blocks.length > 0) {
-                    archiveBlock = `=== CROSS-ENGAGEMENT WIKI ARCHIVE — goal-fit passages from ${angles.length} research angles ===
+                    archiveBlock = `=== CROSS-ENGAGEMENT WIKI ARCHIVE - goal-fit passages from ${angles.length} research angles ===
 The following ${blocks.length} passages were retrieved from prior engagements'
 archived research via ${angles.length}-angle parallel goal-fit retrieval (Phase 2.5
 blended embedding). They span the corpus's full semantic neighborhood for
 this research objective and represent SIGNAL the in-session collection alone
 would not surface.
 
-Treat these chunks as FIRST-CLASS EVIDENCE — they are part of the corpus you
+Treat these chunks as FIRST-CLASS EVIDENCE - they are part of the corpus you
 analyze. They have ARCHIVE_NNN identifiers (cite as sourceFile) distinct from
 the in-session CHUNK_NNN identifiers.
 
@@ -960,16 +1307,58 @@ ${blocks.join('\n')}
 
 `;
                     console.log(`[generateThemes] archive: ${blocks.length} passages, ${(totalChars / 1024).toFixed(1)}KB across ${angles.length} angles`);
+                    // Phase 1 corpus-identity: theme quotes are drawn from these
+                    // archive passages, which are NOT in the ingestion fileParts.
+                    // Register them so theme grounding verifies against the real
+                    // source text (closes the 6/58 grounding artifact).
+                    this.registerGroundingText(blocks.join('\n'));
                 }
             }
         } catch (err: any) {
             console.warn('[generateThemes] archive augmentation skipped:', err?.message || err);
         }
 
-        // 2026-05-12 — R1 Verbalized Confidence (entropy proxy for the
+        // 2026-06-02 - CLUSTER GROUNDING. Resolve the deterministic topic clusters
+        // (BERTopic-style) computed from the selected corpus and build a backbone
+        // block the breadth model MUST account for. This closes the audited gap
+        // where themes were pure-LLM and ignored the corpus's empirical cluster
+        // structure. Bounded wait (90s) for an in-flight parallel topic job; fully
+        // non-fatal - absent clusters just means no grounding block.
+        let clusterBlock = '';
+        try {
+            let clusters = this.topicClusters;
+            if (!clusters && this.topicClustersPromise) {
+                clusters = await Promise.race([
+                    this.topicClustersPromise.catch(() => null),
+                    new Promise<null>(r => setTimeout(() => r(null), 90000)),
+                ]);
+                if (clusters) this.topicClusters = clusters;
+            }
+            const topics = Array.isArray(clusters?.topics) ? clusters.topics : [];
+            if (topics.length > 0) {
+                const lines = topics.slice(0, 30).map((t: any, i: number) => {
+                    const terms = Array.isArray(t.top_terms) ? t.top_terms.slice(0, 8).join(', ') : '';
+                    const sent = t.sentiment ? ` · sentiment: ${t.sentiment}` : '';
+                    const n = (t.post_count != null) ? ` · ${t.post_count} docs` : '';
+                    const sum = String(t.summary || '').replace(/\s+/g, ' ').slice(0, 200);
+                    return `  CLUSTER ${i + 1}: ${t.name || 'unnamed'}${n}${sent}\n     terms: ${terms}\n     ${sum}`;
+                }).join('\n');
+                clusterBlock = `=== DETERMINISTIC TOPIC CLUSTERS (computed from YOUR selected corpus) ===
+These ${topics.length} clusters are the EMPIRICAL backbone of the corpus - each is a group of documents that cluster together by meaning, with its top distinguishing terms and discussion sentiment. Your themes MUST account for this structure: every substantive cluster should be reflected in at least one theme. You MAY merge closely-related clusters or split a broad cluster into sharper themes, but do NOT ignore a populated cluster, and do NOT invent themes with no cluster or evidence support. Use the cluster terms and sentiment as evidence anchors; do not copy a cluster's term list as a theme name.
+${lines}
+=== END TOPIC CLUSTERS ===
+
+`;
+                console.log(`[generateThemes] grounding themes on ${topics.length} deterministic topic clusters`);
+            }
+        } catch (e: any) {
+            console.warn('[generateThemes] cluster grounding unavailable (non-fatal):', e?.message || e);
+        }
+
+        // 2026-05-12 - R1 Verbalized Confidence (entropy proxy for the
         // Reinforcement-Inference trigger). Themes are the canonical corpus-
         // synthesis surface and the foundational input to every downstream
-        // deliverable — they get the directive first as the calibration-gate
+        // deliverable - they get the directive first as the calibration-gate
         // smoke test. If Gemini does not emit a calibrated high/medium/low
         // distribution here (the surface with the most genuine uncertainty),
         // the directive needs hardening before propagating to the other 14
@@ -981,11 +1370,11 @@ ${blocks.join('\n')}
             maxHighFraction: 0.60,
         });
 
-        const prompt = `${vcDirective}\n${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
+        const prompt = `${vcDirective}\n${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${clusterBlock}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
-METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. The lenses are a HEURISTIC for where to look — NOT a quota. EVERY lens that has multi-source evidence MUST yield themes. The corpus you receive is large; expect to find SUBSTANTIAL theme breadth across all six lenses. Aggregating distinct findings into umbrella themes is LAZY — split them apart.
+METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. The lenses are a HEURISTIC for where to look - NOT a quota. EVERY lens that has multi-source evidence MUST yield themes. The corpus you receive is large; expect to find SUBSTANTIAL theme breadth across all six lenses. Aggregating distinct findings into umbrella themes is LAZY - split them apart.
 
 1. POLICY & REGULATORY: Government actions, legislation, compliance requirements, regulatory shifts
 2. TECHNOLOGY & INNOVATION: Tools, platforms, AI adoption, digital transformation, emerging tech
@@ -994,19 +1383,28 @@ METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. 
 5. STRATEGIC & COMPETITIVE: Market position, competition, partnerships, differentiation, growth
 6. OPERATIONAL & PROCESS: Workflows, efficiency, service delivery, infrastructure, best practices
 
-META-THEMES ARE FORBIDDEN (HARD RULE — NON-NEGOTIABLE):
+SOLUTION-NAMED THEMES ARE FORBIDDEN (HARD RULE - NON-NEGOTIABLE):
+A theme is a FINDING - a pattern, tension, or condition the evidence reveals. It is NOT a product, feature, tool, initiative, or recommendation. NEVER name a theme after a thing to build or do.
+   "Student Life Assistant", "Partner Assistant", "Experience Builder", "Alumni Matchmaking", "Partner Growth Crawler", "Predictive Placement Engine" (these are SOLUTIONS/FEATURES, not findings)
+   Any noun phrase that names an app, platform, agent, tool, or program to deploy
+   "Co-op matching is fragmented across disconnected systems" (a finding/condition)
+   "Students distrust opaque AI placement decisions" (a tension the evidence shows)
+   "Pre-enrollment advising is disjointed and manual" (a current-state pattern)
+A theme names WHAT THE EVIDENCE SHOWS IS TRUE, never WHAT SOMEONE SHOULD BUILD. Solutions belong in the recommendations deliverable. A theme named like a product is INSTANTLY REJECTED.
+
+META-THEMES ARE FORBIDDEN (HARD RULE - NON-NEGOTIABLE):
 A theme describes a PATTERN OR FINDING FROM THE EVIDENCE. A meta-theme complains about the evidence itself. Meta-themes are INSTANTLY REJECTED.
 
 FORBIDDEN theme names (these will be filtered out post-generation):
-  ✗ "General higher education news lacking advancement focus"
-  ✗ "Pervasive lack of quantified advancement case studies"
-  ✗ "Insufficient data for specific advancement modernization benchmarking"
-  ✗ "Anecdotal criticism of industry conferences for productivity"
-  ✗ "Marketing claims versus quantified institutional outcomes" (if it describes what the corpus lacks, not what it shows)
-  ✗ "Limited evidence on X" / "Scarcity of data on Y" / "Absence of Z"
-  ✗ "Corpus dominated by [source type]" / "Underrepresentation of [topic]"
+   "General higher education news lacking advancement focus"
+   "Pervasive lack of quantified advancement case studies"
+   "Insufficient data for specific advancement modernization benchmarking"
+   "Anecdotal criticism of industry conferences for productivity"
+   "Marketing claims versus quantified institutional outcomes" (if it describes what the corpus lacks, not what it shows)
+   "Limited evidence on X" / "Scarcity of data on Y" / "Absence of Z"
+   "Corpus dominated by [source type]" / "Underrepresentation of [topic]"
 
-A meta-theme contains these patterns — reject before emission:
+A meta-theme contains these patterns - reject before emission:
   • "lack of", "lacking", "absence of", "scarcity of", "insufficient", "missing", "limited evidence"
   • "anecdotal", "unquantified", "dominant headlines without body", "pervasive gaps"
   • "[X] news lacking [Y]", "[X] claims versus [Y] outcomes" (when contrasting corpus-provided vs corpus-missing)
@@ -1015,30 +1413,34 @@ A meta-theme contains these patterns — reject before emission:
 ACCEPTABLE alternatives when a lens has thin evidence:
   • Skip the lens entirely (fewer themes is better than slop themes)
   • Request more data via the retrieval tool before manufacturing a theme
-  • NEVER produce a theme that announces missing evidence to the reader — the output is a finished deliverable, not a QA annotation
+  • NEVER produce a theme that announces missing evidence to the reader - the output is a finished deliverable, not a QA annotation
 
-HARD FLOOR: 12 themes minimum is REQUIRED for any corpus over 200 chunks. If you stop short of 12, you have NOT analyzed the full corpus — go back, scan the chunks you skipped, and find more themes. Output below floor will be rejected and you will be re-prompted with explicit instructions to extract more.
+HARD FLOOR: 12 themes minimum is REQUIRED for any corpus over 200 chunks. If you stop short of 12, you have NOT analyzed the full corpus - go back, scan the chunks you skipped, and find more themes. Output below floor will be rejected and you will be re-prompted with explicit instructions to extract more.
 
 SOURCE DIVERSITY REQUIREMENT (critical):
-Your corpus contains evidence from MULTIPLE source types. ALL sources start with EQUAL credibility — their value is determined by what they actually contribute to the research objective, not by where they came from. The corpus includes:
-- CLIENT DOCUMENTS: Uploaded PDFs, proposals, SOWs, transcripts — the client's specific organizational context
-- ACADEMIC PAPERS: OpenAlex, Crossref, Semantic Scholar, ERIC — peer-reviewed research
-- NEWS & INDUSTRY: Higher Ed Dive, GDELT, industry blogs — current trends and developments
-- GOVERNMENT DATA: College Scorecard, Federal Register, Data.gov — official statistics and policy
-- SOCIAL/COMMUNITY: Reddit, forums — unfiltered practitioner sentiment and grassroots experience
+Your corpus contains evidence from MULTIPLE source types. ALL sources start with EQUAL credibility - their value is determined by what they actually contribute to the research objective, not by where they came from. The corpus includes:
+- CLIENT DOCUMENTS: Uploaded PDFs, proposals, SOWs, transcripts - the client's specific organizational context
+- ACADEMIC PAPERS: OpenAlex, Crossref, Semantic Scholar, ERIC - peer-reviewed research
+- NEWS & INDUSTRY: Higher Ed Dive, GDELT, industry blogs - current trends and developments
+- GOVERNMENT DATA: College Scorecard, Federal Register, Data.gov - official statistics and policy
+- SOCIAL/COMMUNITY: Reddit, forums - unfiltered practitioner sentiment and grassroots experience
 
 EVIDENCE EVALUATION RULES:
 - Judge EVERY source by its SPECIFIC CONTRIBUTION to the research objective, not its category
 - A Reddit post from an advancement VP describing exactly the client's problem is MORE valuable than an academic paper about philanthropy in a different country
 - An uploaded SOW detailing the client's budget and timeline is MORE valuable than 50 news articles about general fundraising trends
-- The strongest themes have CONVERGENT evidence: multiple independent sources — regardless of type — pointing to the same finding
+- The strongest themes have CONVERGENT evidence: multiple independent sources - regardless of type - pointing to the same finding
 - Every theme MUST cite sources from at least 2 DIFFERENT source names (not just Reddit + Reddit)
-- After extracting themes, mentally rank which sources ACTUALLY contributed the most — that's the real credibility assessment
+- After extracting themes, mentally rank which sources ACTUALLY contributed the most - that's the real credibility assessment
 
-EXTRACTION RULES — CORPUS-DENSITY BASED, NO HARD CEILING:
-- Analyze EVERY chunk in the corpus — client docs, intelligence sources, AND social data
+EXTRACTION RULES - CORPUS-DENSITY BASED, NO HARD CEILING:
+- Analyze EVERY chunk in the corpus - client docs, intelligence sources, AND social data
 - Each chunk may support MULTIPLE themes. A single source can contribute to 3-5 themes.
-- Name themes specifically (BAD: "Technology". GOOD: "AI-Powered Donor Matching Platforms Reshape Fundraising")
+- INSIGHTFUL TITLES (REQUIRED): a theme NAME must state the SPECIFIC TENSION, SHIFT, or FINDING - a complete insight a partner grasps from the title alone - NOT a bland category or a solution label.
+     GENERIC BUCKET (banned): "Technology", "Student Support", "Career Challenges", "AI Adoption", "Data Integration", "Alumni Engagement"
+     SOLUTION/PRODUCT NAME (banned): "Career Pathing AI", "Alumni Matchmaking", "Advisor Dashboard"
+     INSIGHTFUL FINDING: "Fragmented co-op systems force advisors into manual data entry", "Students distrust opaque AI placement decisions", "First-year advising collapses under one-advisor-for-many caseloads", "Employers ghost applicants after final-round co-op interviews"
+    Name what the evidence reveals is TRUE and why it matters - the friction, the shift, or the stance. If the title could head two unrelated insights, it is too generic; sharpen it.
 - Description: 3-5 sentences with specific data points, statistics, names, dates from the evidence
 - Floor: 12 themes minimum (the analyst expects breadth across the 6 lenses).
 - Target density: roughly ONE theme per 25-30 chunks of evidence the corpus contains.
@@ -1050,12 +1452,12 @@ EXTRACTION RULES — CORPUS-DENSITY BASED, NO HARD CEILING:
 - Concreteness test (each theme must pass): "Could two unrelated insights both fit under this theme?" If YES, split into two themes. If NO, keep.
 - Mark each theme as "priority" (strong multi-source evidence), "emerging" (moderate, 1-2 source types), or "weak" (single source type)
 
-MANDATORY SOURCE COVERAGE — READ THE ENTIRE CORPUS:
+MANDATORY SOURCE COVERAGE - READ THE ENTIRE CORPUS:
 The corpus is organized with Tier 1 sources (academic, government) FIRST, Tier 2 (news) SECOND, Tier 3 (community) LAST.
 You MUST extract themes from ALL THREE tiers. Do NOT stop reading after the first 100 chunks.
-Scan the ENTIRE corpus — check CHUNK numbers. If the corpus goes to CHUNK_400+, you must cite chunks from across the full range, not just CHUNK_001 through CHUNK_050.
+Scan the ENTIRE corpus - check CHUNK numbers. If the corpus goes to CHUNK_400+, you must cite chunks from across the full range, not just CHUNK_001 through CHUNK_050.
 A valid theme analysis has citations spread across: early chunks (CHUNK_001-100), middle chunks (CHUNK_100-300), AND late chunks (CHUNK_300+).
-If all your citations are from the first 50 chunks, your analysis is INCOMPLETE — go back and read the rest.
+If all your citations are from the first 50 chunks, your analysis is INCOMPLETE - go back and read the rest.
 
 CITATION REQUIREMENTS (non-negotiable):
 - Each theme MUST cite 3+ chunks from at least 2 different source types
@@ -1068,7 +1470,7 @@ CITATION REQUIREMENTS (non-negotiable):
 - "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
 - "isCrossDocument" = true if evidence spans 2+ different source names (this should be TRUE for most themes)
 
-CRITICAL — EXTERNAL INTELLIGENCE DIVERSITY MANDATE:
+CRITICAL - EXTERNAL INTELLIGENCE DIVERSITY MANDATE:
 The corpus contains UPLOADED CLIENT DOCUMENTS (3-10 PDFs) and EXTERNAL INTELLIGENCE (~200 articles from academic, news, government, social, AI sources).
 - At least 50% of themes MUST be grounded primarily in EXTERNAL intelligence (not uploaded PDFs)
 - At least 30% of ALL citations must come from external sources (Higher Ed Dive, Reddit, OpenAlex, ERIC, Federal Register, arXiv, NIST, etc.)
@@ -1077,7 +1479,7 @@ The corpus contains UPLOADED CLIENT DOCUMENTS (3-10 PDFs) and EXTERNAL INTELLIGE
 - If you find yourself citing the same 4-5 uploaded PDFs for most themes, STOP and go read the CHUNK_XXX items from the intelligence_sources section of the corpus
 
 ANTI-PATTERNS (these will be rejected):
-- CLIENT-DOC DOMINANCE: More than 70% of citations referencing uploaded PDF filenames. The user included ~200 external articles — USE THEM.
+- CLIENT-DOC DOMINANCE: More than 70% of citations referencing uploaded PDF filenames. The user included ~200 external articles - USE THEM.
 - Themes derived ONLY from Reddit or social sources when academic/news data exists
 - Generating only 1-2 themes from a corpus with 100+ chunks
 - Generic theme names without specificity
@@ -1086,35 +1488,35 @@ ANTI-PATTERNS (these will be rejected):
 - All themes from the same source type (e.g., all from Reddit, ignoring academic papers)
 - ECHO CHAMBER: Multiple themes restating the same finding instead of diverse findings from different source categories
 
-PASS 1 OF 2 — BREADTH ONLY. THIS IS THE BREADTH PASS.
+PASS 1 OF 2 - BREADTH ONLY. THIS IS THE BREADTH PASS.
 
 You are running the BREADTH stage of a two-pass consulting-grade theme architecture.
 A separate DEPTH pass will run AFTER yours, fanning out per-theme to a different model
 to populate sub-themes, organizing dimensions, contradictions, temporal arcs, and
 implications. Your job in this pass is ONLY to maximize the count of distinct,
-well-cited, evidence-grounded themes — NOT to enrich any single theme.
+well-cited, evidence-grounded themes - NOT to enrich any single theme.
 
 ONLY EMIT THESE FIELDS PER THEME:
-  • name (specific, finding-grade — not a category label)
+  • name (specific, finding-grade - not a category label)
   • description (3-5 sentences with named entities, dates, statistics from the evidence)
   • quote (the single best verbatim quote, 10-30 words copy-pasted from a chunk)
-  • citations[] (3+ entries spanning 2+ source names — sourceFile, text, url, sourceName, author, publicationDate)
+  • citations[] (3+ entries spanning 2+ source names - sourceFile, text, url, sourceName, author, publicationDate)
   • isCrossDocument (true if 2+ different source names support the theme)
   • status ("priority" | "emerging" | "weak")
-  • probability (FLOAT in (0, 0.10) — your verbalized confidence that this specific theme is the right framing among all plausible themes for this corpus. The < 0.10 ceiling is the moderate-tail sampling constraint. AT MOST ONE theme may exceed 0.07 (the single strongest modal answer). The rest fan out across the tail. Writing this value is your commitment to non-modal output. SEE THE VS DIRECTIVE BLOCK ABOVE for the full discipline.)
-  • goalAlignment (INTEGER 0..100 — how directly the theme answers the research goal:
+  • probability (FLOAT in (0, 0.10) - your verbalized confidence that this specific theme is the right framing among all plausible themes for this corpus. The < 0.10 ceiling is the moderate-tail sampling constraint. AT MOST ONE theme may exceed 0.07 (the single strongest modal answer). The rest fan out across the tail. Writing this value is your commitment to non-modal output. SEE THE VS DIRECTIVE BLOCK ABOVE for the full discipline.)
+  • goalAlignment (INTEGER 0..100 - how directly the theme answers the research goal:
        100 = the theme IS what's being asked about
         80 = primary mechanism / driver
         60 = essential context but not the headline
         40 = adjacent / useful for triangulation
         20 = tangential.
-       Be HONEST — this score gates depth enrichment downstream.)
+       Be HONEST - this score gates depth enrichment downstream.)
 
 DO NOT POPULATE depth fields (sub-themes, dimensions, contradictions, temporal arc,
 implications). Those are owned by Pass 2. If you spend time on them you under-deliver
-on breadth — the only metric that defines this pass's success.
+on breadth - the only metric that defines this pass's success.
 
-GOAL ANCHORING — ABSOLUTE RULE (OVERRIDES BREADTH):
+GOAL ANCHORING - ABSOLUTE RULE (OVERRIDES BREADTH):
 ================================================================================
 Before emitting ANY theme, ask: does this theme directly answer or substantively
 inform the research goal? Score it on the goalAlignment rubric above.
@@ -1122,9 +1524,9 @@ inform the research goal? Score it on the goalAlignment rubric above.
 GATE (two-stage):
   • PRIMARY ADMISSION (goalAlignment >= 60): always ship. These are headlines.
   • SECONDARY ADMISSION (goalAlignment 40-59, "adjacent / triangulation"):
-    — ADMIT if your goalAlignment >= 60 set has FEWER than 8 themes
+    - ADMIT if your goalAlignment >= 60 set has FEWER than 8 themes
       AND the theme has >= 3 distinct-source citations supporting it.
-    — DROP if your >= 60 set already has >= 8 themes AND the corpus is small.
+    - DROP if your >= 60 set already has >= 8 themes AND the corpus is small.
     The downstream pipeline ranks (evidenceCount × goalAlignment / 100), so a
     well-cited 50-alignment theme still shows up but doesn't crowd the top.
   • TANGENTIAL (goalAlignment 0-39): never emit. Period.
@@ -1142,7 +1544,7 @@ in the UI, harmlessly).
 
 If your corpus contains substantial off-topic content (the retrieval layer cast too
 wide a net), the right response is to emit FEWER themes that anchor cleanly to the
-goal — not more themes that pad with adjacency. The HARD FLOOR of 12 themes assumes
+goal - not more themes that pad with adjacency. The HARD FLOOR of 12 themes assumes
 a corpus that actually supports 12 on-topic themes. If yours doesn't, emit what's
 defensible and signal the corpus problem in the methodology field.
 
@@ -1186,18 +1588,18 @@ Output JSON.`;
                             }, required: ["sourceFile", "text"] } },
                             isCrossDocument: { type: Type.BOOLEAN },
                             status: { type: Type.STRING },
-                            // 2026-04-29 — Two-pass architecture. Only goalAlignment
+                            // 2026-04-29 - Two-pass architecture. Only goalAlignment
                             // stays in the breadth schema (cheap integer scoring during
                             // breadth extraction). Tier C depth fields (subThemes,
                             // dimensions, contradictions, temporalArc, implications)
                             // are populated in Pass 2 by Claude Opus 4.7 via
                             // _enrichThemesDepth, fanning out per-theme in parallel.
                             goalAlignment: { type: Type.NUMBER },
-                            // 2026-05-12 — VS probability field removed.
+                            // 2026-05-12 - VS probability field removed.
                             // Themes are now convergent-evidence-driven, not
                             // tail-distribution-driven. See the rollback note
                             // at the top of generateThemes for the rationale.
-                            // 2026-05-12 — R1 Verbalized Confidence. Per-theme
+                            // 2026-05-12 - R1 Verbalized Confidence. Per-theme
                             // self-assessment used as the entropy proxy for the
                             // Reinforcement-Inference trigger. Optional in the
                             // schema (legacy paths still work); calibration is
@@ -1208,10 +1610,10 @@ Output JSON.`;
                         required: ["name", "description", "quote", "citations", "isCrossDocument"]
                     }
                 },
-                // 2026-05-12 — R1 Verbalized Confidence (deliverable envelope).
+                // 2026-05-12 - R1 Verbalized Confidence (deliverable envelope).
                 // The model names the 1-3 themes it would expect senior pushback
                 // on, plus an overall confidence rating and a specific rationale.
-                // 2026-05-23 — R3 reinforceIfUncertain() / shouldReinforce() in
+                // 2026-05-23 - R3 reinforceIfUncertain() / shouldReinforce() in
                 // services/reinforcementInference.ts now reads this envelope
                 // to decide whether to re-ask with the prior payload anchored
                 // (anchored re-ask vs from-scratch).
@@ -1226,7 +1628,7 @@ Output JSON.`;
             },
             required: ["methodology", "themes"]
         };
-        // 2026-04-29 — TWO-PASS CONSULTING-GRADE THEME ARCHITECTURE.
+        // 2026-04-29 - TWO-PASS CONSULTING-GRADE THEME ARCHITECTURE.
         // Pass 1 BREADTH: Gemini 3.1 Pro one-shot on the cached corpus parts,
         // breadth-only schema (no depth fields), fresh context window with
         // no chat-history anchoring. Falls back to chat-session Flash (with
@@ -1234,13 +1636,13 @@ Output JSON.`;
         let result = await this._runBreadthPass(prompt, schema, onStream);
         if (!result.themes) result.themes = [];
 
-        // 2026-05-23 — EARLY UNDER-EXTRACTION RETRY. If Pass 1 returns < 5
+        // 2026-05-23 - EARLY UNDER-EXTRACTION RETRY. If Pass 1 returns < 5
         // themes (extreme under-extraction), retry IMMEDIATELY with explicit
         // under-extraction feedback BEFORE the thick-evidence filter runs.
         // Without this early retry, a 1-theme result hits the thick-evidence
         // filter, gets dropped (because 1 isn't "thick"), falls back to the
         // original 1-theme set, then waits for the BREADTH FLOOR retry that
-        // fires after filtering — costing an extra round-trip and one more
+        // fires after filtering - costing an extra round-trip and one more
         // opportunity for things to go wrong. Catching very-low counts here
         // is cheap and reliable.
         const EARLY_RETRY_THRESHOLD = 5;
@@ -1249,7 +1651,7 @@ Output JSON.`;
                 `[Themes] EARLY under-extraction (${result.themes.length} themes < ${EARLY_RETRY_THRESHOLD}). ` +
                 `Re-running breadth pass with goal-alignment-gate-relaxation feedback before filters.`
             );
-            const earlyReprompt = `Your previous extraction returned only ${result.themes.length} theme(s) — extreme under-extraction.
+            const earlyReprompt = `Your previous extraction returned only ${result.themes.length} theme(s) - extreme under-extraction.
 
 The most common cause is the goalAlignment HARD GATE pruning too aggressively. On focused research goals (e.g., "Identify a co-op strategy"), themes that score 50-59 ARE on-topic but get conservatively dropped, leaving 1-3 themes.
 
@@ -1273,13 +1675,13 @@ Now extract the FULL theme set. Do not under-emit again.`;
             }
         }
 
-        // 2026-05-12 — R1 calibration inspection (themes are the
+        // 2026-05-12 - R1 calibration inspection (themes are the
         // calibration-gate smoke test for the Verbalized Confidence directive).
         // Normalize the envelope first so malformed model output is dropped
         // silently rather than poisoning downstream consumers. Then log the
         // per-theme high/medium/low distribution. If the distribution collapses
         // to "high" across runs, the directive needs hardening before we
-        // propagate it to the other 14 R1 sites. The snapshot is structured —
+        // propagate it to the other 14 R1 sites. The snapshot is structured -
         // R4 will route it to the wiki uncertainty ledger; for now it is
         // console-only and read by humans during the smoke test.
         const normalizedAssessment = normalizeSelfAssessment((result as any).selfAssessment);
@@ -1287,15 +1689,15 @@ Now extract the FULL theme set. Do not under-emit again.`;
         else delete (result as any).selfAssessment;
         inspectCalibration('themes', result.themes as any[], normalizedAssessment, 0.60);
 
-        // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
+        // 2026-04-21 - META-THEME POST-FILTER. The prompt forbids meta-themes,
         // but models still occasionally manufacture them when evidence is thin.
         // This filter catches themes whose NAME describes what the corpus LACKS
-        // rather than what it shows — "General higher ed news lacking
+        // rather than what it shows - "General higher ed news lacking
         // advancement focus", "Pervasive lack of quantified case studies",
         // "Insufficient data for X benchmarking", etc. Filtered themes are
         // dropped and logged; they never reach the KG or any deliverable.
         // 2026-04-22 TIGHTENED. Prior version triggered on bare "insufficient",
-        // "limited coverage", "anecdotal" — which match legitimate domain
+        // "limited coverage", "anecdotal" - which match legitimate domain
         // findings ("International Fundraising Constraints" was false-rejected
         // because its description contained "limited coverage"). Discriminator:
         // a theme is meta ONLY if a lack-word CO-OCCURS with an explicit
@@ -1307,7 +1709,7 @@ Now extract the FULL theme set. Do not under-emit again.`;
             const text = `${t?.name || ''} ${t?.description || ''}`.trim();
             if (!text) return false;
             if (!LACK_WORD.test(text) || !CORPUS_REFERENCE.test(text)) return false;
-            // Proximity check — the two patterns must co-occur within 80 chars
+            // Proximity check - the two patterns must co-occur within 80 chars
             for (const lackMatch of text.matchAll(new RegExp(LACK_WORD.source, 'gi'))) {
                 const idx = lackMatch.index ?? -1;
                 if (idx < 0) continue;
@@ -1329,21 +1731,21 @@ Now extract the FULL theme set. Do not under-emit again.`;
             console.warn(`[Themes] Rejected ${rejected.length}/${beforeCount} meta-themes (complaints about the corpus, not findings): ${rejected.map(n => `"${n}"`).join(', ')}`);
         }
 
-        // 2026-05-12 — THICK-EVIDENCE FILTER (replaces the prior VS-rank).
+        // 2026-05-12 - THICK-EVIDENCE FILTER (replaces the prior VS-rank).
         //
-        // Themes must be CONVERGENT patterns — multi-source, multi-citation.
+        // Themes must be CONVERGENT patterns - multi-source, multi-citation.
         // The prompt rule "every theme MUST cite sources from at least 2
         // DIFFERENT source names" was being ignored under VS pressure (the
         // model preferred hitting the k=24 target over honoring the citation
         // rule). Now that VS is removed, we ALSO enforce the rule with teeth:
         // any theme with < 2 distinct sources OR < 2 total citations is
         // dropped. The remaining themes are the ones with actual convergent
-        // evidence — what theme extraction is supposed to produce.
+        // evidence - what theme extraction is supposed to produce.
         //
         // Then we sort by evidence density (descending) so the highest-quality
-        // themes appear first. No ranking by rarity — modal patterns are the
+        // themes appear first. No ranking by rarity - modal patterns are the
         // GOAL here.
-        // 2026-05-24 — SIMPLIFIED (replaced the 4-tier relaxation policy that
+        // 2026-05-24 - SIMPLIFIED (replaced the 4-tier relaxation policy that
         // was the SECOND iteration of this code). The first iteration silently
         // shipped unfiltered themes; the second iteration accepted single-source
         // themes to hit a count floor. Both violated the standing quality-first
@@ -1358,9 +1760,9 @@ Now extract the FULL theme set. Do not under-emit again.`;
         // density) are enforced by Stop hooks (validate_citations,
         // validate_source_diversity, validate_evidence, validate_theme_yield).
         // If the strict filter drops too many themes, the BREADTH FLOOR retry
-        // below MUST recover — there is no silent fallback.
+        // below MUST recover - there is no silent fallback.
         //
-        // 2026-05-24 — DELIVERABLE-AWARE THEME COUNT TARGETING.
+        // 2026-05-24 - DELIVERABLE-AWARE THEME COUNT TARGETING.
         // The TOP_N cap depends on what this theme set FEEDS. A themes-only
         // deliverable can render 25 themes; a strategy section wants ~7; a
         // persona input wants ~5; a typical slide deck wants ~12. Auto-cap
@@ -1368,9 +1770,14 @@ Now extract the FULL theme set. Do not under-emit again.`;
         //   1. Explicit feedback parameter from caller (`themeCountTarget`)
         //   2. Inferred from output mode metadata (this.outputMode / deliverable type)
         //   3. Default to 25 for safety (themes-only is the broadest use case)
+        // 2026-06-02 - The analyst-desk THEMES view is wall-to-wall and shows
+        // EVERY thick theme (no slice); only downstream deliverables (deck /
+        // persona / strategy) cap. So themes/themes_only target the full thick
+        // set (60 = effectively uncapped; the thick-evidence filter + breadth
+        // are the real governors of count, not this policy cap).
         const THEME_COUNT_BY_DELIVERABLE: Record<string, number> = {
-            'themes_only': 25,
-            'themes': 25,
+            'themes_only': 60,
+            'themes': 60,
             'strategy_section': 7,
             'strategy': 7,
             'persona_inputs': 5,
@@ -1387,8 +1794,14 @@ Now extract the FULL theme set. Do not under-emit again.`;
         const explicitTarget = (this as any).themeCountTarget;
         const TOP_N = (typeof explicitTarget === 'number' && explicitTarget > 0 && explicitTarget <= 50)
             ? explicitTarget
-            : (THEME_COUNT_BY_DELIVERABLE[inferredDeliverableType] || 25);
-        console.log(`[Themes] theme count target — deliverable_type='${inferredDeliverableType}', TOP_N=${TOP_N}${explicitTarget ? ' (explicit override)' : ' (inferred)'}`);
+            : (THEME_COUNT_BY_DELIVERABLE[inferredDeliverableType] || 60);
+        console.log(`[Themes] theme count target - deliverable_type='${inferredDeliverableType}', TOP_N=${TOP_N}${explicitTarget ? ' (explicit override)' : ' (inferred)'}`);
+
+        // 2026-06-08 - OBJECTIVE-RELEVANCE SCORING (pre-ranking). Score every theme
+        // 0-100 against the objective and KEEP ALL. Replaces the binary drop-gate;
+        // relevance becomes the continuous lever the ranking + depth + threshold use.
+        result.themes = await this._scoreThemesByObjectiveRelevance(result.themes, onStream);
+
         try {
             const beforeFilter = result.themes.length;
             const distinctSourcesOf = (t: any): Set<string> => new Set(
@@ -1396,61 +1809,83 @@ Now extract the FULL theme set. Do not under-emit again.`;
                     .map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim())
                     .filter(Boolean)
             );
+            const goalOf = (t: any): number => this._relevanceOf(t);  // objective relevance is the lever
             const densityOf = (t: any): number => {
                 const distinct = distinctSourcesOf(t).size;
                 const cits = Array.isArray(t.citations) ? t.citations.length : 0;
                 return distinct * 10 + cits;
             };
 
-            // STRICT thick-evidence filter (≥2 distinct named sources).
-            // No tier relaxation. If the corpus produces enough thick themes,
-            // great. If not, BREADTH FLOOR retry below will run; if that also
-            // undershoots, the Stop hooks will surface the corpus quality
-            // problem — they are the right place to fail, not here.
-            const thick = result.themes.filter((t: any) => distinctSourcesOf(t).size >= 2);
-            if (thick.length < beforeFilter) {
-                const dropped = result.themes.filter((t: any) => !thick.includes(t));
-                console.log(`[Themes] thick-evidence filter: kept ${thick.length} of ${beforeFilter} (dropped ${dropped.length} with <2 distinct sources)`);
-                if (dropped.length > 0) {
-                    console.log(`[Themes] dropped: ${dropped.slice(0, 5).map((t: any) => `"${t.name}"`).join(', ')}${dropped.length > 5 ? '…' : ''}`);
-                }
+            // 2026-06-03 - RELEVANCE-FIRST RANKING, NO SOURCE-DIVERSITY DROP.
+            // The prior "thick-evidence" filter DROPPED every theme citing <2
+            // distinct sources and even EMPTIED the whole set when none cleared
+            // the bar. That is the source-diversity discrimination the owner
+            // explicitly forbade ("relevance to the research goal is the ONLY
+            // axis; a relevant single-source theme must not be dropped") and was
+            // a top cause of THIN themes. We now rank by goalAlignment
+            // (relevance) first, with corroboration density only as a tiebreaker,
+            // and KEEP single-source themes. Corroboration is recorded as a
+            // neutral tag, never a gate.
+            const sorted = result.themes.slice().sort((a: any, b: any) => {
+                const ga = goalOf(a), gb = goalOf(b);
+                if (gb !== ga) return gb - ga;             // relevance to goal first
+                return densityOf(b) - densityOf(a);        // then corroboration as tiebreaker
+            });
+            for (const t of sorted) {
+                const ds = distinctSourcesOf(t).size;
+                (t as any).distinct_source_count = ds;
+                (t as any).evidence_tier = ds >= 2 ? 'thick' : 'single_source';
             }
-
-            const sorted = thick.slice().sort((a: any, b: any) => densityOf(b) - densityOf(a));
-            if (sorted.length > 0) {
-                result.themes = sorted.slice(0, TOP_N);
-                // Tag every shipped theme as evidence_tier='thick' so the
-                // validate_evidence_tier_distribution.py Stop hook can verify
-                // no relaxation tier crept in.
-                for (const t of result.themes) (t as any).evidence_tier = 'thick';
-                console.log(`[Themes] sorted by evidence density, kept top ${result.themes.length} of ${sorted.length} (cap=${TOP_N})`);
-            } else if (beforeFilter > 0) {
-                // All themes failed thick-evidence. Per the standing
-                // quality-first rule, we do NOT fall back to the unfiltered
-                // set. Empty out and let BREADTH FLOOR retry produce a viable
-                // set OR let the Stop hooks (validate_theme_yield,
-                // validate_corpus_relevance_distribution) surface the corpus
-                // quality problem.
-                console.warn(`[Themes] thick-evidence filter dropped ALL ${beforeFilter} themes. Corpus is too thin. BREADTH FLOOR retry will attempt recovery; if that also fails, validators will surface.`);
-                result.themes = [];
-            }
+            // 2026-06-07 - DO NOT cap the persisted/dashboard set. The Research
+            // Browser shows ALL on-objective themes; the TOP_N cap applies only when
+            // a downstream deliverable (deck/persona/recs) consumes a SUBSET (it
+            // slices this.lastThemes, tagged below). Capping here was the filter that
+            // cut 344 on-objective themes to 60 (then a 2nd gate to 22) - the
+            // "only 22 in the Research Browser" bug. Keep all, ranked by relevance.
+            // 2026-06-08 - IN-DELIVERABLE = RELEVANCE THRESHOLD, not a rank cap. A theme
+            // is consumed by downstream deliverables (deck/persona/recs) if it clears the
+            // objective-relevance bar, NOT because it landed in the first TOP_N by position.
+            // ALL themes are still persisted + shown in the Research Browser; the tag only
+            // governs the downstream SUBSET. TOP_N survives solely as a safety floor so a
+            // run where relevance scoring failed (every theme at the neutral 50) still
+            // exposes a sensible default subset rather than all-or-nothing.
+            const IN_DELIVERABLE_RELEVANCE = 50;
+            const anyScored = sorted.some((t: any) => typeof t.objectiveRelevance === 'number');
+            sorted.forEach((t: any, i: number) => {
+                (t as any).rank = i;
+                (t as any).withinDeliverableCap = anyScored
+                    ? this._relevanceOf(t) >= IN_DELIVERABLE_RELEVANCE   // relevance lever
+                    : i < TOP_N;                                          // fallback only if scoring failed
+            });
+            result.themes = sorted;
+            const inDeliv = result.themes.filter((t: any) => t.withinDeliverableCap).length;
+            const multi = result.themes.filter((t: any) => t.evidence_tier === 'thick').length;
+            const single = result.themes.length - multi;
+            console.log(`[Themes] relevance-first ranking: kept ALL ${result.themes.length} of ${beforeFilter} (full set shown); ${inDeliv} clear the in-deliverable relevance bar (>=${IN_DELIVERABLE_RELEVANCE}${anyScored ? '' : ', FALLBACK rank<' + TOP_N + ' - scoring unavailable'}); ${multi} multi-source, ${single} single-source`);
         } catch (filterErr: any) {
-            console.warn('[Themes] thick-evidence filter failed (non-fatal):', filterErr?.message || filterErr);
+            console.warn('[Themes] relevance-first ranking failed (non-fatal):', filterErr?.message || filterErr);
         }
 
-        // 2026-04-29 — BREADTH FLOOR ENFORCEMENT. If theme extraction comes
+        // 2026-04-29 - BREADTH FLOOR ENFORCEMENT. If theme extraction comes
         // back below the corpus-density floor, re-prompt the LLM with explicit
         // feedback that it under-extracted. The model gets one retry with
         // stronger instructions. This catches cases where: (a) Gemini
         // repetition-collapsed and the Claude fallback under-extracted, (b)
         // the LLM grouped too aggressively, (c) earlier prompt anchors snuck
         // through.
-        // 2026-05-24 — Raised from 12 to 20 to honor the user-stated minimum.
-        const BREADTH_FLOOR = 20;
+        // 2026-05-24 - Raised from 12 to 20 to honor the user-stated minimum.
+        // 2026-06-05 - Bug 3: raised again 20 → 28 because the user reported
+        // "wall feels thin, want 4 full rows of themes." With a 3-column wall
+        // 28 themes = ~9 rows, comfortably above the perceived-thin threshold.
+        // The domain-relevance gate drops ~30% of breadth-pass output as off-
+        // domain, so a 28-floor produces ~20 surviving themes - meeting both
+        // the original 20-floor intent AND the new wall density.
+        const BREADTH_FLOOR = 28;
         const themeCount = result.themes.length;
+        let retriedThemes = false;
         if (themeCount < BREADTH_FLOOR && !feedback) {
             console.warn(
-                `[Themes] BREADTH FLOOR VIOLATION — only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
+                `[Themes] BREADTH FLOOR VIOLATION - only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
                 `Re-prompting with under-extraction feedback.`
             );
             const reprompt = `Your previous theme extraction returned only ${themeCount} themes from a substantial corpus.
@@ -1469,7 +1904,7 @@ Re-do the analysis. SPECIFIC INSTRUCTIONS:
      of donor history", "AI personalization in email campaigns", etc.
   3. Find AT LEAST ${Math.max(BREADTH_FLOOR + 5, themeCount * 3)} distinct themes this pass.
   4. Each theme can have THINNER depth (subThemes/dimensions/contradictions/temporalArc/
-     implications fields can be empty) — BREADTH OVER DEPTH this round.
+     implications fields can be empty) - BREADTH OVER DEPTH this round.
   5. The hard floor is ${BREADTH_FLOOR}. You will be re-prompted again if you under-extract.
 
 Now extract the FULL theme set.`;
@@ -1480,6 +1915,7 @@ Now extract the FULL theme set.`;
                     // Apply meta-theme filter to retry result too
                     retry.themes = retry.themes.filter((t: any) => !isMetaTheme(t));
                     result.themes = retry.themes;
+                    retriedThemes = true;
                     if (retry.methodology) result.methodology = retry.methodology;
                 } else {
                     console.warn(`[Themes] Retry did not improve count (${retry?.themes?.length ?? 0} vs ${themeCount}). Keeping original.`);
@@ -1489,7 +1925,26 @@ Now extract the FULL theme set.`;
             }
         }
 
-        // 2026-04-29 — PASS 2 DEPTH ENRICHMENT.
+        // 2026-05-30 / 2026-06-07 - DOMAIN-RELEVANCE GATE, only when a retry fired.
+        // The BREADTH FLOOR retry regenerates un-gated themes, so re-gate THAT case.
+        // But running it unconditionally was a redundant 2nd LLM gate that compounds
+        // pruning (the non-deterministic gate dropped a healthy 60-set to 22 - the
+        // "only 22 in the Research Browser" bug). The first gate (pre-ranking) already
+        // removed off-objective themes on the non-retry path, so skip the re-gate there.
+        if (retriedThemes) {
+            // The BREADTH-FLOOR retry regenerated an un-scored, un-ranked set. Score it
+            // by objective relevance and re-rank so depth-enrichment + display use the
+            // SAME relevance lever as the main path (not a fresh binary gate).
+            result.themes = await this._scoreThemesByObjectiveRelevance(result.themes, onStream);
+            const anyScoredR = result.themes.some((t: any) => typeof t.objectiveRelevance === 'number');
+            result.themes.sort((a: any, b: any) => this._relevanceOf(b) - this._relevanceOf(a));
+            result.themes.forEach((t: any, i: number) => {
+                (t as any).rank = i;
+                (t as any).withinDeliverableCap = anyScoredR ? this._relevanceOf(t) >= 50 : i < TOP_N;
+            });
+        }
+
+        // 2026-04-29 - PASS 2 DEPTH ENRICHMENT.
         // Each breadth theme is enriched in parallel via Claude Opus 4.7 with
         // its own context: theme name + description + cited quotes. Opus
         // populates subThemes / dimensions / contradictions / temporalArc /
@@ -1499,19 +1954,33 @@ Now extract the FULL theme set.`;
         // limits. Cost: ~$0.30-0.40 per theme on Opus 4.7.
         if (result.themes.length > 0) {
             try {
-                onStream(`[Themes] Pass 2: Enriching ${result.themes.length} themes with depth analysis (Gemini 3.1 Pro, parallel)...`);
-                console.log(`[Themes] Pass 2 DEPTH starting: ${result.themes.length} themes via Gemini 3.1 Pro`);
-                const enriched = await this._enrichThemesDepth(result.themes as any[], onStream);
-                result.themes = enriched as any;
-                const enrichedCount = enriched.filter((t: any) => Array.isArray(t.subThemes) && t.subThemes.length > 0).length;
-                console.log(`[Themes] Pass 2 DEPTH complete: ${enrichedCount}/${enriched.length} themes received full enrichment`);
-                onStream(`[Themes] Pass 2 complete: ${enrichedCount}/${enriched.length} themes enriched`);
+                // 2026-06-08 - DEPTH REACHES EVERY OBJECTIVE-RELEVANT THEME, in relevance
+                // order - NOT an arbitrary count. result.themes is relevance-ranked (desc),
+                // so the depth set is the contiguous prefix clearing the relevance bar.
+                // Relevance is the lever (owner directive); DEPTH_SAFETY_MAX is only a
+                // runaway-cost guard for a pathological corpus, never the selector. Themes
+                // below the bar still persist + render in the Research Browser; their
+                // Analysis section just stays empty (breadth without an unbounded bill).
+                const DEPTH_RELEVANCE_BAR = 40;   // core (>=60) + adjacent (30-59) earn depth
+                const DEPTH_SAFETY_MAX = 250;     // cost ceiling only, not a relevance lever
+                let cutoff = result.themes.findIndex((t: any) => this._relevanceOf(t) < DEPTH_RELEVANCE_BAR);
+                if (cutoff < 0) cutoff = result.themes.length;   // every theme clears the bar
+                cutoff = Math.min(Math.max(cutoff, 1), DEPTH_SAFETY_MAX);
+                const toEnrich = result.themes.slice(0, cutoff);
+                const breadthOnly = result.themes.slice(cutoff);
+                onStream(`[Themes] Pass 2: Enriching ${toEnrich.length} objective-relevant themes (relevance >= ${DEPTH_RELEVANCE_BAR}) of ${result.themes.length} with depth (Gemini 3.1 Pro, parallel); ${breadthOnly.length} ship breadth-only...`);
+                console.log(`[Themes] Pass 2 DEPTH starting: enriching ${toEnrich.length}/${result.themes.length} (relevance>=${DEPTH_RELEVANCE_BAR}, safety max ${DEPTH_SAFETY_MAX}) via Gemini 3.1 Pro`);
+                const enriched = await this._enrichThemesDepth(toEnrich as any[], onStream);
+                result.themes = [...(enriched as any[]), ...breadthOnly] as any;
+                const enrichedCount = (enriched as any[]).filter((t: any) => Array.isArray(t.subThemes) && t.subThemes.length > 0).length;
+                console.log(`[Themes] Pass 2 DEPTH complete: ${enrichedCount}/${enriched.length} enriched + ${breadthOnly.length} breadth-only = ${result.themes.length} total persisted`);
+                onStream(`[Themes] Pass 2 complete: ${enrichedCount} enriched + ${breadthOnly.length} breadth = ${result.themes.length} themes`);
             } catch (depthErr: any) {
                 console.warn('[Themes] Pass 2 depth enrichment failed, returning breadth-only themes:', depthErr?.message || depthErr);
             }
         }
 
-        // 2026-05-19 — EMBEDDING-BASED GOAL ALIGNMENT SCORING.
+        // 2026-05-19 - EMBEDDING-BASED GOAL ALIGNMENT SCORING.
         // Replaces the LLM's self-scored goalAlignment (which under-scored
         // out of caution, producing all-themes-below-60 failures) with
         // mathematical cosine similarity between embedding(researchGoal) and
@@ -1523,7 +1992,7 @@ Now extract the FULL theme set.`;
             const { scoreThemesByGoalSimilarity } = await import('./embeddingAlignmentScorer');
             const stats = await scoreThemesByGoalSimilarity(result.themes as any[], this.goal);
             if (stats.error) {
-                // P0.4 — surface the fallback (LLM-based scores are less precise than
+                // P0.4 - surface the fallback (LLM-based scores are less precise than
                 // embedding-based; user should know the theme-goal alignment is approximate).
                 console.warn('[Themes] embedding-alignment scoring failed:', stats.error);
                 if (typeof onStream === 'function') {
@@ -1532,7 +2001,7 @@ Now extract the FULL theme set.`;
             } else {
                 console.log(
                     `[Themes] embedding-alignment scored ${stats.scored} themes ` +
-                    `(${stats.skipped} skipped) — cos range [${stats.minSimilarity}, ${stats.maxSimilarity}], ` +
+                    `(${stats.skipped} skipped) - cos range [${stats.minSimilarity}, ${stats.maxSimilarity}], ` +
                     `avg cos ${stats.avgSimilarity}, avg goalAlignment ${stats.avgScore}/100`
                 );
             }
@@ -1540,7 +2009,7 @@ Now extract the FULL theme set.`;
             console.warn('[Themes] embedding-alignment skipped:', embedErr?.message || embedErr);
         }
 
-        // Tier C2 (2026-04-28) — persist the theme synthesis to the wiki so
+        // Tier C2 (2026-04-28) - persist the theme synthesis to the wiki so
         // it becomes searchable archive evidence for future engagements. The
         // wiki is HiC's compounding knowledge layer; theme syntheses are the
         // highest-density artifact this app produces. Written as a markdown
@@ -1572,18 +2041,32 @@ Now extract the FULL theme set.`;
             console.warn('[Themes] reproducibility stamp skipped:', err?.message || err);
         }
 
+        // Single quality chokepoint: hard-rule citation grounding (#2) + wire
+        // the self-improvement critic (#4). See _finalizeDeliverable.
+        this._finalizeDeliverable('themes', result);
+
+        // U1 - make the run's themes available to the downstream recommendations stage.
+        // 2026-06-07 - the persisted/displayed set is now ALL on-objective themes,
+        // but downstream consumers (recs/journey/gap) get only the top-ranked subset
+        // (withinDeliverableCap) so their prompts don't bloat past the token cap.
+        try {
+            const all = Array.isArray(result.themes) ? result.themes : [];
+            const capped = all.filter((t: any) => (t as any).withinDeliverableCap !== false);
+            this.lastThemes = capped.length ? capped : all.slice(0, 60);
+        } catch { /* noop */ }
+
         return result;
     }
 
     /**
-     * 2026-04-29 — PASS 1 BREADTH RUNNER.
+     * 2026-04-29 - PASS 1 BREADTH RUNNER.
      *
      * Two-pass theme architecture, breadth pass. Tries Gemini 3.1 Pro one-shot
      * with the cached corpus parts. Pro gives us:
-     *   - 1M-token context (the entire corpus fits — no MAX_CORPUS_CHARS clipping
+     *   - 1M-token context (the entire corpus fits - no MAX_CORPUS_CHARS clipping
      *     for breadth analysis, unlike Flash via chatSession which compresses
      *     accumulated context as it grows)
-     *   - No chat-history anchoring (fresh analytical pass — the chatSession's
+     *   - No chat-history anchoring (fresh analytical pass - the chatSession's
      *     prior ingestion summary biases Flash toward the summary's framing)
      *   - Stronger long-form structured-JSON output than Flash on this prompt
      *
@@ -1593,7 +2076,7 @@ Now extract the FULL theme set.`;
      * the previous single-pass implementation.
      */
     private async _runBreadthPass(prompt: string, schema: Schema, onStream: (t: string) => void, label: string = 'Themes'): Promise<StepResult_Themes> {
-        // 2026-05-19 — NotebookLM-style goal-evidence injection on the Pro
+        // 2026-05-19 - NotebookLM-style goal-evidence injection on the Pro
         // breadth path. Mirrors the injection in executeStep / executeStepViaGPT
         // so the Pro one-shot sees the same goal-anchored chunks the chat-
         // session path does. Failure-isolated: empty block on error.
@@ -1603,11 +2086,50 @@ Now extract the FULL theme set.`;
         } catch (e: any) {
             console.warn(`[_runBreadthPass/${label}] goal-evidence retrieval skipped:`, e?.message || e);
         }
-        const effectivePrompt = goalEvidenceBlock
-            ? `${goalEvidenceBlock}\n${prompt}`
-            : prompt;
+        // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
+        let substrateBlock = '';
+        try {
+            substrateBlock = await this.getSubstrateEvidenceBlock();
+        } catch (e: any) {
+            console.warn(`[_runBreadthPass/${label}] substrate retrieval skipped:`, e?.message || e);
+        }
+        // Phase 2 MCR (intent-realization-plan) - prefer the chunk-addressed
+        // corpus (pickChunksForPrompt at 30K tokens, KL auto-pinned, cited by
+        // pointer) over the bulk goal-evidence pack + substrate (the embedding-
+        // RAG path). On a sparse manifest the chunk block is empty and we fall
+        // back to the legacy bulk evidence so themes never generate from nothing.
+        let mcrCorpusBlock = '';
+        if (this.useMcrCorpus) {
+            mcrCorpusBlock = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, { tokenBudget: 30_000 });
+        }
+        const useMcr = this.useMcrCorpus && mcrCorpusBlock.length > 0;
+        const effectivePrompt = useMcr
+            ? [this.buildObjectiveAnchor(), mcrCorpusBlock, prompt].filter(s => s && s.length > 0).join('\n')
+            : [this.buildObjectiveAnchor(), goalEvidenceBlock, substrateBlock, prompt].filter(s => s && s.length > 0).join('\n');
+
+        // 2026-06-08 - SHARDED BREADTH (keystone). When MCR corpus is available,
+        // run breadth as K relevance-ranked, coverage-driven shards instead of one
+        // 59-chunk call. Each shard is small (escapes the Gemini-3 structured-JSON
+        // thinking-collapse documented at 30% on 5k+ prompts) and a failed shard is
+        // local (it contributes nothing; survivors still yield breadth). K is NOT a
+        // fixed number: shards run in parallel waves until theme yield saturates or
+        // the relevance-ranked catalog is exhausted (relevance coverage is the lever).
+        // Falls through to the proven single-pass below only if EVERY shard fails.
+        if (useMcr) {
+            const sharded = await this._runShardedBreadth(prompt, schema, onStream, label);
+            if (sharded && Array.isArray((sharded as any).themes) && (sharded as any).themes.length > 0) {
+                return sharded;
+            }
+            onStream(`[${label}] Sharded breadth yielded nothing; falling back to single-pass.`);
+        }
 
         // Step 1: try Gemini 3.1 Pro one-shot with the cached corpus parts.
+        // 2026-06-05 (Meta-Harness M1) - trace intercept on the BREADTH path.
+        // This path does NOT go through executeStepResilient, so it needs its
+        // own recordTurn call. Pro success records one turn; Pro failure
+        // records the failed turn AND falls through to executeStepResilient
+        // (which will record its own turn for the Flash→GPT chain).
+        const _trace_breadth_started_at = Date.now();
         if (this.corpusFileParts && this.corpusFileParts.length > 0) {
             try {
                 onStream(`[${label}] Pass 1 BREADTH via Gemini 3.1 Pro (1M context, fresh corpus pass)...`);
@@ -1615,21 +2137,58 @@ Now extract the FULL theme set.`;
                 const proResult = await withRetry(async () => {
                     const result: any = await this.ai.models.generateContentStream({
                         model: 'gemini-3.1-pro-preview',
-                        contents: [{ role: 'user', parts: [...this.corpusFileParts, { text: effectivePrompt }] }],
+                        // Phase 2 MCR - when the chunk corpus is in the prompt, do NOT
+                        // also bulk-inject the raw corpus parts (the BANNED pattern that
+                        // produced the 1.6MB prompt -> empty response). Legacy fallback
+                        // still sends the parts so a sparse-manifest run isn't starved.
+                        contents: [{ role: 'user', parts: useMcr ? [{ text: effectivePrompt }] : [...this.corpusFileParts, { text: effectivePrompt }] }],
                         config: {
                             responseMimeType: 'application/json',
                             responseSchema: schema,
-                            temperature: 0.2,
+                            // 2026-06-07 (RI - commit to the highest-confidence fix). temperature:0
+                            // (greedy) + structured-JSON + Gemini-3 thinking is the DOCUMENTED
+                            // repetition-collapse trigger (Google cookbook #449; AI-dev-forum LiteLLM
+                            // report) and caused the Pass-1 "malformed payload" / wasted ~280s pass.
+                            // The evidence-backed fix is the model's DEFAULT temperature - Gemini-3
+                            // thinking models are designed to run at default, and Google's own API
+                            // examples set NO temperature. So we OMIT the override entirely (not an
+                            // interpolated 0.4 guess): the native default is the strongest escape from
+                            // the greedy-repetition basin. Breadth is exploratory (diversity is
+                            // desirable); determinism is enforced downstream at the cap +
+                            // deterministic-naming + cache. seed kept for best-effort reproducibility.
+                            seed: 42,
                             systemInstruction: this.systemInstructionCached,
                         } as any,
                     });
                     const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
                     let fullText = '';
+                    let _lastRepCheck = 0;
                     for await (const chunk of stream) {
                         const text = chunk.text;
                         if (text) {
                             fullText += text;
                             onStream(fullText);
+                            // 2026-06-08 - EARLY REPETITION-COLLAPSE ABORT. Gemini 3.1 Pro
+                            // intermittently collapses into a degenerate loop on structured-JSON
+                            // breadth ("948120394..." x320 on the 2026-06-08 run), which the
+                            // post-hoc RepetitionGuard only caught at 20K chars after ~322s
+                            // wasted. Mirror its probe-and-count detection but run it every ~3KB
+                            // on the tail: a 30-char probe repeating 25+ times inside a 2KB window
+                            // is unambiguously degenerate (legit JSON varies). Throwing here makes
+                            // withRetry/GPT fallback fire in seconds, not minutes. The cost of a
+                            // collapse drops ~50x; it does NOT reduce collapse FREQUENCY (sharded
+                            // breadth is the separate fix for that).
+                            if (fullText.length - _lastRepCheck >= 3000) {
+                                _lastRepCheck = fullText.length;
+                                const tail = fullText.slice(-2000);
+                                const probe = tail.slice(0, 30);
+                                if (probe.trim().length >= 8) {
+                                    const occurrences = tail.split(probe).length - 1;
+                                    if (occurrences >= 25) {
+                                        throw new Error(`Gemini Pro repetition-collapse detected early ("${probe.slice(0, 20).replace(/\s+/g, ' ')}" x${occurrences} in 2KB tail); aborting at ${fullText.length} chars for fast fallback`);
+                                    }
+                                }
+                            }
                         }
                     }
                     return fullText;
@@ -1644,13 +2203,48 @@ Now extract the FULL theme set.`;
                     throw new Error('Gemini Pro returned malformed themes payload');
                 }
                 console.log(`[${label}] Pass 1 BREADTH (Pro) returned ${(parsed as any).themes.length} themes`);
+                // M1 trace - Pro success.
+                try {
+                    const { recordTurn } = await import('./traceRecorder');
+                    recordTurn({
+                        step_label: `${label} Pass-1 BREADTH (Pro)`,
+                        model_id: 'gemini-3.1-pro-preview',
+                        prompt: effectivePrompt,
+                        response: proResult,
+                        started_at: _trace_breadth_started_at,
+                        temperature: 0,
+                        seed: 42,
+                        // 2026-06-06 - Deliverable tag so epoch proposer can
+                        // grep traces by deliverable type (C2 closure).
+                        note: 'deliverable=#themes',
+                    });
+                } catch { /* non-fatal */ }
                 return parsed;
             } catch (proErr: any) {
-                // P0.4 — surface the fallback with the specific reason so the user
+                // P0.4 - surface the fallback with the specific reason so the user
                 // can judge whether to retry or accept the secondary-model output.
                 const msg = proErr?.message || String(proErr);
                 console.warn(`[${label}] Pass 1 Pro failed:`, msg);
                 onStream(`[${label}] Gemini 3.1 Pro unavailable for Pass 1 BREADTH (${msg.slice(0, 120)}). Falling back to Flash → GPT chain; theme depth may be reduced. Review theme breadth and re-run if needed.`);
+                // M1 trace - Pro failure (the executeStepResilient call below records its own turn).
+                try {
+                    const { recordTurn } = await import('./traceRecorder');
+                    recordTurn({
+                        step_label: `${label} Pass-1 BREADTH (Pro)`,
+                        model_id: 'gemini-3.1-pro-preview',
+                        prompt: effectivePrompt,
+                        response: '',
+                        started_at: _trace_breadth_started_at,
+                        failed: true,
+                        error: msg,
+                        temperature: 0,
+                        seed: 42,
+                        // 2026-06-06 - Deliverable tag (C2 closure) so the
+                        // epoch proposer mines failed themes-Pro turns by
+                        // deliverable.
+                        note: 'deliverable=#themes | Pro one-shot failed; falling back to executeStepResilient (Flash + GPT-5.5)',
+                    });
+                } catch { /* non-fatal */ }
             }
         }
 
@@ -1661,7 +2255,145 @@ Now extract the FULL theme set.`;
     }
 
     /**
-     * 2026-04-29 — PASS 2 DEPTH ENRICHMENT.
+     * 2026-06-08 - Run ONE breadth shard: a Gemini 3.1 Pro one-shot over a single
+     * relevance-ranked corpus window. Returns the parsed themes payload, or NULL on
+     * failure (collapse / malformed / quota). NEVER throws into the wave loop - a dead
+     * shard is local; surviving shards still produce breadth. Carries the same early
+     * in-stream repetition-collapse abort as the single-pass path (fail in seconds,
+     * not 322s). One retry only (vs two single-pass) to keep waves fast.
+     */
+    private async _runBreadthShard(contents: any[], effectivePrompt: string, schema: Schema, onStream: (t: string) => void, label: string): Promise<StepResult_Themes | null> {
+        const started = Date.now();
+        try {
+            const proResult = await withRetry(async () => {
+                const result: any = await this.ai.models.generateContentStream({
+                    model: 'gemini-3.1-pro-preview',
+                    contents,
+                    config: {
+                        responseMimeType: 'application/json',
+                        responseSchema: schema,
+                        seed: 42,
+                        systemInstruction: this.systemInstructionCached,
+                    } as any,
+                });
+                const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
+                let fullText = '';
+                let _lastRepCheck = 0;
+                for await (const chunk of stream) {
+                    const text = chunk.text;
+                    if (text) {
+                        fullText += text;
+                        onStream(fullText);
+                        if (fullText.length - _lastRepCheck >= 3000) {
+                            _lastRepCheck = fullText.length;
+                            const tail = fullText.slice(-2000);
+                            const probe = tail.slice(0, 30);
+                            if (probe.trim().length >= 8) {
+                                const occurrences = tail.split(probe).length - 1;
+                                if (occurrences >= 25) {
+                                    throw new Error(`shard repetition-collapse ("${probe.slice(0, 20).replace(/\s+/g, ' ')}" x${occurrences}); aborting at ${fullText.length} chars`);
+                                }
+                            }
+                        }
+                    }
+                }
+                return fullText;
+            }, 1, 3000, `Gemini 3.1 Pro ${label} SHARD`);
+            const parsed = JSON.parse(tryRepairJson(proResult)) as StepResult_Themes;
+            if ((parsed as any)?._error || !parsed || typeof parsed !== 'object' || !Array.isArray((parsed as any).themes)) {
+                throw new Error('shard returned malformed themes payload');
+            }
+            try {
+                const { recordTurn } = await import('./traceRecorder');
+                recordTurn({ step_label: `${label} SHARD`, model_id: 'gemini-3.1-pro-preview', prompt: effectivePrompt, response: proResult, started_at: started, temperature: 0, seed: 42, note: 'deliverable=#themes | shard' });
+            } catch { /* non-fatal */ }
+            return parsed;
+        } catch (err: any) {
+            const msg = err?.message || String(err);
+            console.warn(`[${label}] shard failed (local, skipped):`, msg.slice(0, 140));
+            try {
+                const { recordTurn } = await import('./traceRecorder');
+                recordTurn({ step_label: `${label} SHARD`, model_id: 'gemini-3.1-pro-preview', prompt: effectivePrompt, response: '', started_at: started, failed: true, error: msg, temperature: 0, seed: 42, note: 'deliverable=#themes | shard failed (local)' });
+            } catch { /* non-fatal */ }
+            return null;
+        }
+    }
+
+    /**
+     * 2026-06-08 - SHARDED BREADTH driver. Covers the relevance-ranked catalog with
+     * parallel waves of breadth shards until theme yield SATURATES (a wave adds fewer
+     * than SATURATION_NEW unique themes) or the catalog is exhausted, bounded by a
+     * cost-only safety ceiling. K (shard count) EMERGES from relevance coverage; it is
+     * never a fixed number (per owner directive: relevance is the lever, not a cap).
+     * Windows are built serially (cheap selection, disjoint via excludeIds); the
+     * expensive Pro calls run in parallel per wave. Returns unioned + deduped themes,
+     * or null if every shard failed (caller then runs the single-pass fallback).
+     */
+    private async _runShardedBreadth(prompt: string, schema: Schema, onStream: (t: string) => void, label: string): Promise<StepResult_Themes | null> {
+        const SAFETY_MAX_SHARDS = 10;   // cost guard, NOT the lever
+        const WAVE_SIZE = 3;            // shards run in parallel per wave
+        const SATURATION_NEW = 3;       // a wave adding < this many new themes => saturated
+        const SHARD_TOKENS = 30_000;
+        const usedChunks = new Set<string>();
+        const seen = new Set<string>();
+        const allThemes: any[] = [];
+        let methodology = '';
+        let shardsRun = 0;
+        let wave = 0;
+        let anyShardSucceeded = false;
+        while (shardsRun < SAFETY_MAX_SHARDS) {
+            // Build this wave's windows SERIALLY (cheap selection; disjoint via
+            // excludeIds so each shard sees fresh corpus). The expensive Pro calls
+            // then run in PARALLEL below.
+            const windows: { contents: any[]; eff: string; n: number }[] = [];
+            for (let w = 0; w < WAVE_SIZE && (shardsRun + windows.length) < SAFETY_MAX_SHARDS; w++) {
+                const idx = shardsRun + windows.length;
+                const block = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, {
+                    tokenBudget: SHARD_TOKENS,
+                    excludeIds: Array.from(usedChunks),
+                    skipAutoPin: idx > 0,
+                });
+                if (!block) break;   // catalog exhausted
+                const winChunks = this.lastCorpusChunkIds.slice();
+                if (winChunks.length === 0) break;
+                winChunks.forEach(id => usedChunks.add(id));
+                const eff = [this.buildObjectiveAnchor(), block, prompt].filter(s => s && s.length > 0).join('\n');
+                windows.push({ contents: [{ role: 'user', parts: [{ text: eff }] }], eff, n: winChunks.length });
+            }
+            if (windows.length === 0) break;   // nothing left to cover
+            wave++;
+            onStream(`[${label}] Breadth wave ${wave}: ${windows.length} relevance-ranked shard(s) in parallel...`);
+            const results = await Promise.all(
+                windows.map((win, i) => this._runBreadthShard(win.contents, win.eff, schema, onStream, `${label}-S${shardsRun + i + 1}`))
+            );
+            let waveNew = 0;
+            for (const r of results) {
+                if (!r || !Array.isArray((r as any).themes)) continue;
+                anyShardSucceeded = true;
+                if (!methodology && (r as any).methodology) methodology = (r as any).methodology;
+                for (const t of (r as any).themes) {
+                    const key = String(t?.name || '').trim().toLowerCase();
+                    if (key && !seen.has(key)) { seen.add(key); allThemes.push(t); waveNew++; }
+                }
+            }
+            shardsRun += windows.length;
+            console.log(`[${label}] sharded breadth wave ${wave}: +${waveNew} new themes (total ${allThemes.length}); shards run=${shardsRun}, catalog chunks covered=${usedChunks.size}`);
+            onStream(`[${label}] Wave ${wave}: +${waveNew} new themes (running total ${allThemes.length}).`);
+            // 2026-06-08 - Stream this wave's accumulated themes to the live consumer
+            // (App.tsx) so the Research Browser, chat context, themes.json corpus, and
+            // manifest count update AS the re-synthesis pours in, not only at the end.
+            if (waveNew > 0) { try { this.onThemeProgress?.(allThemes.slice()); } catch { /* non-fatal */ } }
+            if (waveNew < SATURATION_NEW) break;       // saturated - relevance coverage exhausted
+            if (windows.length < WAVE_SIZE) break;     // catalog exhausted mid-wave
+        }
+        if (!anyShardSucceeded || allThemes.length === 0) return null;
+        console.log(`[${label}] Sharded breadth complete: ${allThemes.length} unique themes across ${shardsRun} shards (${wave} waves), ${usedChunks.size} chunks covered.`);
+        onStream(`[${label}] Sharded breadth complete: ${allThemes.length} unique themes across ${shardsRun} shards covering ${usedChunks.size} corpus chunks.`);
+        return { themes: allThemes, methodology: methodology || `Sharded breadth across ${shardsRun} relevance-ranked corpus windows (${usedChunks.size} chunks), unioned and deduped to ${allThemes.length} themes.` } as any;
+    }
+
+    /**
+     * 2026-04-29 - PASS 2 DEPTH ENRICHMENT.
      *
      * Per-theme parallel fan-out to Claude Opus 4.7. Each theme gets its own
      * context (name, description, citations, research goal) and Opus emits
@@ -1670,7 +2402,7 @@ Now extract the FULL theme set.`;
      * isCrossDocument/status/goalAlignment) pass through untouched.
      *
      * Concurrency: BATCH_SIZE in flight at once. With 30 themes × ~$0.35 each,
-     * a typical run costs ~$10 in depth enrichment — keep within budget by
+     * a typical run costs ~$10 in depth enrichment - keep within budget by
      * either lowering BATCH_SIZE for rate limiting or by gating enrichment
      * to top-N themes by goalAlignment if cost becomes a concern.
      *
@@ -1709,20 +2441,129 @@ Now extract the FULL theme set.`;
     /**
      * Single-theme depth call.
      *
-     * 2026-05-03 — Migrated from Claude Opus 4.7 to Gemini 3.1 Pro Preview.
+     * 2026-05-03 - Migrated from Claude Opus 4.7 to Gemini 3.1 Pro Preview.
      * Same JSON schema, same prompt, ~1/8 the cost. The depth output is a
      * structured object with subThemes, dimensions, contradictions,
-     * temporalArc, implications — all things Gemini Pro produces well in
+     * temporalArc, implications - all things Gemini Pro produces well in
      * its `responseMimeType: application/json` mode.
      */
+    /**
+     * 2026-06-02 - Single quality chokepoint for EVERY generated deliverable.
+     * (#2) Hard-rule citation grounding: blank any quote not in the corpus,
+     *      across all fields, deliverable-agnostic. ONE rule, not per-artifact.
+     * (#4) Self-improvement critic: invoke the previously-orphaned discriminator
+     *      so each run scores whether its active constraints actually helped and
+     *      auto-dismisses constraints with persistently negative impact -- the
+     *      loop that was built (improvementDiscriminator) but never wired.
+     * Fire-and-forget; never throws into the generation path.
+     */
+    private _finalizeDeliverable(kind: string, result: any): void {
+        // (#2 / A1) universal hard-rule citation grounding + (A3) fabrication gate.
+        try {
+            const g = verifyDeliverableCitations(result, this.corpusGroundingText);
+            if (g.corpusMismatch) {
+                // Safety valve fired: almost nothing matched -> the verification
+                // corpus does not align with what this deliverable was generated
+                // from. Quotes are PRESERVED. This is a wiring gap (grounding text
+                // != generation corpus), NOT model fabrication. Do not alarm.
+                console.warn(`[${kind}] citation grounding INCONCLUSIVE: only ${g.grounded}/${g.checked} quotes matched the verification corpus -- quotes PRESERVED (grounding text not aligned with this deliverable's source; no blanking)`);
+            } else if (g.checked > 0) {
+                console.log(`[${kind}] citation grounding: ${g.grounded}/${g.checked} quotes grounded, ${g.blanked} fabricated blanked`);
+                // A3 (reliability) - corpus aligns AND a real chunk of quotes are
+                // still unverified => genuine fabrication signal.
+                if (g.checked >= 4 && g.blanked / g.checked >= 0.5) {
+                    console.warn(`[${kind}] GROUNDING ALERT: ${g.blanked}/${g.checked} quotes were NOT in the corpus (likely fabrication) -- review this deliverable`);
+                }
+            } else if (g.skippedNoCorpus) {
+                console.warn(`[${kind}] citation grounding skipped: corpus grounding text too small to verify`);
+            }
+        } catch (e: any) {
+            console.warn(`[${kind}] citation grounding failed (non-fatal):`, e?.message || e);
+        }
+
+        // (reliability + quality gate) - wire the orphaned deliverableScorer (the
+        // rubric reward the master plan flagged for H5; it existed with ZERO callers).
+        // Score every deliverable; loud alert below the pass bar.
+        try {
+            const SCORER_KIND: Record<string, string> = {
+                personas: 'persona', recommendations: 'recommendation', gap: 'gap-analysis',
+                tech_audit: 'tech-audit', journey: 'journey', competitive: 'competitive', themes: 'meta-themes',
+            };
+            const sk = (SCORER_KIND[kind] || kind) as ScorerKind;
+            const score = scoreDeliverable(JSON.stringify(result || {}).slice(0, 200_000), sk);
+            console.log(`[${kind}] quality score: ${(score.composite * 100).toFixed(0)}/100${score.failures.length ? ` | failures: ${score.failures.slice(0, 3).join('; ')}` : ''}`);
+            if (score.composite < 0.6) {
+                console.warn(`[${kind}] QUALITY ALERT: composite ${(score.composite * 100).toFixed(0)}/100 below pass bar -- ${score.failures.slice(0, 4).join('; ')}`);
+            }
+        } catch (e: any) {
+            console.warn(`[${kind}] deliverable scorer failed (non-fatal):`, e?.message || e);
+        }
+
+        // (B1 / consistency) - prove the cognitive chain FIRED: each recommendation
+        // should reference an upstream theme or persona pain by name, not re-derive.
+        if (kind === 'recommendations') {
+            try { this._assertChainCoverage(result); } catch { /* non-fatal */ }
+        }
+
+        // (#4 / C1+C2 self-improvement) - wire the critic AND surface its actions.
+        try {
+            const content = JSON.stringify(result || {}).slice(0, 200_000);
+            const rec = discriminate({
+                artifactKind: kind,
+                artifactId: `${kind}_${Date.now()}`,
+                timestamp: Date.now(),
+                content,
+                activeConstraints: snapshotActiveConstraints(kind),
+            });
+            // C2 - loud signal when the loop self-corrects (retires a bad constraint).
+            if (rec && Array.isArray(rec.dismissedThisRun) && rec.dismissedThisRun.length) {
+                console.warn(`[self-improvement] auto-retired ${rec.dismissedThisRun.length} constraint(s) with persistently-negative impact: ${rec.dismissedThisRun.join(' | ')}`);
+            }
+        } catch (e: any) {
+            console.warn(`[${kind}] improvement discriminator failed (non-fatal):`, e?.message || e);
+        }
+    }
+
+    /**
+     * B1 (consistency) - runtime assertion that the cognitive chain actually fed
+     * the recommendations: count how many recs reference an upstream theme name or
+     * persona pain label. Injection (U1) puts the analysis in the prompt; THIS
+     * proves the model used it. Zero linkage => loud alert.
+     */
+    private _assertChainCoverage(result: any): void {
+        const recs = Array.isArray(result?.recommendations) ? result.recommendations : [];
+        if (!recs.length) return;
+        const names: string[] = [];
+        for (const t of (this.lastThemes || [])) {
+            const n = (t?.name || '').toString().toLowerCase().trim();
+            if (n.length > 4) names.push(n);
+        }
+        for (const p of (this.lastPersonas || [])) {
+            for (const pp of (p?.painPoints || [])) {
+                const l = (pp?.label || '').toString().toLowerCase().trim();
+                if (l.length > 4) names.push(l);
+            }
+        }
+        if (!names.length) return;   // standalone call, nothing to assert against
+        let linked = 0;
+        for (const r of recs) {
+            const blob = `${r?.title || ''} ${r?.description || ''} ${r?.evidenceBasis || ''}`.toLowerCase();
+            if (names.some(n => blob.includes(n))) linked++;
+        }
+        console.log(`[recommendations] cognitive chain coverage: ${linked}/${recs.length} recs reference an upstream theme/persona pain`);
+        if (linked === 0) {
+            console.warn(`[recommendations] CHAIN ALERT: no recommendation references any upstream theme/pain -- the chain may not be grounding the recs`);
+        }
+    }
+
     private async _enrichSingleThemeDepth(theme: any, idx: number): Promise<{
         subThemes: any[]; dimensions: any[]; contradictions: any[];
-        temporalArc?: any; implications: string[];
+        temporalArc?: any; interpretation: string[]; implications: string[];
     }> {
         const citations = Array.isArray(theme.citations) ? theme.citations : [];
 
         // Build per-citation context for Opus. Each citation contributes its
-        // verbatim quote, source name, and date — enough for Opus to reason
+        // verbatim quote, source name, and date - enough for Opus to reason
         // about temporal arc, contradictions, and dimensional variance without
         // needing the full chunk body.
         const citationLines = citations.slice(0, 30).map((c: any, ci: number) => {
@@ -1737,7 +2578,7 @@ Now extract the FULL theme set.`;
 
 You will receive ONE theme with its name, description, primary quote, and citations. You will return a JSON object with five depth fields. You DO NOT modify any of the breadth fields. You DO NOT invent citations beyond what was given.
 
-OUTPUT JSON SCHEMA — return EXACTLY this shape:
+OUTPUT JSON SCHEMA - return EXACTLY this shape:
 {
   "subThemes": [
     { "name": "string", "description": "1-2 sentences", "citationIndices": [0, 2] }
@@ -1758,9 +2599,9 @@ OUTPUT JSON SCHEMA — return EXACTLY this shape:
     "in2025_2026": "current state with citation reference",
     "forwardSignal": "1 sentence on near-future direction the evidence implies"
   },
-  "implications": [
-    "Verb-led sentence. Specific. Quantified where possible. Time-boxed where the evidence supports it."
-    // 2-4 entries. BAD: "Organizations should consider AI adoption". GOOD: "Pilot AI-summarized donor history in 1-2 gift officer pods within Q3, gating expansion on response-rate lift vs control."
+  "interpretation": [
+    "Analytical sentence: what this pattern MEANS for the research objective, why it matters, or what tension/implication it surfaces. NOT a recommendation, NOT an action."
+    // 2-4 entries. This is a FINDING's significance, not a to-do. BAD (recommendation, belongs in the recommendations deliverable): "Pilot AI-summarized donor history in 1-2 pods within Q3." GOOD (interpretation): "The convergence of practitioner frustration and vendor consolidation signals that buyers now treat manual workflows as the default failure mode, not an acceptable baseline."
   ]
 }
 
@@ -1775,14 +2616,18 @@ CRITICAL RULES:
   If the umbrella is "AI-driven donor matching reshapes major-gift workflows", sub-themes
   are concrete sub-patterns like "wealth-screening models replace manual prospect research",
   "predictive next-best-action queues for gift officers", "AI-summarized donor history
-  in CRM record views" — NOT generic restatements of the umbrella.
+  in CRM record views" - NOT generic restatements of the umbrella.
 - dimensions are EXPLICIT ANALYTICAL AXES with concrete values found in the evidence,
   NOT a flat tag list. Each axis is a way the theme varies.
 - contradictions are GENUINE conflicts in the evidence, not rhetorical foils.
-- implications are SPECIFIC, ACTIONABLE, and CONSULTANT-GRADE — verbs with quantification
-  or time-boxing where the evidence supports it.
+- interpretation explains what the pattern MEANS for the research objective - the
+  analytical significance of the finding. It is DESCRIPTIVE/ANALYTICAL, never
+  prescriptive. ABSOLUTELY NO recommendations, action verbs ("pilot", "implement",
+  "adopt", "launch", "should"), or to-dos - those belong in the recommendations
+  deliverable, not in a theme. A theme is a FINDING; this field explains why the
+  finding matters, not what to do about it.
 
-Return ONLY the JSON object — no preamble, no markdown fences, no trailing prose.`;
+Return ONLY the JSON object - no preamble, no markdown fences, no trailing prose.`;
 
         const userPrompt = `RESEARCH GOAL: "${this.goal}"
 
@@ -1799,7 +2644,7 @@ ${citationLines || '  (no citations attached)'}
 
 Now produce the depth JSON object per the schema in your system instructions.`;
 
-        // 2026-05-03 — Direct Gemini Pro call. Uses Gemini's native
+        // 2026-05-03 - Direct Gemini Pro call. Uses Gemini's native
         // responseMimeType:application/json for strict JSON output. The
         // prior Anthropic-routed implementation has been removed from this
         // branch (HiC-Gemini-Primary).
@@ -1813,7 +2658,8 @@ Now produce the depth JSON object per the schema in your system instructions.`;
                         parts: [{ text: `SYSTEM:\n${sysPrompt}\n\nUSER:\n${userPrompt}` }],
                     }],
                     config: {
-                        temperature: 0.2,
+                        temperature: 0,  // 2026-06-02 determinism-first: depth enrichment deterministic per theme
+                        seed: 42,
                         maxOutputTokens: 8000,
                         responseMimeType: 'application/json',
                     } as any,
@@ -1833,17 +2679,27 @@ Now produce the depth JSON object per the schema in your system instructions.`;
             depth = null;
         }
 
-        // Defensive defaults — model may omit empty arrays
+        // Defensive defaults - model may omit empty arrays.
+        // 2026-06-02 - DE-CONFLATION: the depth field is now `interpretation`
+        // (analytical significance of the finding), NOT `implications`
+        // (recommendations). Accept either key from the model for resilience,
+        // and expose it under BOTH `interpretation` (new) and `implications`
+        // (legacy renderers) so the analytical text renders without a rename
+        // sweep. The CONTENT is now interpretive, not prescriptive.
+        const interp = Array.isArray(depth?.interpretation)
+            ? depth.interpretation.filter((i: any) => typeof i === 'string')
+            : (Array.isArray(depth?.implications) ? depth.implications.filter((i: any) => typeof i === 'string') : []);
         return {
             subThemes: Array.isArray(depth?.subThemes) ? depth.subThemes : [],
             dimensions: Array.isArray(depth?.dimensions) ? depth.dimensions : [],
             contradictions: Array.isArray(depth?.contradictions) ? depth.contradictions : [],
             temporalArc: depth?.temporalArc && typeof depth.temporalArc === 'object' ? depth.temporalArc : undefined,
-            implications: Array.isArray(depth?.implications) ? depth.implications.filter((i: any) => typeof i === 'string') : [],
+            interpretation: interp,
+            implications: interp,
         };
     }
 
-    /** Tier C2 wiki persistence — synthesizes the theme output into a markdown
+    /** Tier C2 wiki persistence - synthesizes the theme output into a markdown
      * article and POSTs it to /api/wiki/write-article. Uses kind="synthesis"
      * so the chunked store auto-embeds it on next backfill. The article is
      * goal-aligned (relevanceScore=100, engagementGoal=this.goal) so future
@@ -1859,7 +2715,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
         // h2/h3 boundaries so each theme becomes its own retrievable chunk
         // (or a small handful of chunks for theme bodies that exceed 512 tok).
         const lines: string[] = [];
-        lines.push(`# Theme Synthesis — ${this.goal}\n`);
+        lines.push(`# Theme Synthesis - ${this.goal}\n`);
         lines.push(`Generated: ${ts}`);
         lines.push(`Themes: ${result.themes.length}`);
         if (result.methodology) lines.push(`\n## Methodology\n\n${result.methodology}`);
@@ -1878,7 +2734,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
             if (Array.isArray(theme.subThemes) && theme.subThemes.length > 0) {
                 lines.push(`\n### Sub-themes`);
                 for (const sub of theme.subThemes) {
-                    lines.push(`- **${sub.name}** — ${sub.description || ''}`);
+                    lines.push(`- **${sub.name}** - ${sub.description || ''}`);
                 }
             }
 
@@ -1886,7 +2742,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
                 lines.push(`\n### Dimensions`);
                 for (const dim of theme.dimensions) {
                     const vals = Array.isArray(dim.values) && dim.values.length > 0
-                        ? ` — ${dim.values.join(', ')}` : '';
+                        ? ` - ${dim.values.join(', ')}` : '';
                     lines.push(`- **${dim.axis}**${vals}`);
                 }
             }
@@ -1926,58 +2782,68 @@ Now produce the depth JSON object per the schema in your system instructions.`;
                     const sourceName = cit.sourceName || cit.sourceFile || 'unknown';
                     const text = (cit.text || '').slice(0, 200);
                     const url = cit.url ? ` ([source](${cit.url}))` : '';
-                    lines.push(`- *${sourceName}* — "${text}"${url}`);
+                    lines.push(`- *${sourceName}* - "${text}"${url}`);
                 }
             }
         }
 
         const body = lines.join('\n');
-        const url = `nxt://synthesis/themes/${slug}/${ts}`;  // synthetic URL — unique per run
+        const url = `nxt://synthesis/themes/${slug}/${ts}`;  // synthetic URL - unique per run
 
+        // 2026-06-05 - Migrated to networkResilient.ts::resilientFetch. The
+        // prior bare-fetch dropped the theme-synthesis write on
+        // `ERR_NETWORK_CHANGED` with no retry - theme work would have
+        // disappeared from the wiki silently if the user changed Wi-Fi
+        // mid-run. resilientFetch retries 4× with backoff + jitter.
         try {
-            await fetch(`${PROXY}/api/wiki/write-article`, {
+            const { resilientFetch } = await import('./networkResilient');
+            await resilientFetch(`${PROXY}/api/wiki/write-article`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     url,
                     content: body,
                     source: 'HiC Theme Synthesis',
-                    title: `Theme Synthesis (${result.themes.length} themes) — ${this.goal.slice(0, 80)}`,
+                    title: `Theme Synthesis (${result.themes.length} themes) - ${this.goal.slice(0, 80)}`,
                     date: isoDate,
-                    tier: 1,                      // synthesis is highest-fidelity content
+                    tier: 1,
                     method: 'synthesis',
                     kind: 'synthesis',
-                    relevanceScore: 100,           // goal-perfect by construction
+                    relevanceScore: 100,
                     relevanceReason: 'Theme synthesis directly addresses the engagement goal',
                     engagementGoal: this.goal,
                 }),
-                signal: AbortSignal.timeout(10_000),
+                label: 'wiki-write-article.theme-synthesis',
+                note: `themes=${result.themes.length} goal="${this.goal.slice(0, 60)}"`,
+                maxRetries: 4,
+                initialBackoffMs: 800,
+                timeoutMs: 90_000,
             });
             console.log(`[Themes] Persisted synthesis to wiki (kind=synthesis, ${result.themes.length} themes, ${(body.length / 1024).toFixed(1)}KB)`);
         } catch (err: any) {
-            console.warn('[Themes] wiki POST failed:', err?.message || err);
+            console.warn('[Themes] wiki POST exhausted:', err?.message || err);
         }
     }
 
     async generatePersonas(themesInput: any | undefined, feedback: string | undefined, onStream: (t: string) => void, onStatus: (s: string) => void): Promise<StepResult_Personas> {
         // =====================================================================
         // TWO-PHASE PERSONA GENERATION
-        // Phase A: Get persona roster (names, roles, core identity) — lightweight
-        // Phase B: Enrich each persona individually — one call per persona
+        // Phase A: Get persona roster (names, roles, core identity) - lightweight
+        // Phase B: Enrich each persona individually - one call per persona
         // This defeats Gemini's output truncation which kills single-call approaches.
         // =====================================================================
 
         onStatus("Phase A: Identifying Archetypes...");
 
         // --- PHASE A: Lightweight roster ---
-        const rosterPrompt = `STEP 3A: PERSONA ROSTER. Identify as many distinct archetypes as the evidence supports (minimum 4, maximum 8). Let the data determine the count — if the research reveals 7 distinct stakeholder groups, generate 7 personas.
+        const rosterPrompt = `STEP 3A: PERSONA ROSTER. Identify as many distinct archetypes as the evidence supports (minimum 4, maximum 8). Let the data determine the count - if the research reveals 7 distinct stakeholder groups, generate 7 personas.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
-Analyze ALL themes and evidence. Identify personas with DIFFERENT roles, perspectives, and segments. Do not force exactly 5 — use as many as the data warrants within the 4-8 range.
+Analyze ALL themes and evidence. Identify personas with DIFFERENT roles, perspectives, and segments. Do not force exactly 5 - use as many as the data warrants within the 4-8 range.
 ${feedback ? `USER FEEDBACK (follow this direction): "${feedback}"` : ''}
 
-CRITICAL — PERSONA NAMING RULE (NON-NEGOTIABLE):
+CRITICAL - PERSONA NAMING RULE (NON-NEGOTIABLE):
 The "name" field MUST be a descriptive archetype TITLE that captures behavior, attitude, or role posture. NEVER a personal name (no "Sarah Chen", "Marcus Johnson", "Maya Patel", etc.). NEVER a generic placeholder ("Primary Stakeholder", "Key User", "Persona 1").
 
 GOOD archetype titles: "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Skeptical Department Head", "Outcomes-Driven Advancement Officer", "Bureaucracy-Weary Faculty Advisor", "Risk-Averse Compliance Lead"
@@ -1990,9 +2856,9 @@ For each persona provide: name (archetype title per rule above), role (professio
 
 LANGUAGE RULES (apply to every field):
 - Plain, descriptive, professional. No jargon, no metaphors, no hyperbole.
-- No "...", no en-dashes (–), no em-dashes used as decoration.
+- No "...", no en-dashes (-), no em-dashes used as decoration.
 - No "navigate the complexities", "unlock potential", "in today's landscape", "transformative", "revolutionary", "robust", "seamless", "holistic".
-- Lead with what the persona does, feels, fears, or wants — in concrete terms.
+- Lead with what the persona does, feels, fears, or wants - in concrete terms.
 
 Output JSON.`;
 
@@ -2034,7 +2900,7 @@ Output JSON.`;
         onStream(`Identified ${roster.personas.length} archetypes: ${roster.personas.map(p => p.name).join(', ')}`);
 
         // --- PHASE B: Enrich each persona individually ---
-        // 2026-05-12 — R1 Verbalized Confidence per-persona. The existing
+        // 2026-05-12 - R1 Verbalized Confidence per-persona. The existing
         // `confidenceLevel` (EVIDENCED/PARTIALLY_EVIDENCED/HYPOTHESIS) is a
         // coarse rating retained for legacy consumers. The new
         // `selfAssessment` envelope adds the formal RI-trigger signals (overall
@@ -2069,6 +2935,17 @@ Output JSON.`;
 
         const enrichedPersonas: any[] = [];
 
+        // 2026-05-31 - Persona Phase B enrichment is a STANDALONE call that
+        // previously saw ONLY thin theme citations (3/theme, 150 chars). It got
+        // neither the objective anchor nor the objective-keyed goal-evidence pack
+        // that themes/recommendations now use, so persona depth was starved. Fetch
+        // the goal-evidence pack ONCE (cached) + the objective anchor and inject
+        // them into every enrich prompt so personas are grounded in real
+        // on-objective evidence, not just theme labels.
+        let personaGoalEvidence = '';
+        try { personaGoalEvidence = await this.getGoalEvidenceBlock(); } catch { /* best-effort */ }
+        const personaObjectiveAnchor = this.buildObjectiveAnchor();
+
         for (let i = 0; i < roster.personas.length; i++) {
             const p = roster.personas[i];
             onStatus(`Phase B: Enriching ${p.name} (${i + 1}/${roster.personas.length})...`);
@@ -2091,19 +2968,23 @@ Output JSON.`;
                 }
             }
             const evidenceContext = relevantEvidence.length > 0
-                ? `\nRESEARCH EVIDENCE (from ${themes.length} themes with ${relevantEvidence.length} citations — use these to ground the persona):\n${relevantEvidence.slice(0, 20).join('\n')}\n`
+                ? `\nRESEARCH EVIDENCE (from ${themes.length} themes with ${relevantEvidence.length} citations - use these to ground the persona):\n${relevantEvidence.slice(0, 20).join('\n')}\n`
                 : '';
+            // Phase 1 corpus-identity: the persona model can only quote VERBATIM
+            // from these citation snippets (it sees nothing else), so they must be
+            // in the verification corpus (closes the 0/26 persona grounding artifact).
+            if (relevantEvidence.length) this.registerGroundingText(relevantEvidence.slice(0, 20).join('\n'));
 
             // Load persona skill for enrichment
             let personaSkill = '';
             try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); personaSkill = await loadSkillPrompt('PERSONAS'); } catch (e) { /* skill unavailable */ }
 
-            // 2026-05-12 — R1 Verbalized Confidence on Phase B enrichment.
+            // 2026-05-12 - R1 Verbalized Confidence on Phase B enrichment.
             // Per-persona "claim" is the persona itself; per-array-item
             // confidence on motivations / painPoints / opportunities lets the
             // composite RI signal triangulate weak claims. Max-high-fraction
             // is 0.50 (stricter than themes' 0.60) because persona enrichment
-            // routinely overstates evidence — most claims are "medium" once
+            // routinely overstates evidence - most claims are "medium" once
             // honestly calibrated.
             const personaVcDirective = buildVerbalizedConfidenceDirective({
                 deliverable: 'persona enrichment',
@@ -2111,14 +2992,14 @@ Output JSON.`;
                 claimNounPlural: 'personas',
                 maxHighFraction: 0.50,
             });
-            const enrichPrompt = `${personaSkill ? `=== AGENT SKILL: PERSONA ARCHITECT ===\n${personaSkill}\n=== END SKILL ===\n\n` : ''}${personaVcDirective}\nYou are a CX persona researcher. Research goal: "${this.goal}".
+            const enrichPrompt = `${personaSkill ? `=== AGENT SKILL: PERSONA ARCHITECT ===\n${personaSkill}\n=== END SKILL ===\n\n` : ''}${personaObjectiveAnchor}${personaGoalEvidence ? personaGoalEvidence + '\n' : ''}${personaVcDirective}\nYou are a CX persona researcher. Research goal: "${this.goal}".
 
 ENRICH this persona with COMPLETE detail grounded in the RESEARCH EVIDENCE provided below. Every pain point, motivation, and opportunity must cite a specific source. Output a JSON object with ALL fields populated.
 
 PERSONA: "${p.name}"
 Role: ${p.role}. Demographics: ${p.demographics || 'N/A'}. Core tension: ${p.coreTension || 'N/A'}.
 ${evidenceContext}
-REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
+REQUIRED JSON FIELDS (populate EVERY field - empty fields are a failure):
 - "bio": 2-3 sentences describing this persona's relationship to the research domain. Reference specific findings from the evidence.
 - "jtbd": UNDER 25 WORDS. Canonical format: "When [specific situation], I want [concrete capability], so I can [measurable outcome]." Cut every adjective that doesn't add specificity.
 - "goals": { "lifeGoal": "one sentence", "experienceGoal": "one sentence", "functionalGoal": "one sentence" }
@@ -2139,7 +3020,15 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
 - "evidenceCount": actual number of distinct sources cited across all fields`;
 
             try {
-                // Standalone call bypasses the polluted chat session
+                // Standalone call bypasses the polluted chat session.
+                // 2026-06-06 - Bug 2 fix from architecture audit: was using
+                // gemini-3.5-flash which 400'd with INVALID_ARGUMENT on
+                // EVERY persona enrichment (5/5 failures observed in the
+                // 2026-06-06 console log, causing personas to fall back to
+                // roster data with 34/100 quality + 0/4 grounded quotes).
+                // Switching to gemini-2.5-flash (stable + accepts the
+                // responseSchema shape). If the 3.5-flash regression is
+                // resolved upstream, this can flip back via aiRouter.
                 const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
                 const enrichResponse = await withRetry(() => standaloneAi.models.generateContent({
                     model: 'gemini-3.5-flash',
@@ -2175,7 +3064,7 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
             }
         }
 
-        // 2026-05-12 — R1 calibration inspection (Phase B). The enrichSchema
+        // 2026-05-12 - R1 calibration inspection (Phase B). The enrichSchema
         // emits a per-persona selfAssessment envelope; we normalize and log
         // the distribution of overallConfidence across the persona set. If
         // every persona returns "high" we'll see calibration=COLLAPSED in the
@@ -2299,7 +3188,7 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
             console.warn('[Personas] reproducibility stamp skipped:', err?.message || err);
         }
 
-        // 2026-05-25 — Expert panel: persona-architect + verbatim-quote-auditor
+        // 2026-05-25 - Expert panel: persona-architect + verbatim-quote-auditor
         // (verifies persona.quotes are corpus-grounded per learned constraint
         // "use verbatim excerpts; generic quotes lack authenticity") +
         // evidence-quality-auditor + contradiction-finder.
@@ -2311,12 +3200,16 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
             });
             if (panelResult?.result) {
                 onStream(`Persona expert panel: ${panelResult.panel_summary.experts_fired.length} critics fired, ${panelResult.panel_summary.critics_with_edits.length} produced edits ($${panelResult.total_cost_usd.toFixed(3)})`);
+                try { this.lastPersonas = Array.isArray(panelResult.result.personas) ? panelResult.result.personas : []; } catch { /* noop */ }  // U1
+                this._finalizeDeliverable('personas', panelResult.result);
                 return panelResult.result;
             }
         } catch (panelErr: any) {
             console.warn('[Personas] expert panel skipped:', panelErr?.message || panelErr);
         }
 
+        try { this.lastPersonas = Array.isArray(finalResult.personas) ? finalResult.personas : []; } catch { /* noop */ }  // U1
+        this._finalizeDeliverable('personas', finalResult);
         return finalResult;
     }
 
@@ -2325,13 +3218,33 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('STRATEGIC_RECS'); } catch (e) { /* skill unavailable */ }
 
         const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Strategic Recommendations', minDistinctSources: 8 });
+        this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: recs quote from this catalog
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGY AUTHOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
+        // U1 (cognitive chain) - inject the run's ACTUAL themes + persona pain points
+        // so recommendations map to the real upstream analysis instead of re-deriving
+        // (and possibly fabricating) them. The prompt's "review ALL themes and persona
+        // pain points" instruction was previously unbacked by any data. Empty -> omitted.
+        // 2026-06-02 - consolidated onto the shared intelligenceShaping helper
+        // (shapeUpstreamForRecs), so the staged engine is now the THIRD surface
+        // backed by the single canonical shaper rather than its own inline copy.
+        let chainBlock = '';
+        try {
+            chainBlock = shapeUpstreamForRecs(this.lastThemes, this.lastPersonas);
+            if (chainBlock) {
+                console.log(`[Recommendations] cognitive chain: injected upstream analysis (${(this.lastThemes || []).length} themes, ${(this.lastPersonas || []).length} personas)`);
+            } else {
+                console.log('[Recommendations] cognitive chain: no upstream themes/personas on session (standalone call) - block omitted');
+            }
+        } catch (e: any) {
+            console.warn('[Recommendations] chain block build failed (non-fatal):', e?.message || e);
+        }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGY AUTHOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${chainBlock}STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
 
 METHODOLOGY:
-1. First, review ALL themes and ALL persona pain points identified in previous steps
+1. First, review ALL themes and ALL persona pain points identified in previous steps (listed in the UPSTREAM ANALYSIS block above when present)
 2. For EACH major problem/challenge/pain point found in the research, generate a targeted strategic recommendation
 3. Do NOT generate generic platitudes. Each recommendation must solve a SPECIFIC problem identified in the data.
 
@@ -2358,10 +3271,10 @@ GOOD EXAMPLES:
 - "Deploy predictive donor scoring to replace manual prospect identification -- research shows gift officers spend 40% of time on low-potential prospects [CHUNK_012]"
 - "Consolidate 15 departmental email tools into unified CRM to eliminate the 'invisible constituent' problem identified across 4 sources [CHUNK_003, CHUNK_017]"
 
-ANTI-FABRICATION (composer rule 8 — applies to every recommendation):
+ANTI-FABRICATION (composer rule 8 - applies to every recommendation):
 - NEVER invent percentages, dollar amounts, dates, or named entities. If a number is not in the evidence catalog below, do NOT include it. Either find an evidenced number or omit the metric.
 - "Reduce churn by 15%" is only acceptable if a source in the catalog supports the 15% figure. Otherwise rewrite directionally, e.g., "Reduce churn measurably."
-- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any user-facing field. The output is a finished consulting deliverable, not an annotated draft. If you cannot evidence a claim, omit the claim — do not announce its absence.
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any user-facing field. The output is a finished consulting deliverable, not an annotated draft. If you cannot evidence a claim, omit the claim - do not announce its absence.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2445,7 +3358,7 @@ Output JSON.`;
         // Validate
         const validation = validateDeliverableOutput(result, 'recommendations');
         if (!validation.valid && !feedback) {
-            // 2026-05-23 — P0.2 — Reinforcement Inference. Anchor the prior
+            // 2026-05-23 - P0.2 - Reinforcement Inference. Anchor the prior
             // answer in the re-ask so the regen revises only the failing items
             // instead of starting from scratch.
             const sig = {
@@ -2473,31 +3386,31 @@ Output JSON.`;
         // STRAT-01: Generate Rumelt-anchored strategy frame in second pass.
         // The recommendations become the "Coherent Actions" section of Rumelt's Kernel.
         // Phase 2 boilerplate (Vision/Mission/Governance Model/Communication Plan/
-        // Change Management) was removed 2026-05-05 — those are strategy-document
+        // Change Management) was removed 2026-05-05 - those are strategy-document
         // filler, not research output. The strategic-report-writer manifest
         // covers the same ground with evidence-anchored sections instead.
         const stratPrompt = `STEP: STRATEGY FRAME (research-report style, not corporate-strategy-doc filler). You have generated ${result.recommendations.length} strategic recommendations. Wrap them in a Rumelt-anchored strategy frame that an executive reads BEFORE the recommendation list.
 
 RUMELT'S KERNEL (non-negotiable):
 1. DIAGNOSIS: Name THE central challenge. Be specific and evidenced: "[Subject] faces [problem] because [root cause], costing [quantified impact, cited]."
-2. GUIDING POLICY: State the strategic approach. Not a goal — a DECISION: "We will [approach], which means choosing [X] over [Y]."
+2. GUIDING POLICY: State the strategic approach. Not a goal - a DECISION: "We will [approach], which means choosing [X] over [Y]."
 3. COHERENT ACTIONS: The ${result.recommendations.length} recommendations you already generated, grouped into 3-5 MECE strategic pillars.
 
-MANDATORY SECTIONS (generate EXACTLY these — do NOT add Vision/Mission/Governance Model/Communication Plan/Change Management; those are filler):
-1. Executive Summary (SCR format — Situation, Complication, Resolution — max 250 words, every claim cited).
-2. Diagnosis (Rumelt) — what is broken and WHY, with verbatim evidence from the catalog.
-3. Guiding Policy (Rumelt) — the strategic choice that excludes alternatives.
+MANDATORY SECTIONS (generate EXACTLY these - do NOT add Vision/Mission/Governance Model/Communication Plan/Change Management; those are filler):
+1. Executive Summary (SCR format - Situation, Complication, Resolution - max 250 words, every claim cited).
+2. Diagnosis (Rumelt) - what is broken and WHY, with verbatim evidence from the catalog.
+3. Guiding Policy (Rumelt) - the strategic choice that excludes alternatives.
 4. Strategic Pillars (3-5 MECE pillars; each pillar is a problem space, not a department).
 5. Prioritized Initiatives (group the ${result.recommendations.length} recommendations under pillars; each gets impact + evidence).
 6. Quick Wins (3-5 actions achievable in 90 days, each tied to a recommendation already generated).
-7. Risk Register (top 5 risks with probability, impact, mitigation — each risk evidenced).
-8. Measurement Framework (3-5 leading and lagging KPIs per pillar; each KPI must reference a baseline from the evidence catalog. If a baseline is missing, write the KPI directionally — e.g., "Increase advisor response rate" — without inventing a number).
+7. Risk Register (top 5 risks with probability, impact, mitigation - each risk evidenced).
+8. Measurement Framework (3-5 leading and lagging KPIs per pillar; each KPI must reference a baseline from the evidence catalog. If a baseline is missing, write the KPI directionally - e.g., "Increase advisor response rate" - without inventing a number).
 
 For sections where evidence is insufficient, write the section narrowly around what IS evidenced, or omit the section entirely. Do NOT include placeholder or QA-annotation language.
 
 ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8):
 - NEVER invent percentages, dollar amounts, or dates. If the catalog does not contain a number for a KPI baseline, write the section without the number.
-- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any user-facing field. The output is a finished consulting deliverable read by executives — not an annotated draft. If a claim is not evidenced, omit the claim, not write a self-reference about its absence.
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any user-facing field. The output is a finished consulting deliverable read by executives - not an annotated draft. If a claim is not evidenced, omit the claim, not write a self-reference about its absence.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2561,6 +3474,7 @@ Output JSON.`;
             console.warn('[Recommendations] reproducibility stamp skipped:', err?.message || err);
         }
 
+        this._finalizeDeliverable('recommendations', result);
         return result;
     }
 
@@ -2577,7 +3491,7 @@ Output JSON.`;
 
         const prompt = `STEP: CROSS-CUTTING STRATEGIC SYNTHESIS. You are a senior strategy partner performing a meta-analysis across ALL deliverables generated so far.
 
-PURPOSE: Look across ALL themes, ALL personas, and ALL recommendations SIMULTANEOUSLY to identify 3-5 cross-cutting strategic insights that no single deliverable captures on its own. These are the "hidden connections" — patterns that only emerge when you hold the entire body of work in view at once.
+PURPOSE: Look across ALL themes, ALL personas, and ALL recommendations SIMULTANEOUSLY to identify 3-5 cross-cutting strategic insights that no single deliverable captures on its own. These are the "hidden connections" - patterns that only emerge when you hold the entire body of work in view at once.
 
 INPUTS TO SYNTHESIZE:
 - THEMES: ${themeNames}
@@ -2632,12 +3546,13 @@ Output JSON.`;
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('JOURNEY_MAP'); } catch (e) { /* skill unavailable */ }
 
         const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Service Blueprint', minDistinctSources: 8 });
+        this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: journey/blueprint quotes from this catalog
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-12 — R1 Verbalized Confidence on journey/blueprint stages.
+        // 2026-05-12 - R1 Verbalized Confidence on journey/blueprint stages.
         // Per-stage claims (painPoint, fail_point, emotion intensity) often
-        // extrapolate beyond the corpus — VC surfaces which stages the model
+        // extrapolate beyond the corpus - VC surfaces which stages the model
         // itself flagged as weakest so the RI trigger can re-ask them.
         const journeyVcDirective = buildVerbalizedConfidenceDirective({
             deliverable: 'service blueprint',
@@ -2649,7 +3564,7 @@ Output JSON.`;
 
 SWIMLANE CELL CONTENT (B-01): Every intersection of [Persona] x [Stage] MUST have content.
 For each cell, describe: what this persona does at this stage, their emotional state, and their key need.
-If a persona is NOT involved at a stage, write "Not involved" — NEVER leave a cell empty.
+If a persona is NOT involved at a stage, write "Not involved" - NEVER leave a cell empty.
 Empty cells in a blueprint are worse than no blueprint at all.
 
 FAIL POINTS (B-03): For each stage, identify the most likely failure mode.
@@ -2661,14 +3576,14 @@ List the specific systems, platforms, and tools that support each stage.
 Example: "Blackbaud Raiser's Edge NXT, SIS integration, AI donor prediction model"
 
 EMOTION LINE: Each stage must have an emotion field with: emotion name AND intensity score (1-5).
-Not just colored dots — named emotions with scores.
+Not just colored dots - named emotions with scores.
 
 STEP: PERSONA-DRIVEN SERVICE BLUEPRINT. You are a senior service designer creating an evidence-based, persona-aware service blueprint.
 
 CRITICAL: This blueprint must map how EACH PERSONA (identified in Step 3) experiences the service differently. A university president navigates the journey differently than a frontline fundraiser or a donor.
 
 METHODOLOGY:
-1. Review ALL personas from Step 3 — their roles, pain points, motivations, and tasks
+1. Review ALL personas from Step 3 - their roles, pain points, motivations, and tasks
 2. Map 5-8 chronological STAGES of the service lifecycle
 3. For EACH stage, document how EACH actor (persona) experiences that stage differently
 
@@ -2694,41 +3609,41 @@ FOR EACH STAGE, provide ALL of these fields:
 - backstageAction: Hidden operations (data processing, AI scoring, internal handoffs)
 - supportProcesses: Infrastructure and systems enabling this stage
 - physicalEvidence: What actors see, hold, or receive (emails, reports, dashboards, proposals)
-- emotion: "Delighted" | "Positive" | "Neutral" | "Negative" | "Frustrated" — justified by evidence
+- emotion: "Delighted" | "Positive" | "Neutral" | "Negative" | "Frustrated" - justified by evidence
 - painPoint: Specific friction with [CHUNK_XXX] citation. What breaks, fails, or frustrates?
 - opportunityForImprovement: What could be done better (linked to recommendations from Step 5)
 - valueProposition: What value is delivered or promised to the actor at this stage
-- momentOfTruth: Is this a critical make-or-break moment? (true/false) — moments where the experience succeeds or fails
+- momentOfTruth: Is this a critical make-or-break moment? (true/false) - moments where the experience succeeds or fails
 
 EVIDENCE GROUNDING:
 - EVERY painPoint, actorBehaviors, and emotion must cite [CHUNK_XXX]
 - actors must reference persona names from Step 3
 - opportunityForImprovement should reference recommendations from Step 5
 - citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Higher Ed Dive", "Reddit: r/highereducation", "OpenAlex: Jones 2024")
-- evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage — quote data points, articles, or posts
+- evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage - quote data points, articles, or posts
 
-ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number entirely — describe the failure mode qualitatively. Made-up "42% drop off" anywhere is grounds for rejection. Never write QA-style annotations, debug labels, or "TBD" placeholders in any field — the output is a finished deliverable, not a draft.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number entirely - describe the failure mode qualitatively. Made-up "42% drop off" anywhere is grounds for rejection. Never write QA-style annotations, debug labels, or "TBD" placeholders in any field - the output is a finished deliverable, not a draft.
 
-JOURNEY MAPPER DEPTH (2026-05-25 — ported from internal-solutions-journeymapper):
+JOURNEY MAPPER DEPTH (2026-05-25 - ported from internal-solutions-journeymapper):
 The journey artifact must read as a finished consulting report, not a JSON dump. Each stage carries:
-  - VERBATIM voiceQuote pulled directly from the corpus, with sourceAttribution (e.g., "r/cscareerquestions, 2024-09"). If no usable verbatim quote exists, OMIT the field — never fabricate.
-  - emotionIntensity on a 0–100 scale (NOT 1–5): 0–20 very low, 21–40 low, 41–60 medium, 61–80 high, 81–100 very high.
-  - namedTouchpoints array — each entry is { channel: "DIGITAL|IN-PERSON|PHONE|MAIL|SOCIAL|PORTAL|EMAIL", name: "Specific system/interaction", importance: 1–10 }. Importance from corpus where possible.
-  - confidence: "verified" | "emerging" | "hypothesis" — calibrated to evidence strength.
+  - VERBATIM voiceQuote pulled directly from the corpus, with sourceAttribution (e.g., "r/cscareerquestions, 2024-09"). If no usable verbatim quote exists, OMIT the field - never fabricate.
+  - emotionIntensity on a 0-100 scale (NOT 1-5): 0-20 very low, 21-40 low, 41-60 medium, 61-80 high, 81-100 very high.
+  - namedTouchpoints array - each entry is { channel: "DIGITAL|IN-PERSON|PHONE|MAIL|SOCIAL|PORTAL|EMAIL", name: "Specific system/interaction", importance: 1-10 }. Importance from corpus where possible.
+  - confidence: "verified" | "emerging" | "hypothesis" - calibrated to evidence strength.
 
 JOURNEY-LEVEL DASHBOARD (above the per-stage grid). The output ALSO carries:
   - journeyType: one of "customer-purchase" | "educational" | "coop" | "healthcare" | "employee" | "software-user" | "general", detected from corpus term density.
-  - personas: 2–5 goals/JTBD-first persona summaries (NOT demographics-first). Each = { name, role, characterization }.
-  - overallPainPoints: 3–5 journey-level patterns (cross-cutting, NOT per-stage). Each carries inline source citation.
-  - overallOpportunities: 3–5 high-leverage strategic opportunities. These live HERE, not in body cells.
-  - kpiTiles: 3–5 tiles. Each = { value, label, supportingPhase }. value is a real corpus number; if none exists, use a qualitative word in display type ("MULTIPLE", "FRAGMENTED") rather than fabricate.
+  - personas: 2-5 goals/JTBD-first persona summaries (NOT demographics-first). Each = { name, role, characterization }.
+  - overallPainPoints: 3-5 journey-level patterns (cross-cutting, NOT per-stage). Each carries inline source citation.
+  - overallOpportunities: 3-5 high-leverage strategic opportunities. These live HERE, not in body cells.
+  - kpiTiles: 3-5 tiles. Each = { value, label, supportingPhase }. value is a real corpus number; if none exists, use a qualitative word in display type ("MULTIPLE", "FRAGMENTED") rather than fabricate.
 
 DEPTH FLOORS (self-check before emitting):
   - ≥40% of stages have voiceQuote (verbatim)
   - ≥60% of stages have at least one namedTouchpoint
   - ≥80% of stages have emotionIntensity + named emotion
   - ≥3 distinct named sources across the whole artifact
-If any floor unmet, REGENERATE — never pad with fabricated content.
+If any floor unmet, REGENERATE - never pad with fabricated content.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2738,7 +3653,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                // 2026-05-25 — JM-depth dashboard fields. journeyType anchors phase
+                // 2026-05-25 - JM-depth dashboard fields. journeyType anchors phase
                 // scaffold; personas/overallPainPoints/overallOpportunities/kpiTiles
                 // are the journey-level synthesis that the cells roll up into.
                 journeyType: { type: Type.STRING },
@@ -2768,7 +3683,7 @@ Output JSON.`;
                     actorBehaviors: { type: Type.STRING },
                     customerAction: { type: Type.STRING },
                     touchpoint: { type: Type.STRING },
-                    // 2026-05-25 — JM-depth: namedTouchpoints array supplements the legacy
+                    // 2026-05-25 - JM-depth: namedTouchpoints array supplements the legacy
                     // scalar touchpoint field with structured channel + importance.
                     namedTouchpoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
                         channel: { type: Type.STRING },
@@ -2780,12 +3695,12 @@ Output JSON.`;
                     supportProcesses: { type: Type.STRING },
                     physicalEvidence: { type: Type.STRING },
                     emotion: { type: Type.STRING },
-                    // 2026-05-25 — JM-depth: emotionIntensity is now 0–100 (was 1–5).
-                    // Backward-compat: renderer treats <=5 as 1–5 scale, >5 as 0–100.
+                    // 2026-05-25 - JM-depth: emotionIntensity is now 0-100 (was 1-5).
+                    // Backward-compat: renderer treats <=5 as 1-5 scale, >5 as 0-100.
                     emotionIntensity: { type: Type.INTEGER },
                     emotionReason: { type: Type.STRING },
                     painPoint: { type: Type.STRING },
-                    // 2026-05-25 — JM-depth: voiceQuote is verbatim corpus text;
+                    // 2026-05-25 - JM-depth: voiceQuote is verbatim corpus text;
                     // sourceAttribution names the specific source + date if known.
                     voiceQuote: { type: Type.STRING },
                     sourceAttribution: { type: Type.STRING },
@@ -2812,7 +3727,7 @@ Output JSON.`;
         };
         const result = await this.executeStepResilient<StepResult_JourneyMap>(prompt, schema, [], onStream, 'ServiceBlueprint');
         if (!result.stages) result.stages = [];
-        // 2026-05-12 — R1 calibration inspection on journey stages.
+        // 2026-05-12 - R1 calibration inspection on journey stages.
         const journeyAssessment = normalizeSelfAssessment((result as any).selfAssessment);
         if (journeyAssessment) (result as any).selfAssessment = journeyAssessment; else delete (result as any).selfAssessment;
         inspectCalibration('journey-map', result.stages as any[], journeyAssessment, 0.55);
@@ -2841,7 +3756,7 @@ Output JSON.`;
         // Validate
         const validation = validateDeliverableOutput(result, 'journey_map');
         if (!validation.valid && !feedback) {
-            // 2026-05-23 — P0.2 — Reinforcement Inference for journey map.
+            // 2026-05-23 - P0.2 - Reinforcement Inference for journey map.
             const sig = {
                 overallConfidence: (result as any).selfAssessment?.overallConfidence || 'MEDIUM',
                 leastDefensibleClaims: (result as any).selfAssessment?.leastDefensibleClaims || [],
@@ -2864,11 +3779,11 @@ Output JSON.`;
             return this.generateJourneyMap(reinforcedFeedback, onStream);
         }
 
-        // 2026-05-25 — Expert-panel pre-emit pass (JM-depth uplift). Routes the
+        // 2026-05-25 - Expert-panel pre-emit pass (JM-depth uplift). Routes the
         // journey through journey-illustrator + verbatim-quote-auditor +
         // evidence-quality-auditor + pre-mortem critics with the criticRevise
         // loop applying their edits before ship. Wrapped in try/catch so a
-        // panel failure (e.g., proxy 429 storm) degrades gracefully — the
+        // panel failure (e.g., proxy 429 storm) degrades gracefully - the
         // journey still ships, just without the panel's improvements.
         try {
             const { runExpertPanel } = await import('./artifactExpertPanel');
@@ -2878,6 +3793,7 @@ Output JSON.`;
             });
             if (panelResult?.result) {
                 onStream(`Expert panel: ${panelResult.panel_summary.experts_fired.length} critics fired, ${panelResult.panel_summary.critics_with_edits.length} produced edits ($${panelResult.total_cost_usd.toFixed(3)})`);
+                this._finalizeDeliverable('journey', panelResult.result);
                 return panelResult.result;
             }
         } catch (panelErr: any) {
@@ -2886,6 +3802,7 @@ Output JSON.`;
 
         // NXT Design System: No decorative AI diagrams. Service blueprints are rendered
         // as structured SVG from the stage data by the frontend component.
+        this._finalizeDeliverable('journey', result);
         return result;
     }
 
@@ -2902,7 +3819,7 @@ Output JSON.`;
      */
     async generateOrgChart(feedback: string | undefined, onStream: (t: string) => void): Promise<{ orgChart: any }> {
         const now = Date.now();
-        const prompt = `STEP: ORGANIZATIONAL CHART. You are an organizational designer. Based on the research corpus and themes already reviewed in this session, identify the organizational structure described or implied — reporting lines, departments, key roles, vacancies if mentioned.
+        const prompt = `STEP: ORGANIZATIONAL CHART. You are an organizational designer. Based on the research corpus and themes already reviewed in this session, identify the organizational structure described or implied - reporting lines, departments, key roles, vacancies if mentioned.
 
 If the corpus describes a specific organization, map what it says explicitly.
 If the corpus does NOT describe a specific org, infer a plausible structure from the themes, personas, and research context. NEVER return an empty nodes array.
@@ -2922,7 +3839,7 @@ ORG CHART REQUIREMENTS:
 - rootIds: array of ids for top-level nodes (usually 1 entry; multiple allowed for federated structures)
 - INTEGRITY: Every id in rootIds MUST exist in nodes[]. Every id in any directReports[] MUST exist in nodes[]. No dangling references.
 - citations: 2-6 evidence objects. Each has label (fact being cited, e.g. "CRO reports to CEO") and source (named source like "Higher Ed Dive" or the uploaded document name).
-- title: Action-title describing the org/division (e.g. "University Advancement — 12 roles, 2 vacancies in major gifts").
+- title: Action-title describing the org/division (e.g. "University Advancement - 12 roles, 2 vacancies in major gifts").
 
 OUTPUT CONSTANTS (must be exactly as specified):
 - id: "o_${now}"
@@ -2999,7 +3916,7 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-23 — P0.1: Chunked-first PRD generation. The 16-section Cagan/
+        // 2026-05-23 - P0.1: Chunked-first PRD generation. The 16-section Cagan/
         // SVPG PRD is split into 4 section families (Problem/Solution/Execution/
         // Risk) generated in parallel. Single-shot path historically truncated
         // around section 8-12 on dense PRDs. Chunker output is mapped to the
@@ -3084,7 +4001,7 @@ Output JSON.`;
             // Validate
             const prdValidation = validateDeliverableOutput(result, 'prd');
             if (!prdValidation.valid && !feedback) {
-                // 2026-05-26 — Wired the last from-scratch regen site to use
+                // 2026-05-26 - Wired the last from-scratch regen site to use
                 // the reinforcement-inference wrapper. Anchors prior PRD into
                 // the re-ask so the model preserves the items it got right.
                 const sig = {
@@ -3116,9 +4033,9 @@ Output JSON.`;
             // Fall through to single-shot below.
         }
 
-        // 2026-05-12 — R1 Verbalized Confidence on PRD features. PRD priorities
+        // 2026-05-12 - R1 Verbalized Confidence on PRD features. PRD priorities
         // (Must/Should/Could/Won't) and acceptance criteria are exactly the
-        // claims that benefit from explicit self-assessment — the model knows
+        // claims that benefit from explicit self-assessment - the model knows
         // which features are reaching beyond evidence.
         const prdVcDirective = buildVerbalizedConfidenceDirective({
             deliverable: 'PRD',
@@ -3137,14 +4054,14 @@ Output JSON.`;
 8. Technical constraints and dependencies
 9. Wireframes/mockups (describe conceptually)
 10. Data requirements and privacy considerations
-11. Release/launch criteria — phased rollout plan
+11. Release/launch criteria - phased rollout plan
 12. Risk assessment with mitigations
 13. Assumptions and open questions (TBD placeholders)
 14. Out of scope / non-goals (prevents scope creep)
 15. Timeline and milestones
 16. Stakeholder sign-off matrix
 
-For sections without sufficient data, write the section narrowly around what IS evidenced — do NOT pad with generic content, and do NOT write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation visible to readers. If a section truly has no evidenced content, omit it. The output is a finished deliverable, not an annotated draft.
+For sections without sufficient data, write the section narrowly around what IS evidenced - do NOT pad with generic content, and do NOT write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation visible to readers. If a section truly has no evidenced content, omit it. The output is a finished deliverable, not an annotated draft.
 Use MoSCoW priority on ALL features: Must-have | Should-have | Could-have | Won't-have
 
 STEP: PRODUCT REQUIREMENTS DOCUMENT. You are a senior product manager translating research insights into actionable requirements.
@@ -3158,7 +4075,7 @@ PURPOSE & OBJECTIVES: 3-5 sentences explaining:
 - WHO benefits (reference specific personas)
 - HOW success will be measured (quantifiable metrics)
 
-SUCCESS METRICS: 3-5 measurable KPIs tied to research findings (e.g., "Reduce prospect identification time by 40% — addresses [CHUNK_XXX] finding")
+SUCCESS METRICS: 3-5 measurable KPIs tied to research findings (e.g., "Reduce prospect identification time by 40% - addresses [CHUNK_XXX] finding")
 
 FEATURES (MoSCoW Prioritization):
 - Generate features for EVERY major pain point identified across all personas
@@ -3168,7 +4085,7 @@ FEATURES (MoSCoW Prioritization):
 - Won't-have (this release): Features explicitly deferred with rationale
 
 FOR EACH FEATURE:
-- name: Specific capability (NOT "Analytics Dashboard" — say "Real-Time Donor Engagement Scoring Dashboard")
+- name: Specific capability (NOT "Analytics Dashboard" - say "Real-Time Donor Engagement Scoring Dashboard")
 - priority: Must-have / Should-have / Could-have / Won't-have
 - description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Must cite [CHUNK_XXX].
 - acceptanceCriteria: 2-3 testable conditions for "done"
@@ -3181,7 +4098,7 @@ ANTI-PATTERNS:
 - Missing acceptance criteria
 - Features without citations or evidence basis
 
-ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, dollar amounts, baselines, or competitor metrics in success metrics. If the catalog has no baseline for a target KPI, write the metric directionally without the number (e.g., "Reduce manual triage time"). Made-up "Reduce X by 40%" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any field — the output is a finished deliverable, not an annotated draft.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, dollar amounts, baselines, or competitor metrics in success metrics. If the catalog has no baseline for a target KPI, write the metric directionally without the number (e.g., "Reduce manual triage time"). Made-up "Reduce X by 40%" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any field - the output is a finished deliverable, not an annotated draft.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -3207,7 +4124,7 @@ Output JSON.`;
         // PHASE 1: Generate PRD framework (title, purpose, metrics, sections)
         onStream('Phase 1: Generating PRD framework and sections...');
         const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream);
-        // 2026-05-12 — R1 calibration inspection on PRD features.
+        // 2026-05-12 - R1 calibration inspection on PRD features.
         const prdAssessment = normalizeSelfAssessment((result as any).selfAssessment);
         if (prdAssessment) (result as any).selfAssessment = prdAssessment; else delete (result as any).selfAssessment;
         inspectCalibration('prd', (result as any)?.prd?.features as any[] || [], prdAssessment, 0.55);
@@ -3229,7 +4146,7 @@ Purpose: ${result.prd.purposeAndObjectives}
 Success Metrics: ${result.prd.successMetrics.join('; ')}
 
 FOR EACH FEATURE:
-- name: Specific capability (NOT "Analytics Dashboard" — say "Real-Time Donor Engagement Scoring Dashboard")
+- name: Specific capability (NOT "Analytics Dashboard" - say "Real-Time Donor Engagement Scoring Dashboard")
 - priority: Must-have / Should-have / Could-have / Won't-have
 - description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Cite evidence.
 - acceptanceCriteria: 2-3 testable conditions (Given/When/Then)
@@ -3273,7 +4190,7 @@ Output JSON.`;
         // Validate and auto-retry if evidence is thin
         const prdValidation = validateDeliverableOutput(result, 'prd');
         if (!prdValidation.valid && !feedback) {
-            // 2026-05-23 — P0.2 — anchored re-ask for PRD on validation failure.
+            // 2026-05-23 - P0.2 - anchored re-ask for PRD on validation failure.
             const sig = {
                 overallConfidence: (result as any).selfAssessment?.overallConfidence || 'MEDIUM',
                 leastDefensibleClaims: (result as any).selfAssessment?.leastDefensibleClaims || [],
@@ -3305,7 +4222,7 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-23 — P0.1: Chunked-first generation per the chunking plan.
+        // 2026-05-23 - P0.1: Chunked-first generation per the chunking plan.
         // Roadmap chunks across 3 horizons (NOW / NEXT / LATER) in parallel,
         // so each call emits a tight ~5-8K-token output instead of the prior
         // single-shot ~15-25K-token call that frequently truncated at horizon
@@ -3354,7 +4271,7 @@ Output JSON.`;
                         if (enriched.successMetric && !item.successMetric) item.successMetric = enriched.successMetric;
                         if (enriched.dependencies && !item.dependencies) item.dependencies = enriched.dependencies;
                     } catch (e) {
-                        // P0.4 — surface enrichment failures instead of silent absorption
+                        // P0.4 - surface enrichment failures instead of silent absorption
                         onStream(`[Roadmap] enrichment failed for "${item.initiative.slice(0, 40)}": ${(e as any)?.message || e}`);
                     }
                 }
@@ -3363,7 +4280,7 @@ Output JSON.`;
             // Validate the chunked result before returning
             const roadmapValidation = validateDeliverableOutput(result, 'roadmap');
             if (!roadmapValidation.valid && !feedback) {
-                // P0.2 — anchored re-ask for chunked roadmap on validation failure.
+                // P0.2 - anchored re-ask for chunked roadmap on validation failure.
                 const sig = {
                     overallConfidence: (result as any).selfAssessment?.overallConfidence || 'MEDIUM',
                     leastDefensibleClaims: (result as any).selfAssessment?.leastDefensibleClaims || [],
@@ -3385,18 +4302,18 @@ Output JSON.`;
             }
             return result;
         } catch (chunkErr: any) {
-            // P0.4 — surface chunker failure, do NOT silently fall back to single-shot.
+            // P0.4 - surface chunker failure, do NOT silently fall back to single-shot.
             // The error propagates so the caller (App.tsx) shows a real failure card
             // instead of shipping a partial roadmap as if it succeeded.
             const msg = chunkErr?.message || String(chunkErr);
             onStream(`[Roadmap] chunked generation failed: ${msg}. Falling back to single-shot path (KNOWN truncation risk).`);
             console.warn('[Roadmap] chunked path failed, using single-shot fallback (this surfaces to user):', chunkErr);
             // Fall through to single-shot path below. The fallback ITSELF is the
-            // failure mode this plan is meant to eliminate — we surface it
+            // failure mode this plan is meant to eliminate - we surface it
             // visibly via onStream rather than hiding it.
         }
 
-        // 2026-05-12 — R1 Verbalized Confidence on roadmap initiatives. The
+        // 2026-05-12 - R1 Verbalized Confidence on roadmap initiatives. The
         // existing `confidenceLevel` per item (HIGH/MEDIUM/EXPLORATORY) is a
         // horizon proxy retained for legacy consumers. The new VC envelope
         // adds the formal RI-trigger signal so the model can flag which
@@ -3445,11 +4362,11 @@ REQUIREMENTS:
 - Generate initiatives for EVERY strategic recommendation from previous steps
 - Each initiative must trace to a specific theme or recommendation
 - NOW horizon must include at least 2 quick wins from the research
-- Balance across personas — don't over-index on one stakeholder group
+- Balance across personas - don't over-index on one stakeholder group
 - Include at least 1 initiative per persona archetype identified
 - Every theme must have at least one initiative in each horizon
 
-ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent baseline metrics or success-metric percentages. If the evidence catalog has no baseline for an initiative's target metric, write the metric directionally without numbers (e.g., "Reduce time-to-onboard"). Made-up "15% reduction in churn (baseline 22%)" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", "baseline TBD", or any meta-annotation in any field — the output is a finished deliverable read by executives, not an annotated draft.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent baseline metrics or success-metric percentages. If the evidence catalog has no baseline for an initiative's target metric, write the metric directionally without numbers (e.g., "Reduce time-to-onboard"). Made-up "15% reduction in churn (baseline 22%)" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", "baseline TBD", or any meta-annotation in any field - the output is a finished deliverable read by executives, not an annotated draft.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -3474,7 +4391,7 @@ Output JSON.`;
         const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream);
         if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
         if (!result.roadmap.items) result.roadmap.items = [];
-        // 2026-05-12 — R1 calibration inspection on roadmap initiatives.
+        // 2026-05-12 - R1 calibration inspection on roadmap initiatives.
         const roadmapAssessment = normalizeSelfAssessment((result as any).selfAssessment);
         if (roadmapAssessment) (result as any).selfAssessment = roadmapAssessment; else delete (result as any).selfAssessment;
         inspectCalibration('roadmap', result.roadmap.items as any[], roadmapAssessment, 0.45);
@@ -3523,7 +4440,7 @@ Output JSON.`;
             return this.generateRoadmap(reinforcedFeedback, onStream);
         }
 
-        // 2026-05-25 — Expert panel: roadmap-builder + quantification-architect
+        // 2026-05-25 - Expert panel: roadmap-builder + quantification-architect
         // (enforces the learned constraint "every horizon item must have a
         // specific quantified success metric with baseline and timeframe") +
         // pre-mortem (risk lens on the sequencing).
@@ -3545,7 +4462,7 @@ Output JSON.`;
     }
 
     async generateTechArchitecture(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_TechArch> {
-        // 2026-05-23 — P0.1: Chunked-first tech architecture. C4 context pass +
+        // 2026-05-23 - P0.1: Chunked-first tech architecture. C4 context pass +
         // per-node container detail in parallel. Single-shot path truncated on
         // architectures with 6+ nodes.
         try {
@@ -3590,7 +4507,7 @@ Output JSON.`;
         // Single-call with 20 sections + nodes + flows always truncates.
 
         onStream("Phase A: Mapping technology components...");
-        const mapPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH ARCH GENERATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: TECH ARCHITECTURE PHASE A — SYSTEM MAP.
+        const mapPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH ARCH GENERATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: TECH ARCHITECTURE PHASE A - SYSTEM MAP.
 Extract ALL technology components, systems, platforms, and integrations from the research.
 
 OVERVIEW: 3-5 sentences describing the technology landscape.
@@ -3607,7 +4524,7 @@ FLOWS (minimum 5): Connections between nodes.
 - action: What data/process moves between them
 - status: "active" | "planned" | "broken"
 
-ANTI-FABRICATION (composer rule 8): NEVER invent system names, vendors, or integration counts. If the corpus does not name a vendor for a system category, label the node "Unspecified [Category]" — do NOT make up "Salesforce" or "Workday" if the catalog does not mention them.
+ANTI-FABRICATION (composer rule 8): NEVER invent system names, vendors, or integration counts. If the corpus does not name a vendor for a system category, label the node "Unspecified [Category]" - do NOT make up "Salesforce" or "Workday" if the catalog does not mention them.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -3626,9 +4543,9 @@ Output JSON.`;
         const map = await this.executeStep<any>(mapPrompt, mapSchema, [], onStream);
 
         onStream(`Found ${(map.nodes || []).length} nodes, ${(map.flows || []).length} flows. Phase B: Writing architecture sections...`);
-        const sectionsPrompt = `STEP: TECH ARCHITECTURE PHASE B — ARCHITECTURE DOCUMENT SECTIONS.
+        const sectionsPrompt = `STEP: TECH ARCHITECTURE PHASE B - ARCHITECTURE DOCUMENT SECTIONS.
 Based on the system map (${(map.nodes || []).map((n: any) => n.label).join(', ')}), write 10 key architecture sections.
-For each: sectionNumber, title, content (2-4 sentences with evidence). Leave evidenceGap as an empty string — never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields; the output is a finished deliverable.
+For each: sectionNumber, title, content (2-4 sentences with evidence). Leave evidenceGap as an empty string - never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields; the output is a finished deliverable.
 Cover: executive summary, current state, future state, data architecture, integration architecture, security, scalability, tech stack rationale, gap analysis, risks.
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -3749,10 +4666,47 @@ Output JSON.`;
 
         if (sections.length === 0) return '';
 
-        return `\n\n=== AVAILABLE DELIVERABLE DATA (use ALL of this to build the deck) ===\nThe following deliverables have been generated by the research pipeline. Reformat this content into slide-appropriate layouts. Do NOT modify the original deliverables — the deck is a PRESENTATION of them.\n\n${sections.join('\n\n')}\n\n=== END DELIVERABLE DATA ===\n`;
+        return `\n\n=== AVAILABLE DELIVERABLE DATA (use ALL of this to build the deck) ===\nThe following deliverables have been generated by the research pipeline. Reformat this content into slide-appropriate layouts. Do NOT modify the original deliverables - the deck is a PRESENTATION of them.\n\n${sections.join('\n\n')}\n\n=== END DELIVERABLE DATA ===\n`;
     }
 
     async generateDeckStructure(feedback: string | undefined, context: DeckInputContext, onStream: (t: string) => void): Promise<StepResult_Structure> {
+        // 2026-06-06 - MANIFEST -> WIKI resolution before digest. Prefer wiki
+        // bodies (single source of truth) over the in-memory context the
+        // caller threaded through. Falls back to in-memory state when the
+        // wiki copy is missing (e.g. deliverable generated in this session
+        // and not yet persisted). The resolver caches per-engagement so the
+        // strategic-report-writer + buildDeckDigest don't double-fetch.
+        const _deckSlug = currentEngagementSlug();
+        if (_deckSlug) {
+            const _deckResolved = await resolveDeliverableBodies(_deckSlug, [
+                'themes', 'personas', 'journey', 'recs', 'prd', 'roadmap',
+                'gap', 'techAudit', 'competitive', 'techArch',
+            ]);
+            const _bk = _deckResolved.bodies as any;
+            const _take = <T,>(wKey: string, subKey: string, inMem: T): T => {
+                const w = _bk[wKey];
+                if (!w) return inMem;
+                const sub = w[subKey];
+                if (Array.isArray(sub) && sub.length) return sub as any;
+                if (w && typeof w === 'object' && !Array.isArray(w) && subKey === '') return w as any;
+                if (sub && typeof sub === 'object') return sub as any;
+                return inMem;
+            };
+            context = {
+                ...context,
+                themes: _take('themes', 'themes', context.themes || []),
+                personas: _take('personas', 'personas', context.personas || []),
+                journeyStages: _take('journey', 'stages', context.journeyStages || []),
+                recommendations: _take('recs', 'recommendations', context.recommendations || []),
+                prd: _bk.prd || context.prd,
+                roadmap: _bk.roadmap || context.roadmap,
+                techArchitecture: _bk.techArch || context.techArchitecture,
+                gapAnalysis: _bk.gap || context.gapAnalysis,
+                techAudit: _bk.techAudit || context.techAudit,
+                competitiveAnalysis: _bk.competitive || context.competitiveAnalysis,
+            };
+            console.info(`[generateDeckStructure] wiki-resolved ${_deckResolved.readCount} deliverable(s) for slug=${_deckSlug} in ${_deckResolved.elapsedMs}ms; missing: ${_deckResolved.missingKinds.join(',') || 'none'}`);
+        }
         // Use strategic report as primary source when available (report-first architecture)
         // Falls back to buildDeckDigest for backward compatibility when no report exists
         let digest: string;
@@ -3761,7 +4715,7 @@ Output JSON.`;
             const sections = (report.sections || []).map(s =>
                 `Section ${s.sectionNumber}: ${s.title} [${s.sourceDeliverable}]\n${s.content}\n${s.keyMetrics?.map(m => `  Metric: ${m.label} = ${m.value}`).join('\n') || ''}${s.keyQuote ? `\n  Quote: "${s.keyQuote.text}" -- ${s.keyQuote.attribution}` : ''}\n  Sources: ${(s.citations || []).join(', ')}`
             ).join('\n\n');
-            digest = `\n\n=== STRATEGIC REPORT (synthesized from all deliverables — use this as primary source) ===
+            digest = `\n\n=== STRATEGIC REPORT (synthesized from all deliverables - use this as primary source) ===
 Title: ${report.title}
 Executive Summary: ${report.executiveSummary}
 Diagnosis: ${report.diagnosis}
@@ -3779,7 +4733,7 @@ ${sections}
 MINTO'S PYRAMID PRINCIPLE (non-negotiable):
 - Think from the bottom up, present from the top down
 - State the CONCLUSION first, then support with evidence
-- Every slide title MUST be a COMPLETE SENTENCE stating a conclusion — NOT a topic label
+- Every slide title MUST be a COMPLETE SENTENCE stating a conclusion - NOT a topic label
   BAD: "Market Overview", "Current Challenges", "Recommendations"
   GOOD: "Young alumni giving declined 12% while overall fundraising grew 3%, creating a generational crisis"
 - THE PARTNER TEST: A senior partner reading ONLY the slide titles in order must understand the complete argument.
@@ -3794,23 +4748,23 @@ NARRATIVE FRAMEWORK (Situation-Complication-Resolution):
 Let the RICHNESS OF AVAILABLE DELIVERABLES determine deck size. Do NOT cap at 10-12 slides.
 
 1. TITLE (1 slide, TITLE_SLIDE): Research title and objective.
-2. EXECUTIVE SUMMARY (1-2 slides, CONTENT_DATA_PANEL or BENTO_GRID): Complete argument in SCR format. The most important slide — it must convince on its own.
-3. SITUATION — What's happening:
+2. EXECUTIVE SUMMARY (1-2 slides, CONTENT_DATA_PANEL or BENTO_GRID): Complete argument in SCR format. The most important slide - it must convince on its own.
+3. SITUATION - What's happening:
    - Theme landscape slides (BENTO_GRID): Show research themes with key stats
    - Competitive positioning slides (CONTENT_DATA_PANEL or FULL_WIDTH_VIZ): Where we stand vs peers
    - Service blueprint pain points (PROBLEM_SOLUTION): Journey friction points
-4. COMPLICATION — Why the status quo is unacceptable:
+4. COMPLICATION - Why the status quo is unacceptable:
    - Persona tension slides (CONTENT_DATA_PANEL with persona image): Show real people affected. MUST include persona image.
    - Gap analysis slides (PROBLEM_SOLUTION): Critical capability gaps
    - Tech audit findings (BENTO_GRID): System fragmentation or debt
-5. RESOLUTION — What to do:
+5. RESOLUTION - What to do:
    - Strategic recommendations (CONTENT_DATA_PANEL): Each with impact metrics
    - Roadmap overview (FULL_WIDTH_VIZ): NOW/NEXT/LATER horizons
    - PRD highlights (CONTENT_DATA_PANEL): Top features and priorities
    - Architecture direction (CONTENT_INSIGHT_CHART or BENTO_GRID): Technical path forward
 6. CLOSE (1-2 slides, CONTENT_DATA_PANEL): Specific next steps with WHO does WHAT by WHEN. No marketing CTAs.
 
-CONTENT-DRIVEN SLIDE PLANNING — include slides for EVERY available deliverable:
+CONTENT-DRIVEN SLIDE PLANNING - include slides for EVERY available deliverable:
 ${context.themes?.length ? `- Themes (${context.themes.length} available): Plan 1-2 slides showing theme landscape` : ''}
 ${context.personas?.length ? `- Personas (${context.personas.length} available): Plan 1 slide PER KEY persona (include persona image)` : ''}
 ${context.recommendations?.length ? `- Recommendations (${context.recommendations.length} available): Plan 2-3 slides` : ''}
@@ -3833,11 +4787,11 @@ LAYOUT VARIETY (monotony = AI slop):
 7 SLIDE ARCHETYPES (use ONLY these):
 - TITLE_SLIDE: Left-aligned title, section label, horizontal rule
 - SECTION_HEADER: Full dark (#0D0D0D), ghost text, chartreuse section label. Title only, max 5 words. NEVER narration.
-- CONTENT_DATA_PANEL: 55/45 split — text+bullets left, metric cards right
-- CONTENT_INSIGHT_CHART: 55/45 split — text left, chart right
-- FULL_WIDTH_VIZ: No split — heading + full-width data grid/table
+- CONTENT_DATA_PANEL: 55/45 split - text+bullets left, metric cards right
+- CONTENT_INSIGHT_CHART: 55/45 split - text left, chart right
+- FULL_WIDTH_VIZ: No split - heading + full-width data grid/table
 - BENTO_GRID: 3-6 mixed cells (stats, quotes, indicators)
-- PROBLEM_SOLUTION: 55/45 split — pain stat left, solution points right
+- PROBLEM_SOLUTION: 55/45 split - pain stat left, solution points right
 
 SECTION_HEADER: Title only (2-5 words). NEVER narration. Examples: "The Landscape", "The Challenge", "The Path Forward"
 CLOSING: NEVER "Ready to Innovate?" or any SaaS CTA. Specific next steps with Action + Owner + Timeline.
@@ -3943,7 +4897,7 @@ Output JSON.`;
         } catch (e) { /* no constraints available */ }
 
         // Load engagement memory for cross-session context (G12).
-        // 2026-05-22 — Use buildEngagementSlug (which uses
+        // 2026-05-22 - Use buildEngagementSlug (which uses
         // extractResearchObjective + a canonical lowercase/hyphen/length
         // pipeline) so the slug computed HERE matches the slug computed
         // by the WRITER in App.tsx (Phase B persistDeliverable). Before
@@ -3958,7 +4912,7 @@ Output JSON.`;
             if (memory) engagementContext = `\nENGAGEMENT CONTEXT (from prior sessions on similar topics):\n${memory}\n`;
         } catch (e) { /* no engagement memory available */ }
 
-        // Content-block schema — matches the SlideGeneration interface in types.ts
+        // Content-block schema - matches the SlideGeneration interface in types.ts
         const contentBlockSchema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -4014,34 +4968,34 @@ Output JSON.`;
         };
 
         // Build the shared prompt preamble for all per-slide calls
-        const blockTypeReference = `CONTENT BLOCK TYPES (declare what the slide communicates — the engine picks the template):
+        const blockTypeReference = `CONTENT BLOCK TYPES (declare what the slide communicates - the engine picks the template):
 
 1. hero_stat: A single dominant number that anchors the slide.
-   Fields: { type: "hero_stat", value: "35%", unit: "decline", context: "First-year retention dropped 35% since 2020" }
+   Fields: { type: "hero_stat", value: "35%", unit: "decline", context: "Active usage declined after the Q2 release" }
 
 2. evidence_bullets: 2-4 research findings, each citing a specific source.
-   Fields: { type: "evidence_bullets", items: [{ text: "72% express career uncertainty", source: "Reddit: r/cscareerquestions" }, { text: "6 of 10 universities lack integration", source: "Hechinger Report" }] }
+   Fields: { type: "evidence_bullets", items: [{ text: "Buyers report slow, manual setup as the top blocker", source: "G2 Reviews" }, { text: "Support backlog recurs across the user forum", source: "Customer Forum" }] }
 
 3. metric_cards: 2-4 KPI data points for a data panel.
-   Fields: { type: "metric_cards", items: [{ label: "Dropout rate", value: "35%", trend: "+12% YoY" }, { label: "Career center usage", value: "23%", unit: "of students" }] }
+   Fields: { type: "metric_cards", items: [{ label: "Churn rate", value: "35%", trend: "+12% YoY" }, { label: "Feature adoption", value: "23%", unit: "of accounts" }] }
 
 4. quote_block: A VERBATIM quote from research with provenance.
-   Fields: { type: "quote_block", text: "I applied to 200 positions and heard back from 3", attribution: "CS Senior, Reddit", source: "Reddit: r/cscareerquestions" }
+   Fields: { type: "quote_block", text: "We waited three weeks for onboarding and nearly cancelled", attribution: "Ops lead, mid-market account", source: "Customer Forum" }
 
 5. persona_card: Reference to a persona (portrait image auto-injected by renderer).
-   Fields: { type: "persona_card", name: "Sarah Chen", role: "First-Year Student", jtbd: "Navigate career prep confidently", quote: "I don't know what I don't know" }
+   Fields: { type: "persona_card", name: "Maria Alvarez", role: "Operations lead", jtbd: "Get the team to value fast", quote: "I don't have time to fight the tool" }
 
 6. problem_statement: A challenge backed by evidence.
-   Fields: { type: "problem_statement", value: "73%", description: "of graduates report degree did not prepare them for workforce", severity: "critical" }
+   Fields: { type: "problem_statement", value: "73%", description: "of accounts report the product did not deliver value in the first 90 days", severity: "critical" }
 
 7. solution_points: 2-3 actionable recommendations.
-   Fields: { type: "solution_points", items: [{ title: "Integrated Career Curriculum", description: "Embed career skills into first-year courses — addresses 73% preparedness gap" }] }
+   Fields: { type: "solution_points", items: [{ title: "Guided onboarding", description: "Replace manual setup with a guided import that reaches first value in days" }] }
 
 8. data_grid: 3-6 data points for a grid/bento layout.
    Fields: { type: "data_grid", items: [{ label: "T1 Sources", value: "47", description: "Academic papers and government data" }] }
 
 9. journey_strip: A service blueprint stage.
-   Fields: { type: "journey_strip", phase: "Onboarding", action: "Student completes intake survey", pain: "42% drop off at document upload", emotion: "Frustrated", mot: true }
+   Fields: { type: "journey_strip", phase: "Onboarding", action: "Account completes initial setup", pain: "Drop-off at the manual import step", emotion: "Frustrated", mot: true }
 
 10. comparison_row: Competitive or gap comparison.
     Fields: { type: "comparison_row", dimension: "AI Readiness", ours: "2.1/5", theirs: "3.8/5", gap: "1.7 points behind" }
@@ -4054,7 +5008,7 @@ Output JSON.`;
 
         const sharedRules = `BLOCK COMPOSITION RULES:
 - EVERY body slide MUST have at least one block with source attribution (evidence_bullets, quote_block, or metric_cards with source)
-- Use 2-5 blocks per slide — mix types for visual richness
+- Use 2-5 blocks per slide - mix types for visual richness
 
 META-NARRATION BAN (violation = instant rejection):
 NEVER use: "Good morning" | "Welcome to" | "Today we will" | "We now move to" | "In this section" | "In this presentation" | "As you can see" | "This slide shows" | "Thank you" | "Allow me to" | "Before we begin" | "Let us examine"
@@ -4063,7 +5017,7 @@ LEAD with the insight. First word of the title = the finding.
 STORYTELLING RULES:
 - NEVER hedge: "It seems", "Perhaps", "It's possible that"
 - Every title is a COMPLETE SENTENCE stating a conclusion (Pyramid Principle)
-- Use SPECIFIC numbers, names, dates from the report sections — NEVER generalities
+- Use SPECIFIC numbers, names, dates from the report sections - NEVER generalities
 - Speaker notes: deeper context, audience objections, transition cues (NOT slide content)
 
 PLAIN TEXT ONLY in all text fields. No **bold**, *italic*, # headers.
@@ -4107,7 +5061,7 @@ ${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}`;
         }
 
         for (const slide of (structure.slides || [])) {
-            // SECTION_HEADER: Deterministic — no AI needed
+            // SECTION_HEADER: Deterministic - no AI needed
             if (slide.layout === 'SECTION_HEADER') {
                 rawSlides.push({
                     slideNumber: slide.slideNumber,
@@ -4120,7 +5074,7 @@ ${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}`;
                 continue;
             }
 
-            // TITLE_SLIDE: Deterministic — no AI needed
+            // TITLE_SLIDE: Deterministic - no AI needed
             if (slide.layout === 'TITLE_SLIDE') {
                 rawSlides.push({
                     slideNumber: slide.slideNumber,
@@ -4276,7 +5230,7 @@ Output JSON.`;
         // DETERMINISTIC CONTENT ENRICHMENT: Inject report data into thin slides
         //
         // Even with content blocks, the AI may produce thin output. This step
-        // directly pulls data from the strategic report sections into slides —
+        // directly pulls data from the strategic report sections into slides -
         // no AI involved, pure data transfer. This guarantees evidence reaches
         // the final deck regardless of AI generation quality.
         // =====================================================================
@@ -4346,7 +5300,7 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('GAP_ANALYSIS'); } catch (e) { /* skill unavailable */ }
 
-        // 2026-05-22 — Tight evidence-catalog cap because gap_analysis runs
+        // 2026-05-22 - Tight evidence-catalog cap because gap_analysis runs
         // late in the chain. 600K-char cap leaves headroom inside the 1M-token
         // model limit.
         const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, {
@@ -4354,10 +5308,11 @@ Output JSON.`;
             minDistinctSources: 8,
             maxTotalChars: 600_000,
         });
+        this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: gap quotes from this catalog
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-23 — P0.1: Chunked-first gap analysis. Five capability domains
+        // 2026-05-23 - P0.1: Chunked-first gap analysis. Five capability domains
         // (people / process / technology / data / governance) generated in
         // parallel. Single-shot path truncated around domain 3-4.
         try {
@@ -4390,7 +5345,7 @@ Output JSON.`;
                 await appendUncertaintyLedger({ deliverableName: 'gap_analysis', timestamp: new Date().toISOString(), triggerScore: shouldReinforce(sig) ? 0.5 : 0.2, overallConfidence: sig.overallConfidence, leastDefensibleClaims: sig.leastDefensibleClaims, validationFailures: sig.validationFailures, resolution: 'reinforced' });
                 return this.generateGapAnalysis(reinforcedFeedback, onStream);
             }
-            // 2026-05-25 — Expert panel: gap-analysis-evaluator + quantification-architect
+            // 2026-05-25 - Expert panel: gap-analysis-evaluator + quantification-architect
             // (2 iterations to enforce dollar-quantified gap-impact per learned constraint:
             // "stakeholders require concrete financial metrics to assess gap cost") +
             // evidence-quality-auditor + pre-mortem.
@@ -4415,9 +5370,9 @@ Output JSON.`;
             // Fall through to single-shot
         }
 
-        // 2026-05-12 — R1 Verbalized Confidence on gap analysis. Severity
+        // 2026-05-12 - R1 Verbalized Confidence on gap analysis. Severity
         // calls and maturity scores are exactly the claims where the model
-        // routinely overreaches — VC tightens calibration on those.
+        // routinely overreaches - VC tightens calibration on those.
         const gapVcDirective = buildVerbalizedConfidenceDirective({
             deliverable: 'gap analysis',
             claimNoun: 'capability gap',
@@ -4426,7 +5381,7 @@ Output JSON.`;
         });
         const prompt = `${skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${gapVcDirective}\nSTEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
 
-CAPABILITY EXTRACTION METHOD — follow these steps to DERIVE gaps from the research:
+CAPABILITY EXTRACTION METHOD - follow these steps to DERIVE gaps from the research:
 
 STEP A: Extract capability areas from the THEMES identified in Step 2. Every theme implies a capability area.
   Example: Theme "AI-Powered Donor Matching" → Capability: "AI/ML donor prospect scoring and matching"
@@ -4455,9 +5410,9 @@ REQUIREMENTS:
 - riskRegister: AT LEAST 3 risks with likelihood, impact, mitigation
 
 ANTI-PATTERNS:
-- Returning 0 gaps (impossible — every corpus has capability gaps)
+- Returning 0 gaps (impossible - every corpus has capability gaps)
 - Gaps without [CHUNK_XXX] evidence citations
-- Generic capability names ("improve technology") — be specific
+- Generic capability names ("improve technology") - be specific
 
 ANTI-FABRICATION (composer rule 8): NEVER invent maturity scores. Each currentMaturity score MUST be backed by specific catalog evidence (e.g., "Reddit post describes manual data entry across 5 systems → maturity 1"). If you cannot find catalog evidence for a maturity assessment, do NOT include the gap. Made-up scores anywhere are grounds for rejection.
 
@@ -4491,7 +5446,7 @@ Output JSON.`;
         };
         const gapResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'GapAnalysis');
         const analysis = gapResult?.analysis || {};
-        // 2026-05-12 — R1 calibration inspection on gaps.
+        // 2026-05-12 - R1 calibration inspection on gaps.
         const gapAssessment = normalizeSelfAssessment(gapResult?.selfAssessment);
         if (gapAssessment) gapResult.selfAssessment = gapAssessment; else delete gapResult?.selfAssessment;
         inspectCalibration('gap-analysis', (analysis?.gaps || []) as any[], gapAssessment, 0.45);
@@ -4513,7 +5468,7 @@ Output JSON.`;
                     if (enriched.citations?.length) gap.citations = enriched.citations;
                     if (enriched.evidenceBasis) gap.evidenceBasis = enriched.evidenceBasis;
                 } catch (e: any) {
-                    // P0.4 — surface gap-enrichment failure per gap so the
+                    // P0.4 - surface gap-enrichment failure per gap so the
                     // user knows which gaps are thin in the final output.
                     onStream(`[Gap] enrichment failed for "${gap.capability?.slice(0, 50) || 'unnamed gap'}": ${e?.message || e}`);
                 }
@@ -4535,7 +5490,7 @@ Output JSON.`;
                 if (actionsData.quickWins?.length > (analysis.quickWins?.length || 0)) analysis.quickWins = actionsData.quickWins;
                 if (actionsData.riskRegister?.length > (analysis.riskRegister?.length || 0)) analysis.riskRegister = actionsData.riskRegister;
             } catch (e: any) {
-                // P0.4 — surface gap actions/risks generation failure.
+                // P0.4 - surface gap actions/risks generation failure.
                 onStream(`[Gap] prioritized actions / risk register generation failed (${e?.message || e}); deliverable shipped without them.`);
             }
         }
@@ -4552,6 +5507,7 @@ Output JSON.`;
             return this.generateGapAnalysis(reinforcedFeedback, onStream);
         }
 
+        this._finalizeDeliverable('gap', gapResult);
         return gapResult;
     }
 
@@ -4563,7 +5519,7 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-23 — P0.1: Chunked-first tech audit. Inventory pass (1 small call)
+        // 2026-05-23 - P0.1: Chunked-first tech audit. Inventory pass (1 small call)
         // then per-system parallel audit (8+ systems). Single-shot path truncated
         // at 1-2 systems due to output token limits.
         try {
@@ -4607,7 +5563,7 @@ Output JSON.`;
         // TWO-PHASE: Systems inventory first, then analysis.
         // Single-call approach truncates to 1 system due to output token limits.
 
-        // 2026-05-12 — R1 Verbalized Confidence on systems inventory. Vendor
+        // 2026-05-12 - R1 Verbalized Confidence on systems inventory. Vendor
         // and integration claims fabricate easily; VC tightens calibration on
         // those by forcing the model to flag unverified systems.
         const auditVcDirective = buildVerbalizedConfidenceDirective({
@@ -4620,7 +5576,7 @@ Output JSON.`;
         const inventoryPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${auditVcDirective}\nTECH AUDIT: SYSTEMS INVENTORY.
 Research goal: "${this.goal}".
 
-Scan the entire research corpus for EVERY mention of technology systems, software platforms, tools, databases, APIs, vendors, and digital processes. You MUST find at least 8 systems. If the research mentions any organization, they use technology — identify it.
+Scan the entire research corpus for EVERY mention of technology systems, software platforms, tools, databases, APIs, vendors, and digital processes. You MUST find at least 8 systems. If the research mentions any organization, they use technology - identify it.
 
 LOOK FOR:
 - CRM systems (Salesforce, HubSpot, Blackbaud, Raiser's Edge, Slate, etc.)
@@ -4643,9 +5599,9 @@ For each system found:
 - citations: Array of source names where this system was mentioned (e.g., ["Client SOW", "Higher Ed Dive", "Reddit"])
 - evidenceBasis: 1 sentence with specific evidence of this system's role or issues (e.g., "SOW mentions Raiser's Edge NXT as primary CRM but staff report 40% of data entry is manual")
 
-Generate at LEAST 8 systems. If the corpus mentions an organization, that organization has a CRM, a website, email, databases, and likely an LMS — include them even if the specific vendor isn't named (label as "Unspecified CRM" etc.).
+Generate at LEAST 8 systems. If the corpus mentions an organization, that organization has a CRM, a website, email, databases, and likely an LMS - include them even if the specific vendor isn't named (label as "Unspecified CRM" etc.).
 
-ANTI-FABRICATION (composer rule 8): NEVER invent vendor names. If the catalog mentions "the CRM" but does not name a specific vendor, label it "Unspecified CRM" — do NOT make up "Salesforce" or "HubSpot". Made-up vendor names anywhere are grounds for rejection.
+ANTI-FABRICATION (composer rule 8): NEVER invent vendor names. If the catalog mentions "the CRM" but does not name a specific vendor, label it "Unspecified CRM" - do NOT make up "Salesforce" or "HubSpot". Made-up vendor names anywhere are grounds for rejection.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -4675,13 +5631,13 @@ ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
         };
         const inventory = await this.executeStep<any>(inventoryPrompt, inventorySchema, [], onStream);
         const systems = inventory.systems || [];
-        // 2026-05-12 — R1 calibration inspection on tech audit systems.
+        // 2026-05-12 - R1 calibration inspection on tech audit systems.
         const auditAssessment = normalizeSelfAssessment(inventory?.selfAssessment);
         if (auditAssessment) inventory.selfAssessment = auditAssessment; else delete inventory?.selfAssessment;
         inspectCalibration('tech-audit', systems as any[], auditAssessment, 0.50);
 
         onStream(`Found ${systems.length} systems. Phase B: Analyzing integrations and capabilities...`);
-        const analysisPrompt = `STEP: TECH AUDIT PHASE B — INTEGRATION & CAPABILITY ANALYSIS.
+        const analysisPrompt = `STEP: TECH AUDIT PHASE B - INTEGRATION & CAPABILITY ANALYSIS.
 Systems found: ${systems.map((s: any) => s.name).join(', ')}.
 
 Now provide:
@@ -4723,7 +5679,7 @@ Output JSON.`;
                 recommendations: analysis.recommendations || [],
             }
         };
-        // 2026-05-12 — preserve the R1 selfAssessment envelope on the rolled-up result
+        // 2026-05-12 - preserve the R1 selfAssessment envelope on the rolled-up result
         if (inventory?.selfAssessment) techAuditResult.selfAssessment = inventory.selfAssessment;
 
         // Validate and auto-retry if evidence is thin
@@ -4738,11 +5694,12 @@ Output JSON.`;
             return this.generateTechAudit(reinforcedFeedback, onStream);
         }
 
+        this._finalizeDeliverable('tech_audit', techAuditResult);
         return techAuditResult;
     }
 
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        // 2026-05-23 — P0.1: Chunked-first competitive analysis. Peer discovery
+        // 2026-05-23 - P0.1: Chunked-first competitive analysis. Peer discovery
         // (1 small call) + per-peer parallel extended profile. Single-shot path
         // truncated mid-matrix on competitive analyses with 4+ peers.
         try {
@@ -4790,7 +5747,7 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('COMPETITIVE_ANALYSIS'); } catch (e) { /* skill unavailable */ }
 
-        // 2026-05-22 — Same evidence-catalog cap rationale as gap_analysis.
+        // 2026-05-22 - Same evidence-catalog cap rationale as gap_analysis.
         // Competitive analysis is the LAST deliverable in the auto-chain, so
         // accumulated state is at its largest. 600K-char cap.
         const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, {
@@ -4801,7 +5758,7 @@ Output JSON.`;
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
-        // 2026-05-12 — R1 Verbalized Confidence on competitive peers. Named
+        // 2026-05-12 - R1 Verbalized Confidence on competitive peers. Named
         // entity strength claims and maturity scores fabricate easily; VC
         // forces the model to flag peers where it overreached.
         const competitiveVcDirective = buildVerbalizedConfidenceDirective({
@@ -4812,15 +5769,15 @@ Output JSON.`;
         });
         const prompt = `${skillInstructions ? `=== AGENT SKILL: COMPETITIVE ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${competitiveVcDirective}\nSTEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
 
-TWO ANALYSIS MODES — use BOTH:
+TWO ANALYSIS MODES - use BOTH:
 
-MODE 1: NAMED ENTITIES — Extract every organization, vendor, platform, institution, or product mentioned BY NAME in the corpus.
+MODE 1: NAMED ENTITIES - Extract every organization, vendor, platform, institution, or product mentioned BY NAME in the corpus.
   - Search ALL chunks for proper nouns: company names, university names, software products, vendors, government agencies
-  - Example: If corpus mentions "Salesforce", "Blackbaud", "Stanford", "MIT" — these are peers/players
+  - Example: If corpus mentions "Salesforce", "Blackbaud", "Stanford", "MIT" - these are peers/players
   - For each named entity found: name, role in the ecosystem, strengths (from evidence), weaknesses (from evidence)
   - MUST cite [CHUNK_XXX] for every claim about a named entity
 
-MODE 2: ARCHETYPE ANALYSIS — When the corpus discusses TYPES of organizations rather than specific names:
+MODE 2: ARCHETYPE ANALYSIS - When the corpus discusses TYPES of organizations rather than specific names:
   - Extract organizational archetypes (e.g., "Large R1 Universities", "Small Liberal Arts Colleges", "Community Colleges", "Tech-Forward Institutions")
   - For each archetype: typical characteristics, strategic position, advantages, challenges
   - These supplement the named entities to create a complete competitive landscape
@@ -4836,7 +5793,7 @@ PEERS (combine Mode 1 + Mode 2): Generate AT LEAST 4 peer profiles. If the corpu
 - isArchetype: true if this is an archetype, false if named entity
 
 BENCHMARK DIMENSIONS: 5-7 strategic dimensions derived from the research themes.
-  - dimension: Specific capability (NOT generic like "Technology" — say "AI-Powered Donor Engagement Maturity")
+  - dimension: Specific capability (NOT generic like "Technology" - say "AI-Powered Donor Engagement Maturity")
   - weight: 0.0-1.0 importance based on research priority
   - description: What "best in class" looks like for this dimension
   - evidenceBasis: Which [CHUNK_XXX] references inform this dimension
@@ -4852,12 +5809,12 @@ GAP SUMMARY: For EVERY dimension:
   - action: Specific action to close the gap with [CHUNK_XXX] evidence
 
 ANTI-PATTERNS (will be rejected):
-- Returning 0 peers (impossible — every corpus references organizations or organizational types)
+- Returning 0 peers (impossible - every corpus references organizations or organizational types)
 - Generic industry context without evidence citations
 - Maturity scores without justification
 - Missing gap actions
 
-ANTI-FABRICATION (composer rule 8): NEVER invent peer names, market-share percentages, or maturity scores. Each named peer MUST appear by exact name in the catalog above. If you can only identify archetypes, set isArchetype=true — do NOT make up specific company names. Maturity scores require a 1-sentence justification grounded in catalog evidence. Made-up "Salesforce.org scores 4.2/5 in AI maturity" anywhere is grounds for rejection.
+ANTI-FABRICATION (composer rule 8): NEVER invent peer names, market-share percentages, or maturity scores. Each named peer MUST appear by exact name in the catalog above. If you can only identify archetypes, set isArchetype=true - do NOT make up specific company names. Maturity scores require a 1-sentence justification grounded in catalog evidence. Made-up "Salesforce.org scores 4.2/5 in AI maturity" anywhere is grounds for rejection.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -4914,7 +5871,7 @@ Output JSON.`;
         };
         const compResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'CompetitiveAnalysis');
         const analysis = compResult?.analysis || {};
-        // 2026-05-12 — R1 calibration inspection on competitive peers.
+        // 2026-05-12 - R1 calibration inspection on competitive peers.
         const compAssessment = normalizeSelfAssessment(compResult?.selfAssessment);
         if (compAssessment) compResult.selfAssessment = compAssessment; else delete compResult?.selfAssessment;
         inspectCalibration('competitive-analysis', (analysis?.peers || []) as any[], compAssessment, 0.50);
@@ -4969,6 +5926,7 @@ Output JSON.`;
             return this.generateCompetitiveAnalysis(reinforcedFeedback, onStream);
         }
 
+        this._finalizeDeliverable('competitive', compResult);
         return compResult;
     }
 
@@ -4978,7 +5936,7 @@ Output JSON.`;
 
     /**
      * Generate a comprehensive strategic report synthesizing ALL deliverables.
-     * This is the unrestricted narrative layer — no character budgets, no slide templates.
+     * This is the unrestricted narrative layer - no character budgets, no slide templates.
      * The deck is derived FROM this report, not from raw truncated metadata.
      */
     async generateStrategicReport(context: DeckInputContext, feedback: string | undefined, onStream: (t: string) => void, rawSources?: any[]): Promise<any> {
@@ -5013,14 +5971,33 @@ Output JSON.`;
         const serializeThemes = (themes: any[]) => themes.map((t, i) => {
             const citations = (t.citations || []).map((c: any) => {
                 const name = c.sourceName || resolveChunk(c.sourceFile || '') || 'Unknown';
-                const quote = c.text ? ` — "${c.text.substring(0, 100)}"` : '';
+                const quote = c.text ? ` - "${c.text.substring(0, 100)}"` : '';
                 return `${name}${quote}`;
             });
-            return `Theme ${i+1}: ${t.name}\nDescription: ${resolveChunksInText(t.description)}\nQuote: "${t.quote}"\nCitations:\n${citations.map((c: string) => `  - ${c}`).join('\n')}\nCross-document: ${t.isCrossDocument ? 'Yes' : 'No'}\nStatus: ${t.status || 'approved'}`;
+            // 2026-05-31 (Phase B2) - Serialize the Pass-2 DEPTH fields so the
+            // richest synthesis the app produces (subThemes / dimensions /
+            // contradictions / temporalArc / implications) actually reaches the
+            // strategic report. Previously dropped -> report themes were shallow.
+            const depth: string[] = [];
+            if (Array.isArray(t.subThemes) && t.subThemes.length) {
+                depth.push(`Sub-themes:\n${t.subThemes.map((s: any) => `  - ${typeof s === 'string' ? s : (s.name || s.title || '')}${s && s.description ? ': ' + resolveChunksInText(s.description) : ''}`).join('\n')}`);
+            }
+            if (Array.isArray(t.dimensions) && t.dimensions.length) {
+                depth.push(`Dimensions:\n${t.dimensions.map((d: any) => `  - ${typeof d === 'string' ? d : (d.axis ? d.axis + ': ' + (d.value ?? '') : JSON.stringify(d))}`).join('\n')}`);
+            }
+            if (Array.isArray(t.contradictions) && t.contradictions.length) {
+                depth.push(`Contradictions / tensions:\n${t.contradictions.map((c: any) => `  - ${resolveChunksInText(typeof c === 'string' ? c : (c.description || c.text || JSON.stringify(c)))}`).join('\n')}`);
+            }
+            if (t.temporalArc) depth.push(`Temporal arc: ${resolveChunksInText(typeof t.temporalArc === 'string' ? t.temporalArc : JSON.stringify(t.temporalArc))}`);
+            if (Array.isArray(t.implications) && t.implications.length) {
+                depth.push(`Implications:\n${t.implications.map((im: any) => `  - ${resolveChunksInText(typeof im === 'string' ? im : (im.text || im.description || JSON.stringify(im)))}`).join('\n')}`);
+            }
+            const depthBlock = depth.length ? `\n${depth.join('\n')}` : '';
+            return `Theme ${i+1}: ${t.name}\nDescription: ${resolveChunksInText(t.description)}\nQuote: "${t.quote}"\nCitations:\n${citations.map((c: string) => `  - ${c}`).join('\n')}\nCross-document: ${t.isCrossDocument ? 'Yes' : 'No'}\nStatus: ${t.status || 'approved'}${depthBlock}`;
         }).join('\n\n');
 
         const serializePersonas = (personas: any[]) => personas.map(p =>
-            `Persona: ${p.name} (${p.role})\nDemographics: ${p.demographics}\nBio: ${resolveChunksInText(p.bio)}\nJTBD: ${p.jtbd || 'N/A'}\nQuote: "${p.quote}"\nGoals: Life=${p.goals?.lifeGoal || 'N/A'} | Experience=${p.goals?.experienceGoal || 'N/A'} | Functional=${p.goals?.functionalGoal || 'N/A'}\n5Ws: Who=${resolveChunksInText(p.fiveWs?.who || 'N/A')} | What=${resolveChunksInText(p.fiveWs?.what || 'N/A')} | When/Where=${resolveChunksInText(p.fiveWs?.whenWhere || 'N/A')} | Why=${resolveChunksInText(p.fiveWs?.why || 'N/A')}\nPain Points: ${(p.painPoints || []).map((pp: any) => `${pp.label}: "${resolveChunksInText(pp.quote || '')}" (${resolveChunk(pp.sourceFile || pp.source || '')})`).join('; ')}\nMotivations: ${(p.motivations || []).map((m: any) => `${m.label}: "${resolveChunksInText(m.quote || '')}" (${resolveChunk(m.source || '')})`).join('; ')}\nOpportunities: ${(p.opportunities || []).map((o: any) => `${o.label}: "${resolveChunksInText(o.quote || '')}" (${resolveChunk(o.source || '')})`).join('; ')}\nBehaviors: ${resolveChunksInText(p.behaviors || 'N/A')}\nTechnology Usage: ${resolveChunksInText(p.technologyUsage || 'N/A')}\nJourney Context: ${resolveChunksInText(p.journeyContext || 'N/A')}\nDay in the Life: ${resolveChunksInText(p.dayInTheLife || 'N/A')}\nBrand Relationships: ${resolveChunksInText(p.brandRelationships || 'N/A')}\nDecision Process: ${resolveChunksInText(p.decisionProcess || 'N/A')}\nConfidence: ${p.confidenceLevel || 'N/A'} (${p.evidenceCount || 0} evidence items)\nImage: ${p.imageUrl ? 'Available' : 'None'}`
+            `Persona: ${p.name} (${p.role})\nDemographics: ${p.demographics}\nBio: ${resolveChunksInText(p.bio)}\nJTBD: ${p.jtbd || 'N/A'}\nQuote: "${p.quote}"\nGoals: Life=${p.goals?.lifeGoal || 'N/A'} | Experience=${p.goals?.experienceGoal || 'N/A'} | Functional=${p.goals?.functionalGoal || 'N/A'}\n5Ws: Who=${resolveChunksInText(p.fiveWs?.who || 'N/A')} | What=${resolveChunksInText(p.fiveWs?.what || 'N/A')} | When/Where=${resolveChunksInText(p.fiveWs?.whenWhere || 'N/A')} | Why=${resolveChunksInText(p.fiveWs?.why || 'N/A')}\nPain Points: ${(Array.isArray(p.painPoints) ? p.painPoints : []).map((pp: any) => `${pp.label}: "${resolveChunksInText(pp.quote || '')}" (${resolveChunk(pp.sourceFile || pp.source || '')})`).join('; ')}\nMotivations: ${(Array.isArray(p.motivations) ? p.motivations : []).map((m: any) => `${m.label}: "${resolveChunksInText(m.quote || '')}" (${resolveChunk(m.source || '')})`).join('; ')}\nOpportunities: ${(Array.isArray(p.opportunities) ? p.opportunities : []).map((o: any) => `${o.label}: "${resolveChunksInText(o.quote || '')}" (${resolveChunk(o.source || '')})`).join('; ')}\nBehaviors: ${resolveChunksInText(p.behaviors || 'N/A')}\nTechnology Usage: ${resolveChunksInText(p.technologyUsage || 'N/A')}\nJourney Context: ${resolveChunksInText(p.journeyContext || 'N/A')}\nDay in the Life: ${resolveChunksInText(p.dayInTheLife || 'N/A')}\nBrand Relationships: ${resolveChunksInText(p.brandRelationships || 'N/A')}\nDecision Process: ${resolveChunksInText(p.decisionProcess || 'N/A')}\nConfidence: ${p.confidenceLevel || 'N/A'} (${p.evidenceCount || 0} evidence items)\nImage: ${p.imageUrl ? 'Available' : 'None'}`
         ).join('\n\n---\n\n');
 
         const serializeJourney = (stages: any[]) => stages.map((s, i) =>
@@ -5097,10 +6074,10 @@ Output JSON.`;
             if (info.sourceName) sourceNames.add(info.sourceName);
         });
 
-        // Build EVIDENCE CATALOG from raw sources — the actual articles, posts, and data
+        // Build EVIDENCE CATALOG from raw sources - the actual articles, posts, and data
         // This is what makes the report cite real intelligence instead of just deliverable abstracts
         // CRITICAL: The knowledge graph shows ~200 sources with full depth because it reads raw data.
-        // The report MUST see the same depth. Inject liberally — Gemini 2.5 Flash has 1M token context.
+        // The report MUST see the same depth. Inject liberally - Gemini 2.5 Flash has 1M token context.
         let evidenceCatalog = '';
         if (rawSources && rawSources.length > 0) {
             const evidenceEntries: string[] = [];
@@ -5118,7 +6095,7 @@ Output JSON.`;
                 evidenceEntries.push(`\n--- ${tierLabels[tier]} (${tierSources.length} sources, ${tierSources.reduce((s: number, src: any) => s + (src.items?.length || 0), 0)} total articles) ---`);
                 for (const src of tierSources) {
                     evidenceEntries.push(`\nSOURCE: ${src.source || src.sourceId} (T${tier}, ${src.items.length} articles)`);
-                    // INCLUDE ALL USER-CURATED ARTICLES — no hard caps.
+                    // INCLUDE ALL USER-CURATED ARTICLES - no hard caps.
                     // rawSources already filtered by excludedSources in App.tsx.
                     // Every item that reaches here was explicitly included by the user.
                     // Sort: priority items FIRST, then by relevance score.
@@ -5134,7 +6111,7 @@ Output JSON.`;
                         const relevance = item.relevanceScore ? ` | Relevance: ${item.relevanceScore}/100` : '';
                         const author = item.author ? ` | Author: ${item.author}` : '';
                         evidenceEntries.push(`  ARTICLE: "${item.title}"${author}${date}${url}${relevance}\n  ${content}`);
-                        if (item.priority) evidenceEntries.push(`  *** PRIORITY CITATION — User flagged this article for MANDATORY prominent placement in the report ***`);
+                        if (item.priority) evidenceEntries.push(`  *** PRIORITY CITATION - User flagged this article for MANDATORY prominent placement in the report ***`);
                         totalArticlesInjected++;
                     }
                 }
@@ -5142,7 +6119,7 @@ Output JSON.`;
 
             if (evidenceEntries.length > 0) {
                 evidenceCatalog = `\n=== RAW INTELLIGENCE EVIDENCE (${totalArticlesInjected} articles injected from ${rawSources.reduce((s: number, r: any) => s + (r.items?.length || 0), 0)} total collected across ${rawSources.length} sources) ===
-THIS IS YOUR PRIMARY EVIDENCE BASE. The deliverables above are the AI's synthesis — but YOUR report must go DEEPER than the synthesis by citing the raw evidence directly.
+THIS IS YOUR PRIMARY EVIDENCE BASE. The deliverables above are the AI's synthesis - but YOUR report must go DEEPER than the synthesis by citing the raw evidence directly.
 
 MANDATORY EVIDENCE USAGE:
 - CASE STUDIES: When an article describes a specific organization's experience, present it as a 2-3 sentence case study.
@@ -5159,21 +6136,59 @@ ${evidenceEntries.join('\n')}
         }
 
         const sourceCatalog = sourceNames.size > 0
-            ? `\n=== SOURCE CATALOG (${sourceNames.size} sources — cite by name) ===\n${Array.from(sourceNames).map(s => `- ${s}`).join('\n')}\n=== END SOURCE CATALOG ===\n`
+            ? `\n=== SOURCE CATALOG (${sourceNames.size} sources - cite by name) ===\n${Array.from(sourceNames).map(s => `- ${s}`).join('\n')}\n=== END SOURCE CATALOG ===\n`
             : '';
 
-        // Build the full deliverable context — NO TRUNCATION, RESOLVED CITATIONS
+        // 2026-06-06 - MANIFEST -> WIKI RESOLUTION. Instead of trusting only
+        // the in-memory context the caller threaded through, fetch each
+        // deliverable from the wiki (engagements/<slug>/<kind>.json) and
+        // prefer that as source of truth. Falls back to in-memory context
+        // when the wiki copy is missing (e.g. the deliverable was generated
+        // in this very session and hasn't been persisted yet). Replaces the
+        // anti-pattern the user flagged 2026-06-06: in-memory state being
+        // re-serialized into prompts instead of resolved from the wiki.
+        const _resolverSlug = currentEngagementSlug();
+        const _resolved = _resolverSlug
+            ? await resolveDeliverableBodies(_resolverSlug, [
+                'themes', 'personas', 'journey', 'recs', 'prd', 'roadmap',
+                'gap', 'techAudit', 'competitive', 'techArch',
+            ])
+            : { engagementSlug: '', requestedKinds: [], pointers: {}, bodies: {}, elapsedMs: 0, readCount: 0, missingKinds: [] };
+        const _wikiOrInMem = <T,>(wikiKey: string, wikiSubKey: string, inMem: T): T => {
+            const w = (_resolved.bodies as any)[wikiKey];
+            if (!w) return inMem;
+            const sub = w[wikiSubKey];
+            if (Array.isArray(sub) && sub.length) return sub as any;
+            if (w && typeof w === 'object' && !Array.isArray(w) && wikiSubKey === '') return w as any;
+            if (sub && typeof sub === 'object') return sub as any;
+            return inMem;
+        };
+        const _themes = _wikiOrInMem('themes', 'themes', context.themes || []);
+        const _personas = _wikiOrInMem('personas', 'personas', context.personas || []);
+        const _journey = _wikiOrInMem('journey', 'stages', context.journeyStages || []);
+        const _recs = _wikiOrInMem('recs', 'recommendations', context.recommendations || []);
+        const _prd = (_resolved.bodies as any).prd || context.prd;
+        const _roadmap = (_resolved.bodies as any).roadmap || context.roadmap;
+        const _techArch = (_resolved.bodies as any).techArch || context.techArchitecture;
+        const _gap = (_resolved.bodies as any).gap || context.gapAnalysis;
+        const _techAudit = (_resolved.bodies as any).techAudit || context.techAudit;
+        const _competitive = (_resolved.bodies as any).competitive || context.competitiveAnalysis;
+        const _manifestBlock = manifestPointerBlock(_resolved);
+
+        // Build the full deliverable context - wiki-first, in-memory fallback.
+        // Each section header now declares its wiki pointer for audit.
         const deliverableContext: string[] = [];
-        if (context.themes?.length) deliverableContext.push(`=== THEMES (${context.themes.length}) ===\n${serializeThemes(context.themes)}`);
-        if (context.personas?.length) deliverableContext.push(`=== PERSONAS (${context.personas.length}) ===\n${serializePersonas(context.personas)}`);
-        if (context.journeyStages?.length) deliverableContext.push(`=== SERVICE BLUEPRINT (${context.journeyStages.length} stages) ===\n${serializeJourney(context.journeyStages)}`);
-        if (context.recommendations?.length) deliverableContext.push(`=== RECOMMENDATIONS (${context.recommendations.length}) ===\n${serializeRecommendations(context.recommendations)}`);
-        if (context.prd) deliverableContext.push(`=== PRD ===\n${serializePRD(context.prd)}`);
-        if (context.roadmap) deliverableContext.push(`=== ROADMAP ===\n${serializeRoadmap(context.roadmap)}`);
-        if (context.techArchitecture) deliverableContext.push(`=== TECH ARCHITECTURE ===\n${serializeTechArch(context.techArchitecture)}`);
-        if (context.gapAnalysis) deliverableContext.push(`=== GAP ANALYSIS ===\n${serializeGapAnalysis(context.gapAnalysis)}`);
-        if (context.techAudit) deliverableContext.push(`=== TECH ECOSYSTEM AUDIT ===\n${serializeTechAudit(context.techAudit)}`);
-        if (context.competitiveAnalysis) deliverableContext.push(`=== COMPETITIVE ANALYSIS ===\n${serializeCompetitive(context.competitiveAnalysis)}`);
+        if (_themes?.length) deliverableContext.push(`=== THEMES (${_themes.length}) [pointer: ${_resolved.pointers.themes || '(in-memory)'}] ===\n${serializeThemes(_themes)}`);
+        if (_personas?.length) deliverableContext.push(`=== PERSONAS (${_personas.length}) [pointer: ${_resolved.pointers.personas || '(in-memory)'}] ===\n${serializePersonas(_personas)}`);
+        if (_journey?.length) deliverableContext.push(`=== SERVICE BLUEPRINT (${_journey.length} stages) [pointer: ${_resolved.pointers.journey || '(in-memory)'}] ===\n${serializeJourney(_journey)}`);
+        if (_recs?.length) deliverableContext.push(`=== RECOMMENDATIONS (${_recs.length}) [pointer: ${_resolved.pointers.recs || '(in-memory)'}] ===\n${serializeRecommendations(_recs)}`);
+        if (_prd) deliverableContext.push(`=== PRD [pointer: ${_resolved.pointers.prd || '(in-memory)'}] ===\n${serializePRD(_prd)}`);
+        if (_roadmap) deliverableContext.push(`=== ROADMAP [pointer: ${_resolved.pointers.roadmap || '(in-memory)'}] ===\n${serializeRoadmap(_roadmap)}`);
+        if (_techArch) deliverableContext.push(`=== TECH ARCHITECTURE [pointer: ${_resolved.pointers.techArch || '(in-memory)'}] ===\n${serializeTechArch(_techArch)}`);
+        if (_gap) deliverableContext.push(`=== GAP ANALYSIS [pointer: ${_resolved.pointers.gap || '(in-memory)'}] ===\n${serializeGapAnalysis(_gap)}`);
+        if (_techAudit) deliverableContext.push(`=== TECH ECOSYSTEM AUDIT [pointer: ${_resolved.pointers.techAudit || '(in-memory)'}] ===\n${serializeTechAudit(_techAudit)}`);
+        if (_competitive) deliverableContext.push(`=== COMPETITIVE ANALYSIS [pointer: ${_resolved.pointers.competitive || '(in-memory)'}] ===\n${serializeCompetitive(_competitive)}`);
+        if (_manifestBlock) deliverableContext.unshift(_manifestBlock);
 
         // Load wiki constraints for self-improvement
         let learnedConstraints = '';
@@ -5184,7 +6199,7 @@ ${evidenceEntries.join('\n')}
 
         const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGIC REPORT WRITER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC REPORT. You are a McKinsey-trained strategy consultant writing a comprehensive research report.
 
-TASK: Synthesize ALL of the deliverable data below into a unified strategic whitepaper. The report must introduce and contextualize EVERY deliverable generated in this research — themes, personas, journey map, gap analysis, competitive positioning, technology audit, recommendations, PRD, roadmap, and architecture. Each deliverable gets its own section with deep evidence. This report will later be distilled into a strategy deck — so be thorough, evidence-rich, and citation-heavy. Write with unrestricted analytical depth.
+TASK: Synthesize ALL of the deliverable data below into a unified strategic whitepaper. The report must introduce and contextualize EVERY deliverable generated in this research - themes, personas, journey map, gap analysis, competitive positioning, technology audit, recommendations, PRD, roadmap, and architecture. Each deliverable gets its own section with deep evidence. This report will later be distilled into a strategy deck - so be thorough, evidence-rich, and citation-heavy. Write with unrestricted analytical depth.
 
 RUMELT'S KERNEL (the report must contain all three):
 1. DIAGNOSIS: ONE specific challenge grounded in evidence from multiple deliverables.
@@ -5196,66 +6211,66 @@ NARRATIVE STRUCTURE (McKinsey Whitepaper Format):
 - Each section: 400-800 words of analytical prose that reads like a published research report.
 - WRITE LIKE A JOURNALIST: Name specific articles, quote specific people, cite specific data. "According to a February 2025 Higher Ed Dive report..." not "according to research."
 - USE CASE STUDIES: When an article describes a real institution, company, or person's experience, present it as a 2-3 sentence case study. "Amazon's January 2024 layoff of 16,000 corporate employees, reported across multiple Reddit communities, illustrates the volatility facing graduates..."
-- CITE SOCIAL EVIDENCE: Reddit posts and community discussions are primary practitioner evidence. Quote them directly: "One CS student on r/cscareerquestions wrote: 'I applied to 200 positions...' — a sentiment echoed by 47 similar posts in the dataset."
+- CITE SOCIAL EVIDENCE: Reddit posts and community discussions are primary practitioner evidence. Quote them directly: "One practitioner on a community forum wrote: 'We waited three weeks for onboarding...', a sentiment echoed by dozens of similar posts in the dataset."
 - WEAVE MULTIPLE SOURCES: Each paragraph should reference 2-3 different sources, showing convergent evidence. "Federal Register data confirms the regulatory shift, while a Hechinger Report investigation revealed the implementation gap at ground level."
 - Every factual claim MUST cite its source by specific name (not "research shows" or "studies indicate").
 - Include keyMetrics (label, value, context) with specific numbers from the evidence for EVERY section.
 - Include keyQuote (text, attribution, source) with a VERBATIM quote from a named source for EVERY section.
-- Leave evidenceGap as an empty string. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields — the report is a finished deliverable, not an annotated draft.
+- Leave evidenceGap as an empty string. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields - the report is a finished deliverable, not an annotated draft.
 
 PRIORITY CITATION ENFORCEMENT:
 Articles marked with "*** PRIORITY CITATION ***" in the evidence catalog below were explicitly flagged by the user for prominent placement. You MUST:
 1. Cite EVERY priority-flagged article by name in the report
 2. Include a direct quote or specific data point from each priority article
-3. Place priority articles in the most relevant section — they should anchor the argument, not be footnotes
+3. Place priority articles in the most relevant section - they should anchor the argument, not be footnotes
 4. If a priority article doesn't fit any section naturally, create a "Notable Evidence" subsection
 
-MANDATORY SECTION MANIFEST (generate EXACTLY these sections in this order — do NOT substitute strategy-document boilerplate like "Vision", "Governance Model", "Communication Plan"):
+MANDATORY SECTION MANIFEST (generate EXACTLY these sections in this order - do NOT substitute strategy-document boilerplate like "Vision", "Governance Model", "Communication Plan"):
 ${(() => {
     const sections: string[] = [];
     let n = 1;
-    sections.push(`${n++}. EXECUTIVE SUMMARY (sourceDeliverable: "executive_summary") — 500-800 words synthesizing the entire research body. Must reference at least 5 intelligence sources by name.`);
+    sections.push(`${n++}. EXECUTIVE SUMMARY (sourceDeliverable: "executive_summary") - 500-800 words synthesizing the entire research body. Must reference at least 5 intelligence sources by name.`);
     if (context.themes?.length) {
-        sections.push(`${n++}. RESEARCH LANDSCAPE: KEY THEMES (sourceDeliverable: "themes") — Present the ${context.themes.length} research themes as findings, each grounded in specific evidence. Name the articles and data that support each theme. This is NOT a strategy section — it's a research findings section.`);
-        sections.push(`${n++}. THEME DEEP-DIVE: [Pick the highest-evidence theme] (sourceDeliverable: "themes") — 600+ words investigating the strongest theme in depth. Use case studies, quote articles, cite data. Show convergent evidence across multiple sources.`);
+        sections.push(`${n++}. RESEARCH LANDSCAPE: KEY THEMES (sourceDeliverable: "themes") - Present the ${context.themes.length} research themes as findings, each grounded in specific evidence. Name the articles and data that support each theme. This is NOT a strategy section - it's a research findings section.`);
+        sections.push(`${n++}. THEME DEEP-DIVE: [Pick the highest-evidence theme] (sourceDeliverable: "themes") - 600+ words investigating the strongest theme in depth. Use case studies, quote articles, cite data. Show convergent evidence across multiple sources.`);
     }
     if (context.personas?.length) {
         for (const p of context.personas.slice(0, 4)) {
-            sections.push(`${n++}. PERSONA: ${p.name} (sourceDeliverable: "personas") — Full persona profile as investigative narrative. Include JTBD, Cooper goals, pain points with quoted evidence, behaviors, technology usage, journey context, day-in-the-life. Write as if profiling a real person for a magazine article. Cite the specific sources that informed this persona.`);
+            sections.push(`${n++}. PERSONA: ${p.name} (sourceDeliverable: "personas") - Full persona profile as investigative narrative. Include JTBD, Cooper goals, pain points with quoted evidence, behaviors, technology usage, journey context, day-in-the-life. Write as if profiling a real person for a magazine article. Cite the specific sources that informed this persona.`);
         }
     }
     if (context.journeyStages?.length) {
-        sections.push(`${n++}. SERVICE JOURNEY ANALYSIS (sourceDeliverable: "journey_map") — Walk through ALL ${context.journeyStages.length} journey stages. For each stage: what happens, what fails, what the emotional experience is, where the moments of truth are. Name specific pain points with evidence. Include frontstage/backstage actions.`);
-        sections.push(`${n++}. MOMENTS OF TRUTH & FAILURE POINTS (sourceDeliverable: "journey_map") — Focus on the stages with fail_points and momentOfTruth=true. Describe what breaks, the consequences, and the evidence. Use specific data from the research.`);
+        sections.push(`${n++}. SERVICE JOURNEY ANALYSIS (sourceDeliverable: "journey_map") - Walk through ALL ${context.journeyStages.length} journey stages. For each stage: what happens, what fails, what the emotional experience is, where the moments of truth are. Name specific pain points with evidence. Include frontstage/backstage actions.`);
+        sections.push(`${n++}. MOMENTS OF TRUTH & FAILURE POINTS (sourceDeliverable: "journey_map") - Focus on the stages with fail_points and momentOfTruth=true. Describe what breaks, the consequences, and the evidence. Use specific data from the research.`);
     }
     if (context.gapAnalysis) {
-        sections.push(`${n++}. CAPABILITY GAP ASSESSMENT (sourceDeliverable: "gap_analysis") — Present ALL gaps with current/target maturity scores. Include the risk register. Cite evidence for each gap's impact. Show the maturity progression path.`);
+        sections.push(`${n++}. CAPABILITY GAP ASSESSMENT (sourceDeliverable: "gap_analysis") - Present ALL gaps with current/target maturity scores. Include the risk register. Cite evidence for each gap's impact. Show the maturity progression path.`);
     }
     if (context.competitiveAnalysis) {
-        sections.push(`${n++}. COMPETITIVE POSITIONING (sourceDeliverable: "competitive_analysis") — Present ALL peers with strengths/weaknesses/differentiators. Include the maturity matrix scores. Show where we lead and where we trail. Cite specific competitive intelligence.`);
+        sections.push(`${n++}. COMPETITIVE POSITIONING (sourceDeliverable: "competitive_analysis") - Present ALL peers with strengths/weaknesses/differentiators. Include the maturity matrix scores. Show where we lead and where we trail. Cite specific competitive intelligence.`);
     }
     if (context.techAudit) {
-        sections.push(`${n++}. TECHNOLOGY ECOSYSTEM (sourceDeliverable: "tech_audit") — Present the systems inventory, integration map, and capability matrix. Name specific systems, vendors, health statuses. Identify consolidation opportunities with evidence.`);
+        sections.push(`${n++}. TECHNOLOGY ECOSYSTEM (sourceDeliverable: "tech_audit") - Present the systems inventory, integration map, and capability matrix. Name specific systems, vendors, health statuses. Identify consolidation opportunities with evidence.`);
     }
     if (context.recommendations?.length) {
-        sections.push(`${n++}. STRATEGIC RECOMMENDATIONS (sourceDeliverable: "recommendations") — Present ALL ${context.recommendations.length} recommendations with full action items. Each recommendation must cite the evidence that justifies it. Group by impact level.`);
+        sections.push(`${n++}. STRATEGIC RECOMMENDATIONS (sourceDeliverable: "recommendations") - Present ALL ${context.recommendations.length} recommendations with full action items. Each recommendation must cite the evidence that justifies it. Group by impact level.`);
     }
     if (context.prd) {
-        sections.push(`${n++}. PRODUCT REQUIREMENTS (sourceDeliverable: "prd") — Present key features with MoSCoW priority, user stories, and acceptance criteria. Tie each feature back to a persona need or gap finding.`);
+        sections.push(`${n++}. PRODUCT REQUIREMENTS (sourceDeliverable: "prd") - Present key features with MoSCoW priority, user stories, and acceptance criteria. Tie each feature back to a persona need or gap finding.`);
     }
     if (context.roadmap) {
-        sections.push(`${n++}. IMPLEMENTATION ROADMAP (sourceDeliverable: "roadmap") — Present ALL items across NOW/NEXT/LATER horizons with owners, success metrics, and dependencies. Each item must reference the recommendation or gap it addresses.`);
+        sections.push(`${n++}. IMPLEMENTATION ROADMAP (sourceDeliverable: "roadmap") - Present ALL items across NOW/NEXT/LATER horizons with owners, success metrics, and dependencies. Each item must reference the recommendation or gap it addresses.`);
     }
     if (context.techArchitecture) {
-        sections.push(`${n++}. ARCHITECTURE DIRECTION (sourceDeliverable: "tech_architecture") — Present the technical architecture with nodes, flows, and integration points. Tie to the tech audit findings and gap analysis.`);
+        sections.push(`${n++}. ARCHITECTURE DIRECTION (sourceDeliverable: "tech_architecture") - Present the technical architecture with nodes, flows, and integration points. Tie to the tech audit findings and gap analysis.`);
     }
-    sections.push(`${n++}. RISK ASSESSMENT & QUICK WINS (sourceDeliverable: "risk_assessment") — Top 5 risks from the gap analysis risk register + the top quick wins from the roadmap NOW horizon. Evidence-grounded, not generic.`);
+    sections.push(`${n++}. RISK ASSESSMENT & QUICK WINS (sourceDeliverable: "risk_assessment") - Top 5 risks from the gap analysis risk register + the top quick wins from the roadmap NOW horizon. Evidence-grounded, not generic.`);
     return sections.join('\n');
 })()}
 
-TOTAL: Generate ALL sections listed above. Do NOT skip any. Do NOT add sections not in this list (no "Vision and Mission", "Governance Model", "Communication Plan", "Change Management" — those are strategy document filler, not research report content).
+TOTAL: Generate ALL sections listed above. Do NOT skip any. Do NOT add sections not in this list (no "Vision and Mission", "Governance Model", "Communication Plan", "Change Management" - those are strategy document filler, not research report content).
 
-ANTI-SLOP: No "paradigm shift", "game-changer", "leverage synergies", "in today's rapidly evolving landscape", or similar corporate filler. Write like a consultant who bills $500/hour — every word earns its place.
+ANTI-SLOP: No "paradigm shift", "game-changer", "leverage synergies", "in today's rapidly evolving landscape", or similar corporate filler. Write like a consultant who bills $500/hour - every word earns its place.
 
 PLAIN TEXT ONLY: No **bold**, *italic*, or markdown. The rendering system handles formatting.
 
@@ -5268,16 +6283,16 @@ ${deliverableContext.join('\n\n')}
 ${evidenceCatalog}
 ${sourceCatalog}
 CRITICAL CITATION AND EVIDENCE REQUIREMENTS:
-1. The RAW INTELLIGENCE EVIDENCE section above contains articles from ${rawSources?.length || 0} sources with ${rawSources?.reduce((s: number, r: any) => s + (r.items?.length || 0), 0) || 0} total collected items. THIS IS YOUR PRIMARY EVIDENCE BASE — the knowledge graph shows all this depth and YOUR REPORT MUST MATCH IT.
-2. Your report MUST cite evidence from at LEAST 20 different named sources — not just the uploaded client documents. The knowledge graph connects ~200 evidence nodes; your report should reference a significant fraction of them.
+1. The RAW INTELLIGENCE EVIDENCE section above contains articles from ${rawSources?.length || 0} sources with ${rawSources?.reduce((s: number, r: any) => s + (r.items?.length || 0), 0) || 0} total collected items. THIS IS YOUR PRIMARY EVIDENCE BASE - the knowledge graph shows all this depth and YOUR REPORT MUST MATCH IT.
+2. Your report MUST cite evidence from at LEAST 20 different named sources - not just the uploaded client documents. The knowledge graph connects ~200 evidence nodes; your report should reference a significant fraction of them.
 3. CITE SPECIFIC ARTICLES BY NAME: "According to Higher Ed Dive's article 'Universities Struggle with Skills Gap'..." or "A Reddit post in r/cscareerquestions noted that..."
 4. QUOTE SPECIFIC DATA: Use specific statistics, dates, percentages, dollar amounts, and findings from the evidence articles. NEVER generalize what can be specified. BAD: "Research shows enrollment declined." GOOD: "Higher Ed Dive reported a 15% enrollment decline across 23 public universities in Q1 2025, with rural institutions hit hardest at 22% [Higher Ed Dive]."
 5. USE CASE STUDY FORMAT: When an article describes a specific institution's experience, present it as a 2-4 sentence case study within the relevant section. MINIMUM 3 case studies across the report. Example: "CASE STUDY: Southern Oregon University received a $15M state lifeline in March 2025 to maintain operations after enrollment dropped below sustainability thresholds. The investment, paired with a workforce-aligned curriculum redesign, is projected to recover 60% of lost enrollment within 18 months [GDELT News]."
-6. SOCIAL EVIDENCE IS PRIMARY EVIDENCE: Reddit posts, forum discussions, TrustPilot reviews, and community data are unfiltered practitioner voices. Quote them DIRECTLY and EXTENSIVELY: "A senior advancement officer wrote on r/highereducation: 'We've been doing the same thing for 20 years and wondering why young alumni don't give' — a sentiment echoed in 14 similar posts across the dataset."
+6. SOCIAL EVIDENCE IS PRIMARY EVIDENCE: Reddit posts, forum discussions, TrustPilot reviews, and community data are unfiltered practitioner voices. Quote them DIRECTLY and EXTENSIVELY: "A senior advancement officer wrote on r/highereducation: 'We've been doing the same thing for 20 years and wondering why young alumni don't give' - a sentiment echoed in 14 similar posts across the dataset."
 7. The uploaded client documents provide ORGANIZATIONAL CONTEXT. The intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH: what the client's documents say about their situation + what the broader evidence reveals about the landscape they operate in.
-8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Higher Ed Dive", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") — NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
+8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Higher Ed Dive", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") - NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
 9. EVERY section must include keyMetrics with 2-4 specific numbers drawn from the evidence (not approximations), and keyQuote with a VERBATIM quote from a named source.
-10. If a section relies only on uploaded client documents with no external evidence, narrow the section's claims to what IS evidenced — do NOT pad. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields.
+10. If a section relies only on uploaded client documents with no external evidence, narrow the section's claims to what IS evidenced - do NOT pad. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields.
 11. AIM FOR 400-800 WORDS PER SECTION. The report should feel like a published research paper, not a slide deck in paragraph form. Use analytical prose with evidence weaving, not bullet-point summaries.
 12. CONVERGENT EVIDENCE: When 3+ sources agree on a finding, explicitly note the convergence. This is the strongest possible evidence and should be prominently featured.
 
@@ -5323,138 +6338,189 @@ Output JSON.`;
             required: ['methodology', 'report']
         };
 
-        // PHASE 1: Generate executive summary + diagnosis + pillars in the chat session
-        onStream('Phase 1: Generating executive framework (diagnosis, pillars, summary)...');
-        const frameworkResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        // ───────────────────────────────────────────────────────────────────
+        // 2026-05-31 (Phase B) - FAN-OUT-FIRST architecture. The old design did
+        // the WHOLE report in ONE chat-session call (executeStep), which has no
+        // maxOutputTokens and a 20KB repetition-guard that CLIPPED long reports
+        // -> thin output. New design:
+        //   1. A small FRAMEWORK call (title, exec summary, diagnosis, guiding
+        //      policy, pillars, landscape framing) - bounded, won't truncate.
+        //   2. EVERY content section is generated by its OWN standalone call
+        //      (high token budget, no chat-session guard), with a per-section
+        //      word-count depth floor + one EXPAND retry.
+        // This is what makes the brief deep + frames the space.
+        // ───────────────────────────────────────────────────────────────────
+        const frameworkSchema: any = {
+            type: 'OBJECT',
+            properties: {
+                methodology: { type: 'STRING' },
+                title: { type: 'STRING' },
+                executiveSummary: { type: 'STRING' },
+                diagnosis: { type: 'STRING' },
+                guidingPolicy: { type: 'STRING' },
+                strategicPillars: { type: 'ARRAY', items: { type: 'STRING' } },
+                landscapeFraming: {
+                    type: 'OBJECT',
+                    properties: {
+                        space: { type: 'STRING' },
+                        opportunities: { type: 'ARRAY', items: { type: 'STRING' } },
+                        challenges: { type: 'ARRAY', items: { type: 'STRING' } },
+                    },
+                },
+            },
+            required: ['title', 'executiveSummary', 'diagnosis', 'guidingPolicy', 'strategicPillars'],
+        };
 
-        // Extract the framework from Phase 1
-        const report = frameworkResult?.report || {};
-        const executiveSummary = report.executiveSummary || '';
-        const diagnosis = report.diagnosis || '';
-        const guidingPolicy = report.guidingPolicy || '';
-        const strategicPillars = report.strategicPillars || [];
-        const phase1Sections = report.sections || [];
+        const frameworkPrompt = `${prompt}
 
-        // PHASE 2: Generate REMAINING sections individually via standalone calls
-        // The Phase 1 call may have generated some sections but often runs out of tokens.
-        // We generate each missing section with a dedicated call that receives ONLY
-        // the relevant deliverable data + the executive summary as context anchor.
-        const sectionManifest: { title: string; sourceDeliverable: string; data: string }[] = [];
+*** THIS CALL PRODUCES ONLY THE FRAMEWORK OBJECT (no section array). ***
+Generate: methodology; title; executiveSummary (500-800 words, SCR, names >=5 sources); diagnosis;
+guidingPolicy; strategicPillars (5-7); landscapeFraming { space, opportunities[4-6], challenges[4-6] }.
+FRAME THE SPACE in landscapeFraming.space (150-250 words): where this domain is right now, the forces
+shaping it, and where it is heading. The detailed sections are written separately, so do your best
+synthesis work HERE on the framing and the kernel.`;
 
+        onStream('Phase 1: Framing the space (diagnosis, landscape, pillars, summary)...');
+        let framework: any = {};
+        try {
+            framework = await this.executeStep<any>(frameworkPrompt, frameworkSchema, [], onStream);
+        } catch (e) {
+            console.warn('[StrategicReport] framework call failed:', e);
+        }
+        const diagnosis = framework?.diagnosis || '';
+        const guidingPolicy = framework?.guidingPolicy || '';
+        const strategicPillars = framework?.strategicPillars || [];
+        const landscapeFraming = framework?.landscapeFraming || null;
+
+        // Build the COMPLETE ordered section manifest - EVERY section fans out.
+        const manifest: { title: string; sourceDeliverable: string; data: string; guidance?: string }[] = [];
+        // FRAME THE SPACE leads the body (the "frame the space" requirement).
+        manifest.push({
+            title: 'FRAMING THE SPACE',
+            sourceDeliverable: 'landscape',
+            data: `Space: ${landscapeFraming?.space || ''}\nOpportunities: ${(landscapeFraming?.opportunities || []).join('; ')}\nChallenges: ${(landscapeFraming?.challenges || []).join('; ')}`,
+            guidance: 'Expand into 400-600 words: where the field is now, the forces shaping it, where it is heading, and the biggest opportunities and challenges. This sets up the entire report, make it a real landscape framing, not a summary.',
+        });
+        if (context.themes?.length) {
+            manifest.push({ title: 'RESEARCH LANDSCAPE: KEY THEMES', sourceDeliverable: 'themes', data: serializeThemes(context.themes), guidance: `Present ALL ${context.themes.length} themes as evidenced findings. Name the articles/data behind each. Research-findings section, not strategy.` });
+            manifest.push({ title: 'THEME DEEP-DIVE', sourceDeliverable: 'themes_deepdive', data: serializeThemes(context.themes.slice(0, 5)), guidance: 'Investigate the 2-3 highest-evidence themes in depth, with case studies, quoted articles, and convergent evidence across multiple sources.' });
+        }
         if (context.personas?.length) {
             for (const p of context.personas.slice(0, 4)) {
-                sectionManifest.push({
-                    title: `PERSONA: ${p.name}`,
-                    sourceDeliverable: 'personas',
-                    data: serializePersonas([p])
-                });
+                manifest.push({ title: `PERSONA: ${p.name}`, sourceDeliverable: 'personas', data: serializePersonas([p]), guidance: 'Write as an investigative profile: tell this persona story with quoted evidence, JTBD, pains, behaviors.' });
             }
         }
         if (context.journeyStages?.length) {
-            sectionManifest.push({ title: 'SERVICE JOURNEY ANALYSIS', sourceDeliverable: 'journey_map', data: serializeJourney(context.journeyStages) });
+            manifest.push({ title: 'SERVICE JOURNEY ANALYSIS', sourceDeliverable: 'journey_map', data: serializeJourney(context.journeyStages), guidance: 'Walk through every stage: what happens, what fails, the emotional experience, moments of truth.' });
+            manifest.push({ title: 'MOMENTS OF TRUTH AND FAILURE POINTS', sourceDeliverable: 'journey_moments', data: serializeJourney(context.journeyStages), guidance: 'Focus on fail points + moments of truth: what breaks, the consequence, the evidence.' });
         }
-        if (context.gapAnalysis) {
-            sectionManifest.push({ title: 'CAPABILITY GAP ASSESSMENT', sourceDeliverable: 'gap_analysis', data: serializeGapAnalysis(context.gapAnalysis) });
-        }
-        if (context.competitiveAnalysis) {
-            sectionManifest.push({ title: 'COMPETITIVE POSITIONING', sourceDeliverable: 'competitive_analysis', data: serializeCompetitive(context.competitiveAnalysis) });
-        }
-        if (context.techAudit) {
-            sectionManifest.push({ title: 'TECHNOLOGY ECOSYSTEM', sourceDeliverable: 'tech_audit', data: serializeTechAudit(context.techAudit) });
-        }
-        if (context.recommendations?.length) {
-            sectionManifest.push({ title: 'STRATEGIC RECOMMENDATIONS', sourceDeliverable: 'recommendations', data: serializeRecommendations(context.recommendations) });
-        }
-        if (context.prd) {
-            sectionManifest.push({ title: 'PRODUCT REQUIREMENTS', sourceDeliverable: 'prd', data: serializePRD(context.prd) });
-        }
-        if (context.roadmap) {
-            sectionManifest.push({ title: 'IMPLEMENTATION ROADMAP', sourceDeliverable: 'roadmap', data: serializeRoadmap(context.roadmap) });
-        }
-        if (context.techArchitecture) {
-            sectionManifest.push({ title: 'ARCHITECTURE DIRECTION', sourceDeliverable: 'tech_architecture', data: serializeTechArch(context.techArchitecture) });
-        }
+        if (context.gapAnalysis) manifest.push({ title: 'CAPABILITY GAP ASSESSMENT', sourceDeliverable: 'gap_analysis', data: serializeGapAnalysis(context.gapAnalysis), guidance: 'Present all gaps with maturity scores + the risk register; cite evidence for each gap impact.' });
+        if (context.competitiveAnalysis) manifest.push({ title: 'COMPETITIVE POSITIONING', sourceDeliverable: 'competitive_analysis', data: serializeCompetitive(context.competitiveAnalysis), guidance: 'Present all peers with strengths/weaknesses/differentiators + the maturity matrix; where we lead and trail.' });
+        if (context.techAudit) manifest.push({ title: 'TECHNOLOGY ECOSYSTEM', sourceDeliverable: 'tech_audit', data: serializeTechAudit(context.techAudit), guidance: 'Present systems inventory, integration map, capability matrix; name systems/vendors; consolidation opportunities.' });
+        if (context.recommendations?.length) manifest.push({ title: 'STRATEGIC RECOMMENDATIONS', sourceDeliverable: 'recommendations', data: serializeRecommendations(context.recommendations), guidance: 'Present all recommendations with action items; each must cite the evidence that justifies it.' });
+        if (context.prd) manifest.push({ title: 'PRODUCT REQUIREMENTS', sourceDeliverable: 'prd', data: serializePRD(context.prd), guidance: 'Key features with MoSCoW priority, user stories, acceptance criteria; tie each to a persona need or gap.' });
+        if (context.roadmap) manifest.push({ title: 'IMPLEMENTATION ROADMAP', sourceDeliverable: 'roadmap', data: serializeRoadmap(context.roadmap), guidance: 'All items across NOW/NEXT/LATER with owners, success metrics, dependencies; reference the rec/gap each addresses.' });
+        if (context.techArchitecture) manifest.push({ title: 'ARCHITECTURE DIRECTION', sourceDeliverable: 'tech_architecture', data: serializeTechArch(context.techArchitecture), guidance: 'Architecture with nodes, flows, integration points; tie to the tech audit + gap analysis.' });
+        manifest.push({
+            title: 'RISK ASSESSMENT AND QUICK WINS',
+            sourceDeliverable: 'risk_assessment',
+            data: `${context.gapAnalysis ? serializeGapAnalysis(context.gapAnalysis) : ''}\n${context.roadmap ? serializeRoadmap(context.roadmap) : ''}`.trim() || 'Derive from the themes, journey pains, and recommendations above.',
+            guidance: 'Top 5 risks (with likelihood/impact/mitigation) + top quick wins. Evidence-grounded, not generic.',
+        });
 
-        // Check which sections Phase 1 already generated
-        const generatedDeliverables = new Set(phase1Sections.map((s: any) => s.sourceDeliverable));
-        const missingSections = sectionManifest.filter(s => !generatedDeliverables.has(s.sourceDeliverable));
+        const sectionSchema: any = {
+            type: 'OBJECT',
+            properties: {
+                title: { type: 'STRING' },
+                content: { type: 'STRING' },
+                citations: { type: 'ARRAY', items: { type: 'STRING' } },
+                keyMetrics: { type: 'ARRAY', items: { type: 'OBJECT', properties: { label: { type: 'STRING' }, value: { type: 'STRING' }, context: { type: 'STRING' } }, required: ['label', 'value'] } },
+                keyQuote: { type: 'OBJECT', properties: { text: { type: 'STRING' }, attribution: { type: 'STRING' }, source: { type: 'STRING' } } },
+                evidenceGap: { type: 'STRING' },
+            },
+            required: ['title', 'content', 'citations']
+        };
 
-        if (missingSections.length > 0) {
-            onStream(`Phase 2: Generating ${missingSections.length} remaining sections individually...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
-            const sectionSchema: any = {
-                type: 'OBJECT',
-                properties: {
-                    sectionNumber: { type: 'INTEGER' },
-                    title: { type: 'STRING' },
-                    content: { type: 'STRING' },
-                    sourceDeliverable: { type: 'STRING' },
-                    citations: { type: 'ARRAY', items: { type: 'STRING' } },
-                    keyMetrics: { type: 'ARRAY', items: { type: 'OBJECT', properties: { label: { type: 'STRING' }, value: { type: 'STRING' }, context: { type: 'STRING' } }, required: ['label', 'value'] } },
-                    keyQuote: { type: 'OBJECT', properties: { text: { type: 'STRING' }, attribution: { type: 'STRING' }, source: { type: 'STRING' } } },
-                    evidenceGap: { type: 'STRING' },
-                },
-                required: ['sectionNumber', 'title', 'content', 'sourceDeliverable', 'citations']
-            };
+        const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const WORD_FLOOR = 250;
+        const evCat = evidenceCatalog ? 'EVIDENCE CATALOG (cite from this):\n' + evidenceCatalog.substring(0, 30000) : '';
+        const noAnnotationRule = 'No QA-style placeholder markers or notes about missing data; leave the evidenceGap field as an empty string.';
 
-            let sectionNum = phase1Sections.length + 1;
-            for (const manifest of missingSections) {
-                onStream(`Writing section: ${manifest.title}...`);
-                const sectionPrompt = `You are a McKinsey-trained strategy consultant writing ONE section of a strategic research report.
+        const writeSection = async (m: { title: string; sourceDeliverable: string; data: string; guidance?: string }): Promise<any | null> => {
+            const mkPrompt = (expand: boolean) => `You are a McKinsey-trained strategy consultant writing ONE section of a strategic research report.
 
-CONTEXT (the report's executive framework):
+REPORT FRAMEWORK (for coherence):
 DIAGNOSIS: ${diagnosis}
 GUIDING POLICY: ${guidingPolicy}
 PILLARS: ${strategicPillars.join('; ')}
 
-YOUR TASK: Write section "${manifest.title}" (sourceDeliverable: "${manifest.sourceDeliverable}").
+WRITE SECTION: "${m.title}" (sourceDeliverable: "${m.sourceDeliverable}").
+${m.guidance || ''}
 
-THIS SECTION MUST:
-1. Be 400-800 words of analytical prose — NOT bullet points, NOT a summary
-2. INTRODUCE and CONTEXTUALIZE the deliverable: explain what this analysis IS, what methodology was used, and what it reveals about the research subject
-3. Include keyMetrics (2-4 specific numbers from the data)
-4. Include a keyQuote (verbatim from a named source)
-5. Include 5-10 citations (real source names, not "research" or "studies")
-6. Lead with EXTERNAL research evidence, then contextualize with client documents
-7. If this is a persona section, write as an investigative profile — tell their story with evidence
-8. If this is a journey section, walk through each stage with what breaks and why
-9. If this is a gap/competitive/audit section, present findings with maturity scores and evidence
+REQUIREMENTS:
+1. 400-800 words of analytical prose, NOT bullet points, NOT a summary.
+2. Lead with EXTERNAL research evidence (name the article/source + quote it), corroborate with a 2nd source, THEN contextualize with client docs.
+3. keyMetrics: 2-4 specifics, each carried INSIDE a cited quote/context (never a naked number as your own assertion).
+4. keyQuote: one VERBATIM quote from a named source.
+5. citations: 5-10 REAL source names (never "research"/"studies"/internal synthesis passes).
+6. No markdown. ${noAnnotationRule}
+${expand ? '\nYOUR PREVIOUS DRAFT WAS TOO THIN. EXPAND with more evidence, a case study, and convergent sources. Do NOT summarize, do NOT repeat, add substance.' : ''}
 
 DELIVERABLE DATA:
-${manifest.data}
+${m.data}
 
-${evidenceCatalog ? 'EVIDENCE CATALOG (cite from this):\n' + evidenceCatalog.substring(0, 30000) : ''}
+${evCat}
 
-PLAIN TEXT ONLY. No markdown. No bullet lists unless the data is inherently a list.
 Output JSON matching the section schema.`;
-
+            let best: any = null; let bestWords = -1;
+            for (let attempt = 0; attempt < 2; attempt++) {
                 try {
-                    const sectionResponse = await withRetry(() => standaloneAi.models.generateContent({
+                    const resp = await withRetry(() => standaloneAi.models.generateContent({
                         model: 'gemini-3.5-flash',
-                        contents: { parts: [{ text: sectionPrompt }] },
-                        config: { responseMimeType: 'application/json', responseSchema: sectionSchema, temperature: 0.3 }
-                    }), 3, 3000, `Report Section: ${manifest.title}`);
-
-                    const sectionText = sectionResponse.text || '{}';
-                    const section = JSON.parse(tryRepairJson(sectionText));
-                    section.sectionNumber = sectionNum++;
-                    section.sourceDeliverable = manifest.sourceDeliverable;
-                    phase1Sections.push(section);
+                        contents: { parts: [{ text: mkPrompt(attempt > 0) }] },
+                        config: { responseMimeType: 'application/json', responseSchema: sectionSchema, temperature: 0.35, maxOutputTokens: 8192 } as any
+                    }), 3, 3000, `Report Section: ${m.title}`);
+                    const parsed = JSON.parse(tryRepairJson(resp.text || '{}'));
+                    const words = String(parsed?.content || '').split(/\s+/).filter(Boolean).length;
+                    if (words > bestWords) { best = parsed; bestWords = words; }
+                    if (words >= WORD_FLOOR) break;
+                    console.warn(`[StrategicReport] section "${m.title}" thin (${words}w) - ${attempt === 0 ? 'expanding' : 'kept best'}`);
                 } catch (e) {
-                    console.warn(`[StrategicReport] Failed to generate section "${manifest.title}":`, e);
-                    // Phase 1 generator failed for this section. Skip it rather than emit a
-                    // self-referential stub — the user explicitly forbids visible QA
-                    // annotations ("EVIDENCE GAP", "Section generation failed", etc.) in
-                    // delivered output. The deliverable is browsable in its own tab.
-                    continue;
+                    console.warn(`[StrategicReport] section "${m.title}" attempt ${attempt + 1} failed:`, e);
                 }
             }
-        }
+            return best;
+        };
 
-        // Assemble final report
-        report.sections = phase1Sections;
-        onStream(`Strategic Report complete: ${phase1Sections.length} sections generated.`);
-        return { methodology: frameworkResult?.methodology || '', report };
+        // Fan out in small concurrent batches (cut wall-clock; avoid rate-limit storms).
+        onStream(`Phase 2: Writing ${manifest.length} sections (deep, evidence-rich)...`);
+        const sections: any[] = [];
+        const BATCH = 4;
+        for (let i = 0; i < manifest.length; i += BATCH) {
+            const batch = manifest.slice(i, i + BATCH);
+            const results = await Promise.all(batch.map(m => writeSection(m).then(s => ({ m, s }))));
+            for (const { m, s } of results) {
+                if (s && s.content) {
+                    s.sourceDeliverable = m.sourceDeliverable;
+                    sections.push(s);
+                }
+            }
+            onStream(`Sections written: ${sections.length}/${manifest.length}`);
+        }
+        sections.forEach((s, idx) => { s.sectionNumber = idx + 1; });
+
+        const report: any = {
+            title: framework?.title || 'Strategic Report',
+            date: new Date().toISOString().slice(0, 10),
+            executiveSummary: framework?.executiveSummary || '',
+            diagnosis,
+            guidingPolicy,
+            strategicPillars,
+            landscapeFraming,
+            sections,
+        };
+        onStream(`Strategic Report complete: ${sections.length} sections generated.`);
+        return { methodology: framework?.methodology || '', report };
     }
 
     async visualizeNarrative(narrativeData: StepResult_Narrative, context: DeckInputContext, outputs: OutputOption[], onStatus: (s: string) => void, onStream?: (t: string) => void): Promise<StepResult_Final> {
@@ -5574,7 +6640,7 @@ Output JSON matching the section schema.`;
     /**
      * Claude-backed synthesis fallback. Used when Gemini Flash repetition-
      * collapses on long structured JSON (filenames, port numbers, dollar
-     * figures — any repeated token can trigger the attractor loop that the
+     * figures - any repeated token can trigger the attractor loop that the
      * RepetitionGuard catches). Claude Opus 4.7 does not have this failure
      * mode.
      *
@@ -5600,18 +6666,86 @@ Output JSON matching the section schema.`;
         onStream: (t: string) => void,
         stepLabel: string,
     ): Promise<T> {
+        // 2026-06-05 (Meta-Harness M1) - Trace recorder intercept. Every outer
+        // synthesis call records ONE TraceTurn carrying the composed prompt,
+        // model id, full response, fallback chain (if any), and elapsed time.
+        // Step 7's epoch proposer reads these traces via /api/sessions/{slug}/traces.
+        // Inner network retries inside executeStep are NOT separately recorded
+        // (they re-run with the same prompt on the same provider); a fallback
+        // to a different MODEL (RepetitionCollapse -> GPT-5.5) IS recorded as
+        // fallback_chain. Recording is off the hot path and never throws.
+        const _trace_started_at = Date.now();
+        let _trace_model_id = 'gemini-3.1-pro-preview';
         try {
-            return await this.executeStep<T>(prompt, schema, parts, onStream);
+            const result = await this.executeStep<T>(prompt, schema, parts, onStream);
+            try {
+                const { recordTurn } = await import('./traceRecorder');
+                recordTurn({
+                    step_label: stepLabel,
+                    model_id: _trace_model_id,
+                    prompt,
+                    response: (() => { try { return JSON.stringify(result, null, 2); } catch { return '[unserializable result]'; } })(),
+                    started_at: _trace_started_at,
+                });
+            } catch { /* non-fatal */ }
+            return result;
         } catch (err: any) {
             if (err?.code === 'RepetitionCollapse') {
-                // 2026-05-03 — Repetition-collapse fallback retargeted from
+                // 2026-05-03 - Repetition-collapse fallback retargeted from
                 // Claude Opus to GPT-5.5. Same recovery semantics, no Anthropic
                 // dependency. The Claude path is preserved (executeStepViaClaude
                 // below) so users on flagship engagements can opt back in via
                 // a future flag, but the default cascade is now Gemini → GPT.
                 console.warn(`[${stepLabel}] Gemini repetition-collapsed on "${err.sample}" (×${err.occurrences}). Falling back to GPT-5.5.`);
-                return await this.executeStepViaGPT<T>(prompt, schema, onStream, stepLabel);
+                const fallback_chain = [_trace_model_id, 'gpt-5.5'];
+                _trace_model_id = 'gpt-5.5';
+                try {
+                    const result = await this.executeStepViaGPT<T>(prompt, schema, onStream, stepLabel);
+                    try {
+                        const { recordTurn } = await import('./traceRecorder');
+                        recordTurn({
+                            step_label: stepLabel,
+                            model_id: _trace_model_id,
+                            prompt,
+                            response: (() => { try { return JSON.stringify(result, null, 2); } catch { return '[unserializable result]'; } })(),
+                            started_at: _trace_started_at,
+                            fallback_chain,
+                            fallback_fired: true,
+                            note: `RepetitionCollapse on Gemini, recovered via GPT-5.5`,
+                        });
+                    } catch { /* non-fatal */ }
+                    return result;
+                } catch (err2: any) {
+                    try {
+                        const { recordTurn } = await import('./traceRecorder');
+                        recordTurn({
+                            step_label: stepLabel,
+                            model_id: _trace_model_id,
+                            prompt,
+                            response: '',
+                            started_at: _trace_started_at,
+                            fallback_chain,
+                            fallback_fired: true,
+                            failed: true,
+                            error: err2?.message || String(err2),
+                            note: `RepetitionCollapse + GPT fallback both failed`,
+                        });
+                    } catch { /* non-fatal */ }
+                    throw err2;
+                }
             }
+            try {
+                const { recordTurn } = await import('./traceRecorder');
+                recordTurn({
+                    step_label: stepLabel,
+                    model_id: _trace_model_id,
+                    prompt,
+                    response: '',
+                    started_at: _trace_started_at,
+                    failed: true,
+                    error: err?.message || String(err),
+                });
+            } catch { /* non-fatal */ }
             throw err;
         }
     }
@@ -5625,7 +6759,7 @@ Output JSON matching the section schema.`;
               '\n=== END ACCUMULATED CONTEXT ===\n'
             : '';
 
-        // 2026-05-19 — Same NotebookLM-style goal-evidence injection as
+        // 2026-05-19 - Same NotebookLM-style goal-evidence injection as
         // executeStep, mirrored on the GPT fallback path so the model sees
         // the same goal-anchored context regardless of which provider runs.
         let goalEvidenceBlock = '';
@@ -5634,9 +6768,16 @@ Output JSON matching the section schema.`;
         } catch (e: any) {
             console.warn('[executeStepViaGPT] goal-evidence retrieval skipped:', e?.message || e);
         }
-        const effectivePrompt = goalEvidenceBlock
-            ? `${goalEvidenceBlock}\n${prompt}`
-            : prompt;
+        // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
+        let substrateBlock = '';
+        try {
+            substrateBlock = await this.getSubstrateEvidenceBlock();
+        } catch (e: any) {
+            console.warn('[executeStepViaGPT] substrate retrieval skipped:', e?.message || e);
+        }
+        const effectivePrompt = [this.buildObjectiveAnchor(), goalEvidenceBlock, substrateBlock, prompt]
+            .filter(s => s && s.length > 0)
+            .join('\n');
 
         const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
 
@@ -5660,30 +6801,66 @@ Output JSON matching the section schema.`;
         return result;
     }
 
-    // 2026-05-03 — executeStepViaClaude removed on this branch
+    // 2026-05-03 - executeStepViaClaude removed on this branch
     // (HiC-Gemini-Primary). The repetition-collapse fallback now lives in
     // executeStepViaGPT (above), and Anthropic is no longer reachable from
     // the synthesis pipeline on any code path.
 
+    /**
+     * 2026-05-30 - RESEARCH-OBJECTIVE SUPREMACY anchor. Prepended to EVERY
+     * synthesis prompt (themes breadth pass, Gemini step, GPT fallback) so the
+     * current objective is the sole filter and prior-engagement memory, cached
+     * portfolio data, or off-topic uploaded documents can never substitute a
+     * different topic. Empty string when no goal is set. Central guard against
+     * the co-op contamination of unrelated objectives.
+     */
+    private buildObjectiveAnchor(): string {
+        const g = (this.goal || '').trim();
+        if (!g) return '';
+        return `\n=== RESEARCH OBJECTIVE (SUPREME FILTER) ===\n` +
+            `Every theme, finding, persona, metric, and recommendation you produce MUST directly serve THIS objective:\n"${g}"\n` +
+            `Context from prior engagements, cross-session memory, or uploaded documents is BACKGROUND ONLY. If any evidence (including an uploaded client document) is about a different subject than this objective, DO NOT promote it into a theme, finding, or deliverable. Stay strictly on-objective; never substitute a prior engagement's topic for this one.\n` +
+            `=== END OBJECTIVE ===\n`;
+    }
+
     private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void): Promise<T> {
-        // 2026-05-19 — NotebookLM-style goal-evidence injection.
+        // 2026-05-19 - NotebookLM-style goal-evidence injection.
         let goalEvidenceBlock = '';
         try {
             goalEvidenceBlock = await this.getGoalEvidenceBlock();
         } catch (e: any) {
             console.warn('[executeStep] goal-evidence retrieval skipped:', e?.message || e);
         }
-        // 2026-05-23 — Karpathy Phase 2.3: Prepend recurring-shortfall topics
+        // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
+        let substrateBlock = '';
+        try {
+            substrateBlock = await this.getSubstrateEvidenceBlock();
+        } catch (e: any) {
+            console.warn('[executeStep] substrate retrieval skipped:', e?.message || e);
+        }
+        // 2026-05-23 - Karpathy Phase 2.3: Prepend recurring-shortfall topics
         // from cross-engagement memory. Topics that 2+ prior engagements have
         // hit as shortfalls get explicitly named in every generation prompt so
         // the model prioritizes evidence on them this session.
         let recurringShortfallBlock = '';
         try {
             const { getRecurringShortfallPreamble } = await import('./wikiService');
-            recurringShortfallBlock = getRecurringShortfallPreamble();
+            // 2026-05-30 - Pass the current objective so cross-engagement
+            // shortfalls are relevance-gated, not blanket-injected.
+            recurringShortfallBlock = getRecurringShortfallPreamble((this as any).goal);
         } catch { /* best-effort */ }
 
-        const effectivePrompt = [recurringShortfallBlock, goalEvidenceBlock, prompt]
+        // 2026-05-30 - RESEARCH-OBJECTIVE SUPREMACY anchor, prepended to EVERY
+        // synthesis step (themes, personas, narrative, recommendations...).
+        // The objective is the sole filter: prior-engagement memory, cached
+        // portfolio data, and off-topic uploaded documents are background only
+        // and must never become themes/findings. Central guard against the
+        // co-op contamination of unrelated objectives (AI-design run that
+        // produced a co-op journey because a single co-op upload + co-op
+        // engagement memory dominated synthesis).
+        const objectiveAnchor = this.buildObjectiveAnchor();
+
+        const effectivePrompt = [objectiveAnchor, recurringShortfallBlock, goalEvidenceBlock, substrateBlock, prompt]
             .filter(s => s && s.length > 0)
             .join('\n');
 
@@ -5785,7 +6962,7 @@ Output JSON matching the section schema.`;
                         console.warn("Model returned non-JSON, will retry:", (parsed as any)._raw?.substring(0, 80));
                         throw new Error(`Model returned non-JSON text: ${(parsed as any)._raw?.substring(0, 60)}`);
                     }
-                    // 2026-05-05 — Defense-in-depth strip: deletes any leaked
+                    // 2026-05-05 - Defense-in-depth strip: deletes any leaked
                     // "EVIDENCE GAP" / "Evidence Gap" / "TBD" / "[needs baseline]"
                     // QA-annotation tokens from every string field before the
                     // generator hands the deliverable to the renderer or wiki
@@ -5795,14 +6972,14 @@ Output JSON matching the section schema.`;
                     try {
                         const { stripQAAnnotationsDeep } = await import('./slidePostProcessor');
                         return stripQAAnnotationsDeep(parsed);
-                    } catch (e) { /* non-blocking — return raw if strip fails */ }
+                    } catch (e) { /* non-blocking - return raw if strip fails */ }
                     return parsed;
                 } catch (e) {
                     console.error("Critical JSON Parse Error", e, "Raw:", cleanedText.substring(0, 100) + "...");
                     throw new Error(`Failed to parse Gemini response: ${e instanceof Error ? e.message : 'Unknown Error'}`);
                 }
             } catch (stepError: any) {
-                // RepetitionCollapse propagates up — it needs to reach the
+                // RepetitionCollapse propagates up - it needs to reach the
                 // synthesis method for Claude-fallback routing. Don't retry
                 // on the Gemini path for this error class.
                 if (stepError?.code === 'RepetitionCollapse') {
@@ -5828,7 +7005,7 @@ Output JSON matching the section schema.`;
 }
 
 /**
- * Post-generation validation — ports hook logic into the pipeline.
+ * Post-generation validation - ports hook logic into the pipeline.
  * Returns { valid: boolean, failures: string[] }.
  * When valid is false, the pipeline should retry with failures as feedback.
  */
@@ -5856,7 +7033,7 @@ export function validateDeliverableOutput(
         failures.push(`UNRESOLVED: ${unique.length} CHUNK refs: ${unique.slice(0, 3).join(', ')}`);
     }
 
-    // CHECK 3: Walk citations arrays — no empty, no generic
+    // CHECK 3: Walk citations arrays - no empty, no generic
     const GENERIC = new Set(['research', 'studies', 'data', 'sources', 'intelligence_sources', 'analysis', 'evidence', 'findings', 'reports', 'literature']);
     const walkCitations = (obj: any, path: string) => {
         if (!obj || typeof obj !== 'object') return;

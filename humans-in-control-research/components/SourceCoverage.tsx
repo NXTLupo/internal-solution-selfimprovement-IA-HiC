@@ -1,12 +1,12 @@
 /**
- * SourceCoverage.tsx — Per-category visibility panel.
+ * SourceCoverage.tsx - Per-category visibility panel.
  *
  * Shows the user EXACTLY what's happening for every source category they
  * toggled on. Three signals per category:
- *   1. Items collected — count + top-rated chunk preview
- *   2. Citation count in current chat — how many times the model has
+ *   1. Items collected - count + top-rated chunk preview
+ *   2. Citation count in current chat - how many times the model has
  *      cited this category in its responses
- *   3. CATEGORY GAP markers — categories the model self-flagged as having
+ *   3. CATEGORY GAP markers - categories the model self-flagged as having
  *      no usable content for the current question
  *
  * The user has been blind to half of the data flow for months. This panel
@@ -102,7 +102,7 @@ function countCategoryCitations(messages: ChatMessage[]): {
     const citationsByCategory: Record<string, number> = {};
     const gapsByCategory: Record<string, number> = {};
     const citationRe = /\[([^:\]]+):\s*"[^"]*"\]/g;
-    const gapRe = /CATEGORY\s*GAP\s*:\s*([^\n—-]+)/gi;
+    const gapRe = /CATEGORY\s*GAP\s*:\s*([^\n-]+)/gi;
 
     for (const msg of messages) {
         if (msg.role !== 'assistant') continue;
@@ -151,7 +151,7 @@ export const SourceCoverage: React.FC<Props> = ({
         [chatMessages]
     );
 
-    // Build the unified row list — every category visible
+    // Build the unified row list - every category visible
     const rows = useMemo(() => {
         const allCats = new Set<string>([
             ...Object.keys(categoryRollup),
@@ -260,7 +260,7 @@ export const SourceCoverage: React.FC<Props> = ({
                                 </div>
                                 {row.sample && (
                                     <div style={{ fontSize: 11, color: '#888', lineHeight: 1.4, marginBottom: 4 }}>
-                                        Top item: "{row.sample.slice(0, 80)}{row.sample.length > 80 ? '…' : ''}"
+                                        Top item: "{row.sample.slice(0, 80)}{row.sample.length > 80 ? '...' : ''}"
                                     </div>
                                 )}
                                 <div style={{ fontSize: 10, color: '#666', fontFamily: 'JetBrains Mono, monospace' }}>
@@ -282,7 +282,7 @@ export const SourceCoverage: React.FC<Props> = ({
                                     <span style={{ fontSize: 10, fontWeight: 600, color: '#888' }}>not yet cited</span>
                                 )}
                                 {row.items === 0 && row.citations === 0 && row.gaps === 0 && (
-                                    <span style={{ fontSize: 10, color: '#444' }}>—</span>
+                                    <span style={{ fontSize: 10, color: '#444' }}>-</span>
                                 )}
                             </div>
                         </div>

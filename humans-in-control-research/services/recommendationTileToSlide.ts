@@ -1,16 +1,16 @@
 /**
- * recommendationTileToSlide — adapter that maps a #recommendations
+ * recommendationTileToSlide - adapter that maps a #recommendations
  * RecommendationTile (the consulting-grade tiles shown in CorpusChatPanel
  * after the user types #recommendations) onto the existing recommendation
  * slide template via ExportSlideArgs.
  *
  * Two export shapes are supported:
  *
- *   • Single slide  — exportTileAsSingleSlide(tile, isBet, brand) returns
+ *   • Single slide  - exportTileAsSingleSlide(tile, isBet, brand) returns
  *     one ExportSlideArgs ready to feed exportSlideToPPTX(). Used by the
  *     per-tile "Export as Slide" button.
  *
- *   • Full deck     — exportTilesAsDeck(tiles, brand) returns an ordered
+ *   • Full deck     - exportTilesAsDeck(tiles, brand) returns an ordered
  *     ExportSlideArgs[] (section divider + each tile slide + closing
  *     section divider). Used by the "Export All Recommendations as Deck"
  *     button at the top of the recommendations grid.
@@ -30,7 +30,7 @@ import type {
 } from '../components/slideTemplates/types';
 
 /**
- * Minimal RecommendationTile shape — keep in sync with the interface in
+ * Minimal RecommendationTile shape - keep in sync with the interface in
  * CorpusChatPanel.tsx. Re-declared here to avoid pulling React component
  * imports into a pure data adapter. Most fields are optional; only `title`
  * is structurally required.
@@ -44,7 +44,7 @@ export interface RecommendationTileInput {
     aha_interaction?: string;
     ai_capabilities?: string[];
     image_prompt?: string;
-    image_data?: string;        // data URL — model-generated portrait
+    image_data?: string;        // data URL - model-generated portrait
     image_url?: string;          // remote URL fallback
     variants?: Array<{ label: string; command: string }>;
     clr_dependent?: boolean | null;
@@ -82,9 +82,21 @@ export interface RecommendationTileInput {
     diverges_from?: string;
 }
 
+// 2026-05-31 - Export sanitizer. The recommendation -> PPTX/slide export path
+// bypasses slidePostProcessor, so em-dashes + QA annotations in tile fields
+// reached the deck. Every visible field flows through truncate(), so clean here:
+// strip em-dashes (hard ban) and QA-style annotations before length-capping.
+const _cleanSlideText = (s: string): string => {
+    let out = s;
+    out = out.replace(/\s+-\s+/g, ', ').replace(/(\w)-(\w)/g, '$1-$2').replace(/-/g, ', ');
+    // QA-annotation / placeholder markers the reader must never see.
+    out = out.replace(/\[?\s*(?:EVIDENCE\s+GAP|Evidence\s+Gap|needs?\s+baseline|baseline\s+TBD|\bTBD\b)\s*\]?\s*[:\-]?\s*/g, '');
+    return out.replace(/,\s*,/g, ',').replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ').trim();
+};
 const truncate = (s: string | undefined, n: number): string => {
     if (!s) return '';
-    return s.length > n ? s.substring(0, n - 1).trimEnd() + '…' : s;
+    const cleaned = _cleanSlideText(s);
+    return cleaned.length > n ? cleaned.substring(0, n - 1).trimEnd() + '...' : cleaned;
 };
 
 /** Build persona + moment + aha as a single eyebrow line. */
@@ -118,7 +130,7 @@ function buildAiCapabilityActions(t: RecommendationTileInput): Array<{ name: str
     });
 }
 
-/** Compose the optional impact strip — only included if at least one value is present. */
+/** Compose the optional impact strip - only included if at least one value is present. */
 function buildImpactStrip(t: RecommendationTileInput): RecommendationData['impactStrip'] | undefined {
     const effort = t.effort_estimate?.trim();
     const risk = t.risk_level?.trim();
@@ -129,13 +141,13 @@ function buildImpactStrip(t: RecommendationTileInput): RecommendationData['impac
     return { effort, risk, outcome };
 }
 
-/** Compose evidence quotes from the tile's evidence_sources[] — best-effort,
+/** Compose evidence quotes from the tile's evidence_sources[] - best-effort,
  *  since evidence_sources is a flat string[] of citation names, not full quotes. */
 function buildEvidence(t: RecommendationTileInput): RecommendationData['evidence'] {
     const srcs = (t.evidence_sources || []).filter(s => typeof s === 'string' && s.trim().length > 0);
     if (srcs.length === 0) return undefined;
     // Render each source name as a citation-style evidence entry. The
-    // slide's evidence strip expects { text, source } shape — we surface
+    // slide's evidence strip expects { text, source } shape - we surface
     // the source name as both since the tile schema doesn't carry verbatim
     // quotes. This is intentional: the user sees the SOURCE NAMES the
     // model grounded the concept in, which is the citation contract.
@@ -149,7 +161,7 @@ function buildEvidence(t: RecommendationTileInput): RecommendationData['evidence
  * Map a single tile to ExportSlideArgs. `isBet` controls accent color +
  * framing tag (Defensible Consensus chartreuse vs Non-Obvious Bet cyan).
  *
- * Returns the OVERVIEW slide only — for the full multi-slide expansion
+ * Returns the OVERVIEW slide only - for the full multi-slide expansion
  * (case, execution, stakeholders, plan, risks) use tileToExportSlidesMulti.
  */
 export function tileToExportSlideArgs(
@@ -190,7 +202,7 @@ export function tileToExportSlideArgs(
 }
 
 // =============================================================================
-// MULTI-SLIDE EXPANSION — one concept → 1-6 slides
+// MULTI-SLIDE EXPANSION - one concept → 1-6 slides
 // =============================================================================
 //
 // The chat tile carries WAY more detail than a single slide can absorb:
@@ -203,17 +215,17 @@ export function tileToExportSlideArgs(
 // Cramming all that into one slide produces an anemic export (per user feedback
 // 2026-05-12). Instead, expand into a small per-concept deck:
 //
-//   01 · OVERVIEW            — title, persona/moment/aha, AI capabilities,
+//   01 · OVERVIEW            - title, persona/moment/aha, AI capabilities,
 //                              effort/risk/outcome, hero image, implication
-//   02 · THE CASE            — full description, why-it-matters, long-term
+//   02 · THE CASE            - full description, why-it-matters, long-term
 //                              outcome, initiative dependency, verbatim quote
-//   03 · EXECUTION & STACK   — execution-in-existing-stack, preferred-stack-fit,
+//   03 · EXECUTION & STACK   - execution-in-existing-stack, preferred-stack-fit,
 //                              existing-stack-reuse, non-starter-check
-//   04 · STAKEHOLDERS        — key_stakeholders numbered with involvement
-//   05 · IMPLEMENTATION PLAN — implementation_steps numbered with owner/effort/deps
-//   06 · RISKS & IMPACT      — risks_constraints + mitigations, expected_impact
+//   04 · STAKEHOLDERS        - key_stakeholders numbered with involvement
+//   05 · IMPLEMENTATION PLAN - implementation_steps numbered with owner/effort/deps
+//   06 · RISKS & IMPACT      - risks_constraints + mitigations, expected_impact
 //
-// Each slide is conditional on data presence — anemic concepts stay at 1 slide;
+// Each slide is conditional on data presence - anemic concepts stay at 1 slide;
 // rich concepts expand to 5-6. The accent color (chartreuse vs cyan) is
 // consistent across all slides of a concept, matching its consensus/bet frame.
 
@@ -225,7 +237,7 @@ function pickStr(...candidates: Array<string | undefined>): string | undefined {
     return undefined;
 }
 
-/** Resolved field accessors — handles legacy field-name aliases in one place. */
+/** Resolved field accessors - handles legacy field-name aliases in one place. */
 function fields(t: RecommendationTileInput) {
     return {
         whyMatters: pickStr(t.why_matters_target_segment, t.why_matters_first_year),
@@ -292,7 +304,7 @@ function buildSlide(args: {
     };
 }
 
-/** Slide 1 — OVERVIEW. Always emitted. */
+/** Slide 1 - OVERVIEW. Always emitted. */
 function buildOverviewSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs {
     const f = fields(t);
     return {
@@ -322,7 +334,7 @@ function buildOverviewSlide(t: RecommendationTileInput, isBet: boolean, brand?: 
     };
 }
 
-/** Slide 2 — THE CASE: why it matters, long-term outcome, initiative dependency. */
+/** Slide 2 - THE CASE: why it matters, long-term outcome, initiative dependency. */
 function buildCaseSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
     const f = fields(t);
     const actions: Array<{ name: string; description: string }> = [];
@@ -350,7 +362,7 @@ function buildCaseSlide(t: RecommendationTileInput, isBet: boolean, brand?: Bran
     });
 }
 
-/** Slide 3 — EXECUTION & STACK. */
+/** Slide 3 - EXECUTION & STACK. */
 function buildExecutionStackSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
     const f = fields(t);
     const actions: Array<{ name: string; description: string }> = [];
@@ -388,7 +400,7 @@ function buildExecutionStackSlide(t: RecommendationTileInput, isBet: boolean, br
     });
 }
 
-/** Slide 4 — STAKEHOLDERS. */
+/** Slide 4 - STAKEHOLDERS. */
 function buildStakeholdersSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
     const stakeholders = (t.key_stakeholders || []).filter(s => s?.name_or_role && s?.involvement);
     if (stakeholders.length < 2) return null;
@@ -409,7 +421,7 @@ function buildStakeholdersSlide(t: RecommendationTileInput, isBet: boolean, bran
     });
 }
 
-/** Slide 5 — IMPLEMENTATION PLAN. */
+/** Slide 5 - IMPLEMENTATION PLAN. */
 function buildImplementationSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
     const steps = (t.implementation_steps || []).filter(s => s?.step);
     if (steps.length < 2) return null;
@@ -419,10 +431,10 @@ function buildImplementationSlide(t: RecommendationTileInput, isBet: boolean, br
         if (s.owner) meta.push(`Owner: ${s.owner}`);
         if (s.estimated_effort) meta.push(`Effort: ${s.estimated_effort}`);
         if (s.dependencies && s.dependencies.length > 0) meta.push(`Deps: ${s.dependencies.slice(0, 3).join(', ')}`);
-        const metaLine = meta.length > 0 ? ` — ${meta.join(' · ')}` : '';
+        const metaLine = meta.length > 0 ? ` - ${meta.join(' · ')}` : '';
         return {
             name: truncate(s.step, 80),
-            description: metaLine.replace(/^\s*—\s*/, ''),
+            description: metaLine.replace(/^\s*-\s*/, ''),
         };
     });
 
@@ -450,7 +462,7 @@ function buildImplementationSlide(t: RecommendationTileInput, isBet: boolean, br
     });
 }
 
-/** Slide 6 — RISKS & IMPACT. */
+/** Slide 6 - RISKS & IMPACT. */
 function buildRisksImpactSlide(t: RecommendationTileInput, isBet: boolean, brand?: Brand): ExportSlideArgs | null {
     const f = fields(t);
     const risks = (t.risks_constraints || []).filter(r => r?.risk && r?.mitigation);

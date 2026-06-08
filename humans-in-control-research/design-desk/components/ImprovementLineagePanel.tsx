@@ -22,7 +22,7 @@ import {
 interface Props {
     /** Artifact kind to surface lineage for (journey, blueprint, persona, org, arch, roadmap). */
     artifactKind: string;
-    /** Refresh trigger — change this number to force a re-read of the lineage log. */
+    /** Refresh trigger - change this number to force a re-read of the lineage log. */
     refreshKey?: number;
     /** Optional density styling. 'compact' for inline-with-artifact, 'full' for side panel. */
     density?: 'compact' | 'full';
@@ -92,7 +92,7 @@ const ImprovementLineagePanel: React.FC<Props> = ({ artifactKind, refreshKey, de
             lineHeight: 1.4,
             margin: '8px 0',
         }}>
-            {/* Header — eyebrow + overall score + delta */}
+            {/* Header - eyebrow + overall score + delta */}
             <div style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
                 marginBottom: 6,
@@ -136,7 +136,7 @@ const ImprovementLineagePanel: React.FC<Props> = ({ artifactKind, refreshKey, de
                 {headline}
             </div>
 
-            {/* Per-dimension sparkbar — visual deltas */}
+            {/* Per-dimension sparkbar - visual deltas */}
             {priorScore && (
                 <div style={{
                     display: 'grid',

@@ -1,12 +1,12 @@
 /**
- * SlideSpecViewer — paints a SlideSpec to HTML/SVG inside a sandboxed
+ * SlideSpecViewer - paints a SlideSpec to HTML/SVG inside a sandboxed
  * iframe-equivalent at native 1920×1080, scaled to fit the container.
  *
  * Reads the same SlideSpec the PPTX emitter reads. Both renderers stay in
  * sync because they share a single source of truth.
  *
  * Brand chrome (atmospheric overlays, grain, brand seal, eyebrow ::before
- * lines, gradients) is applied by THIS RENDERER as decoration — it does
+ * lines, gradients) is applied by THIS RENDERER as decoration - it does
  * NOT live in the spec. The PPTX emitter omits the chrome (flat clean
  * minimal per user direction). Result: canvas preview is rich and
  * brand-decorated; PPTX export is flat + native shapes.
@@ -34,7 +34,7 @@ function inToPx(inches: number, dim: 'w' | 'h'): number {
 }
 
 // ---------------------------------------------------------------------------
-// Brand chrome — atmospheric overlays + grain + brand seal + eyebrow rules
+// Brand chrome - atmospheric overlays + grain + brand seal + eyebrow rules
 // ---------------------------------------------------------------------------
 
 interface BrandTokens {

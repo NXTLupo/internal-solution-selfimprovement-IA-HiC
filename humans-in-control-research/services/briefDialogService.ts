@@ -1,10 +1,10 @@
-// services/briefDialogService.ts
+﻿// services/briefDialogService.ts
 // Two-persona dialogue artifact (Skeptical Partner ↔ Curious Strategist) that
 // pressure-tests a research finding or recommendation set. Text-first
 // (sidesteps voice IP). Returns the transcript JSON + brand-styled HTML
 // ready for the FreeformViewer.
 //
-// 2026-05-24 — Phase 6 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 6 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 // See .claude/skills/brief-dialog/SKILL.md for the contract.
 
 import { parseJSONWithRepair } from './aiOutputRepair';
@@ -43,14 +43,14 @@ Two voices, no narration:
 HARD CONSTRAINTS:
 - 8-14 turns total, alternating speakers
 - 600-900 words total
-- Every claim must cite a [CHUNK_XXX] token from the corpus — no hand-waving
+- Every claim must cite a [CHUNK_XXX] token from the corpus - no hand-waving
 - The Skeptical Partner makes EXACTLY ONE concession somewhere in the dialogue ("is_concession": true on that turn)
 - Final stance is one of: "stronger" (the finding holds), "qualified" (holds with caveats), "rejected" (does not hold)
 - No greetings, no narration, no meta-commentary
 - No emoji
 - Voice rules: Partner uses short, blunt sentences. Strategist uses precise, evidence-led sentences.
 
-OUTPUT — return ONLY this JSON shape:
+OUTPUT - return ONLY this JSON shape:
 {
   "topic": "<verbatim topic>",
   "finding_under_test": "<the claim being tested in one sentence>",
@@ -102,7 +102,7 @@ export async function generateBriefDialog(input: BriefDialogInput): Promise<Brie
                     messages: [{ role: 'user', content: userMsg }],
                 }
                 : {
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-3.5-flash',
                     systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
                     contents: [{ role: 'user', parts: [{ text: userMsg }] }],
                     config: { temperature: 0.3, responseMimeType: 'application/json' },
@@ -123,7 +123,7 @@ export async function generateBriefDialog(input: BriefDialogInput): Promise<Brie
         },
     });
 
-    // Defensive normalization — model can drop fields under load
+    // Defensive normalization - model can drop fields under load
     const turns = Array.isArray(result.turns) ? result.turns : [];
     const totalWords = turns.reduce((sum, t) => sum + (t.line || '').split(/\s+/).filter(Boolean).length, 0);
     return {
@@ -225,7 +225,7 @@ export function renderBriefDialogHtml(input: BriefDialogRenderInput): string {
         ? `<div class="bd-subtitle">Pressure-testing: ${escapeHtml(input.transcript.finding_under_test)}</div>`
         : '';
 
-    // 2026-05-25 — Run ID stamp removed (reporting-depth metadata).
+    // 2026-05-25 - Run ID stamp removed (reporting-depth metadata).
     const runIdRow = '';
 
     return `<!DOCTYPE html>

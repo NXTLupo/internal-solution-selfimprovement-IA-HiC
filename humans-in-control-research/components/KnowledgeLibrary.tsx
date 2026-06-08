@@ -16,7 +16,7 @@ import {
 import { formatUSD } from '../services/costMeter';
 
 /**
- * KnowledgeLibrary — full-screen modal panel that visualizes everything cached
+ * KnowledgeLibrary - full-screen modal panel that visualizes everything cached
  * in the wiki across four axes (Themes / Sources / Social / Engagements) and
  * lets the researcher select which items to feed into the next research run.
  *
@@ -24,7 +24,7 @@ import { formatUSD } from '../services/costMeter';
  * back to App.tsx via onApply. App.tsx threads the selection through the
  * pipeline so cache hits skip regeneration.
  *
- * Fresh research remains a first-class option — closing the panel without
+ * Fresh research remains a first-class option - closing the panel without
  * applying a selection returns the user to the normal IDLE flow.
  */
 
@@ -39,7 +39,7 @@ export interface LibrarySelection {
     sourceArchivePaths: string[];
     /** Subreddit slugs (no r/ prefix) to pull from cached reddit-deep instead of refetching. */
     socialSubreddits: string[];
-    /** 2026-05-14 — Article source folders (e.g. 'client-uploads', 'jina-reader',
+    /** 2026-05-14 - Article source folders (e.g. 'client-uploads', 'jina-reader',
      *  'reddit-deep-r-neu') whose markdown bodies to fold into the corpus.
      *  Covers the previously-invisible 1,388 cached articles, including all
      *  RAG client-uploaded documents. */
@@ -81,7 +81,7 @@ const RelevantBadge: React.FC<{ score: number; accentColor: string }> = ({ score
             borderRadius: 2,
         }}
     >
-        ★ relevant
+         relevant
     </span>
 );
 
@@ -191,6 +191,23 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
         }));
     }, []);
 
+    // 2026-06-03 - Bulk select/deselect. Lets a tab select EVERY currently-
+    // filtered id in one action (e.g. type "co-op" in Themes, then select all
+    // 163 matches). Works on a Set so repeated calls are idempotent and a
+    // partially-selected filter resolves to "select the rest".
+    const bulkSelect = useCallback((
+        field: 'engagementSlugs' | 'themeClusterIds' | 'sourceArchivePaths' | 'socialSubreddits' | 'articleSources',
+        ids: string[],
+        select: boolean,
+    ) => {
+        setSelection(prev => {
+            const cur = new Set(prev[field] as string[]);
+            if (select) ids.forEach(id => cur.add(id));
+            else ids.forEach(id => cur.delete(id));
+            return { ...prev, [field]: Array.from(cur) };
+        });
+    }, []);
+
     const handleApply = useCallback(() => {
         if (!summary || selectionCount === 0) return;
         onApply(selection, summary);
@@ -241,7 +258,7 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
                     {loading && (
                         <div style={{ padding: '60px 40px', textAlign: 'center', color: '#525252', fontSize: 13 }}>
                             <div style={{ marginBottom: 10, fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, letterSpacing: 1, color: NXT_BLACK }}>
-                                Scanning your wiki…
+                                Scanning your wiki...
                             </div>
                             <div>Walking engagements, themes, sources, social intelligence, articles, and uploads.</div>
                         </div>
@@ -253,16 +270,16 @@ export const KnowledgeLibrary: React.FC<Props> = ({ isOpen, onClose, onApply, ac
                     )}
                     {!loading && !error && summary && (
                         <>
-                            {tab === 'engagements' && <EngagementsTab summary={summary} selection={selection} toggle={toggleEngagement} accentColor={accentColor} researchGoal={researchGoal} />}
-                            {tab === 'themes' && <ThemesTab summary={summary} selection={selection} toggle={toggleTheme} accentColor={accentColor} researchGoal={researchGoal} />}
-                            {tab === 'articles' && <ArticlesTab summary={summary} selection={selection} toggle={toggleArticleSource} accentColor={accentColor} researchGoal={researchGoal} />}
-                            {tab === 'sources' && <SourcesTab summary={summary} selection={selection} toggle={toggleSource} accentColor={accentColor} researchGoal={researchGoal} />}
-                            {tab === 'social' && <SocialTab summary={summary} selection={selection} toggle={toggleSocial} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'engagements' && <EngagementsTab summary={summary} selection={selection} toggle={toggleEngagement} onBulkSelect={(ids, sel) => bulkSelect('engagementSlugs', ids, sel)} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'themes' && <ThemesTab summary={summary} selection={selection} toggle={toggleTheme} onBulkSelect={(ids, sel) => bulkSelect('themeClusterIds', ids, sel)} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'articles' && <ArticlesTab summary={summary} selection={selection} toggle={toggleArticleSource} onBulkSelect={(ids, sel) => bulkSelect('articleSources', ids, sel)} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'sources' && <SourcesTab summary={summary} selection={selection} toggle={toggleSource} onBulkSelect={(ids, sel) => bulkSelect('sourceArchivePaths', ids, sel)} accentColor={accentColor} researchGoal={researchGoal} />}
+                            {tab === 'social' && <SocialTab summary={summary} selection={selection} toggle={toggleSocial} onBulkSelect={(ids, sel) => bulkSelect('socialSubreddits', ids, sel)} accentColor={accentColor} researchGoal={researchGoal} />}
                         </>
                     )}
                 </div>
 
-                {/* Footer — selection summary + apply */}
+                {/* Footer - selection summary + apply */}
                 <Footer
                     selectionCount={selectionCount}
                     estimatedSavings={estimatedSavings}
@@ -289,7 +306,7 @@ const Header: React.FC<{ summary: WikiLibrarySummary | null; accentColor: string
                     KNOWLEDGE LIBRARY
                 </div>
                 <div style={{ fontSize: 11, color: '#CCC', marginTop: 4, maxWidth: 720 }}>
-                    Everything your past research has produced. Select what you want this run to reuse — fresh data collection is always available too.
+                    Everything your past research has produced. Select what you want this run to reuse - fresh data collection is always available too.
                 </div>
             </div>
             <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
@@ -403,7 +420,7 @@ const Footer: React.FC<{ selectionCount: number; estimatedSavings: number; onClo
 // Tab bodies
 // =============================================================================
 
-const EngagementsTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (slug: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+const EngagementsTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (slug: string) => void; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, onBulkSelect, accentColor, researchGoal }) => {
     const [query, setQuery] = useState('');
     const goalIsSet = !!(researchGoal && researchGoal.trim().length >= 8);
     const filtered = useMemo(() => {
@@ -431,23 +448,24 @@ const EngagementsTab: React.FC<{ summary: WikiLibrarySummary; selection: Library
         [filtered],
     );
     if (summary.engagements.length === 0) {
-        return <EmptyState message="No prior engagements yet — your first research run will start populating this library." />;
+        return <EmptyState message="No prior engagements yet - your first research run will start populating this library." />;
     }
     return (
         <div>
             <FilterBar
                 query={query}
                 onQueryChange={setQuery}
-                placeholder={`Search ${summary.engagements.length} engagements by goal, brand, or slug…`}
+                placeholder={`Search ${summary.engagements.length} engagements by goal, brand, or slug...`}
                 accentColor={accentColor}
             />
             {goalIsSet && relevantCount > 0 && (
                 <div style={{ padding: '8px 20px', background: '#FAFCFD', borderBottom: `1px solid ${accentColor}`, fontSize: 12, color: NXT_BLACK, fontFamily: "'Archivo', sans-serif" }}>
-                    <strong style={{ color: accentColor }}>★ {relevantCount} prior engagement{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
+                    <strong style={{ color: accentColor }}> {relevantCount} prior engagement{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
                 </div>
             )}
             <div style={{ padding: '0 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
                 {filtered.length} of {summary.engagements.length} engagements shown
+                <SelectAllToggle filteredIds={filtered.map(({ eng }) => eng.slug)} selectedIds={selection.engagementSlugs} onBulkSelect={onBulkSelect} accentColor={accentColor} noun="engagements" />
             </div>
             {filtered.length === 0 ? (
                 <EmptyState message="No engagements match that search." />
@@ -490,13 +508,13 @@ const EngagementsTab: React.FC<{ summary: WikiLibrarySummary; selection: Library
 
 type SentimentFilter = 'all' | 'positive' | 'neutral' | 'negative' | 'mixed';
 
-const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (id: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (id: string) => void; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, onBulkSelect, accentColor, researchGoal }) => {
     const [query, setQuery] = useState('');
     const [sentimentFilter, setSentimentFilter] = useState<SentimentFilter>('all');
     const [engagementFilter, setEngagementFilter] = useState<string>('all');
     const [onlyRelevant, setOnlyRelevant] = useState(false);
 
-    // Distinct engagement goals across all themes — used to build the chip
+    // Distinct engagement goals across all themes - used to build the chip
     // filter so users can isolate "themes from THIS engagement only".
     const engagementGoals = useMemo(() => {
         const set = new Set<string>();
@@ -544,7 +562,7 @@ const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
     }, [scored, query, sentimentFilter, engagementFilter, onlyRelevant, goalIsSet]);
 
     if (summary.themes.length === 0) {
-        return <EmptyState message="No theme clusters cached yet. Themes are synthesized after each research run — they'll appear here once you've completed a synthesis." />;
+        return <EmptyState message="No theme clusters cached yet. Themes are synthesized after each research run - they'll appear here once you've completed a synthesis." />;
     }
 
     return (
@@ -552,7 +570,7 @@ const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
             <FilterBar
                 query={query}
                 onQueryChange={setQuery}
-                placeholder={`Search ${summary.themes.length} themes by name, summary, or term…`}
+                placeholder={`Search ${summary.themes.length} themes by name, summary, or term...`}
                 accentColor={accentColor}
             >
                 <SentimentChips value={sentimentFilter} onChange={setSentimentFilter} accentColor={accentColor} themes={summary.themes} />
@@ -563,7 +581,7 @@ const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
             {goalIsSet && relevantCount > 0 && (
                 <div style={{ padding: '8px 20px', background: '#FAFCFD', borderBottom: `1px solid ${accentColor}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, fontFamily: "'Archivo', sans-serif" }}>
                     <span style={{ fontSize: 12, color: NXT_BLACK }}>
-                        <strong style={{ color: accentColor }}>★ {relevantCount} theme{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
+                        <strong style={{ color: accentColor }}> {relevantCount} theme{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
                     </span>
                     <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: '#525252', cursor: 'pointer' }}>
                         <input
@@ -578,6 +596,7 @@ const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
             )}
             <div style={{ padding: '0 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
                 {filtered.length} of {summary.themes.length} {filtered.length === 1 ? 'theme' : 'themes'} shown
+                <SelectAllToggle filteredIds={filtered.map(({ theme }) => theme.id)} selectedIds={selection.themeClusterIds} onBulkSelect={onBulkSelect} accentColor={accentColor} noun="themes" />
                 {(query || sentimentFilter !== 'all' || engagementFilter !== 'all' || onlyRelevant) && (
                     <button
                         type="button"
@@ -630,7 +649,7 @@ const ThemesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 10, fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: 0.5 }}>
                                     {t.source_engagement_goal && (
                                         <span title={t.source_engagement_goal} style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                            from: {t.source_engagement_goal.length > 38 ? t.source_engagement_goal.slice(0, 35) + '…' : t.source_engagement_goal}
+                                            from: {t.source_engagement_goal.length > 38 ? t.source_engagement_goal.slice(0, 35) + '...' : t.source_engagement_goal}
                                         </span>
                                     )}
                                     {typeof t.duplicate_count === 'number' && t.duplicate_count > 0 && (
@@ -737,12 +756,12 @@ const EngagementSelect: React.FC<{ value: string; onChange: (v: string) => void;
     >
         <option value="all">All engagements ({options.length})</option>
         {options.map(g => (
-            <option key={g} value={g}>{g.length > 60 ? g.slice(0, 57) + '…' : g}</option>
+            <option key={g} value={g}>{g.length > 60 ? g.slice(0, 57) + '...' : g}</option>
         ))}
     </select>
 );
 
-const SourcesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (path: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+const SourcesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (path: string) => void; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, onBulkSelect, accentColor, researchGoal }) => {
     const [query, setQuery] = useState('');
     const goalIsSet = !!(researchGoal && researchGoal.trim().length >= 8);
     const filtered = useMemo(() => {
@@ -777,16 +796,17 @@ const SourcesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySele
             <FilterBar
                 query={query}
                 onQueryChange={setQuery}
-                placeholder={`Search ${summary.sources.length} source archives by engagement goal or name…`}
+                placeholder={`Search ${summary.sources.length} source archives by engagement goal or name...`}
                 accentColor={accentColor}
             />
             {goalIsSet && relevantCount > 0 && (
                 <div style={{ padding: '8px 20px', background: '#FAFCFD', borderBottom: `1px solid ${accentColor}`, fontSize: 12, color: NXT_BLACK, fontFamily: "'Archivo', sans-serif" }}>
-                    <strong style={{ color: accentColor }}>★ {relevantCount} source archive{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
+                    <strong style={{ color: accentColor }}> {relevantCount} source archive{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
                 </div>
             )}
             <div style={{ padding: '0 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
                 {filtered.length} of {summary.sources.length} archives shown
+                <SelectAllToggle filteredIds={filtered.map(({ source: s }) => s.source_archive_path)} selectedIds={selection.sourceArchivePaths} onBulkSelect={onBulkSelect} accentColor={accentColor} noun="archives" />
             </div>
             {filtered.length === 0 ? (
                 <EmptyState message="No source archives match that search. Try a different term." />
@@ -823,7 +843,7 @@ const SourcesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySele
     );
 };
 
-const SocialTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (sub: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+const SocialTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (sub: string) => void; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, onBulkSelect, accentColor, researchGoal }) => {
     const [query, setQuery] = useState('');
     const goalIsSet = !!(researchGoal && researchGoal.trim().length >= 8);
     const filtered = useMemo(() => {
@@ -854,16 +874,17 @@ const SocialTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
             <FilterBar
                 query={query}
                 onQueryChange={setQuery}
-                placeholder={`Search ${summary.social.length} subreddits by name or sample post title…`}
+                placeholder={`Search ${summary.social.length} subreddits by name or sample post title...`}
                 accentColor={accentColor}
             />
             {goalIsSet && relevantCount > 0 && (
                 <div style={{ padding: '8px 20px', background: '#FAFCFD', borderBottom: `1px solid ${accentColor}`, fontSize: 12, color: NXT_BLACK, fontFamily: "'Archivo', sans-serif" }}>
-                    <strong style={{ color: accentColor }}>★ {relevantCount} subreddit{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
+                    <strong style={{ color: accentColor }}> {relevantCount} subreddit{relevantCount === 1 ? '' : 's'} match your current research goal.</strong> Sorted to the top.
                 </div>
             )}
             <div style={{ padding: '0 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
                 {filtered.length} of {summary.social.length} subreddits shown
+                <SelectAllToggle filteredIds={filtered.map(({ bucket: b }) => b.subreddit)} selectedIds={selection.socialSubreddits} onBulkSelect={onBulkSelect} accentColor={accentColor} noun="subreddits" />
             </div>
             {filtered.length === 0 ? (
                 <EmptyState message="No subreddits match that search." />
@@ -904,12 +925,12 @@ const SocialTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelec
     );
 };
 
-// 2026-05-14 — ArticlesTab. The 1,388 cached articles (jina-reader, RAG
+// 2026-05-14 - ArticlesTab. The 1,388 cached articles (jina-reader, RAG
 // client-uploads, deep-research pulls, YouTube transcripts, theme syntheses)
 // are now first-class browsable + selectable. Each source folder becomes a
 // bucket card the researcher can pick to fold its markdown bodies into the
 // next run's corpus.
-const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (source: string) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, accentColor, researchGoal }) => {
+const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySelection; toggle: (source: string) => void; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; researchGoal?: string }> = ({ summary, selection, toggle, onBulkSelect, accentColor, researchGoal }) => {
     const [query, setQuery] = useState('');
     const buckets = summary.articles.buckets || [];
     const filtered = useMemo(() => {
@@ -922,7 +943,7 @@ const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySel
         );
     }, [buckets, query]);
     if (buckets.length === 0) {
-        return <EmptyState message="No cached articles yet — they accumulate as you run research, ingest sources, or upload RAG documents." />;
+        return <EmptyState message="No cached articles yet - they accumulate as you run research, ingest sources, or upload RAG documents." />;
     }
     const grandTotal = summary.articles.total_articles;
     return (
@@ -930,14 +951,15 @@ const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySel
             <FilterBar
                 query={query}
                 onQueryChange={setQuery}
-                placeholder={`Search ${buckets.length} article buckets (${grandTotal} files) by source or sample title…`}
+                placeholder={`Search ${buckets.length} article buckets (${grandTotal} files) by source or sample title...`}
                 accentColor={accentColor}
             />
             <div style={{ padding: '8px 20px', borderBottom: `1px solid ${accentColor}40`, background: '#FFFCEC', fontSize: 12, color: NXT_BLACK, fontFamily: "'Archivo', sans-serif" }}>
-                <strong style={{ color: accentColor }}>{grandTotal.toLocaleString()} cached articles</strong> across {buckets.length} source buckets — includes Jina extracts, RAG client uploads, deep-research pulls, YouTube transcripts, and prior theme syntheses.
+                <strong style={{ color: accentColor }}>{grandTotal.toLocaleString()} cached articles</strong> across {buckets.length} source buckets - includes Jina extracts, RAG client uploads, deep-research pulls, YouTube transcripts, and prior theme syntheses.
             </div>
             <div style={{ padding: '8px 20px 8px', fontSize: 11, color: '#737373', fontFamily: "'JetBrains Mono', monospace" }}>
                 {filtered.length} of {buckets.length} buckets shown
+                <SelectAllToggle filteredIds={filtered.map(b => b.source)} selectedIds={selection.articleSources} onBulkSelect={onBulkSelect} accentColor={accentColor} noun="buckets" />
             </div>
             {filtered.length === 0 ? (
                 <EmptyState message="No buckets match that search." />
@@ -979,6 +1001,49 @@ const ArticlesTab: React.FC<{ summary: WikiLibrarySummary; selection: LibrarySel
 // Selection primitives
 // =============================================================================
 
+// 2026-06-03 - "Select all (filtered)" control. Sits in each tab's count row
+// and acts on the CURRENTLY-FILTERED id set, so the user can search ("co-op"),
+// narrow to N matches, and select every one in a single click. Toggles to a
+// "Clear" action once all filtered items are selected.
+const SelectAllToggle: React.FC<{ filteredIds: string[]; selectedIds: string[]; onBulkSelect: (ids: string[], select: boolean) => void; accentColor: string; noun?: string }> = ({ filteredIds, selectedIds, onBulkSelect, accentColor, noun = 'filtered' }) => {
+    if (filteredIds.length === 0) return null;
+    const selSet = new Set(selectedIds);
+    const inFilter = filteredIds.filter(id => selSet.has(id)).length;
+    const allSelected = inFilter === filteredIds.length;
+    const remaining = filteredIds.length - inFilter;
+    return (
+        <button
+            type="button"
+            onClick={() => onBulkSelect(filteredIds, !allSelected)}
+            title={allSelected ? 'Deselect every item matching the current filter' : 'Select every item matching the current filter'}
+            style={{
+                marginLeft: 14,
+                // Default (not-all-selected) is a FILLED primary button so the
+                // bulk action is impossible to miss next to the muted count row.
+                // Once everything is selected it flips to a quieter outline
+                // "Clear" so it reads as the secondary action.
+                background: allSelected ? 'transparent' : accentColor,
+                border: `1.5px solid ${accentColor}`,
+                color: allSelected ? accentColor : '#FFFFFF',
+                cursor: 'pointer',
+                fontSize: 11,
+                textTransform: 'uppercase',
+                letterSpacing: 1,
+                fontFamily: "'Archivo', sans-serif",
+                fontWeight: 700,
+                padding: '6px 16px',
+                borderRadius: 2,
+                verticalAlign: 'middle',
+                boxShadow: allSelected ? 'none' : `0 1px 0 ${accentColor}`,
+            }}
+        >
+            {allSelected
+                ? `Clear all ${filteredIds.length} selected`
+                : `+ Select all ${filteredIds.length} ${noun}${inFilter > 0 ? ` (+${remaining} more)` : ''}`}
+        </button>
+    );
+};
+
 const SelectableCard: React.FC<{ selected: boolean; onToggle: () => void; accentColor: string; leftBorderColor?: string; children: React.ReactNode }> = ({ selected, onToggle, accentColor, leftBorderColor, children }) => (
     <button
         type="button"
@@ -1009,7 +1074,7 @@ const SelectableCard: React.FC<{ selected: boolean; onToggle: () => void; accent
             color: '#FFFFFF',
             fontSize: 10,
             lineHeight: 1,
-        }}>{selected ? '✓' : ''}</span>
+        }}>{selected ? '' : ''}</span>
         {children}
     </button>
 );
@@ -1042,7 +1107,7 @@ const SelectableRow: React.FC<{ selected: boolean; onToggle: () => void; accentC
             color: '#FFFFFF',
             fontSize: 10,
             lineHeight: 1,
-        }}>{selected ? '✓' : ''}</span>
+        }}>{selected ? '' : ''}</span>
         {children}
     </button>
 );

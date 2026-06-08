@@ -1,5 +1,5 @@
 /**
- * Chunk Dispatcher — Generic chunk-and-merge orchestrator for HiC deliverables.
+ * Chunk Dispatcher - Generic chunk-and-merge orchestrator for HiC deliverables.
  *
  * Every per-artifact chunker (slide decks, roadmap horizons, PRD section
  * families, blueprint per-persona, etc.) calls into this service rather
@@ -13,14 +13,14 @@ import { logChunkRun, type ChunkRunRecord } from './chunkTelemetry';
 
 export interface ChunkPlan<TInput, TChunkResult, TFinal> {
     /**
-     * Human-readable artifact identifier — e.g., 'slides', 'roadmap',
+     * Human-readable artifact identifier - e.g., 'slides', 'roadmap',
      * 'prd', 'gap-analysis'. Used in telemetry and failure surfacing.
      */
     artifactType: string;
 
     /**
      * Split the input into N chunks. Each chunk represents one LLM call.
-     * Returns an ordered list — order is preserved through merge.
+     * Returns an ordered list - order is preserved through merge.
      */
     split: (input: TInput) => Array<{ id: string; payload: any; description?: string }>;
 
@@ -44,7 +44,7 @@ export interface ChunkPlan<TInput, TChunkResult, TFinal> {
 
     /**
      * Validate the final merged output. If invalid, the run is flagged
-     * incomplete and surfaced to the user — no silent ship.
+     * incomplete and surfaced to the user - no silent ship.
      */
     validateFinal?: (final: TFinal) => CompletenessReport;
 
@@ -54,7 +54,7 @@ export interface ChunkPlan<TInput, TChunkResult, TFinal> {
     perChunkRetries?: number;
 
     /**
-     * Max concurrent generate() calls. Default 6 — comfortably under most
+     * Max concurrent generate() calls. Default 6 - comfortably under most
      * provider rate limits while still parallelizing aggressively.
      */
     parallelism?: number;
@@ -83,7 +83,7 @@ export interface ChunkRunResult<TFinal> {
 /**
  * Run a chunked generation. Every chunk runs in parallel (up to the
  * parallelism cap). Each chunk has its own retry budget. Chunk failures
- * after retries surface as a structured failure in the result — no silent
+ * after retries surface as a structured failure in the result - no silent
  * partial output.
  */
 export async function runChunked<TI, TC, TF>(
@@ -101,7 +101,7 @@ export async function runChunked<TI, TC, TF>(
             ok: false,
             perChunkResults: [],
             totalDurationMs: Date.now() - t0,
-            failures: ['split() returned no chunks — nothing to generate'],
+            failures: ['split() returned no chunks - nothing to generate'],
         };
     }
 
@@ -186,7 +186,7 @@ export async function runChunked<TI, TC, TF>(
         };
     }
 
-    // All chunks succeeded — merge in original order
+    // All chunks succeeded - merge in original order
     const merged = plan.merge(completedChunks);
     const completeness = plan.validateFinal ? plan.validateFinal(merged) : { ok: true, findings: [] };
 

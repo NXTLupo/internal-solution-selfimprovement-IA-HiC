@@ -1,8 +1,8 @@
-// services/chatQueryPlanner.ts
+﻿// services/chatQueryPlanner.ts
 // Multi-angle query decomposition + cross-encoder reranking on the chat path.
 // Implements the NotebookLM-inspired retrieval depth pattern.
 //
-// 2026-05-24 — Phase 2 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
+// 2026-05-24 - Phase 2 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 //
 // Pipeline:
 //   user_message
@@ -42,7 +42,7 @@ export type QueryPlan = {
     user_message: string;
     sub_queries: SubQuery[];
     plan_hash: string;
-    expanded_via: 'haiku-4.5' | 'gemini-2.5-flash' | 'cache_hit';
+    expanded_via: 'haiku-4.5' | 'gemini-3.5-flash' | 'cache_hit';
 };
 
 
@@ -58,18 +58,18 @@ function planCacheKey(userMessage: string, corpusHash: string): string {
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// Stage 1 — Query expansion
+// Stage 1 - Query expansion
 // ──────────────────────────────────────────────────────────────────────────
 
 const QUERY_EXPANSION_PROMPT = `You are decomposing a research question into 3-5 sub-questions to maximize retrieval recall across a heterogeneous corpus (academic, news, government data, social media, client uploads).
 
 Decompose the user's question into sub-queries spanning these angles:
-1. **definition** — What is X? Background, terminology, scope.
-2. **mechanism** — How does X work? Causal pathways, intermediate steps.
-3. **evidence** — What measurements / data / case studies support X?
-4. **counter_evidence** — What contradicts X? Failures, exceptions, opposing views.
-5. **second_order** — What does X enable / preclude downstream?
-6. **named_entities** — Which specific organizations / people / products are involved?
+1. **definition** - What is X? Background, terminology, scope.
+2. **mechanism** - How does X work? Causal pathways, intermediate steps.
+3. **evidence** - What measurements / data / case studies support X?
+4. **counter_evidence** - What contradicts X? Failures, exceptions, opposing views.
+5. **second_order** - What does X enable / preclude downstream?
+6. **named_entities** - Which specific organizations / people / products are involved?
 
 Pick 3-5 angles MOST RELEVANT to the user's question. Don't force all six.
 
@@ -107,7 +107,7 @@ async function callHaikuJSON<T>(
                     messages: [{ role: 'user', content: prompt }],
                 }
                 : {
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-3.5-flash',
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: {
                         temperature: 0,
@@ -182,7 +182,7 @@ export async function expandQuery(
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// Stage 2 — Parallel embedding retrieval
+// Stage 2 - Parallel embedding retrieval
 // ──────────────────────────────────────────────────────────────────────────
 
 export type RetrievalFn = (query: string, k: number) => Promise<RetrievedChunk[]>;
@@ -223,7 +223,7 @@ export async function retrievePerSubQuery(
 
 
 // ──────────────────────────────────────────────────────────────────────────
-// Stage 3 — Cross-encoder reranking
+// Stage 3 - Cross-encoder reranking
 // ──────────────────────────────────────────────────────────────────────────
 
 const RERANK_PROMPT = `You are a research librarian scoring how directly each chunk below answers the user's question.

@@ -1,5 +1,5 @@
 /**
- * EvidenceRecord — the foundational data contract for the modernized research pipeline.
+ * EvidenceRecord - the foundational data contract for the modernized research pipeline.
  *
  * Research-window consensus (Apr 2026) coalesced around this shape:
  * - Exa / LangChain "structured JSON output at every boundary"
@@ -23,7 +23,7 @@
 // --- THE CORE RECORD ---
 
 export interface EvidenceRecord {
-    /** Stable ID of form EV_<sourceId>_<nnn> — used by KG, bibliography, citations */
+    /** Stable ID of form EV_<sourceId>_<nnn> - used by KG, bibliography, citations */
     id: string;
 
     /** Extracted primary claim if AI has summarized, or null for pure verbatim items */
@@ -44,7 +44,7 @@ export interface EvidenceRecord {
     /** Short extracted passage (2-3 sentences) used for display in bibliography + chat context */
     excerpt: string;
 
-    /** Full original content — addressable on demand, NOT loaded by default in prompts */
+    /** Full original content - addressable on demand, NOT loaded by default in prompts */
     rawContent: string;
 
     /** Public URL to the source if any */
@@ -100,7 +100,7 @@ export interface EvidenceRecord {
     enriched?: boolean;
 
     /**
-     * Per-record extraction notes — e.g. "fetched via Jina reader", "backup RSS snippet only",
+     * Per-record extraction notes - e.g. "fetched via Jina reader", "backup RSS snippet only",
      * "translated from Chinese". Surfaced in the bibliography detail view.
      */
     extractionNotes?: string;
@@ -173,7 +173,7 @@ export interface TrajectoryEvent {
     /** Short human-readable description */
     summary: string;
 
-    /** Structured payload — shape depends on type */
+    /** Structured payload - shape depends on type */
     payload?: Record<string, any>;
 
     /** If this event relates to one or more research questions */
@@ -215,10 +215,10 @@ export interface ParsedBrief {
     /** Inclusion rules from the brief (positive filters) */
     includeRules: string[];
 
-    /** Exclusion rules — excluded content themes, domains, categories */
+    /** Exclusion rules - excluded content themes, domains, categories */
     excludeRules: string[];
 
-    /** Excluded domains — surfaced separately because connectors need them explicit */
+    /** Excluded domains - surfaced separately because connectors need them explicit */
     excludedDomains: string[];
 
     /** Entities the brief explicitly names, which must always be queried */
@@ -234,10 +234,10 @@ export interface ParsedBrief {
     /** Raw brief text preserved for downstream prompts that need the full context */
     rawBrief: string;
 
-    /** Parse confidence 0-1 — low values prompt the UI to ask for clarification */
+    /** Parse confidence 0-1 - low values prompt the UI to ask for clarification */
     parseConfidence: number;
 
-    /** Any unrecognized segments of the brief — flagged to the user */
+    /** Any unrecognized segments of the brief - flagged to the user */
     unparsedSegments: string[];
 }
 
@@ -251,27 +251,27 @@ export interface ParsedBrief {
 export interface QuestionCoverage {
     questionId: string;
 
-    /** Evidence density — # of records that substantively address this question */
+    /** Evidence density - # of records that substantively address this question */
     density: number;            // raw count
     densityScore: number;       // normalized 0-1 against target
 
-    /** Source diversity — # of distinct named sources contributing */
+    /** Source diversity - # of distinct named sources contributing */
     diversity: number;
     diversityScore: number;
 
-    /** Recency — fraction of records within the brief's date window */
+    /** Recency - fraction of records within the brief's date window */
     recency: number;
 
     /** Per-claim confidence avg across contributing records */
     avgConfidence: number;
 
-    /** Named-entity honor rate — fraction of brief's named entities that produced evidence */
+    /** Named-entity honor rate - fraction of brief's named entities that produced evidence */
     entityHonorRate: number;
 
     /** Overall 0-1 rollup for UI sorting (not for gating) */
     compositeScore: number;
 
-    /** Narrative diagnostic for the UI — why the score is where it is */
+    /** Narrative diagnostic for the UI - why the score is where it is */
     diagnostic: string;
 }
 
@@ -307,7 +307,7 @@ export function toProjection(record: EvidenceRecord): EvidenceProjection {
 }
 
 /**
- * Freshness decay — returns 0-1 score from a publication date.
+ * Freshness decay - returns 0-1 score from a publication date.
  * Default half-life 180 days (reasonable for trade-press; vertical skills can override).
  */
 export function computeFreshness(publishedDate: string | undefined, halfLifeDays = 180): number {
@@ -337,10 +337,10 @@ export function fromLegacyItem(
 ): EvidenceRecord {
     const id = `EV_${ctx.sourceId}_${String(ctx.index).padStart(3, '0')}`;
     const rawContent = item.content || '';
-    const excerpt = rawContent.length > 400 ? rawContent.substring(0, 397).replace(/\s+\S*$/, '') + '…' : rawContent;
+    const excerpt = rawContent.length > 400 ? rawContent.substring(0, 397).replace(/\s+\S*$/, '') + '...' : rawContent;
     return {
         id,
-        claim: null,   // legacy items don't have AI-extracted claims yet — that comes in Tier 2
+        claim: null,   // legacy items don't have AI-extracted claims yet - that comes in Tier 2
         source: ctx.source,
         sourceId: ctx.sourceId,
         sourceTier: ctx.tier,
@@ -365,7 +365,7 @@ export function fromLegacyItem(
 }
 
 /**
- * Minimal capability manifest for a given connector type — conservative defaults
+ * Minimal capability manifest for a given connector type - conservative defaults
  * so that even un-migrated connectors declare their limitations loudly.
  * Connector-specific manifests will replace these in Tier 2.
  */

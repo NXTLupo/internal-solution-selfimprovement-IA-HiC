@@ -2,7 +2,7 @@
 //
 // Replaces LLM-self-scored goalAlignment with mathematical cosine-similarity
 // between the research goal embedding and each theme's text embedding. The
-// LLM is bad at "is this relevant to the goal?" judgement — it under-scores
+// LLM is bad at "is this relevant to the goal?" judgement - it under-scores
 // out of caution. Embeddings ARE the relevance signal. This module:
 //
 //   1. POSTs the research goal + theme texts to the proxy's /api/embed
@@ -34,19 +34,29 @@ interface ApiEmbedResponse {
  */
 async function embedTexts(texts: string[], task_type: 'query' | 'document'): Promise<number[][]> {
     if (!texts || texts.length === 0) return [];
-    const resp = await fetch(`${PROXY_BASE}/api/embed`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ texts, task_type }),
-        signal: AbortSignal.timeout(60_000),
-    });
-    if (!resp.ok) {
-        const errText = await resp.text().catch(() => '');
-        throw new Error(`/api/embed HTTP ${resp.status}: ${errText.slice(0, 200)}`);
+    // 2026-06-07 - /api/embed caps at 256 texts per call. A single call with >256
+    // (e.g. 318 themes) 400'd and silently disabled goalAlignment scoring, which
+    // the theme RANKING depends on - leaving the rank on the model's collapsed
+    // self-grade. Batch at 256, preserve order, concatenate.
+    const BATCH = 256;
+    const out: number[][] = [];
+    for (let i = 0; i < texts.length; i += BATCH) {
+        const slice = texts.slice(i, i + BATCH);
+        const resp = await fetch(`${PROXY_BASE}/api/embed`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ texts: slice, task_type }),
+            signal: AbortSignal.timeout(60_000),
+        });
+        if (!resp.ok) {
+            const errText = await resp.text().catch(() => '');
+            throw new Error(`/api/embed HTTP ${resp.status} (batch ${i}-${i + slice.length}): ${errText.slice(0, 200)}`);
+        }
+        const data = await resp.json() as ApiEmbedResponse;
+        if (data.error) throw new Error(`embed error: ${data.error}`);
+        out.push(...(data.embeddings || []));
     }
-    const data = await resp.json() as ApiEmbedResponse;
-    if (data.error) throw new Error(`embed error: ${data.error}`);
-    return data.embeddings || [];
+    return out;
 }
 
 /** Cosine similarity. Returns -1..1. For non-zero embedding vectors of related
@@ -106,7 +116,7 @@ function buildThemeEmbedText(theme: any): string {
         const firstSentence = theme.description.split(/(?<=[.!?])\s+/)[0] || theme.description;
         parts.push(firstSentence.trim());
     }
-    return parts.join(' — ').slice(0, 1200);
+    return parts.join(' - ').slice(0, 1200);
 }
 
 export interface AlignmentScoringResult {

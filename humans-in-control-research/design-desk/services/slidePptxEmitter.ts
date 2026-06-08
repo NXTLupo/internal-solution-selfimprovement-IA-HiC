@@ -3,7 +3,7 @@
  *
  * Pure function. NO DOM walking, NO iframe inspection, NO cross-realm bugs.
  * Reads the typed SlideSpec directly and emits PptxGenJS shapes 1:1. Every
- * element of the spec corresponds to exactly one PPTX primitive — boxes
+ * element of the spec corresponds to exactly one PPTX primitive - boxes
  * are native shapes, lines are native lines, text frames are native text
  * frames with multi-run inline styling preserved.
  *
@@ -111,7 +111,7 @@ function emitText(slide: any, s: TextObject): void {
     if (runArray.length === 0) return;
 
     // Frame-level options. Always pass explicit `line` + `fill` (legacy
-    // pattern) — without this, PptxGenJS emits empty `<a:ln></a:ln>`
+    // pattern) - without this, PptxGenJS emits empty `<a:ln></a:ln>`
     // which triggers PowerPoint's repair dialog above ~10 text frames.
     const frameOpts: any = {
         x: s.x, y: s.y, w: s.w, h: s.h,
@@ -152,7 +152,7 @@ export interface EmitResult {
 
 /**
  * Render a SlideSpec to a downloaded .pptx file. The spec drives every
- * decision — no browser introspection, no font metrics, no coordinate
+ * decision - no browser introspection, no font metrics, no coordinate
  * back-calculation. Schema-valid in, schema-valid out.
  */
 export async function exportSlideSpecToPptx(

@@ -1,5 +1,5 @@
 /**
- * Wiki Narrator — Natural Language Self-Improvement Explainability
+ * Wiki Narrator - Natural Language Self-Improvement Explainability
  *
  * Generates human-readable narration of what the wiki knowledge layer
  * is doing at each stage of the pipeline. Instead of scores and dashboards,
@@ -9,11 +9,11 @@
  * These narrations feed into the existing ThinkingEvent stream alongside
  * PHASE, INSIGHT, and CORRECTION events. New event types:
  *
- *   LEARNING    — "Storing this insight for future analyses..."
- *   IMPROVING   — "Updating the persona framework based on what worked..."
- *   CORRECTING  — "Correcting prior knowledge: Gartner says 5 stages, not 4..."
- *   RECALLING   — "Drawing on 23 evidence points from previous research..."
- *   DETECTING   — "Caught 2 vague phrases — replacing with specific data..."
+ *   LEARNING    - "Storing this insight for future analyses..."
+ *   IMPROVING   - "Updating the persona framework based on what worked..."
+ *   CORRECTING  - "Correcting prior knowledge: Gartner says 5 stages, not 4..."
+ *   RECALLING   - "Drawing on 23 evidence points from previous research..."
+ *   DETECTING   - "Caught 2 vague phrases - replacing with specific data..."
  */
 
 import type { OutputOption } from '../types';
@@ -68,7 +68,7 @@ export function narratePreGeneration(
         ['PERSONAS', 'JOURNEY_MAP', 'GAP_ANALYSIS', 'COMPETITIVE_ANALYSIS'].includes(outputType)) {
         events.push({
             type: 'RECALLING',
-            content: `Social listening data (Reddit, TrustPilot) will feed into ${typeName} — practitioner sentiment grounds the analysis in real-world experience, not just published research.`,
+            content: `Social listening data (Reddit, TrustPilot) will feed into ${typeName} - practitioner sentiment grounds the analysis in real-world experience, not just published research.`,
         });
     }
 
@@ -200,7 +200,7 @@ export function narrateSlopDetection(violations: SlopViolation[]): NarrationEven
         for (const v of violations) {
             events.push({
                 type: 'DETECTING',
-                content: `Caught vague language: "${v.phrase}" — ${v.suggestion}`,
+                content: `Caught vague language: "${v.phrase}" - ${v.suggestion}`,
             });
         }
     } else {
@@ -219,7 +219,7 @@ export function narrateSlopDetection(violations: SlopViolation[]): NarrationEven
 
 /**
  * Narrate quality assessment in natural language.
- * No scores shown — just what's strong and what needs work.
+ * No scores shown - just what's strong and what needs work.
  */
 export function narrateQualityAssessment(score: QualityScore): NarrationEvent[] {
     const events: NarrationEvent[] = [];
@@ -239,11 +239,11 @@ export function narrateQualityAssessment(score: QualityScore): NarrationEvent[] 
     } else {
         // What needs strengthening
         const gaps: string[] = [];
-        if (score.completeness < 3.5) gaps.push('some required sections are thin or missing — adding them before delivery');
-        if (score.depth < 3.5) gaps.push('analysis stays at the observation level in places — deepening to implications and recommendations');
-        if (score.evidence < 3.0) gaps.push('some sections lack cited evidence — pulling from the benchmark and evidence base to ground claims');
-        if (score.visualQuality < 3.5) gaps.push('detected visual patterns that signal AI generation — applying brand standards');
-        if (score.specificity < 3.5) gaps.push('some recommendations are too generic — adding timelines, metrics, and owners');
+        if (score.completeness < 3.5) gaps.push('some required sections are thin or missing - adding them before delivery');
+        if (score.depth < 3.5) gaps.push('analysis stays at the observation level in places - deepening to implications and recommendations');
+        if (score.evidence < 3.0) gaps.push('some sections lack cited evidence - pulling from the benchmark and evidence base to ground claims');
+        if (score.visualQuality < 3.5) gaps.push('detected visual patterns that signal AI generation - applying brand standards');
+        if (score.specificity < 3.5) gaps.push('some recommendations are too generic - adding timelines, metrics, and owners');
 
         events.push({
             type: 'IMPROVING',
@@ -270,14 +270,14 @@ export function narrateIngest(results: {
 
     events.push({
         type: 'LEARNING',
-        content: `Processed "${results.sourceName}" — extracted ${results.dataPointsExtracted} data points. Updated ${results.pagesUpdated.length} wiki pages: ${results.pagesUpdated.slice(0, 5).join(', ')}${results.pagesUpdated.length > 5 ? ` and ${results.pagesUpdated.length - 5} more` : ''}. This evidence is now compiled and ready to cite in future deliverables.`,
+        content: `Processed "${results.sourceName}" - extracted ${results.dataPointsExtracted} data points. Updated ${results.pagesUpdated.length} wiki pages: ${results.pagesUpdated.slice(0, 5).join(', ')}${results.pagesUpdated.length > 5 ? ` and ${results.pagesUpdated.length - 5} more` : ''}. This evidence is now compiled and ready to cite in future deliverables.`,
     });
 
     if (results.contradictions && results.contradictions.length > 0) {
         for (const c of results.contradictions) {
             events.push({
                 type: 'CORRECTING',
-                content: `Found a contradiction with existing knowledge: ${c}. Both versions are now flagged in the wiki for review — the newer evidence takes precedence but the conflict is preserved for transparency.`,
+                content: `Found a contradiction with existing knowledge: ${c}. Both versions are now flagged in the wiki for review - the newer evidence takes precedence but the conflict is preserved for transparency.`,
             });
         }
     }
@@ -356,7 +356,7 @@ export function narrateDesignSystemEnforcement(context: {
         const patterns = context.appliedPatterns.slice(0, 4).join(', ');
         events.push({
             type: 'IMPROVING',
-            content: `Layout patterns applied: ${patterns}. Each pattern is codified in the design system — Split Panel for analysis+evidence, Stat Row for high-impact data, Evidence Block for cited findings, Recommendation Callout for key actions.`,
+            content: `Layout patterns applied: ${patterns}. Each pattern is codified in the design system - Split Panel for analysis+evidence, Stat Row for high-impact data, Evidence Block for cited findings, Recommendation Callout for key actions.`,
         });
     }
 

@@ -40,12 +40,12 @@ export interface PromptImprovement {
     appliedAt: number;
     improvementScore: number;   // -1 (worse) to 1 (better), 0 = no change
     /**
-     * 2026-05-20 — Artifact kind this rule applies to. Examples:
-     *   'journey'    — only injects when regenerating a journey
-     *   'blueprint'  — only injects when regenerating a service blueprint
-     *   'persona'    — only when regenerating a persona
-     *   'theme'      — only when regenerating themes
-     *   'all' (or undefined) — universal rule, injects for every artifact
+     * 2026-05-20 - Artifact kind this rule applies to. Examples:
+     *   'journey'    - only injects when regenerating a journey
+     *   'blueprint'  - only injects when regenerating a service blueprint
+     *   'persona'    - only when regenerating a persona
+     *   'theme'      - only when regenerating themes
+     *   'all' (or undefined) - universal rule, injects for every artifact
      * Density preferences ("3 activities per phase") belong to journey/blueprint.
      * Tone preferences ("no claims in titles") are usually 'all'.
      * Scoping prevents journey-specific rules from polluting persona/theme
@@ -302,10 +302,10 @@ export function dismissConstraint(patternIndex: number): void {
  * Get all approved constraints as a prompt injection string.
  * This is appended to system prompts to enforce learned constraints.
  *
- * 2026-05-20 — Added optional artifactKind filter. When `kind` is provided,
+ * 2026-05-20 - Added optional artifactKind filter. When `kind` is provided,
  * returns ONLY constraints tagged for that artifact (plus universal rules
  * with artifactKind 'all' or undefined). Without `kind`, returns ALL
- * constraints (legacy behavior — used by the Analyst chat path that handles
+ * constraints (legacy behavior - used by the Analyst chat path that handles
  * many artifact types in one session).
  */
 export function getActiveConstraints(kind?: string): string {
@@ -322,7 +322,7 @@ export function getActiveConstraints(kind?: string): string {
     }
     if (filtered.length === 0) return '';
 
-    // QUALITY GATE (Phase 1, 2026-05-29) — final defense at the injection point.
+    // QUALITY GATE (Phase 1, 2026-05-29) - final defense at the injection point.
     // Even if a bad constraint slipped into the store via a legacy path or a
     // stale wiki import, it is filtered here before it ever reaches a prompt:
     //   (a) drop any constraint the discriminator has dismissed,
@@ -449,7 +449,7 @@ export async function loadWikiConstraints(): Promise<number> {
             if (existingKeys.has(normKey)) { rejected++; continue; }
             if (!isAcceptableConstraint(text)) { rejected++; continue; }
             existingKeys.add(normKey);
-            // scope is "<deliverableType>/<section>" — split into artifactKind
+            // scope is "<deliverableType>/<section>" - split into artifactKind
             const artifactKind = scopeRaw ? scopeRaw.split('/')[0].trim() || 'all' : 'all';
             existing.push({
                 id: `wiki_${Date.now()}_${added}`,
@@ -472,7 +472,7 @@ export async function loadWikiConstraints(): Promise<number> {
         }
         return added;
     } catch (e) {
-        // Wiki may not be available (e.g., proxy not running) — non-blocking
+        // Wiki may not be available (e.g., proxy not running) - non-blocking
         return 0;
     }
 }
@@ -508,7 +508,7 @@ interface ChatFeedbackInput {
     chatSurface: 'analyst' | 'designer';
     timestamp: number;
     /**
-     * 2026-05-20 — Artifact kind the feedback applies to. Captured at the
+     * 2026-05-20 - Artifact kind the feedback applies to. Captured at the
      * call site by inspecting the active artifact at the moment the user
      * typed the message. Passed through to PromptImprovement.artifactKind so
      * the scoped getter (getActiveConstraints(kind)) returns only the rules

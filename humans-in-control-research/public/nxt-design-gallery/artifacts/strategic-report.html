@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Strategic report — Co-Op Prep &amp; the Advancement Loop</title>
+<meta name="viewport" content="width=1200" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  body { background: var(--bg-canvas); }
+  .report {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    border-left: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+    min-height: 100vh;
+  }
+  .report-cover {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid var(--border-default);
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: end;
+  }
+  .report-cover__kicker {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px;
+    letter-spacing: .18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--nu-red-600);
+    margin-bottom: 18px;
+  }
+  .report-cover__kicker::before {
+    content: ""; display: inline-block;
+    width: 22px; height: 1.5px;
+    background: var(--nu-red-600);
+  }
+  .report-cover__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    color: var(--fg-strong);
+    max-width: 22ch;
+  }
+  .report-cover__title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--nu-red-700);
+  }
+  .report-cover__deck {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-muted);
+    font-family: var(--font-display);
+    font-weight: 300;
+    max-width: 56ch;
+  }
+  .report-cover__meta {
+    border-left: 1px solid var(--border-default);
+    padding-left: 32px;
+    font-size: 11px;
+    color: var(--fg-muted);
+    line-height: 1.6;
+  }
+  .report-cover__meta dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; }
+  .report-cover__meta dt {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 9.5px;
+    color: var(--fg-subtle);
+    font-weight: 600;
+  }
+  .report-cover__meta dd { margin: 0; color: var(--fg-default); font-family: var(--font-mono); font-size: 10.5px; }
+
+  /* Executive summary — three-column inset */
+  .exec {
+    padding: 40px 64px;
+    background: var(--ink-900);
+    color: var(--fg-inverse);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .exec h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--white);
+  }
+  .exec h2 + p {
+    color: rgba(255,255,255,.5);
+    font-size: 11px;
+    letter-spacing: .04em;
+    margin-top: 6px;
+  }
+  .exec-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .exec-cols > div { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,.85); }
+  .exec-cols h3 {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--nu-red-100);
+    margin-bottom: 10px;
+  }
+
+  /* Body article — two-column main + marginalia */
+  .body-section {
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .body-section:last-of-type { border-bottom: 0; }
+  .body-section__nav {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+  .body-section__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  .body-section__nav h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+  }
+  .body-section__nav .marg {
+    margin-top: 16px;
+    font-size: 11px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .body-section__nav .marg b { color: var(--fg-default); font-weight: 500; display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+  .body-section__main {
+    max-width: 68ch;
+  }
+  .body-section__main p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--fg-default);
+    margin: 0 0 14px;
+  }
+  .body-section__main p.lede {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--fg-strong);
+    font-family: var(--font-display);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+  .body-section__main p strong { color: var(--fg-strong); font-weight: 500; }
+
+  /* Pull quote inline */
+  .pq {
+    margin: 24px 0;
+    padding: 16px 0 16px 22px;
+    border-left: 3px solid var(--nu-red-600);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.35;
+    color: var(--fg-strong);
+  }
+  .pq .who {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 12px;
+    color: var(--fg-muted);
+    letter-spacing: .02em;
+  }
+  .pq .who b { color: var(--fg-default); font-weight: 500; }
+
+  /* Inset stat grid mid-article */
+  .inset-stats {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .inset-stats > div { padding: 18px; border-right: 1px solid var(--border-subtle); }
+  .inset-stats > div:last-child { border-right: 0; }
+  .inset-stats .v {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--fg-strong);
+    letter-spacing: -.02em;
+    margin-bottom: 6px;
+  }
+  .inset-stats .v sup { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--fg-muted); }
+  .inset-stats .l { font-size: 11px; color: var(--fg-muted); letter-spacing: .02em; line-height: 1.4; }
+
+  /* Kernel block — Rumelt */
+  .kernel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-default);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .kernel > div {
+    background: var(--bg-surface);
+    padding: 20px;
+  }
+  .kernel h4 {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--nu-red-700);
+    margin-bottom: 8px;
+  }
+  .kernel p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--fg-strong);
+    margin: 0;
+  }
+  .kernel p b { font-weight: 500; }
+
+  /* Pillar list */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .pillar {
+    padding: 14px 16px;
+    background: var(--slate-50);
+    border-left: 3px solid var(--ink-800);
+    border-radius: 4px;
+  }
+  .pillar .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .pillar h5 {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin: 2px 0 4px;
+  }
+  .pillar p { font-size: 11.5px; line-height: 1.45; color: var(--fg-muted); margin: 0; }
+
+  /* Inline citation marker styled tighter for body */
+  .body-section__main .cite { font-size: 10px; }
+  
+  /* Footnote citation hover state */
+  .cite[data-src]:hover::after {
+    content: attr(data-src);
+    position: absolute;
+    background: var(--ink-900);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    margin-left: 8px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<article class="report">
+
+  <!-- COVER -->
+  <header class="report-cover">
+    <div>
+      <div class="report-cover__kicker">Strategic report · Co-Op Prep × Advancement</div>
+      <h1 class="report-cover__title">Codifying the work <em>that already works</em>.</h1>
+      <p class="report-cover__deck">Northeastern's strongest co-op signals — peer mentorship, employer breadth, donor affinity for student-success stories — operate today as informal habits in different offices. Three coherent moves convert habit into operating system.</p>
+    </div>
+    <aside class="report-cover__meta">
+      <dl>
+        <dt>Author</dt><dd>HiC Research</dd>
+        <dt>Sponsor</dt><dd>D. Chen, VP Adv Ops</dd>
+        <dt>Date</dt><dd>2026-04-22</dd>
+        <dt>Methodology</dt><dd>248 chunks · 32 docs · 24 interviews</dd>
+        <dt>Curated</dt><dd>42 of 248 chunks</dd>
+        <dt>External cite</dt><dd>71% (above 60% floor)</dd>
+        <dt>Artifact</dt><dd>REPORT v1.0</dd>
+      </dl>
+    </aside>
+  </header>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="exec">
+    <div>
+      <h2>Executive summary</h2>
+      <p>SCR · 248 words</p>
+    </div>
+    <div class="exec-cols">
+      <div>
+        <h3>Situation</h3>
+        <p>Northeastern operates the largest co-op program in any R1 institution — 9,400 placements per year against a 3,300-employer partner base — while running a $1.6B capital campaign at 78% of target. The two engines run in adjacent rooms.</p>
+      </div>
+      <div>
+        <h3>Complication</h3>
+        <p>The cross-organizational signal — placement outcome → donor narrative → renewed gift — runs through 15 disconnected systems with an 11-day lag. Drexel, at half the placement volume, runs the same loop in 5 days. Young-alumni giving fell 12% even as overall fundraising grew 3%, surfacing a long-term donor-pipeline risk the aggregate metrics hide.</p>
+      </div>
+      <div>
+        <h3>Resolution</h3>
+        <p>Three coherent moves, sequenced over 12 months: (1) ship explainable triage for officer and coordinator queues at day 5; (2) compress the placement-to-donor handoff from 11 days to under 72 hours; (3) formalize the peer-mentor scaffolding three Boston dorms already invented. Funded from sunset of two satellite CRMs — no net-new SaaS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 · Diagnosis -->
+  <section class="body-section">
+    <aside class="body-section__nav">
+      <div class="body-section__num">§ 01</div>
+      <h2>Diagnosis</h2>
+      <div class="marg">
+        <b>Rumelt's kernel · part 1</b>
+        Name the central challenge. Be specific about the root cause and quantify the impact.
+      </div>
+    </aside>
+    <div class="body-section__main">
+      <p class="lede">The advancement function and the experiential-learning function share a constituent — every alumnus is a former co-op student — but their data spines do not share a backbone. The result is friction at the points where the two flywheels could compound.</p>
+
+      <p>Across 24 interviews and 32 internal documents, the same friction surfaces in three different costumes. Major gift officers spend roughly forty minutes preparing for a single coffee, cross-referencing Raiser's Edge, iWave, and student-affinity notes pulled from desk stickies and Slack DMs.<sup class="cite" data-src="MGO interviews, n=12">1</sup> Co-op coordinators carry 180:1 advising loads and discover application dropouts after the cycle closes.<sup class="cite" data-src="Khoury advising load study 2025">2</sup> First-years route their most-urgent questions to upperclassmen at 11 p.m. on Reddit, three trust steps removed from the system they are nominally enrolled in.<sup class="cite" data-src="STU diary, n=24">3</sup></p>
+
+      <p>Each office has built a private workaround. None of them connect. <strong>The cost is not invisibility — the cost is the eleven-day lag between a placement event and the donor-side cultivation that should follow it.</strong> Drexel, at half the placement volume, completes the same loop in five days. Cincinnati flags inactive students at day 5 and routes them to a triage queue; Northeastern fires an untargeted template email at day 7 and waits.</p>
+
+      <blockquote class="pq">
+        The aggregate number is hiding the cliff under it. Young alumni giving fell twelve points while the total grew three. We are funding next decade's pipeline by accident.
+        <span class="who"><b>D. Chen</b> · VP, Advancement Operations · advisory board read-out, 2026-01-22</span>
+      </blockquote>
+
+      <div class="inset-stats">
+        <div>
+          <div class="v">11 <sup>days</sup></div>
+          <div class="l">Median lag from placement event to donor-side stewardship trigger. Drexel benchmark: 5 days.</div>
+        </div>
+        <div>
+          <div class="v">38<sup>%</sup></div>
+          <div class="l">Application-funnel attrition for first-years who go 14 days without an employer reply.</div>
+        </div>
+        <div>
+          <div class="v">−12<sup>%</sup></div>
+          <div class="l">Young-alumni giving change against +3% on the aggregate line. The cohort masks itself.</div>
+        </div>
+      </div>
+
+      <p>The diagnosis is not that the systems are broken. The systems run. The diagnosis is that <strong>three load-bearing patterns — officer prep, coordinator triage, first-year peer trust — operate as informal habits in different offices and do not connect to each other.</strong> Each is evidence of capacity. None of them is a system. The opportunity is to codify what already works, not to invent something new.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 · Guiding policy -->
+  <section class="body-section">
+    <aside class="body-section__nav">
+      <div class="body-section__num">§ 02</div>
+      <h2>Guiding policy</h2>
+      <div class="marg">
+        <b>Rumelt's kernel · part 2</b>
+        A trade-off, not a goal. State what we choose, and what we de-prioritize to do it.
+      </div>
+    </aside>
+    <div class="body-section__main">
+      <p class="lede">We will instrument the connective tissue between experiential learning and advancement, sequenced by the fastest path to recovered officer and coordinator time — choosing the connective tissue over net-new platforms, and triage over recommender accuracy as the v1 surface for AI.</p>
+
+      <div class="kernel">
+        <div>
+          <h4>What we choose</h4>
+          <p>Connective tissue between the two existing flywheels. Explainable triage as the first AI surface. Codification of three informal patterns already producing engagement lift in three Boston dorms.</p>
+        </div>
+        <div>
+          <h4>What we choose against</h4>
+          <p>Net-new SaaS platforms. Recommender accuracy as the v1 win. A second donor portal. A new mobile app build before mobile-web parity. Anything that requires General Counsel to invent a new privacy posture.</p>
+        </div>
+        <div>
+          <h4>How we'll know it's working</h4>
+          <p>Officer prep time drops from 40 min to under 10 by FY27 Q2. Placement-to-donor lag compresses from 11 days to under 72 hours by FY27 Q4. First-year application volume rises from 4 to 12+ per student in cycle 1.</p>
+        </div>
+      </div>
+
+      <p>The guiding policy resists two predictable pressures. First, the temptation to procure a new AI platform when the rate-limiter is trust, not capability — explainability ships before any new model deploys. Second, the temptation to treat young-alumni giving as a marketing problem when the cohort signal points to a stewardship problem the operations data could already solve.</p>
+
+      <blockquote class="pq">
+        If you can't tell me what dies, the answer is no.
+        <span class="who"><b>D. Chen</b> · VP, Advancement Operations · sponsor framing for FY27 planning</span>
+      </blockquote>
+
+      <p>Every initiative in the next section names the platform it retires or the manual workflow it replaces. The budget posture is re-allocation, not expansion. <strong>Two satellite CRMs and one legacy donor-events platform absorb the cost</strong> of the FY27 program.<sup class="cite" data-src="NU IT census 2025-11">4</sup></p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 · Strategic pillars -->
+  <section class="body-section">
+    <aside class="body-section__nav">
+      <div class="body-section__num">§ 03</div>
+      <h2>Strategic pillars</h2>
+      <div class="marg">
+        <b>Three MECE themes</b>
+        Mutually exclusive, collectively exhaustive. Every recommendation in §04 traces to one of these.
+      </div>
+    </aside>
+    <div class="body-section__main">
+      <p>Three pillars organize the work. Each has a named owner, a leading and lagging indicator, and a sunset target. Pillars are deliberately MECE — no initiative belongs to more than one.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <h5>Connective tissue · placement ⇌ advancement</h5>
+          <p>The data path between an outcome event and a stewardship action. Owns the 11→3-day compression and the cross-record identity layer.</p>
+        </div>
+        <div class="pillar">
+          <h5>Triage as the v1 AI surface</h5>
+          <p>Who needs the human now? Silence-detection for students, prospect-readiness for officers — both explainable, both routed to a queue, not auto-actioned.</p>
+        </div>
+        <div class="pillar">
+          <h5>Codify the peer-mentor pattern</h5>
+          <p>Pay the mentors, instrument the touchpoints, set a one-cycle outcome target, scale or retire on evidence. Lowest-cost lift in the portfolio.</p>
+        </div>
+        <div class="pillar">
+          <h5>Privacy &amp; FERPA discipline</h5>
+          <p>Aggregated signals only between the two flywheels. General Counsel sign-off on the data model in 30 days; written guardrails replace gray-zone defaults.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px;">The remainder of this report (§04–§12) maps each pillar to specific recommendations, success metrics, an investment case, an implementation roadmap, and a risk register. Each section is 300–600 words and self-contained — partners can pull any single section into a stakeholder conversation without losing context.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4-N · Abbreviated section index for the rest -->
+  <section class="body-section">
+    <aside class="body-section__nav">
+      <div class="body-section__num">§ 04–12</div>
+      <h2>Section index</h2>
+      <div class="marg">
+        <b>Continued sections</b>
+        Each section is 300–600 words, with citations at sentence level and a pull quote per page.
+      </div>
+    </aside>
+    <div class="body-section__main">
+      <table class="dtable dtable--compact">
+        <thead>
+          <tr>
+            <th style="width: 60px;">§</th>
+            <th>Section</th>
+            <th>Words</th>
+            <th>Pillar</th>
+            <th>Key metric</th>
+            <th>In deck?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">04</td><td class="lead">Recommendation · explainable triage at day 5</td><td class="num">540</td><td>02</td><td>−38% silence-attrition</td><td><span class="pill pill--success">yes · slide 6</span></td></tr>
+          <tr><td class="mono">05</td><td class="lead">Recommendation · placement-to-donor in &lt; 72 h</td><td class="num">480</td><td>01</td><td>11 d → &lt; 3 d</td><td><span class="pill pill--success">yes · slide 8</span></td></tr>
+          <tr><td class="mono">06</td><td class="lead">Recommendation · paid peer-mentor scaffolding</td><td class="num">390</td><td>03</td><td>+14 pts engagement</td><td><span class="pill pill--success">yes · slide 9</span></td></tr>
+          <tr><td class="mono">07</td><td class="lead">Investment case &amp; sunset map</td><td class="num">510</td><td>—</td><td>$2.1M re-allocated</td><td><span class="pill">no</span></td></tr>
+          <tr><td class="mono">08</td><td class="lead">Implementation roadmap · 90 / 180 / 365</td><td class="num">600</td><td>—</td><td>milestones</td><td><span class="pill pill--success">yes · slide 12</span></td></tr>
+          <tr><td class="mono">09</td><td class="lead">Measurement framework · leading + lagging</td><td class="num">470</td><td>—</td><td>9 KPIs</td><td><span class="pill">no</span></td></tr>
+          <tr><td class="mono">10</td><td class="lead">Risk assessment &amp; mitigations</td><td class="num">420</td><td>—</td><td>4 risks</td><td><span class="pill pill--success">yes · slide 14</span></td></tr>
+          <tr><td class="mono">11</td><td class="lead">Change management &amp; comms plan</td><td class="num">380</td><td>—</td><td>stakeholder map</td><td><span class="pill">no</span></td></tr>
+          <tr><td class="mono">12</td><td class="lead">Long-term vision · FY29 state</td><td class="num">340</td><td>—</td><td>3-yr arc</td><td><span class="pill pill--success">yes · slide 16</span></td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 28px; font-style: italic; font-family: var(--font-display); color: var(--fg-muted); font-size: 13px; line-height: 1.5;">Continue reading: §04 — Explainable triage at day five replaces a template email with a routed queue. See <span class="cite-chip">recommendations.html</span> for the full recommendation set.</p>
+    </div>
+  </section>
+
+</article>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index · top 12 of 42 curated</div>
+    <ol>
+      <li><b>MGO interviews</b> · n=12, 2026-Q1, transcripts MGO-01 through MGO-12</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>STU diary</b> · n=24 first-years, 8-week diary, 2026-Q1</li>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>Drexel CASE case study</b> · "Outcomes to advancement," 2024</li>
+      <li><b>UC Co-op annual report</b> · 2025 (day-5 triage)</li>
+      <li><b>NU Handshake funnel analytics</b> · 2025–26 cycle</li>
+      <li><b>VP-OPS-09 memo</b> · advisory board read-out, 2026-01-22 (verbatim)</li>
+      <li><b>CCS Fundraising Outlook</b> · 2026 (generational cliff)</li>
+      <li><b>HiEd Dive</b> · "Why fundraisers distrust prospect scores," 2025-09</li>
+      <li><b>NACUBO guidance</b> · FERPA &amp; advancement, 2024</li>
+      <li><b>CASE Benchmark</b> · advancement workforce, 2025</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">REPORT · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>strategic-report-writer</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

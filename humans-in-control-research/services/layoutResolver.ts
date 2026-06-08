@@ -1,5 +1,5 @@
 /**
- * Layout Resolver — Content-First Slide Architecture
+ * Layout Resolver - Content-First Slide Architecture
  *
  * Deterministically maps content blocks to the best archetype template.
  * The AI declares WHAT to communicate (content blocks), and this module
@@ -203,7 +203,7 @@ function mapToFields(blocks: ContentBlock[]): Partial<Slide> {
     if (journeyBlocks.length > 0 && !fields.content?.length) {
         fields.content = journeyBlocks.map(j => {
             const parts = [j.phase, j.action, j.pain ? `Pain: ${j.pain}` : ''].filter(Boolean);
-            return parts.join(' — ') + (j.mot ? ' [Moment of Truth]' : '');
+            return parts.join(' - ') + (j.mot ? ' [Moment of Truth]' : '');
         });
     }
 

@@ -1,5 +1,5 @@
 /**
- * CX Intelligence Mesh — Integration Layer
+ * CX Intelligence Mesh - Integration Layer
  * Connects HiC Research to existing Intelligence Augmentation tools:
  * - Reddit Ripper (port 5001): Reddit, TrustPilot, Play Store data collection
  * - Social Research Backend (port 8081): Topic modeling, sentiment analysis, RAG
@@ -334,7 +334,7 @@ export function prepareJourneyData(themes: any[], personas: any[], researchGoal:
         ...personas.map((p: any) => `${p.name} (${p.role}): ${p.bio || p.quote}`),
         '',
         '=== PAIN POINTS ===',
-        ...personas.flatMap((p: any) => (p.painPoints || []).map((pp: any) => `- ${pp.label}: ${pp.quote}`)),
+        ...personas.flatMap((p: any) => (Array.isArray(p.painPoints) ? p.painPoints : []).map((pp: any) => `- ${pp.label}: ${pp.quote}`)),
     ].join('\n');
 
     return new Blob([content], { type: 'text/plain' });

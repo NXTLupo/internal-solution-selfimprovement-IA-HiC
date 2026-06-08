@@ -1,11 +1,11 @@
 /**
- * SlideSpec — universal object-based slide schema.
+ * SlideSpec - universal object-based slide schema.
  *
  * The architectural pivot: instead of the AI generating freeform HTML and
  * an exporter reverse-engineering the browser DOM, the AI generates a typed
  * SlideSpec JSON. Two renderers consume it:
- *   1. SlideSpecViewer (React) — paints to HTML/SVG for canvas preview
- *   2. emitSlidePptx (PptxGenJS) — writes native PPTX shapes
+ *   1. SlideSpecViewer (React) - paints to HTML/SVG for canvas preview
+ *   2. emitSlidePptx (PptxGenJS) - writes native PPTX shapes
  *
  * Both renderers read the SAME source of truth, so canvas preview and
  * PPTX export always agree pixel-for-pixel. No DOM extraction, no
@@ -41,7 +41,7 @@ const PositionSchema = z.object({
 const DashSchema = z.enum(['solid', 'dash', 'sysDot', 'dashDot']).default('solid');
 
 // ---------------------------------------------------------------------------
-// Text object — multi-run capable for inline-styled phrases
+// Text object - multi-run capable for inline-styled phrases
 // ---------------------------------------------------------------------------
 
 export const TextRunSchema = z.object({
@@ -66,12 +66,12 @@ export const TextObjectSchema = PositionSchema.extend({
     valign: z.enum(['top', 'middle', 'bottom']).default('top'),
     /** Semantic role for the renderer to apply additional treatment
      *  (e.g., 'h1' may get larger letter-spacing, 'eyebrow' may get
-     *  a leading color rule). Optional — pure style still works without. */
+     *  a leading color rule). Optional - pure style still works without. */
     role: z.string().optional(),
 });
 
 // ---------------------------------------------------------------------------
-// Shape object — rect / roundRect / ellipse / etc
+// Shape object - rect / roundRect / ellipse / etc
 // ---------------------------------------------------------------------------
 
 export const ShapeObjectSchema = PositionSchema.extend({
@@ -90,7 +90,7 @@ export const ShapeObjectSchema = PositionSchema.extend({
 });
 
 // ---------------------------------------------------------------------------
-// Line object — start + end points (for connectors, dividers)
+// Line object - start + end points (for connectors, dividers)
 // ---------------------------------------------------------------------------
 
 export const LineObjectSchema = z.object({
@@ -111,7 +111,7 @@ export const LineObjectSchema = z.object({
 });
 
 // ---------------------------------------------------------------------------
-// Image object — for icons, raster fallbacks
+// Image object - for icons, raster fallbacks
 // ---------------------------------------------------------------------------
 
 export const ImageObjectSchema = PositionSchema.extend({

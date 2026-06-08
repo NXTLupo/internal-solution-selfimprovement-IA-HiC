@@ -1,5 +1,5 @@
 /**
- * YouTube Discovery — AI-driven video search query expansion + end-to-end
+ * YouTube Discovery - AI-driven video search query expansion + end-to-end
  * discover→rank→transcribe orchestration.
  *
  * The user's brief is usually a long role-framed prompt ("ROLE You are an
@@ -16,7 +16,7 @@
  *      fans out to each channel's RSS and scores videos by keyword overlap
  *   3. Returns the top N video URLs (default 5) with metadata
  *   4. Those URLs flow into the existing Video Transcriber connector path
- *      — Whisper transcribes, transcripts land in wiki/transcripts/,
+ *      - Whisper transcribes, transcripts land in wiki/transcripts/,
  *      and the transcripts become first-class DataSourceItems in the corpus
  */
 
@@ -33,7 +33,7 @@ export interface VideoQuerySuggestions {
 
 /**
  * Ask Gemini for 3-5 targeted YouTube search queries given the research
- * objective. Returns empty queries on any failure — caller falls back to
+ * objective. Returns empty queries on any failure - caller falls back to
  * using the objective string directly.
  */
 export async function suggestVideoQueries(goal: string, lens?: string): Promise<VideoQuerySuggestions> {
@@ -59,7 +59,7 @@ Generate 3-5 YouTube search queries that will surface high-signal video content 
 - Name specific conferences/vendors/orgs/methodologies when they're clearly implied
 - Skip clickbait modifiers ("ultimate", "shocking", "hacks")
 
-Also extract the NAMED ENTITIES from the objective (specific orgs, tools, frameworks, people) — these let us prioritize YouTube CHANNELS belonging to those entities.
+Also extract the NAMED ENTITIES from the objective (specific orgs, tools, frameworks, people) - these let us prioritize YouTube CHANNELS belonging to those entities.
 
 Return STRICT JSON only:
 {
@@ -69,17 +69,17 @@ Return STRICT JSON only:
 }`;
 
     try {
-        // 2026-04-29 — Hardening pass.
+        // 2026-04-29 - Hardening pass.
         //   1. responseMimeType + responseSchema forces Gemini into strict
         //      JSON mode so it self-terminates cleanly (no more "Unexpected
         //      end of JSON input" from mid-string truncation).
-        //   2. maxOutputTokens raised 800 -> 2048 — 800 was being hit on
+        //   2. maxOutputTokens raised 800 -> 2048 - 800 was being hit on
         //      runs with rich namedEntities or longer rationale, producing
         //      truncated output even WITH JSON mode.
         //   3. tryRepairJson before JSON.parse covers the rare case where
         //      the proxy passes an older Gemini response shape or strips
         //      something unexpected in transit.
-        // 2026-04-29 — Upgraded gemini-2.5-flash -> gemini-3.1-pro-preview.
+        // 2026-04-29 - Upgraded gemini-2.5-flash -> gemini-3.1-pro-preview.
         // Flash gave generic entity extraction ("Higher education", "Donor
         // advancement"). Pro produces specific, citation-grade entities
         // ("CASE Conference 2026", "EverTrue alumni engagement", "Slate CRM
@@ -88,8 +88,8 @@ Return STRICT JSON only:
         // output × <30 runs/day) and latency stays in the 2-4s range
         // since this is a single-shot structured-JSON call, not analytical
         // reasoning.
-        // 2026-05-12 — Retry NOT added here on purpose. This call has
-        // graceful degradation built in: `if (!resp.ok) return { queries: [], … }`
+        // 2026-05-12 - Retry NOT added here on purpose. This call has
+        // graceful degradation built in: `if (!resp.ok) return { queries: [], ... }`
         // means a failed query-refinement falls back to plain channel
         // selection. The 25s AbortSignal also conflicts with retry-backoff
         // schedules. Keep the fallback.

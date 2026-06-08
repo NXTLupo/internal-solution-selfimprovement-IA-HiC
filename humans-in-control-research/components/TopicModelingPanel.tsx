@@ -1,5 +1,5 @@
 /**
- * TopicModelingPanel — 2026-05-11 (HiC-Active-Loop, Social-Research-Parity)
+ * TopicModelingPanel - 2026-05-11 (HiC-Active-Loop, Social-Research-Parity)
  *
  * Mirrors the Social Research tool's topic-modeling display paradigm:
  *   - Cards grouped into 3 columns by sentiment (Positive / Neutral / Negative)
@@ -10,7 +10,7 @@
  *
  * Restyled in NXT brand tokens (Bebas Neue display, Archivo body, chartreuse
  * accent, teal-on-near-black for primary action). The D3 mindmap from the
- * previous version is gone — it was the "orb view" the user explicitly
+ * previous version is gone - it was the "orb view" the user explicitly
  * rejected. If we need it back, surface it as a separate toggle.
  */
 
@@ -72,7 +72,7 @@ interface Props {
     redditDeepItems: any[];
     researchGoal: string;
     cachedResult?: TopicResult;
-    // 2026-05-11 — Bubble the computed result up to a parent owner so it
+    // 2026-05-11 - Bubble the computed result up to a parent owner so it
     // survives tab switches (panel unmount/remount) and engagement state
     // changes. Without this, switching tabs back to Topic Modeling
     // recomputes from scratch every time. With it, the parent owns the
@@ -100,18 +100,44 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
         // Avoids spawning a duplicate job when the user opens the tab
         // mid-computation. The parent will pass cachedResult once done.
         if (upstreamStatus?.status === 'running') return;
-        if (!redditDeepItems || redditDeepItems.length < 10) return;
+        // 2026-06-05 (Step 5, volume-to-insight) - formerly gated on
+        // `redditDeepItems.length >= 10`. Now ALSO fires when the persistent
+        // manifest can supply scope, even if redditDeepItems is sparse -
+        // social-posts are first-class corpus input via /api/corpus/scope.
+        const hasItems = (redditDeepItems?.length || 0) >= 10;
+        const engagementSlug = (window as any).__hicCurrentEngagementSlug || undefined;
+        const hasSubstrate = !!engagementSlug || !!researchGoal;
+        if (!hasItems && !hasSubstrate) return;
         triggeredRef.current = true;
         (async () => {
             try {
-                // 2026-05-11 — see App.tsx note: tightened ceiling 8→5,
+                // 2026-05-11 - see App.tsx note: tightened ceiling 8→5,
                 // floor 3, divisor /15→/40 to surface fine-grained topics.
                 // Paired with proxy-side HDBSCAN 'leaf' selection.
-                const computedMin = Math.max(3, Math.min(5, Math.floor(redditDeepItems.length / 40)));
+                const inSessionCount = redditDeepItems?.length || 0;
+                const computedMin = Math.max(3, Math.min(5, Math.floor(Math.max(inSessionCount, 100) / 40)));
+                // 2026-06-07 - Cached-only fix. In cached-only mode there are
+                // no live Reddit items. The proxy then needs a NON-EMPTY scope
+                // to fetch from the substrate. Setting `scope.engagement` to
+                // the live goal slug filtered the substrate to 0 records
+                // (the substrate's wikiPath doesn't carry the goal slug), so
+                // the proxy returned `items must be a non-empty array (or a
+                // non-empty scope)`. When there are zero live items, broaden
+                // scope to the global manifest so the topic model has corpus
+                // to cluster.
+                const cachedOnly = typeof window !== 'undefined' && !!(window as any).__hicCachedOnlyMode;
+                const noLiveItems = !(redditDeepItems && redditDeepItems.length > 0);
+                const useGlobalScope = cachedOnly || noLiveItems;
                 const { jobId, docCount } = await startTopicModelJob({
-                    items: redditDeepItems,
+                    items: redditDeepItems || [],
                     researchGoal,
                     minClusterSize: computedMin,
+                    engagement: engagementSlug,
+                    scope: {
+                        types: ['social-post', 'article'],
+                        engagement: useGlobalScope ? '' : engagementSlug,  // empty = global manifest fetch
+                        max_count: useGlobalScope ? 100000 : 600,
+                    },
                 });
                 setJobStatus({ job_id: jobId, status: 'queued', progress: 0, doc_count: docCount });
                 const final = await waitForTopicModelJob(jobId, (s) => setJobStatus(s));
@@ -125,9 +151,9 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
         })();
     }, [redditDeepItems, researchGoal, cachedResult]);
 
-    // 2026-05-20 — Semantic search via /api/embed (Gemini gemini-embedding-001).
+    // 2026-05-20 - Semantic search via /api/embed (Gemini gemini-embedding-001).
     // The user types "co-op" and gets back topics about "internship struggles"
-    // and "experiential learning gripes" — not just topics that literally
+    // and "experiential learning gripes" - not just topics that literally
     // contain "co-op" in their auto-generated summary. The hook caches item
     // embeddings (one batch per session) and debounces query embeddings
     // (300ms) so typing stays responsive.
@@ -153,9 +179,9 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
             t.name,
             t.summary,
             t.sentiment,
-            (t.top_terms || []).map(([w]) => w).join(' '),
+            (t.top_terms || []).map((tt: any) => Array.isArray(tt) ? tt[0] : (typeof tt === 'string' ? tt : (tt?.term || ''))).filter(Boolean).join(' '),
             docTitles,
-        ].filter(Boolean).join(' — ');
+        ].filter(Boolean).join(' - ');
     };
     const semantic = useSemanticSearch(
         topicsForSearch,
@@ -190,7 +216,7 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
             job_id: upstreamStatus.jobId || 'upstream',
             status: 'running',
             progress: 50,
-            message: upstreamStatus.message || 'Computing topics in the background…',
+            message: upstreamStatus.message || 'Computing topics in the background...',
         } : null);
         return <ProgressIndicator status={surfacedStatus} docCount={redditDeepItems.length} />;
     }
@@ -225,7 +251,7 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2 }}>
                     <input
                         type="text"
-                        placeholder="Search topics or terms…"
+                        placeholder="Search topics or terms..."
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
                         style={{
@@ -249,7 +275,7 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
                         fontFamily: 'Archivo, sans-serif',
                     }}>
                         {semantic.isComputing
-                            ? 'embedding…'
+                            ? 'embedding...'
                             : semantic.usedSemantic
                                 ? `semantic · ${semantic.filtered.length} hit(s)`
                                 : `literal · ${semantic.filtered.length} hit(s)`}
@@ -258,19 +284,26 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
                 </div>
             </div>
 
-            {/* 3-column sentiment grid */}
+            {/* Sentiment grid. 2026-06-03 - FIXED column count (was auto-fit
+                minmax(300px), which only fit 3 columns in the panel width and
+                wrapped the 4th (Mixed) UNDER Positive, where it was invisible).
+                Mixed is a meaningful category here (polarized co-op topics), so
+                it gets its own first-class column. minmax(0,1fr) lets all
+                columns shrink to share one row instead of wrapping. Order puts
+                Mixed right after Positive so the two populated columns sit
+                together; the often-empty Neutral/Negative follow. */}
             <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: 24, background: COLORS.panel }}>
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: 24,
+                    gridTemplateColumns: grouped.mixed.length > 0 ? 'repeat(4, minmax(0, 1fr))' : 'repeat(3, minmax(0, 1fr))',
+                    gap: 18,
                 }}>
                     <SentimentColumn label="Positive" sentiment="positive" topics={grouped.positive} documents={result.documents} onOpen={setOpenTopic} />
-                    <SentimentColumn label="Neutral"  sentiment="neutral"  topics={grouped.neutral}  documents={result.documents} onOpen={setOpenTopic} />
-                    <SentimentColumn label="Negative" sentiment="negative" topics={grouped.negative} documents={result.documents} onOpen={setOpenTopic} />
                     {grouped.mixed.length > 0 && (
-                        <SentimentColumn label="Mixed" sentiment="mixed" topics={grouped.mixed} documents={result.documents} onOpen={setOpenTopic} />
+                        <SentimentColumn label="Mixed / Polarized" sentiment="mixed" topics={grouped.mixed} documents={result.documents} onOpen={setOpenTopic} />
                     )}
+                    <SentimentColumn label="Negative" sentiment="negative" topics={grouped.negative} documents={result.documents} onOpen={setOpenTopic} />
+                    <SentimentColumn label="Neutral"  sentiment="neutral"  topics={grouped.neutral}  documents={result.documents} onOpen={setOpenTopic} />
                 </div>
             </div>
 
@@ -387,6 +420,19 @@ const TopicCard: React.FC<{ topic: Topic; documents: TopicDocument[]; onOpen: (t
                 <span>{topic.post_count} posts</span>
                 <span style={{ color: COLORS.tertiary }}>·</span>
                 <span>{totalComments} comments</span>
+                {typeof topic.net_sentiment_score === 'number' && (
+                    <>
+                        <span style={{ color: COLORS.tertiary }}>·</span>
+                        <span title="Net Sentiment Score (% positive − % negative), engagement-weighted"
+                            style={{ color: topic.net_sentiment_score > 0.1 ? '#0CCE6B' : topic.net_sentiment_score < -0.1 ? '#CC6644' : COLORS.muted }}>
+                            NSS {topic.net_sentiment_score > 0 ? '+' : ''}{Math.round(topic.net_sentiment_score * 100)}%
+                        </span>
+                    </>
+                )}
+                {typeof topic.controversy === 'number' && topic.controversy >= 0.5 && (
+                    <span title="High polarization - positive and negative opinion are both substantial"
+                        style={{ color: '#B8B800', fontWeight: 700, letterSpacing: 1 }}>POLARIZED</span>
+                )}
             </div>
             {topic.summary && (
                 <div style={{ fontSize: 12, color: COLORS.text, lineHeight: 1.5, marginBottom: 10 }}>
@@ -394,8 +440,11 @@ const TopicCard: React.FC<{ topic: Topic; documents: TopicDocument[]; onOpen: (t
                 </div>
             )}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-                {topic.top_terms.slice(0, 5).map(([term]) => (
-                    <span key={term} style={{
+                {(topic.top_terms || []).slice(0, 5).map((tt: any, i: number) => {
+                    const term = Array.isArray(tt) ? tt[0] : (typeof tt === 'string' ? tt : tt?.term);
+                    if (!term) return null;
+                    return (
+                    <span key={`${term}-${i}`} style={{
                         padding: '2px 7px',
                         background: COLORS.bg,
                         color: COLORS.muted,
@@ -405,8 +454,9 @@ const TopicCard: React.FC<{ topic: Topic; documents: TopicDocument[]; onOpen: (t
                         borderRadius: 2,
                         border: `1px solid ${COLORS.line}`,
                     }}>{term}</span>
-                ))}
-                {topic.top_terms.length > 5 && (
+                    );
+                })}
+                {(topic.top_terms || []).length > 5 && (
                     <span style={{
                         padding: '2px 7px',
                         color: COLORS.tertiary,
@@ -558,8 +608,12 @@ const SummaryTab: React.FC<{ topic: Topic; documents: TopicDocument[] }> = ({ to
 
             <Section title="Representative Terms">
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                    {topic.top_terms.map(([term, score]) => (
-                        <span key={term} style={{
+                    {(topic.top_terms || []).map((tt: any, i: number) => {
+                        const term = Array.isArray(tt) ? tt[0] : (typeof tt === 'string' ? tt : tt?.term);
+                        const score = Array.isArray(tt) ? tt[1] : (typeof tt === 'object' ? tt?.score : undefined);
+                        if (!term) return null;
+                        return (
+                        <span key={`${term}-${i}`} style={{
                             padding: '6px 12px',
                             background: COLORS.bg,
                             color: COLORS.text,
@@ -569,19 +623,26 @@ const SummaryTab: React.FC<{ topic: Topic; documents: TopicDocument[] }> = ({ to
                             borderRadius: 2,
                         }}>
                             {term}
-                            <span style={{ marginLeft: 6, color: COLORS.tertiary, fontSize: 10 }}>
-                                {score.toFixed(2)}
-                            </span>
+                            {typeof score === 'number' && (
+                                <span style={{ marginLeft: 6, color: COLORS.tertiary, fontSize: 10 }}>
+                                    {score.toFixed(2)}
+                                </span>
+                            )}
                         </span>
-                    ))}
+                        );
+                    })}
                 </div>
             </Section>
 
             {subreddits.length > 0 && (
                 <Section title="Source Subreddits">
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                        {subreddits.map(([sub, count]) => (
-                            <span key={sub} style={{
+                        {(subreddits || []).map((entry: any, i: number) => {
+                            const sub = Array.isArray(entry) ? entry[0] : entry?.subreddit;
+                            const count = Array.isArray(entry) ? entry[1] : entry?.count;
+                            if (!sub) return null;
+                            return (
+                            <span key={`${sub}-${i}`} style={{
                                 padding: '6px 12px',
                                 background: COLORS.bg,
                                 border: `1px solid ${COLORS.line}`,
@@ -592,7 +653,8 @@ const SummaryTab: React.FC<{ topic: Topic; documents: TopicDocument[] }> = ({ to
                             }}>
                                 r/{sub} <span style={{ color: COLORS.tertiary, marginLeft: 6 }}>×{count}</span>
                             </span>
-                        ))}
+                            );
+                        })}
                     </div>
                 </Section>
             )}
@@ -770,7 +832,7 @@ const ProgressIndicator: React.FC<{ status: TopicJobStatus | null; docCount: num
                     COMPUTING TOPICS
                 </div>
                 <div style={{ fontSize: 12, color: COLORS.muted, marginBottom: 24 }}>
-                    {status?.message || `Embedding ${docCount} Reddit posts and clustering them by meaning…`}
+                    {status?.message || `Embedding ${docCount} Reddit posts and clustering them by meaning...`}
                 </div>
                 <div style={{ height: 4, background: COLORS.line, borderRadius: 2, overflow: 'hidden' }}>
                     <div style={{
@@ -781,7 +843,7 @@ const ProgressIndicator: React.FC<{ status: TopicJobStatus | null; docCount: num
                     }} />
                 </div>
                 <div style={{ fontSize: 10, color: COLORS.tertiary, marginTop: 12, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.5 }}>
-                    {status?.status || 'queued'} · job {status?.job_id?.slice(-8) || '…'}
+                    {status?.status || 'queued'} · job {status?.job_id?.slice(-8) || '...'}
                 </div>
             </div>
         </div>

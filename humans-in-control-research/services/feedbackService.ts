@@ -1,5 +1,5 @@
 /**
- * Feedback Service — Client-side bridge to the proxy /api/feedback/* endpoints.
+ * Feedback Service - Client-side bridge to the proxy /api/feedback/* endpoints.
  *
  * Wraps the JSONL feedback log and aggregate index. Used by FeedbackWidget
  * and the learning engine.
@@ -46,7 +46,7 @@ function generateEventId(): string {
 }
 
 /**
- * 2026-05-23 — Classify a feedback text into chunking signals and persist
+ * 2026-05-23 - Classify a feedback text into chunking signals and persist
  * them to localStorage. Read by chunker entry points (e.g., slideDeckChunker)
  * on the next generation so the same user complaint visibly drives a
  * different chunk plan.
@@ -155,7 +155,7 @@ export async function submitFeedback(input: {
             return { ok: false, id: null, error: err };
         }
         const data = await resp.json();
-        // 2026-05-23 — Classify feedback text into chunking signals and persist
+        // 2026-05-23 - Classify feedback text into chunking signals and persist
         // to localStorage. Chunker entry points read these on the next
         // generation so user complaints about truncation/depth visibly
         // change the chunk plan.
@@ -221,11 +221,11 @@ export async function countPriorSignals(
 }
 
 /**
- * 2026-05-23 — Post-submit auto-invoke of the learning engine.
+ * 2026-05-23 - Post-submit auto-invoke of the learning engine.
  *
  * Before this hook existed, runLearningPass() was a debug-only function
  * reachable only from window.__hicSelfImprovement. That meant feedback
- * never produced a skill patch — the loop was broken at the wiring layer,
+ * never produced a skill patch - the loop was broken at the wiring layer,
  * not the algorithm layer.
  *
  * Now every successful feedback submit triggers the pass in the background.

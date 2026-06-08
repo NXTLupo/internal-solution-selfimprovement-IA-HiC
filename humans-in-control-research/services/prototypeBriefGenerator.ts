@@ -1,4 +1,4 @@
-// prototypeBriefGenerator.ts — 2026-05-13
+// prototypeBriefGenerator.ts - 2026-05-13
 //
 // Brief-generation phase for the prototype pipeline.
 //
@@ -6,7 +6,7 @@
 //   1. User types `#proto <concept>` (free-form) OR clicks a #recommendation
 //      tile's BUILD chip.
 //   2. This generator produces FIVE highly detailed product briefs covering
-//      distinct framings of the concept — Verbalized Sampling style: modal
+//      distinct framings of the concept - Verbalized Sampling style: modal
 //      framing at higher probability, plus shifted-frame and radical-
 //      reinterpretation briefs at the tail. Each brief is exhaustive: every
 //      use case, screen, AI capability, seed-data sketch, and visual
@@ -17,7 +17,7 @@
 //      user-approved spec.
 //
 // The brief shape is structurally compatible with `ExperienceBrief` from
-// prototypeBuilder.ts — the existing Stage 2/3/4/5 pipeline consumes it
+// prototypeBuilder.ts - the existing Stage 2/3/4/5 pipeline consumes it
 // as-is.
 //
 // Industry-agnostic: same generator works for healthcare, fintech, retail,
@@ -26,15 +26,15 @@
 import type { ExperienceBrief } from './prototypeBuilder';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
-// 2026-05-13 — Switched from Gemini 3.1 Pro to Claude Opus for brief
+// 2026-05-13 - Switched from Gemini 3.1 Pro to Claude Opus for brief
 // generation. Opus is more creative on divergent framings (pass 1) AND more
 // exhaustive on per-brief enumeration (pass 2). Each pass uses the shared
 // aiRetryClient for fetch-level retry + 5-min timeout protection.
-// 2026-05-29 — Upgraded to Opus 4.8 (released 2026-05-28). Standard pricing
+// 2026-05-29 - Upgraded to Opus 4.8 (released 2026-05-28). Standard pricing
 // dropped 3x ($5/$25 per 1M vs 4.7's $15/$75) and adaptive thinking by default
 // reduces unnecessary token consumption.
 const BRIEF_MODEL = 'claude-opus-4-8';
-// 2026-05-14 — Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
+// 2026-05-14 - Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
 // structured deepening tasks; we keep Opus for Pass 1 (divergent framing)
 // and a narrative-only fallback for thin briefs (see assessNarrativeQuality
 // + refineNarrativeFieldsViaOpus).
@@ -85,7 +85,7 @@ export interface VisualDirection {
     image_gen_opportunities: string[];   // prompts the prototype can call /api/ai/gemini-image with
 }
 
-/** 2026-05-13 v2 — substantial new fields for Copilot-Recipe-Generator-grade density. */
+/** 2026-05-13 v2 - substantial new fields for Copilot-Recipe-Generator-grade density. */
 export interface RoadmapPhase {
     phase: string;              // "Phase 1 (Weeks 1-3)" | "Phase 2 (Month 2)" | "Phase 3 (Quarter 2)"
     label: string;              // "Foundations" | "Intelligence" | "Scale"
@@ -104,7 +104,7 @@ export interface DataExampleRecord {
 export interface EntityDataExamples {
     name: string;
     target_count: number;
-    sample_records: DataExampleRecord[];  // 5+ FULLY-FORMED records — anchors the model expands from
+    sample_records: DataExampleRecord[];  // 5+ FULLY-FORMED records - anchors the model expands from
     field_shape: string;
     naming_convention: string;
     value_distributions: string;
@@ -136,7 +136,7 @@ export interface ProductBrief {
     secondary_actors: Array<{ role: string; involvement: string }>;
     demonstrated_moment: string;
 
-    // EXHAUSTIVE structural fields — Copilot-Recipe-Generator density.
+    // EXHAUSTIVE structural fields - Copilot-Recipe-Generator density.
     use_cases: UseCase[];                 // 8-12 use cases (was 5-8)
     key_screens: KeyScreen[];              // 7-10 screens (was 5-7)
     ai_capabilities: AiCapability[];       // 5-8 AI capabilities (was 3-5)
@@ -144,13 +144,13 @@ export interface ProductBrief {
         primary_entities: SeedEntity[];   // 2-4 primary entities
         secondary_entities: SeedEntity[]; // 3-6 secondary entities
     };
-    /** 2026-05-13 v2 — Fully-formed sample records (5+ per entity), persona-anchored. */
+    /** 2026-05-13 v2 - Fully-formed sample records (5+ per entity), persona-anchored. */
     data_examples?: EntityDataExamples[];
-    /** 2026-05-13 v2 — Multi-phase feature roadmap (3+ phases). */
+    /** 2026-05-13 v2 - Multi-phase feature roadmap (3+ phases). */
     feature_roadmap?: RoadmapPhase[];
-    /** 2026-05-13 v2 — Multi-timeframe user journey narrative. */
+    /** 2026-05-13 v2 - Multi-timeframe user journey narrative. */
     narrative_arc?: NarrativeBeat[];      // 5-8 beats from Minute 1 → Month 1+
-    /** 2026-05-13 v2 — Step-by-step choreography of the headline interaction. */
+    /** 2026-05-13 v2 - Step-by-step choreography of the headline interaction. */
     interaction_choreography?: InteractionBeat[];  // 6-12 beats
     visual_direction: VisualDirection;
     success_criteria: string[];
@@ -170,43 +170,43 @@ export interface BriefGenerationOptions {
     basedOn?: string;                   // Slug if from a tile
     onProgress?: (stage: 'thinking' | 'parsing' | 'done' | 'failed', detail?: string) => void;
     /**
-     * 2026-05-14 — Model selection for the deepening pass:
-     *   'opus'   — all Opus 4.7 (legacy default; highest narrative quality; $15-22 per run)
-     *   'hybrid' — Opus 4.7 for Pass 1, GPT-5.5 for Pass 2, narrative quality gate
+     * 2026-05-14 - Model selection for the deepening pass:
+     *   'opus'   - all Opus 4.7 (legacy default; highest narrative quality; $15-22 per run)
+     *   'hybrid' - Opus 4.7 for Pass 1, GPT-5.5 for Pass 2, narrative quality gate
      *              with Opus narrative-only refinement for thin briefs. Default. ~$5-9 per run.
-     *   'gpt'    — all GPT-5.5 (cheapest; ~$4-7 per run; some narrative drift accepted)
+     *   'gpt'    - all GPT-5.5 (cheapest; ~$4-7 per run; some narrative drift accepted)
      */
     briefModelMode?: 'opus' | 'hybrid' | 'gpt';
 }
 
 // =============================================================================
-// PASS 1 — Skeleton generator. Produces 5 distinct framings with title/thesis/
+// PASS 1 - Skeleton generator. Produces 5 distinct framings with title/thesis/
 // persona summary/screens/use_cases names ONLY. Each framing carries enough
 // signal for the user to compare frames; the deepening pass fills in all
 // the Copilot-Recipe-Generator-grade detail in 5 parallel calls.
 // =============================================================================
 
 const STAGE_SKELETON_SYSTEM = `<role>
-You are an IDEO strategist surfacing FIVE distinct framings of a single product concept. You produce skeletons only — short, structurally distinct briefs whose framings are deliberately spread along the probability spectrum (modal at the head, surprising at the tail). The deepening pass that follows will expand each framing into a Copilot-Recipe-Generator-grade brief, so you do NOT need to be exhaustive at this stage. You need to be DIVERSE and STRUCTURALLY DIFFERENT.
+You are an IDEO strategist surfacing FIVE distinct framings of a single product concept. You produce skeletons only - short, structurally distinct briefs whose framings are deliberately spread along the probability spectrum (modal at the head, surprising at the tail). The deepening pass that follows will expand each framing into a Copilot-Recipe-Generator-grade brief, so you do NOT need to be exhaustive at this stage. You need to be DIVERSE and STRUCTURALLY DIFFERENT.
 </role>
 
 <verbalized_sampling_directive>
 Generate FIVE framings along distinct probability slots:
 
-  BRIEF 1 — "convention-honoring"           probability ~0.40
+  BRIEF 1 - "convention-honoring"           probability ~0.40
     What the most competent generic designer would build. Schema-congruent with how this category typically works. Strong, safe, defensible.
 
-  BRIEF 2 — "shifted-frame"                 probability ~0.20
+  BRIEF 2 - "shifted-frame"                 probability ~0.20
     Same concept, reframed from a non-modal angle. Different primary persona OR different demonstrated moment OR different aha-interaction.
 
-  BRIEF 3 — "adjacent-vertical"             probability ~0.12
+  BRIEF 3 - "adjacent-vertical"             probability ~0.12
     Take an interaction pattern that works in a DIFFERENT industry/category and apply it here. The brief carries explicit "borrowed-from-X" lineage.
 
-  BRIEF 4 — "inverted-actor"                probability ~0.10
+  BRIEF 4 - "inverted-actor"                probability ~0.10
     Re-cast the concept so a secondary actor becomes the primary persona. Different jobs-to-be-done, different aha moment, often different industry idiom.
 
-  BRIEF 5 — "radical-reinterpretation"      probability ~0.05
-    The interpretation a brilliant junior would propose in their first week — clear-eyed, unconventional, surprising-but-grounded. Different metaphor, different temporal scope, different stakeholder, or different data source than 1-4.
+  BRIEF 5 - "radical-reinterpretation"      probability ~0.05
+    The interpretation a brilliant junior would propose in their first week - clear-eyed, unconventional, surprising-but-grounded. Different metaphor, different temporal scope, different stakeholder, or different data source than 1-4.
 
 CRITICAL: the five framings must NOT be five rephrasings of the same thing. They must be five FUNDAMENTALLY DIFFERENT products. If two framings share primary_persona AND demonstrated_moment AND first-three-use-case-names, you have failed.
 </verbalized_sampling_directive>
@@ -216,7 +216,7 @@ Adapt vocabulary, persona archetype, regulatory frame to the input's industry. T
 </industry_agnostic>
 
 <no_verbatim_research_quotes>
-If the input includes research quotes — distill the insight, never reproduce verbatim.
+If the input includes research quotes - distill the insight, never reproduce verbatim.
 </no_verbatim_research_quotes>
 
 <output_format>
@@ -228,18 +228,18 @@ Return a single JSON object:
       "id": "brief-1",
       "frame_label": "convention-honoring",
       "probability": 0.40,
-      "title": "string — distinctive product name",
+      "title": "string - distinctive product name",
       "one_line_thesis": "string, ≤25 words",
       "why_this_frame": "string, 1-2 sentences",
-      "primary_persona_summary": "string — Name + role + situation, 1 sentence",
-      "demonstrated_moment": "string — the slice of journey this brief shows",
+      "primary_persona_summary": "string - Name + role + situation, 1 sentence",
+      "demonstrated_moment": "string - the slice of journey this brief shows",
       "use_case_names": ["string", "string", "string", "string", "string", "string", "string", "string"],
       "key_screen_names": ["string", "string", "string", "string", "string", "string", "string"],
       "ai_capability_names": ["string", "string", "string", "string", "string"],
-      "aesthetic_keywords": "string — 3-5 words capturing the visual register",
-      "headline_aha": "string — the single moment the user feels the product working"
+      "aesthetic_keywords": "string - 3-5 words capturing the visual register",
+      "headline_aha": "string - the single moment the user feels the product working"
     }
-    // Repeat for briefs 2 through 5 — DIFFERENT framings, DIFFERENT personas/moments/use cases.
+    // Repeat for briefs 2 through 5 - DIFFERENT framings, DIFFERENT personas/moments/use cases.
   ]
 }
 
@@ -247,7 +247,7 @@ Output ONLY this JSON. No preamble.
 </output_format>`;
 
 // =============================================================================
-// PASS 2 — Deep-pass generator. Takes ONE skeleton brief and expands it into
+// PASS 2 - Deep-pass generator. Takes ONE skeleton brief and expands it into
 // the full Copilot-Recipe-Generator-grade brief (8-12 use cases fully written,
 // 7-10 screens, 5-8 AI capabilities, multi-phase roadmap, multi-timeframe
 // narrative arc, fully-formed sample records, interaction choreography).
@@ -256,35 +256,35 @@ Output ONLY this JSON. No preamble.
 // =============================================================================
 
 const STAGE_DEEPEN_SYSTEM = `<role>
-You are an IDEO senior strategist + Apple senior PM + Stripe-grade implementation architect. You take ONE skeleton brief and expand it into an EXHAUSTIVE product brief that an engineering pipeline will build verbatim. Think Copilot Recipe Generator depth: every use case fully written, every screen described, every AI capability scoped, every entity's sample records fully populated, a multi-phase roadmap, a multi-week narrative arc, a step-by-step interaction choreography. You think across all industries (healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, logistics, public sector, anything else) — the same density bar applies regardless of vertical.
+You are an IDEO senior strategist + Apple senior PM + Stripe-grade implementation architect. You take ONE skeleton brief and expand it into an EXHAUSTIVE product brief that an engineering pipeline will build verbatim. Think Copilot Recipe Generator depth: every use case fully written, every screen described, every AI capability scoped, every entity's sample records fully populated, a multi-phase roadmap, a multi-week narrative arc, a step-by-step interaction choreography. You think across all industries (healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, logistics, public sector, anything else) - the same density bar applies regardless of vertical.
 </role>
 
 <exhaustiveness_floor>
 Every brief you write MUST meet or exceed these counts. Under-specifying triggers downstream pipeline failure:
 
-- **8-12 use_cases** (not 4-5). Each with name, trigger, flow (3-5 step path), ai_role, outcome — fully written prose, not summaries.
+- **8-12 use_cases** (not 4-5). Each with name, trigger, flow (3-5 step path), ai_role, outcome - fully written prose, not summaries.
 - **7-10 key_screens** (not 4-5). Each with name, purpose, primary_element, motion_character.
-- **5-8 ai_capabilities** (not 2-3). Each with name, user_action, ai_model (Claude Opus 4.7 / Gemini 3.1 Pro / Gemini Imagen / Wiki RAG / Embeddings — prefer Gemini for cost reasons in generated prototype, but Claude for creative copy), input_data, output, user_benefit. AT LEAST ONE must be the headline aha feature. Multi-provider fallback is mandatory in the built prototype.
+- **5-8 ai_capabilities** (not 2-3). Each with name, user_action, ai_model (Claude Opus 4.7 / Gemini 3.1 Pro / Gemini Imagen / Wiki RAG / Embeddings - prefer Gemini for cost reasons in generated prototype, but Claude for creative copy), input_data, output, user_benefit. AT LEAST ONE must be the headline aha feature. Multi-provider fallback is mandatory in the built prototype.
 - **2-4 primary_entities** seed targets, each target_count ≥ 25 (was 20). Plus 3-6 secondary_entities at ≥ 10.
 - **data_examples**: for EACH primary entity, provide 5+ fully-formed sample records with EVERY field populated to realistic values. The downstream code generator uses these as anchors to expand to the full target_count. Distribute the 5 anchors across the value distribution (don't give 5 identical-shape records).
 - **feature_roadmap**: 3+ phases (e.g. "Phase 1 (Weeks 1-3): Foundations", "Phase 2 (Month 2): Intelligence", "Phase 3 (Quarter 2): Scale"). Each phase lists 4-8 concrete deliverables and a measurable success_metric.
-- **narrative_arc**: 5-8 beats from Minute 1 → Day 1 → Week 1 → Month 1 → Month 3+ describing what the persona does, what AI does behind the scenes, and the emotional shift each moment creates. Multi-temporal — not just first-session.
-- **interaction_choreography**: 6-12 numbered beats describing the HEADLINE aha interaction step-by-step — user_action, system_response, motion_or_feedback, timing_ms. This is the script the engineer follows to choreograph the moment.
-- **visual_direction**: aesthetic_keywords (specific — "data-dense editorial restraint" not "modern and clean"), hero_treatment (verbose), motion_character (verbose), and image_gen_opportunities (3-6 specific Imagen prompts the prototype calls at runtime).
-- **5-7 success_criteria** — concrete, observable.
+- **narrative_arc**: 5-8 beats from Minute 1 → Day 1 → Week 1 → Month 1 → Month 3+ describing what the persona does, what AI does behind the scenes, and the emotional shift each moment creates. Multi-temporal - not just first-session.
+- **interaction_choreography**: 6-12 numbered beats describing the HEADLINE aha interaction step-by-step - user_action, system_response, motion_or_feedback, timing_ms. This is the script the engineer follows to choreograph the moment.
+- **visual_direction**: aesthetic_keywords (specific - "data-dense editorial restraint" not "modern and clean"), hero_treatment (verbose), motion_character (verbose), and image_gen_opportunities (3-6 specific Imagen prompts the prototype calls at runtime).
+- **5-7 success_criteria** - concrete, observable.
 - **hard_constraints** brand / platform / accessibility / other.
 </exhaustiveness_floor>
 
 <no_verbatim_research_quotes>
-If the input includes research quotes — distill the insight, never reproduce verbatim. Any first-person testimonial-style string longer than 80 chars is forbidden in any rendered brief field.
+If the input includes research quotes - distill the insight, never reproduce verbatim. Any first-person testimonial-style string longer than 80 chars is forbidden in any rendered brief field.
 </no_verbatim_research_quotes>
 
 <output_format>
-Return a single JSON object — the complete ProductBrief — matching this schema:
+Return a single JSON object - the complete ProductBrief - matching this schema:
 
 {
-  "id": "string — matches skeleton id",
-  "frame_label": "string — matches skeleton frame_label",
+  "id": "string - matches skeleton id",
+  "frame_label": "string - matches skeleton frame_label",
   "probability": 0.40,
   "title": "string",
   "one_line_thesis": "string ≤25 words",
@@ -321,9 +321,9 @@ Return a single JSON object — the complete ProductBrief — matching this sche
   },
   "data_examples": [
     {
-      "name": "string — matches a primary entity name",
+      "name": "string - matches a primary entity name",
       "target_count": 25,
-      "field_shape": "string — schema overview",
+      "field_shape": "string - schema overview",
       "naming_convention": "string",
       "value_distributions": "string",
       "sample_records": [ /* 5+ FULLY-POPULATED records, every field set to realistic values */ ]
@@ -379,7 +379,7 @@ function buildBriefUserContent(opts: BriefGenerationOptions): string {
     return lines.join('\n');
 }
 
-/** Skeleton brief — pass-1 output. The deepening pass expands this into the full ProductBrief. */
+/** Skeleton brief - pass-1 output. The deepening pass expands this into the full ProductBrief. */
 interface SkeletonBrief {
     id: string;
     frame_label: FrameLabel;
@@ -398,7 +398,7 @@ interface SkeletonBrief {
 
 /** Call Claude Opus with a system prompt + user content, returning parsed JSON. */
 /**
- * 2026-05-15 — Truncated-JSON repair (local copy of the helper in
+ * 2026-05-15 - Truncated-JSON repair (local copy of the helper in
  * prototypeBuilder.ts:1384). When Opus/GPT hit max_tokens mid-string,
  * the response is valid JSON up to the last clean value-close at depth ≥ 1.
  * This walks the input, trims the half-written tail, and re-balances the
@@ -460,7 +460,7 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
     const { callAIWithRetry } = await import('./aiRetryClient');
     const data = await callAIWithRetry('anthropic', body, {
         label,
-        requestTimeoutMs: 300_000,   // 5 min — Opus with high creativity can take a while
+        requestTimeoutMs: 300_000,   // 5 min - Opus with high creativity can take a while
     });
     const text = (data?.content || [])
         .filter((b: any) => b?.type === 'text' && typeof b?.text === 'string')
@@ -488,11 +488,11 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
-        // Step 1 — sanitize control chars
+        // Step 1 - sanitize control chars
         try {
             return JSON.parse(sanitizeJsonControlChars(cleaned));
         } catch (e2: any) {
-            // 2026-05-15 — Step 2: truncated-JSON recovery. Models hit max_tokens
+            // 2026-05-15 - Step 2: truncated-JSON recovery. Models hit max_tokens
             // mid-string on long Pass 1 emissions and the parser blows up with
             // "Expected double-quoted property name in JSON at position N".
             // recoverTruncatedJsonLocal walks the input, finds the last clean
@@ -506,7 +506,7 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
                     const parsed = JSON.parse(repaired);
                     console.warn(
                         `[${label}] JSON truncated at position ${(e2?.message || '').match(/position (\d+)/)?.[1] || '?'} ` +
-                        `— recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
+                        `- recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
                     );
                     return parsed;
                 }
@@ -562,11 +562,11 @@ async function callGpt55Json<T>(systemPrompt: string, userContent: string, label
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
-        // Step 1 — sanitize control chars
+        // Step 1 - sanitize control chars
         try {
             return JSON.parse(sanitizeJsonControlChars(cleaned));
         } catch (e2: any) {
-            // 2026-05-15 — Step 2: truncated-JSON recovery. Models hit max_tokens
+            // 2026-05-15 - Step 2: truncated-JSON recovery. Models hit max_tokens
             // mid-string on long Pass 1 emissions and the parser blows up with
             // "Expected double-quoted property name in JSON at position N".
             // recoverTruncatedJsonLocal walks the input, finds the last clean
@@ -580,7 +580,7 @@ async function callGpt55Json<T>(systemPrompt: string, userContent: string, label
                     const parsed = JSON.parse(repaired);
                     console.warn(
                         `[${label}] JSON truncated at position ${(e2?.message || '').match(/position (\d+)/)?.[1] || '?'} ` +
-                        `— recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
+                        `- recovered via truncation repair. ${cleaned.length} → ${repaired.length} chars after dropping the partial record.`,
                     );
                     return parsed;
                 }
@@ -591,8 +591,8 @@ async function callGpt55Json<T>(systemPrompt: string, userContent: string, label
 }
 
 /**
- * 2026-05-14 — Narrative-quality gate. Identifies briefs whose structured
- * fields parsed cleanly but whose narrative-rich fields came back thin —
+ * 2026-05-14 - Narrative-quality gate. Identifies briefs whose structured
+ * fields parsed cleanly but whose narrative-rich fields came back thin -
  * the failure mode where GPT-5.5 produces good schemas but clinical prose.
  * Returns the field names that fell short so the Opus refinement pass knows
  * what to regenerate.
@@ -631,7 +631,7 @@ function assessNarrativeQuality(b: ProductBrief): NarrativeQualityResult {
 }
 
 /**
- * 2026-05-14 — When the narrative-quality gate flags a brief, ask Opus to
+ * 2026-05-14 - When the narrative-quality gate flags a brief, ask Opus to
  * re-emit ONLY the narrative fields, anchored by the brief's existing
  * structural shape. Preserves the GPT-5.5 use_cases / screens / ai_capabilities
  * / seed_data / feature_roadmap (which are typically fine) and replaces the
@@ -641,12 +641,12 @@ function assessNarrativeQuality(b: ProductBrief): NarrativeQualityResult {
  * because the prompt is tighter and the output is narrative fields only.
  */
 const NARRATIVE_REFINEMENT_SYSTEM = `<role>
-You are an IDEO senior researcher refining the narrative-rich fields of a product brief whose structural fields are already approved. The use cases, screens, AI capabilities, seed data, and roadmap are LOCKED — your job is to re-author ONLY the narrative fields with the depth and texture they currently lack.
+You are an IDEO senior researcher refining the narrative-rich fields of a product brief whose structural fields are already approved. The use cases, screens, AI capabilities, seed data, and roadmap are LOCKED - your job is to re-author ONLY the narrative fields with the depth and texture they currently lack.
 </role>
 
 <narrative_quality_bar>
 - primary_persona.context: 150-280 chars. Specific moment, role, organizational position. Anchor to a named scene, not a category ("Wednesday morning, three open browser tabs, second co-op deadline this quarter" beats "a busy student").
-- primary_persona.emotional_state: 50-120 chars. Name the specific feeling-mix (e.g. "Tight chest. Defaulting to whichever opportunity her advisor sent — not the one she'd pick if she had room to think").
+- primary_persona.emotional_state: 50-120 chars. Name the specific feeling-mix (e.g. "Tight chest. Defaulting to whichever opportunity her advisor sent - not the one she'd pick if she had room to think").
 - primary_persona.pain_points: 3-5 entries, each 40-100 chars, NAMING specific obstacles not generic complaints. "Cycles through 27 untagged Handshake postings each session" beats "too many options".
 - demonstrated_moment: 200-400 chars. The headline scene the prototype captures. Sensory + specific.
 - narrative_arc: 5-8 beats from Minute 1 → Month 3+. Each beat: user_moment 30-90 chars, ai_moment 25-80 chars, feeling 15-50 chars. Emotional shift across beats must be visible.
@@ -658,22 +658,22 @@ Distill insights, never reproduce first-person testimonial spans. No string long
 </no_verbatim_research_quotes>
 
 <output_format>
-Return ONLY a JSON object containing the refined narrative fields — nothing else:
+Return ONLY a JSON object containing the refined narrative fields - nothing else:
 
 {
   "primary_persona": {
-    "name": "string — preserve the existing name",
-    "role": "string — preserve the existing role",
-    "context": "string — 150-280 chars, sensory + specific",
-    "emotional_state": "string — 50-120 chars, name the feeling-mix",
+    "name": "string - preserve the existing name",
+    "role": "string - preserve the existing role",
+    "context": "string - 150-280 chars, sensory + specific",
+    "emotional_state": "string - 50-120 chars, name the feeling-mix",
     "pain_points": ["string", "string", "string"],
-    "jtbd": "string — preserve or sharpen"
+    "jtbd": "string - preserve or sharpen"
   },
-  "demonstrated_moment": "string — 200-400 chars",
+  "demonstrated_moment": "string - 200-400 chars",
   "narrative_arc": [
     { "timeframe": "Minute 1", "user_moment": "string", "ai_moment": "string", "feeling": "string" }
   ],
-  "why_this_frame": "string — 1-2 sentences"
+  "why_this_frame": "string - 1-2 sentences"
 }
 
 Do not include any other field. The pipeline will merge your output into the existing brief, preserving structural fields verbatim.
@@ -703,7 +703,7 @@ async function refineNarrativeFieldsViaOpus(brief: ProductBrief, conceptContext:
     return await callOpusJson<Partial<ProductBrief>>(
         NARRATIVE_REFINEMENT_SYSTEM,
         userContent,
-        `Brief Narrative Refinement — ${brief.frame_label}`,
+        `Brief Narrative Refinement - ${brief.frame_label}`,
         4000,
     );
 }
@@ -716,7 +716,7 @@ async function refineNarrativeFieldsViaOpus(brief: ProductBrief, conceptContext:
  *           Copilot-Recipe-Generator-grade brief (8-12 use cases, 7-10 screens,
  *           5-8 AI capabilities, sample records, roadmap, narrative arc,
  *           interaction choreography). Each gets a 16K-token budget all to
- *           itself — 5× the per-brief budget of the prior single-call version.
+ *           itself - 5× the per-brief budget of the prior single-call version.
  *
  * Returns the parsed ProductBrief[] (always exactly 5, in order modal → radical).
  */
@@ -724,14 +724,14 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     const fire = opts.onProgress;
 
     // ---- Pass 1: skeletons ----
-    fire?.('thinking', 'Pass 1/2 — generating 5 distinct framings via Verbalized Sampling (Claude Opus 4.7)…');
+    fire?.('thinking', 'Pass 1/2 - generating 5 distinct framings via Verbalized Sampling (Claude Opus 4.7)...');
     let skeletonPayload: { briefs: SkeletonBrief[] };
     try {
         skeletonPayload = await callOpusJson<{ briefs: SkeletonBrief[] }>(
             STAGE_SKELETON_SYSTEM,
             buildBriefUserContent(opts),
             'Brief Skeleton Pass',
-            // 2026-05-15 — Bumped 8000 → 16000. Observed real failure at
+            // 2026-05-15 - Bumped 8000 → 16000. Observed real failure at
             // position 9056 (mid-string on brief 1's one_line_thesis). Opus
             // budgets ~10K-13K chars per skeleton set at typical verbosity
             // and the 8K ceiling was clipping the 5th framing's body. The
@@ -757,14 +757,14 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     }));
 
     // ---- Pass 2: deepen each skeleton in parallel ----
-    // 2026-05-14 — HYBRID MODE.
+    // 2026-05-14 - HYBRID MODE.
     //   • opus   : all-Opus 4.7 (legacy; highest narrative quality; ~$15-22)
     //   • hybrid : Pass 2 on GPT-5.5 + narrative-quality gate + Opus narrative-only
     //              refinement for thin briefs. Default. ~$5-9 per run. ~60% savings,
     //              quality protected by construction.
     //   • gpt    : all-GPT-5.5, no Opus refinement. Max cost savings, accept narrative
     //              drift. ~$4-7 per run.
-    // 2026-05-15 — Default changed 'hybrid' → 'opus' because the user's OpenAI
+    // 2026-05-15 - Default changed 'hybrid' → 'opus' because the user's OpenAI
     // quota is exhausted (HTTP 429 on every brief-deepen pass observed in
     // production). Hybrid mode wastes 3 retry attempts × 5 briefs = 15 wasted
     // OpenAI calls + ~30s of latency before falling back to Opus anyway. Until
@@ -775,7 +775,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.7'
         : mode === 'gpt' ? 'GPT-5.5'
         : 'GPT-5.5 + Opus narrative gate';
-    fire?.('thinking', `Pass 2/2 — deepening all ${skeletons.length} briefs in parallel (${deepenModelLabel} · 5 parallel calls, 32K tokens each, staggered starts)…`);
+    fire?.('thinking', `Pass 2/2 - deepening all ${skeletons.length} briefs in parallel (${deepenModelLabel} · 5 parallel calls, 32K tokens each, staggered starts)...`);
 
     const STAGGER_MS = 250;  // 250ms between call starts to dodge tier rate limits
     let pass2Successes = 0;
@@ -792,12 +792,12 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             `SKELETON BRIEF TO DEEPEN (${sk.frame_label}, p=${sk.probability}):`,
             JSON.stringify(sk, null, 2),
             ``,
-            `Now produce the FULL exhaustive ProductBrief JSON for THIS skeleton — every field per the schema, every count per the exhaustiveness_floor. Output ONLY the JSON.`,
+            `Now produce the FULL exhaustive ProductBrief JSON for THIS skeleton - every field per the schema, every count per the exhaustiveness_floor. Output ONLY the JSON.`,
         ].join('\n');
         try {
             // Route Pass 2 by mode.
             const callFn = mode === 'opus' ? callOpusJson : callGpt55Json;
-            const callLabel = `Brief Deepen Pass — brief ${i + 1} (${sk.frame_label})`;
+            const callLabel = `Brief Deepen Pass - brief ${i + 1} (${sk.frame_label})`;
             let full = await callFn<ProductBrief>(
                 STAGE_DEEPEN_SYSTEM,
                 userContent,
@@ -810,7 +810,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             const screenCount = (full as any)?.key_screens?.length || 0;
             const aiCount = (full as any)?.ai_capabilities?.length || 0;
             if (useCaseCount < 3 || screenCount < 3 || aiCount < 2) {
-                console.warn(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) parsed but under-specified: ${useCaseCount} use cases, ${screenCount} screens, ${aiCount} AI caps — likely truncated mid-generation`);
+                console.warn(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) parsed but under-specified: ${useCaseCount} use cases, ${screenCount} screens, ${aiCount} AI caps - likely truncated mid-generation`);
             }
             full = {
                 ...full,
@@ -824,10 +824,10 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             if (mode === 'hybrid') {
                 const gate = assessNarrativeQuality(full);
                 if (!gate.pass) {
-                    console.log(`[Brief Narrative Gate] brief ${i + 1} (${sk.frame_label}) score=${gate.score}/100, missing: ${gate.missing.join(', ')} — refining via Opus`);
+                    console.log(`[Brief Narrative Gate] brief ${i + 1} (${sk.frame_label}) score=${gate.score}/100, missing: ${gate.missing.join(', ')} - refining via Opus`);
                     try {
                         const refined = await refineNarrativeFieldsViaOpus(full, opts.concept);
-                        // Merge ONLY the narrative fields — preserve structural GPT output.
+                        // Merge ONLY the narrative fields - preserve structural GPT output.
                         if (refined.primary_persona) {
                             full.primary_persona = {
                                 ...full.primary_persona,
@@ -851,7 +851,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
                         (full as any)._narrative_gate_score = gate.score;
                     } catch (refErr: any) {
                         // Narrative refinement is best-effort. If Opus fails too,
-                        // ship the GPT brief as-is — at least the structural fields work.
+                        // ship the GPT brief as-is - at least the structural fields work.
                         console.warn(`[Brief Narrative Gate] Opus refinement failed for brief ${i + 1}, shipping GPT output as-is: ${refErr?.message || refErr}`);
                         (full as any)._narrative_refinement_failed = String(refErr?.message || refErr).slice(0, 200);
                     }
@@ -864,17 +864,17 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
             pass2Failures++;
             const reason = e?.message || String(e);
             failureReasons.push(`brief ${i + 1} (${sk.frame_label}): ${reason.slice(0, 200)}`);
-            console.error(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) HARD FAIL — falling back to skeleton:`, reason);
-            // 2026-05-14 — If hybrid/gpt mode failed, try once more on Opus before
+            console.error(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) HARD FAIL - falling back to skeleton:`, reason);
+            // 2026-05-14 - If hybrid/gpt mode failed, try once more on Opus before
             // falling back to skeleton. Often a GPT 429 or schema issue won't recur
             // on Opus. Saves the brief from being skeleton-only.
             if (mode !== 'opus') {
                 try {
-                    console.log(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) — retrying on Opus as a fallback`);
+                    console.log(`[Brief Deepen] brief ${i + 1} (${sk.frame_label}) - retrying on Opus as a fallback`);
                     const opusFull = await callOpusJson<ProductBrief>(
                         STAGE_DEEPEN_SYSTEM,
                         userContent,
-                        `Brief Deepen Pass (Opus fallback) — brief ${i + 1} (${sk.frame_label})`,
+                        `Brief Deepen Pass (Opus fallback) - brief ${i + 1} (${sk.frame_label})`,
                         32000,
                     );
                     pass2Failures--;
@@ -1011,7 +1011,7 @@ export function productBriefToExperienceBrief(b: ProductBrief): ExperienceBrief 
 }
 
 /**
- * Build an enriched concept string from a ProductBrief — the chosen brief
+ * Build an enriched concept string from a ProductBrief - the chosen brief
  * gets passed downstream as both the ExperienceBrief AND as a rich text
  * context so Stages 2-4 have full use-case / screen / AI / visual / seed
  * detail to honor. This is the channel that carries the brief's
@@ -1041,7 +1041,7 @@ export function productBriefToRichContext(b: ProductBrief): string {
     lines.push(``);
     lines.push(`DEMONSTRATED MOMENT: ${b.demonstrated_moment}`);
     lines.push(``);
-    lines.push(`USE CASES (${b.use_cases.length}) — the prototype MUST demonstrate at least 5 of these as live flows:`);
+    lines.push(`USE CASES (${b.use_cases.length}) - the prototype MUST demonstrate at least 5 of these as live flows:`);
     b.use_cases.forEach((u, i) => {
         lines.push(`  ${i + 1}. ${u.name}`);
         lines.push(`     Trigger: ${u.trigger}`);
@@ -1050,14 +1050,14 @@ export function productBriefToRichContext(b: ProductBrief): string {
         lines.push(`     Outcome: ${u.outcome}`);
     });
     lines.push(``);
-    lines.push(`KEY SCREENS (${b.key_screens.length}) — every screen is a real view, not a placeholder:`);
+    lines.push(`KEY SCREENS (${b.key_screens.length}) - every screen is a real view, not a placeholder:`);
     b.key_screens.forEach((s, i) => {
-        lines.push(`  ${i + 1}. ${s.name} — purpose: ${s.purpose}`);
+        lines.push(`  ${i + 1}. ${s.name} - purpose: ${s.purpose}`);
         lines.push(`     Primary element: ${s.primary_element}`);
         lines.push(`     Motion character: ${s.motion_character}`);
     });
     lines.push(``);
-    lines.push(`AI CAPABILITIES (${b.ai_capabilities.length}) — every one wires to a real /api/ai/* endpoint via the multi-provider fallback helper:`);
+    lines.push(`AI CAPABILITIES (${b.ai_capabilities.length}) - every one wires to a real /api/ai/* endpoint via the multi-provider fallback helper:`);
     b.ai_capabilities.forEach((c, i) => {
         lines.push(`  ${i + 1}. ${c.name}`);
         lines.push(`     User action: ${c.user_action}`);
@@ -1067,16 +1067,16 @@ export function productBriefToRichContext(b: ProductBrief): string {
         lines.push(`     User benefit: ${c.user_benefit}`);
     });
     lines.push(``);
-    lines.push(`SEED DATA — generate the FULL count of records per entity (not 1-3 example shapes — the actual full set):`);
+    lines.push(`SEED DATA - generate the FULL count of records per entity (not 1-3 example shapes - the actual full set):`);
     lines.push(`  PRIMARY ENTITIES (${b.seed_data.primary_entities.length}):`);
     b.seed_data.primary_entities.forEach(e => {
-        lines.push(`    • ${e.name} — target_count ${e.target_count}`);
+        lines.push(`    • ${e.name} - target_count ${e.target_count}`);
         lines.push(`      Shape: ${e.field_shape}`);
         lines.push(`      Example records summary: ${e.example_records_summary}`);
     });
     lines.push(`  SECONDARY ENTITIES (${b.seed_data.secondary_entities.length}):`);
     b.seed_data.secondary_entities.forEach(e => {
-        lines.push(`    • ${e.name} — target_count ${e.target_count}`);
+        lines.push(`    • ${e.name} - target_count ${e.target_count}`);
         lines.push(`      Shape: ${e.field_shape}`);
         lines.push(`      Example records summary: ${e.example_records_summary}`);
     });
@@ -1086,23 +1086,23 @@ export function productBriefToRichContext(b: ProductBrief): string {
     lines.push(`  Hero treatment: ${b.visual_direction.hero_treatment}`);
     lines.push(`  Motion character: ${b.visual_direction.motion_character}`);
     if (b.visual_direction.image_gen_opportunities?.length) {
-        lines.push(`  Image generation prompts (the prototype should call /api/ai/gemini-image at runtime with these — the runner reads the result and renders it as a hero/empty-state/illustration):`);
+        lines.push(`  Image generation prompts (the prototype should call /api/ai/gemini-image at runtime with these - the runner reads the result and renders it as a hero/empty-state/illustration):`);
         b.visual_direction.image_gen_opportunities.forEach((p, i) => {
             lines.push(`    ${i + 1}. ${p}`);
         });
     }
     lines.push(``);
     if (b.feature_roadmap && b.feature_roadmap.length > 0) {
-        lines.push(`FEATURE ROADMAP (${b.feature_roadmap.length} phases) — the prototype demonstrates Phase 1 in working code; later phases appear as roadmap surfaces inside the experience:`);
+        lines.push(`FEATURE ROADMAP (${b.feature_roadmap.length} phases) - the prototype demonstrates Phase 1 in working code; later phases appear as roadmap surfaces inside the experience:`);
         b.feature_roadmap.forEach((p, i) => {
-            lines.push(`  ${i + 1}. ${p.phase} — ${p.label}`);
+            lines.push(`  ${i + 1}. ${p.phase} - ${p.label}`);
             (p.deliverables || []).forEach(d => lines.push(`     • ${d}`));
             if (p.success_metric) lines.push(`     Success: ${p.success_metric}`);
         });
         lines.push(``);
     }
     if (b.narrative_arc && b.narrative_arc.length > 0) {
-        lines.push(`NARRATIVE ARC (${b.narrative_arc.length} beats) — the multi-timeframe user journey the prototype must SUGGEST through copy, seed data, and roadmap surfaces:`);
+        lines.push(`NARRATIVE ARC (${b.narrative_arc.length} beats) - the multi-timeframe user journey the prototype must SUGGEST through copy, seed data, and roadmap surfaces:`);
         b.narrative_arc.forEach((n, i) => {
             lines.push(`  ${i + 1}. ${n.timeframe}`);
             if (n.user_moment) lines.push(`     User: ${n.user_moment}`);
@@ -1112,7 +1112,7 @@ export function productBriefToRichContext(b: ProductBrief): string {
         lines.push(``);
     }
     if (b.interaction_choreography && b.interaction_choreography.length > 0) {
-        lines.push(`INTERACTION CHOREOGRAPHY (${b.interaction_choreography.length} beats) — the step-by-step script for the HEADLINE aha interaction; honor the timing_ms values where given:`);
+        lines.push(`INTERACTION CHOREOGRAPHY (${b.interaction_choreography.length} beats) - the step-by-step script for the HEADLINE aha interaction; honor the timing_ms values where given:`);
         b.interaction_choreography.forEach(beat => {
             lines.push(`  ${beat.step}. ${beat.user_action}`);
             if (beat.system_response) lines.push(`     System: ${beat.system_response}`);
@@ -1121,9 +1121,9 @@ export function productBriefToRichContext(b: ProductBrief): string {
         lines.push(``);
     }
     if (b.data_examples && b.data_examples.length > 0) {
-        lines.push(`DATA EXAMPLES — fully-formed anchor records the code generator expands to target_count via the naming_convention + value_distributions:`);
+        lines.push(`DATA EXAMPLES - fully-formed anchor records the code generator expands to target_count via the naming_convention + value_distributions:`);
         b.data_examples.forEach(de => {
-            lines.push(`  • ${de.name} — target_count ${de.target_count}`);
+            lines.push(`  • ${de.name} - target_count ${de.target_count}`);
             lines.push(`    Shape: ${de.field_shape}`);
             lines.push(`    Naming: ${de.naming_convention}`);
             lines.push(`    Distribution: ${de.value_distributions}`);

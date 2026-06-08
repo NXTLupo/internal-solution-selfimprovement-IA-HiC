@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { subscribeRunTotals, getRunTotals, formatUSD, formatModelName, type RunTotals } from '../services/costMeter';
 
 /**
- * CostMeterChip — small floating chip that shows the running cost total for
+ * CostMeterChip - small floating chip that shows the running cost total for
  * the current engagement. Subscribes to the cost meter and re-renders on
  * every successful AI call across the app. Click to expand a breakdown by
  * model.
@@ -79,8 +79,8 @@ export const CostMeterChip: React.FC<{ accentColor?: string }> = ({ accentColor 
                                 // suffixes so the user sees activity names, not plumbing.
                                 const cleanLabel = label
                                     .replace(/^Stage \d+(\.\d+)?\s+/, '')
-                                    .replace(/Pass — brief \d+ \([^)]+\)/, 'Pass')
-                                    .replace(/Refinement — [a-z-]+/, 'Refinement');
+                                    .replace(/Pass - brief \d+ \([^)]+\)/, 'Pass')
+                                    .replace(/Refinement - [a-z-]+/, 'Refinement');
                                 return (
                                     <div key={label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#0D0D0D', padding: '2px 0' }}>
                                         <span style={{ color: '#525252', maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={label}>{cleanLabel} <span style={{ color: '#999' }}>×{b.callCount}</span></span>

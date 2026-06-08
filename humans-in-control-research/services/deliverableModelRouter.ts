@@ -1,4 +1,4 @@
-// services/deliverableModelRouter.ts — 2026-05-27
+// services/deliverableModelRouter.ts - 2026-05-27
 //
 // Proactive, health-aware model router for #deliverable generation.
 //
@@ -39,6 +39,13 @@ import {
     isThrottleError,
     type Provider,
 } from './multiModelResilience';
+// 2026-06-05 - drift-catcher C1: per-engagement provider stickiness.
+import {
+    reorderChainByCommitment,
+    setCommitment,
+    providerOfModel,
+    type CommittedProvider,
+} from './engagementCommitment';
 
 // --- Deliverable taxonomy ----------------------------------------------------
 // Every hashtag #deliverable maps to a TaskCategory, which selects the base
@@ -128,7 +135,15 @@ export function resolveModelChain(deliverable: DeliverableKind, preferModel?: st
     // within each health bucket.
     const healthy = chain.filter(id => isProviderHealthy(modelProvider(id)));
     const throttled = chain.filter(id => !isProviderHealthy(modelProvider(id)));
-    const ordered = [...healthy, ...throttled];
+    let ordered = [...healthy, ...throttled];
+
+    // 2026-06-05 - drift-catcher C1: per-engagement provider stickiness.
+    // If the active engagement has committed to a provider (because a prior
+    // call fell back to it, or because the user pinned it explicitly), put
+    // models from that provider at the head of the chain. Keeps cache warm,
+    // prevents mid-engagement provider flapping. NO-OP when no commitment
+    // exists or when no chain model matches the committed provider.
+    ordered = reorderChainByCommitment(ordered);
 
     // Dedupe, preserve order.
     return ordered.filter((id, i) => ordered.indexOf(id) === i);
@@ -147,7 +162,7 @@ export interface PerModelConfig {
 
 export interface ModelChainOptions {
     deliverable: DeliverableKind;
-    /** User-selected model (UI model bar) — used as chain head when reachable. */
+    /** User-selected model (UI model bar) - used as chain head when reachable. */
     preferModel?: string;
     /** Build the correct endpoint+body for a given model id (shapes differ per provider). */
     buildBody: (modelId: string) => BuiltCall;
@@ -197,7 +212,7 @@ function defaultPerModelConfig(modelId: string): PerModelConfig {
     const tier = MODEL_REGISTRY[modelId]?.costTier;
     if (tier === 'premium') {
         // Pro / GPT-5.5: slow, deep. 530s < proxy 540s; one shot (a timeout
-        // just times out again — the chain advances instead of retrying).
+        // just times out again - the chain advances instead of retrying).
         return { requestTimeoutMs: 530_000, maxAttempts: 1 };
     }
     // Flash / budget: fast. Tight ceiling, 2 attempts (transient 5xx worth a retry).
@@ -205,9 +220,57 @@ function defaultPerModelConfig(modelId: string): PerModelConfig {
 }
 
 /**
+ * Is this error a NETWORK / INFRASTRUCTURE failure (proxy down, fetch failed,
+ * connection refused, empty response) vs a MODEL failure (timeout, 429,
+ * content_filter, 5xx with model-specific signal)?
+ *
+ * Network failures should retry the SAME model with backoff - advancing the
+ * chain on a network blip burns through every model in seconds and changes
+ * nothing (every model hits the same dead proxy). This was the root cause of
+ * the 2026-06-05 chat transcript's "chain exhausted in 3 seconds" failure.
+ */
+function isNetworkInfraError(err: unknown): boolean {
+    if (!err) return false;
+    const msg = String((err as any)?.message || err).toLowerCase();
+    return (
+        msg.includes('network connection to research proxy failed') ||
+        msg.includes('failed to fetch') ||
+        msg.includes('err_empty_response') ||
+        msg.includes('err_connection_refused') ||
+        msg.includes('err_socket_not_connected') ||
+        msg.includes('aborterror')
+    );
+}
+
+/** Quick health ping so we don't burn the whole chain when the proxy is
+ *  briefly unreachable. 2-second ceiling - if /health doesn't answer in 2s
+ *  the proxy is overloaded or down and the chain walk should pause/fail
+ *  rather than burn through every model. */
+async function _proxyHealthOk(): Promise<boolean> {
+    try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 2000);
+        try {
+            const r = await fetch('http://127.0.0.1:5012/health', { signal: ctrl.signal });
+            return r.ok;
+        } finally {
+            clearTimeout(t);
+        }
+    } catch {
+        return false;
+    }
+}
+
+/**
  * Walk the deliverable's model chain until one model returns, normalizing the
  * response to `text`. Records provider 429s into the health tracker so future
  * calls route around throttled providers. Throws only if ALL models fail.
+ *
+ * 2026-06-05 - Network-failure-aware: a NETWORK error (proxy down, fetch
+ * failed) triggers same-model retry with backoff (up to 3 attempts, capped
+ * by elapsed budget); only MODEL failures (timeout, 429, content_filter)
+ * advance the chain. Prevents the "burn through every model in 3s when proxy
+ * is briefly saturated" failure mode.
  */
 export async function callWithModelChain(opts: ModelChainOptions): Promise<ModelChainResult> {
     const chain = resolveModelChain(opts.deliverable, opts.preferModel);
@@ -216,6 +279,21 @@ export async function callWithModelChain(opts: ModelChainOptions): Promise<Model
     }
     const cfgFor = opts.perModelConfig || defaultPerModelConfig;
     let lastErr: unknown = null;
+
+    // 2026-06-05 - Pre-flight proxy health check. Fail fast with a clear
+    // message instead of burning the whole chain when the proxy is offline.
+    if (!(await _proxyHealthOk())) {
+        opts.onProgress?.('Research proxy did not answer /health within 2s; waiting 3s and retrying...');
+        await new Promise(r => setTimeout(r, 3000));
+        if (!(await _proxyHealthOk())) {
+            throw new Error(
+                `[modelRouter/${opts.deliverable}] research proxy unreachable on :5012 (no /health response). ` +
+                `This is an infrastructure problem, not a model problem; the chain walk would burn through every ` +
+                `model with the same network error. Check that the research-proxy container is running.`
+            );
+        }
+        opts.onProgress?.('Proxy responsive after retry, continuing.');
+    }
 
     for (let i = 0; i < chain.length; i++) {
         const modelId = chain[i];
@@ -227,31 +305,89 @@ export async function callWithModelChain(opts: ModelChainOptions): Promise<Model
             const reason = isThrottleError(lastErr) ? 'rate-limited' : 'failed';
             opts.onModelSwitch?.(from, modelId, reason);
             opts.onProgress?.(
-                `${MODEL_REGISTRY[from]?.displayName || from} ${reason}; switching to ${MODEL_REGISTRY[modelId]?.displayName || modelId}…`
+                `${MODEL_REGISTRY[from]?.displayName || from} ${reason}; switching to ${MODEL_REGISTRY[modelId]?.displayName || modelId}...`
             );
         }
 
-        try {
-            const data = await callAIWithRetry(built.endpoint, built.body, {
-                label: i === 0 ? opts.label : `${opts.label} → ${MODEL_REGISTRY[modelId]?.displayName || modelId}`,
-                maxAttempts: cfg.maxAttempts,
-                requestTimeoutMs: cfg.requestTimeoutMs,
-                headers: built.headers,
-                onRetry: (attempt, total, status) =>
-                    opts.onProgress?.(`${status} (attempt ${attempt}/${total})`),
-            });
+        // 2026-06-05 - Network-failure same-model retry loop. Network
+        // failures (proxy saturation, ERR_EMPTY_RESPONSE) should not advance
+        // the chain - every model would hit the same dead proxy. Retry the
+        // SAME model with backoff up to NET_RETRY_MAX times before allowing
+        // chain advance. Only MODEL failures (429, timeout, content_filter)
+        // advance the chain.
+        const NET_RETRY_MAX = 3;
+        const NET_BACKOFF_MS = [2000, 5000, 12000];
+        let data: any = null;
+        let modelSucceeded = false;
+        let netRetry = 0;
+        let modelLevelErr: unknown = null;
+        while (netRetry <= NET_RETRY_MAX) {
+            try {
+                data = await callAIWithRetry(built.endpoint, built.body, {
+                    label: i === 0 ? opts.label : `${opts.label} → ${MODEL_REGISTRY[modelId]?.displayName || modelId}`,
+                    maxAttempts: cfg.maxAttempts,
+                    requestTimeoutMs: cfg.requestTimeoutMs,
+                    headers: built.headers,
+                    onRetry: (attempt, total, status) =>
+                        opts.onProgress?.(`${status} (attempt ${attempt}/${total})`),
+                });
+                modelSucceeded = true;
+                break;
+            } catch (err) {
+                if (isNetworkInfraError(err) && netRetry < NET_RETRY_MAX) {
+                    // Same-model retry - do NOT advance the chain.
+                    const wait = NET_BACKOFF_MS[Math.min(netRetry, NET_BACKOFF_MS.length - 1)];
+                    netRetry += 1;
+                    console.warn(
+                        `[modelRouter/${opts.deliverable}] model '${modelId}' NETWORK failure (proxy unreachable); ` +
+                        `same-model retry ${netRetry}/${NET_RETRY_MAX} in ${wait}ms - NOT advancing chain`
+                    );
+                    opts.onProgress?.(
+                        `Proxy briefly unreachable - retrying ${MODEL_REGISTRY[modelId]?.displayName || modelId} in ${wait / 1000}s (no chain advance)...`
+                    );
+                    await new Promise(r => setTimeout(r, wait));
+                    // Health-check the proxy before next attempt so we don't
+                    // keep firing into a dead socket.
+                    if (!(await _proxyHealthOk())) {
+                        // Still down; keep waiting (linear extra wait).
+                        await new Promise(r => setTimeout(r, 2000));
+                    }
+                    continue;
+                }
+                modelLevelErr = err;
+                break;
+            }
+        }
+        if (modelSucceeded) {
             const text = extractText(modelId, data);
             if (!text || !text.trim()) {
-                throw new Error(`${modelId} returned empty content`);
+                modelLevelErr = new Error(`${modelId} returned empty content`);
+            } else {
+                // 2026-06-05 - drift-catcher C1: if we advanced past the chain
+                // head (i > 0), commit the engagement to THIS provider so the
+                // next deliverable doesn't re-attempt the failing head. Don't
+                // commit when the head succeeded on first try (no drift signal).
+                if (i > 0) {
+                    const newProvider: CommittedProvider = providerOfModel(modelId);
+                    const failedHead = chain[0];
+                    void setCommitment(
+                        newProvider,
+                        `deliverable=${opts.deliverable} head=${failedHead} failed-> ${modelId}`,
+                    ).catch(() => { /* commitment write is fire-and-forget */ });
+                }
+                return { text, modelUsed: modelId, raw: data };
             }
-            return { text, modelUsed: modelId, raw: data };
+        }
+        // Fall through to the chain-advance path with the model-level error.
+        try {
+            throw modelLevelErr ?? new Error(`${modelId} failed (no error captured)`);
         } catch (err) {
             lastErr = err;
             // Record provider-level throttle so subsequent calls route around it.
             if (isThrottleError(err)) recordProvider429(modelProvider(modelId));
             console.warn(
                 `[modelRouter/${opts.deliverable}] model '${modelId}' failed: ` +
-                `${String((err as any)?.message || err).slice(0, 180)} — advancing to next in chain`
+                `${String((err as any)?.message || err).slice(0, 180)} - advancing to next in chain`
             );
             continue;
         }

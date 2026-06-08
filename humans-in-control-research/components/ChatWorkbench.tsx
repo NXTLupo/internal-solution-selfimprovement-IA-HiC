@@ -1,5 +1,5 @@
 /**
- * Chat Workbench — The primary interface after data collection.
+ * Chat Workbench - The primary interface after data collection.
  *
  * Replaces the 17-stage pipeline with a conversational research workbench.
  * Users explore their data via multi-model AI chat and request specific
@@ -89,17 +89,17 @@ NXT VISUAL OUTPUT PROTOCOL:
 When the user requests a visual output, respond with structured blocks delimited by :::nxt:TYPE markers.
 
 Available block types:
-- :::nxt:stat-row — JSON array of {value, label, source} objects (2-4 items)
-- :::nxt:evidence-block — JSON {text, source} cited finding
-- :::nxt:recommendation — JSON {title, body} chartreuse callout
-- :::nxt:split-panel — JSON {analysisTitle, analysisContent, evidenceTitle, evidenceContent}
-- :::nxt:section-divider — JSON {number, title, overflowText}
-- :::nxt:grid-matrix — JSON {headers: string[], rows: string[][]}
-- :::nxt:color-block-grid — JSON array of {title, body, bg} where bg is "black"|"chartreuse"|"teal"|"panel"
-- :::nxt:quote-block — JSON {quote, attribution}
-- :::nxt:comparison-table — JSON {headers: string[], rows: string[][], highlightCol?: number}
-- :::nxt:warning-block — JSON {label, text}
-- :::nxt:full-html — Raw NXT-compliant HTML string
+- :::nxt:stat-row - JSON array of {value, label, source} objects (2-4 items)
+- :::nxt:evidence-block - JSON {text, source} cited finding
+- :::nxt:recommendation - JSON {title, body} chartreuse callout
+- :::nxt:split-panel - JSON {analysisTitle, analysisContent, evidenceTitle, evidenceContent}
+- :::nxt:section-divider - JSON {number, title, overflowText}
+- :::nxt:grid-matrix - JSON {headers: string[], rows: string[][]}
+- :::nxt:color-block-grid - JSON array of {title, body, bg} where bg is "black"|"chartreuse"|"teal"|"panel"
+- :::nxt:quote-block - JSON {quote, attribution}
+- :::nxt:comparison-table - JSON {headers: string[], rows: string[][], highlightCol?: number}
+- :::nxt:warning-block - JSON {label, text}
+- :::nxt:full-html - Raw NXT-compliant HTML string
 
 Example:
 :::nxt:stat-row
@@ -157,7 +157,7 @@ export const ChatWorkbench: React.FC<Props> = ({
 }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    // 2026-05-07 — Default chat model is Gemini 3.1 Pro (promoted from DeepSeek
+    // 2026-05-07 - Default chat model is Gemini 3.1 Pro (promoted from DeepSeek
     // V4 Flash; DeepSeek narratives were jargon-heavy AI-slop).
     const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
     const [isLoading, setIsLoading] = useState(false);
@@ -212,11 +212,11 @@ export const ChatWorkbench: React.FC<Props> = ({
     }, []);
 
     const buildContext = useCallback((): ChatContext => {
-        // Provider-agnostic file content — reads proxy-parsed body text when
+        // Provider-agnostic file content - reads proxy-parsed body text when
         // the FileUpload background parser has populated parsedText (PDFs
         // via PyPDF2, DOCX via office-regex). Falls back to text-file base64
         // decode for .txt/.json/.csv etc. OpenAI/Gemini chat all see
-        // the same extracted text — no multimodal dependency.
+        // the same extracted text - no multimodal dependency.
         const uploadedFileContents = (() => {
             try {
                 return files.map((f: any) => {
@@ -242,7 +242,7 @@ export const ChatWorkbench: React.FC<Props> = ({
             sourceCount: liveSourceResults.length,
             articleCount: liveSourceResults.reduce((sum, s) => sum + (s.items?.length || 0), 0),
             sourceReferences: sourceRefsRef.current,
-            // Knowledge Graph — full structural context
+            // Knowledge Graph - full structural context
             knowledgeGraph: knowledgeGraphData || undefined,
             // Tiered knowledge
             wikiBrand,
@@ -366,10 +366,10 @@ export const ChatWorkbench: React.FC<Props> = ({
                     model,
                     timestamp: Date.now(),
                 });
-            } catch { /* malformed JSON — skip */ }
+            } catch { /* malformed JSON - skip */ }
         }
 
-        // Strategy 2: Fallback — detect JSON objects that look like deliverables
+        // Strategy 2: Fallback - detect JSON objects that look like deliverables
         // Gemini often outputs raw JSON without delimiters
         if (items.length === 0) {
             // Find JSON objects or arrays in the text
@@ -430,12 +430,12 @@ export const ChatWorkbench: React.FC<Props> = ({
                     model,
                     timestamp: Date.now(),
                 });
-            } catch { /* malformed JSON — skip */ }
+            } catch { /* malformed JSON - skip */ }
         }
         return slidesList;
     }, []);
 
-    // Image generation handler — detects /image prefix or image-related keywords
+    // Image generation handler - detects /image prefix or image-related keywords
     const isImageRequest = (msg: string): boolean => {
         const lower = msg.toLowerCase();
         return lower.startsWith('/image ') || lower.startsWith('/portrait ') ||
@@ -575,7 +575,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                     </div>
                 </div>
 
-                {/* Artifact Notifications — surface generated artifacts without leaving chat */}
+                {/* Artifact Notifications - surface generated artifacts without leaving chat */}
                 {(artifactNotifications && artifactNotifications.length > 0) && (
                     <div style={{
                         padding: '10px 16px',
@@ -594,7 +594,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                                     <span style={{ fontFamily: "'JetBrains Mono', monospace", background: '#0D0D0D', color: '#B8B800', padding: '1px 6px', fontSize: 10, marginRight: 8 }}>
                                         #{n.type}
                                     </span>
-                                    {n.label} — try <code style={{ fontFamily: "'JetBrains Mono', monospace", background: '#F0F0E8', padding: '1px 4px' }}>#{n.type}</code> in chat
+                                    {n.label} - try <code style={{ fontFamily: "'JetBrains Mono', monospace", background: '#F0F0E8', padding: '1px 4px' }}>#{n.type}</code> in chat
                                 </div>
                                 <button
                                     onClick={() => onOpenDesignDesk && onOpenDesignDesk()}
@@ -800,7 +800,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                                         <div className="nxt-image-caption">Generated via Imagen 4 | {msg.model}</div>
                                     </div>
                                 )}
-                                {/* Deliverable cards — rendered from :::deliverable: blocks */}
+                                {/* Deliverable cards - rendered from :::deliverable: blocks */}
                                 {msg.role === 'assistant' && (() => {
                                     const msgDeliverables = deliverables.filter(d => d.timestamp >= msg.timestamp - 1000 && d.timestamp <= msg.timestamp + 5000 && d.model === msg.model);
                                     if (msgDeliverables.length === 0) return null;
@@ -821,7 +821,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                                         />
                                     ));
                                 })()}
-                                {/* Slide canvases — rendered from :::slide blocks */}
+                                {/* Slide canvases - rendered from :::slide blocks */}
                                 {msg.role === 'assistant' && (() => {
                                     const msgSlides = slides.filter(s => s.timestamp >= msg.timestamp - 1000 && s.timestamp <= msg.timestamp + 5000 && s.model === msg.model);
                                     return msgSlides.map(slide => (

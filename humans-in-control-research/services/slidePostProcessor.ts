@@ -1,5 +1,5 @@
 /**
- * Slide Post-Processor — Validation & Correction Middleware
+ * Slide Post-Processor - Validation & Correction Middleware
  *
  * Runs AFTER AI generation and BEFORE rendering/export.
  * Catches every recurring failure identified in the strategy deck audit:
@@ -166,7 +166,7 @@ const META_NARRATION_PATTERNS = [
     /\ballow me to\b/i,
     /\bI('d| would) like to (start|begin|open) by\b/i,
     /\bbefore we (begin|start|dive in|get started)\b/i,
-    // 2026-05-10 — Self-referential pointers ("as shown above", "as discussed", etc.)
+    // 2026-05-10 - Self-referential pointers ("as shown above", "as discussed", etc.)
     // and process-conclusion wrap-ups ("in conclusion", "to summarize"). The reader
     // is consuming a finished artifact, not a chaptered document; these phrases
     // assume sequence the reader doesn't see.
@@ -174,7 +174,7 @@ const META_NARRATION_PATTERNS = [
     /\bas (we|you)('ll| will| have| had| can)\s+(see|seen|noted|noticed|discussed|covered|observed)\b/i,
     /\bas (previously|earlier|already)\s+(noted|mentioned|discussed|stated|outlined)\b/i,
     /\b(in conclusion|to summarize|to conclude|in summary|to sum up|in closing)\b/i,
-    // 2026-05-10 — Evidence-limitation language (unbracketed forms). Bracketed
+    // 2026-05-10 - Evidence-limitation language (unbracketed forms). Bracketed
     // forms are caught by stripQAAnnotations; this catches narrative prose that
     // surfaces what the model doesn't know. The reader must never see the model's
     // awareness of its own gaps.
@@ -186,13 +186,13 @@ const META_NARRATION_PATTERNS = [
     /\bpending\s+(additional|further|more)\s+(research|data|investigation|evidence)\b/i,
 
     // ════════════════════════════════════════════════════════════════════════
-    // 2026-05-25 — ANTI-SLOP STRUCTURAL TELLS
+    // 2026-05-25 - ANTI-SLOP STRUCTURAL TELLS
     // From ignorance.ai (Field Guide to AI Slop), Wikipedia Signs of AI Writing,
     // Algorithmic Bridge 10 Signs. Catches structures the phrase-blacklist
     // can't (rhetorical patterns, copula avoidance, unicode stylization).
     // ════════════════════════════════════════════════════════════════════════
 
-    // "It's not X, it's Y" / "Not just X, but Y" — reflexive AI parallelism
+    // "It's not X, it's Y" / "Not just X, but Y" - reflexive AI parallelism
     /\bit['’]s not (just |only |merely )?[^,.]{3,40},\s*it['’]s\b/i,
     /\bnot (just|only|merely) (about|a )[^,.]{3,40},\s*(but|it['’]s)\b/i,
 
@@ -218,17 +218,17 @@ const META_NARRATION_PATTERNS = [
     // Snappy AI triads built around "fast/efficient/reliable", "simple/powerful/easy"
     /\b(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic),\s+(?:and\s+)?(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic),\s+(?:and\s+)?(fast|simple|easy|quick|smart|powerful|efficient|reliable|scalable|sustainable|innovative|dynamic)\b/i,
 
-    // "Plays a [adjective] role in the X" — Wikipedia-canonical pattern
+    // "Plays a [adjective] role in the X" - Wikipedia-canonical pattern
     /\bplays?\s+a\s+(key|crucial|pivotal|vital|significant|important|major|critical)\s+role\b/i,
 
-    // "It is/serves as/stands as a testament to" — testament puffery
+    // "It is/serves as/stands as a testament to" - testament puffery
     /\b(is|serves as|stands as)\s+a\s+testament\s+to\b/i,
 
-    // "A rich tapestry of" — canonical AI metaphor
+    // "A rich tapestry of" - canonical AI metaphor
     /\bא?\s*rich\s+tapestry\s+of\b/i,
     /\btapestry\s+of\s+(experiences|stories|narratives|voices|culture|insights)\b/i,
 
-    // "Marks a pivotal" — Wikipedia signature
+    // "Marks a pivotal" - Wikipedia signature
     /\bmark(s|ed)?\s+a\s+(pivotal|defining|watershed|seminal|transformative)\b/i,
 
     // Press-release excitement openers
@@ -237,7 +237,165 @@ const META_NARRATION_PATTERNS = [
     // Closing summary boilerplate not already caught
     /\bin\s+(summary|conclusion|closing|short),\s+/i,
     /\bto\s+(summarize|conclude|sum up|wrap up)\b/i,
+
+    // ════════════════════════════════════════════════════════════════════════
+    // 2026-06-06 - READING-INSTRUCTION + STRUCTURE-DESCRIPTION TELLS
+    // User caught: "HOW TO READ THIS", "One frame per phase, evidenced by
+    // student voices from r/NEU." on a #journey #slides output. These are
+    // META-instructions ABOUT the deliverable's structure, not content. The
+    // reader of a finished consulting artifact must never see the model
+    // describing how to consume the artifact or what each frame represents.
+    // ════════════════════════════════════════════════════════════════════════
+
+    // Reading-instruction kickers / banners
+    /\bhow\s+to\s+read\s+(this|below|above|the\s+(slide|chart|diagram|map|page))\b/i,
+    /\bhow\s+to\s+(use|interpret|approach)\s+(this|the\s+(slide|chart|diagram|map))\b/i,
+    /\b(reading|interpretation|navigation)\s+guide\b/i,
+    /\bguide\s+to\s+(reading|interpreting|navigating|using)\s+this\b/i,
+
+    // Structure-description sentences ("One X per Y", "Each row represents", "The chart below")
+    /\bone\s+(frame|row|column|tile|card|cell|slide|panel|block|swimlane|lane|section)\s+per\s+(phase|stage|theme|persona|recommendation|item|category|column|row)\b/i,
+    /\b(each|every)\s+(frame|row|column|tile|card|cell|slide|panel|block|swimlane|lane|section)\s+(represents|shows|captures|maps to|corresponds to|depicts|illustrates)\b/i,
+    /\bthe\s+(chart|diagram|map|table|figure|graphic|slide|frame)\s+(below|above|on the (left|right))\b/i,
+    /\b(left|right|top|bottom)\s+(column|row|panel|side|side of the (slide|page))\s+(shows|contains|holds|lists|maps)/i,
+
+    // "Evidenced by", "drawn from", "based on" used as deliverable description
+    // (these are fine in evidence callouts, but flagging the structural form
+    // where they qualify the whole deliverable e.g. "evidenced by student voices from r/X")
+    /\b(evidenced|grounded|anchored|substantiated|backed|supported)\s+by\s+(student|user|expert|stakeholder|interview|reddit|forum|community)\s+(voices|posts|comments|threads|narratives|perspectives|input|feedback)\b/i,
+    /\bdrawn\s+from\s+(student|user|expert|interview|reddit|forum|community)\s+(voices|posts|comments|threads|narratives)\b/i,
+
+    // ════════════════════════════════════════════════════════════════════════
+    // 2026-06-06 - USER-FLAGGED META-COMMENTARY + VAGUE-QUALIFIER + CLICHE
+    // Sourced directly from user's 2026-06-06 directive enumerating the
+    // four canonical slop families. These were not all caught by the prior
+    // patterns. Adds: "It's important to note", "The key takeaway is",
+    // "Let me explain", "There's a lot to unpack here", + delve, + narrative
+    // cliches like "you can't help but feel", "barely above a whisper",
+    // "hangs heavy in the air".
+    // ════════════════════════════════════════════════════════════════════════
+    /\bit['’]s (important|worth|critical|essential|crucial|vital|noteworthy) to\s+(note|remember|consider|understand|recognize|acknowledge|mention|highlight)\b/i,
+    /\b(it should|one should|we should)\s+(be\s+)?noted\b/i,
+    /\bthe\s+key\s+(takeaway|point|insight|message|finding|lesson|consideration)\s+(is|here is|to remember is)\b/i,
+    /\blet\s+me\s+(explain|walk you through|break (this|it) down|clarify|elaborate|expand on)\b/i,
+    /\bthere['’]s\s+a\s+lot\s+to\s+unpack\s+(here|in\s+this)\b/i,
+    /\bunpack(ing)?\s+(this|the|these|those)\s+(idea|concept|point|finding|takeaway|insight|narrative|topic)\b/i,
+
+    // Narrative clichés flagged by user
+    /\byou\s+can['’]t\s+help\s+but\s+feel\s+(a\s+sense\s+of|that)\b/i,
+    /\bbarely\s+above\s+a\s+whisper\b/i,
+    /\bhangs?\s+heavy\s+(in\s+the\s+air|on\s+the\s+room)\b/i,
+    /\b(silence|tension|anticipation|expectation)\s+hangs?\s+(heavy|thick|in\s+the\s+air)\b/i,
+
+    // "Delve" / "delving into" - single-token AI tell already in CLAUDE.md
+    // banned-phrase list, but adding here so the runtime post-processor
+    // also catches it as a META violation (not just slop substitution).
+    /\bdelv(e|es|ed|ing)\s+(into|deep(er)?\s+into|further\s+into)?\b/i,
+
+    // "Unprecedented X" - vague-qualifier hyperbole the model loves
+    /\bunprecedented\s+(efficiency|scale|growth|opportunity|challenge|complexity|access|insight|level|impact|transformation)\b/i,
+
+    // Generic "today's rapidly evolving / fast-paced / dynamic landscape"
+    /\bin\s+today['’]s\s+(rapidly\s+(evolving|changing|shifting)|fast[-\s]?paced|dynamic|competitive|complex)\s+(landscape|environment|world|market|ecosystem|business landscape)\b/i,
+
+    // "When it comes to X" - empty preamble (Algorithmic Bridge list)
+    /\bwhen\s+it\s+comes\s+to\s+\w+/i,
+
+    // "At the end of the day", "at the heart of it" - empty filler
+    /\bat\s+the\s+end\s+of\s+the\s+day\b/i,
+    /\bat\s+the\s+heart\s+of\s+(it|this|the\s+matter)\b/i,
 ];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// METAPHOR + ANTHROPOMORPHISM BAN - 2026-06-06
+// User direction: "kill all metaphors! ... I want plain language human
+// understandable titles and content. No hyperbole, no metaphors, no slop."
+// Common metaphor families that produce slop titles:
+//   - time/race: clock, ticking, running, sand, hourglass, deadline-as-actor
+//   - construction: foundation, building blocks, scaffolding-as-noun
+//   - journey: road, path, bridge, crossroads, milestone
+//   - war/sports: battle, war, fight, race, arena, playbook
+//   - anthropomorphism of abstract nouns: "X feels", "X demands", "X cries
+//     out for", "the system wants"
+// Catches the canonical title slop from the 2026-06-06 chat:
+// "First-year prep feels abstract until the clock is already running"
+// Sentences matching any of these get DROPPED, not rewritten - the model
+// has to produce a concrete description instead.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const METAPHOR_PATTERNS: RegExp[] = [
+    // Time/race metaphors (the leaked title's class)
+    /\b(the|a|their|its)?\s*clock\s+(is|starts|begins|runs|keeps|will be|has been|was already)\s+(ticking|running|already running|out of time|against (us|them|you))\b/i,
+    /\b(running|ticking|hands of the clock|sands? of (time|the hourglass)|hourglass)\b/i,
+    /\b(against|beat|race|racing|sprint|marathon)\s+(the|a|that|this)?\s*(clock|deadline|calendar)\b/i,
+    /\b(time|window|deadline|clock|opportunity)\s+(is|was|has)\s+(running out|closing|slipping|narrowing|tight|short|finite)\b/i,
+
+    // Anthropomorphism of abstract nouns ("X feels", "the system wants", "data demands")
+    /\b(the\s+)?(prep|preparation|process|system|institution|workflow|pipeline|strategy|approach|model|data|evidence|research|corpus|landscape|gap|tension|challenge|opportunity|culture|brand)\s+(feels|wants|demands|cries out for|begs for|calls for|asks for|knows|understands|believes|expects|hopes|fears|loves|hates)\s+\w+/i,
+
+    // Journey/road metaphors (overused in consulting prose)
+    /\b(the\s+)?(road|path|journey|crossroads|bridge|milestone|chapter|turning point|inflection point|fork in the road|long road|winding road|road ahead|road less travel(l)?ed)\b/i,
+    /\b(walk|navigate)\s+the\s+(path|road|journey|tightrope|maze|labyrinth)\b/i,
+
+    // War / sports / battle metaphors
+    /\b(battle|war|fight|skirmish|trench|battlefield|arms race|playbook|game plan|home run|slam dunk|hat trick|moving the goalposts|level the playing field|tip of the spear)\b/i,
+    /\b(weapon(ize|ized|izing|s)?|armed with|in our arsenal|firepower|silver bullet|magic bullet)\b/i,
+
+    // Construction / foundation / building metaphors
+    /\b(lay(ing)?\s+(the\s+)?(foundation|groundwork|cornerstone)|building\s+blocks?|cornerstone\s+of|pillar(s)?\s+of|the\s+scaffolding\s+of|bricks\s+and\s+mortar)\b/i,
+
+    // Light / dark / dawn / horizon metaphors
+    /\b(shed(s|ding)?\s+light|cast(s|ing)?\s+(light|a shadow)|in the (shadow|spotlight)\s+of|on the horizon|new dawn|dawn(s|ing)?\s+(a|of|on)\b|tip of the iceberg)\b/i,
+
+    // Cooking / recipe / ingredient metaphors
+    /\b(the\s+secret\s+sauce|recipe\s+for|baked\s+in|cook(ed|ing)\s+up|the\s+ingredients|stew|mix(ing)?\s+together)\b/i,
+
+    // Hyperbole - "the most important", "unprecedented", "transformative"
+    /\bthe\s+(single\s+)?most\s+(important|critical|essential|fundamental|consequential|impactful|powerful)\s+\w+\s+(of|in|for)\b/i,
+    /\b(unprecedented|paradigm[\s-]shift(ing)?|seismic|game[\s-]chang(er|ing)|revolutionary|earth[\s-]shatter(ing)|once[\s-]in[\s-]a[\s-](generation|lifetime))\b/i,
+];
+
+/**
+ * Detect metaphor / anthropomorphism / hyperbole. Returns matched patterns.
+ * Separate from META_NARRATION so the QA layer can report them under their
+ * own category for the user.
+ */
+export function detectMetaphors(text: string): string[] {
+    if (!text) return [];
+    return METAPHOR_PATTERNS
+        .filter(p => p.test(text))
+        .map(p => {
+            const m = text.match(p);
+            return m ? m[0] : '';
+        })
+        .filter(Boolean);
+}
+
+/**
+ * Remove sentences containing metaphor/hyperbole. Same pattern as
+ * removeMetaNarration: kills the WHOLE sentence so the model's awareness of
+ * the metaphor can't survive partial rewrites.
+ */
+export function removeMetaphors(text: string): string {
+    if (!text) return text;
+    const sentences = text.split(/(?<=[.!?])\s+/);
+    return sentences.filter(s => !METAPHOR_PATTERNS.some(p => p.test(s))).join(' ').trim();
+}
+
+/**
+ * Composite slop check used by the slide-validator hook + post-processor.
+ * Returns ALL banned phrases across both categories, tagged by class.
+ */
+export function detectAllSlop(text: string): Array<{ phrase: string; category: 'meta' | 'metaphor' }> {
+    const out: Array<{ phrase: string; category: 'meta' | 'metaphor' }> = [];
+    for (const p of META_NARRATION_PATTERNS) {
+        const m = text?.match(p); if (m) out.push({ phrase: m[0], category: 'meta' });
+    }
+    for (const p of METAPHOR_PATTERNS) {
+        const m = text?.match(p); if (m) out.push({ phrase: m[0], category: 'metaphor' });
+    }
+    return out;
+}
 
 /**
  * Detect meta-narration in text. Returns matched patterns.
@@ -269,7 +427,7 @@ export function removeMetaNarration(text: string): string {
     return cleaned.join(' ').trim();
 }
 
-// 2026-05-25 — EM-DASH AUTO-STRIP
+// 2026-05-25 - EM-DASH AUTO-STRIP
 // ============================================================
 // Em-dashes are a documented AI-writing tell (ignorance.ai, Wikipedia
 // Signs-of-AI-Writing, Algorithmic Bridge). Three or more in a paragraph
@@ -284,21 +442,21 @@ export function stripEmDashes(text: string): string {
     if (!text) return text;
     let cleaned = text;
     // Space em-dash space → comma+space (preserves sentence flow)
-    cleaned = cleaned.replace(/ — /g, ', ');
+    cleaned = cleaned.replace(/ - /g, ', ');
     // Em-dash between word chars (no spaces) → hyphen (preserves compounds)
-    cleaned = cleaned.replace(/(\w)—(\w)/g, '$1-$2');
+    cleaned = cleaned.replace(/(\w)-(\w)/g, '$1-$2');
     // Any remaining em-dash → comma+space (catch-all)
-    cleaned = cleaned.replace(/—/g, ', ');
+    cleaned = cleaned.replace(/-/g, ', ');
     return cleaned;
 }
 
-// 2026-05-27 — HARD emoji ban (repo-wide rule). Strip emoji / pictographic
+// 2026-05-27 - HARD emoji ban (repo-wide rule). Strip emoji / pictographic
 // codepoints from ANY model-produced text before it reaches the user. Mirrors
 // the proxy's _EMOJI_RE so every surface (chat replies, deliverables, router
 // output) is covered regardless of which provider answered. Deliberately
 // PRESERVES geometric-shape bullets (U+25xx, e.g. the NU signal dot) and
 // typographic arrows (U+21xx) which are legitimate layout glyphs. Also strips
-// trailing whitespace the removal can leave (e.g. "Pong! 👋" → "Pong!").
+// trailing whitespace the removal can leave (e.g. "Pong! " → "Pong!").
 const EMOJI_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
 
 export function stripEmoji(text: string): string {
@@ -315,7 +473,7 @@ export function stripFormatTells(text: string): string {
     return stripEmoji(stripEmDashes(text));
 }
 
-// 2026-05-10 — PROCESS-REFERENCE REWRITES
+// 2026-05-10 - PROCESS-REFERENCE REWRITES
 // ============================================================
 // Unlike META_NARRATION which drops the whole sentence, these patterns
 // match phrases that PREFIX a legitimate insight: "Based on the research,
@@ -347,7 +505,7 @@ const PROCESS_REFERENCE_REWRITES: Array<{ pattern: RegExp; preserveGroup: 1 | 2 
  * "Based on the research, customer churn is 22%" → "Customer churn is 22%."
  * Re-capitalizes the first letter of what remains, ensures terminal punctuation.
  *
- * Run BEFORE removeMetaNarration — otherwise the whole sentence gets dropped
+ * Run BEFORE removeMetaNarration - otherwise the whole sentence gets dropped
  * by the broader "the research shows" patterns and the insight is lost.
  */
 export function stripProcessReferences(text: string): string {
@@ -431,14 +589,14 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\[\s*needs\s+baseline[^\]]*\]/gi, replace: '' },
     { pattern: /\[\s*baseline\s+TBD[^\]]*\]/gi, replace: '' },
     { pattern: /\[\s*TBD[^\]]*\]/gi, replace: '' },
-    // Sentence-prefix forms ("EVIDENCE GAP: ...", "Evidence Gap — ...")
-    { pattern: /\bEVIDENCE\s+GAP\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
-    { pattern: /\bEvidence\s+Gap\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
-    { pattern: /\bevidence\s+gap\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
+    // Sentence-prefix forms ("EVIDENCE GAP: ...", "Evidence Gap - ...")
+    { pattern: /\bEVIDENCE\s+GAP\s*[:\-]\s*[^.\n]+\.?/g, replace: '' },
+    { pattern: /\bEvidence\s+Gap\s*[:\-]\s*[^.\n]+\.?/g, replace: '' },
+    { pattern: /\bevidence\s+gap\s*[:\-]\s*[^.\n]+\.?/g, replace: '' },
     // Bare tokens
     { pattern: /\bEVIDENCE\s+GAP\b/g, replace: '' },
     { pattern: /\bEvidence\s+Gap\b/g, replace: '' },
-    // 2026-05-11 — CATEGORY GAP reports (and their wrapping headers/dividers).
+    // 2026-05-11 - CATEGORY GAP reports (and their wrapping headers/dividers).
     // The old chat prompt required the model to list empty source categories;
     // that requirement is removed but old conversations or stale instructions
     // could still produce them. Strip the section header, the divider, and
@@ -448,14 +606,25 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\n?###?\s*CATEGORY GAP REPORT[\s\S]*$/gi, replace: '' },
     { pattern: /\n?The following user-selected source categories yielded no relevant content[^\n]*\n/gi, replace: '\n' },
     { pattern: /`?CATEGORY GAP[^`\n]*`?\s*\n?/g, replace: '' },
-    { pattern: /\bCATEGORY GAP\s*[:\-–—]\s*[^\n]+/g, replace: '' },
+    { pattern: /\bCATEGORY GAP\s*[:\-]\s*[^\n]+/g, replace: '' },
     // Annotation parenthetical forms
     { pattern: /\(\s*needs\s+baseline\s*\)/gi, replace: '' },
     { pattern: /\(\s*baseline\s+TBD\s*\)/gi, replace: '' },
     { pattern: /\(\s*TBD\s*\)/gi, replace: '' },
     { pattern: /\(\s*evidence\s+gap[^\)]*\)/gi, replace: '' },
+    // 2026-05-31 - LEAKED LLM-ARTIFACT strings rendered as content/quotes
+    // (journey-deck audit: "please provide the content of Part 2/3 of the
+    // research corpus" surfaced as a pull quote). Nuke the whole fragment.
+    { pattern: /please\s+provide\s+the\s+content\s+of\s+part\s*\d\s*\/\s*\d[^.\n]*\.?/gi, replace: '' },
+    { pattern: /\bpart\s*\d\s*\/\s*\d\s+of\s+the\s+(?:research\s+)?corpus\b[^.\n]*\.?/gi, replace: '' },
+    { pattern: /\b(?:please\s+provide|provide\s+the\s+content|continue\s+the\s+(?:analysis|response|synthesis))\b[^.\n]*\.?/gi, replace: '' },
+    // 2026-05-31 - SYNTHESIS-AS-SOURCE citations: the pipeline citing its own
+    // internal pass ("Source: Tri-Model Synthesis, Highlights / Gaps section")
+    // or prior deliverables as if they were evidence. Strip the citation token.
+    { pattern: /\bTri-?Model\s+Synthesis\b[^.\n]*/gi, replace: '' },
+    { pattern: /(?:Source|Sources)\s*:\s*(?:Highlights|Gaps?\s+section|Pre-?Analysis|the\s+corpus|the\s+record|Prior\s+Findings)\b[^.\n]*/gi, replace: '' },
     // Trailing fragments produced by removing the above
-    { pattern: /\s*—\s*$/g, replace: '' },
+    { pattern: /\s*-\s*$/g, replace: '' },
     { pattern: /\s*\.\s*\.\s*\./g, replace: '.' },
     { pattern: /  +/g, replace: ' ' },
 ];
@@ -466,7 +635,7 @@ export function stripQAAnnotations(text: string | undefined | null): string {
     for (const { pattern, replace } of QA_ANNOTATION_PATTERNS) {
         cleaned = cleaned.replace(pattern, replace);
     }
-    // 2026-05-10 — Also strip process-reference prefixes and remove
+    // 2026-05-10 - Also strip process-reference prefixes and remove
     // sentences that violate the self-referential / limitation rules.
     // Order matters: process-rewrite first (preserves insight), then the
     // sentence-level meta-narration sweep (drops anything left over).
@@ -478,7 +647,7 @@ export function stripQAAnnotations(text: string | undefined | null): string {
 
 // Recursively walk an object/array and strip QA annotations from every string value.
 // Mutates in place. Skips internal-only keys (start with `_`).
-// 2026-05-10 — Now also strips process-references and meta-narration sentences
+// 2026-05-10 - Now also strips process-references and meta-narration sentences
 // via the enhanced stripQAAnnotations(), so every output path (chat replies,
 // presentation payloads, freeform artifacts) inherits the no-self-reference rule.
 export function stripQAAnnotationsDeep<T>(value: T): T {
@@ -601,9 +770,9 @@ export function isTopicTitle(title: string): boolean {
 
 /**
  * Validate that a slide meets the 3-layer depth requirement:
- *   Layer 1 — Observation: contains a data point or specific fact
- *   Layer 2 — Implication: explains what the data means for this organization
- *   Layer 3 — Recommendation: states what to do, with a timeline or owner
+ *   Layer 1 - Observation: contains a data point or specific fact
+ *   Layer 2 - Implication: explains what the data means for this organization
+ *   Layer 3 - Recommendation: states what to do, with a timeline or owner
  *
  * Returns a score 1-3 and flags for missing layers.
  */
@@ -615,18 +784,18 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
     const allText = [slide.title, ...(slide.content || []), slide.narrative || '', slide.quote || ''].join(' ');
     const missingLayers: string[] = [];
 
-    // Layer 1: Observation — contains a number, percentage, stat, or date
+    // Layer 1: Observation - contains a number, percentage, stat, or date
     const hasData = /\d+(\.\d+)?(%|\s*(months?|years?|days?|hours?|x|pts?|percent|million|billion|thousand))/i.test(allText)
         || /\$[\d,.]+/i.test(allText)
         || /20[12]\d/i.test(allText);
     if (!hasData) missingLayers.push('Layer 1 (Observation): No data point or specific metric found');
 
-    // Layer 2: Implication — contains consequence/meaning language
+    // Layer 2: Implication - contains consequence/meaning language
     const hasImplication = /\b(this means|which means|resulting in|leading to|causing|indicating|suggesting that|implies|the impact is|the consequence|for .{5,30} this|this translates to)\b/i.test(allText)
         || /\b(because of this|as a result|the effect|the implication)\b/i.test(allText);
-    if (!hasImplication) missingLayers.push('Layer 2 (Implication): No "so what" — explain what the data means');
+    if (!hasImplication) missingLayers.push('Layer 2 (Implication): No "so what" - explain what the data means');
 
-    // Layer 3: Recommendation — contains action verb + timeline or owner
+    // Layer 3: Recommendation - contains action verb + timeline or owner
     const hasAction = /\b(recommend|should|must|will|implement|deploy|launch|establish|create|consolidate|migrate|invest|allocate|hire|train)\b/i.test(allText)
         && (/\b(by Q[1-4]|within \d+|by 20[2-3]\d|in the next|over the next|\d+ months?|\d+ days?)\b/i.test(allText)
             || /\b(VP|Director|Manager|CTO|CIO|CMO|team lead|owner|responsible)\b/i.test(allText));
@@ -642,10 +811,10 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
 
 /**
  * Banned slop phrases that undermine credibility.
- * These are the corporate-speak equivalents of filler words —
+ * These are the corporate-speak equivalents of filler words -
  * they sound authoritative but communicate nothing.
  *
- * 2026-05-07 — Greatly expanded to attack the four user-named slop categories:
+ * 2026-05-07 - Greatly expanded to attack the four user-named slop categories:
  *   (a) jargon / buzzwords
  *   (b) overused metaphors
  *   (c) hyperbole / superlatives
@@ -654,7 +823,7 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
  * but defense-in-depth still strips anything that slips through.
  */
 const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
-    // === (a) JARGON / CONSULTANT BUZZWORDS — high severity ===
+    // === (a) JARGON / CONSULTANT BUZZWORDS - high severity ===
     { phrase: 'paradigm shift', severity: 'high' },
     { phrase: 'game-changer', severity: 'high' },
     { phrase: 'game changer', severity: 'high' },
@@ -703,7 +872,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'guru', severity: 'high' },
     { phrase: 'evangelist', severity: 'medium' },
 
-    // === (b) METAPHORS — high severity ===
+    // === (b) METAPHORS - high severity ===
     { phrase: 'tip of the iceberg', severity: 'high' },
     { phrase: 'low-hanging fruit', severity: 'high' },
     { phrase: 'low hanging fruit', severity: 'high' },
@@ -738,7 +907,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'navigate the landscape', severity: 'high' },
     { phrase: 'navigating the landscape', severity: 'high' },
 
-    // === (c) HYPERBOLE / SUPERLATIVES — high severity ===
+    // === (c) HYPERBOLE / SUPERLATIVES - high severity ===
     { phrase: 'revolutionary', severity: 'high' },
     { phrase: 'groundbreaking', severity: 'high' },
     { phrase: 'transformative', severity: 'high' },
@@ -760,7 +929,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'enormous opportunity', severity: 'medium' },
     { phrase: 'paradigm-shifting', severity: 'high' },
 
-    // === (d) AI-SLOP NARRATIVE PHRASES — high severity ===
+    // === (d) AI-SLOP NARRATIVE PHRASES - high severity ===
     { phrase: "in today's rapidly evolving landscape", severity: 'high' },
     { phrase: "in today's rapidly changing", severity: 'high' },
     { phrase: "in today's dynamic", severity: 'high' },
@@ -825,7 +994,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'to some extent', severity: 'medium' },
     { phrase: 'in some ways', severity: 'medium' },
     { phrase: 'in some sense', severity: 'medium' },
-    // HIGH severity: corpus meta-commentary — the AI is describing the research
+    // HIGH severity: corpus meta-commentary - the AI is describing the research
     // apparatus instead of the subject. Catches cases where thin evidence
     // caused the model to paraphrase its own dataset into the slide.
     { phrase: 'within this corpus', severity: 'high' },
@@ -855,7 +1024,7 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'most vendor evidence', severity: 'high' },
 
     // ════════════════════════════════════════════════════════════════════════
-    // 2026-05-25 — ANTI-SLOP UPLIFT
+    // 2026-05-25 - ANTI-SLOP UPLIFT
     // Patterns ingested from: ignorance.ai "Field Guide to AI Slop" (Charlie Guo),
     // Wikipedia "Signs of AI writing" (the canonical exhaustive index), and
     // Algorithmic Bridge "10 Signs of AI Writing".
@@ -1040,9 +1209,9 @@ export interface AntiPatternResult {
  * Detect output anti-patterns in generated text before a human checkpoint.
  *
  * Checks three categories:
- * 1. Banned slop phrases — consultant cliches and marketing filler
- * 2. Hedge words — wishy-washy language that undermines authority
- * 3. Empty filler — short sentences under 10 words that add no information
+ * 1. Banned slop phrases - consultant cliches and marketing filler
+ * 2. Hedge words - wishy-washy language that undermines authority
+ * 3. Empty filler - short sentences under 10 words that add no information
  *
  * @param text - The generated text to audit
  * @param deliverableType - The deliverable type (e.g., "personas", "themes", "deck")
@@ -1199,7 +1368,7 @@ export function postProcessSlides(
         s.speakerNotes = stripProcessReferences(s.speakerNotes || '');
         s.quote = stripProcessReferences(s.quote || '');
 
-        // 2026-05-25 — Em-dash auto-strip. AI-writing tell per ignorance.ai +
+        // 2026-05-25 - Em-dash auto-strip. AI-writing tell per ignorance.ai +
         // Wikipedia + Algorithmic Bridge. Stripped before any other check so the
         // sentence-rhythm signal cannot leak into the rendered slide.
         s.title = stripEmDashes(s.title);
@@ -1261,6 +1430,52 @@ export function postProcessSlides(
             s.quote = removeMetaNarration(s.quote || '');
         }
 
+        // 2026-06-06 - METAPHOR + HYPERBOLE strip. Same pattern as meta-
+        // narration above but for the new METAPHOR_PATTERNS list (clock
+        // metaphors, anthropomorphism, journey metaphors, war metaphors,
+        // hyperbole). Runs on ALL user-visible fields. NOT applied to
+        // verbatim quote pull-quotes (s.quote is reserved for quoted
+        // evidence; if the source said "the clock is running", we preserve
+        // the quote and rely on attribution to make it clearly THEIRS, not
+        // ours). Applies to title / content / narrative / speakerNotes.
+        const metaphorInTitle = detectMetaphors(s.title || '');
+        if (metaphorInTitle.length > 0) {
+            issues.push({
+                slideNumber: sn, type: 'meta-narration', severity: 'critical',
+                field: 'title', detail: `Metaphor/hyperbole in title: "${metaphorInTitle[0]}"`,
+                autoCorrected: true,
+            });
+            s.title = removeMetaphors(s.title);
+            if (!s.title.trim()) s.title = `Slide ${sn}`;
+        }
+        const metaphorInContent = (s.content || []).flatMap(detectMetaphors);
+        if (metaphorInContent.length > 0) {
+            issues.push({
+                slideNumber: sn, type: 'meta-narration', severity: 'critical',
+                field: 'content', detail: `Metaphor/hyperbole in content: "${metaphorInContent[0]}"`,
+                autoCorrected: true,
+            });
+            s.content = (s.content || []).map(removeMetaphors).filter(c => c.length > 0);
+        }
+        const metaphorInNarr = detectMetaphors(s.narrative || '');
+        if (metaphorInNarr.length > 0) {
+            issues.push({
+                slideNumber: sn, type: 'meta-narration', severity: 'high',
+                field: 'narrative', detail: `Metaphor/hyperbole in narrative: "${metaphorInNarr[0]}"`,
+                autoCorrected: true,
+            });
+            s.narrative = removeMetaphors(s.narrative || '');
+        }
+        const metaphorInNotes = detectMetaphors(s.speakerNotes || '');
+        if (metaphorInNotes.length > 0) {
+            issues.push({
+                slideNumber: sn, type: 'meta-narration', severity: 'high',
+                field: 'speakerNotes', detail: `Metaphor/hyperbole in speaker notes: "${metaphorInNotes[0]}"`,
+                autoCorrected: true,
+            });
+            s.speakerNotes = removeMetaphors(s.speakerNotes || '');
+        }
+
         // --- PLACEHOLDER RESOLUTION (auto-correct) ---
         const allText = [s.title, ...(s.content || []), s.narrative || '', s.quote || ''].join(' ');
         const placeholders = detectPlaceholders(allText);
@@ -1296,7 +1511,7 @@ export function postProcessSlides(
             });
         }
 
-        // --- DEPTH VALIDATION (D7 — flag shallow slides) ---
+        // --- DEPTH VALIDATION (D7 - flag shallow slides) ---
         const depth = validateSlideDepth(s);
         if (depth.score < 3 && s.layout !== 'SECTION_HEADER' && s.layout !== 'TITLE_SLIDE') {
             issues.push({
@@ -1331,7 +1546,7 @@ export function postProcessSlides(
             if (s.visualPrompt !== original) {
                 issues.push({
                     slideNumber: sn, type: 'visual-text', severity: 'critical',
-                    field: 'visualPrompt', detail: 'Visual prompt requested text in image — sanitized',
+                    field: 'visualPrompt', detail: 'Visual prompt requested text in image - sanitized',
                     autoCorrected: true
                 });
             }
@@ -1358,22 +1573,22 @@ export function postProcessSlides(
 /** Truncate text without EVER cutting mid-sentence or appending "...".
  *  Strategy (in order of preference):
  *    1. If text is already within budget, return verbatim.
- *    2. Look FORWARD up to 1.5× maxChars for the next sentence end —
+ *    2. Look FORWARD up to 1.5× maxChars for the next sentence end -
  *       if found, return the full thought. Lets a 220-char sentence
  *       finish cleanly when budget is 200, instead of cutting it off.
- *    3. Look BACKWARD within maxChars for the most recent sentence end —
+ *    3. Look BACKWARD within maxChars for the most recent sentence end -
  *       if found at >= 30% of budget, end there.
- *    4. Look BACKWARD for the most recent clause boundary (comma + space) —
+ *    4. Look BACKWARD for the most recent clause boundary (comma + space) -
  *       if found at >= 50% of budget, end there with a period (no ellipsis).
  *    5. Last resort: cut at the previous word boundary and drop the
- *       trailing fragment (no ellipsis — ellipsis cuts valuable info).
- *  No "..." is ever emitted — that pattern hides the user's content. */
+ *       trailing fragment (no ellipsis - ellipsis cuts valuable info).
+ *  No "..." is ever emitted - that pattern hides the user's content. */
 function truncateAtSentence(text: string, maxChars: number): string {
     if (!text) return text;
     const t = text.trim();
     if (t.length <= maxChars) return t;
 
-    // 1. Look forward up to 1.5× for next sentence end — keep full thought.
+    // 1. Look forward up to 1.5× for next sentence end - keep full thought.
     const lookAhead = Math.round(maxChars * 1.5);
     const fwdSlice = t.substring(0, Math.min(lookAhead, t.length));
     const fwdMatch = fwdSlice.substring(maxChars).search(/[.!?](?:\s|$)/);
@@ -1394,13 +1609,13 @@ function truncateAtSentence(text: string, maxChars: number): string {
     }
     if (best > maxChars * 0.3) return slice.substring(0, best).trim();
 
-    // 3. Backward clause boundary (comma + space). End with period — no ellipsis.
+    // 3. Backward clause boundary (comma + space). End with period - no ellipsis.
     const lastClause = slice.lastIndexOf(', ');
     if (lastClause > maxChars * 0.5) {
         return slice.substring(0, lastClause).trim() + '.';
     }
 
-    // 4. Last resort — drop trailing fragment at last word boundary. No ellipsis.
+    // 4. Last resort - drop trailing fragment at last word boundary. No ellipsis.
     const lastSpace = slice.lastIndexOf(' ');
     if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
     return slice.trim();
@@ -1408,19 +1623,19 @@ function truncateAtSentence(text: string, maxChars: number): string {
 
 /** Scrub en-dashes (U+2013) from text. The en-dash is forbidden across all
  *  HiC outputs. Replacement strategy:
- *    - "1990–2000"           → "1990 to 2000"  (numeric range)
- *    - "post–World War"      → "post-World War" (compound modifier)
- *    - " – "                 → " - "            (general separator)
- *    - bare "–"              → "-"             (fallback)
+ *    - "1990-2000"           → "1990 to 2000"  (numeric range)
+ *    - "post-World War"      → "post-World War" (compound modifier)
+ *    - " - "                 → " - "            (general separator)
+ *    - bare "-"              → "-"             (fallback)
  *  Also collapses any double-spaces left behind.
  *  Em-dashes (U+2014) and hyphen-minus (U+002D) are unaffected. */
 function scrubEnDashes(text: string): string {
     if (!text) return text;
     return text
-        .replace(/(\d)\s*–\s*(\d)/g, '$1 to $2')   // numeric range
-        .replace(/([A-Za-z])–([A-Za-z])/g, '$1-$2') // compound modifier
-        .replace(/\s–\s/g, ' - ')                    // separator with spaces
-        .replace(/–/g, '-')                          // any remaining
+        .replace(/(\d)\s*-\s*(\d)/g, '$1 to $2')   // numeric range
+        .replace(/([A-Za-z])-([A-Za-z])/g, '$1-$2') // compound modifier
+        .replace(/\s-\s/g, ' - ')                    // separator with spaces
+        .replace(/-/g, '-')                          // any remaining
         .replace(/  +/g, ' ');                            // collapse doubled spaces
 }
 
@@ -1443,7 +1658,7 @@ function deduplicateText(text: string): string {
     return unique.join(' ').trim();
 }
 
-/** Sanitize metric values — prevent float overflow (36.000000...00) */
+/** Sanitize metric values - prevent float overflow (36.000000...00) */
 function sanitizeMetricValue(value: string): string {
     if (!value) return value;
     // If value is a number with excessive decimal places, truncate
@@ -1506,7 +1721,7 @@ function enforceContentBudgets(slide: Slide): Slide {
         return s;
     }
 
-    // 2026-05-07 — Budgets bumped to fit real prose. Prior budgets cut
+    // 2026-05-07 - Budgets bumped to fit real prose. Prior budgets cut
     // valuable information mid-sentence with "..." ellipsis. The new
     // truncateAtSentence never emits ellipsis, but tighter budgets still
     // dropped useful content. New ceilings preserve full thoughts.
@@ -1524,7 +1739,7 @@ function enforceContentBudgets(slide: Slide): Slide {
             .filter(c => c.length > 0);
     }
 
-    // Quote: 320 chars (was 250) — verbatim quotes need room to breathe
+    // Quote: 320 chars (was 250) - verbatim quotes need room to breathe
     if (s.quote && s.quote.length > 320) {
         s.quote = truncateAtSentence(s.quote, 320);
     }
@@ -1584,7 +1799,7 @@ export function validateDeckStructure(
 ): StructureValidation {
     const violations: StructureViolation[] = [];
 
-    // Rule 1: Deliverable coverage — every available deliverable should have >=1 slide
+    // Rule 1: Deliverable coverage - every available deliverable should have >=1 slide
     for (const del of availableDeliverables) {
         const covered = slides.some(s => s.sourceDeliverable === del);
         if (!covered) {
@@ -1605,7 +1820,7 @@ export function validateDeckStructure(
         });
     }
 
-    // Rule 3: Persona slides — each persona should have a slide with personaRef
+    // Rule 3: Persona slides - each persona should have a slide with personaRef
     const personaRefs = slides.filter(s => s.personaRef).map(s => s.personaRef);
     if (availableDeliverables.includes('personas') && personaRefs.length === 0) {
         violations.push({
@@ -1630,7 +1845,7 @@ export function validateDeckStructure(
             violations.push({
                 rule: 'consecutive_deliverable',
                 severity: 'warning',
-                detail: `Slides ${slides[i].slideNumber}-${slides[i+2].slideNumber} all reference "${slides[i].sourceDeliverable}" — vary the narrative flow.`,
+                detail: `Slides ${slides[i].slideNumber}-${slides[i+2].slideNumber} all reference "${slides[i].sourceDeliverable}" - vary the narrative flow.`,
             });
         }
     }

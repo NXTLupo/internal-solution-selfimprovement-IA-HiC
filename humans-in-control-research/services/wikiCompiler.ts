@@ -1,5 +1,5 @@
 /**
- * Wiki Compiler — Loop 2 of the self-improvement architecture.
+ * Wiki Compiler - Loop 2 of the self-improvement architecture.
  *
  * Regenerates synthesis pages from the evidence layer on a schedule.
  * Evidence becomes authoritative; synthesis becomes a derived view that
@@ -32,14 +32,14 @@ export interface CompileResult {
 }
 
 // Dirs holding curated, human-navigable knowledge pages (enumerated in the
-// index). Flat or shallow — safe to list precisely on every compile.
+// index). Flat or shallow - safe to list precisely on every compile.
 const CURATED_INDEX_DIRS = [
     'frameworks', 'anti-patterns', 'benchmarks', 'brand', 'synthesis',
     'evidence', 'methodologies', 'mentors', 'industries', 'deep-research',
     'known-gaps', 'inspiration-hub', 'exemplars',
 ];
 // Dirs holding the raw RAG corpus (semantic-search tier). Counted, not
-// enumerated — listing 8,000+ scraped files would defeat the index's purpose.
+// enumerated - listing 8,000+ scraped files would defeat the index's purpose.
 const CORPUS_INDEX_DIRS = [
     'articles', 'social-intelligence', 'sources', 'uploads', 'transcripts',
     'engagements', 'presentations',
@@ -147,7 +147,7 @@ async function loadEvidencePages(): Promise<EvidencePage[]> {
     return pages;
 }
 
-// 2026-05-22 — Pages owned by other loops MUST NOT be regenerated from the
+// 2026-05-22 - Pages owned by other loops MUST NOT be regenerated from the
 // evidence layer. These pages are append-only outputs of services like
 // learningEngine, persistQualityScore, verifierService, and wikiLintService.
 // Regenerating them destroys their content. Exclude by exact filename OR
@@ -243,7 +243,7 @@ async function regenerateSynthesisPage(
 ): Promise<{ newContent: string; changed: boolean } | null> {
     // Identify the evidence pages that share tags with this synthesis page's
     // title (a coarse but effective filter). For a stronger filter we would
-    // embed the synthesis title and rerank evidence pages — out of scope for
+    // embed the synthesis title and rerank evidence pages - out of scope for
     // the MVP.
     const titleLower = page.title.toLowerCase();
     const titleTokens = titleLower.split(/\s+/).filter(t => t.length > 4);
@@ -264,7 +264,7 @@ async function regenerateSynthesisPage(
 
 CURRENT SYNTHESIS PAGE TITLE: ${page.title}
 
-EXISTING CONTENT (for context — replace fully):
+EXISTING CONTENT (for context - replace fully):
 ${page.content.slice(0, 3000)}
 
 EVIDENCE PAGES (the authoritative source of truth):
@@ -278,7 +278,7 @@ RULES:
 - No meta-narration ("based on the evidence", "this synthesis shows")
 - Return ONLY the full revised markdown, starting with the existing frontmatter block`;
 
-    // 2026-05-22 — Model selection. Synthesis regeneration runs across many
+    // 2026-05-22 - Model selection. Synthesis regeneration runs across many
     // pages per compile pass and previously called Opus per page (high cost,
     // slow). Gemini 3.5 Flash provides frontier-level performance for the
     // structured "rewrite given evidence" task at ~10% of the Opus cost.
@@ -374,7 +374,7 @@ status: active
 
 Then the body sections (## Themes, ## Personas, ## Recommendations, ## Gaps).`;
 
-    // 2026-05-22 — Same model strategy as regenerateSynthesisPage. Pattern
+    // 2026-05-22 - Same model strategy as regenerateSynthesisPage. Pattern
     // compilation reads 5+ engagement summaries and writes a single markdown
     // page; Gemini 3.5 Flash handles this with the larger output token budget
     // it supports at low cost. Opus is the fallback.
@@ -468,7 +468,7 @@ async function buildIndexContent(): Promise<{ content: string; curatedCount: num
         const label = dirs.length > 0
             ? `${mdFiles} files + ${dirs.length} subdirs`
             : `${mdFiles} files`;
-        corpusLines.push(`- ${dir}/ — ${label} (semantic-search tier; query via /api/wiki/fetch-articles)`);
+        corpusLines.push(`- ${dir}/ - ${label} (semantic-search tier; query via /api/wiki/fetch-articles)`);
     }
 
     const content = `# Humans in Control -- Wiki Index

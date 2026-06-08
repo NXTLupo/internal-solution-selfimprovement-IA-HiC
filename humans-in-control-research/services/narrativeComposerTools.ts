@@ -1,6 +1,6 @@
 // narrativeComposerTools.ts
 //
-// Tool surface for the narrative composer agent. Six tools — six gates between
+// Tool surface for the narrative composer agent. Six tools - six gates between
 // the model and the corpus. The composer is forbidden from citing anything
 // it has not retrieved through these tools (enforced at validation time).
 //
@@ -11,7 +11,7 @@
 import type { Citation } from './presentationTypes';
 
 // ============================================================================
-// TOOL DEFINITIONS — what the model sees
+// TOOL DEFINITIONS - what the model sees
 // ============================================================================
 
 export interface ToolDefinition {
@@ -38,7 +38,7 @@ const SECTION_KIND_ENUM = [
   'gap_analysis', 'tech_arch', 'team', 'competitive', 'cta',
 ] as const;
 
-// 2026-05-04 — Per-kind data shapes. The composer schema uses these via
+// 2026-05-04 - Per-kind data shapes. The composer schema uses these via
 // `oneOf` discriminated by `kind` so the model knows EXACTLY what fields
 // each section requires. This single change collapses ~5 historical bugs
 // where models emitted variant field names (recommendations vs items,
@@ -223,8 +223,8 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
             frontstage: { type: 'string' },
             backstage: { type: 'string' },
             support: { type: 'string' },
-            painPoint: { type: 'string', description: 'Specific friction or frustration evidenced in the corpus. Omit the field entirely if no evidenced pain exists for this stage — do NOT write placeholder strings like "None identified", "N/A", or "Not specified".' },
-            failPoint: { type: 'string', description: 'Description of the failure mode at this stage (what breaks, the consequence). Omit the field entirely if no failure mode is evidenced for this stage — do NOT write a placeholder, "true", or empty string. Renderer will treat presence of a non-empty string as a fail-point flag.' },
+            painPoint: { type: 'string', description: 'Specific friction or frustration evidenced in the corpus. Omit the field entirely if no evidenced pain exists for this stage - do NOT write placeholder strings like "None identified", "N/A", or "Not specified".' },
+            failPoint: { type: 'string', description: 'Description of the failure mode at this stage (what breaks, the consequence). Omit the field entirely if no failure mode is evidenced for this stage - do NOT write a placeholder, "true", or empty string. Renderer will treat presence of a non-empty string as a fail-point flag.' },
           },
         },
       },
@@ -323,7 +323,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
           required: ['capability'],
           properties: {
             capability: { type: 'string' },
-            // 2026-05-04 — Use string-only here; OpenAI strict mode rejects
+            // 2026-05-04 - Use string-only here; OpenAI strict mode rejects
             // multi-type unions. Renderer's coerceLevel handles either
             // numeric strings ("3") or full strings ("medium").
             currentMaturity: { type: 'string' },
@@ -440,7 +440,7 @@ const SECTION_ONE_OF = SECTION_KIND_ENUM.map((k) => ({
   },
 }));
 
-// 2026-05-27 — Gemini-compatible flattened section schema.
+// 2026-05-27 - Gemini-compatible flattened section schema.
 // Google's OpenAI-compat layer (the funded, non-content-filtered provider the
 // composer must use now that Azure DeepSeek content-filters this corpus and
 // the OpenAI account is out of quota) rejects `oneOf` discriminated unions
@@ -509,7 +509,7 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
         title: {
           type: 'string',
           maxLength: 65,
-          description: 'Hero title — a complete action-title sentence with data. MUST fit on 2 lines (target 30-55 chars, HARD CAP 65). Run-on sentences will be rejected. Examples: "NUs $2B ambition is capped by fragmented data" (49 chars).',
+          description: 'Hero title - a complete action-title sentence with data. MUST fit on 2 lines (target 30-55 chars, HARD CAP 65). Run-on sentences will be rejected. Examples: "NUs $2B ambition is capped by fragmented data" (49 chars).',
         },
         subtitle: {
           type: 'array',
@@ -530,7 +530,7 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
         diagnosis: {
           type: 'string',
           maxLength: 400,
-          description: 'Rumelt diagnosis — name THE central challenge with specific evidence. Max 400 chars.',
+          description: 'Rumelt diagnosis - name THE central challenge with specific evidence. Max 400 chars.',
         },
         guidingPolicy: {
           type: 'string',
@@ -561,7 +561,7 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
       minItems: 6,
       maxItems: 16,
       description: '6-16 sections defending the strategic thesis. Each section is a discriminated union: the `kind` field picks the data shape. See SECTION_DATA_SHAPES.',
-      // 2026-05-27 — Flattened from `oneOf: SECTION_ONE_OF` to a single
+      // 2026-05-27 - Flattened from `oneOf: SECTION_ONE_OF` to a single
       // permissive section object so Google's OpenAI-compat layer accepts the
       // schema (it rejects oneOf with INVALID_ARGUMENT). All per-kind field
       // names remain visible to the model via MERGED_SECTION_DATA_PROPERTIES,
@@ -573,11 +573,11 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
   },
 } as const;
 
-// 2026-05-27 — Gemini's function-declaration parser is an OpenAPI 3.0 SUBSET
+// 2026-05-27 - Gemini's function-declaration parser is an OpenAPI 3.0 SUBSET
 // and rejects several JSON-Schema validation keywords with a generic 400
 // INVALID_ARGUMENT (proven by the composer e2e schema-isolation test: the real
 // submit_presentation schema 400s alone). Strip those keywords for Gemini.
-// They are validation HINTS only — the model still follows the property
+// They are validation HINTS only - the model still follows the property
 // descriptions, and runtime validation (SECTION_DATA_SHAPES_EXPORT) still
 // enforces required fields. NOT stripped: type, properties, items, required,
 // enum, description (all supported + load-bearing). The stripped keys never
@@ -594,7 +594,7 @@ export function sanitizeSchemaForGemini(node: any): any {
     for (const [k, v] of Object.entries(node)) {
       if (GEMINI_UNSUPPORTED_SCHEMA_KEYS.has(k)) continue;
       // Recurse, but do NOT descend into `properties` values' KEYS (they are
-      // property names, not keywords) — recursing their VALUES is correct.
+      // property names, not keywords) - recursing their VALUES is correct.
       out[k] = sanitizeSchemaForGemini(v);
     }
     return out;
@@ -638,7 +638,7 @@ export const NARRATIVE_TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_themes',
-    description: `Get all themes from the current analysis session with their citations and confidence scores. Always call this BEFORE search_corpus — the work may already be done.`,
+    description: `Get all themes from the current analysis session with their citations and confidence scores. Always call this BEFORE search_corpus - the work may already be done.`,
     input_schema: {
       type: 'object',
       properties: {},
@@ -656,7 +656,7 @@ export const NARRATIVE_TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_deliverable',
-    description: `Get a specific generated deliverable from the analysis session — journey map, recommendations, roadmap, gap analysis, tech architecture, etc. Returns null if the deliverable has not been generated for this session.`,
+    description: `Get a specific generated deliverable from the analysis session - journey map, recommendations, roadmap, gap analysis, tech architecture, etc. Returns null if the deliverable has not been generated for this session.`,
     input_schema: {
       type: 'object',
       properties: {
@@ -732,14 +732,14 @@ export const NARRATIVE_TOOLS: ToolDefinition[] = [
       'CALL THIS TOOL WITH THE FINAL PRESENTATION PAYLOAD. This is the ONLY way to deliver your final answer. ' +
       'Do not emit text. Do not narrate. Do not say "I have enough context" or "Let me build". ' +
       'When you have gathered enough evidence and composed the strategic narrative, call submit_presentation ' +
-      'with the entire PresentationPayload as your single argument. The arguments object IS the presentation — ' +
+      'with the entire PresentationPayload as your single argument. The arguments object IS the presentation - ' +
       'meta, narrativeArc, and sections all live in the input. After calling this tool, your task is complete.',
     input_schema: PRESENTATION_PAYLOAD_JSONSCHEMA as unknown as ToolDefinition['input_schema'],
   },
 ];
 
 // ============================================================================
-// TOOL INPUT/OUTPUT TYPES — what the executor produces and consumes
+// TOOL INPUT/OUTPUT TYPES - what the executor produces and consumes
 // ============================================================================
 
 export type ToolName = typeof NARRATIVE_TOOLS[number]['name'];
@@ -760,7 +760,7 @@ export interface SearchCorpusResult {
     chunk_id: string;
     text: string;
     /**
-     * Composite display score (0-1) — kept for back-compat with consumers
+     * Composite display score (0-1) - kept for back-compat with consumers
      * that don't differentiate axes. New code should prefer chunk_relevance
      * + article_relevance below.
      */
@@ -865,7 +865,7 @@ export interface ExtractStatsResult {
 }
 
 // ============================================================================
-// EXECUTOR INTERFACE — implementations live in narrativeComposer.ts
+// EXECUTOR INTERFACE - implementations live in narrativeComposer.ts
 // ============================================================================
 //
 // The composer provides an executor that maps tool names to async functions.
@@ -882,7 +882,7 @@ export interface ToolExecutor {
 }
 
 // ============================================================================
-// CITATION TRACKING — for source-mix discipline enforcement
+// CITATION TRACKING - for source-mix discipline enforcement
 // ============================================================================
 //
 // As tool calls return, the composer tracks every (chunk_id, source) pair

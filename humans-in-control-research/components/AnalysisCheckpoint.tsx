@@ -12,7 +12,7 @@ interface Props {
   currentLog?: string;
 }
 
-// Internal Loading Component — shows collection summary while processing
+// Internal Loading Component - shows collection summary while processing
 const LoadingView = ({ log, elapsed }: { log?: string, elapsed: number }) => {
     // Parse collection stats from log if available
     const logText = log || '';
@@ -353,7 +353,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       { layout: 'BENTO_GRID', label: 'Bento Grid', icon: 'fa-th-large', color: '#9333ea', suggestedTitle: 'Multiple findings at a glance', suggestedContent: [], suggestedRationale: '3-6 mixed cells: stats, quotes, indicators' },
       { layout: 'PROBLEM_SOLUTION', label: 'Problem/Solution', icon: 'fa-columns', color: '#fd8e2e', suggestedTitle: 'The challenge vs. the path forward', suggestedContent: ['Problem stat and description', 'Solution point 1', 'Solution point 2'], suggestedRationale: 'Pain stat on left, solution points on right' },
       { layout: 'CONTENT_INSIGHT_CHART', label: 'Insight Chart', icon: 'fa-chart-line', color: '#0CCE6B', suggestedTitle: 'The trend behind the numbers', suggestedContent: ['Data point with source citation', 'So what: Why this changes the strategy'], suggestedRationale: '55/45 split: text left, chart visualization right' },
-      { layout: 'FULL_WIDTH_VIZ', label: 'Full Visualization', icon: 'fa-expand', color: '#B8B800', suggestedTitle: 'Comprehensive data view', suggestedContent: ['Full-width data table, matrix, or comparison'], suggestedRationale: 'No split — heading + full-width data' },
+      { layout: 'FULL_WIDTH_VIZ', label: 'Full Visualization', icon: 'fa-expand', color: '#B8B800', suggestedTitle: 'Comprehensive data view', suggestedContent: ['Full-width data table, matrix, or comparison'], suggestedRationale: 'No split - heading + full-width data' },
       { layout: 'SECTION_HEADER', label: 'Section Break', icon: 'fa-minus', color: '#acacac', suggestedTitle: 'The Landscape', suggestedContent: [], suggestedRationale: 'Dark divider between narrative sections (2-5 words max)' },
       { layout: 'CONTENT_DATA_PANEL', label: 'Closing Steps', icon: 'fa-arrow-right', color: '#115054', suggestedTitle: 'Next Steps: Who Does What By When', suggestedContent: ['Action 1: [Owner] will [action] by [date]', 'Action 2: [Owner] will [action] by [date]'], suggestedRationale: 'Concrete next steps with accountability' },
   ];
@@ -1008,7 +1008,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                   <span className="text-[8px] px-2 py-0.5 bg-[var(--nxt-teal)] text-white rounded-sm uppercase">
                                       {section.sourceDeliverable}
                                   </span>
-                                  {/* Evidence Gap pill intentionally suppressed — delivered output must never
+                                  {/* Evidence Gap pill intentionally suppressed - delivered output must never
                                       expose QA-style annotations to the reader (per user directive 2026-05-05). */}
                               </div>
                           </div>
@@ -1100,7 +1100,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                       className="w-full bg-transparent text-sm resize-none outline-none h-16 text-white/90 placeholder-white/40" placeholder="The strategic tension..." />
               </div>
 
-              {/* Visual slide sequence — mini storyboard */}
+              {/* Visual slide sequence - mini storyboard */}
               <div className="flex gap-1 overflow-x-auto pb-2">
                   {(editedStructure.slides || []).map((slide: any, i: number) => {
                       const meta = layoutMeta[slide.layout] || { icon: 'fa-file', color: '#acacac', label: slide.layout, section: '' };
@@ -1239,7 +1239,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                              {!isSectionHeader && (
                              <div className="p-4 space-y-3">
 
-                                 {/* PERSONA CARD — if this slide features a persona */}
+                                 {/* PERSONA CARD - if this slide features a persona */}
                                  {slide.personaName && (
                                      <div className="flex items-center gap-3 bg-[#CC6644]/10 p-3 rounded border border-[#CC6644]/30">
                                          {slide.personaImageUrl && <img src={slide.personaImageUrl} alt="" className="w-12 h-12 rounded-full object-cover" />}
@@ -1251,7 +1251,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  )}
 
-                                 {/* METRICS — data panel numbers (CONTENT_DATA_PANEL, CONTENT_INSIGHT_CHART) */}
+                                 {/* METRICS - data panel numbers (CONTENT_DATA_PANEL, CONTENT_INSIGHT_CHART) */}
                                  {slide.metrics && slide.metrics.length > 0 && (
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Data Metrics ({slide.metrics.length})</label>
@@ -1266,7 +1266,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  )}
 
-                                 {/* PROBLEM/SOLUTION — (PROBLEM_SOLUTION archetype) */}
+                                 {/* PROBLEM/SOLUTION - (PROBLEM_SOLUTION archetype) */}
                                  {slide.problemStat && (
                                      <div className="bg-red-50 border border-red-200 p-3 rounded">
                                          <label className="text-[8px] font-bold text-red-600 uppercase tracking-widest block mb-1">Problem</label>
@@ -1288,7 +1288,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  )}
 
-                                 {/* BENTO CELLS — (BENTO_GRID archetype) */}
+                                 {/* BENTO CELLS - (BENTO_GRID archetype) */}
                                  {slide.bentoCells && slide.bentoCells.length > 0 && (
                                      <div>
                                          <label className="text-[8px] font-bold text-[#9333ea] uppercase tracking-widest block mb-1">Bento Grid ({slide.bentoCells.length} cells)</label>
@@ -1316,7 +1316,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  )}
 
-                                 {/* CONTENT BULLETS — evidence-backed findings */}
+                                 {/* CONTENT BULLETS - evidence-backed findings */}
                                  {slide.content && slide.content.length > 0 && (
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Evidence Points ({slide.content.length})</label>
@@ -1354,7 +1354,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  )}
 
-                                 {/* SPEAKER NOTES — presenter context */}
+                                 {/* SPEAKER NOTES - presenter context */}
                                  <div>
                                      <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Speaker Notes</label>
                                      <textarea value={slide.speakerNotes || ''} onChange={(e) => updateSlideNarrative(idx, 'speakerNotes', e.target.value)}
@@ -1403,7 +1403,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
       return (
           <div className="overflow-x-auto pb-2">
-              {/* EMOTION CURVE — SVG sparkline across stages */}
+              {/* EMOTION CURVE - SVG sparkline across stages */}
               <div className="mb-1 px-12 relative">
                   <div className="text-[7px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] mb-1">Emotional Journey</div>
                   <svg width="100%" height="60" viewBox={`0 0 ${stages.length * 120} 60`} className="overflow-visible">
@@ -1426,7 +1426,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                   </svg>
               </div>
 
-              {/* SWIMLANE GRID — Stages as columns, swim lanes as rows */}
+              {/* SWIMLANE GRID - Stages as columns, swim lanes as rows */}
               <div className="relative" style={{ minWidth: stages.length * 160 }}>
                   {/* Column headers (stages) */}
                   <div className="flex border-b-2 border-[var(--nxt-teal)]">
@@ -1448,7 +1448,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                       ))}
                   </div>
 
-                  {/* ACTOR LANES — one row per persona */}
+                  {/* ACTOR LANES - one row per persona */}
                   {allActors.map((actor: string, ai: number) => (
                       <div key={ai} className="flex border-b border-[var(--border-primary)]">
                           <div className="w-24 flex-shrink-0 bg-[var(--bg-secondary)] flex items-center px-2 border-r border-[var(--border-primary)]">
@@ -1525,7 +1525,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                 {/* VISUAL SWIMLANE VIEW */}
                 {journeyView === 'visual' && renderJourneyVisual(editedJourney.stages || [])}
 
-                {/* DETAIL VIEW — the existing card-based editor */}
+                {/* DETAIL VIEW - the existing card-based editor */}
                 {journeyView === 'detail' && <>
                 {/* Emotion curve + stage labels */}
                 <div className="flex items-end gap-1 mb-4 h-14 px-2">
@@ -1556,7 +1556,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                              </div>
 
                              <div className="p-4 space-y-3">
-                                 {/* ACTORS (Personas) — the key innovation */}
+                                 {/* ACTORS (Personas) - the key innovation */}
                                  {stage.actors && stage.actors.length > 0 && (
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Actors (Personas)</label>
@@ -1915,7 +1915,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                    <div className="space-y-3">
                        {(editedPRD.prd?.features || []).map((feature, idx) => (
                            <div key={idx} className="bg-[var(--card-bg)] p-3 rounded border border-[var(--border-primary)] relative group">
-                               <button onClick={() => deletePRDFeature(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
+                               <button onClick={() => deletePRDFeature(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></button>
                                <div className="flex justify-between items-center mb-2 pr-6">
                                    <input 
                                       value={feature.name}
@@ -2270,7 +2270,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
               
               {(editedRecs.recommendations || []).map((rec, idx) => (
                   <div key={idx} className="bg-[var(--card-bg)] p-4 rounded border border-[var(--border-primary)] relative group">
-                       <button onClick={() => deleteRecommendation(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 font-bold opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
+                       <button onClick={() => deleteRecommendation(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 font-bold opacity-0 group-hover:opacity-100 transition-opacity"></button>
                        <div className="flex gap-3 mb-2">
                            <div className="flex-1">
                                <label className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase block mb-1">Title</label>
@@ -2378,7 +2378,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                     onClick={onClose}
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors text-lg font-bold text-white"
                 >
-                    ✕
+                    
                 </button>
             )}
         </div>

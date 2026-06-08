@@ -1,4 +1,4 @@
-// prototypeLibrary.ts — 2026-05-11 (HiC-Experience-Designer)
+// prototypeLibrary.ts - 2026-05-11 (HiC-Experience-Designer)
 //
 // CRUD client for the proxy's /api/prototypes family. Mirrors the
 // presentationLibrary.ts pattern so the chat UI can browse, open, edit,
@@ -112,7 +112,7 @@ export function getPrototypeLaunchUrl(slug: string): string {
 }
 
 export function formatPrototypeDate(iso?: string): string {
-    if (!iso) return '—';
+    if (!iso) return '-';
     try {
         const d = new Date(iso);
         if (isNaN(d.getTime())) return iso;

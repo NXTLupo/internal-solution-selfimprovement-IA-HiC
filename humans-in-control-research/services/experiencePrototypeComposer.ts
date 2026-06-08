@@ -1,5 +1,5 @@
 /**
- * experiencePrototypeComposer — runtime implementation of the
+ * experiencePrototypeComposer - runtime implementation of the
  * `experience-prototype-composer` skill (.claude/skills/experience-prototype-composer/).
  *
  * The skill specifies the STRICT RULE: every Stage 4 prototype must be
@@ -8,7 +8,7 @@
  * UI shapes, no generic Copilot shells, no "clean modern" placeholders.
  *
  * This module:
- *   1. Parses the user's hashtag — `#proto <experience-name> #NU | #NXT`
+ *   1. Parses the user's hashtag - `#proto <experience-name> #NU | #NXT`
  *   2. Loads the catalog at runtime (cached for the session)
  *   3. Returns a Stage 4 system-prompt injection block that enforces the rule
  *
@@ -78,12 +78,12 @@ export function parseProtoHashtag(prompt: string): HashtagParsed {
     if (!prompt || typeof prompt !== 'string') {
         return { has_proto: false, experience_name: null, brand: 'nxt', raw: prompt || '' };
     }
-    // Look for "#proto <name>" — name may contain letters, digits, hyphens
+    // Look for "#proto <name>" - name may contain letters, digits, hyphens
     const protoMatch = prompt.match(/#proto\s+([a-zA-Z0-9][a-zA-Z0-9_-]*)/i);
     const has_proto = !!protoMatch;
     const experience_name = protoMatch ? protoMatch[1].toLowerCase() : null;
 
-    // Brand hashtag — last #NU or #NXT wins. Case-insensitive, may include suffix like #NU-institutional.
+    // Brand hashtag - last #NU or #NXT wins. Case-insensitive, may include suffix like #NU-institutional.
     const nuMatch = prompt.match(/#nu(?:[-_a-z0-9]*)?\b/i);
     const nxtMatch = prompt.match(/#nxt(?:[-_a-z0-9]*)?\b/i);
     let brand: ComposerBrand = 'nxt';
@@ -160,11 +160,11 @@ function brandLanguage(brand: ComposerBrand): string {
             '  Body: Roboto',
             '  Mono: Roboto Mono (tabular figures for data)',
             '  Ink: navy ink-900 #0B1326 and ink-800 #141D30',
-            '  Accent: Huskies red #C8102E — used SPARINGLY only on key CTAs, deadlines, brand seals',
+            '  Accent: Huskies red #C8102E - used SPARINGLY only on key CTAs, deadlines, brand seals',
             '  Canvas: slate-50 #F8FAFC',
             '  Geometry: rounded 8px card corners, 4px inputs, 999px pills',
             '  Shadows: institutional soft (0 4px 12px rgba(11,19,38,0.08))',
-            '  N logo: /hic-workspace/wiki/brand/northeastern-n.svg — render white on red 28px tile in brand-mark',
+            '  N logo: /hic-workspace/wiki/brand/northeastern-n.svg - render white on red 28px tile in brand-mark',
             '  Voice: research-librarian, institutional, restrained',
             '  data-brand attribute: "nu"',
         ].join('\n');
@@ -185,7 +185,7 @@ function brandLanguage(brand: ComposerBrand): string {
 }
 
 // ─────────────────────────────────────────────────────────
-// Pattern recommendation — given a concept, suggest catalog patterns
+// Pattern recommendation - given a concept, suggest catalog patterns
 // ─────────────────────────────────────────────────────────
 function tokenize(s: string): Set<string> {
     return new Set(
@@ -239,7 +239,7 @@ function recommendPatterns(catalog: CatalogShape, concept: string, k = 14): Patt
 }
 
 // ─────────────────────────────────────────────────────────
-// PUBLIC — build the Stage 4 strict-rule injection block
+// PUBLIC - build the Stage 4 strict-rule injection block
 // ─────────────────────────────────────────────────────────
 export interface ComposerInjectionInput {
     /** Full user prompt (used to parse the hashtag) */
@@ -269,9 +269,9 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
     const catalog = await loadCatalog();
     const recommended = recommendPatterns(catalog, input.concept || '', 8);
 
-    // 2026-05-15 — Composer is now ALWAYS-ON for prototype generation.
+    // 2026-05-15 - Composer is now ALWAYS-ON for prototype generation.
     // Earlier we gated on `#proto` presence as an opt-in, but the user wants
-    // intelligent catalog composition to be the default — every prototype the
+    // intelligent catalog composition to be the default - every prototype the
     // pipeline ships should compose from the 77-pattern catalog, regardless
     // of whether the user typed `#proto` explicitly. The hashtag still
     // enriches the injection with the experience name + explicit brand pick,
@@ -280,12 +280,12 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
     const brand = hashtag.brand;
     const patternList = (catalog.patterns || []).map(p => p.id).join(', ');
     const recommendedLines = recommended.map(p =>
-        `  - ${p.id}  (${p.name}, ${p.section})  — best for: ${p.best_for.join(' / ')}`
+        `  - ${p.id}  (${p.name}, ${p.section})  - best for: ${p.best_for.join(' / ')}`
     ).join('\n');
 
     const lines = [
         '═════════════════════════════════════════════════════════════════',
-        'EXPERIENCE PROTOTYPE COMPOSER — STRICT COMPOSITION RULE',
+        'EXPERIENCE PROTOTYPE COMPOSER - STRICT COMPOSITION RULE',
         '═════════════════════════════════════════════════════════════════',
         '',
         'You are NOT inventing UI. You are COMPOSING from a curated catalog.',
@@ -318,7 +318,7 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
         `     Maximum ${catalog.composition_rules?.max_patterns_per_prototype || 18}. Single-pattern outputs are demos, not experiences.`,
         `     8 is the FLOOR for a meaningful experience; aim for 12+ on any prototype that has`,
         `     stakes (career, money, healthcare, education). Compose patterns the way an FT`,
-        `     front page composes stories — multiple modalities in service of one argument.`,
+        `     front page composes stories - multiple modalities in service of one argument.`,
         '',
         `  6. Start your output with a PATTERN MANIFEST comment listing every`,
         `     catalog pattern used:`,
@@ -326,18 +326,18 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
         `       //                    p-portfolio-mix, p-vignette-trio, p-counterfactual, p-rec,`,
         `       //                    p-trail, p-dial, p-chat, p-trans, p-info-flow, p-cohort, p-hitl`,
         '',
-        '─── DEEP SYNTHETIC DATA (NON-NEGOTIABLE — output is a CASE, not a placeholder) ───',
+        '─── DEEP SYNTHETIC DATA (NON-NEGOTIABLE - output is a CASE, not a placeholder) ───',
         `  7. NAMED PROTAGONIST: Every prototype MUST have a named user with backstory.`,
-        `     "Sam Chen, CS '24, Mission Hill, $0 family contribution" — never "the user" or "a student".`,
+        `     "Sam Chen, CS '24, Mission Hill, $0 family contribution" - never "the user" or "a student".`,
         `     The brief tells you the domain; you must invent a concrete person + their stake.`,
         '',
         `  8. 12+ ANONYMIZED PEER RECORDS minimum. Use a real-looking ID scheme:`,
         `     NU contexts:  NUW-0247-K '21, NUW-0309-K '22, NUW-0418-K '20  (Wiki cohort code)`,
         `     NXT contexts: NXT-#A47, NXT-#B12, NXT-#C09  (NXT internal archetype code)`,
-        `     Each record gets an archetype tag, a headline outcome stat, and 2–3 path-defining`,
+        `     Each record gets an archetype tag, a headline outcome stat, and 2-3 path-defining`,
         `     decisions. Render them in p-vignette-trio or p-cohort.`,
         '',
-        `  9. CONCRETE NUMBERS ONLY — never "N%", "X students", "some users", "many alumni".`,
+        `  9. CONCRETE NUMBERS ONLY - never "N%", "X students", "some users", "many alumni".`,
         `     Every callout is a real number: "11% → 64%", "47 W14 placements", "$78k median offer".`,
         `     Forecast bands must show P10/P50/P90 actual values, not generic "low/med/high".`,
         '',
@@ -354,7 +354,7 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
         `     Match or exceed the pattern density and data depth of the closest reference.`,
         '',
         ` 12. INTENT-DRIVEN PATTERN BUNDLES (apply when matching):`,
-        `     User asks "what if I had…?" → MUST include p-time-machine + p-forecast-band + p-counterfactual.`,
+        `     User asks "what if I had...?" → MUST include p-time-machine + p-forecast-band + p-counterfactual.`,
         `     User asks "what should I do?" → MUST include p-portfolio-mix + p-vignette-trio + p-rec.`,
         `     User is making an irreversible choice → MUST include p-hitl approval gate.`,
         `     User is reviewing peer outcomes → MUST include p-cohort retention matrix + p-vignette-trio.`,
@@ -368,7 +368,7 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
         '  ' + patternList,
         '',
         '─── RECOMMENDED PATTERNS FOR THIS BRIEF (matched by concept overlap) ───',
-        recommendedLines || '  (no specific matches — sample across all sections)',
+        recommendedLines || '  (no specific matches - sample across all sections)',
         '',
         '─── FORBIDDEN PATTERNS (will fail Stage 5 critic) ───',
         ...(catalog.composition_rules?.forbidden_when_catalog_pattern_exists || []).map(f => `  - ${f}`),

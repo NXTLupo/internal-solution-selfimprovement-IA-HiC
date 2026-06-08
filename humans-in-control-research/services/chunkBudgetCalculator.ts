@@ -1,5 +1,5 @@
 /**
- * Chunk Budget Calculator — Per-artifact chunk plan resolution.
+ * Chunk Budget Calculator - Per-artifact chunk plan resolution.
  *
  * Encodes the per-artifact chunking strategy from the chunking-and-output-
  * quality plan (Part 3) in executable form. Every chunker calls this to
@@ -7,7 +7,7 @@
  * parallelism to use.
  *
  * Feedback signals from the learning engine bump the chunk count for the
- * specific artifact type — so a "this was incomplete" signal on slides
+ * specific artifact type - so a "this was incomplete" signal on slides
  * durably increases slide-deck chunk count for the next run AND, after
  * 3+ matching signals, gets promoted to a permanent skill-frontmatter
  * change via the learning engine routing rule.
@@ -38,7 +38,7 @@ export interface FeedbackSignalsForChunking {
     incomplete?: boolean;
     /** Has the user said "needs more depth", "too short", "expand" about this artifact type recently? */
     tooShort?: boolean;
-    /** Explicit override — typically applied by the learning engine after promoting a feedback cluster. */
+    /** Explicit override - typically applied by the learning engine after promoting a feedback cluster. */
     bumpChunkCount?: number;
     /** Explicit override on per-chunk output budget. */
     bumpOutputBudget?: number;
@@ -66,7 +66,7 @@ const DEFAULT_PLANS: Record<ArtifactType, ChunkPlanConfig> = {
         parallelism: 4,
         perChunkOutputBudget: 8000,
         truncationFloor: 0.9,
-        rationale: 'Slides chunk per theme. 4 themes × 5 slides each. Parallel; each call emits ~3-4K tokens — well under soft-stop.',
+        rationale: 'Slides chunk per theme. 4 themes × 5 slides each. Parallel; each call emits ~3-4K tokens - well under soft-stop.',
     },
     themes: {
         chunkCount: 2,
@@ -200,7 +200,7 @@ export async function calculateChunkPlan(opts: {
                 if (typeof override.perChunkItemCount === 'number') base.perChunkItemCount = override.perChunkItemCount;
                 if (typeof override.parallelism === 'number') base.parallelism = override.parallelism;
                 if (typeof override.perChunkOutputBudget === 'number') base.perChunkOutputBudget = override.perChunkOutputBudget;
-                // 2026-05-23 — Relative bumps from learning-engine promotions.
+                // 2026-05-23 - Relative bumps from learning-engine promotions.
                 // Bumps compose with the defaults so the absolute override is
                 // recalculated whenever defaults change. Stored alongside
                 // (or instead of) absolute fields.
@@ -217,7 +217,7 @@ export async function calculateChunkPlan(opts: {
             }
         }
     } catch {
-        // No persisted overrides yet — first run
+        // No persisted overrides yet - first run
     }
 
     // Apply immediate feedback signals (single-run bump from current Apply-now).
@@ -246,7 +246,7 @@ export async function calculateChunkPlan(opts: {
         const idealChunks = Math.ceil(opts.expectedItemCount / Math.max(1, base.perChunkItemCount));
         if (idealChunks > base.chunkCount) {
             base.chunkCount = idealChunks;
-            base.rationale = `${base.rationale} | Prompt asked for ${opts.expectedItemCount} items — chunks scaled to ${idealChunks}.`;
+            base.rationale = `${base.rationale} | Prompt asked for ${opts.expectedItemCount} items - chunks scaled to ${idealChunks}.`;
         }
     }
 

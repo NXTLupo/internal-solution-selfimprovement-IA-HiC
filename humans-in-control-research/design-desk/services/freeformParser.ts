@@ -13,7 +13,7 @@
 
 import type { FreeformKind } from '../schemas/freeformArtifact';
 import type { BrandHashtag } from './hashtagParser';
-// 2026-05-25 — wire the 9-rung repair ladder into the header-JSON parse.
+// 2026-05-25 - wire the 9-rung repair ladder into the header-JSON parse.
 // The JM-depth uplift increases header citations[] payload size, raising
 // truncation risk. parseJSONWithRepair recovers most truncation classes.
 import { parseJSONWithRepair } from '../../services/aiOutputRepair';
@@ -44,7 +44,7 @@ export function parseFreeformOutput(raw: string): FreeformParseResult {
     const openIdx = candidate.indexOf(OPEN);
     if (openIdx < 0) {
         // Fallback: maybe the model emitted a bare HTML document plus a JSON-ish prelude.
-        // Try to detect a `<!DOCTYPE` — if found, treat the whole thing as HTML and synthesize a header.
+        // Try to detect a `<!DOCTYPE` - if found, treat the whole thing as HTML and synthesize a header.
         const doctypeIdx = candidate.search(/<!DOCTYPE\s+html|<html\b/i);
         if (doctypeIdx >= 0) {
             return { ok: false, error: 'missing :::nxt:freeform marker; model emitted bare HTML without metadata' };
@@ -52,12 +52,12 @@ export function parseFreeformOutput(raw: string): FreeformParseResult {
         return { ok: false, error: `missing "${OPEN}" open marker` };
     }
 
-    // Slice from after OPEN. Closer is the LAST ::: that's after openIdx — but if
+    // Slice from after OPEN. Closer is the LAST ::: that's after openIdx - but if
     // truncation cut the closer, we accept whatever's there and parse anyway.
     let inner = candidate.slice(openIdx + OPEN.length);
     const closeIdx = inner.lastIndexOf(CLOSE);
     if (closeIdx > 0) {
-        // Only use the closer if it appears AFTER any HTML — i.e., it's not just the trailing
+        // Only use the closer if it appears AFTER any HTML - i.e., it's not just the trailing
         // colons of the opener
         inner = inner.slice(0, closeIdx);
     }
@@ -75,7 +75,7 @@ export function parseFreeformOutput(raw: string): FreeformParseResult {
 
     let header: FreeformHeader;
     try {
-        // 2026-05-25 — use the 9-rung repair ladder so JM-depth headers
+        // 2026-05-25 - use the 9-rung repair ladder so JM-depth headers
         // (with longer citations[] arrays) tolerate trailing-comma drift,
         // unescaped-quote drift, and Gemini's truncation at max-tokens.
         header = parseJSONWithRepair<FreeformHeader>(headerJson, {

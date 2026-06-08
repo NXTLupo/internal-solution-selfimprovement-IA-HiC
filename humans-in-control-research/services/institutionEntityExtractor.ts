@@ -1,5 +1,5 @@
 /**
- * Institution Entity Extractor — Sprint 2 (S2) entry point.
+ * Institution Entity Extractor - Sprint 2 (S2) entry point.
  *
  * Scans a free-text research brief/goal for mentions of any institution in the
  * manifest. Returns the matched InstitutionRecord objects so callers can:
@@ -128,7 +128,7 @@ export function extractInstitutionsFromTextSync(
     scored.sort((a, b) => b.aliasLen - a.aliasLen);
 
     // Dedup by institution id (same institution might match multiple aliases;
-    // keep the first — which is the longest alias hit)
+    // keep the first - which is the longest alias hit)
     const seen = new Set<string>();
     const out: InstitutionRecord[] = [];
     for (const s of scored) {
@@ -145,7 +145,7 @@ export function extractInstitutionsFromTextSync(
  * prepend to the collection set. Delegates to manifest.collectTierZeroSources()
  * under the hood.
  *
- * Excludes YouTube RSS feed URLs — those are polling targets for the S8
+ * Excludes YouTube RSS feed URLs - those are polling targets for the S8
  * scheduler, not webpage URLs. Including them in the webIntelligence.urls
  * pipeline would send them through /api/extract-content which either (a)
  * serves back the XML feed as text or (b) routes to /api/transcribe-youtube
@@ -157,7 +157,7 @@ export function extractInstitutionsFromTextSync(
  *   - Hard-cap at MAX_TIER0_URLS total (prevents the "200-URL Jina storm"
  *     seen in the wild when a brief names a dozen institutions and each
  *     contributed 8 URLs, overwhelming the Jina Reader rate limit).
- *   - Cap at MAX_INSTITUTIONS when many matches are returned — the first N
+ *   - Cap at MAX_INSTITUTIONS when many matches are returned - the first N
  *     most-confident matches cover the brief's intent; subsequent matches
  *     are usually tangential.
  *   - Prefer HIGH-VALUE KINDS first: 990/financial report/newsroom-RSS have
@@ -173,9 +173,9 @@ const MAX_INSTITUTIONS = 4;
 // hangs waiting for readable prose that RSS feeds don't have.
 const TIER0_EXCLUDE_KINDS = new Set(['youtube_rss', 'newsroom_rss', 'alumni_content_rss']);
 const TIER0_KIND_PRIORITY: Record<string, number> = {
-    filing_990: 1,          // ProPublica 990 HTML page — dense financial data
+    filing_990: 1,          // ProPublica 990 HTML page - dense financial data
     filing_t3010: 1,         // Canadian equivalent
-    filing_aggregator: 2,    // Charity Intelligence etc. — pre-processed historical data
+    filing_aggregator: 2,    // Charity Intelligence etc. - pre-processed historical data
     financial_report: 3,     // Audited statements landing page (often has PDF link → PDF-first path)
     campaign_microsite: 4,
     alumni_content: 5,       // HTML alumni magazine

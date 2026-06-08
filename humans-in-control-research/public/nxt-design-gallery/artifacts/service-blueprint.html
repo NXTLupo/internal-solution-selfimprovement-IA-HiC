@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Service Blueprint — Co-Op Prep journey</title>
+<meta name="viewport" content="width=1680" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  body { min-width: 1680px; }
+  .blueprint {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .bp-row {
+    display: grid;
+    grid-template-columns: 200px repeat(6, 1fr);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .bp-row:last-child { border-bottom: 0; }
+  .bp-row--head {
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+  }
+  .bp-row--lane-divider {
+    background: var(--ink-900);
+    color: var(--white);
+    grid-template-columns: 1fr;
+    padding: 6px 16px;
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .bp-row--lane-divider .lane-line {
+    height: 1px; background: rgba(255,255,255,.15);
+    margin-left: 12px; flex: 1;
+  }
+  .bp-row--lane-divider > div { display: flex; align-items: center; gap: 12px; }
+  .bp-cell {
+    padding: 14px 14px;
+    border-right: 1px solid var(--border-subtle);
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--fg-default);
+    min-height: 86px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .bp-cell:last-child { border-right: 0; }
+  .bp-cell--label {
+    background: var(--slate-50);
+    border-right: 1px solid var(--border-default);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  .bp-cell--label small {
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-subtle);
+    font-weight: 400;
+    font-size: 10.5px;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .bp-stage-head {
+    background: var(--slate-50);
+    border-right: 1px solid var(--border-default);
+    padding: 14px 14px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .bp-stage-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+    text-transform: none;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bp-stage-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--fg-strong);
+    letter-spacing: -.005em;
+    text-transform: none;
+  }
+  .bp-cell b { color: var(--fg-strong); font-weight: 500; }
+  .bp-cell .actors {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .actor-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    height: 18px;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: var(--slate-100);
+    font-size: 10px;
+    letter-spacing: .02em;
+    color: var(--fg-muted);
+  }
+  .actor-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--slate-400); }
+  .actor-chip--student .dot { background: var(--success-solid); }
+  .actor-chip--coord .dot { background: var(--special-solid); }
+  .actor-chip--mgo .dot { background: var(--nu-red-600); }
+  .actor-chip--vp .dot { background: var(--ink-800); }
+  .emo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .emo__bar {
+    flex: 1;
+    height: 4px;
+    background: var(--slate-100);
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+  }
+  .emo__bar > i {
+    position: absolute; left: 0; top: 0;
+    height: 100%;
+    border-radius: 999px;
+  }
+  .emo--neutral i { background: var(--slate-400); }
+  .emo--positive i { background: var(--success-solid); }
+  .emo--negative i { background: var(--nu-red-600); }
+  .emo__label { font-size: 10px; letter-spacing: .04em; color: var(--fg-muted); white-space: nowrap; }
+  .emo__label b { color: var(--fg-default); font-weight: 500; }
+  .fail {
+    margin-top: 6px;
+    padding: 6px 8px;
+    background: var(--nu-red-100);
+    border-radius: 4px;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: var(--nu-red-700);
+    border-left: 2px solid var(--nu-red-600);
+  }
+  .fail b { color: var(--nu-red-700); font-weight: 600; }
+  .mot {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--nu-red-700);
+    margin-top: 4px;
+  }
+  .mot::before {
+    content: "★";
+    color: var(--nu-red-600);
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+  .opp {
+    margin-top: 6px;
+    padding: 6px 8px;
+    background: var(--success-bg);
+    border-radius: 4px;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: var(--success-fg);
+    border-left: 2px solid var(--success-solid);
+  }
+  .tech {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .01em;
+  }
+  /* Section label cell */
+  .lane-line { background: rgba(255,255,255,.15); height:1px; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Service blueprint · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Service blueprint · Bitner 5-layer · 6 stages</div>
+    <h1 class="art-masthead__title">First-years build, prove, and land their co-op across six stages — and stage 4 is where the system loses 38% of them.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Stages</dt><dd>6 (user voice)</dd></div>
+    <div class="art-masthead__meta-block"><dt>Fail points</dt><dd>4 named</dd></div>
+    <div class="art-masthead__meta-block"><dt>Moments of truth</dt><dd>2 starred</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="blueprint">
+
+    <!-- Stage header row -->
+    <div class="bp-row bp-row--head">
+      <div class="bp-stage-head" style="position: sticky; left: 0; z-index: 2;">
+        <span class="bp-stage-num">layer</span>
+        <span class="bp-stage-name" style="font-size: 13px;">Stage →</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-01</span>
+        <span class="bp-stage-name">Discovering the opportunity</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-02</span>
+        <span class="bp-stage-name">Building my profile</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-03</span>
+        <span class="bp-stage-name">Choosing where to apply</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-04</span>
+        <span class="bp-stage-name">Proving what I've built</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-05</span>
+        <span class="bp-stage-name">Landing the placement</span>
+      </div>
+      <div class="bp-stage-head">
+        <span class="bp-stage-num">S-06</span>
+        <span class="bp-stage-name">Bringing the story home</span>
+      </div>
+    </div>
+
+    <!-- LANE: Customer / Frontstage / Backstage / Support -->
+    <div class="bp-row bp-row--lane-divider"><div>Above the line of interaction · what users see and do<span class="lane-line"></span></div></div>
+
+    <!-- Actors row -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Actors involved <small>which personas show up here</small></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--coord"><span class="dot"></span>Coord</span></div><span class="tech">peer-led discovery dominates</span></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--coord"><span class="dot"></span>Coord</span></div><span class="tech">coordinator office hours peak</span></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--coord"><span class="dot"></span>Coord</span></div></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--coord"><span class="dot"></span>Coord</span></div><span class="tech">moment of truth — interviews start</span></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--coord"><span class="dot"></span>Coord</span><span class="actor-chip actor-chip--mgo"><span class="dot"></span>MGO (optional)</span></div></div>
+      <div class="bp-cell"><div class="actors"><span class="actor-chip actor-chip--student"><span class="dot"></span>Student</span><span class="actor-chip actor-chip--mgo"><span class="dot"></span>MGO</span><span class="actor-chip actor-chip--vp"><span class="dot"></span>VP Ops</span></div><span class="tech">donor-narrative handoff</span></div>
+    </div>
+
+    <!-- Customer action -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Customer action <small>what the student does</small></div>
+      <div class="bp-cell">
+        Hears about co-op from an upperclassman in their dorm; checks Reddit; learns there's a "cycle" they should plan toward. <sup class="cite">12</sup>
+        <div class="tech">channel: peer DM, Reddit, hallway</div>
+      </div>
+      <div class="bp-cell">
+        Drafts a resume from a template they found via friend; books an office hour two weeks out. <sup class="cite">9</sup>
+        <div class="tech">channel: Google Doc, Outlook booking</div>
+      </div>
+      <div class="bp-cell">
+        Filters Handshake by major; shortlists 4 roles based on commute and brand recognition. <sup class="cite">15</sup>
+        <div class="tech">channel: Handshake mobile</div>
+      </div>
+      <div class="bp-cell">
+        Hits "submit" on application 1 of 4; goes silent for 9 days. <sup class="cite">14</sup>
+        <span class="mot">moment of truth</span>
+        <div class="tech">channel: Handshake mobile</div>
+      </div>
+      <div class="bp-cell">
+        Accepts offer; signs employer paperwork; texts roommate.
+        <div class="tech">channel: email, employer portal</div>
+      </div>
+      <div class="bp-cell">
+        Writes the placement story for the alumni magazine and a donor-thank-you note.
+        <span class="mot">moment of truth</span>
+        <div class="tech">channel: alumni mag CMS, Outlook</div>
+      </div>
+    </div>
+
+    <!-- Customer needs -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Actor needs <small>by persona, not generic</small></div>
+      <div class="bp-cell">
+        <b>Student:</b> "What does on-pace look like for me?"<br/>
+        <b>Coord:</b> visibility into who's even on the radar.
+      </div>
+      <div class="bp-cell">
+        <b>Student:</b> a resume template that matches their major.<br/>
+        <b>Coord:</b> a way to triage drafts at scale.
+      </div>
+      <div class="bp-cell">
+        <b>Student:</b> ranked employer fit, not 1,200 filters.<br/>
+        <b>Coord:</b> see who hasn't shortlisted yet.
+      </div>
+      <div class="bp-cell">
+        <b>Student:</b> a place to ask "is this normal?" at 11 p.m.<br/>
+        <b>Coord:</b> early warning when a student goes silent. <sup class="cite">10</sup>
+      </div>
+      <div class="bp-cell">
+        <b>Student:</b> clear next steps after accept.<br/>
+        <b>MGO:</b> notification when a donor-affiliated employer hosts a student.
+      </div>
+      <div class="bp-cell">
+        <b>Student:</b> language that doesn't feel templated.<br/>
+        <b>MGO/VP:</b> a clean handoff from outcome to donor narrative.
+      </div>
+    </div>
+
+    <!-- Emotion -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Emotion <small>name + intensity 1–5</small></div>
+      <div class="bp-cell">
+        <div class="emo emo--neutral"><div class="emo__bar"><i style="width: 50%;"></i></div><div class="emo__label"><b>Curious</b> · 3 / 5</div></div>
+        Discovery feels exciting but unmoored — no map.
+      </div>
+      <div class="bp-cell">
+        <div class="emo emo--neutral"><div class="emo__bar"><i style="width: 40%;"></i></div><div class="emo__label"><b>Determined</b> · 2 / 5</div></div>
+      </div>
+      <div class="bp-cell">
+        <div class="emo emo--positive"><div class="emo__bar"><i style="width: 70%;"></i></div><div class="emo__label"><b>Hopeful</b> · 4 / 5</div></div>
+      </div>
+      <div class="bp-cell">
+        <div class="emo emo--negative"><div class="emo__bar"><i style="width: 85%;"></i></div><div class="emo__label"><b>Anxious</b> · 5 / 5</div></div>
+        Application-to-callback silence is where the funnel breaks. <sup class="cite">14</sup>
+      </div>
+      <div class="bp-cell">
+        <div class="emo emo--positive"><div class="emo__bar"><i style="width: 90%;"></i></div><div class="emo__label"><b>Relieved</b> · 5 / 5</div></div>
+      </div>
+      <div class="bp-cell">
+        <div class="emo emo--positive"><div class="emo__bar"><i style="width: 80%;"></i></div><div class="emo__label"><b>Proud</b> · 4 / 5</div></div>
+      </div>
+    </div>
+
+    <!-- LANE BREAK -->
+    <div class="bp-row bp-row--lane-divider"><div>Below the line of interaction · what the institution does<span class="lane-line"></span></div></div>
+
+    <!-- Frontstage -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Frontstage <small>what staff visibly do</small></div>
+      <div class="bp-cell">
+        Coordinator posts a generic "co-op 101" slide deck.<br/>
+        Peer-mentor pilot runs in 3 dorms.
+      </div>
+      <div class="bp-cell">
+        Office hours: 22 students per coordinator per week, 15 min average. <sup class="cite">10</sup>
+      </div>
+      <div class="bp-cell">
+        Coordinator nudges students who haven't shortlisted by mid-cycle.
+      </div>
+      <div class="bp-cell">
+        Status check-in emails fire on day 7 of no activity — single template, untargeted. <sup class="cite">10</sup>
+      </div>
+      <div class="bp-cell">
+        Employer confirmation; coordinator updates Handshake.<br/>
+        Donor-relations sees the firm name in a daily digest.
+      </div>
+      <div class="bp-cell">
+        Story request lands in student inbox; coordinator copy-edits; alumni mag publishes.
+      </div>
+    </div>
+
+    <!-- Backstage -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Backstage <small>hidden operations</small></div>
+      <div class="bp-cell">
+        Cohort segmentation runs nightly; cohort dashboard hasn't been opened in 11 days. <sup class="cite">15</sup>
+      </div>
+      <div class="bp-cell">
+        Resume-parsing model scores drafts; no one trusts the scores enough to triage. <sup class="cite">2</sup>
+      </div>
+      <div class="bp-cell">
+        Handshake recommender ranks roles by aggregate alumni placement — not by student major.
+      </div>
+      <div class="bp-cell">
+        Application status is held by 47 employer ATSes; NU has no read of any of them.
+        <div class="fail"><b>Fail point · 38% silence rate · M-H consequence:</b> students who go 14 days without a reply attrite from the cycle at 38%. <sup class="cite">14</sup></div>
+      </div>
+      <div class="bp-cell">
+        Salesforce Education Cloud writes the placement event; Raiser's Edge isn't notified for 11 days.
+        <div class="fail"><b>Fail point · cross-system lag:</b> MGO sees the donor-side bridge weeks late.</div>
+      </div>
+      <div class="bp-cell">
+        Marketing pulls quote into magazine; nobody loops back to the student for verbatim approval at scale.
+      </div>
+    </div>
+
+    <!-- Support / Tech -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Support &amp; tech <small>systems enabling the stage</small></div>
+      <div class="bp-cell tech">Handshake · Reddit (off-platform) · NU peer-mentor pilot · Outlook</div>
+      <div class="bp-cell tech">Handshake · Google Docs · resume-parsing ML · Outlook booking</div>
+      <div class="bp-cell tech">Handshake · Brightspace majors API · employer events API</div>
+      <div class="bp-cell tech">Handshake · 47× employer ATS · email · no central status</div>
+      <div class="bp-cell tech">Handshake · Salesforce EDU · Raiser's Edge NXT · employer email</div>
+      <div class="bp-cell tech">Alumni magazine CMS · Raiser's Edge NXT · Outlook</div>
+    </div>
+
+    <!-- Physical evidence -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Physical evidence <small>what actors see / hold / receive</small></div>
+      <div class="bp-cell">"Co-op 101" PDF · dorm flyers · peer-mentor sign-up form</div>
+      <div class="bp-cell">Resume drafts · email confirmations · 12 personal coordinator templates</div>
+      <div class="bp-cell">Shortlist screenshots · employer one-pagers · phone bookmarks</div>
+      <div class="bp-cell">Submission confirmations · 9 days of silence · status-check email</div>
+      <div class="bp-cell">Offer letter PDF · employer contract · welcome email</div>
+      <div class="bp-cell">Magazine spread · LinkedIn post · donor-stewardship card</div>
+    </div>
+
+    <!-- LANE BREAK -->
+    <div class="bp-row bp-row--lane-divider"><div>Opportunity layer · what to capture<span class="lane-line"></span></div></div>
+
+    <!-- Opportunity -->
+    <div class="bp-row">
+      <div class="bp-cell bp-cell--label">Opportunity <small>linked to recommendations</small></div>
+      <div class="bp-cell"><div class="opp"><b>R-01:</b> formalize peer-mentor scaffolding; default to the trust pattern that already exists.</div></div>
+      <div class="bp-cell"><div class="opp"><b>R-04:</b> AI as triage, not authorship — surface who is stuck, not "improved" drafts.</div></div>
+      <div class="bp-cell"><div class="opp"><b>R-02:</b> ranked employer fit by major, with explain-view; replace 1,200-filter UI.</div></div>
+      <div class="bp-cell"><div class="opp"><b>R-03:</b> silence-detection signal; coordinator triage queue at day 7, not the same template. Highest-leverage fix in the journey.</div></div>
+      <div class="bp-cell"><div class="opp"><b>R-05:</b> placement-to-donor handoff inside 72 hours, not 11 days.</div></div>
+      <div class="bp-cell"><div class="opp"><b>R-06:</b> verbatim-quote review path so donor narratives feel like students, not marketing.</div></div>
+    </div>
+
+  </div>
+
+  <!-- Legend / key -->
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Reading the blueprint</h2>
+      <span class="art-section__counter">Bitner 5-layer model · extended with fail points + technology</span>
+    </div>
+    <div class="art-grid art-grid--4 art-grid--gap-lg">
+      <div class="art-card">
+        <div class="art-eyebrow">Above the line</div>
+        <p class="t-body-sm" style="margin-top:8px;">What users see and do. Actors, customer action, customer needs, and emotion live here. Stages are named in <em>user voice</em> — every phase reads like something a first-year would actually say out loud.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-eyebrow">Below the line</div>
+        <p class="t-body-sm" style="margin-top:8px;">Frontstage (what staff visibly do), backstage (hidden operations), and the technology layer. Backstage is where fail points concentrate.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-eyebrow art-eyebrow--brand">Fail points</div>
+        <p class="t-body-sm" style="margin-top:8px;">Named failure modes with frequency and consequence. <b>1 per 2 stages minimum.</b> These are the highest-leverage interventions in any service blueprint.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-eyebrow art-eyebrow--accent">Moments of truth</div>
+        <p class="t-body-sm" style="margin-top:8px;">Stage cells marked with a ★ are make-or-break interactions. Investment per moment-of-truth should be 2–3× the per-stage average.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>STU-007 diary</b> · A. Patel, 8-week diary study, 2026-Q1 (verbatim)</li>
+      <li><b>HiEd Dive</b> · prospect scoring trust study, 2025-09</li>
+      <li><b>COORD-12 field-note</b> · J. Liu cohort retrospective, 2025-12</li>
+      <li><b>NU Handshake funnel analytics</b> · 2025–26 cycle</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">BLUEPRINT · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>service-blueprint-mapper</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

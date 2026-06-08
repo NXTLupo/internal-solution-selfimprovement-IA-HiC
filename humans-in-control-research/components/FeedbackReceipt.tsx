@@ -1,5 +1,5 @@
 /**
- * FeedbackReceipt — Inline confirmation after the user submits feedback.
+ * FeedbackReceipt - Inline confirmation after the user submits feedback.
  *
  * Renders one of three modes:
  *   - "saved": text feedback was persisted but no regeneration ran

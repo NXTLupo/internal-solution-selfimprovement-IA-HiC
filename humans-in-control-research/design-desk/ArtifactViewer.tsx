@@ -42,7 +42,7 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
                 </div>
                 <div style={{ width: 60, height: 4, background: '#B8B800', margin: '12px 0 24px' }} />
                 <div style={{ marginTop: 8, fontSize: 13, maxWidth: 480, textAlign: 'center', lineHeight: 1.6 }}>
-                    No artifact loaded yet. Use chat with a content hashtag — examples:
+                    No artifact loaded yet. Use chat with a content hashtag - examples:
                 </div>
                 <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12, fontFamily: "'JetBrains Mono', monospace", color: '#444' }}>
                     <code style={{ background: '#F0F0E8', padding: '4px 10px' }}>#persona #NU first-gen junior dev</code>
@@ -62,7 +62,7 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', flex: 1, minWidth: 0 }}>
-            {/* Toolbar — artifact tabs (left), actions (right) */}
+            {/* Toolbar - artifact tabs (left), actions (right) */}
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',

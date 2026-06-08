@@ -238,6 +238,7 @@ class VectorStore:
         tier_min: int | None = None,
         exclude_article_ids: list[str] | None = None,
         exclude_kinds: list[str] | None = None,
+        prefer_engagement_goal: str | None = None,
     ) -> list[dict]:
         """Return up to `limit` best-matching chunks with article metadata.
 
@@ -278,7 +279,7 @@ class VectorStore:
                 c.chunk_rowid, c.article_id, c.chunk_idx, c.section, c.text,
                 c.char_start, c.char_end, c.token_count,
                 a.wiki_path, a.url, a.title, a.source, a.kind, a.tier, a.date, a.chars,
-                a.relevance_score,
+                a.relevance_score, a.engagement_goal,
                 v.distance
             FROM chunks_vec v
             JOIN chunks c ON c.chunk_rowid = v.rowid
@@ -296,7 +297,7 @@ class VectorStore:
             (chunk_rowid, article_id, chunk_idx, section, text,
              char_start, char_end, token_count,
              wiki_path, url, title, source_field, kind_field, tier_field, date_field, chars_field,
-             relevance_score,
+             relevance_score, engagement_goal_field,
              distance) = r
 
             if kind and kind_field != kind:
@@ -333,6 +334,19 @@ class VectorStore:
                 relevance_factor = 0.6 + 0.4 * (rscore_out / 100.0)
 
             blended = cosine_score * relevance_factor
+
+            # 2026-05-31 (Phase A4) — engagement-scoping BOOST (soft, never a
+            # hard filter). When the caller names the active engagement goal,
+            # chunks tagged with the SAME engagement get a modest boost so this
+            # engagement's own evidence outranks cross-engagement chunks at equal
+            # cosine. Cross-engagement / cross-industry analogues are NOT dropped
+            # (preserves analogue-seeking + thin-corpus safety); they just sort
+            # below in-engagement evidence. Cuts the co-op-into-AI-design bleed.
+            if prefer_engagement_goal and engagement_goal_field:
+                a_eg = str(engagement_goal_field).strip().lower()[:80]
+                q_eg = str(prefer_engagement_goal).strip().lower()[:80]
+                if a_eg and q_eg and (a_eg == q_eg or a_eg in q_eg or q_eg in a_eg):
+                    blended *= 1.15
 
             out.append({
                 "chunk_rowid": chunk_rowid,
@@ -371,6 +385,7 @@ class VectorStore:
         tier_min: int | None = None,
         chunks_per_article: int = 3,
         exclude_kinds: list[str] | None = None,
+        prefer_engagement_goal: str | None = None,
     ) -> list[dict]:
         """Like search() but groups chunks by article and returns the top
         `chunks_per_article` chunks per article. Use this for chat retrieval —
@@ -382,6 +397,7 @@ class VectorStore:
             limit=limit * max(chunks_per_article, 3) * 4,
             kind=kind, source=source, tier_min=tier_min,
             exclude_kinds=exclude_kinds,
+            prefer_engagement_goal=prefer_engagement_goal,
         )
 
         by_article: dict[str, dict] = {}

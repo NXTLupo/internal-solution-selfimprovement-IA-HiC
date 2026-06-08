@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import type { FreeformArtifact } from '../schemas/freeformArtifact';
+import { FREEFORM_A11Y_GUARD } from '../services/freeformSanitizer';
 
 interface Props {
     artifact: FreeformArtifact;
@@ -8,12 +9,22 @@ interface Props {
 const ARTIFACT_W = 1920;
 const ARTIFACT_H = 1080;
 
+// 2026-06-03 - Inject the deterministic accessibility contrast guard at RENDER
+// time so artifacts persisted BEFORE the sanitizer-side guard (the 23+ stored
+// journeys with dark-on-dark active tabs) are corrected on view, without a
+// regeneration. Idempotent: the guard's own id prevents double-injection.
+function withA11yGuard(html: string): string {
+    if (!html || html.includes('nxt-freeform-a11y')) return html;
+    if (html.includes('</body>')) return html.replace('</body>', FREEFORM_A11Y_GUARD + '</body>');
+    return html + FREEFORM_A11Y_GUARD;
+}
+
 /**
  * Renders a freeform-HTML artifact inside a sandboxed iframe at native
  * 1920x1080. The iframe is scaled to fit the container via CSS transform;
  * exports always use native resolution.
  *
- * sandbox="allow-same-origin" — no scripts, no top-nav, no forms — but the
+ * sandbox="allow-same-origin" - no scripts, no top-nav, no forms - but the
  * host page can still read the iframe's DOM for export. The freeformSanitizer
  * is the primary safety boundary; this is defense-in-depth.
  */
@@ -78,7 +89,7 @@ export const FreeformViewer: React.FC<Props> = ({ artifact }) => {
                 <iframe
                     ref={iframeRef}
                     title={artifact.title}
-                    srcDoc={artifact.html}
+                    srcDoc={withA11yGuard(artifact.html)}
                     sandbox="allow-same-origin"
                     style={{
                         width: ARTIFACT_W,

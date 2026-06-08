@@ -1,5 +1,5 @@
 /**
- * SlideCanvas — Template dispatcher + UI chrome.
+ * SlideCanvas - Template dispatcher + UI chrome.
  *
  * Each slide picks one of 10 NXT Humans templates. The web canvas always
  * renders at 960x540 internally and uses CSS transform: scale() to fit any
@@ -15,7 +15,9 @@ import {
     CompetitiveMatrixSlide, BlockQuoteSlide, CaseStudySlide, PrinciplesSlide,
     StatRowSlide, TimelineSlide, SectionDividerFullBleed,
     ServiceBlueprintSlide, GapMatrixSlide, ArchitectureMapSlide, PrdFeatureSlide, SystemsInventorySlide,
+    JourneyBriefSlide,
 } from './slideTemplates/web';
+import type { JourneyBrief } from '../services/journeyBriefExporter';
 import { exportSlideToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { TOKENS } from './slideTemplates/types';
 import { getBrand, type BrandId } from './slideTemplates/brands';
@@ -36,7 +38,7 @@ export interface SlideData {
     sources?: string[];
     imageUrl?: string;
     imagePrompt?: string;
-    // Template-specific data — populated based on `template`
+    // Template-specific data - populated based on `template`
     persona?: PersonaCardData;
     recommendation?: RecommendationData;
     themeCluster?: ThemeClusterData;
@@ -52,11 +54,12 @@ export interface SlideData {
     architectureMap?: ArchitectureMapData;
     prdFeature?: PrdFeatureData;
     systemsInventory?: SystemsInventoryData;
+    journeyBrief?: JourneyBrief;
     // Legacy/fallback fields (used when template doesn't fit any of the 15)
     body?: string;
     bullets?: string[];
     blocks?: NxtBlock[];
-    /** Post-parse validator output — populated when the slide violates one
+    /** Post-parse validator output - populated when the slide violates one
      *  of the corpus-meta-commentary, empty-quote, or subject-reference
      *  rules. Renderer surfaces this as an EVIDENCE GAP badge. */
     evidenceGap?: {
@@ -157,6 +160,10 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
             return slide.systemsInventory ? (
                 <SlideShell brand={brand}><SystemsInventorySlide title={slide.title} data={slide.systemsInventory} sources={sources} brand={brand} /></SlideShell>
             ) : null;
+        case 'journey-brief':
+            return slide.journeyBrief ? (
+                <SlideShell brand={brand}><JourneyBriefSlide title={slide.title} data={slide.journeyBrief} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
         default:
             return null;
     }
@@ -234,7 +241,7 @@ export const SlideCanvas: React.FC<Props> = ({
 
     // 1:1 EXPORT (2026-05-29): PRIMARY path walks the ACTUAL rendered slide DOM
     // (the same web.tsx render the user previews) via the shared DOM-walker and
-    // emits EDITABLE PPTX — so preview and export are produced from one engine
+    // emits EDITABLE PPTX - so preview and export are produced from one engine
     // reading one geometry. The legacy template renderer (pptx.ts) is kept as an
     // error-only FALLBACK, so if the walker ever fails the behavior is unchanged
     // (no regression). Clone off-screen at natural 960x540 with NO transform
@@ -325,7 +332,7 @@ export const SlideCanvas: React.FC<Props> = ({
             await new Promise(r => requestAnimationFrame(() => r(null)));
             await new Promise(r => requestAnimationFrame(() => r(null)));
 
-            // html2canvas does NOT honor CSS `object-fit: cover` on <img> elements —
+            // html2canvas does NOT honor CSS `object-fit: cover` on <img> elements -
             // it stretches images to fill the container. Pre-crop each image on a
             // canvas so it arrives at its exact displayed dimensions with correct
             // aspect ratio, then disable object-fit so html2canvas just blits it.
@@ -350,7 +357,7 @@ export const SlideCanvas: React.FC<Props> = ({
                     img.style.width = w + 'px';
                     img.style.height = h + 'px';
                 } catch {
-                    // Leave untouched on failure — slightly off-aspect is better than blank
+                    // Leave untouched on failure - slightly off-aspect is better than blank
                 }
             }));
             const html2canvas = (await import('html2canvas')).default;
@@ -404,7 +411,7 @@ export const SlideCanvas: React.FC<Props> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
                 <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#B8B800' }}>{slide.template.replace('-', ' ')}</span>
                 {slide.model && <span style={{ fontSize: 9, color: '#999' }}>via {slide.model}</span>}
-                {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                {/* evidenceGap badge intentionally suppressed - delivered output must never expose
                     QA-style annotations to the reader (per user directive 2026-05-05). The validator
                     still computes slide._evidenceGap for ops telemetry; it just isn't rendered. */}
                 <div style={{ flex: 1 }} />
@@ -415,10 +422,10 @@ export const SlideCanvas: React.FC<Props> = ({
                     {fullscreen ? 'MINIMIZE' : 'EXPAND'}
                 </button>
             </div>
-            {/* evidenceGap detail bar intentionally suppressed — delivered output must never expose
+            {/* evidenceGap detail bar intentionally suppressed - delivered output must never expose
                 QA-style annotations to the reader (per user directive 2026-05-05). */}
 
-            {/* Slide — scaled to fit container via CSS transform */}
+            {/* Slide - scaled to fit container via CSS transform */}
             {fullscreen ? (
                 <div style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(0,0,0,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{

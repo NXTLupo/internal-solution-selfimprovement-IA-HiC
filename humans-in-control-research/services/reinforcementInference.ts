@@ -1,9 +1,9 @@
 /**
- * Reinforcement Inference (RI) — Anchored re-asks for low-confidence outputs.
+ * Reinforcement Inference (RI) - Anchored re-asks for low-confidence outputs.
  *
  * The R2/R3 pillar of plans/reinforcement-inference-uplift.md. Before this
  * module existed, the 5 regen sites in geminiService.ts threw away the prior
- * answer and re-asked the model from scratch — exactly the anti-pattern the
+ * answer and re-asked the model from scratch - exactly the anti-pattern the
  * RI paper identifies as the load-bearing problem.
  *
  * This module exports `reinforceIfUncertain`: a wrapper that takes the prior
@@ -21,7 +21,7 @@ export interface UncertaintySignal {
     overallConfidence: 'HIGH' | 'MEDIUM' | 'LOW' | string;
     /** Claims the model flagged as least defensible. */
     leastDefensibleClaims: string[];
-    /** Calibration mismatch — fraction of HIGH-confidence claims that fail evidence checks. */
+    /** Calibration mismatch - fraction of HIGH-confidence claims that fail evidence checks. */
     calibrationMismatch?: number;
     /** Validation failures from the deliverable schema check. */
     validationFailures: string[];
@@ -58,7 +58,7 @@ export interface ReinforceInput<T> {
     signal: Omit<UncertaintySignal, 'score'>;
     /** Deliverable name for prompt clarity (e.g., "PRD", "Roadmap"). */
     deliverableName: string;
-    /** Original prompt to use as the base — re-asks build on this. */
+    /** Original prompt to use as the base - re-asks build on this. */
     basePrompt: string;
     /** Append the anchored prior answer + failures into the prompt. */
     buildReAsk?: (basePrompt: string, prior: T, signal: Omit<UncertaintySignal, 'score'>) => string;
@@ -86,7 +86,7 @@ export function buildAnchoredReAsk<T>(input: ReinforceInput<T>): string {
     return `${input.basePrompt}
 
 === REINFORCEMENT PASS: KEEP-AND-REVISE ===
-The prior generation produced the answer below. Do NOT regenerate from scratch — KEEP every claim that already has solid evidence, and REVISE only the specific items flagged below. Output the FULL deliverable in the same schema, with the kept items unchanged and the revised items strengthened.
+The prior generation produced the answer below. Do NOT regenerate from scratch - KEEP every claim that already has solid evidence, and REVISE only the specific items flagged below. Output the FULL deliverable in the same schema, with the kept items unchanged and the revised items strengthened.
 
 PRIOR ANSWER (JSON of the deliverable):
 ${priorAsString}
@@ -104,7 +104,7 @@ REINFORCEMENT INSTRUCTIONS:
 
 /**
  * Append a row to the uncertainty ledger (wiki/synthesis/uncertainty-ledger.md).
- * This is the P2.2 ledger surface — keeps a forever record of every reinforcement
+ * This is the P2.2 ledger surface - keeps a forever record of every reinforcement
  * pass so the learning engine can detect patterns ("this deliverable type
  * consistently triggers RI on the same claim").
  */
@@ -186,8 +186,8 @@ export function buildReinforceFeedbackString<T>(opts: {
 
     return `${failuresBlock} ${flaggedBlock}
 
-REINFORCEMENT MODE — Do NOT regenerate from scratch. Use the prior answer below as the starting point, and revise ONLY the items flagged by the failures and weak claims above. Keep every item already well-evidenced unchanged.
+REINFORCEMENT MODE - Do NOT regenerate from scratch. Use the prior answer below as the starting point, and revise ONLY the items flagged by the failures and weak claims above. Keep every item already well-evidenced unchanged.
 
-PRIOR ANSWER (anchor to this — do not lose its correct items):
+PRIOR ANSWER (anchor to this - do not lose its correct items):
 ${priorAsString}`.trim();
 }

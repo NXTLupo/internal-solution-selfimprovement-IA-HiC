@@ -1,5 +1,5 @@
 /**
- * Knowledge Graph Builder v2 — Elevated from visualization novelty to analytical instrument
+ * Knowledge Graph Builder v2 - Elevated from visualization novelty to analytical instrument
  *
  * Constructs an interactive knowledge graph from research pipeline data.
  * The graph grows as each analysis stage completes.
@@ -17,7 +17,7 @@
 
 // --- TYPES ---
 
-/** Extraction depth classification — drives the evidence badges in the
+/** Extraction depth classification - drives the evidence badges in the
  *  Analyst Desk detail panel. 'headline'/'snippet' = RSS-level text;
  *  'full_text'/'pdf_extracted'/'transcript' = deep extraction worth
  *  citing in a slide or deliverable. */
@@ -42,7 +42,7 @@ export interface KGNode {
     evidenceCount?: number;       // Theme: how many evidence nodes link to it
     sourceConcentration?: number; // Theme: % of evidence from single source (0-1)
     dominantSource?: string;      // Theme: name of most-cited source
-    // v3 fields — wiki-as-memory (Phase 1.6)
+    // v3 fields - wiki-as-memory (Phase 1.6)
     wikiPath?: string;            // Relative path under wiki/ (e.g. 'articles/chronicle/abc123.md')
     extractionDepth?: ExtractionDepth;  // How much content was actually extracted
     contentLength?: number;       // Chars of extracted content available in wiki
@@ -82,9 +82,9 @@ export interface GraphStats {
 }
 
 // --- TIER VISUAL ENCODING (NXT Humans Brand) ---
-// T1: Academic/Government — authoritative, solid black
-// T2: Industry/News — professional, dark gray
-// T3: Community/UGC — informal, light outline
+// T1: Academic/Government - authoritative, solid black
+// T2: Industry/News - professional, dark gray
+// T3: Community/UGC - informal, light outline
 
 const SOURCE_TIER_STYLES: Record<number, { fill: string; stroke: string; strokeWidth: number; strokeDash: string; labelColor: string }> = {
     1: { fill: '#0D0D0D', stroke: 'none', strokeWidth: 0, strokeDash: 'none', labelColor: '#FFFFFF' },
@@ -113,7 +113,7 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
         const tier = src.credibilityTier || 3;
         const tierStyle = getTierStyle(tier);
 
-        // 2026-05-11 — Aggregate per-source relevance to the research goal.
+        // 2026-05-11 - Aggregate per-source relevance to the research goal.
         // Each item carries a 0-100 relevanceScore from filterAndScoreItems
         // (LLM-scored vs. the goal). The source's "weight" is the SUM of those
         // scores so a source with 30 highly-relevant items outranks one with
@@ -134,7 +134,7 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
             tier,
             color: tierStyle.fill,
             size: 20 + Math.min(src.items.length * 2, 30),
-            // evidenceCount drives treemap tile sizing — for sources, this is
+            // evidenceCount drives treemap tile sizing - for sources, this is
             // the relevance-weighted count of items contributed to the corpus.
             evidenceCount: Math.round(relevanceSum / 10) || src.items.length,
             metadata: {
@@ -149,11 +149,11 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
         for (let i = 0; i < Math.min(src.items.length, 8); i++) {
             const item = src.items[i];
             const evidenceId = `ev_${sourceId}_${i}`;
-            // B5: Evidence quality encoding — size scales with relevance, metadata tracks freshness
+            // B5: Evidence quality encoding - size scales with relevance, metadata tracks freshness
             const relevance = item.relevanceScore || 50;
             const evSize = Math.max(6, Math.min(16, Math.round(6 + (relevance / 100) * 10))); // 6-16px
             const enriched = !!(item as any).enriched;
-            // Phase 1.6 — classify extraction depth from the orchestrator's
+            // Phase 1.6 - classify extraction depth from the orchestrator's
             // enrichment metadata. `wikiPath` comes from the enrichment
             // step (Phase 1.2) and the full content is stored under that
             // path in the wiki archive for lazy loading by chat / slides.
@@ -224,9 +224,12 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
         if (theme.citations) {
             for (const cit of theme.citations) {
                 const chunkId = cit.sourceFile || '';
-                const citSourceName = (cit.sourceName || '').toLowerCase();
-                const citText = (cit.text || '').toLowerCase();
-                const citUrl = cit.url || '';
+                // 2026-06-03 - coerce defensively: sourceName/text are sometimes
+                // objects ({text}/{name}), and .toLowerCase() on an object throws.
+                const _cstr = (v: any): string => (typeof v === 'string' ? v : (v && typeof v === 'object' ? String(v.text || v.name || v.sourceName || '') : '')).toLowerCase();
+                const citSourceName = _cstr(cit.sourceName);
+                const citText = _cstr(cit.text);
+                const citUrl = typeof cit.url === 'string' ? cit.url : '';
                 let matched = false;
 
                 // Strategy 1: Match citation sourceName to a SOURCE node label
@@ -322,18 +325,27 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
                     }
                 }
 
-                // Strategy 3: Create a citation node as last resort (only if URL available)
-                if (!matched && citUrl) {
+                // Strategy 3: A citation that carries a verbatim QUOTE (or a URL,
+                // or a named source) IS evidence - materialize it as an evidence
+                // node even when it matches no live source node.
+                // 2026-06-03 FIX - this previously fired ONLY when a URL was
+                // present, so themes grounded on wiki-archive passages (whose
+                // citations have text + sourceName but no URL, and whose source
+                // names differ from the run's live sources) produced ZERO evidence
+                // linkage. Result: the Analyst Desk treemap showed "0 EVIDENCE /
+                // THIN" for well-cited themes (the user's exact complaint). A
+                // quoted citation is real evidence regardless of URL.
+                if (!matched && (citUrl || (citText && citText.length >= 20) || (citSourceName && citSourceName.length > 2))) {
                     const citId = `cit_${themeId}_${edges.length}`;
                     nodes.push({
                         id: citId,
                         type: 'evidence',
-                        label: cit.sourceName || chunkId || 'Citation',
-                        url: citUrl,
+                        label: (cit.sourceName || chunkId || 'Citation').toString().substring(0, 80),
+                        url: citUrl || undefined,
                         color: '#F5F5F0',
                         size: 6,
                         isOrphan: false,
-                        metadata: { text: cit.text, author: cit.author, date: cit.publicationDate },
+                        metadata: { content: cit.text, text: cit.text, author: cit.author, date: cit.publicationDate, sourceName: cit.sourceName },
                     });
                     edges.push({
                         source: themeId,
@@ -343,6 +355,7 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
                         label: chunkId,
                     });
                     linkedEvidenceIds.push(citId);
+                    matched = true;
                 }
             }
         }
@@ -409,10 +422,10 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
                 status: theme.status,
                 linkedEvidence: linkedEvidenceIds.length,
                 linkedSources: [...new Set(linkedSourceIds)].length,
-                // 2026-04-28 Tier C — multi-faceted theme structure passes through
+                // 2026-04-28 Tier C - multi-faceted theme structure passes through
                 // to KG metadata so the analyst desk can render sub-themes,
                 // dimensions, contradictions, temporal arc, goal alignment, and
-                // implications. Optional fields — older themes lacking these
+                // implications. Optional fields - older themes lacking these
                 // fields render exactly as before (the UI guards each section).
                 subThemes: (theme as any).subThemes,
                 dimensions: (theme as any).dimensions,
@@ -454,7 +467,7 @@ export function addPersonasToGraph(graph: KnowledgeGraph, personas: any[]): Know
         const themeNodes = nodes.filter(n => n.type === 'theme');
         for (const themeNode of themeNodes) {
             const themeWords = (themeNode.label || '').toLowerCase().split(/\s+/);
-            const personaText = `${persona.bio || ''} ${(persona.painPoints || []).map((p: any) => p.label).join(' ')}`.toLowerCase();
+            const personaText = `${persona.bio || ''} ${(Array.isArray(persona.painPoints) ? persona.painPoints : []).map((p: any) => (p && typeof p === 'object' ? (p.label || p.text || '') : String(p || ''))).join(' ')}`.toLowerCase();
             const overlap = themeWords.filter(w => w.length > 3 && personaText.includes(w)).length;
             if (overlap >= 2) {
                 edges.push({
@@ -472,13 +485,30 @@ export function addPersonasToGraph(graph: KnowledgeGraph, personas: any[]): Know
         const evidenceNodes = nodes.filter(n => n.type === 'evidence');
         const sourceNodes = nodes.filter(n => n.type === 'source');
 
-        // Collect all persona text signals: pain point labels, quotes, source names
-        const painPointTexts: string[] = (persona.painPoints || []).map((p: any) => (p.label || '').toLowerCase());
-        const painPointSources: string[] = (persona.painPoints || []).map((p: any) => (p.source || '').toLowerCase()).filter(Boolean);
-        const motivationSources: string[] = (persona.motivations || []).map((m: any) => (m.source || '').toLowerCase()).filter(Boolean);
+        // 2026-06-03 FIX - these fields are sometimes OBJECTS, not strings
+        // (e.g. persona.quote = {text, attribution}, p.source = {sourceName}),
+        // and calling .toLowerCase() on an object threw
+        // "(a.quote || '').toLowerCase is not a function", crashing the whole
+        // knowledge-graph build (and the results view). `lc` coerces any shape
+        // - string, {text|quote|label|name|value}, or null - to a lowercased
+        // string safely.
+        const lc = (v: any): string => {
+            if (typeof v === 'string') return v.toLowerCase();
+            if (v && typeof v === 'object') return String(v.text || v.quote || v.label || v.name || v.value || '').toLowerCase();
+            return v == null ? '' : String(v).toLowerCase();
+        };
+        // Collect all persona text signals: pain point labels, quotes, source names.
+        // 2026-06-08 - guard against non-array painPoints/motivations (hydrated
+        // personas from older runs sometimes store these as an object or string,
+        // which crashed the KG build with "(a.painPoints||[]).map is not a function").
+        const _pains = Array.isArray(persona.painPoints) ? persona.painPoints : [];
+        const _motivs = Array.isArray(persona.motivations) ? persona.motivations : [];
+        const painPointTexts: string[] = _pains.map((p: any) => lc(p?.label));
+        const painPointSources: string[] = _pains.map((p: any) => lc(p?.source)).filter(Boolean);
+        const motivationSources: string[] = _motivs.map((m: any) => lc(m?.source)).filter(Boolean);
         const allPersonaSources = [...new Set([...painPointSources, ...motivationSources])];
-        const personaQuote = (persona.quote || '').toLowerCase();
-        const personaBio = (persona.bio || '').toLowerCase();
+        const personaQuote = lc(persona.quote);
+        const personaBio = lc(persona.bio);
 
         // 1) Direct source name matching: link to source nodes whose label matches cited sources
         for (const sourceNode of sourceNodes) {
@@ -567,7 +597,67 @@ export function addRecommendationsToGraph(graph: KnowledgeGraph, recommendations
 
 // --- GRAPH ANALYTICS ---
 
+/**
+ * 2026-06-03 - Per-node evidence accounting for NON-theme nodes.
+ * Themes set evidenceCount / isThinTheme / sourceConcentration during their own
+ * build (addThemesToGraph). Personas, recommendations, journey stages, features,
+ * roadmap items, and gaps were created WITHOUT those fields, so every Analyst
+ * Desk card outside the THEMES column (which reads n.evidenceCount || 0,
+ * n.isThinTheme, n.sourceConcentration) showed "0 EVIDENCE / THIN" by
+ * construction - independent of generation quality. Recommendations were the
+ * worst case: they only ever link to themes (`addresses` edges), never directly
+ * to evidence, so they could NEVER show a count.
+ *
+ * This pass counts the REAL evidence each node connects to:
+ *   - direct: any incident edge whose other endpoint is an evidence node
+ *   - recommendations additionally inherit the evidence of the themes they
+ *     `addresses` (a rec backed by a 5-evidence theme is 5-evidence-backed)
+ * No fabrication - counts come only from edges that already exist; truthfully
+ * sparse nodes stay sparse. Runs inside computeStats so every returned and
+ * persisted graph carries the annotation.
+ */
+function annotateNonThemeEvidence(nodes: KGNode[], edges: KGEdge[]): void {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const isEvidence = (id: string) => byId.get(id)?.type === 'evidence';
+    const directEv = new Map<string, Set<string>>();
+    const addDir = (a: string, ev: string) => {
+        let s = directEv.get(a);
+        if (!s) { s = new Set(); directEv.set(a, s); }
+        s.add(ev);
+    };
+    for (const e of edges) {
+        if (isEvidence(e.target)) addDir(e.source, e.target);
+        if (isEvidence(e.source)) addDir(e.target, e.source);
+    }
+    const themeEv = new Map<string, Set<string>>();
+    for (const n of nodes) if (n.type === 'theme') themeEv.set(n.id, directEv.get(n.id) ?? new Set());
+
+    for (const n of nodes) {
+        if (n.type === 'theme' || n.type === 'source' || n.type === 'evidence') continue;
+        const evSet = new Set<string>(directEv.get(n.id) ?? []);
+        if (n.type === 'recommendation') {
+            for (const e of edges) {
+                const theme = (e.source === n.id && themeEv.has(e.target)) ? e.target
+                            : (e.target === n.id && themeEv.has(e.source)) ? e.source : null;
+                if (theme) for (const ev of themeEv.get(theme)!) evSet.add(ev);
+            }
+        }
+        n.evidenceCount = evSet.size;
+        const srcCounts = new Map<string, number>();
+        for (const ev of evSet) {
+            const key = byId.get(ev)?.parentSourceId || 'unknown';
+            srcCounts.set(key, (srcCounts.get(key) ?? 0) + 1);
+        }
+        let domKey = ''; let domN = 0;
+        for (const [k, c] of srcCounts) if (c > domN) { domN = c; domKey = k; }
+        n.sourceConcentration = evSet.size > 0 ? domN / evSet.size : 0;
+        if (domKey && domKey !== 'unknown') n.dominantSource = byId.get(domKey)?.label;
+        n.isThinTheme = evSet.size < 3;
+    }
+}
+
 function computeStats(nodes: KGNode[], edges: KGEdge[]): GraphStats {
+    annotateNonThemeEvidence(nodes, edges);
     const sources = nodes.filter(n => n.type === 'source');
     const evidence = nodes.filter(n => n.type === 'evidence');
     const themes = nodes.filter(n => n.type === 'theme');

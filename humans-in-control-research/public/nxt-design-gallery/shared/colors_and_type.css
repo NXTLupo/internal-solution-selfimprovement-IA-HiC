@@ -1,0 +1,154 @@
+/* =========================================================================
+   NXT Humans Design System — Foundations (brand token layer)
+   SAME semantic variable contract as the NU gallery (so the brand-agnostic
+   artifacts.css + every artifact HTML render unchanged), remapped to NXT:
+   stark white, near-black ink, chartreuse power-accent, cyan secondary,
+   Bebas Neue display + Archivo body + JetBrains Mono. FLAT (no shadows),
+   GEOMETRIC (sharp corners). Source: tokens/nxt.json + NXT style guide.
+   ========================================================================= */
+
+/* Webfonts from Google Fonts so the HTML is self-contained + correctly fonted
+   regardless of locally installed fonts (fixes "generic" fallback rendering). */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  /* ===== COLOR — Brand ===== */
+  --nxt-chartreuse: rgb(184, 184, 0);    /* #B8B800 power accent (<=15% surface) */
+  --nxt-chartreuse-soft: rgb(212, 212, 74);
+  --nxt-cyan: rgb(0, 183, 195);          /* #00B7C3 secondary accent (<=10%) */
+  --nxt-teal-deep: rgb(26, 92, 94);      /* #1A5C5E color-block dark cell */
+
+  /* Back-compat: NU artifacts reference --nu-red-* inline; alias to brand accent
+     so ported artifacts never render a broken/undefined color. */
+  --nu-red-700: var(--nxt-teal-deep);
+  --nu-red-600: var(--nxt-chartreuse);
+  --nu-red-500: rgb(204, 51, 51);
+  --nu-red-100: rgb(255, 240, 240);
+
+  /* ---------- Ink (text + dark backgrounds) ---------- */
+  --ink-900: rgb(13, 13, 13);   /* #0D0D0D darkest — headings, dark sections */
+  --ink-800: rgb(26, 26, 26);   /* #1A1A1A near-black */
+  --ink-700: rgb(38, 38, 38);
+  --ink-600: rgb(51, 51, 51);   /* #333 body */
+
+  /* ---------- Neutral ramp (NXT) ---------- */
+  --slate-50:  rgb(255, 255, 255); /* STARK WHITE canvas — never tinted */
+  --slate-100: rgb(245, 245, 240); /* #F5F5F0 panel / stripe */
+  --slate-200: rgb(238, 238, 238); /* #EEE rule-light / divider */
+  --slate-300: rgb(224, 224, 224); /* #E0E0E0 default stroke */
+  --slate-400: rgb(187, 187, 187); /* #BBB subtle / disabled */
+  --slate-500: rgb(153, 153, 153); /* #999 muted / citations */
+  --slate-600: rgb(102, 102, 102); /* #666 secondary text */
+  --white:     rgb(255, 255, 255);
+
+  /* ===== COLOR — Semantic / Status (NXT style-guide semantic surfaces) ===== */
+  --success-bg:    rgb(240, 248, 240); --success-fg: rgb(46, 125, 50);  --success-solid: rgb(76, 175, 80);
+  --warning-bg:    rgb(255, 248, 225); --warning-fg: rgb(138, 138, 0);  --warning-solid: rgb(184, 184, 0);
+  --error-bg:      rgb(255, 240, 240); --error-fg:   rgb(204, 51, 51);  --error-solid:   rgb(204, 51, 51);
+  --progress-bg:   rgb(232, 246, 247); --progress-fg:rgb(0, 112, 107);  --progress-solid:rgb(0, 183, 195);
+  --special-bg:    rgb(232, 246, 247); --special-fg: rgb(0, 112, 107);  --special-solid: rgb(0, 183, 195);
+  --info-bg:       rgb(255, 248, 225); --info-fg:    rgb(138, 138, 0);
+
+  /* ===== SEMANTIC — Surfaces / Foregrounds ===== */
+  --bg-canvas:    var(--white);        /* stark white */
+  --bg-surface:   var(--white);
+  --bg-subtle:    var(--slate-100);
+  --bg-muted:     var(--slate-200);
+  --bg-inverse:   var(--ink-900);
+
+  --fg-default:   var(--ink-600);      /* #333 body */
+  --fg-strong:    var(--ink-900);      /* #0D0D0D headings */
+  /* 2026-06-03 — A11y: #999 muted (2.85:1) and #BBB subtle (2.0:1) both failed
+     WCAG AA (4.5:1) for informational text on white. Darkened to AA-safe grays
+     that keep the muted>subtle hierarchy: muted #595959 (~7:1), subtle #6E6E6E
+     (~4.9:1). Per the Playwright contrast audit. */
+  --fg-muted:     rgb(89, 89, 89);     /* #595959 ~7:1 */
+  --fg-subtle:    rgb(110, 110, 110);  /* #6E6E6E ~4.9:1 */
+  --fg-inverse:   var(--white);
+  --fg-brand:     var(--nxt-chartreuse);
+
+  --border-default: var(--slate-300);
+  --border-subtle:  var(--slate-200);
+  --border-strong:  var(--ink-900);
+  --border-focus:   var(--nxt-cyan);
+
+  /* ===== TYPE — Family stacks ===== */
+  --font-sans:    "Archivo", "Source Sans Pro", "Helvetica Neue", sans-serif;
+  --font-display: "Bebas Neue", "Oswald", "Impact", sans-serif;
+  --font-mono:    "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --font-numeric: "Archivo", system-ui, sans-serif;
+
+  /* ---------- Type scale (NXT — bigger display, Bebas is condensed) ---------- */
+  --fs-overline:   11px;
+  --fs-caption:    13px;
+  --fs-body-sm:    14px;
+  --fs-body:       16px;
+  --fs-body-lg:    18px;
+  --fs-h4:         22px;
+  --fs-h3:         28px;
+  --fs-h2:         40px;
+  --fs-h1:         56px;
+  --fs-display:    96px;
+
+  --fw-light:    400;  /* Bebas has one weight; keep body weights real */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --lh-tight:    0.9;   /* NXT oversized-headline tightness */
+  --lh-snug:     1.0;
+  --lh-normal:   1.5;
+  --lh-loose:    1.6;
+
+  --tracking-tight: 0;
+  --tracking-normal: 0;
+  --tracking-wide:  0.04em;
+  --tracking-overline: 0.12em;
+
+  /* ===== SPACING — 4px grid (same as NU) ===== */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px;
+  --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px; --space-20:80px;
+
+  /* ===== RADII — NXT is GEOMETRIC: sharp corners only (<=4px) ===== */
+  --radius-xs:   0px;
+  --radius-sm:   2px;
+  --radius-md:   2px;
+  --radius-lg:   4px;
+  --radius-xl:   4px;
+  --radius-pill: 999px;   /* PillButton / PillChip / tags remain pills */
+
+  /* ===== SHADOWS — NXT is FLAT: no drop shadows, no glow ===== */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-focus: 0 0 0 2px var(--nxt-cyan);
+  --shadow-focus-danger: 0 0 0 2px var(--error-solid);
+
+  /* ===== MOTION ===== */
+  --ease-standard: cubic-bezier(0.2, 0.0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.0, 0, 1.2);
+  --duration-fast: 120ms; --duration-base: 180ms; --duration-slow: 280ms;
+}
+
+/* ===== SEMANTIC TYPE — usable as classes (same names as NU; NXT treatment) ===== */
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-default);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.t-display { font-family: var(--font-display); font-weight: var(--fw-light); font-size: var(--fs-display); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); color: var(--fg-strong); text-transform: uppercase; }
+.t-h1 { font-family: var(--font-display); font-weight: var(--fw-light); font-size: var(--fs-h1); line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); color: var(--fg-strong); text-transform: uppercase; }
+.t-h2 { font-family: var(--font-display); font-weight: var(--fw-light); font-size: var(--fs-h2); line-height: var(--lh-snug); color: var(--fg-strong); text-transform: uppercase; }
+.t-h3 { font-family: var(--font-sans); font-weight: var(--fw-semibold); font-size: var(--fs-h3); line-height: var(--lh-snug); color: var(--fg-strong); }
+.t-h4 { font-family: var(--font-sans); font-weight: var(--fw-semibold); font-size: var(--fs-h4); line-height: var(--lh-snug); color: var(--fg-strong); }
+.t-body-lg { font-family: var(--font-sans); font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: var(--fg-default); }
+.t-body { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--fg-default); }
+.t-body-sm { font-family: var(--font-sans); font-size: var(--fs-body-sm); line-height: var(--lh-normal); color: var(--fg-default); }
+.t-caption { font-family: var(--font-sans); font-size: var(--fs-caption); line-height: var(--lh-normal); color: var(--fg-muted); }
+.t-overline { font-family: var(--font-sans); font-size: var(--fs-overline); font-weight: var(--fw-medium); line-height: 1; letter-spacing: var(--tracking-overline); text-transform: uppercase; color: var(--fg-muted); }
+.t-label { font-family: var(--font-sans); font-weight: var(--fw-medium); font-size: var(--fs-body-sm); line-height: 1.3; color: var(--fg-strong); }
+.t-num { font-family: var(--font-numeric); font-feature-settings: "tnum" 1, "lnum" 1; }

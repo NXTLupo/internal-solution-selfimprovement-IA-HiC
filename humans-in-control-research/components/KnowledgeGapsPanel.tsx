@@ -1,9 +1,9 @@
 /**
- * KnowledgeGapsPanel — Renders the per-engagement shortfalls + remediation
+ * KnowledgeGapsPanel - Renders the per-engagement shortfalls + remediation
  * suggestions detected by services/knowledgeGapFinder.ts.
  *
  * Mounted in two places:
- *   1. Knowledge Library tab "Coverage" — shows the shortfalls for the current
+ *   1. Knowledge Library tab "Coverage" - shows the shortfalls for the current
  *      engagement and lets the user execute remediation actions per source.
  *   2. (Future) Per-deliverable side-panel pop-out when the user clicks the
  *      inline shortfall-count chip on a deliverable card.
@@ -84,7 +84,7 @@ export const KnowledgeGapsPanel: React.FC<{
     return (
         <div style={styles.container} data-testid="knowledge-gaps-panel">
             <div style={styles.header}>
-                <div style={styles.title}>Coverage shortfalls — {gaps.length}</div>
+                <div style={styles.title}>Coverage shortfalls - {gaps.length}</div>
                 <div style={styles.summaryChips}>
                     {critical.length > 0 && <span style={{ ...styles.severityChip, background: NXT.critical, color: '#fff' }}>{critical.length} critical</span>}
                     {high.length > 0 && <span style={{ ...styles.severityChip, background: NXT.high, color: '#fff' }}>{high.length} high</span>}
@@ -94,7 +94,7 @@ export const KnowledgeGapsPanel: React.FC<{
             </div>
 
             <div style={styles.subtitle}>
-                Questions the engagement goal or a deliverable framework implies, but the corpus cannot answer. Deliverables are still generated — the affected fields are simply omitted (no annotations, no hallucinated fill).
+                Questions the engagement goal or a deliverable framework implies, but the corpus cannot answer. Deliverables are still generated - the affected fields are simply omitted (no annotations, no hallucinated fill).
             </div>
 
             <div style={styles.gapList}>
@@ -113,7 +113,7 @@ export const KnowledgeGapsPanel: React.FC<{
                             <div style={styles.gapBody}>
                                 <div style={styles.metaRow}>
                                     <span style={styles.metaLabel}>TRIGGERED BY</span>
-                                    <span style={styles.metaValue}>{gap.triggeredBy.type} — {gap.triggeredBy.source}</span>
+                                    <span style={styles.metaValue}>{gap.triggeredBy.type} - {gap.triggeredBy.source}</span>
                                 </div>
                                 {gap.affectedDeliverables.length > 0 && (
                                     <div style={styles.metaRow}>
@@ -177,7 +177,7 @@ export const KnowledgeGapsPanel: React.FC<{
                                                 <div style={styles.resultTitle}>Remediation results:</div>
                                                 {(lastResult[gap.id].sourceResults || []).map((sr: any, i: number) => (
                                                     <div key={i} style={styles.resultRow}>
-                                                        <span style={{ color: sr.success ? NXT.teal : NXT.rust }}>{sr.success ? '✓' : '✗'}</span>
+                                                        <span style={{ color: sr.success ? NXT.teal : NXT.rust }}>{sr.success ? '' : ''}</span>
                                                         <span style={styles.resultType}>{sr.source.type}</span>
                                                         {sr.previewUrl && (
                                                             <a href={sr.previewUrl} target="_blank" rel="noreferrer" style={styles.resultLink}>
@@ -204,7 +204,7 @@ export const KnowledgeGapsPanel: React.FC<{
                     rel="noreferrer"
                     style={styles.footerLink}
                 >Open full coverage report (markdown)</a>
-                <span style={styles.footerHint}>Repeated shortfalls feed wiki/known-gaps/ — next session's retrieval will bias toward these topics.</span>
+                <span style={styles.footerHint}>Repeated shortfalls feed wiki/known-gaps/ - next session's retrieval will bias toward these topics.</span>
             </div>
         </div>
     );
@@ -227,7 +227,7 @@ export const KnowledgeGapChip: React.FC<{ count: number; deliverableType?: strin
             title={title}
             data-testid="knowledge-gap-chip"
         >
-            ⚠ {count} shortfall{count === 1 ? '' : 's'}
+             {count} shortfall{count === 1 ? '' : 's'}
         </span>
     );
 };

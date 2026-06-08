@@ -1,5 +1,5 @@
 /**
- * Knowledge Gap Finder — Karpathy Plan Phase 2.3.
+ * Knowledge Gap Finder - Karpathy Plan Phase 2.3.
  *
  * Surfaces what the corpus CANNOT answer about the engagement goal and the
  * deliverable frameworks, before the deliverables ship. Designed to make the
@@ -7,10 +7,10 @@
  * looking deliverable that quietly omits half the required dimensions.
  *
  * Two baselines per the spec:
- *   A. Engagement goal — parsed into sub-questions; check coverage in corpus
- *   B. Framework page for each deliverable type — required dimensions become
+ *   A. Engagement goal - parsed into sub-questions; check coverage in corpus
+ *   B. Framework page for each deliverable type - required dimensions become
  *      questions; check coverage
- *   D. Cached prior engagements — if a question is uncovered, search
+ *   D. Cached prior engagements - if a question is uncovered, search
  *      sessions/_topic-cache/ and wiki/engagements/ for prior-engagement
  *      content that might answer it
  *
@@ -27,7 +27,7 @@
  *      which next-session retrieval reads
  *
  * The deliverable itself NEVER references its own gaps. Gap fields are omitted
- * from the rendered output — no annotations, no hallucinated fill. Gaps are a
+ * from the rendered output - no annotations, no hallucinated fill. Gaps are a
  * META layer the user reads to act, not content the model narrates in the
  * artifact.
  *
@@ -101,7 +101,7 @@ export interface FindGapsResult {
 
 /**
  * Parse the engagement goal into N specific sub-questions the corpus must
- * answer for the engagement to be properly scoped. Uses Gemini 3.5 Flash —
+ * answer for the engagement to be properly scoped. Uses Gemini 3.5 Flash -
  * structured output, cheap.
  */
 async function extractGoalQuestions(goal: string, industry?: string): Promise<string[]> {
@@ -340,7 +340,7 @@ ${cachedBlock}
 
 Propose 3-5 SPECIFIC sources to close this shortfall. Each source must include:
 - type: one of "web_search" | "subreddit" | "youtube" | "article" | "cached_engagement" | "academic"
-- query: the EXACT search query / subreddit URL / YouTube search to run (be specific — name the subreddit, name the journal, etc.)
+- query: the EXACT search query / subreddit URL / YouTube search to run (be specific - name the subreddit, name the journal, etc.)
 - rationale: 1 sentence explaining why this source would answer the question
 - estimatedYield: "high" | "medium" | "low"
 

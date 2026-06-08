@@ -191,7 +191,7 @@ function renderWithCitations(
     return <>{parts}</>;
 }
 
-/** Default citation click handler — logs to console until full source-scroll is wired up */
+/** Default citation click handler - logs to console until full source-scroll is wired up */
 const handleCitationClick = (chunkId: string) => {
     console.log('Citation clicked:', chunkId);
 };
@@ -464,7 +464,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       if (activeTab === 'personas') {
           data = personasData.map(p => ({
               Name: p.name, Role: p.role, Quote: p.quote, Bio: p.bio,
-              PainPoints: (p.painPoints || []).map(pp => pp.label).join('; ')
+              PainPoints: (Array.isArray(p.painPoints) ? p.painPoints : []).map(pp => pp.label).join('; ')
           }));
           filename = 'personas.csv';
       } else if (activeTab === 'themes' && result.themes) {
@@ -534,12 +534,12 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
   });
 
-  // 2026-05-25 — Font-readiness gate. html2canvas captures the DOM at the moment
+  // 2026-05-25 - Font-readiness gate. html2canvas captures the DOM at the moment
   // it fires; if web fonts (Spectral, Roboto, JetBrains Mono, Bebas Neue, Archivo)
   // are still loading, text falls back to a system font that has narrower glyph
   // widths than the design system assumes. The 80px label column that holds
   // "CHALLENGE" in 9px Roboto Mono will break to "CHALLENG/E" if Roboto Mono
-  // isn't loaded — exactly the pattern the user flagged on 2026-05-25.
+  // isn't loaded - exactly the pattern the user flagged on 2026-05-25.
   //
   // FontFaceSet.ready resolves when every font currently used in the document
   // has finished loading or failed. We chain it with a small timeout ceiling
@@ -602,15 +602,15 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
 
               // --- FIX 2: Apply print-mode to strip interactive chrome ---
               contentRef.current.setAttribute('data-print-mode', 'true');
-              // 2026-05-25 — also set data-export-mode so any per-template
+              // 2026-05-25 - also set data-export-mode so any per-template
               // export-mode CSS rule (e.g., sidebar wordmark visibility) fires.
               contentRef.current.setAttribute('data-export-mode', 'true');
 
-              // 2026-05-25 — Font readiness gate. Must precede the first paint
+              // 2026-05-25 - Font readiness gate. Must precede the first paint
               // wait so the layout reflows to final glyph widths BEFORE the
               // capture geometry is measured. Without this, html2canvas captures
               // text at fallback-font widths and the 80px label columns wrap
-              // mid-word ("CHALLENG/E", "APPROAC/H") — exactly the defect
+              // mid-word ("CHALLENG/E", "APPROAC/H") - exactly the defect
               // flagged on 2026-05-25 in the case-study export.
               await waitForFonts();
 
@@ -618,7 +618,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               await waitForPaint();
 
               const pdfPageWidth = 338.67; // mm (13.33")
-              const pdfPageHeight = 190.5; // mm (7.5") — exact 16:9
+              const pdfPageHeight = 190.5; // mm (7.5") - exact 16:9
               const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [pdfPageWidth, pdfPageHeight] });
               pdf.deletePage(1);
 
@@ -642,7 +642,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   await waitForPaint();
                   await new Promise(r => setTimeout(r, RENDER_WAIT_MS));
 
-                  // 2026-05-25 — Lock the exact rendered geometry so html2canvas
+                  // 2026-05-25 - Lock the exact rendered geometry so html2canvas
                   // doesn't re-layout against the viewport width and break the
                   // 80px label column / aspect ratio.
                   const geom = measureExportGeometry(slideElement);
@@ -658,7 +658,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       canvas = await html2canvas(slideElement, {
                           scale: 1.5, useCORS: true, logging: false,
                           backgroundColor: null, // Preserve actual backgrounds (dark slides!)
-                          // 2026-05-25 — windowWidth/Height now use the locked
+                          // 2026-05-25 - windowWidth/Height now use the locked
                           // geometry (max(scrollWidth, boundingRect.width)) so
                           // the offscreen render matches what the user sees.
                           // Previously this used only scrollWidth which omitted
@@ -673,7 +673,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       // --- FIX 3: Pre-export blank detection ---
                       if (!isCanvasBlank(canvas)) break; // Content detected, proceed
 
-                      // Blank — retry with longer wait
+                      // Blank - retry with longer wait
                       retries++;
                       if (retries <= MAX_RETRIES) {
                           await new Promise(r => setTimeout(r, 500 * retries));
@@ -1140,7 +1140,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       return (
           <div key={idx} className={containerClass} style={{ backgroundColor: bg }}>
 
-               {/* ====== TITLE SLIDE — Dark, editorial statement + stat row ====== */}
+               {/* ====== TITLE SLIDE - Dark, editorial statement + stat row ====== */}
                {archetypeLayout === 'TITLE_SLIDE' && (
                    <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '56px 56px 48px' }}>
                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -1171,7 +1171,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                    </div>
                )}
 
-               {/* ====== SECTION HEADER — Dark, oversized accent word ====== */}
+               {/* ====== SECTION HEADER - Dark, oversized accent word ====== */}
                {archetypeLayout === 'SECTION_HEADER' && (
                    <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
                        <div style={{ position: 'absolute', left: 48, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 'clamp(80px, 14vw, 160px)', fontWeight: 900, color: accent, lineHeight: 0.9, pointerEvents: 'none', opacity: 0.15, whiteSpace: 'nowrap', maxWidth: '120%' }}>{titleText.substring(0, 30)}</div>
@@ -1184,7 +1184,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                    </div>
                )}
 
-               {/* ====== ADAPTIVE BODY SLIDE — One flexible renderer for all content types ====== */}
+               {/* ====== ADAPTIVE BODY SLIDE - One flexible renderer for all content types ====== */}
                {/* NXT Humans style: White bg, clean typography, content drives layout */}
                {archetypeLayout !== 'TITLE_SLIDE' && archetypeLayout !== 'SECTION_HEADER' && (
                    <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
@@ -1207,7 +1207,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                            <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: fg, lineHeight: 1.25, marginBottom: 20 }}>
                                {titleText}<span style={{ color: accent }}>.</span>
                            </h2>
-                           {/* Evidence points — unconstrained, as many as exist */}
+                           {/* Evidence points - unconstrained, as many as exist */}
                            {(slide.content || []).map((point, i) => (
                                <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 10 }}>
                                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: getRotatedAccent(i), flexShrink: 0, marginTop: 6 }} />
@@ -1251,7 +1251,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                </div>
                            )}
                        </div>
-                       {/* RIGHT: Data panel — metrics, bento cells, or quote (only if data exists) */}
+                       {/* RIGHT: Data panel - metrics, bento cells, or quote (only if data exists) */}
                        {(metrics.length > 0 || (slide.bentoCells || []).length > 0 || (slide.quote && (slide.content || []).length > 0)) && (
                        <div style={{ width: '45%', background: '#FAFAFA', borderLeft: '1px solid #F0F0F0', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
                            {/* Metrics */}
@@ -1361,7 +1361,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                               {(personasData || []).map((p: any, i: number) => (
                                   <div key={i}>
                                   <div className="persona-card" style={{display:'grid',gridTemplateColumns:'240px 1fr',border:'1px solid #E0E0E0',overflow:'visible',minHeight:'420px'}}>
-                                      {/* LEFT: Identity Panel — NXT Humans Design System */}
+                                      {/* LEFT: Identity Panel - NXT Humans Design System */}
                                       <div style={{background:'#0D0D0D',color:'#fff',display:'flex',flexDirection:'column'}}>
                                           <div style={{width:'100%',height:'240px',position:'relative',overflow:'hidden'}}>
                                               {p.imageUrl ? <img src={p.imageUrl} alt={p.name} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 15%',filter:'grayscale(100%) contrast(1.2) brightness(0.95)',display:'block',borderRadius:0}} /> : <div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',color:'#999'}}>Generating...</div>}
@@ -1381,7 +1381,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               </div>
                                           </div>
                                       </div>
-                                      {/* RIGHT: Content Panel — STARK WHITE */}
+                                      {/* RIGHT: Content Panel - STARK WHITE */}
                                       <div style={{background:'#FFFFFF',padding:'24px 28px',display:'flex',flexDirection:'column',gap:'16px'}}>
                                           {/* Quote */}
                                           <div style={{fontSize:'14px',fontStyle:'italic',color:'#666',paddingLeft:'14px',borderLeft:'3px solid #B8B800',lineHeight:'1.6'}}>
@@ -1394,7 +1394,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <div style={{fontSize:'13px',color:'#333',lineHeight:'1.55'}}>{p.jtbd}</div>
                                               </div>
                                           )}
-                                          {/* Behavioral Attributes — no arbitrary scores */}
+                                          {/* Behavioral Attributes - no arbitrary scores */}
                                           {p.attributes && p.attributes.length > 0 && (
                                               <div>
                                                   <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>BEHAVIORAL PROFILE</div>
@@ -1429,7 +1429,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   </div>
                                               </div>
                                           )}
-                                          {/* Bio — with clickable citation traceability (P5-02) */}
+                                          {/* Bio - with clickable citation traceability (P5-02) */}
                                           <div style={{fontSize:'13px',color:'#666',lineHeight:'1.6',whiteSpace:'pre-wrap',maxHeight:'120px',overflowY:'auto',padding:'4px 0'}}>{renderWithCitations(p.bio || '', handleCitationClick)}</div>
                                           {/* Confidence Badge */}
                                           <div style={{display:'flex',alignItems:'center',gap:'8px',fontSize:'11px',color:'#999',marginTop:'auto',paddingTop:'10px',borderTop:'1px solid #E0E0E0'}}>
@@ -1438,7 +1438,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                           </div>
                                       </div>
                                   </div>
-                                  {/* FIVE Ws — below the card */}
+                                  {/* FIVE Ws - below the card */}
                                   {p.fiveWs && (
                                           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-6 py-4 bg-[var(--bg-secondary)] border-t border-b border-[var(--border-primary)]">
                                               {[
@@ -1449,7 +1449,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               ].map((w, wi) => (
                                                   <div key={wi} className="text-xs" style={{ borderLeft: `3px solid ${w.color}`, paddingLeft: '8px' }}>
                                                       <div className="text-[8px] font-bold uppercase tracking-widest mb-1" style={{ color: w.color }}>{w.label}</div>
-                                                      <div className="text-[var(--text-secondary)] leading-snug">{w.value || '—'}</div>
+                                                      <div className="text-[var(--text-secondary)] leading-snug">{w.value || '-'}</div>
                                                   </div>
                                               ))}
                                           </div>
@@ -1458,7 +1458,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       {/* MOTIVATIONS + PAIN POINTS + TASKS + OPPORTUNITIES */}
                                       <div className="grid md:grid-cols-2 gap-0">
                                           {/* Motivations */}
-                                          {p.motivations && p.motivations.length > 0 && (
+                                          {Array.isArray(p.motivations) && p.motivations.length > 0 && (
                                               <div className="p-5 border-r border-b border-[var(--border-primary)]">
                                                   <div className="text-[9px] font-bold uppercase tracking-widest text-[#0CCE6B] mb-3">Motivations ({p.motivations.length})</div>
                                                   <div className="space-y-2">
@@ -1474,7 +1474,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                           )}
 
                                           {/* Pain Points */}
-                                          {p.painPoints && p.painPoints.length > 0 && (
+                                          {Array.isArray(p.painPoints) && p.painPoints.length > 0 && (
                                               <div className="p-5 border-b border-[var(--border-primary)]">
                                                   <div className="text-[9px] font-bold uppercase tracking-widest text-[#FF5A5A] mb-3">Pain Points ({p.painPoints.length})</div>
                                                   <div className="space-y-2">
@@ -1552,7 +1552,11 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                               <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 12 }}>Research Themes<span style={{ color: '#B8B800' }}>.</span></h2>
                               <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#888', marginBottom: 4 }}>{result.themes.length} themes extracted from source corpus</p>
                           </div>
-                          <div className="grid grid-cols-1 gap-6">
+                          {/* 2026-06-05 - Bug 3 fix. Was grid-cols-1 (one tall column,
+                              user perceived as "thin wall"). Now 3 columns wide on
+                              large screens, 2 on medium, 1 on mobile - 23 themes
+                              produces ~8 rows of substantial cards on desktop. */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                               {result.themes.map((theme: Theme, ti: number) => {
                                   const statusColor = theme.status === 'priority' ? '#B8B800' : theme.status === 'approved' ? '#00B7C3' : theme.status === 'skipped' ? '#999' : '#888';
                                   const statusBg = theme.status === 'priority' ? '#B8B80015' : theme.status === 'approved' ? '#00B7C315' : theme.status === 'skipped' ? '#99999915' : '#88888815';
@@ -1644,7 +1648,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                           <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">PRODUCT REQUIREMENTS DOCUMENT</h2>
                           <div style={{border:'1px solid #E0E0E0',padding:'28px',background:'#FFFFFF'}}>
                               <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1.75rem',color:'#0D0D0D',letterSpacing:'0.02em'}}>{prdData.title}</h3>
-                              {/* Problem Statement — the most important section per Cagan */}
+                              {/* Problem Statement - the most important section per Cagan */}
                               <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'0',marginTop:'24px'}}>
                                   <div style={{paddingRight:'24px',borderRight:'1px solid #E0E0E0'}}>
                                       <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>PURPOSE & OBJECTIVES</div>
@@ -1700,7 +1704,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <h5 style={{fontSize:'15px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h5>
                                               </div>
                                               <p style={{fontSize:'13px',lineHeight:'1.6',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
-                                              {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                              {/* evidenceGap badge intentionally suppressed - delivered output must never expose
                                                   QA-style annotations to the reader (per user directive 2026-05-05). */}
                                           </div>
                                       ))}
@@ -1758,7 +1762,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                           {/* === SVG SERVICE BLUEPRINT VISUALIZATION === */}
                           <div className="diagram-container overflow-x-auto border border-[var(--border-primary)] rounded bg-white p-4" style={{overflowX:'auto'}}>
                               <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} className="font-sans">
-                                  {/* Column headers — stage names — FULL TEXT, no truncation */}
+                                  {/* Column headers - stage names - FULL TEXT, no truncation */}
                                   {journeyData.map((s: any, i: number) => (
                                       <g key={`h${i}`}>
                                           <rect x={labelW + i * colW} y={0} width={colW - 4} height={32} rx={4} fill={s.momentOfTruth ? '#FF5A5A' : '#115054'} />
@@ -1768,7 +1772,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </g>
                                   ))}
 
-                                  {/* EMOTION CURVE — labeled data points with color fills */}
+                                  {/* EMOTION CURVE - labeled data points with color fills */}
                                   <text x={10} y={emotionTop + 20} fontSize="7" fontWeight="bold" fill="#115054">EMOTION</text>
                                   <rect x={labelW - 5} y={emotionTop} width={journeyData.length * colW + 5} height={emotionH} rx={4} fill="#fafafa" stroke="#e5e5e5" />
                                   {/* Positive zone (green tint above neutral) */}
@@ -1789,7 +1793,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       );
                                   })}
 
-                                  {/* TOUCHPOINTS ROW — full text, word-wrap */}
+                                  {/* TOUCHPOINTS ROW - full text, word-wrap */}
                                   <text x={10} y={touchpointTop + 14} fontSize="7" fontWeight="bold" fill="#525252">TOUCHPOINTS</text>
                                   {journeyData.map((s: any, i: number) => (
                                       <foreignObject key={`tp${i}`} x={labelW + i * colW} y={touchpointTop} width={colW - 8} height={laneH}>
@@ -1797,7 +1801,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </foreignObject>
                                   ))}
 
-                                  {/* ACTOR LANES — full names and full action text */}
+                                  {/* ACTOR LANES - full names and full action text */}
                                   {allActors.map((actor: string, ai: number) => {
                                       const y = actorsTop + ai * actorLaneH;
                                       return (
@@ -1822,7 +1826,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       );
                                   })}
 
-                                  {/* FRONTSTAGE LANE — full text */}
+                                  {/* FRONTSTAGE LANE - full text */}
                                   {(() => { const y = frontstageTop; return (
                                       <g>
                                           <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#00b1eb">FRONTSTAGE</text>
@@ -1843,7 +1847,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </g>
                                   ); })()}
 
-                                  {/* BACKSTAGE LANE — full text */}
+                                  {/* BACKSTAGE LANE - full text */}
                                   {(() => { const y = backstageTop; return (
                                       <g>
                                           <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#115054">BACKSTAGE</text>
@@ -1856,7 +1860,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </g>
                                   ); })()}
 
-                                  {/* PAIN POINTS LANE — full text */}
+                                  {/* PAIN POINTS LANE - full text */}
                                   {(() => { const y = painTop; return (
                                       <g>
                                           <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#FF5A5A">PAIN POINTS</text>
@@ -1869,7 +1873,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </g>
                                   ); })()}
 
-                                  {/* SUPPORT PROCESSES LANE — full text */}
+                                  {/* SUPPORT PROCESSES LANE - full text */}
                                   {(() => { const y = supportTop; return (
                                       <g>
                                           <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#6b7280">SUPPORT</text>
@@ -1881,7 +1885,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </g>
                                   ); })()}
 
-                                  {/* TECHNOLOGY SYSTEMS LANE — new per audit B-05 */}
+                                  {/* TECHNOLOGY SYSTEMS LANE - new per audit B-05 */}
                                   {journeyData.some((s: any) => s.technologySystems) && (() => { const y = supportTop + laneH + 4; return (
                                       <g>
                                           <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#7c3aed">TECH SYSTEMS</text>
@@ -1977,7 +1981,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                               <div className="bg-[var(--bg-secondary)] p-5 rounded border" style={{fontFamily:"'Archivo', sans-serif", fontSize:'14px', color:'#333333', lineHeight:'1.65', maxWidth:'800px'}}>{techData.overview}</div>
                           )}
 
-                          {/* Structured SVG architecture diagram — built from actual node/flow data */}
+                          {/* Structured SVG architecture diagram - built from actual node/flow data */}
                           {(() => {
                               const nodeFills: Record<string, string> = { 'User': '#dbeafe', 'Application': '#d1fae5', 'Database': '#fef3c7', 'Integration': '#ede9fe', 'External': '#f3f4f6', 'AI/ML': '#ccfbf1', 'Cloud': '#e0e7ff' };
                               const nodeStrokes: Record<string, string> = { 'User': '#3b82f6', 'Application': '#10b981', 'Database': '#f59e0b', 'Integration': '#8b5cf6', 'External': '#6b7280', 'AI/ML': '#14b8a6', 'Cloud': '#6366f1' };
@@ -2055,7 +2059,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               return (
                                                   <g key={`n${ni}`}>
                                                       <rect x={pos.x - nodeW / 2} y={pos.y - nodeH / 2} width={nodeW} height={nodeH} rx="6" fill={fill} stroke={stroke} strokeWidth="1.5" />
-                                                      {/* Full label — word-wrapped via foreignObject */}
+                                                      {/* Full label - word-wrapped via foreignObject */}
                                                       <foreignObject x={pos.x - nodeW / 2 + 6} y={pos.y - nodeH / 2 + 4} width={nodeW - 12} height={nodeH - 16}>
                                                           <div style={{ fontSize: '9px', fontWeight: 700, color: '#1A1A1A', textAlign: 'center', lineHeight: 1.2, wordWrap: 'break-word', overflow: 'hidden' }}>{nd.label || ''}</div>
                                                       </foreignObject>
@@ -2081,7 +2085,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                               );
                           })()}
 
-                          {/* System Nodes — color-coded cards */}
+                          {/* System Nodes - color-coded cards */}
                           <div>
                               <h2 className="text-2xl font-black mb-4 border-b pb-4">System Nodes ({techData.nodes?.length || 0})</h2>
                               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -2142,7 +2146,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   </div>
                                                   {/* Content */}
                                                   <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#444', lineHeight: 1.65, whiteSpace: 'pre-wrap' }}>{cleanText(section.content)}</p>
-                                                  {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                                  {/* evidenceGap badge intentionally suppressed - delivered output must never expose
                                                       QA-style annotations to the reader (per user directive 2026-05-05). */}
                                                   {/* Citations via EvidenceBlock */}
                                                   <EvidenceBlock citations={(section as any).citations} evidenceBasis={(section as any).evidenceBasis} />
@@ -2159,7 +2163,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       <div className="space-y-8">
                            <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">STRATEGIC PLAN</h2>
 
-                           {/* STRAT-01: Rumelt's Kernel — Diagnosis + Guiding Policy */}
+                           {/* STRAT-01: Rumelt's Kernel - Diagnosis + Guiding Policy */}
                            {result.strategyDocument && (
                                <div className="space-y-6">
                                    {/* Executive Summary */}
@@ -2210,7 +2214,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                        <h4 style={{fontSize:'16px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h4>
                                                    </div>
                                                    <p style={{fontSize:'14px',lineHeight:'1.65',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
-                                                   {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                                   {/* evidenceGap badge intentionally suppressed - delivered output must never expose
                                                        QA-style annotations to the reader (per user directive 2026-05-05). */}
                                                </div>
                                            ))}
@@ -2312,7 +2316,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>PRIORITIZED ACTIONS</div>
                                       {gap.prioritizedActions.map((a: any, i: number) => (
                                           <div key={i} style={{ padding: '8px 12px', background: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF', borderRadius: 4, marginBottom: 4, fontFamily: FONT.primary, fontSize: 13, color: '#444' }}>
-                                              <strong style={{ color: '#1A1A1A' }}>{a.priority}</strong>: {cleanText(a.action)}{a.owner ? ` — ${a.owner}` : ''}
+                                              <strong style={{ color: '#1A1A1A' }}>{a.priority}</strong>: {cleanText(a.action)}{a.owner ? ` - ${a.owner}` : ''}
                                           </div>
                                       ))}
                                   </div>
@@ -2347,7 +2351,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <div key={i} style={{ borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
                                                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px 80px', padding: '10px 16px', gap: 8 }}>
                                                           <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{s.name}</span>
-                                                          <span style={{ fontFamily: FONT.primary, fontSize: 12, color: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? '#B8B800' : '#666', fontWeight: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 600 : 400 }}>{(!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 'TBD — vendor selection needed' : s.vendor}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 12, color: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? '#B8B800' : '#666', fontWeight: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 600 : 400 }}>{(!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 'TBD - vendor selection needed' : s.vendor}</span>
                                                           <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#888' }}>{s.category}</span>
                                                           <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, textTransform: 'uppercase' as const, color: statusColor }}>{s.status}</span>
                                                       </div>
@@ -2358,7 +2362,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </div>
                                   </div>
                               )}
-                              {/* Integration Map — structured cards */}
+                              {/* Integration Map - structured cards */}
                               {audit.integrationMap && audit.integrationMap.length > 0 && (
                                   <div>
                                       <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>INTEGRATIONS ({audit.integrationMap.length})</div>

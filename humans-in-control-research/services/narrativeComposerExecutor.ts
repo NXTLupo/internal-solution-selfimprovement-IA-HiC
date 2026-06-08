@@ -7,7 +7,7 @@
 //
 // The executor takes the current session state at construction and stays
 // stateless thereafter. Each tool call hits the proxy or reads from the
-// already-captured session — no globals.
+// already-captured session - no globals.
 
 import type {
   ToolExecutor,
@@ -26,7 +26,7 @@ import type {
 import { fetchWikiArticles, type WikiArticleBody } from './wikiIndexService';
 
 // ============================================================================
-// SESSION STATE — what the executor reads from to answer get_* tools
+// SESSION STATE - what the executor reads from to answer get_* tools
 // ============================================================================
 
 export interface ExecutorSessionState {
@@ -82,7 +82,7 @@ export interface ExecutorSessionState {
 
 function scopeToKindFilter(scope: 'external_only' | 'uploaded_only' | 'both'): string | undefined {
   if (scope === 'uploaded_only') return 'upload';
-  // For external_only and both, we don't pass kind filter — multi-kind retrieval
+  // For external_only and both, we don't pass kind filter - multi-kind retrieval
   // is what we want; the source-classification happens on the result side via
   // article.kind inspection when we map results back to citations.
   return undefined;
@@ -96,12 +96,12 @@ function articleScope(article: WikiArticleBody): 'external' | 'uploaded' | 'anal
 }
 
 // ============================================================================
-// HELPER — convert a WikiArticleBody into a SearchCorpusResult chunk
+// HELPER - convert a WikiArticleBody into a SearchCorpusResult chunk
 // ============================================================================
 
 // Per-chunk text size cap. Keeping this LEAN is what prevents context
 // explosion across 8-10 tool calls. 800 chars * 6 chunks * 8 calls = ~38KB
-// of tool-result payload — well within budget. The model has the full
+// of tool-result payload - well within budget. The model has the full
 // chunk_id and source name to cite; it doesn't need the entire body.
 const CHUNK_TEXT_CHARS = 800;
 
@@ -110,7 +110,7 @@ const CHUNK_TEXT_CHARS = 800;
 // ============================================================================
 // The wiki accumulates content across all engagements. A "challenges" query
 // for engagement A will retrieve high-cosine-similarity articles from
-// engagements B, C, D — often with nothing to do with A's topic. This guard
+// engagements B, C, D - often with nothing to do with A's topic. This guard
 // applies the same fidelity-overlap pattern that the proxy uses for query
 // refinement (refineSearchQueries), but at the result level: tokenize the
 // engagement goal into keywords, count how many appear in each article's
@@ -124,7 +124,7 @@ const STOPWORDS = new Set([
   'some', 'such', 'than', 'then', 'there', 'through', 'until', 'very',
   'what', 'when', 'where', 'which', 'while', 'why', 'around', 'because',
   'against', 'beyond', 'during', 'within', 'without', 'upon',
-  // Generic narrative terms that match almost any strategic content — a goal
+  // Generic narrative terms that match almost any strategic content - a goal
   // like "challenges and opportunities" should NOT be reduced to those words
   'challenges', 'opportunities', 'challenge', 'opportunity', 'strategy',
   'strategic', 'analysis', 'framework', 'approach', 'context', 'goals',
@@ -146,7 +146,7 @@ function goalRelevanceFilter(
   minOverlap: number,
 ): WikiArticleBody[] {
   const keywords = extractGoalKeywords(goal);
-  // If the goal is very short or has no signal terms, don't filter at all —
+  // If the goal is very short or has no signal terms, don't filter at all -
   // it would drop everything. Better to let the model see results than over-filter.
   if (keywords.length < 2) return articles;
 
@@ -162,7 +162,7 @@ function goalRelevanceFilter(
 }
 
 // ============================================================================
-// LLM RERANK (Stage 3 — cross-encoder pattern)
+// LLM RERANK (Stage 3 - cross-encoder pattern)
 // ============================================================================
 // After cosine bi-encoder retrieval (Stage 1) and goal-relevance keyword
 // filter (Stage 2), we have N candidates that all pass minimum bars but
@@ -193,7 +193,7 @@ async function rerankArticles(
   question: string,
   modelId?: string,
 ): Promise<RerankOutcome> {
-  // Skip rerank for trivial inputs — not worth an LLM call
+  // Skip rerank for trivial inputs - not worth an LLM call
   if (articles.length < 2) {
     return { articles, scores: articles.map(() => null) };
   }
@@ -220,13 +220,13 @@ async function rerankArticles(
         goal,
         question,
         candidates,
-        // 2026-05-08 — Rerank stays on DeepSeek alongside the composer
+        // 2026-05-08 - Rerank stays on DeepSeek alongside the composer
         // (composer schema not yet Gemini-compatible). Caller can override.
         model: modelId || 'deepseek-v4-flash',
       }),
     });
     if (!resp.ok) {
-      // Proxy returned non-200 — fall back to input order
+      // Proxy returned non-200 - fall back to input order
       return { articles, scores: articles.map(() => null) };
     }
     const json = await resp.json();
@@ -236,7 +236,7 @@ async function rerankArticles(
     }
 
     // Reorder articles per rerank scores. Any candidate the rerank dropped
-    // (shouldn't happen — proxy backfills at score 0) is appended at the end.
+    // (shouldn't happen - proxy backfills at score 0) is appended at the end.
     const reordered: WikiArticleBody[] = [];
     const reorderedScores: Array<number | null> = [];
     const consumed = new Set<number>();
@@ -250,7 +250,7 @@ async function rerankArticles(
         consumed.add(idx);
       }
     }
-    // Append any leftover originals (defensive — shouldn't fire if proxy honors contract)
+    // Append any leftover originals (defensive - shouldn't fire if proxy honors contract)
     articles.forEach((a, i) => {
       if (!consumed.has(i)) {
         reordered.push(a);
@@ -259,7 +259,7 @@ async function rerankArticles(
     });
     return { articles: reordered, scores: reorderedScores };
   } catch (e) {
-    // Network error, abort signal, malformed JSON — keep retrieval working
+    // Network error, abort signal, malformed JSON - keep retrieval working
     // by falling back to the existing (cosine + keyword) order.
     return { articles, scores: articles.map(() => null) };
   }
@@ -308,11 +308,11 @@ function articleToChunk(
 // Looks for double-quoted spans first; falls back to first 1-2 sentences
 // in the chunk if quotes are absent. Each candidate is attributed via
 // surrounding context when possible.
-// 2026-05-04 — Heuristic relaxed:
+// 2026-05-04 - Heuristic relaxed:
 //   - word range broadened to 6-65 (was 10-50) to catch shorter punchy
 //     quotes and longer first-person passages that transcripts contain
 //   - attribution searches BOTH directions (before AND after the quote)
-//     because transcripts often have "Allison said:" before, not "— Allison"
+//     because transcripts often have "Allison said:" before, not "- Allison"
 //     after
 //   - new Pattern 3: speaker-prefix lines (e.g. "Riley Quinn: I can verify
 //     that data...") which is the dominant pattern in YouTube transcripts
@@ -342,13 +342,13 @@ function extractCandidateQuotes(
     const wordCount = quoted.split(/\s+/).length;
     if (wordCount < minWords || wordCount > maxWords) continue;
 
-    // Look ahead for "— Name" / "said NAME" / "according to NAME"
+    // Look ahead for "- Name" / "said NAME" / "according to NAME"
     const after = text.slice(m.index + m[0].length, m.index + m[0].length + 160);
     const beforeStart = Math.max(0, m.index - 160);
     const before = text.slice(beforeStart, m.index);
 
     const afterMatch =
-      after.match(/[—–-]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})/) ||
+      after.match(/[-]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})/) ||
       after.match(/(?:said|says|noted|observed|told)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})/);
     const beforeMatch =
       before.match(/([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})\s+(?:said|says|noted|observed|tells\s+us|put\s+it)\s*[:,]?\s*$/i) ||
@@ -390,7 +390,7 @@ function extractCandidateQuotes(
 
   // ---- Pattern 3: substantive sentences across the whole body (fallback)
   // Filter to sentences that look like statements of opinion/observation
-  // (have first-person, comparative, or evaluative language) — those are
+  // (have first-person, comparative, or evaluative language) - those are
   // the candidates that read as quotes in a deck context.
   if (candidates.length === 0) {
     const sentences = text
@@ -437,7 +437,7 @@ function extractCandidateStats(
   const patterns: RegExp[] = [
     /\$\s?[\d.]+\s?(?:billion|million|trillion|B|M|T)\b/gi,            // $5.1 billion
     /\b\d{1,3}(?:,\d{3})+\s+[a-z]+(?:\s+[a-z]+)?/gi,                   // 1,057 participants
-    /\b\d{1,3}(?:[-–]\d{1,3})?%(?:\s+[a-z]+){0,3}/gi,                  // 35%, 90-99% accuracy
+    /\b\d{1,3}(?:[-]\d{1,3})?%(?:\s+[a-z]+){0,3}/gi,                  // 35%, 90-99% accuracy
     /\b\d{1,4}\+?\s+[a-z]+(?:\s+[a-z]+){0,2}/gi,                       // 70 hospitals, 3000+ studies
   ];
 
@@ -476,7 +476,7 @@ function extractCandidateStats(
 }
 
 // ============================================================================
-// PUBLIC FACTORY — build a ToolExecutor for a given session state
+// PUBLIC FACTORY - build a ToolExecutor for a given session state
 // ============================================================================
 
 export function createNarrativeComposerExecutor(
@@ -493,11 +493,11 @@ export function createNarrativeComposerExecutor(
         // Over-fetch by 2x because the goal-relevance filter below will drop
         // articles that don't pass the fidelity threshold. Without over-fetch
         // the model gets too few results when the wiki has a lot of off-engagement
-        // content (which is the common case — wiki accumulates across engagements).
+        // content (which is the common case - wiki accumulates across engagements).
         const articles = await fetchWikiArticles({
           query: input.query,
           kind: scopeToKindFilter(input.scope),
-          // 2026-05-08 — Honor user source-restriction directives. When the
+          // 2026-05-08 - Honor user source-restriction directives. When the
           // model passes source_name (because the user said "only use X"),
           // pass it through as a substring filter so only that source's
           // chunks come back. The user prompt is the highest-priority
@@ -507,12 +507,12 @@ export function createNarrativeComposerExecutor(
           maxCharsPerArticle: 1500,
           engagementGoal: goal,
           // ↑ from 0.40 to 0.70: heavier bias toward goal-relevance in initial
-          // ranking. This alone won't prevent off-topic contamination — the
-          // hard filter below does that — but it reduces the over-fetch cost.
+          // ranking. This alone won't prevent off-topic contamination - the
+          // hard filter below does that - but it reduces the over-fetch cost.
           goalBlendWeight: 0.70,
         });
 
-        // Filter post-fetch when scope=external_only — exclude any 'upload' articles
+        // Filter post-fetch when scope=external_only - exclude any 'upload' articles
         const scopeFiltered = input.scope === 'external_only'
           ? articles.filter(a => articleScope(a) !== 'uploaded')
           : articles;
@@ -524,7 +524,7 @@ export function createNarrativeComposerExecutor(
         // the engagement goal. This prevents cross-engagement wiki content
         // (e.g., "Intelligence Augmentation" articles surfacing during a
         // "Northeastern advancement" query) from leaking into the model's
-        // context — which was the root cause of the topic-drift failure.
+        // context - which was the root cause of the topic-drift failure.
         const goalFiltered = goalRelevanceFilter(scopeFiltered, goal, /*minOverlap*/ 0.25);
 
         // ====== STAGE 3: LLM CROSS-ENCODER RERANK ======
@@ -532,7 +532,7 @@ export function createNarrativeComposerExecutor(
         // asks an LLM whether each candidate actually answers the goal +
         // question. Cached server-side by (goal, question, chunk_ids) so a
         // typical session pays the cost once per unique query shape.
-        // Falls back to input order on any failure — never breaks retrieval.
+        // Falls back to input order on any failure - never breaks retrieval.
         const rerankOutcome = await rerankArticles(
           goalFiltered,
           goal,
@@ -619,7 +619,7 @@ export function createNarrativeComposerExecutor(
 
     async extract_quotes(input: ExtractQuotesInput): Promise<ExtractQuotesResult> {
       const max = Math.min(10, input.max ?? 5);
-      // 2026-05-04 — Bypass search_corpus's 800-char chunk preview. The
+      // 2026-05-04 - Bypass search_corpus's 800-char chunk preview. The
       // heuristic was scanning tiny windows and missing real quotes that
       // live in 5-50KB interview transcripts. Pull FULL article bodies
       // via fetchWikiArticles (12KB per article, transcripts preferred)
@@ -657,14 +657,14 @@ export function createNarrativeComposerExecutor(
         }
         return { quotes: all.slice(0, max), total_returned: Math.min(all.length, max) };
       } catch (e) {
-        // Graceful degradation — composer prompt forbids fabrication
+        // Graceful degradation - composer prompt forbids fabrication
         return { quotes: [], total_returned: 0 };
       }
     },
 
     async extract_stats(input: ExtractStatsInput): Promise<ExtractStatsResult> {
       const max = Math.min(8, input.max ?? 4);
-      // 2026-05-04 — Same fix as extract_quotes: use full article body, not
+      // 2026-05-04 - Same fix as extract_quotes: use full article body, not
       // 800-char chunk preview. Stats live deep in articles (e.g. "$78.8B
       // total support" buried in CASE Insights 2025 page 12).
       try {
@@ -701,7 +701,7 @@ export function createNarrativeComposerExecutor(
 }
 
 // ============================================================================
-// EXECUTOR + TRACKER WRAPPER — registers chunks with citation tracker on every tool call
+// EXECUTOR + TRACKER WRAPPER - registers chunks with citation tracker on every tool call
 // ============================================================================
 
 import type { CitationTracker } from './narrativeComposerTools';

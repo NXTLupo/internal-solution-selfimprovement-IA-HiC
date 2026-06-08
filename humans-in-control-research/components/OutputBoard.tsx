@@ -1,5 +1,5 @@
 /**
- * Output Board — Collects pinned NXT visual outputs for arrangement and export.
+ * Output Board - Collects pinned NXT visual outputs for arrangement and export.
  *
  * Users pin outputs from the chat conversation, reorder them here,
  * add section dividers, and export as NXT-branded HTML, PDF, or PPTX.

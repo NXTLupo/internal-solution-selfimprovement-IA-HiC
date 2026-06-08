@@ -1,4 +1,4 @@
-// services/__e2e__/composer.e2e.test.ts — 2026-05-27
+// services/__e2e__/composer.e2e.test.ts - 2026-05-27
 //
 // END-TO-END test of the #presentation composer flow against the LIVE proxy.
 //
@@ -64,7 +64,7 @@ beforeAll(async () => {
 
 describe('composer schema isolation (live proxy)', () => {
   it('gemini-compat accepts the REAL submit_presentation tool schema in isolation', async () => {
-    if (!proxyUp) { console.warn('[schema-iso] proxy down — skip'); return; }
+    if (!proxyUp) { console.warn('[schema-iso] proxy down - skip'); return; }
     const tools = await import('../narrativeComposerTools');
     const submit = (tools.NARRATIVE_TOOLS as any[]).find(t => t.name === 'submit_presentation');
     expect(submit).toBeTruthy();
@@ -93,7 +93,7 @@ describe('composer schema isolation (live proxy)', () => {
 describe('composer e2e (live proxy)', () => {
   it('composes a #presentation via the real Gemini tool loop without a provider hard-fail', async () => {
     if (!proxyUp) {
-      console.warn('[composer.e2e] research-proxy not reachable on 5012 — skipping');
+      console.warn('[composer.e2e] research-proxy not reachable on 5012 - skipping');
       return;
     }
     const result = await compose({
@@ -125,6 +125,6 @@ describe('composer e2e (live proxy)', () => {
     expect(Array.isArray(result.payload.sections)).toBe(true);
     expect(result.payload.sections.length).toBeGreaterThanOrEqual(6);
     // No emoji / em-dash leaked into the title (repo-wide ban).
-    expect(/[\u{1F000}-\u{1FAFF}—]/u.test(result.payload.meta?.title || '')).toBe(false);
+    expect(/[\u{1F000}-\u{1FAFF}-]/u.test(result.payload.meta?.title || '')).toBe(false);
   }, 360_000);
 });

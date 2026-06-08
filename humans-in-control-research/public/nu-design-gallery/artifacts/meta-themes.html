@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Meta-Themes: Portfolio patterns across engagements</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .mt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+  .mt { background: var(--bg-surface); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .mt__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .mt__tier { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 9px; border-radius: 2px; white-space: nowrap; }
+  .mt__tier--platform { background: var(--nu-red-600); color: var(--white); }
+  .mt__tier--portfolio { background: var(--slate-200); color: var(--ink-800); }
+  .mt__name { font-family: var(--font-display); font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--fg-strong); }
+  .mt__summary { font-size: 12.5px; line-height: 1.5; color: var(--fg-default); }
+  .mt__appears { display: flex; flex-direction: column; gap: 5px; }
+  .mt__appear { display: grid; grid-template-columns: 14px 1fr auto; gap: 8px; align-items: baseline; font-size: 11px; color: var(--fg-default); }
+  .mt__appear .dot { width: 7px; height: 7px; border-radius: 999px; margin-top: 4px; }
+  .mt__appear .slug { font-family: var(--font-mono); color: var(--fg-muted); }
+  .mt__appear .rel { font-family: var(--font-mono); font-size: 9px; letter-spacing: .04em; text-transform: uppercase; color: var(--fg-subtle); }
+  .mt__types { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+  .mt__type { font-family: var(--font-mono); font-size: 9px; letter-spacing: .04em; color: var(--fg-muted); background: var(--slate-100); padding: 2px 7px; border-radius: 2px; }
+  .mt__count { font-family: var(--font-display); font-size: 30px; color: var(--nu-red-600); line-height: 1; }
+  .mt__count span { font-size: 11px; color: var(--fg-muted); font-family: var(--font-mono); letter-spacing: .04em; }
+  .mt-almost { margin-top: 8px; }
+  .mt-almost .row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--border-subtle); font-size: 12px; align-items: baseline; }
+  .mt-almost .row:last-child { border-bottom: none; }
+  .mt-almost .cand { color: var(--fg-strong); font-weight: 500; }
+  .mt-almost .engs { font-family: var(--font-mono); font-size: 9.5px; color: var(--fg-muted); letter-spacing: .02em; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Portfolio synthesis · Meta-themes · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Meta-Themes · Cross-engagement</div>
+    <h1 class="art-masthead__title" style="width: 560px">AI integration in higher education recurs across the portfolio as a platform pattern, while co-op matching is converging toward one.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Scope</dt><dd>Engagement portfolio</dd></div>
+    <div class="art-masthead__meta-block"><dt>Pattern floor</dt><dd>3 engagements</dd></div>
+    <div class="art-masthead__meta-block"><dt>Platform floor</dt><dd>5 engagements</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <div class="stat-strip" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 24px;">
+    <div class="stat"><div class="stat__label">Platform patterns</div><div class="stat__value">Pervasive AI</div><div class="stat__delta">recurs in five or more engagements</div></div>
+    <div class="stat"><div class="stat__label">Portfolio patterns</div><div class="stat__value">Co-op matching</div><div class="stat__delta stat__delta--up">recurs in three or more engagements</div></div>
+    <div class="stat"><div class="stat__label">Almost a pattern</div><div class="stat__value">Donor trust</div><div class="stat__delta">seen in two, watch for a third</div></div>
+  </div>
+
+  <div class="mt-grid">
+
+    <article class="mt">
+      <div class="mt__top">
+        <span class="mt__tier mt__tier--platform">Platform pattern</span>
+        <div style="text-align:right;"><div class="mt__count">5<span> engagements</span></div></div>
+      </div>
+      <div class="mt__name">Pervasive AI integration across operations</div>
+      <div class="mt__summary">AI moves from pilot to default across teaching, advising, admissions, and research workflows. The pattern is institutional adoption outpacing governance, not any single use case.</div>
+      <div class="mt__appears">
+        <div class="mt__appear"><span class="dot" style="background:var(--nu-red-600)"></span><span>Co-op readiness strategy <span class="slug">identify-strategy-for-co-op</span></span><span class="rel">exact</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--nu-red-600)"></span><span>First-year advising enablement <span class="slug">advisor-enablement</span></span><span class="rel">exact</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--special-solid)"></span><span>Student 360 profile <span class="slug">student-360-crm</span></span><span class="rel">close</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--special-solid)"></span><span>Partnership development <span class="slug">employer-partnership</span></span><span class="rel">close</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--slate-400)"></span><span>Admissions modernization <span class="slug">admissions-ai</span></span><span class="rel">analogous</span></div>
+      </div>
+      <div class="mt__types"><span class="mt__type">academic</span><span class="mt__type">news</span><span class="mt__type">social</span><span class="mt__type">client</span></div>
+    </article>
+
+    <article class="mt">
+      <div class="mt__top">
+        <span class="mt__tier mt__tier--portfolio">Portfolio pattern</span>
+        <div style="text-align:right;"><div class="mt__count">3<span> engagements</span></div></div>
+      </div>
+      <div class="mt__name">AI-enabled personalized student support and matching</div>
+      <div class="mt__summary">LLM-driven analysis of student profiles against employer skill requirements to surface gaps early and improve match quality. Convergent across student-voice and program-description sources.</div>
+      <div class="mt__appears">
+        <div class="mt__appear"><span class="dot" style="background:var(--nu-red-600)"></span><span>Co-op readiness strategy <span class="slug">identify-strategy-for-co-op</span></span><span class="rel">exact</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--special-solid)"></span><span>First-year advising enablement <span class="slug">advisor-enablement</span></span><span class="rel">close</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--slate-400)"></span><span>Career-readiness curriculum <span class="slug">career-readiness</span></span><span class="rel">analogous</span></div>
+      </div>
+      <div class="mt__types"><span class="mt__type">social</span><span class="mt__type">academic</span><span class="mt__type">client</span></div>
+    </article>
+
+    <article class="mt">
+      <div class="mt__top">
+        <span class="mt__tier mt__tier--portfolio">Portfolio pattern</span>
+        <div style="text-align:right;"><div class="mt__count">3<span> engagements</span></div></div>
+      </div>
+      <div class="mt__name">AI ethics, privacy, and regulatory scrutiny</div>
+      <div class="mt__summary">Emerging standards and civil-society pressure on data privacy and accountability surface alongside every adoption push. The governance question travels with the deployment question.</div>
+      <div class="mt__appears">
+        <div class="mt__appear"><span class="dot" style="background:var(--nu-red-600)"></span><span>Co-op readiness strategy <span class="slug">identify-strategy-for-co-op</span></span><span class="rel">close</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--special-solid)"></span><span>Student 360 profile <span class="slug">student-360-crm</span></span><span class="rel">exact</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--slate-400)"></span><span>Admissions modernization <span class="slug">admissions-ai</span></span><span class="rel">close</span></div>
+      </div>
+      <div class="mt__types"><span class="mt__type">government</span><span class="mt__type">academic</span><span class="mt__type">news</span></div>
+    </article>
+
+    <article class="mt">
+      <div class="mt__top">
+        <span class="mt__tier mt__tier--portfolio">Portfolio pattern</span>
+        <div style="text-align:right;"><div class="mt__count">3<span> engagements</span></div></div>
+      </div>
+      <div class="mt__name">Institutional transparency and trust pressure</div>
+      <div class="mt__summary">Heightened expectations for transparency in funding and stakeholder relationships, driven by reputational risk. Shows up wherever a recommendation touches donor or employer relationships.</div>
+      <div class="mt__appears">
+        <div class="mt__appear"><span class="dot" style="background:var(--special-solid)"></span><span>Partnership development <span class="slug">employer-partnership</span></span><span class="rel">close</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--slate-400)"></span><span>Advancement operations <span class="slug">advancement-ops</span></span><span class="rel">exact</span></div>
+        <div class="mt__appear"><span class="dot" style="background:var(--slate-400)"></span><span>Student 360 profile <span class="slug">student-360-crm</span></span><span class="rel">analogous</span></div>
+      </div>
+      <div class="mt__types"><span class="mt__type">news</span><span class="mt__type">client</span><span class="mt__type">academic</span></div>
+    </article>
+
+  </div>
+
+  <section class="art-section">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Almost a pattern</h2>
+      <span class="art-section__counter">themes seen in two engagements, one short of portfolio status</span>
+    </div>
+    <div class="mt-almost">
+      <div class="row"><span class="cand">Donor-to-student affinity as an untapped bridge</span><span class="engs">employer-partnership · advancement-ops</span></div>
+      <div class="row"><span class="cand">Peer mentorship outperforming official channels</span><span class="engs">identify-strategy-for-co-op · career-readiness</span></div>
+      <div class="row"><span class="cand">Tooling sprawl forcing manual cross-referencing</span><span class="engs">advancement-ops · student-360-crm</span></div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Method</div>
+    <ol>
+      <li><b>Source</b> · per-engagement themes.json across the portfolio, clustered by name and summary similarity</li>
+      <li><b>Pattern floor</b> · a theme in three or more distinct engagements; platform floor is five</li>
+      <li><b>Distinctness</b> · clustered by engagement, not by client, so a repeat client does not inflate a pattern</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">META-THEMES · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>meta-themes</code> · Brand: NU</div>
+  </div>
+</footer>
+
+</body>
+</html>

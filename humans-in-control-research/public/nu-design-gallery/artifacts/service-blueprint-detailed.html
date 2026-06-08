@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Service Blueprint (detailed): First co-op cycle</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  /* Bitner 5-component blueprint as a CSS grid: rows are the layers, columns
+     are user-voice stages. Grid resolves overlap by construction, no absolute
+     positioning. A line-of-visibility and line-of-internal-interaction are
+     rendered as heavier row borders. */
+  .bp { display: grid; grid-template-columns: 168px repeat(5, 1fr); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; background: var(--border-subtle); gap: 1px; }
+  .bp__corner { background: var(--ink-900); }
+  .bp__stage { background: var(--ink-900); color: var(--white); padding: 12px 13px; }
+  .bp__stage .n { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; color: rgba(255,255,255,.55); }
+  .bp__stage .name { font-family: var(--font-display); font-size: 15px; font-weight: 600; line-height: 1.1; margin-top: 3px; }
+  .bp__rowlabel { background: var(--bg-subtle); padding: 12px 13px; font-weight: 600; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-strong); display: flex; flex-direction: column; justify-content: center; }
+  .bp__rowlabel small { font-weight: 400; font-size: 9px; letter-spacing: .02em; text-transform: none; color: var(--fg-muted); margin-top: 4px; }
+  .bp__cell { background: var(--bg-surface); padding: 11px 12px; font-size: 11px; line-height: 1.4; color: var(--fg-default); }
+  .bp__cell.moment { box-shadow: inset 3px 0 0 var(--nu-red-600); }
+  .bp__row--frontstage .bp__rowlabel { border-top: 3px solid var(--ink-800); }
+  .bp__row--backstage .bp__rowlabel { border-top: 3px dashed var(--slate-400); }
+  .bp__emotion { font-family: var(--font-mono); font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
+  .bp__emo { display: inline-flex; align-items: center; gap: 5px; }
+  .bp__emo .dot { width: 8px; height: 8px; border-radius: 999px; }
+  .bp__fail { margin-top: 7px; padding-left: 9px; border-left: 2px solid var(--error-solid); font-size: 10px; line-height: 1.35; color: var(--error-fg); }
+  .bp__tech { font-family: var(--font-mono); font-size: 9.5px; color: var(--fg-muted); }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Service blueprint · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Service Blueprint · Bitner five-layer</div>
+    <h1 class="art-masthead__title" style="width: 560px">The make-or-break moment is submission, where the backstage filter acts invisibly and the frontstage gives the student no status to act on.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Stages</dt><dd>Five, user voice</dd></div>
+    <div class="art-masthead__meta-block"><dt>Layers</dt><dd>Bitner five</dd></div>
+    <div class="art-masthead__meta-block"><dt>Fail points</dt><dd>Marked per stage</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+  <div class="bp">
+    <!-- Stage header row -->
+    <div class="bp__corner"></div>
+    <div class="bp__stage"><div class="n">01</div><div class="name">Getting ready</div></div>
+    <div class="bp__stage"><div class="n">02</div><div class="name">Finding postings</div></div>
+    <div class="bp__stage"><div class="n">03</div><div class="name">Putting my name in</div></div>
+    <div class="bp__stage"><div class="n">04</div><div class="name">Interviewing</div></div>
+    <div class="bp__stage"><div class="n">05</div><div class="name">Deciding</div></div>
+
+    <!-- Customer actions -->
+    <div class="bp__rowlabel">Customer actions<small>what the student does</small></div>
+    <div class="bp__cell">Updates one resume against last year's examples and a single keyword set.</div>
+    <div class="bp__cell">Scrolls two boards across two evenings, shortlists by gut, no semantic filter.</div>
+    <div class="bp__cell moment">Submits a batch during midterms, then waits with no view of what happened.</div>
+    <div class="bp__cell">Takes short remote interviews scheduled against the class timetable.</div>
+    <div class="bp__cell">Accepts or declines inside the employer window, often without a comparison.</div>
+
+    <!-- Frontstage -->
+    <div class="bp__rowlabel bp__row--frontstage" style="grid-column:1;">Frontstage<small>visible to the student · line of visibility</small></div>
+    <div class="bp__cell bp__row--frontstage">Prep workshop and a single resume-review slot, booked weeks ahead.</div>
+    <div class="bp__cell bp__row--frontstage">Posting boards with vendor-jargon filters; deadline reminder emails.</div>
+    <div class="bp__cell moment bp__row--frontstage">A confirmation that reads identical whether filtered or under review.</div>
+    <div class="bp__cell bp__row--frontstage">Interview scheduler; advisor mediates class-excuse conflicts.</div>
+    <div class="bp__cell bp__row--frontstage">Match confirmation and site-logistics prep, after the fact.</div>
+
+    <!-- Backstage -->
+    <div class="bp__rowlabel bp__row--backstage">Backstage<small>hidden from the student · line of internal interaction</small></div>
+    <div class="bp__cell bp__row--backstage">Advisor caseload triage; resume templates maintained outside the system.</div>
+    <div class="bp__cell bp__row--backstage">Employer configures ATS keyword thresholds tuned for senior roles.</div>
+    <div class="bp__cell moment bp__row--backstage">ATS keyword filter ranks and removes applicants before any human review.</div>
+    <div class="bp__cell bp__row--backstage">Recruiter reviews only the surfaced shortlist; the filtered pool is unseen.</div>
+    <div class="bp__cell bp__row--backstage">Employer approvals drive a short acceptance window on its own timeline.</div>
+
+    <!-- Support + technology -->
+    <div class="bp__rowlabel">Support &amp; systems<small>infrastructure</small></div>
+    <div class="bp__cell"><span class="bp__tech">NUworks profile · advisor templates · LinkedIn</span></div>
+    <div class="bp__cell"><span class="bp__tech">NUworks · Handshake · employer ATS</span></div>
+    <div class="bp__cell moment"><span class="bp__tech">Employer ATS · Workday · email</span></div>
+    <div class="bp__cell"><span class="bp__tech">Zoom · scheduler · calendar</span></div>
+    <div class="bp__cell"><span class="bp__tech">NUworks match · email</span></div>
+
+    <!-- Emotion + fail points -->
+    <div class="bp__rowlabel">Emotion &amp; fail points<small>state and risk</small></div>
+    <div class="bp__cell"><span class="bp__emo bp__emotion"><span class="dot" style="background:var(--slate-400)"></span>Cautious</span><div class="bp__fail">Resume guidance trails live postings; effort is mis-aimed from the start.</div></div>
+    <div class="bp__cell"><span class="bp__emo bp__emotion"><span class="dot" style="background:var(--warning-solid)"></span>Overwhelmed</span><div class="bp__fail">Volume without ranking; qualified postings get lost in the scroll.</div></div>
+    <div class="bp__cell moment"><span class="bp__emo bp__emotion"><span class="dot" style="background:var(--error-solid)"></span>Anxious, invisible</span><div class="bp__fail">Most-frequent failure: qualified student filtered pre-review with no signal.</div></div>
+    <div class="bp__cell"><span class="bp__emo bp__emotion"><span class="dot" style="background:var(--warning-solid)"></span>Pressured</span><div class="bp__fail">Interview-class collisions force missed lectures.</div></div>
+    <div class="bp__cell"><span class="bp__emo bp__emotion"><span class="dot" style="background:var(--success-solid)"></span>Relieved or resigned</span><div class="bp__fail">Tight window forces acceptance without comparing offers.</div></div>
+  </div>
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Sources cited inline</div>
+    <ol>
+      <li><b>Reddit r/NEU + r/cscareerquestions</b> · funnel + status threads, 2026-Q1</li>
+      <li><b>Co-op coordinator field-notes</b> · caseload + template practice</li>
+      <li><b>Employer partner interviews</b> · ATS threshold configuration</li>
+      <li><b>First-year diary study</b> · interview and decision pressure</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">SERVICE BLUEPRINT · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>service-blueprint-mapper</code> · Brand: NU</div>
+  </div>
+</footer>
+
+</body>
+</html>

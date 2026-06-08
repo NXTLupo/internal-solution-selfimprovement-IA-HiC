@@ -1,5 +1,5 @@
 /**
- * Method Executor Interface — Research method abstraction layer
+ * Method Executor Interface - Research method abstraction layer
  *
  * Each research methodology (General Synthesis, JTBD, Design Thinking,
  * Contextual Inquiry, etc.) implements this interface.

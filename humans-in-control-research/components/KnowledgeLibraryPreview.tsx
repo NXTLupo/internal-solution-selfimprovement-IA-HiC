@@ -4,7 +4,7 @@ import { formatUSD } from '../services/costMeter';
 import type { LibrarySelection } from './KnowledgeLibrary';
 
 /**
- * KnowledgeLibraryPreview — landing-page tile that visualizes what's cached
+ * KnowledgeLibraryPreview - landing-page tile that visualizes what's cached
  * in the wiki at a glance and lets the researcher open the full library
  * modal. Renders ABOVE Continue Session on the IDLE page so the second-brain
  * library is the FIRST thing a researcher sees.
@@ -17,14 +17,14 @@ import type { LibrarySelection } from './KnowledgeLibrary';
 interface Props {
     /** Opens the full Knowledge Library modal. */
     onOpen: () => void;
-    /** Active selection — when set, the tile shows the selection summary instead of the empty-state CTA. */
+    /** Active selection - when set, the tile shows the selection summary instead of the empty-state CTA. */
     selection: LibrarySelection | null;
     /** Clear the active selection. */
     onClear: () => void;
     accentColor?: string;
     /** When set, the preview tile prompts the user to browse the library for
      *  items relevant to this goal. The actual relevance scoring happens
-     *  inside the modal — running the full aggregator on every IDLE render
+     *  inside the modal - running the full aggregator on every IDLE render
      *  would be 30-50 proxy fetches just to compute the preview hint. */
     researchGoal?: string;
 }
@@ -69,10 +69,10 @@ export const KnowledgeLibraryPreview: React.FC<Props> = ({ onOpen, selection, on
                     <div style={{ fontSize: 12, color: '#525252', marginTop: 4, maxWidth: 720, lineHeight: 1.45 }}>
                         {researchGoal && researchGoal.trim().length >= 8 ? (
                             <span>
-                                Browse the wiki — items most relevant to <em style={{ color: NXT_BLACK, fontStyle: 'normal', fontWeight: 600 }}>your current research goal</em> will be flagged with <span style={{ color: accentColor, fontWeight: 700 }}>★ RELEVANT</span> and sorted to the top of each tab.
+                                Browse the wiki - items most relevant to <em style={{ color: NXT_BLACK, fontStyle: 'normal', fontWeight: 600 }}>your current research goal</em> will be flagged with <span style={{ color: accentColor, fontWeight: 700 }}> RELEVANT</span> and sorted to the top of each tab.
                             </span>
                         ) : (
-                            <span>Everything your prior research has produced — themes, sources, social intelligence, and prior engagements. Enter a research goal below to see which items match it.</span>
+                            <span>Everything your prior research has produced - themes, sources, social intelligence, and prior engagements. Enter a research goal below to see which items match it.</span>
                         )}
                     </div>
                 </div>
@@ -111,7 +111,7 @@ export const KnowledgeLibraryPreview: React.FC<Props> = ({ onOpen, selection, on
             {loading && (
                 <div style={{ padding: '12px 0', color: '#737373', fontSize: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ width: 8, height: 8, borderRadius: 8, background: accentColor }} />
-                    Scanning your wiki…
+                    Scanning your wiki...
                 </div>
             )}
             {error && (
@@ -145,7 +145,7 @@ export const KnowledgeLibraryPreview: React.FC<Props> = ({ onOpen, selection, on
                         </div>
                         {counts.recent_engagements.length > 0 && selectionCount === 0 && (
                             <div style={{ fontSize: 10, color: '#737373', fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: 1 }}>
-                                most recent: {counts.recent_engagements[0].research_goal.slice(0, 64)}{counts.recent_engagements[0].research_goal.length > 64 ? '…' : ''}
+                                most recent: {counts.recent_engagements[0].research_goal.slice(0, 64)}{counts.recent_engagements[0].research_goal.length > 64 ? '...' : ''}
                             </div>
                         )}
                     </div>

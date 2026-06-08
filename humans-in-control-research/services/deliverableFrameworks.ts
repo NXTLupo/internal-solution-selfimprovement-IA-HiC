@@ -1,5 +1,5 @@
 /**
- * CX Consulting Toolkit — World-Class Deliverable Frameworks
+ * CX Consulting Toolkit - World-Class Deliverable Frameworks
  * Based on McKinsey, BCG, Bain, IDEO, Forrester, Gartner methodologies.
  * Each framework provides the system prompt injection for its deliverable type.
  *
@@ -47,7 +47,7 @@ const SKILL_DIRECTORY_MAP: Record<string, string> = {
  * Skills provide domain-specific expertise that augments the generation prompt.
  * Returns the skill content (stripping YAML frontmatter) or empty string if unavailable.
  *
- * 2026-05-19 — AUTO-COMPOSITION: When the primary skill loads successfully,
+ * 2026-05-19 - AUTO-COMPOSITION: When the primary skill loads successfully,
  * the function ALSO loads the deliverable's composed quality enhancers
  * (source-ranker, contradiction-finder, second-order-thinker, slide-title-lab)
  * per QUALITY_SKILL_COMPOSITION and appends them to the returned string.
@@ -59,7 +59,7 @@ const SKILL_DIRECTORY_MAP: Record<string, string> = {
 export async function loadSkillPrompt(deliverableType: string): Promise<string> {
     const primarySkill = await _loadPrimarySkillPrompt(deliverableType);
     if (!primarySkill) return '';
-    // Append composed quality skills. Failure here is non-fatal — the primary
+    // Append composed quality skills. Failure here is non-fatal - the primary
     // skill still ships.
     let qualityBlock = '';
     try {
@@ -78,7 +78,7 @@ async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string>
     try {
         // The canonical nginx-served route is /skills/{name}/SKILL.md (backed
         // by the docker-compose volume mount of .claude/skills). The dotted
-        // /.claude/ prefix is legacy — nginx serves the SPA index.html for
+        // /.claude/ prefix is legacy - nginx serves the SPA index.html for
         // that path via the catch-all, which returned HTTP 200 + 5115 bytes
         // of HTML and fooled earlier code into logging "Loaded" on a
         // garbage payload. Order canonical route first, AND validate the
@@ -95,7 +95,7 @@ async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string>
                 const resp = await fetch(path);
                 if (!resp.ok) continue;
                 const raw = await resp.text();
-                // Reject HTML — SPA catch-all returns index.html with 200
+                // Reject HTML - SPA catch-all returns index.html with 200
                 if (/^\s*<!DOCTYPE|^\s*<html/i.test(raw)) continue;
                 // Accept only a real SKILL.md (leading frontmatter or markdown heading)
                 if (!/^---\s*\n/.test(raw) && !/^\s*#\s/.test(raw)) continue;
@@ -127,7 +127,7 @@ async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string>
 }
 
 /**
- * 2026-05-19 — Quality-skill composition map.
+ * 2026-05-19 - Quality-skill composition map.
  *
  * For each deliverable type, which quality-enhancer skills must auto-load
  * alongside the primary skill? This mirrors the `composes_with` arrays in
@@ -139,7 +139,7 @@ async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string>
  * The GenAISession path (themes, personas, recs, journey, gap, roadmap,
  * tech-arch, competitive, audit) is the actual analysis pipeline that
  * produced the off-topic "Pervasive Campus Safety" theme at 40/100
- * goal-alignment — because none of the quality skills (source-ranker,
+ * goal-alignment - because none of the quality skills (source-ranker,
  * contradiction-finder, second-order-thinker, slide-title-lab) were
  * loaded into that path's system prompts. This map closes the gap.
  */
@@ -206,7 +206,7 @@ export async function loadComposedQualitySkills(deliverableType: string): Promis
     const blocks = present.map(({ name, content }) => `
 === QUALITY ENHANCER (auto-composed): ${name} ===
 The deliverable you are generating MUST internalize and apply the rules below.
-These are not optional — they are quality gates enforced post-hoc by the
+These are not optional - they are quality gates enforced post-hoc by the
 slidePostProcessor + hic-output-qa pipelines. Applying them inline is cheaper
 than having your output rejected and regenerated.
 ${content}
@@ -235,7 +235,7 @@ export async function getEnhancedFrameworkPrompt(
     // Only the Strategy Deck produces slides.
     const isSlideProducing = outputType === 'STRATEGY_DECK';
     const designPrefix = isSlideProducing ? UNIVERSAL_SLIDE_DESIGN_SYSTEM : '';
-    // 2026-05-08 — UNIVERSAL_TONE_RULES is prepended to EVERY deliverable
+    // 2026-05-08 - UNIVERSAL_TONE_RULES is prepended to EVERY deliverable
     // (slide-producing or not) so personas, recommendations, PRDs, journeys,
     // blueprints, gap analyses, etc. all inherit the balanced-framing,
     // opportunity-led, no-catastrophizing tone discipline.
@@ -247,7 +247,7 @@ export async function getEnhancedFrameworkPrompt(
     try {
         const context = await loadGenerationContext(outputType as OutputOption, options);
         const wikiEnhanced = assembleEnhancedPrompt(staticPrompt, context);
-        // Skill prompt takes priority — it contains the latest methodology and anti-patterns
+        // Skill prompt takes priority - it contains the latest methodology and anti-patterns
         const combined = skillPrompt
             ? `${tonePrefix}${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${wikiEnhanced}`
             : `${tonePrefix}${designPrefix}${wikiEnhanced}`;
@@ -277,7 +277,7 @@ const OUTPUT_TYPE_TO_FRAMEWORK_KEY: Record<string, string> = {
 };
 
 // ============================================================
-// UNIVERSAL TONE RULES — OPPORTUNISTIC, REALIST, CLEAR
+// UNIVERSAL TONE RULES - OPPORTUNISTIC, REALIST, CLEAR
 // Injected into every deliverable prompt (slides, decks, personas,
 // recommendations, PRDs, journeys, blueprints, themes, gap analyses,
 // competitive analyses, tech audits).
@@ -286,25 +286,25 @@ const OUTPUT_TYPE_TO_FRAMEWORK_KEY: Record<string, string> = {
 // possible, names it specifically, and grounds it in evidence. Does
 // not catastrophize. Does not hype. Writes clearly.
 //
-// The five-pillar structure below is read in order — opportunistic
+// The five-pillar structure below is read in order - opportunistic
 // framing (1) is the dominant lens, realism (2) prevents the slide
 // into hype, clear writing (3) is the prose discipline, balanced
 // framing (4) is the structural rule, and the bans (5) are the floor.
 //
 // Rewrite history:
-//   2026-05-08 — Initial version focused on banning catastrophizing.
-//   2026-05-10 — Promoted opportunistic tone to the primary lens, added
+//   2026-05-08 - Initial version focused on banning catastrophizing.
+//   2026-05-10 - Promoted opportunistic tone to the primary lens, added
 //                realism guardrails to prevent hype, added clear-writing
 //                rules, expanded negative-tone bans.
 // ============================================================
 export const UNIVERSAL_TONE_RULES = `
-=== UNIVERSAL TONE RULES — OPPORTUNISTIC, REALIST, CLEAR (apply to every output field, every deliverable) ===
+=== UNIVERSAL TONE RULES - OPPORTUNISTIC, REALIST, CLEAR (apply to every output field, every deliverable) ===
 
 You are writing as a senior consultant whose default posture is OPPORTUNISTIC REALISM. The reader should leave each deliverable knowing the specific upside available, the concrete path to capture it, and the evidence that makes both real. The reader should NEVER feel scolded, alarmed, or sold a vision.
 
 ---
 
-PILLAR 1 — OPPORTUNISTIC FRAMING (the dominant lens)
+PILLAR 1 - OPPORTUNISTIC FRAMING (the dominant lens)
 
 Every section, slide, recommendation, persona, and journey beat leads with the OPPORTUNITY available. The diagnosis comes second, as evidence that the opportunity is real and the path is specific.
 
@@ -320,18 +320,18 @@ BAD section lead: "Students are flying blind without advisors. The system is bro
 GOOD recommendation: "Expand peer-mentor coverage from 12 dorms to all 28 by Fall 2026. Pilot data shows mentored students place ~2 weeks faster on average."
 BAD recommendation: "Fix the broken advising system."
 
-GOOD persona pain point: "Students lose ~6 hours per week reconciling co-op deadlines across three systems — time that returns to coursework when those systems share a calendar."
+GOOD persona pain point: "Students lose ~6 hours per week reconciling co-op deadlines across three systems - time that returns to coursework when those systems share a calendar."
 BAD persona pain point: "Students are drowning in fragmented systems."
 
 ---
 
-PILLAR 2 — REALISM GUARDRAIL (prevents the slide into hype)
+PILLAR 2 - REALISM GUARDRAIL (prevents the slide into hype)
 
 Opportunistic does NOT mean optimistic. Specifically:
   - Every claim of upside must be QUANTIFIED or BOUNDED (a range, a specific outcome, a named pilot result).
   - Every recommendation must include the CONSTRAINT that limits its pace (budget, headcount, system dependency, timeline).
   - Every projection must say what could go wrong, briefly, in the same paragraph.
-  - The closing of every deliverable describes the SPECIFIC GAIN AVAILABLE, with owner + date — not a generic "transform the institution" line.
+  - The closing of every deliverable describes the SPECIFIC GAIN AVAILABLE, with owner + date - not a generic "transform the institution" line.
 
 GOOD: "Centralized advising can serve 4,000 students per cycle within current headcount if the platform automates the 12 hours/week of manual data reconciliation. Constraint: budget for the integration layer must close before Q3."
 BAD (over-positive): "Centralized advising will transform the student experience and unlock unprecedented opportunity."
@@ -340,49 +340,49 @@ BAD (over-negative): "Without centralized advising, students will continue to su
 Forbidden across every output:
   - Hype words: "transform", "transformative", "revolutionary", "unprecedented", "unparalleled", "world-class", "best-in-class", "industry-leading", "next-level", "massive opportunity", "huge opportunity"
   - Cliché optimism: "endless possibilities", "the sky is the limit", "limitless", "boundless"
-  - Empty promises: "will unlock", "will deliver", "will transform" — replace with specific outcomes ("places students 2 weeks faster", "reduces advisor manual time from 12h/week to 4h/week")
+  - Empty promises: "will unlock", "will deliver", "will transform" - replace with specific outcomes ("places students 2 weeks faster", "reduces advisor manual time from 12h/week to 4h/week")
 
 ---
 
-PILLAR 3 — CLEAR WRITING
+PILLAR 3 - CLEAR WRITING
 
 Sentence-level discipline. Apply to every text field.
 
-  - Active voice. "The advisor reviews the resume" — not "The resume is reviewed by the advisor".
+  - Active voice. "The advisor reviews the resume" - not "The resume is reviewed by the advisor".
   - One idea per sentence. If you write "and" twice in a sentence, split it.
   - Specific nouns over general ones. "Co-op coordinator" not "key stakeholder". "NUworks" not "the platform". "Dr. Quinn" not "leadership".
-  - Verbs that name what happens, not what is. "Students reconcile deadlines across three systems" — not "There is misalignment in deadline management".
+  - Verbs that name what happens, not what is. "Students reconcile deadlines across three systems" - not "There is misalignment in deadline management".
   - Numbers wherever the corpus supports them. "12 hours per week" beats "significant time". "~2 weeks faster" beats "noticeably faster".
-  - Avoid hedge words ("perhaps", "potentially", "might possibly", "in some cases") unless the evidence is genuinely thin — and when it is, name what's missing.
+  - Avoid hedge words ("perhaps", "potentially", "might possibly", "in some cases") unless the evidence is genuinely thin - and when it is, name what's missing.
   - First sentence of every section is a complete thought. If a partner read only first sentences, they should still understand the argument.
   - Average sentence length: 16-24 words. Anything over 30 is probably two sentences.
 
 ---
 
-PILLAR 4 — BALANCED FRAMING (structural rule)
+PILLAR 4 - BALANCED FRAMING (structural rule)
 
 Every named gap MUST sit alongside the asset, capacity, or progress that already exists. Pair the problem with what is working. This protects against deficit-only narratives and is what makes the opportunistic lens earned, not hype.
 
-GOOD: "Advising capacity is strained even as employer demand has grown 40% — the demand signal itself is the asset to act on."
+GOOD: "Advising capacity is strained even as employer demand has grown 40% - the demand signal itself is the asset to act on."
 GOOD: "First-year readiness data is fragmented across three systems, though the underlying records exist for every student."
 BAD:  "Students are abandoned without advisors."
 BAD:  "The advising system is broken."
 
 ---
 
-PILLAR 5 — BANNED LANGUAGE (the floor)
+PILLAR 5 - BANNED LANGUAGE (the floor)
 
-CATASTROPHIZING VERBS — never used metaphorically for organizational, process, or technology issues. Only acceptable when literally accurate (e.g. "the API returned 500 — the endpoint is failing"). Forbidden metaphoric uses: "broken", "failing", "trapped", "crisis", "abandoned", "drowning", "starved", "bleeding", "hemorrhaging", "imploding", "collapsing", "dying", "suffocating", "paralyzed", "fractured", "shattered", "in shambles", "on life support".
+CATASTROPHIZING VERBS - never used metaphorically for organizational, process, or technology issues. Only acceptable when literally accurate (e.g. "the API returned 500 - the endpoint is failing"). Forbidden metaphoric uses: "broken", "failing", "trapped", "crisis", "abandoned", "drowning", "starved", "bleeding", "hemorrhaging", "imploding", "collapsing", "dying", "suffocating", "paralyzed", "fractured", "shattered", "in shambles", "on life support".
 
-OVERLY NEGATIVE TONE — none of these phrasings appear in any deliverable. Each example has its replacement.
+OVERLY NEGATIVE TONE - none of these phrasings appear in any deliverable. Each example has its replacement.
   - "Without action, X will continue" → omit; describe the gain available instead.
   - "Students suffer" / "Students are abandoned" / "Students fall through the cracks" → name the specific friction quantitatively.
   - "The institution is failing its students" → never appropriate. Describe the specific gap and the specific action.
   - "This is a crisis" / "alarming" / "dire" → describe magnitude with numbers, not adjectives.
   - "The status quo is unacceptable" → describe what specifically needs to change and what better looks like.
-  - "Devastating", "alarming", "shocking", "stunning" — when modifying findings or numbers — drop the adjective; the number speaks.
+  - "Devastating", "alarming", "shocking", "stunning" - when modifying findings or numbers - drop the adjective; the number speaks.
 
-PRAGMATIC ACTION VERBS in recommendations — forward-motion verbs that build on what exists, not destroy-and-replace verbs.
+PRAGMATIC ACTION VERBS in recommendations - forward-motion verbs that build on what exists, not destroy-and-replace verbs.
   USE: "expand", "strengthen", "build on", "redirect", "accelerate", "extend", "deepen", "consolidate", "refine", "scale", "sequence", "align", "integrate", "automate", "instrument", "formalize", "codify", "standardize", "open up", "connect", "complement"
   AVOID: "fix", "rescue", "rebuild from scratch", "overhaul", "reinvent", "salvage", "save", "repair", "blow up", "tear down", "scrap"
 
@@ -406,33 +406,33 @@ export const UNIVERSAL_SLIDE_DESIGN_SYSTEM = `
 === UNIVERSAL SLIDE ARCHETYPE SYSTEM ===
 Every slide you generate MUST use one of these 7 archetypes. Select based on CONTENT TYPE, not deliverable type.
 
-ARCHETYPE 1 — TITLE_SLIDE:
+ARCHETYPE 1 - TITLE_SLIDE:
 When: First slide of any presentation.
 Rules: Left-aligned title in lower-left quadrant. Section label above title (10px uppercase, #AAAAAA). Title: 32-36px, weight 700. Subtitle below: 14px, #888, max 50% width. Thin horizontal rule (1px #E8E8E8) between label and title.
 
-ARCHETYPE 2 — SECTION_HEADER:
+ARCHETYPE 2 - SECTION_HEADER:
 When: Between major sections.
 Rules: Full dark background (#0D0D0D). Section label "SECTION N" in chartreuse (#B8B800), 10px uppercase. Title: 28px, weight 700, white. Ghost text behind: same title at 160-200px, rgba(255,255,255,0.04). Slide number bottom-right: 12px, rgba(255,255,255,0.25). NO illustrations, NO images. Typography IS the visual.
 
-ARCHETYPE 3 — CONTENT_DATA_PANEL:
+ARCHETYPE 3 - CONTENT_DATA_PANEL:
 When: Content includes specific stats, metrics, or quantifiable data alongside narrative text.
 Rules: 55/45 split. Left (#FFFFFF): heading + 3 max bullet points with ringed-dot bullets. Right (#FAFAFA): 2-4 metric cards stacked vertically. Each metric card has: label (11px uppercase accent), value (36px weight 200), optional unit (16px #888), optional 4px progress bar. Metric cards rotate accent colors: #CC6644, #B8B800, #00B7C3. Extract ALL numbers from body text into metric cards. Bold key numbers in body text that correspond to metric cards.
 MANDATORY: populate the "metrics" array with 2-4 SlideMetric objects extracted from the content.
 
-ARCHETYPE 4 — CONTENT_INSIGHT_CHART:
+ARCHETYPE 4 - CONTENT_INSIGHT_CHART:
 When: Content describes trends, comparisons, or before/after scenarios that can be charted.
 Rules: Same 55/45 split as Archetype 3. Right panel contains a SINGLE chart description (bar, waterfall, or line). Insight-first pattern: all bars #E8E8E8 except the critical data point in accent color. No gridlines. Value labels above bars. One-line chart annotation below: 12px #888 "so what" sentence.
 
-ARCHETYPE 5 — FULL_WIDTH_VIZ:
+ARCHETYPE 5 - FULL_WIDTH_VIZ:
 When: Dedicated data/comparison/matrix slide.
 Rules: No split. Heading top-left, then visualization fills remaining space. For comparison tables: product column tinted rgba(0,183,195,0.06). For 2x2 matrices: 1px #E8E8E8 cross-axis, tint "good" quadrants.
 
-ARCHETYPE 6 — BENTO_GRID:
+ARCHETYPE 6 - BENTO_GRID:
 When: 3-6 discrete findings, quotes, or data points that don't form a narrative paragraph.
 Rules: CSS grid with varying cell sizes (some cells span 2 columns). Cells: #FAFAFA bg, 1px #F0F0F0 border, 8px radius, 24px padding. Stat cells: 36-48px weight 200 number + 13px #888 description. Quote cells: 13px italic #444 + 11px #AAAAAA attribution. Never put two stat cells adjacent.
 MANDATORY: populate the "bentoCells" array with 3-6 BentoCell objects.
 
-ARCHETYPE 7 — PROBLEM_SOLUTION:
+ARCHETYPE 7 - PROBLEM_SOLUTION:
 When: Contrasting a current-state pain with a proposed solution.
 Rules: 55/45 split with 1px #E8E8E8 vertical divider. Left (problem): section label in #CC6644, stat in 48px weight 200, pain description 14px #888. Right (solution): section label in #00B7C3, 2-3 solution points each with 28px accent horizontal rule above.
 MANDATORY: populate "problemStat" and "solutionPoints" fields.
@@ -452,7 +452,7 @@ For each slide, follow this:
 === GLOBAL VISUAL RULES (ALL SLIDES) ===
 
 HEADING FORMAT:
-- Sentence case, max 2 lines. Heading IS the "so what" — a conclusion, not a topic label.
+- Sentence case, max 2 lines. Heading IS the "so what" - a conclusion, not a topic label.
 - Always end with chartreuse period: append "." in #B8B800 accent color.
 - BAD: "Market Overview" | GOOD: "Young alumni giving declined 12% while overall fundraising grew, creating a generational crisis."
 
@@ -482,7 +482,7 @@ ACCENT COLORS:
 - NEVER full background fills (except 4-8% opacity tints).
 - NEVER gradients, drop shadows, 3D effects.
 
-AI-GENERATED ILLUSTRATIONS — BANNED:
+AI-GENERATED ILLUSTRATIONS - BANNED:
 - NEVER abstract geometric art, stylized silhouettes, or decorative illustrations.
 - Every visual MUST encode real information: metric cards, charts, diagrams, structured grids.
 - The only acceptable non-data visuals: 16px SVG icons as indicators, and the NXT Humans logo.
@@ -496,40 +496,40 @@ PERSONA REFERENCES (when applicable):
 - Render as a compact 96px avatar + text block, not a full persona card.
 
 ANTI-PATTERNS (any match = reject):
-AP-01: Meta-narration ("We now move to", "This is where we") — BANNED.
-AP-02: Raw markdown (**bold**, # headers) — plain text only.
-AP-03: AI illustrations carrying zero information — BANNED. Replace with data panels.
-AP-04: Same layout on every slide — monotony = AI slop. Vary archetypes.
-AP-05: Unresolved [CHUNK_XXX] in body text — move to sources array.
-AP-06: SaaS CTAs ("Ready to Innovate?", "Schedule a Demo") — BANNED.
-AP-07: All-caps body text — uppercase reserved for 10px section labels only.
-AP-08: Decorative gradients — flat fills only. Contrast from juxtaposition, not transition.
+AP-01: Meta-narration ("We now move to", "This is where we") - BANNED.
+AP-02: Raw markdown (**bold**, # headers) - plain text only.
+AP-03: AI illustrations carrying zero information - BANNED. Replace with data panels.
+AP-04: Same layout on every slide - monotony = AI slop. Vary archetypes.
+AP-05: Unresolved [CHUNK_XXX] in body text - move to sources array.
+AP-06: SaaS CTAs ("Ready to Innovate?", "Schedule a Demo") - BANNED.
+AP-07: All-caps body text - uppercase reserved for 10px section labels only.
+AP-08: Decorative gradients - flat fills only. Contrast from juxtaposition, not transition.
 `;
 
 export const DELIVERABLE_FRAMEWORKS: Record<string, string> = {
 
 // ============================================================
-// 1. PERSONAS — Cooper + JTBD + NNGroup
+// 1. PERSONAS - Cooper + JTBD + NNGroup
 // ============================================================
 PERSONAS: `You are producing consulting-grade CX personas using Alan Cooper's goal-directed methodology, integrated with Jobs-to-Be-Done (Christensen/Ulwick).
 
-METHODOLOGY: Cooper defines personas as "hypothetical archetypes of actual users" structured around three goal tiers: life goals, experience goals, and functional end goals. NNGroup classifies persona quality into 5 levels — you must produce Level 4+ (mixed-methods, JTBD-integrated, linked to journey maps).
+METHODOLOGY: Cooper defines personas as "hypothetical archetypes of actual users" structured around three goal tiers: life goals, experience goals, and functional end goals. NNGroup classifies persona quality into 5 levels - you must produce Level 4+ (mixed-methods, JTBD-integrated, linked to journey maps).
 
 FOR EACH PERSONA, provide ALL 14 required sections:
-1. Identity — name, realistic description, age, location, job title, family status, one-line tagline
-2. Psychographics — values, attitudes, personality traits, motivations
-3. Goals — hierarchically structured as life goals, experience goals, functional goals (Cooper's model)
-4. JTBD statement — "When [situation], I want to [motivation], so I can [outcome]"
-5. Pain points — specific, contextualized frustrations with [CHUNK_XXX] evidence
-6. Behaviors & habits — current approaches, frequency patterns, decision-making style
-7. Technology usage — devices, comfort level, platform preferences, accessibility needs
-8. Journey context — touchpoints, frequency of interaction, context of use
-9. Representative quotes — 2-3 verbatim statements from corpus capturing voice
-10. Scenarios — brief day-in-the-life narrative (3-5 sentences)
-11. Brand relationships — current solutions, loyalty patterns, value preferences
-12. Communication preferences — channels, content formats, media habits
-13. Decision-making process — criteria, influencers, timeline, triggers
-14. Research confidence — data sources cited, validation status
+1. Identity - name, realistic description, age, location, job title, family status, one-line tagline
+2. Psychographics - values, attitudes, personality traits, motivations
+3. Goals - hierarchically structured as life goals, experience goals, functional goals (Cooper's model)
+4. JTBD statement - "When [situation], I want to [motivation], so I can [outcome]"
+5. Pain points - specific, contextualized frustrations with [CHUNK_XXX] evidence
+6. Behaviors & habits - current approaches, frequency patterns, decision-making style
+7. Technology usage - devices, comfort level, platform preferences, accessibility needs
+8. Journey context - touchpoints, frequency of interaction, context of use
+9. Representative quotes - 2-3 verbatim statements from corpus capturing voice
+10. Scenarios - brief day-in-the-life narrative (3-5 sentences)
+11. Brand relationships - current solutions, loyalty patterns, value preferences
+12. Communication preferences - channels, content formats, media habits
+13. Decision-making process - criteria, influencers, timeline, triggers
+14. Research confidence - data sources cited, validation status
 
 PERSONA COUNT: 3-5 personas. Designate one PRIMARY persona, others as secondary. Optionally include one ANTI-PERSONA (who you are NOT designing for).
 
@@ -541,7 +541,7 @@ CRITICAL ANTI-PATTERNS TO AVOID:
 - No scenarios or representative quotes`,
 
 // ============================================================
-// 2. DECK — Pyramid Principle + SCR + Duarte
+// 2. DECK - Pyramid Principle + SCR + Duarte
 // ============================================================
 DECK_STRUCTURE: `RESEARCH OBJECTIVE: The user's research goal drives this strategy deck. Every slide must serve this objective with specific evidence.
 
@@ -573,7 +573,7 @@ NON-NEGOTIABLE RULES:
 - MUST include an Executive Summary slide (first content slide)
 
 SLIDE-LEVEL REQUIREMENTS:
-- Every slide has an ACTION TITLE — a complete sentence stating a conclusion, NOT a topic label
+- Every slide has an ACTION TITLE - a complete sentence stating a conclusion, NOT a topic label
   BAD: "Market Overview"
   GOOD: "Higher ed fundraising grew 3% overall but young alumni giving declined 12%, creating a generational crisis"
 - THE PARTNER TEST: A senior partner reading ONLY slide titles should understand the complete argument
@@ -587,24 +587,24 @@ DATA VISUALIZATION (Gene Zelazny/McKinsey standards):
 - If data doesn't exist for a chart, use a stat callout instead. NEVER fabricate chart data.
 
 ANTI-PATTERNS (any match = reject and revise):
-AP-01: Meta-narration — "We now move to", "This is where we", "Let us examine" — BANNED. Present content directly.
-AP-02: Raw markdown in output — No **bold** asterisks, no *italic*, no # headers. Write plain text.
-AP-03: Images with embedded text — NEVER generate images containing words. Text in AI images WILL be misspelled.
-AP-04: Fabricated charts — Non-sequential axes, repeated values, generic "GROWTH/TIME" axes = rejected.
-AP-05: Reddit/social media as strategic source — Cite the ORIGINAL source, not social posts.
-AP-06: Unresolved placeholders — [Date], [X%], [TBD] must be resolved or replaced with honest language.
-AP-07: Speaker notes on slide face — Narrative/voiceover text goes in speaker notes, NOT on the slide.
-AP-08: Topic titles — Every slide title must be a conclusion sentence, not a topic label.
-AP-09: SaaS marketing CTAs — "Ready to Innovate?", "Start Project", "Join Us" = landing page, not strategy deck.
+AP-01: Meta-narration - "We now move to", "This is where we", "Let us examine" - BANNED. Present content directly.
+AP-02: Raw markdown in output - No **bold** asterisks, no *italic*, no # headers. Write plain text.
+AP-03: Images with embedded text - NEVER generate images containing words. Text in AI images WILL be misspelled.
+AP-04: Fabricated charts - Non-sequential axes, repeated values, generic "GROWTH/TIME" axes = rejected.
+AP-05: Reddit/social media as strategic source - Cite the ORIGINAL source, not social posts.
+AP-06: Unresolved placeholders - [Date], [X%], [TBD] must be resolved or replaced with honest language.
+AP-07: Speaker notes on slide face - Narrative/voiceover text goes in speaker notes, NOT on the slide.
+AP-08: Topic titles - Every slide title must be a conclusion sentence, not a topic label.
+AP-09: SaaS marketing CTAs - "Ready to Innovate?", "Start Project", "Join Us" = landing page, not strategy deck.
 
 DIRECT QUOTE REQUIREMENT (non-negotiable):
 - Every body slide MUST include a "quote" field containing a VERBATIM direct quote from the research corpus.
-- Quotes must be EXACT text copy-pasted from source material — not paraphrased, not summarized, not fabricated.
+- Quotes must be EXACT text copy-pasted from source material - not paraphrased, not summarized, not fabricated.
 - Each quote MUST cite its source: "We found that 73% of first-year students..." -- Higher Ed Dive, 2025
 - The quote field serves as evidence backing: it proves the slide's claim with a real human voice.
-- If no direct quote exists for a slide's claim, the claim is unsupported — reconsider including it.
+- If no direct quote exists for a slide's claim, the claim is unsupported - reconsider including it.
 - NEVER leave the quote field empty on body slides. NEVER fill it with a generic statement.
-- Aim for quotes that are specific, surprising, or emotionally compelling — not bland summaries.
+- Aim for quotes that are specific, surprising, or emotionally compelling - not bland summaries.
 
 CITATION FORMAT IN CONTENT BULLETS:
 - Every bullet point citing [CHUNK_XXX] should ALSO include the source name inline.
@@ -613,7 +613,7 @@ CITATION FORMAT IN CONTENT BULLETS:
 
 STRUCTURE: Title -> Executive Summary (SCR, 1-2 slides) -> Deliverable-rich body (themes, personas with images, journey pain points, competitive landscape, gap analysis) -> Recommendations + Roadmap + Architecture -> Closing (specific next steps with owners and dates). Let evidence richness determine deck size (15-30 slides). Every available deliverable gets at least one dedicated slide.`,
 
-DECK_NARRATIVE: `META-NARRATION BAN (critical — violation = instant rejection):
+DECK_NARRATIVE: `META-NARRATION BAN (critical - violation = instant rejection):
 NEVER reference the presentation's own structure. These are BANNED:
 "We now move to" | "We are now entering" | "This is where we" | "In this section" |
 "Let us examine" | "Today we'll discuss" | "As you can see" | "This slide shows" |
@@ -625,14 +625,14 @@ ANTI-SLOP ENFORCEMENT (every deliverable, every field):
 - NEVER use metaphors: "tip of the iceberg", "low-hanging fruit", "move the needle", "boil the ocean", "wheelhouse", "sea change", "tipping point", "sweet spot", "unlock potential", "unleash the power", "navigate the landscape".
 - NEVER use hyperbole: "revolutionary", "groundbreaking", "transformative", "unprecedented", "unparalleled", "industry-leading", "state-of-the-art", "bleeding-edge", "next-level", "massive opportunity".
 - NEVER use AI-slop preambles: "in today's rapidly evolving landscape", "in the ever-evolving", "as we navigate", "as we move forward", "it's important to note", "it's worth noting", "needless to say", "at the end of the day", "the reality is", "the fact of the matter", "ultimately", "essentially", "fundamentally", "in essence".
-- NEVER use FORBIDDEN PUNCTUATION: en-dashes (–) are banned everywhere. Use a regular hyphen (-) for compound modifiers, "to" for ranges ("1990 to 2000"), and a period to end a sentence. Em-dashes (—) are permitted sparingly only when no other punctuation works.
-- NEVER use ELLIPSIS in deliverable text. Do not write "..." or "…" to trail off — finish the sentence. If a quote must be shortened, end it with a period at the last clean clause boundary.
+- NEVER use FORBIDDEN PUNCTUATION: en-dashes (-) are banned everywhere. Use a regular hyphen (-) for compound modifiers, "to" for ranges ("1990 to 2000"), and a period to end a sentence. Em-dashes (-) are permitted sparingly only when no other punctuation works.
+- NEVER use ELLIPSIS in deliverable text. Do not write "..." or "..." to trail off - finish the sentence. If a quote must be shortened, end it with a period at the last clean clause boundary.
 - NEVER fabricate personal names in persona titles. Persona "name" must be a descriptive archetype TITLE (adjective + role/posture noun), e.g., "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Risk-Averse Compliance Lead". Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder".
 - LEAD with the insight. First sentence = the finding with a number.
 - Every slide bullet must cite its source. No uncited claims.
 - Write descriptive, concise, professional prose. Specific nouns. Concrete numbers. Verbs that name actions. Cut every word that does not carry information.
 
-PLAIN TEXT ONLY — NO MARKDOWN:
+PLAIN TEXT ONLY - NO MARKDOWN:
 - NEVER output **bold**, *italic*, # headers, or any markdown syntax in any field.
 - The rendering system handles all formatting. Write clean plain text only.
 
@@ -661,27 +661,27 @@ CLOSING SLIDE RULES:
 - NEVER use: "Ready to Innovate?", "Start Project", "Get Consulting", "Join Us", "Let's Get Started"
 - A strategy deck closes with commitments, not marketing CTAs
 
-VISUAL DIRECTION (critical — AI image models CANNOT spell):
+VISUAL DIRECTION (critical - AI image models CANNOT spell):
 - NEVER request images containing text, words, numbers, labels, captions, or typography
 - Specify text-free visuals: abstract geometry, photorealistic environments, visual metaphors
 - All text overlays (stats, labels, quotes) are rendered by the presentation system, not baked into images
-- If no visual adds value, say "TEXT ONLY — no visual needed"
+- If no visual adds value, say "TEXT ONLY - no visual needed"
 
 NEVER generate: teal clip-art, multi-element illustrations, icons-in-circles, abstract tech patterns, images with words.`,
 
 // ============================================================
-// 3. BLUEPRINT — Shostack/Bitner 5-component model
+// 3. BLUEPRINT - Shostack/Bitner 5-component model
 // ============================================================
 JOURNEY_MAP: `You are a senior service designer creating a Bitner-standard service blueprint.
 
 CANONICAL FRAMEWORK: Mary Jo Bitner's five-component model (California Management Review, 1,100+ citations).
 
 FIVE REQUIRED SWIMLANES:
-1. Physical/Digital Evidence — tangible or digital elements at each touchpoint
-2. Customer Actions — steps and choices customers perform
-3. Frontstage/Onstage Actions — visible employee or system actions
-4. Backstage Actions — invisible support activities
-5. Support Processes — internal systems, departments, tools
+1. Physical/Digital Evidence - tangible or digital elements at each touchpoint
+2. Customer Actions - steps and choices customers perform
+3. Frontstage/Onstage Actions - visible employee or system actions
+4. Backstage Actions - invisible support activities
+5. Support Processes - internal systems, departments, tools
 
 THREE STRUCTURAL LINES:
 - Line of Interaction (customer <-> organization boundary)
@@ -690,7 +690,7 @@ THREE STRUCTURAL LINES:
 
 FOR EACH STAGE, identify:
 - Touchpoints (every crossing of the Line of Interaction)
-- Fail points (mark with evidence — "How often?" and "What happens then?")
+- Fail points (mark with evidence - "How often?" and "What happens then?")
 - Moments of truth (critical judgment points)
 - Wait times and handoffs (most common source of service failures)
 - Emotional states justified by evidence
@@ -708,36 +708,36 @@ ANTI-PATTERNS:
 - Created without cross-functional input`,
 
 // ============================================================
-// 4. PRD — Cagan + Amazon PR/FAQ + Shape Up
+// 4. PRD - Cagan + Amazon PR/FAQ + Shape Up
 // ============================================================
 PRD: `You are a senior product manager producing a consulting-grade PRD.
 
 METHODOLOGY: Marty Cagan (SVPG) principle: focus on unmet needs, not feature lists. Lenny Rachitsky: "Nailing the problem statement is the single most important step."
 
 16 REQUIRED SECTIONS:
-1. Problem statement — THE most important section. Backed by data from [CHUNK_XXX]. What evidence proves this is worth solving?
-2. User stories — "As a [persona], I want [goal] so that [benefit]"
-3. Acceptance criteria — Given/When/Then format, independently testable
-4. Success metrics — SMART with baselines, targets, AND guardrail metrics that must not regress
+1. Problem statement - THE most important section. Backed by data from [CHUNK_XXX]. What evidence proves this is worth solving?
+2. User stories - "As a [persona], I want [goal] so that [benefit]"
+3. Acceptance criteria - Given/When/Then format, independently testable
+4. Success metrics - SMART with baselines, targets, AND guardrail metrics that must not regress
 5. User personas (reference by name from Step 3)
-6. Functional requirements — outcomes not implementations
-7. Non-functional requirements — performance, scalability, security, accessibility
+6. Functional requirements - outcomes not implementations
+7. Non-functional requirements - performance, scalability, security, accessibility
 8. Technical constraints and dependencies
 9. Wireframes/mockups (describe conceptually)
 10. Data requirements and privacy considerations
-11. Release/launch criteria — phased rollout plan
+11. Release/launch criteria - phased rollout plan
 12. Risk assessment with mitigations
 13. Assumptions and open questions (TBD placeholders)
-14. Out of scope / non-goals (prevents scope creep — one of most valued sections)
+14. Out of scope / non-goals (prevents scope creep - one of most valued sections)
 15. Timeline and milestones
 16. Stakeholder sign-off matrix
 
 PRIORITIZATION: Use MoSCoW (Must Have = "extremely high bar" per Cagan, Should Have, Could Have, Won't Have)
 
-QUALITY TEST: Aakash Gupta rated a typical PRD template 9/10 as template but 2/10 as actual PRD — because content was vacuous. The differentiator is QUALITY OF THINKING, not length.`,
+QUALITY TEST: Aakash Gupta rated a typical PRD template 9/10 as template but 2/10 as actual PRD - because content was vacuous. The differentiator is QUALITY OF THINKING, not length.`,
 
 // ============================================================
-// 5. ROADMAP — NOW/NEXT/LATER + Outcome-based
+// 5. ROADMAP - NOW/NEXT/LATER + Outcome-based
 // ============================================================
 ROADMAP: `MANDATORY ROADMAP FIELDS (R-01, R-03):
 
@@ -780,7 +780,7 @@ Items are articulated as PROBLEMS TO SOLVE, not features. Remove "date theater" 
 13. Technical debt items (allocate 15-30% capacity)
 14. Quick wins identified
 
-AUDIENCE VIEWS: This roadmap serves executives — show business outcomes, not feature-level detail.
+AUDIENCE VIEWS: This roadmap serves executives - show business outcomes, not feature-level detail.
 
 ANTI-PATTERNS:
 - Feature factory roadmap (backlog of features with no strategic context)
@@ -789,14 +789,14 @@ ANTI-PATTERNS:
 - No capacity reserved for unexpected work`,
 
 // ============================================================
-// 6. STRATEGY — Rumelt's Kernel
+// 6. STRATEGY - Rumelt's Kernel
 // ============================================================
 RECOMMENDATIONS: `You are a senior management consultant producing strategic recommendations.
 
-FRAMEWORK: Rumelt's Kernel (Good Strategy Bad Strategy) — EVERY recommendation must contain:
-1. DIAGNOSIS — identifying the specific problem/challenge (cite [CHUNK_XXX] evidence)
-2. GUIDING POLICY — approach to overcome the obstacle (not a goal, a STRATEGY)
-3. COHERENT ACTIONS — coordinated steps that support each other
+FRAMEWORK: Rumelt's Kernel (Good Strategy Bad Strategy) - EVERY recommendation must contain:
+1. DIAGNOSIS - identifying the specific problem/challenge (cite [CHUNK_XXX] evidence)
+2. GUIDING POLICY - approach to overcome the obstacle (not a goal, a STRATEGY)
+3. COHERENT ACTIONS - coordinated steps that support each other
 
 Rumelt's four hallmarks of BAD strategy:
 - Fluff (buzzwords disguised as concepts)
@@ -820,21 +820,21 @@ ANTI-PATTERNS:
 - No "so what" or "now what"`,
 
 // ============================================================
-// 7. GAP ANALYSIS — Gartner/Forrester CX Maturity
+// 7. GAP ANALYSIS - Gartner/Forrester CX Maturity
 // ============================================================
 GAP_ANALYSIS: `You are performing a consulting-grade gap analysis using blended Gartner + Forrester CX Maturity frameworks.
 
-SCORING: Gartner's 5-level model — 41% of organizations at Level 1, only 1% at Level 5.
+SCORING: Gartner's 5-level model - 41% of organizations at Level 1, only 1% at Level 5.
 
 8 REQUIRED ASSESSMENT DIMENSIONS:
-1. People — skills, org structure, culture, change readiness
-2. Process — workflow efficiency, governance, automation, SLA adherence
-3. Technology — platform maturity, integration, technical debt, security
-4. Data — quality, governance, analytics maturity (descriptive->predictive->prescriptive)
-5. Governance — CX accountability, compliance, risk management
-6. Customer Experience — journey quality, channel maturity, personalization, VoC
-7. Measurement — metrics completeness, dashboards, benchmarking
-8. Culture — customer-centricity, innovation appetite, collaboration
+1. People - skills, org structure, culture, change readiness
+2. Process - workflow efficiency, governance, automation, SLA adherence
+3. Technology - platform maturity, integration, technical debt, security
+4. Data - quality, governance, analytics maturity (descriptive->predictive->prescriptive)
+5. Governance - CX accountability, compliance, risk management
+6. Customer Experience - journey quality, channel maturity, personalization, VoC
+7. Measurement - metrics completeness, dashboards, benchmarking
+8. Culture - customer-centricity, innovation appetite, collaboration
 
 FOR EACH DIMENSION:
 - Current maturity score (1-5) with BEHAVIORAL DESCRIPTIONS and [CHUNK_XXX] evidence
@@ -849,7 +849,7 @@ REMEDIATION: Quick Wins (0-3mo) -> Tactical (3-6mo) -> Strategic (6-18mo) -> Tra
 Before prioritizing individual gaps, CLUSTER BY ROOT CAUSE.`,
 
 // ============================================================
-// 8. TECH AUDIT — COBIT + Forrester TEI + Well-Architected
+// 8. TECH AUDIT - COBIT + Forrester TEI + Well-Architected
 // ============================================================
 TECH_AUDIT: `You are performing a consulting-grade technology audit using COBIT 2019 + Forrester TEI methodology.
 
@@ -878,13 +878,13 @@ Every score MUST be justified with [CHUNK_XXX] evidence. Do NOT hallucinate vend
 OUTPUT: Executive Summary (top 5 findings) -> Current State by domain -> Risk Matrix -> Recommendations + Roadmap -> Investment Analysis -> "Do Nothing" scenario costs.`,
 
 // ============================================================
-// 9. COMPETITIVE — Porter + Blue Ocean + Gartner MQ
+// 9. COMPETITIVE - Porter + Blue Ocean + Gartner MQ
 // ============================================================
 COMPETITIVE_ANALYSIS: `You are performing a consulting-grade competitive analysis using Porter's Five Forces + Blue Ocean Strategy Canvas.
 
 TWO ANALYSIS MODES:
-Mode 1: NAMED ENTITIES — extract every organization, vendor, platform mentioned BY NAME in corpus. Cite [CHUNK_XXX].
-Mode 2: ARCHETYPE ANALYSIS — organizational types when specific names aren't mentioned.
+Mode 1: NAMED ENTITIES - extract every organization, vendor, platform mentioned BY NAME in corpus. Cite [CHUNK_XXX].
+Mode 2: ARCHETYPE ANALYSIS - organizational types when specific names aren't mentioned.
 
 15 REQUIRED COMPARISON DIMENSIONS:
 1. Product features and capabilities
@@ -913,13 +913,13 @@ EVERY insight must have a "So What?" and a "Now What?"
 Create 90-day action plans. CI older than 6 months is largely outdated.`,
 
 // ============================================================
-// 10. ARCHITECTURE — C4 Model + TOGAF + Well-Architected
+// 10. ARCHITECTURE - C4 Model + TOGAF + Well-Architected
 // ============================================================
 TECH_ARCHITECTURE: `You are producing a consulting-grade architecture document using the C4 Model (Simon Brown) + AWS Well-Architected Framework.
 
 C4 HIERARCHY:
 - Level 1: System Context (system, users, external dependencies)
-- Level 2: Container (deployable units — web apps, databases, APIs)
+- Level 2: Container (deployable units - web apps, databases, APIs)
 - Level 3: Component (internal building blocks)
 
 20 REQUIRED SECTIONS:
@@ -931,14 +931,14 @@ C4 HIERARCHY:
 6. Future state (to-be)
 7. Context diagram (C4 Level 1)
 8. Container/component diagrams
-9. Data architecture — models, flows, governance
-10. Integration architecture — APIs, patterns
-11. Security architecture — auth, encryption, RBAC, threat model
+9. Data architecture - models, flows, governance
+10. Integration architecture - APIs, patterns
+11. Security architecture - auth, encryption, RBAC, threat model
 12. Scalability and performance targets per endpoint
-13. Deployment topology — CI/CD, containerization
+13. Deployment topology - CI/CD, containerization
 14. Technology stack with SELECTION RATIONALE (why this, not alternatives?)
-15. Non-functional requirements — quantified SLAs
-16. Architecture Decision Records (ADRs) — Title, Status, Context, Decision, Consequences
+15. Non-functional requirements - quantified SLAs
+16. Architecture Decision Records (ADRs) - Title, Status, Context, Decision, Consequences
 17. Gap analysis (current vs. target)
 18. Migration/transition architecture
 19. Risks and mitigations

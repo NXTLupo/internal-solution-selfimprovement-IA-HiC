@@ -1,5 +1,5 @@
 /**
- * verticalRegistry — composable research-vertical skills.
+ * verticalRegistry - composable research-vertical skills.
  *
  * The April 2026 research consensus argued for replacing the hardcoded lens →
  * sources switch statement with a skill mesh: each vertical declares its own
@@ -14,7 +14,7 @@
  *   - lens service still runs on raw goal text (no brief required)
  *   - vertical resolver runs ON TOP using the parsed brief's verticals[] tags
  *   - their contributions are unioned: more sources, more named entities,
- *     more exclusion rules — never override the user's explicit toggles
+ *     more exclusion rules - never override the user's explicit toggles
  *
  * Anything the brief explicitly names ALWAYS wins; vertical skills only
  * suggest defaults to fill in what the brief left unspecified.
@@ -38,7 +38,7 @@ export interface VerticalSkill {
         /** Default subreddits if the brief didn't name any */
         subreddits: string[];
         /** Trade publications typical for this vertical (named-entity hints
-         *  for the query fabric — surfaced even without a dedicated connector) */
+         *  for the query fabric - surfaced even without a dedicated connector) */
         publications: string[];
         /** Domains to exclude by default for this vertical */
         excludedDomains: string[];
@@ -102,7 +102,7 @@ const SKILLS: VerticalSkill[] = [
         description: 'Hospitals, payers, life sciences, patient experience, clinical operations.',
         researchLayer: {
             preferredSources: [
-                // Most healthcare trade press lacks a dedicated connector — flows via
+                // Most healthcare trade press lacks a dedicated connector - flows via
                 // brief-named publications + web_search-capable sources.
                 'gdelt', 'openalex', 'semantic_scholar', 'europe_pmc',
             ],
@@ -256,7 +256,7 @@ export interface ResolvedVerticalContribution {
  * Given the brief's verticals[] tags, return aggregated source-pool
  * contributions from all matching skills.
  *
- * Idempotent. Pure function — no AI calls. Result merges with the user's
+ * Idempotent. Pure function - no AI calls. Result merges with the user's
  * explicit toggles + brief's explicit named entities; never overrides.
  */
 export function resolveVerticals(verticals: string[]): ResolvedVerticalContribution {
@@ -325,7 +325,7 @@ export function resolveVerticals(verticals: string[]): ResolvedVerticalContribut
  * Merge a vertical resolution into a ParsedBrief. Returns a new brief with
  * vertical defaults appended where the brief didn't already specify entities.
  *
- * Brief's explicit entities ALWAYS win — vertical defaults only fill blanks.
+ * Brief's explicit entities ALWAYS win - vertical defaults only fill blanks.
  * Excluded domains are unioned (vertical excludes ADD to brief excludes).
  */
 export function applyVerticalDefaults(
@@ -336,14 +336,14 @@ export function applyVerticalDefaults(
         ? brief.namedEntities.subreddits
         : contribution.defaultSubreddits;
 
-    // Publications — UNION: brief-named publications stay, vertical defaults
+    // Publications - UNION: brief-named publications stay, vertical defaults
     // fill in the rest as known-entity hints for the query fabric.
     const publications = Array.from(new Set([
         ...brief.namedEntities.publications,
         ...contribution.defaultPublications,
     ]));
 
-    // Vendors — UNION: brief-named vendors stay, vertical-known vendors fill in.
+    // Vendors - UNION: brief-named vendors stay, vertical-known vendors fill in.
     const vendors = Array.from(new Set([
         ...brief.namedEntities.vendors,
         ...contribution.knownVendors,

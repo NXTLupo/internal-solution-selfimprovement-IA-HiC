@@ -1,5 +1,5 @@
 /**
- * Corpus Chat Panel v2 — Persistent across all phases.
+ * Corpus Chat Panel v2 - Persistent across all phases.
  *
  * Same chat from data collection through synthesis. Features:
  * - Single-vendor: DeepSeek V4 Flash via Azure (256K context, OpenAI-compatible tool-use)
@@ -25,10 +25,16 @@ import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/br
 import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
 import { validateSlide } from '../services/slideValidator';
+// 2026-06-05 - UNIVERSAL JSON parse hygiene. Every model-output parse site
+// in this file routes through tryRepairJson (markdown-fence strip + bracket-
+// balance + 9-rung repair ladder) before falling back to per-array salvage.
+// Static import (over async dynamic import) lets the sync parseSlideBlocks /
+// parseDeliverableBlocks callbacks use these helpers without a refactor.
+import { tryRepairJson, salvageJsonArray } from '../services/aiRouter';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
-// 2026-05-23 — P2.5: FeedbackReceipt was imported but never rendered. The
+// 2026-05-23 - P2.5: FeedbackReceipt was imported but never rendered. The
 // FeedbackWidget now renders its own inline evidence panel (post-feedback
 // LearningEvidence display) which supersedes the standalone receipt. The
 // import is kept commented as documentation of the prior wiring, not active
@@ -36,6 +42,7 @@ import FeedbackWidget from './FeedbackWidget';
 // import FeedbackReceipt from './FeedbackReceipt';
 import GenerationReceipt from './GenerationReceipt';
 import { regenerateWithFeedback, type TextDiff } from '../services/feedbackRegeneration';
+import { resolveDeliverableBodies, currentEngagementSlug, manifestPointerBlock } from '../services/wikiPointerResolver';
 // --- Chunked slide-deck generation (2026-05-23, chunking + output-quality plan, Phase 2) ---
 import { generateChunkedSlideDeck, shouldChunkSlideRequest } from '../services/slideDeckChunker';
 // --- Design Desk artifact delivery (hashtag interception) ---
@@ -45,14 +52,14 @@ import { loadDesignMd, type DesignTokens } from '../design-desk/services/designM
 import { generateArtifact } from '../design-desk/services/chatToArtifact';
 import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
 import type { FreeformKind, FreeformArtifact } from '../design-desk/schemas/freeformArtifact';
-// 2026-05-24 — NotebookLM uplift Phase 4-6 backing services + renderers.
+// 2026-05-24 - NotebookLM uplift Phase 4-6 backing services + renderers.
 import { buildMindMap, type BertTopicCluster } from '../services/mindMapArchitect';
 import { renderMindMapHtml } from '../services/mindMapRenderer';
 import { generateBriefDialog, renderBriefDialogHtml } from '../services/briefDialogService';
 import { buildMetaThemes, renderMetaThemesHtml } from '../services/metaThemesService';
 import { buildResearchPlan } from '../services/researchPlanner';
 import { renderResearchPlanHtml } from '../services/researchPlanRenderer';
-// 2026-05-25 — Expert-panel pre-emit system. Every freeform artifact passes
+// 2026-05-25 - Expert-panel pre-emit system. Every freeform artifact passes
 // through the domain-expert critique panel before reaching the design desk.
 import { runExpertPanel, type ArtifactKind, stripEmDashesInPlace } from '../services/artifactExpertPanel';
 // --- Presentation Pipeline (#presentation #NXT/#NU narrative composer) ---
@@ -81,7 +88,7 @@ import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './PromptEnhanc
 // --- Mid-chat upload dropzone (2026-05-08) ---
 import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
-// --- Presentation library (#presentations bare-hashtag — 2026-05-09) ---
+// --- Presentation library (#presentations bare-hashtag - 2026-05-09) ---
 import {
     listPresentations,
     getPresentation,
@@ -95,7 +102,7 @@ import {
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
 // structured pipeline.
 //
-// 2026-05-26 — `journey` and `blueprint` were REMOVED from this set. Those
+// 2026-05-26 - `journey` and `blueprint` were REMOVED from this set. Those
 // two kinds now route through `/api/journey-map/generate` to the dedicated
 // `internal-solutions-journeymapper` service (Docker container `journey-mapper`,
 // port 8080), preserving JM's two-pass Claude Sonnet depth. The inline
@@ -104,13 +111,13 @@ import {
 // See: memory/feedback_journey_must_route_to_journey_mapper.md
 const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
     'org', 'arch', 'roadmap',
-    // 2026-05-24 — NotebookLM uplift Phase 4-6 deliverables. These don't use
+    // 2026-05-24 - NotebookLM uplift Phase 4-6 deliverables. These don't use
     // the exemplar-driven generateFreeformArtifact() path; they're produced
     // by dedicated services + renderers. The set membership keeps them in
     // the freeform artifact ecosystem (IDB persistence, ArtifactViewer
     // dispatch on type === 'freeform').
     'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
-    // 2026-05-25 — Unified artifact-engine kinds. Every kind now flows through
+    // 2026-05-25 - Unified artifact-engine kinds. Every kind now flows through
     // /api/artifact/generate (and /api/artifact/revise on revisions) which
     // produces a JM-style HTML report with brand override + anti-slop +
     // launcher card. Persona stays on the legacy structured pipeline by
@@ -142,16 +149,16 @@ interface Props {
      *  When provided, inline-rendered artifact previews show an "Open in Designer"
      *  button that activates the artifact and triggers this callback. */
     onOpenDesignDesk?: () => void;
-    /** 2026-05-11 — Session save/restore. When App.tsx loads a saved session
+    /** 2026-05-11 - Session save/restore. When App.tsx loads a saved session
      *  it passes `initialMessages` so the chat hydrates with the prior
      *  conversation. `onMessagesChange` fires on every messages update so
      *  the App can serialize the latest history when saving. */
     initialMessages?: ChatMessage[];
     onMessagesChange?: (messages: ChatMessage[]) => void;
-    /** 2026-05-14 — T4 build-only iteration. When the IDLE-screen resume
+    /** 2026-05-14 - T4 build-only iteration. When the IDLE-screen resume
      *  picker loads cached briefs from a prior engagement, App passes them
      *  here. The chat panel renders an assistant message with the cached
-     *  briefs ready for selection — click Build → handleApproveBrief runs
+     *  briefs ready for selection - click Build → handleApproveBrief runs
      *  Stages 2-5 only against the cached brief, skipping all data
      *  collection + Pass 1/2 brief generation. */
     initialCachedBriefs?: {
@@ -160,9 +167,9 @@ interface Props {
         sourceSlug: string;
         mode: 't4-build-only' | 't3-briefs';
     };
-    /** 2026-05-26 — Main-pipeline contention gate. When true, the chat Send
+    /** 2026-05-26 - Main-pipeline contention gate. When true, the chat Send
      *  button is disabled with an inline warning so the user can't fire a
-     *  chat directive on top of an in-flight themes/personas/recs run —
+     *  chat directive on top of an in-flight themes/personas/recs run -
      *  prevents the 23-min contention scenario from 2026-05-26 where the
      *  chat and the pipeline fought for the same 4 proxy workers and the
      *  same Gemini quota. Parent passes `appState !== AppState.SUCCESS`
@@ -172,7 +179,7 @@ interface Props {
 
 /**
  * Prominent loading animation shown while the AI is reasoning or generating
- * an image. Designed to make it unmistakable that work is in progress —
+ * an image. Designed to make it unmistakable that work is in progress -
  * pulsing ring + traveling progress bar + live elapsed timer + rotating
  * contextual status text so the user knows the system is alive even on the
  * longer (multi-second) Opus or Imagen calls.
@@ -233,7 +240,7 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
                     {label}
                 </div>
                 <div style={{ marginTop: 3, fontSize: 11, color: '#666', fontWeight: 400, fontStyle: 'italic', minHeight: 16 }}>
-                    {phases[phaseIdx]}…
+                    {phases[phaseIdx]}...
                 </div>
                 {/* Traveling progress bar */}
                 <div style={{ marginTop: 10, height: 3, background: '#E8E8E8', position: 'relative', overflow: 'hidden' }}>
@@ -274,7 +281,7 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
  * existing viewer components at a capped height.
  */
 /**
- * SlideProjection — renders an artifact inside an exact 16:9 NXT slide frame.
+ * SlideProjection - renders an artifact inside an exact 16:9 NXT slide frame.
  * The frame itself (header + body + footer) is the rasterization target, so
  * PNG/PDF/PPTX exports come out un-stretched.
  */
@@ -299,7 +306,7 @@ const SlideProjection: React.FC<{
      * Capture the live SlideProjection DOM at native 1920x1080 (upscaling from
      * the 800x450 preview via pixelRatio: 2.4) so the exported file matches
      * exactly what the user sees in the chat. The previous path used
-     * artifactExporter.ts which renders a fresh off-screen NxtDocViewer — that
+     * artifactExporter.ts which renders a fresh off-screen NxtDocViewer - that
      * doc is centered at maxWidth 960px and produced massive whitespace + a
      * redundant title bar in the export. Capturing the slide's actual rendered
      * frame fixes both problems.
@@ -459,7 +466,7 @@ const SlideProjection: React.FC<{
 
     return (
         <div style={{ marginTop: 10 }}>
-            {/* The slide itself — exactly 16:9, rasterized for export */}
+            {/* The slide itself - exactly 16:9, rasterized for export */}
             <div
                 ref={slideRef}
                 style={{
@@ -489,7 +496,7 @@ const SlideProjection: React.FC<{
                         fontSize: 9, fontWeight: 700, letterSpacing: 2.5,
                         textTransform: 'uppercase', color: accent, marginBottom: 2,
                     }}>
-                        #{artifactType} / {artifact.brand.toUpperCase()} — Slide
+                        #{artifactType} / {artifact.brand.toUpperCase()} - Slide
                     </div>
                     <div style={{
                         fontFamily: "'Bebas Neue', sans-serif",
@@ -504,7 +511,7 @@ const SlideProjection: React.FC<{
                         {title}
                     </div>
                 </div>
-                {/* Body — artifact rendered to fill the remaining height */}
+                {/* Body - artifact rendered to fill the remaining height */}
                 <div style={{ flex: 1, height: bodyH, background: '#FFFFFF', overflow: 'hidden', position: 'relative' }}>
                     {artifactType === 'persona' && artifact.type === 'persona' && (
                         <div style={{ height: '100%', overflow: 'auto' }}>
@@ -581,7 +588,7 @@ const SlideProjection: React.FC<{
 };
 
 /**
- * DeliverableLaunchCard (unified — replaces JourneyLaunchCard 2026-05-25)
+ * DeliverableLaunchCard (unified - replaces JourneyLaunchCard 2026-05-25)
  *
  * Renders an explicit "Launch" button + summary card for any deliverable
  * produced by the unified /api/artifact/* engine. Set on ChatMessage via
@@ -608,7 +615,7 @@ const DeliverableLaunchCard: React.FC<{
     const accentColor = brand === 'NU' ? '#C8102E' : '#B8B800';
     const kindLabel = (meta?.kind || 'artifact').replace(/-/g, ' ');
     const handleLaunch = () => {
-        // 2026-05-26 — Guard: a relative "/api/..." URL would resolve against
+        // 2026-05-26 - Guard: a relative "/api/..." URL would resolve against
         // the SPA origin (:5011) and SPA-fall-back to the landing page. All
         // proxy-served artifact views live on :5012. Absolute-ize defensively
         // so a missed prefix upstream can't reopen the landing page.
@@ -617,7 +624,7 @@ const DeliverableLaunchCard: React.FC<{
             target = `http://127.0.0.1:5012${target}`;
         }
         if (!target) {
-            console.warn('[LaunchCard] empty launcher URL — nothing to open');
+            console.warn('[LaunchCard] empty launcher URL - nothing to open');
             return;
         }
         window.open(target, '_blank', 'noopener,noreferrer');
@@ -684,7 +691,7 @@ const JourneyLaunchCard = DeliverableLaunchCard;
  * #presentation composition. Set on a ChatMessage via `presentationUrl`
  * by the handleSend hashtag interception path.
  *
- * The card itself is the deliverable surface — the URL is intentionally
+ * The card itself is the deliverable surface - the URL is intentionally
  * NOT rendered as raw text in the message body. Click → window.open in
  * a separate tab; URL is also exposed for keyboard / right-click "copy
  * link address".
@@ -696,7 +703,7 @@ const PresentationLaunchCard: React.FC<{
     const brand = meta?.brand || 'NXT';
     const accentColor = brand === 'NU' ? '#CC0000' : '#B8B800';
     const handleLaunch = () => {
-        // 2026-05-26 — Guard: a relative "/api/..." URL would resolve against
+        // 2026-05-26 - Guard: a relative "/api/..." URL would resolve against
         // the SPA origin (:5011) and SPA-fall-back to the landing page. All
         // proxy-served artifact views live on :5012. Absolute-ize defensively
         // so a missed prefix upstream can't reopen the landing page.
@@ -705,7 +712,7 @@ const PresentationLaunchCard: React.FC<{
             target = `http://127.0.0.1:5012${target}`;
         }
         if (!target) {
-            console.warn('[LaunchCard] empty launcher URL — nothing to open');
+            console.warn('[LaunchCard] empty launcher URL - nothing to open');
             return;
         }
         window.open(target, '_blank', 'noopener,noreferrer');
@@ -760,7 +767,7 @@ const PresentationLaunchCard: React.FC<{
 };
 
 /**
- * 2026-05-09 — Inline grid of saved presentations with Open / Edit / Delete
+ * 2026-05-09 - Inline grid of saved presentations with Open / Edit / Delete
  * chips per card. Mounted on chat messages whose libraryItems is set
  * (rendered when the user types the bare `#presentations` command).
  *
@@ -785,7 +792,7 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
     const [editingSlug, setEditingSlug] = useState<string | null>(null);
     const [editInstruction, setEditInstruction] = useState('');
     const [busySlug, setBusySlug] = useState<string | null>(null);
-    // 2026-05-14 — Enhancer for the inline revision instruction. Same Gemini
+    // 2026-05-14 - Enhancer for the inline revision instruction. Same Gemini
     // Flash service the chats use, but the 'revision' surface biases the
     // rubric toward imperative surgical tweaks rather than open prompts.
     const revisionEnhancer = usePromptEnhancer({
@@ -851,7 +858,7 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
                         <div style={{ fontSize: 12, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3 }}>{item.title || '(untitled)'}</div>
                         {item.narrativeThesis && (
                             <div style={{ fontSize: 10, color: '#666', lineHeight: 1.4, fontStyle: 'italic' }}>
-                                {item.narrativeThesis.slice(0, 140)}{item.narrativeThesis.length > 140 ? '…' : ''}
+                                {item.narrativeThesis.slice(0, 140)}{item.narrativeThesis.length > 140 ? '...' : ''}
                             </div>
                         )}
                         <div style={{ fontSize: 9, color: '#999', marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>
@@ -887,7 +894,7 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
                                     onClick={() => handleDelete(item.slug)}
                                     disabled={isBusy}
                                     style={chipStyle('#CC6644', '#FFFFFF')}
-                                >{isBusy ? 'Deleting…' : 'Yes, delete'}</button>
+                                >{isBusy ? 'Deleting...' : 'Yes, delete'}</button>
                                 <button
                                     onClick={() => setConfirmingDelete(null)}
                                     disabled={isBusy}
@@ -912,7 +919,7 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
                                         onClick={() => handleEditSubmit(item.slug)}
                                         disabled={isBusy || !editInstruction.trim()}
                                         style={chipStyle('#B8B800', '#0D0D0D')}
-                                    >{isBusy ? 'Composing…' : 'Compose revision'}</button>
+                                    >{isBusy ? 'Composing...' : 'Compose revision'}</button>
                                     <EnhanceButton handle={revisionEnhancer} accentColor="#00B7C3" compact disabled={isBusy} />
                                     <button
                                         onClick={() => { setEditingSlug(null); setEditInstruction(''); }}
@@ -965,7 +972,7 @@ const InlineArtifactPreview: React.FC<{
     }, []);
 
     if (!artifact) {
-        // Pull current ids via getState() (NOT a hook with array selector — array
+        // Pull current ids via getState() (NOT a hook with array selector - array
         // selectors return a new reference each render and create an infinite loop
         // because Zustand's default equality is Object.is).
         const ids = useDesignDeskStore.getState().artifacts.map(a => a.id);
@@ -997,7 +1004,7 @@ const InlineArtifactPreview: React.FC<{
                 </div>
                 <div style={{ padding: '6px 10px', borderTop: `1px solid ${primary}`, background: '#0D0D0D', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 10, color: accent, fontFamily: "'JetBrains Mono', monospace" }}>
-                        #{(artifact as any).kind} / {artifact.brand.toUpperCase()} {asSlide ? '— Slide' : ''}
+                        #{(artifact as any).kind} / {artifact.brand.toUpperCase()} {asSlide ? '- Slide' : ''}
                     </span>
                     <ArtifactExportButtons artifact={artifact as any} onOpenDesignDesk={onOpenDesignDesk} handleOpen={handleOpen} />
                 </div>
@@ -1005,7 +1012,7 @@ const InlineArtifactPreview: React.FC<{
         );
     }
 
-    // SlideSpec artifacts — typed JSON rendered via SlideSpecViewer.
+    // SlideSpec artifacts - typed JSON rendered via SlideSpecViewer.
     // Native PPTX export (no DOM walking, no repair dialog).
     if ((artifact as any).type === 'slide') {
         const slideArt = artifact as any;
@@ -1021,7 +1028,7 @@ const InlineArtifactPreview: React.FC<{
                 </div>
                 <div style={{ padding: '6px 10px', borderTop: `1px solid ${primary}`, background: '#0D0D0D', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 10, color: accent, fontFamily: "'JetBrains Mono', monospace" }}>
-                        #{slideArt.kind} / {slideArt.brand.toUpperCase()} — SlideSpec
+                        #{slideArt.kind} / {slideArt.brand.toUpperCase()} - SlideSpec
                     </span>
                     <ArtifactExportButtons artifact={artifact as any} onOpenDesignDesk={onOpenDesignDesk} handleOpen={handleOpen} />
                 </div>
@@ -1140,13 +1147,13 @@ const ArtifactExportButtons: React.FC<{
     return (
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             <button onClick={() => run('pdf')} disabled={!!busy} style={btnBase}>
-                {busy === 'pdf' ? 'PDF…' : 'Export PDF'}
+                {busy === 'pdf' ? 'PDF...' : 'Export PDF'}
             </button>
             <button onClick={() => run('png')} disabled={!!busy} style={btnBase}>
-                {busy === 'png' ? 'PNG…' : 'Export PNG'}
+                {busy === 'png' ? 'PNG...' : 'Export PNG'}
             </button>
             <button onClick={() => run('pptx')} disabled={!!busy} style={btnBase}>
-                {busy === 'pptx' ? 'PPTX…' : 'Export PPTX'}
+                {busy === 'pptx' ? 'PPTX...' : 'Export PPTX'}
             </button>
             {onOpenDesignDesk && (
                 <button
@@ -1160,26 +1167,26 @@ const ArtifactExportButtons: React.FC<{
     );
 };
 
-// 2026-04-21 — SUGGESTED_QUERIES (static list) was retired. The welcome
+// 2026-04-21 - SUGGESTED_QUERIES (static list) was retired. The welcome
 // screen and the above-input guidance strip now both source their
-// suggestions from DynamicPromptChips which calls suggestPrompts() —
+// suggestions from DynamicPromptChips which calls suggestPrompts() -
 // state-aware on uploaded docs / live sources / knowledge graph themes.
 // See services/dynamicPromptSuggestions.ts.
 
-// 2026-05-11 — renderProtoChips: scan plain-text content for backtick-
+// 2026-05-11 - renderProtoChips: scan plain-text content for backtick-
 // wrapped `#proto ...` patterns (emitted by #recommendations responses)
 // and replace them with clickable chips that pre-fill the chat input.
 // Format the model emits:
-//   `#proto #name=<slug> #NXT` — Optional label after em-dash
+//   `#proto #name=<slug> #NXT` - Optional label after em-dash
 //
 // The em-dash + label is the user-facing chip label; the backticked
 // portion is what gets injected into the input field. If no label is
 // present, the command itself is used as the label.
 function renderProtoChips(text: string, onPickCommand: (cmd: string) => void): React.ReactNode {
     if (!text || !text.includes('#proto')) return text;
-    // Match: ` `#proto ...` ` optionally followed by ` — label text` (em-dash, en-dash, or hyphen)
+    // Match: ` `#proto ...` ` optionally followed by ` - label text` (em-dash, en-dash, or hyphen)
     // The label runs until end-of-line or a newline.
-    const pattern = /`(#proto[^`]*?)`(?:\s*[—–\-]\s*([^\n]+))?/g;
+    const pattern = /`(#proto[^`]*?)`(?:\s*[\-]\s*([^\n]+))?/g;
     const out: React.ReactNode[] = [];
     let lastIdx = 0;
     let match: RegExpExecArray | null;
@@ -1234,7 +1241,7 @@ function renderProtoChips(text: string, onPickCommand: (cmd: string) => void): R
     return <>{out}</>;
 }
 
-// 2026-05-11 — Prototype launcher card. Mirrors PresentationLaunchCard
+// 2026-05-11 - Prototype launcher card. Mirrors PresentationLaunchCard
 // shape. Opens the prototype's standalone HTML view in a new window.
 const PrototypeLaunchCard: React.FC<{
     url: string;
@@ -1310,7 +1317,7 @@ const PrototypeLaunchCard: React.FC<{
                 <button
                     onClick={handleExportZip}
                     disabled={exporting || !meta?.slug}
-                    title={meta?.slug ? 'Download a runnable Vite project zip — package.json, vite.config, src/App, README, brief.json, critique.json' : 'Save the prototype first to export'}
+                    title={meta?.slug ? 'Download a runnable Vite project zip - package.json, vite.config, src/App, README, brief.json, critique.json' : 'Save the prototype first to export'}
                     style={{
                         padding: '10px 14px',
                         background: 'transparent',
@@ -1325,7 +1332,7 @@ const PrototypeLaunchCard: React.FC<{
                     }}
                     aria-label="Export prototype as runnable Vite project zip"
                 >
-                    {exporting ? 'Bundling…' : 'Export ZIP ↓'}
+                    {exporting ? 'Bundling...' : 'Export ZIP ↓'}
                 </button>
                 <button
                     onClick={() => window.open(url, '_blank', 'noopener,noreferrer,width=1280,height=900')}
@@ -1349,7 +1356,7 @@ const PrototypeLaunchCard: React.FC<{
     );
 };
 
-// 2026-05-12 — Hashtag autocomplete dropdown.
+// 2026-05-12 - Hashtag autocomplete dropdown.
 // Appears when the user types '#' followed by a partial token. Pulls
 // from the canonical hashtagRegistry (DIRECTIVES). Up/Down arrow + Enter
 // to pick, Escape to dismiss. Reads cursor position to detect whether
@@ -1371,7 +1378,7 @@ const HashtagAutocomplete: React.FC<{
         const cursor = el.selectionStart ?? input.length;
         const before = input.slice(0, cursor);
         // Match the last #word the cursor is touching. The token starts at
-        // a non-word boundary (start of string or whitespace) — so we don't
+        // a non-word boundary (start of string or whitespace) - so we don't
         // false-trigger on a # buried inside another word.
         const m = before.match(/(?:^|\s)(#[a-zA-Z0-9_-]*)$/);
         if (!m) { setOpen(false); setPartial(''); return; }
@@ -1498,10 +1505,10 @@ const HashtagAutocomplete: React.FC<{
     );
 };
 
-// 2026-05-12 — Sprint H2 — Artifact Launch Card.
+// 2026-05-12 - Sprint H2 - Artifact Launch Card.
 // Mirror of PrototypeLaunchCard for the HTML-artifact family
 // (#brief, #explainer, #report, #playground, #approaches, #help).
-// One Launch button — opens artifact /view URL in a new window with NXT
+// One Launch button - opens artifact /view URL in a new window with NXT
 // brand wrapper + Copy-as-prompt footer.
 const ArtifactLaunchCard: React.FC<{
     url: string;
@@ -1565,7 +1572,7 @@ const ArtifactLaunchCard: React.FC<{
     );
 };
 
-// 2026-05-12 — Artifact library grid (bare #artifacts hashtag).
+// 2026-05-12 - Artifact library grid (bare #artifacts hashtag).
 // Mirror of PrototypeLibraryGrid for HTML artifacts.
 interface ArtifactLibraryGridProps {
     items: any[]; // ArtifactSummary[]
@@ -1645,7 +1652,7 @@ const ArtifactLibraryGrid: React.FC<ArtifactLibraryGridProps> = ({ items, onItem
     );
 };
 
-// 2026-05-11 — Prototype library grid (#prototypes bare hashtag).
+// 2026-05-11 - Prototype library grid (#prototypes bare hashtag).
 // Each card has Launch / Edit / Delete chips. Edit prompts for an
 // instruction and re-runs the 5-stage pipeline with the new direction
 // layered onto the existing artifact.
@@ -1658,8 +1665,8 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
     const [editingSlug, setEditingSlug] = useState<string | null>(null);
     const [editInstruction, setEditInstruction] = useState('');
     const [confirmDeleteSlug, setConfirmDeleteSlug] = useState<string | null>(null);
-    // 2026-05-14 — Enhancer for prototype revision instructions. Same 'revision'
-    // surface rubric — imperative, surgical, deltas not redesigns.
+    // 2026-05-14 - Enhancer for prototype revision instructions. Same 'revision'
+    // surface rubric - imperative, surgical, deltas not redesigns.
     const protoRevisionEnhancer = usePromptEnhancer({
         input: editInstruction,
         setInput: setEditInstruction,
@@ -1693,7 +1700,7 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                         }}>{p.concept_preview}</div>
                     )}
                     <div style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
-                        {Math.round((p.code_chars || 0) / 1024)}KB · {p.updated_at ? new Date(p.updated_at).toLocaleDateString() : '—'}
+                        {Math.round((p.code_chars || 0) / 1024)}KB · {p.updated_at ? new Date(p.updated_at).toLocaleDateString() : '-'}
                     </div>
                     {editingSlug === p.slug ? (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -1780,7 +1787,7 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
     );
 };
 
-// 2026-05-11 — RecommendationTilesGrid renders #recommendations output as
+// 2026-05-11 - RecommendationTilesGrid renders #recommendations output as
 // elegant tiles instead of a markdown wall. Each tile gets a Gemini Imagen
 // thumbnail (16:9), Bebas Neue title, thesis, persona/moment/aha rows,
 // AI-capability pills, and clickable variant chips that pre-fill the chat
@@ -1803,7 +1810,7 @@ interface RecommendationTile {
     effort_estimate?: string;
     risk_level?: string;
     evidence_sources?: string[];
-    // Consulting-depth fields — generic context-aware names + legacy aliases
+    // Consulting-depth fields - generic context-aware names + legacy aliases
     initiative_dependent?: boolean | null;
     group?: 'initiative_dependent' | 'initiative_independent' | 'clr_dependent' | 'clr_independent' | null;
     description?: string;
@@ -1855,13 +1862,13 @@ interface RecommendationTilesGridProps {
     tiles: RecommendationTile[];
     onPickCommand: (command: string) => void;
     context?: EngagementContext;
-    // 2026-05-12 — Hashtag composition. Brand drives tile accent (chartreuse
+    // 2026-05-12 - Hashtag composition. Brand drives tile accent (chartreuse
     // for NXT consensus, NU red for NU consensus; cyan stays for bets across
     // both brands). autoExport triggers on-mount export when #slides or #slide
     // was in the original query.
     brand?: BrandId;
     autoExport?: 'deck' | 'single' | null;
-    // 2026-05-23 — P1.3: Threaded down to RecommendationTileCard so per-tile
+    // 2026-05-23 - P1.3: Threaded down to RecommendationTileCard so per-tile
     // FeedbackWidget can scope feedback to the specific tile slug.
     engagementSlug?: string;
     deliverableId?: string;
@@ -1891,10 +1898,10 @@ function labelsFromContext(ctx?: EngagementContext) {
         cmpAlignCol: `Alignment (${stakeholdersLabel})`,
     };
 }
-// 2026-05-13 — Product Brief comparison grid. Emitted by #proto after the
+// 2026-05-13 - Product Brief comparison grid. Emitted by #proto after the
 // VS brief generator returns 5 distinct framings. Each card surfaces the
 // brief's frame label, persona, demonstrated moment, use cases, screens,
-// AI capabilities, seed data sketch, and visual direction — with a single
+// AI capabilities, seed data sketch, and visual direction - with a single
 // BUILD THIS button that hands the brief to buildPrototype as
 // approvedBrief, skipping Stage 1.
 interface ProductBriefForCard {
@@ -1916,7 +1923,7 @@ interface ProductBriefForCard {
     hard_constraints?: { brand?: string | null; platform?: string; accessibility?: string; other?: string[] };
 }
 
-/** 2026-05-13 — Export a ProductBrief as Markdown, plain text, or JSON.
+/** 2026-05-13 - Export a ProductBrief as Markdown, plain text, or JSON.
  *  Triggers a download on click. */
 function downloadFile(filename: string, content: string, mime: string): void {
     try {
@@ -1948,7 +1955,7 @@ function briefToMarkdown(b: ProductBriefForCard): string {
     if (b.primary_persona) {
         lines.push('');
         lines.push('## Primary persona');
-        if (b.primary_persona.name) lines.push(`**${b.primary_persona.name}** — ${b.primary_persona.role || ''}`);
+        if (b.primary_persona.name) lines.push(`**${b.primary_persona.name}** - ${b.primary_persona.role || ''}`);
         if (b.primary_persona.context) lines.push(b.primary_persona.context);
         if (b.primary_persona.emotional_state) lines.push(`*Emotional state:* ${b.primary_persona.emotional_state}`);
         if (b.primary_persona.jtbd) lines.push(`**JTBD:** ${b.primary_persona.jtbd}`);
@@ -1961,7 +1968,7 @@ function briefToMarkdown(b: ProductBriefForCard): string {
     if (b.secondary_actors && b.secondary_actors.length > 0) {
         lines.push('');
         lines.push('## Secondary actors');
-        for (const a of b.secondary_actors) lines.push(`- **${a.role}** — ${a.involvement}`);
+        for (const a of b.secondary_actors) lines.push(`- **${a.role}** - ${a.involvement}`);
     }
     if (b.demonstrated_moment) {
         lines.push('');
@@ -2011,14 +2018,14 @@ function briefToMarkdown(b: ProductBriefForCard): string {
             lines.push('');
             lines.push('### Primary entities');
             for (const e of b.seed_data.primary_entities) {
-                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` — ${e.example_records_summary}` : ''}`);
+                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` - ${e.example_records_summary}` : ''}`);
             }
         }
         if (b.seed_data.secondary_entities && b.seed_data.secondary_entities.length > 0) {
             lines.push('');
             lines.push('### Secondary entities');
             for (const e of b.seed_data.secondary_entities) {
-                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` — ${e.example_records_summary}` : ''}`);
+                lines.push(`- **${e.name}** (target ${e.target_count})${e.example_records_summary ? ` - ${e.example_records_summary}` : ''}`);
             }
         }
     }
@@ -2053,7 +2060,7 @@ function briefToMarkdown(b: ProductBriefForCard): string {
 }
 
 function briefToPlainText(b: ProductBriefForCard): string {
-    // Markdown stripped of formatting tokens — usable as plain text.
+    // Markdown stripped of formatting tokens - usable as plain text.
     return briefToMarkdown(b)
         .replace(/^#+\s*/gm, '')
         .replace(/\*\*(.*?)\*\*/g, '$1')
@@ -2071,7 +2078,7 @@ function briefSlug(b: ProductBriefForCard): string {
         .replace(/-+$/, '') || 'brief';
 }
 
-/** 2026-05-13 v2 — Render a ProductBrief as a standalone HTML document and
+/** 2026-05-13 v2 - Render a ProductBrief as a standalone HTML document and
  *  open it in a real popup window. Gives the user a dedicated review surface
  *  rather than cramping the brief inside the chat thread. */
 function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): void {
@@ -2097,11 +2104,11 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
 
     const listHtml = (items: string[]): string => items.length
         ? `<ul>${items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>`
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     const personaHtml = brief.primary_persona
         ? `<div class="persona">
-             <div class="persona-name">${escapeHtml(brief.primary_persona.name || '')} <span class="persona-role">— ${escapeHtml(brief.primary_persona.role || '')}</span></div>
+             <div class="persona-name">${escapeHtml(brief.primary_persona.name || '')} <span class="persona-role">- ${escapeHtml(brief.primary_persona.role || '')}</span></div>
              ${brief.primary_persona.context ? `<p>${escapeHtml(brief.primary_persona.context)}</p>` : ''}
              ${brief.primary_persona.emotional_state ? `<p class="emotion">Emotional state: ${escapeHtml(brief.primary_persona.emotional_state)}</p>` : ''}
              ${brief.primary_persona.jtbd ? `<p><strong>JTBD:</strong> ${escapeHtml(brief.primary_persona.jtbd)}</p>` : ''}
@@ -2123,7 +2130,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
                  ${u.outcome ? `<div><strong>Outcome:</strong> ${escapeHtml(u.outcome)}</div>` : ''}
                </div>
              </div>`).join('')
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     const screensHtml = brief.key_screens && brief.key_screens.length > 0
         ? brief.key_screens.map((s, i) => `
@@ -2136,7 +2143,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
                  ${s.motion_character ? `<div><strong>Motion:</strong> ${escapeHtml(s.motion_character)}</div>` : ''}
                </div>
              </div>`).join('')
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     const aiHtml = brief.ai_capabilities && brief.ai_capabilities.length > 0
         ? brief.ai_capabilities.map((c, i) => `
@@ -2151,7 +2158,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
                  ${c.user_benefit ? `<div><strong>User benefit:</strong> ${escapeHtml(c.user_benefit)}</div>` : ''}
                </div>
              </div>`).join('')
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     const seedHtml = brief.seed_data
         ? `${(brief.seed_data.primary_entities || []).map((e: any) => `
@@ -2167,7 +2174,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
                <div class="seed-name">${escapeHtml(e.name)} <span class="seed-meta">secondary · target ${e.target_count}</span></div>
                ${e.example_records_summary ? `<div class="seed-summary">${escapeHtml(e.example_records_summary)}</div>` : ''}
              </div>`).join('')}`
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     // v2 fields (optional)
     const dataExamples = (brief as any).data_examples as Array<any> | undefined;
@@ -2224,7 +2231,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
                 ? `<div class="subhead">Imagen prompts (${brief.visual_direction.image_gen_opportunities.length})</div><ol>${brief.visual_direction.image_gen_opportunities.map((p: string) => `<li>${escapeHtml(p)}</li>`).join('')}</ol>`
                 : ''}
            </div>`
-        : '<p class="empty">—</p>';
+        : '<p class="empty">-</p>';
 
     const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>${escapeHtml(brief.title)} · Product Brief</title>
@@ -2304,7 +2311,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
 
 const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard, customization?: string) => void; isBuilding: boolean; brand: 'NXT' | 'NU'; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
     const [expanded, setExpanded] = useState(false); // collapsed by default; popup window is the primary deep-dive surface
-    // 2026-05-14 — Brief-customization slot. Last-mile tweaks the user wants
+    // 2026-05-14 - Brief-customization slot. Last-mile tweaks the user wants
     // applied BEFORE the 7-stage pipeline runs. The text gets prepended to
     // the concept passed into Stage 2 so every downstream stage sees it.
     const [showCustomization, setShowCustomization] = useState(false);
@@ -2351,7 +2358,7 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: '#525252' }}>p = {probPct}</span>
                 {(brief as any)._pass2_failed && (
                     <span
-                        title={`Pass 2 deepening failed for this brief. Reason: ${(brief as any)._pass2_reason || 'unknown'}. The fields below are skeleton-only — not safe to build from. Regenerate the brief set.`}
+                        title={`Pass 2 deepening failed for this brief. Reason: ${(brief as any)._pass2_reason || 'unknown'}. The fields below are skeleton-only - not safe to build from. Regenerate the brief set.`}
                         style={{
                             background: '#CC6644', color: '#FFFFFF',
                             padding: '3px 8px', borderRadius: 2,
@@ -2359,7 +2366,7 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                             fontSize: 8, fontWeight: 700, letterSpacing: 1.2,
                             textTransform: 'uppercase',
                         }}
-                    >⚠ SKELETON ONLY — DEEPENING FAILED</span>
+                    > SKELETON ONLY - DEEPENING FAILED</span>
                 )}
                 <div style={{ flex: 1 }} />
                 <button
@@ -2383,7 +2390,7 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                 <button
                     onClick={() => onApprove(brief, customization.trim() || undefined)}
                     disabled={isBuilding || !!(brief as any)._pass2_failed}
-                    title={(brief as any)._pass2_failed ? 'Cannot build from a skeleton-only brief — regenerate the brief set first' : (customization.trim() ? 'Build this brief with your customization tweaks applied' : 'Build this brief into a prototype')}
+                    title={(brief as any)._pass2_failed ? 'Cannot build from a skeleton-only brief - regenerate the brief set first' : (customization.trim() ? 'Build this brief with your customization tweaks applied' : 'Build this brief into a prototype')}
                     style={{
                         padding: '8px 18px',
                         background: (brief as any)._pass2_failed ? '#E5E5E5' : (isBuilding ? '#E5E5E5' : '#0D0D0D'),
@@ -2394,10 +2401,10 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                         cursor: (isBuilding || (brief as any)._pass2_failed) ? 'not-allowed' : 'pointer',
                     }}
                 >
-                    {(brief as any)._pass2_failed ? '⚠ Build disabled' : (isBuilding ? 'Building…' : (customization.trim() ? `▶ Build with tweaks` : `▶ Build this brief`))}
+                    {(brief as any)._pass2_failed ? ' Build disabled' : (isBuilding ? 'Building...' : (customization.trim() ? `▶ Build with tweaks` : `▶ Build this brief`))}
                 </button>
             </div>
-            {/* Brief-customization slot — last-mile tweaks applied before the
+            {/* Brief-customization slot - last-mile tweaks applied before the
                 7-stage pipeline runs. Collapsed by default; click to expand. */}
             {!isBuilding && !(brief as any)._pass2_failed && (
                 <div style={{ borderTop: '1px solid #E5E5E5', background: showCustomization ? '#FAFCFD' : '#FFFFFF' }}>
@@ -2466,7 +2473,7 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                 <div style={{ padding: '0 18px 18px', borderTop: '1px solid #F0F0F0', fontFamily: "'Archivo', sans-serif", fontSize: 12, color: '#0D0D0D' }}>
                     {brief.primary_persona && (
                         <Section title="PRIMARY PERSONA">
-                            <div style={{ marginBottom: 4 }}><strong>{brief.primary_persona.name}</strong> — {brief.primary_persona.role}</div>
+                            <div style={{ marginBottom: 4 }}><strong>{brief.primary_persona.name}</strong> - {brief.primary_persona.role}</div>
                             <div style={{ color: '#525252', marginBottom: 4 }}>{brief.primary_persona.context}</div>
                             {brief.primary_persona.emotional_state && <div style={{ color: '#737373', fontStyle: 'italic', marginBottom: 6 }}>Emotional state: {brief.primary_persona.emotional_state}</div>}
                             {brief.primary_persona.jtbd && <div><strong>JTBD:</strong> {brief.primary_persona.jtbd}</div>}
@@ -2601,7 +2608,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
     const riskColor = tile.risk_level === 'high' ? '#CC6644'
         : tile.risk_level === 'medium' ? '#FD8E2E'
         : tile.risk_level === 'low' ? '#0CCE6B' : '#888';
-    // 2026-05-12 — Sprint 2 VS-Multi: visually differentiate consensus
+    // 2026-05-12 - Sprint 2 VS-Multi: visually differentiate consensus
     // tiles (brand-accent top border) from non-obvious bet tiles (cyan top
     // border + BET badge in top-right corner of the thumbnail). Consensus
     // accent flips chartreuse → NU red when brand=NU; bets stay cyan across
@@ -2635,8 +2642,13 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
     const paragraph = (text: string) => (
         <div style={{ fontSize: 12, lineHeight: 1.5, color: '#262626' }}>{text}</div>
     );
+    // 2026-06-05 - Per-tile id for the gold-pipeline DOM capture. The deck-export
+    // path (exportTile / exportDeck) reads `#rec-tile-${slug}` to snapshot each
+    // rendered tile at native 1920×1080 and ship through /api/gold/export-pptx-multi.
+    // Slug is the deterministic key; falls back to a stable per-index when absent.
+    const _tileCaptureId = `rec-tile-${tile.slug || `idx-${idx}`}`;
     return (
-        <div style={{
+        <div id={_tileCaptureId} style={{
             background: '#FFFFFF',
             border: '1px solid #E5E5E5',
             borderTop: `3px solid ${frameAccent}`,
@@ -2717,7 +2729,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         textTransform: 'uppercase',
                         opacity: 0.6,
                     }}>
-                        generating thumbnail…
+                        generating thumbnail...
                     </div>
                 )}
             </div>
@@ -2749,7 +2761,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         {tile.aha_interaction && (<div><span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Aha</span><span style={{ color: '#262626' }}>{tile.aha_interaction}</span></div>)}
                     </div>
                 )}
-                {/* Execution depth — only renders fields the model populated */}
+                {/* Execution depth - only renders fields the model populated */}
                 {(tile.execution_path || tile.existing_stack_reuse || tile.non_starter_check || tile.effort_estimate) && (
                     <div style={{ paddingTop: 8, borderTop: '1px dashed #E5E5E5', display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {tile.execution_path && (
@@ -2809,7 +2821,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                             }}
                         >
-                            <span>{expanded ? '— Collapse Consulting Brief' : '+ Expand Full Consulting Brief'}</span>
+                            <span>{expanded ? '- Collapse Consulting Brief' : '+ Expand Full Consulting Brief'}</span>
                             <span style={{ fontSize: 9, opacity: 0.7 }}>{expanded ? '▲' : '▼'}</span>
                         </button>
                         {expanded && (
@@ -2851,7 +2863,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                                                 <li key={si} style={{ marginBottom: 4 }}>
                                                     <div>{s.step}</div>
                                                     <div style={{ fontSize: 10, color: '#525252', marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>
-                                                        owner: {s.owner || '—'} · effort: {s.estimated_effort || '—'}{s.dependencies && s.dependencies.length > 0 ? ` · depends on: ${s.dependencies.join(', ')}` : ''}
+                                                        owner: {s.owner || '-'} · effort: {s.estimated_effort || '-'}{s.dependencies && s.dependencies.length > 0 ? ` · depends on: ${s.dependencies.join(', ')}` : ''}
                                                     </div>
                                                 </li>
                                             ))}
@@ -2868,7 +2880,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                                                 return (
                                                     <li key={ri} style={{ marginBottom: 4 }}>
                                                         <span style={{ display: 'inline-block', padding: '1px 6px', fontSize: 9, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', background: sevColor, color: '#FFFFFF', marginRight: 6 }}>{sev || 'med'}</span>
-                                                        <strong>{r.risk}</strong> — <span style={{ color: '#525252' }}>{r.mitigation}</span>
+                                                        <strong>{r.risk}</strong> - <span style={{ color: '#525252' }}>{r.mitigation}</span>
                                                     </li>
                                                 );
                                             })}
@@ -2889,7 +2901,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         )}
                     </div>
                 )}
-                {/* 2026-05-12 — Single-tile slide export. Renders this recommendation
+                {/* 2026-05-12 - Single-tile slide export. Renders this recommendation
                     as a stand-alone .pptx using the existing `recommendation` slide
                     template (with image + persona context + impact strip extensions).
                     Brand-locked to NXT by default; the accent color and framing tag
@@ -2930,7 +2942,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                                 (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
                             }}
                         >
-                            <span>{isExporting ? 'Preparing slide…' : '↓ Export as slide (#slide)'}</span>
+                            <span>{isExporting ? 'Preparing slide...' : '↓ Export as slide (#slide)'}</span>
                             <span style={{ fontSize: 8, opacity: 0.7 }}>.pptx</span>
                         </button>
                     </div>
@@ -2959,12 +2971,12 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                     </div>
                 )}
             </div>
-            {/* 2026-05-23 — P2.3 (Sprint H5): Copy-as-prompt button. Lifts the
+            {/* 2026-05-23 - P2.3 (Sprint H5): Copy-as-prompt button. Lifts the
                 tile's full content into a structured chat prompt the user can
                 paste into ChatGPT/Claude/Gemini elsewhere, or back into this
                 chat for refinement. Promised in plans/html-as-default-output-
                 uplift.md Sprint H5 but only ever shipped on the artifact /view
-                wrapper — finally landing on recommendation tiles per the
+                wrapper - finally landing on recommendation tiles per the
                 honest audit. */}
             <div style={{ marginTop: 6, paddingTop: 6, borderTop: '1px dashed #E5E5E5', display: 'flex', gap: 6, alignItems: 'center' }}>
                 <button
@@ -2980,7 +2992,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         try {
                             await navigator.clipboard.writeText(prompt);
                         } catch {
-                            // clipboard unavailable — render fallback prompt in alert
+                            // clipboard unavailable - render fallback prompt in alert
                             alert(prompt);
                         }
                     }}
@@ -2989,12 +3001,12 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                         color: '#525252', border: '1px solid #DDD', cursor: 'pointer',
                         textTransform: 'uppercase', letterSpacing: 1, fontFamily: "'JetBrains Mono', monospace",
                     }}
-                    title="Copy this tile as a structured prompt — paste into another chat or refine here."
+                    title="Copy this tile as a structured prompt - paste into another chat or refine here."
                 >
                     ↗ Copy as prompt
                 </button>
             </div>
-            {/* 2026-05-23 — P1.3: Per-tile FeedbackWidget. The audit caught that
+            {/* 2026-05-23 - P1.3: Per-tile FeedbackWidget. The audit caught that
                 FeedbackWidget was rendered only at the chat-bubble level and
                 no sectionScope was passed from per-deliverable renderers. Now
                 every recommendation tile has its own targeted feedback widget
@@ -3013,7 +3025,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
         </div>
     );
 };
-// 2026-05-11 — Engagement context header rendered ABOVE the analytical
+// 2026-05-11 - Engagement context header rendered ABOVE the analytical
 // preamble. Shows the brand/industry/segment/initiative/stack the model
 // extracted from the user's prompt so the user can sanity-check that the
 // system understood the engagement before evaluating concepts.
@@ -3087,7 +3099,7 @@ const EngagementContextBlock: React.FC<{ context: EngagementContext }> = ({ cont
     );
 };
 
-// 2026-05-11 — Analytical preamble block rendered above the tile grid.
+// 2026-05-11 - Analytical preamble block rendered above the tile grid.
 // Surfaces stakeholder priorities, design principles, ideas-to-retire, and
 // guardrail validation criteria the model extracted from the user prompt +
 // uploads. Mirrors the "Additional Analysis Requirements" section of a
@@ -3234,13 +3246,13 @@ const RecommendationNextStepsBlock: React.FC<{ steps: string[] }> = ({ steps }) 
 );
 
 const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context, brand, autoExport, engagementSlug, deliverableId }) => {
-    // 2026-05-12 — Slide export plumbing for #recommendations tiles.
+    // 2026-05-12 - Slide export plumbing for #recommendations tiles.
     //
     // Affordances:
-    //   • Per-tile  "Export as slide"  — single .pptx with brand + image
-    //   • Per-frame "Export {section}" — section-divider + all tiles in that frame
-    //   • Master    "Export all"        — full deck (consensus then bets, with dividers)
-    //   • AUTO-EXPORT on mount when #slides was in the query — fires the master deck
+    //   • Per-tile  "Export as slide"  - single .pptx with brand + image
+    //   • Per-frame "Export {section}" - section-divider + all tiles in that frame
+    //   • Master    "Export all"        - full deck (consensus then bets, with dividers)
+    //   • AUTO-EXPORT on mount when #slides was in the query - fires the master deck
     //     export 600ms after render so the user sees tiles AND receives the download
     //     in one motion. Composes with #NXT / #NU brand.
     //
@@ -3249,44 +3261,96 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     // error.
     const resolvedBrandId: BrandId = brand || 'nxt';
     const [exportingId, setExportingId] = useState<string | null>(null);
+    // 2026-06-05 - STRUCTURAL REWIRE. Per-tile + per-deck rec exports now route
+    // through the gold pipeline (captureSlideAsStageHtml → exportGoldDeckPptx),
+    // matching the chat preview pixel-for-pixel. Replaces the
+    // tileToExportSlidesMulti + exportDeckToPPTX path that re-implemented the
+    // tile layout in pptxgenjs and drifted from the preview. Each rec tile is
+    // mounted with id `rec-tile-${slug}`; we capture that rendered DOM at
+    // native 1920×1080 and send the array to /api/gold/export-pptx-multi.
+    // Result: one editable pptx slide PER TILE matching the visible card -
+    // no more 5-slide-per-tile expansion (that was a separate concern; the
+    // user explicitly asked for preview-export parity).
+    const _captureTileDoms = useCallback(async (
+        tilesToCapture: RecommendationTile[],
+    ): Promise<string[]> => {
+        // 2026-06-05 - Resolution fix. Was using captureSlideAsStageHtml on
+        // the chat tile DOM (rec-tile-${slug}); those tiles are 800-960px
+        // responsive cards with font-sizes too small to read at 1920×1080.
+        // Structural answer: convert each tile to a SlideData (template =
+        // 'recommendation') and feed it through slideDataToStageHtml. The
+        // result is a fresh 1920×1080 #stage HTML doc with native typography.
+        const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
+        const htmlList: string[] = [];
+        for (let i = 0; i < tilesToCapture.length; i++) {
+            const t = tilesToCapture[i];
+            try {
+                // Map the tile shape onto the SlideData recommendation contract.
+                const slideData = {
+                    id: `rec-tile-${t.slug || `idx-${i}`}`,
+                    template: 'recommendation' as const,
+                    brand: (resolvedBrandId === 'nu' ? 'nu' : 'nxt') as ('nxt' | 'nu'),
+                    title: t.title || 'Recommendation',
+                    sources: ((t as any).sources || []) as string[],
+                    recommendation: {
+                        actionTitle: ((t as any).action_title || (t as any).thesis || t.title) as string,
+                        rationale: ((t as any).description || (t as any).why_matters_target_segment || (t as any).why_matters_first_year || '') as string,
+                        supportingActions: Array.isArray((t as any).implementation_steps)
+                            ? (t as any).implementation_steps.slice(0, 3).map((step: any, idx: number) => ({
+                                name: (step as any).name || `Step ${idx + 1}`,
+                                description: (step as any).description || String(step),
+                            }))
+                            : [],
+                        impactMetric: (t as any).impactMetric || ((t as any).expected_impact ? {
+                            value: (t as any).expected_impact?.value || '',
+                            label: (t as any).expected_impact?.label || 'Expected impact',
+                        } : undefined),
+                        impactGrid: (t as any).impactGrid,
+                        evidence: Array.isArray((t as any).evidence)
+                            ? (t as any).evidence.slice(0, 2)
+                            : (t as any).verbatim_quote_evidence ? [{
+                                text: (t as any).verbatim_quote_evidence,
+                                source: ((t as any).sources && (t as any).sources[0]) || 'corpus',
+                                attribution: '',
+                            }] : [],
+                        implication: ((t as any).long_term_outcome_through_line
+                            || (t as any).long_term_coop_readiness
+                            || '') as string,
+                    },
+                };
+                htmlList.push(slideDataToStageHtml(slideData as any));
+            } catch (e: any) {
+                console.warn(`[#recommendations] tile render failed for ${t.slug || t.title}:`, e?.message || e);
+            }
+        }
+        return htmlList;
+    }, [resolvedBrandId]);
+
     const exportTile = useCallback(async (tile: RecommendationTile) => {
         if (exportingId) return;
         setExportingId(tile.slug || tile.title);
         try {
-            // 2026-05-12 — Per-tile export now produces a MULTI-SLIDE mini-deck
-            // (overview + case + execution + stakeholders + plan + risks) so
-            // the rich consulting brief in the chat tile makes it to PPTX.
-            // Falls back to a single-slide deck automatically when the tile
-            // is anemic (only the overview survives the substantive-content
-            // guards in tileToExportSlidesMulti).
-            const [{ exportDeckToPPTX }, { tileToExportSlidesMulti }, { getBrand }] = await Promise.all([
-                safeDynamicImport(() => import('./slideTemplates/pptx'), 'pptx exporter (rec single)'),
-                safeDynamicImport(() => import('../services/recommendationTileToSlide'), 'rec tile adapter'),
-                safeDynamicImport(() => import('./slideTemplates/brands'), 'brand tokens'),
-            ]);
-            const brandTokens = getBrand(resolvedBrandId);
-            const isBet = tile.frame === 'non_obvious_bet';
-            const slides = tileToExportSlidesMulti(tile as any, isBet, brandTokens);
-            const deckName = `${tile.title.slice(0, 60).trim()} · ${resolvedBrandId.toUpperCase()}`;
-            await exportDeckToPPTX(slides, deckName);
+            const { exportGoldDeckPptx } = await import('../services/goldArtifact');
+            const htmlList = await _captureTileDoms([tile]);
+            if (htmlList.length === 0) throw new Error('Tile DOM capture failed');
+            const safeSlug = (tile.slug || tile.title || 'recommendation')
+                .toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+            const filename = `${safeSlug}-${resolvedBrandId.toLowerCase()}.pptx`;
+            await exportGoldDeckPptx(htmlList, filename);
         } catch (e: any) {
-            console.warn('[#recommendations] single-tile multi-slide export failed:', e?.message || e);
+            console.warn('[#recommendations] single-tile gold export failed:', e?.message || e);
             alert(`Slide export failed: ${e?.message || 'unknown error'}`);
         } finally {
             setExportingId(null);
         }
-    }, [exportingId, resolvedBrandId]);
+    }, [exportingId, resolvedBrandId, _captureTileDoms]);
+
     const [exportingDeck, setExportingDeck] = useState<'consensus' | 'bets' | 'all' | null>(null);
     const exportDeck = useCallback(async (mode: 'consensus' | 'bets' | 'all') => {
         if (exportingDeck) return;
         setExportingDeck(mode);
         try {
-            const [{ exportDeckToPPTX }, { tilesToDeckExportArgs }, { getBrand }] = await Promise.all([
-                safeDynamicImport(() => import('./slideTemplates/pptx'), 'pptx exporter (rec deck)'),
-                safeDynamicImport(() => import('../services/recommendationTileToSlide'), 'rec deck adapter'),
-                safeDynamicImport(() => import('./slideTemplates/brands'), 'brand tokens'),
-            ]);
-            const brandTokens = getBrand(resolvedBrandId);
+            const { exportGoldDeckPptx } = await import('../services/goldArtifact');
             const allTiles = (tiles || []).map(t => ({
                 ...t,
                 ai_capabilities: Array.isArray(t?.ai_capabilities) ? t.ai_capabilities : [],
@@ -3294,28 +3358,31 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
             }));
             const consensus = allTiles.filter(t => t.frame === 'defensible_consensus' || !t.frame);
             const bets = allTiles.filter(t => t.frame === 'non_obvious_bet');
-            const args = tilesToDeckExportArgs({
-                consensusTiles: mode === 'bets' ? [] : (consensus as any),
-                betTiles: mode === 'consensus' ? [] : (bets as any),
-                brand: brandTokens,
-            });
-            if (args.length === 0) {
-                alert('Nothing to export — no tiles in that section.');
+            const selected: RecommendationTile[] = (
+                mode === 'bets' ? bets :
+                mode === 'consensus' ? consensus :
+                [...consensus, ...bets]
+            ) as RecommendationTile[];
+            if (selected.length === 0) {
+                alert('Nothing to export - no tiles in that section.');
                 return;
             }
-            const deckName = (mode === 'all' ? 'Recommendations'
-                : mode === 'consensus' ? 'Defensible Consensus'
-                : 'Non-Obvious Bets') + ' · ' + resolvedBrandId.toUpperCase();
-            await exportDeckToPPTX(args, deckName);
+            const htmlList = await _captureTileDoms(selected);
+            if (htmlList.length === 0) throw new Error('No tile DOM captures succeeded');
+            const deckLabel = mode === 'all' ? 'recommendations'
+                : mode === 'consensus' ? 'defensible-consensus'
+                : 'non-obvious-bets';
+            const filename = `${deckLabel}-${resolvedBrandId.toLowerCase()}.pptx`;
+            await exportGoldDeckPptx(htmlList, filename);
         } catch (e: any) {
-            console.warn('[#recommendations] deck export failed:', e?.message || e);
+            console.warn('[#recommendations] gold deck export failed:', e?.message || e);
             alert(`Deck export failed: ${e?.message || 'unknown error'}`);
         } finally {
             setExportingDeck(null);
         }
-    }, [exportingDeck, tiles, resolvedBrandId]);
+    }, [exportingDeck, tiles, resolvedBrandId, _captureTileDoms]);
 
-    // 2026-05-12 — Auto-export on mount when user typed `#slides` or `#slide`
+    // 2026-05-12 - Auto-export on mount when user typed `#slides` or `#slide`
     // alongside `#recommendations`. Fires exactly once (StrictMode-safe via ref)
     // 600ms after the tiles render so the user sees them BEFORE the download fires.
     const autoExportFiredRef = useRef(false);
@@ -3354,7 +3421,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     };
     const initiative = context?.named_initiative?.trim() || 'Initiative';
 
-    // 2026-05-12 — Sprint 2 VS-Multi: PRIMARY grouping is by frame
+    // 2026-05-12 - Sprint 2 VS-Multi: PRIMARY grouping is by frame
     // (defensible_consensus vs non_obvious_bet). If any tile carries a
     // frame, render two top-level sections in that order. Otherwise fall
     // back to the legacy initiative_dependent grouping. Within each frame
@@ -3428,7 +3495,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
                 (e.currentTarget as HTMLButtonElement).style.color = accent;
             }}
         >
-            {exportingDeck === mode ? 'Preparing deck…' : '↓ Export section (#slides)'}
+            {exportingDeck === mode ? 'Preparing deck...' : '↓ Export section (#slides)'}
         </button>
     );
     // Master "export everything" button shown above the consensus group when
@@ -3448,12 +3515,12 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
         }}>
             <div>
                 <div style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: 'uppercase' }}>Beautiful Deck Export</div>
-                <div style={{ fontSize: 11, color: '#FFFFFF', marginTop: 3 }}>Every recommendation rendered as a brand-locked slide — accompanying images, persona context, AI capabilities, and impact strip preserved.</div>
+                <div style={{ fontSize: 11, color: '#FFFFFF', marginTop: 3 }}>Every recommendation rendered as a brand-locked slide - accompanying images, persona context, AI capabilities, and impact strip preserved.</div>
             </div>
             <button
                 onClick={() => exportDeck('all')}
                 disabled={!!exportingDeck}
-                title="Export ALL recommendations as a single .pptx deck — Defensible Consensus section + Non-Obvious Bets section, each prefaced with a section divider"
+                title="Export ALL recommendations as a single .pptx deck - Defensible Consensus section + Non-Obvious Bets section, each prefaced with a section divider"
                 style={{
                     padding: '10px 18px',
                     background: '#B8B800',
@@ -3479,7 +3546,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
                     (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D';
                 }}
             >
-                {exportingDeck === 'all' ? 'Preparing deck…' : '↓ Export all as #slides'}
+                {exportingDeck === 'all' ? 'Preparing deck...' : '↓ Export all as #slides'}
             </button>
         </div>
     );
@@ -3571,8 +3638,8 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
     );
 };
 
-// 2026-05-15 — Live processing indicator. Replaces the static "Analyzing the
-// research…" placeholder with a real affordance: pulsing chartreuse dot,
+// 2026-05-15 - Live processing indicator. Replaces the static "Analyzing the
+// research..." placeholder with a real affordance: pulsing chartreuse dot,
 // live elapsed-time counter (MM:SS, ticks every second), and the current
 // status string (which the running handler can mutate by editing the
 // message's content). Renders when the assistant message's content starts
@@ -3586,7 +3653,7 @@ const LiveProcessingIndicator: React.FC<{
     startedAt: number;
     status: string;
     modelName?: string;
-    // 2026-05-26 — Optional abort handler. When provided, renders an X
+    // 2026-05-26 - Optional abort handler. When provided, renders an X
     // button on the right of the indicator. Click signals the abort
     // controller in the parent, which propagates through sendChatMessage's
     // signal param and the chat tool-loop iteration checks.
@@ -3653,8 +3720,8 @@ const LiveProcessingIndicator: React.FC<{
 };
 
 // Returns true if a message's content looks like a long-running placeholder.
-// Match prefixes only — handlers may append step detail (e.g. "Generating 5
-// product briefs... [thinking — Pass 1/2 ...]") and we still want the
+// Match prefixes only - handlers may append step detail (e.g. "Generating 5
+// product briefs... [thinking - Pass 1/2 ...]") and we still want the
 // indicator. Case-insensitive.
 function isProcessingPlaceholder(content: string): boolean {
     if (!content) return false;
@@ -3676,7 +3743,7 @@ function isProcessingPlaceholder(content: string): boolean {
 
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
-    // 2026-05-11 — Mirror messages up to the App so a session-save can
+    // 2026-05-11 - Mirror messages up to the App so a session-save can
     // serialize the conversation. Effect-based callback (not inline)
     // avoids re-rendering the parent on every setState. Skipped on first
     // mount if initialMessages was supplied (the parent already has them).
@@ -3685,7 +3752,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (!_hasMountedRef.current) {
             _hasMountedRef.current = true;
             // On first render, only fire onMessagesChange if we were
-            // initialized empty — otherwise the parent already has the
+            // initialized empty - otherwise the parent already has the
             // initial conversation and doesn't need an echo.
             if (!initialMessages || initialMessages.length === 0) {
                 onMessagesChange?.(messages);
@@ -3695,7 +3762,39 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         onMessagesChange?.(messages);
     }, [messages, onMessagesChange]);
     const [input, setInput] = useState('');
-    // 2026-05-14 — T4 build-only iteration. When the parent supplies cached
+
+    // UX-merger (2026-06-06) - Listen for 'hic:prefill-chat' events from the
+    // Research Browser's "Chat about this →" CTA. Pre-fills the chat input
+    // with the card's chunk pointers + title hint, so when the user hits
+    // Send the manifest-chunk-retrieval contract kicks in with the right
+    // chunks pinned via pickChunksForPrompt's pinnedChunkIds.
+    useEffect(() => {
+        const onPrefill = (ev: Event) => {
+            const detail = (ev as CustomEvent).detail || {};
+            const pointers: string[] = Array.isArray(detail.chunkPointers) ? detail.chunkPointers : [];
+            const hint = String(detail.titleHint || '').trim();
+            if (!pointers.length && !hint) return;
+            const pointerBlock = pointers.length
+                ? `\n\nDraw from these chunks: ${pointers.map(p => `[${p}]`).join(' ')}`
+                : '';
+            const composed = `Discuss the research finding: "${hint}".${pointerBlock}`;
+            setInput(prev => (prev.trim() ? prev + '\n\n' + composed : composed));
+            try {
+                inputRef.current?.focus();
+                inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch { /* non-fatal */ }
+        };
+        if (typeof window !== 'undefined') {
+            window.addEventListener('hic:prefill-chat', onPrefill as EventListener);
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('hic:prefill-chat', onPrefill as EventListener);
+            }
+        };
+    }, []);
+
+    // 2026-05-14 - T4 build-only iteration. When the parent supplies cached
     // briefs from a resumed engagement, inject them as an assistant message
     // so the user goes straight to brief-selection without re-running Pass 1+2.
     const _injectedCachedBriefsRef = useRef(false);
@@ -3707,7 +3806,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         const briefMsg: ChatMessage = {
             id: `msg_${Date.now()}_resume`,
             role: 'assistant',
-            content: `Here are the ${cb.briefs.length} product briefs from your earlier work on this engagement. Pick the one you want to turn into a working prototype and click Build — it typically takes 4–8 minutes.`,
+            content: `Here are the ${cb.briefs.length} product briefs from your earlier work on this engagement. Pick the one you want to turn into a working prototype and click Build - it typically takes 4-8 minutes.`,
             timestamp: Date.now(),
             prototypeBriefs: cb.briefs as any,
             prototypeBriefsMeta: cb.meta as any,
@@ -3715,7 +3814,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setMessages(prev => [...prev, briefMsg]);
         console.log(`[Resume] loaded ${cb.briefs.length} cached briefs from ${cb.sourceSlug} (${cb.mode})`);
     }, [initialCachedBriefs]);
-    // 2026-05-14 — Prompt enhancer (Gemini Flash). Reads live engagement
+    // 2026-05-14 - Prompt enhancer (Gemini Flash). Reads live engagement
     // context (research goal + recent active categories) so the rewrite is
     // grounded in what the user is actually working on.
     const enhancer = usePromptEnhancer({
@@ -3729,7 +3828,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             return `Research goal: ${goal}${cats ? `\nActive source categories: ${cats}` : ''}`.trim();
         },
     });
-    // 2026-05-07 — Default chat model promoted to Gemini 3.1 Pro. DeepSeek
+    // 2026-05-07 - Default chat model promoted to Gemini 3.1 Pro. DeepSeek
     // V4 Flash produced jargon-heavy AI-slop narratives; Gemini 3.1 Pro has
     // 1M context and follows multi-step rules reliably with professional tone.
     const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
@@ -3740,7 +3839,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [skillManifest, setSkillManifest] = useState<SkillManifestEntry[]>([]);
     const [deliverables, setDeliverables] = useState<DeliverableItem[]>([]);
     const [slides, setSlides] = useState<SlideData[]>([]);
-    // 2026-05-23 — Universal safety net for artifact lifting. Tracks which
+    // 2026-05-23 - Universal safety net for artifact lifting. Tracks which
     // assistant message IDs have already had their fence content extracted
     // into the slide + deliverable canvases. Defense-in-depth against the
     // render disconnect bug the user just caught in the chunked slide path:
@@ -3749,14 +3848,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // here, regardless of whether the handler explicitly called the parsers.
     // No more silent "content shown as text, never rendered" failures.
     const liftedArtifactMsgIdsRef = useRef<Set<string>>(new Set());
-    // 2026-05-26 — Abort controller for the in-flight chat send. The X
+    // 2026-05-26 - Abort controller for the in-flight chat send. The X
     // button on LiveProcessingIndicator calls abort(); the chat tool-loop
     // checks the signal at each iteration boundary and throws AbortError.
     // Single-call-at-a-time UX: handleSend already short-circuits on
     // isLoading=true, so storing a single ref (not a Map) is sufficient.
     const currentAbortRef = useRef<AbortController | null>(null);
 
-    // 2026-05-26 — Mind-map drill-down listener. When the user clicks a
+    // 2026-05-26 - Mind-map drill-down listener. When the user clicks a
     // node in the mind-map iframe, the iframe posts a message with the
     // node label + chunk ids. We pre-populate the chat input with a
     // drill-into query targeting those chunks. The user can refine and
@@ -3770,7 +3869,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const chunkBlock = (data.chunkIds && data.chunkIds.length > 0)
                 ? ` Targeting chunks: ${data.chunkIds.slice(0, 8).join(', ')}.`
                 : '';
-            const drillQuery = `Drill into the "${data.label}" cluster — what does the evidence say, who is affected, and what is the strongest finding?${chunkBlock}`;
+            const drillQuery = `Drill into the "${data.label}" cluster - what does the evidence say, who is affected, and what is the strongest finding?${chunkBlock}`;
             setInput(drillQuery);
             // Focus the chat input so the user can refine + send
             setTimeout(() => inputRef.current?.focus(), 50);
@@ -3781,19 +3880,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [generatingVisualId, setGeneratingVisualId] = useState<string | null>(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [wikiSourceArchive, setWikiSourceArchive] = useState('');
-    // 2026-05-08 — Mid-chat attachments staged for the next send. Cleared
+    // 2026-05-08 - Mid-chat attachments staged for the next send. Cleared
     // automatically after handleSend prepends them to the corpus and fires
     // the wiki write-back. Multi-file capable.
     const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    // 2026-05-14 — sticky-bottom autoscroll. Track whether the user is currently
+    // 2026-05-14 - sticky-bottom autoscroll. Track whether the user is currently
     // pinned to the bottom of the messages list; only auto-scroll when they are.
     // Fixes the "chat keeps yanking me back down while I'm trying to read above"
     // complaint. 120px tolerance accommodates the typical chunked-streaming delta.
     const messagesScrollRef = useRef<HTMLDivElement>(null);
     const stickToBottomRef = useRef(true);
     const inputRef = useRef<HTMLTextAreaElement>(null);
-    // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
+    // Outer panel ref - used by ChatAttachmentDropzone to scope drag-drop.
     const panelRef = useRef<HTMLDivElement>(null);
 
     // Load skill manifest once
@@ -3801,12 +3900,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         loadSkillManifest().then(m => { if (m.length > 0) setSkillManifest(m); });
     }, []);
 
-    // 2026-05-23 — Universal artifact-lifting safety net. Watches every
+    // 2026-05-23 - Universal artifact-lifting safety net. Watches every
     // assistant message; whenever a NEW assistant message has fence content
     // (:::slide or :::deliverable:) that hasn't been lifted yet, parse and
     // lift it into the slide + deliverable canvas state. This catches ANY
-    // handler — present or future, chunked or single-shot, hashtag-driven
-    // or organic — that emits parseable fences without explicitly calling
+    // handler - present or future, chunked or single-shot, hashtag-driven
+    // or organic - that emits parseable fences without explicitly calling
     // the parsers. The Set ref guarantees idempotency: each message is
     // lifted exactly once even if content changes (e.g., during streaming).
     useEffect(() => {
@@ -3817,13 +3916,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const hasSlides = m.content.includes(':::slide');
             const hasDeliverables = m.content.includes(':::deliverable:');
             if (!hasSlides && !hasDeliverables) continue;
-            // Skip placeholder/processing messages — content is still streaming
+            // Skip placeholder/processing messages - content is still streaming
             if (isProcessingPlaceholder(m.content)) continue;
             try {
                 // CRITICAL: Override timestamp + model on every lifted artifact
                 // to match the source message. The renderer's per-message
                 // association filter requires both fields to match within
-                // 5s and exact-model — without this override, lifted artifacts
+                // 5s and exact-model - without this override, lifted artifacts
                 // never render as cards.
                 if (hasDeliverables || hasSlides) {
                     const newDels = parseDeliverableBlocks(m.content, m.model || 'unknown');
@@ -3934,16 +4033,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         let match;
         while ((match = delimPattern.exec(text)) !== null) {
             try {
-                const data = JSON.parse(match[2].trim());
+                // 2026-06-05 - Route through tryRepairJson so a single
+                // unescaped quote or trailing comma in a model-emitted block
+                // doesn't silently drop a deliverable.
+                const data = JSON.parse(tryRepairJson(match[2].trim()));
                 items.push({ id: `del_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`, type: match[1] as DeliverableType, data, status: 'pending', model, timestamp: Date.now() });
             } catch {}
         }
-        // Strategy 2: Fallback for ```json blocks — only when a skill was triggered
+        // Strategy 2: Fallback for ```json blocks - only when a skill was triggered
         if (items.length === 0) {
             const jsonPattern = /```(?:json)?\s*(\[[\s\S]*?\]|\{[\s\S]*?\})\s*```/g;
             while ((match = jsonPattern.exec(text)) !== null) {
                 try {
-                    const parsed = JSON.parse(match[1].trim());
+                    const parsed = JSON.parse(tryRepairJson(match[1].trim()));
                     const arr = Array.isArray(parsed) ? parsed : [parsed];
                     for (const obj of arr) {
                         if (!obj || typeof obj !== 'object') continue;
@@ -3972,7 +4074,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
         // Detect "N quotes each" / "#quotes=N" in the user message so we can
         // deterministically enrich every emitted slide with real corpus quotes
-        // pulled from the KG — no fabrication, full source attribution.
+        // pulled from the KG - no fabrication, full source attribution.
         const quoteDirective = userQuery ? detectQuoteDensity(userQuery) : null;
         const liveCtx = getContext ? getContext() : context;
         const kg = liveCtx?.knowledgeGraph;
@@ -3986,7 +4088,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const attrs = match[1] || '';
                 const fenceTemplate = (attrs.match(/\btemplate=([a-z-]+)/i)?.[1] || '').toLowerCase();
                 const fenceBrand = (attrs.match(/\bbrand=(nxt|nu|northeastern)/i)?.[1] || '').toLowerCase();
-                const parsed = JSON.parse(match[2].trim());
+                // 2026-06-05 - Slide JSON often contains long verbatim quotes
+                // with internal quotes/newlines. tryRepairJson handles trailing
+                // commas + bracket-balance so a single bad slide doesn't drop
+                // every subsequent slide in the same response.
+                const parsed = JSON.parse(tryRepairJson(match[2].trim()));
                 const brand: BrandId = (parsed.brand as BrandId) || (fenceBrand === 'nu' || fenceBrand === 'northeastern' ? 'nu' : fenceBrand === 'nxt' ? 'nxt' : defaultBrand);
                 // Resolve template: prefer fence label, then JSON `template`, then auto-detect by field
                 let template: any = fenceTemplate || parsed.template;
@@ -4028,7 +4134,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // Run post-parse validation to detect corpus meta-commentary,
                 // empty block-quotes, case-study fields that don't mention the
                 // subject, etc. Validator output is used for ops telemetry only;
-                // no badge is rendered to the user (per directive 2026-05-05 — no
+                // no badge is rendered to the user (per directive 2026-05-05 - no
                 // QA annotations in delivered output).
                 const validation = validateSlide({
                     title: parsed.title,
@@ -4134,31 +4240,51 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     }, []);
 
     // --- Deck export (all slides in the chat) ---
+    // 2026-06-05 - STRUCTURAL REWIRE. Previously this routed through
+    // exportDeckToPPTX (slideTemplates/pptx.ts), a parallel pptxgenjs renderer
+    // that re-implemented every slide template. Two renderers (web.tsx for
+    // preview + pptx.ts for export) drift constantly - chat preview and PPTX
+    // output never match. The structural fix: chat preview is the SOURCE OF
+    // TRUTH. Capture each slide's rendered DOM at native 1920x1080, wrap as
+    // #stage HTML, post to /api/gold/export-pptx-multi which runs Playwright
+    // over each stage and emits ONE editable pptx with N slides + embedded
+    // brand fonts. Same rule applies to brief / explainer / report (already
+    // routed via exportGoldPptx) AND themes / personas / recommendations /
+    // gap / etc. (now routed via exportGoldDeckPptx here). No more parallel
+    // renderers. slideTemplates/pptx.ts is now a legacy fallback only.
     const handleExportDeckPPTX = useCallback(async () => {
         if (slides.length === 0) return;
-        const args = slides.map(s => ({
-            template: s.template,
-            title: s.title,
-            sources: s.sources,
-            imageUrl: s.imageUrl,
-            brand: getBrand(s.brand),
-            persona: s.persona,
-            recommendation: s.recommendation,
-            themeCluster: s.themeCluster,
-            matrix: s.matrix,
-            quote: s.quote,
-            caseStudy: s.caseStudy,
-            principles: s.principles,
-            statRow: s.statRow,
-            timeline: s.timeline,
-            sectionDivider: s.sectionDivider,
-            serviceBlueprint: s.serviceBlueprint,
-            gapMatrix: s.gapMatrix,
-            architectureMap: s.architectureMap,
-            prdFeature: s.prdFeature,
-            systemsInventory: s.systemsInventory,
-        }));
-        try { await exportDeckToPPTX(args); } catch (e) { console.error('Deck PPTX export failed:', e); }
+        try {
+            // 2026-06-05 - Resolution fix. Was using captureSlideAsStageHtml on
+            // the chat-preview DOM, but those tiles are 800-960px responsive
+            // cards with font-sizes tuned for that container. Stretching the
+            // outer bounding box to 1920×1080 didn't change inner font-sizes,
+            // so the gold exporter measured 5-16pt text in a 1920×1080 stage
+            // (the "complete disaster" output). The structural answer: emit
+            // a fresh 1920×1080 #stage HTML from SlideData directly via
+            // slideDataToStageHtml. Same SlideData feeds the chat preview AND
+            // the export; the two renderers are now independent + each tuned
+            // to its own display target.
+            const { exportGoldDeckPptx } = await import('../services/goldArtifact');
+            const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
+            const stageHtmlList: string[] = [];
+            for (const s of slides) {
+                try {
+                    const stageHtml = slideDataToStageHtml(s as any);
+                    stageHtmlList.push(stageHtml);
+                } catch (renderErr: any) {
+                    console.warn(`[deck-export] render failed for slide ${s.id} (${s.template}):`, renderErr?.message || renderErr);
+                }
+            }
+            if (stageHtmlList.length === 0) {
+                console.error('[deck-export] no slides rendered - nothing to export');
+                return;
+            }
+            const deckName = `deck_${new Date().toISOString().split('T')[0]}_${stageHtmlList.length}_slides.pptx`;
+            await exportGoldDeckPptx(stageHtmlList, deckName);
+        } catch (e: any) {
+            console.error('[deck-export] gold deck export failed:', e?.message || e);
+        }
     }, [slides]);
 
     const handleExportDeckPDF = useCallback(async () => {
@@ -4170,9 +4296,44 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const { jsPDF } = await import('jspdf');
             const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [13.33, 7.5] });
             if ((document as any).fonts?.ready) { try { await (document as any).fonts.ready; } catch {} }
+
+            // 2026-06-06 - PDF one-slide bug fix. Per the architecture audit:
+            // if the chat preview uses a virtualized carousel that mounts
+            // only the currently-visible slide, getElementById returns null
+            // for the other N-1 slides and they were silently skipped (one
+            // PDF page produced regardless of slides.length). Pre-flight
+            // detection + scroll-to-mount loop forces every slide to mount
+            // before the capture loop fires. Falls back to a clear alert
+            // when slides STILL aren't mountable so the user isn't surprised
+            // by a 1-page PDF for an N-slide deck.
+            const presentBefore = slides.map(s => !!document.getElementById(`slide-capture-${s.id}`)).filter(Boolean).length;
+            if (presentBefore < slides.length) {
+                console.info(`[Deck PDF] ${presentBefore}/${slides.length} slides mounted; attempting to scroll-mount the rest`);
+                for (const s of slides) {
+                    const el = document.getElementById(`slide-capture-${s.id}`);
+                    if (el) {
+                        try { el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'instant' as any }); } catch {}
+                        await new Promise(r => setTimeout(r, 50));
+                    }
+                }
+                await new Promise(r => setTimeout(r, 200));
+                const presentAfter = slides.map(s => !!document.getElementById(`slide-capture-${s.id}`)).filter(Boolean).length;
+                if (presentAfter < slides.length) {
+                    const proceed = confirm(
+                        `Warning: only ${presentAfter}/${slides.length} slides are currently mounted in the chat preview. ` +
+                        `Click OK to export the partial PDF, or Cancel to abort - try scrolling through all slides first ` +
+                        `to ensure each one mounts before re-clicking Export PDF.`
+                    );
+                    if (!proceed) return;
+                }
+            }
+
             for (let i = 0; i < slides.length; i++) {
                 const el = document.getElementById(`slide-capture-${slides[i].id}`);
-                if (!el) continue;
+                if (!el) {
+                    console.warn(`[Deck PDF] slide ${i + 1}/${slides.length} (id=${slides[i].id}) not in DOM - skipping`);
+                    continue;
+                }
                 // Clone offscreen at natural size to avoid transform:scale() collapse
                 const clone = el.cloneNode(true) as HTMLElement;
                 clone.style.position = 'fixed';
@@ -4234,14 +4395,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     };
 
     /**
-     * 2026-05-09 — Edit an existing presentation via natural-language
+     * 2026-05-09 - Edit an existing presentation via natural-language
      * instruction from a library card. Loads the existing payload, wraps
      * the user's revision instruction with concrete context (the existing
      * title, diagnosis, and guiding policy), runs the composer with that
      * as the new thesis, saves the result back to the SAME slug so the
      * URL is stable across edits, and posts a confirmation message.
      */
-    // 2026-05-11 — Prototype edit handler. Loads the existing prototype,
+    // 2026-05-11 - Prototype edit handler. Loads the existing prototype,
     // injects the user's revision instruction into the original concept,
     // and re-runs the 5-stage pipeline. Saves back to the same slug so the
     // launcher URL stays stable across edits.
@@ -4251,7 +4412,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setMessages(prev => [...prev, {
             id: editMsgId,
             role: 'assistant',
-            content: `Revising prototype "${slug}"…\n\nUser direction: "${instruction.slice(0, 200)}"`,
+            content: `Revising prototype "${slug}"...\n\nUser direction: "${instruction.slice(0, 200)}"`,
             timestamp: Date.now(),
         }]);
         try {
@@ -4273,7 +4434,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 `Original concept:`,
                 existing.concept || '(no original concept stored)',
                 ``,
-                `Existing experience brief (for context — preserve structure):`,
+                `Existing experience brief (for context - preserve structure):`,
                 JSON.stringify(existing.brief, null, 2).slice(0, 2000),
                 ``,
                 `USER'S REQUESTED CHANGE:`,
@@ -4289,11 +4450,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 basedOn: existing.based_on,
                 researchGoal: existing.research_goal,
                 onProgress: (n, name, status, detail) => {
-                    const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
-                    stageLog.push(`${icon} Stage ${n}: ${name}${detail ? ` — ${detail}` : ''}`);
+                    const icon = status === 'done' ? '' : status === 'failed' ? '' : '○';
+                    stageLog.push(`${icon} Stage ${n}: ${name}${detail ? ` - ${detail}` : ''}`);
                     setMessages(prev => prev.map(m => m.id === editMsgId ? {
                         ...m,
-                        content: `Revising prototype "${slug}"…\n\n${stageLog.slice(-10).join('\n')}`,
+                        content: `Revising prototype "${slug}"...\n\n${stageLog.slice(-10).join('\n')}`,
                     } : m));
                 },
             });
@@ -4326,7 +4487,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setMessages(prev => [...prev, {
             id: editingMsgId,
             role: 'assistant',
-            content: `Composing revision of "${slug}" — "${instruction.slice(0, 80)}${instruction.length > 80 ? '…' : ''}"…`,
+            content: `Composing revision of "${slug}" - "${instruction.slice(0, 80)}${instruction.length > 80 ? '...' : ''}"...`,
             timestamp: Date.now(),
         }]);
 
@@ -4379,12 +4540,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const personaCount = (liveCtx?.personas as any[] | undefined)?.length || 0;
 
             // composeNarrative returns ComposeResult { payload, toolCallCount,
-            // durationMs } — the actual PresentationPayload is under .payload.
+            // durationMs } - the actual PresentationPayload is under .payload.
             // (The create path at the #presentation handler does this correctly;
             // an earlier version of this edit handler treated the result as the
             // payload directly, which is why every edit failed the sections
-            // check — sections lived one level down.)
-            // 2026-05-27 — Composer routes to FUNDED Gemini. The old "Gemini
+            // check - sections lived one level down.)
+            // 2026-05-27 - Composer routes to FUNDED Gemini. The old "Gemini
             // rejects the tool schema" constraint is gone: the section schema
             // was flattened (oneOf → merged permissive object) so Google's
             // OpenAI-compat layer accepts it, and the schema test passes. Azure
@@ -4417,7 +4578,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 onToolCall: () => { /* no-op */ },
             });
 
-            // 2026-05-10 — Defensive payload normalization BEFORE save.
+            // 2026-05-10 - Defensive payload normalization BEFORE save.
             // The model intermittently omits required envelope fields when
             // generating a revision (schemaVersion in particular). Catch
             // those here so the save doesn't fail at the proxy with an
@@ -4430,7 +4591,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // Ensure other required meta fields have at least a stub so
             // the proxy's validator passes; the model usually fills these,
             // but defensive nullsafety is cheap.
-            if (!p.meta.title) p.meta.title = (existing as any).meta?.title || '(revised — untitled)';
+            if (!p.meta.title) p.meta.title = (existing as any).meta?.title || '(revised - untitled)';
             if (!p.meta.brand) p.meta.brand = (existing as any).meta?.brand || 'NXT';
             if (!p.meta.generatedAt) p.meta.generatedAt = new Date().toISOString();
             // Validate sections shape (proxy requires non-empty array). Two
@@ -4440,7 +4601,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // Either way the right user action is to rephrase, so collapse them.
             if (!Array.isArray(p.sections) || p.sections.length === 0) {
                 throw new Error(
-                    `composer returned a payload with no sections — the revision was blocked or truncated mid-generation. ` +
+                    `composer returned a payload with no sections - the revision was blocked or truncated mid-generation. ` +
                     `Try rephrasing the edit instruction (more specific scope, smaller change).`,
                 );
             }
@@ -4470,7 +4631,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
     };
 
-    // 2026-05-13 — Phase B of the #proto flow. User clicked BUILD THIS on
+    // 2026-05-13 - Phase B of the #proto flow. User clicked BUILD THIS on
     // one of the 5 briefs. Run buildPrototype with the chosen brief as
     // `approvedBrief` (skips Stage 1) and the original rich concept text as
     // `concept` (flows through Stages 2-4 as additional grounding).
@@ -4492,23 +4653,23 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const runningLine = currentRunningStage
                 ? `\n\nCurrently working on: ${currentRunningStage.name} (${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s elapsed on this step)`
                 : '';
-            const elapsedLine = `\n\nTotal elapsed: ${totalElapsed}s · Most prototypes finish in 4–8 minutes.`;
+            const elapsedLine = `\n\nTotal elapsed: ${totalElapsed}s · Most prototypes finish in 4-8 minutes.`;
             setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                 ...m,
-                content: `Building your prototype: **${brief.title}** (${meta.brand})…\n\n${stageLog.slice(-12).join('\n')}${runningLine}${elapsedLine}`,
+                content: `Building your prototype: **${brief.title}** (${meta.brand})...\n\n${stageLog.slice(-12).join('\n')}${runningLine}${elapsedLine}`,
             } : m));
         };
         setMessages(prev => [...prev, {
             id: buildMsgId,
             role: 'assistant',
-            content: `Building your prototype: **${brief.title}** (${meta.brand})…\n\nDesigning the interactions, generating realistic data, writing the code, and auditing the result. You'll see each step finish as it completes — typically 4–8 minutes start to finish.`,
+            content: `Building your prototype: **${brief.title}** (${meta.brand})...\n\nDesigning the interactions, generating realistic data, writing the code, and auditing the result. You'll see each step finish as it completes - typically 4-8 minutes start to finish.`,
             timestamp: Date.now(),
         }]);
         const heartbeat = window.setInterval(renderStatus, 4000);
-        // 2026-05-14 — Snapshot per-model cost totals at build start so we can
+        // 2026-05-14 - Snapshot per-model cost totals at build start so we can
         // diff against them at end-of-build. The chat surface reports BOTH
         // the build's total dollar cost AND which models the user was billed
-        // for (e.g., "$5.43 — Claude Opus 4.7 $1.85, GPT-5.5 $2.32, Gemini
+        // for (e.g., "$5.43 - Claude Opus 4.7 $1.85, GPT-5.5 $2.32, Gemini
         // 3.1 Pro $1.26"). The bottom-right cost chip shows cumulative
         // engagement totals; this chat line shows the single-build delta.
         const _costMeter = await safeDynamicImport(() => import('../services/costMeter'), 'costMeter (start snapshot)');
@@ -4523,7 +4684,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const experienceBrief = productBriefToExperienceBrief(brief);
             const richBriefText = productBriefToRichContext(brief);
             const customizationBlock = customization && customization.trim()
-                ? `\n\n=== USER-SUPPLIED LAST-MILE CUSTOMIZATION (surgical tweaks the user added before clicking Build — apply these in every downstream stage; they OVERRIDE any conflicting hint in the brief or original context) ===\n${customization.trim()}`
+                ? `\n\n=== USER-SUPPLIED LAST-MILE CUSTOMIZATION (surgical tweaks the user added before clicking Build - apply these in every downstream stage; they OVERRIDE any conflicting hint in the brief or original context) ===\n${customization.trim()}`
                 : '';
             const conceptForPipeline = `${richBriefText}\n\n=== ORIGINAL ENGAGEMENT CONTEXT (the rich consulting brief the briefs were generated from) ===\n${meta.originalConcept}${customizationBlock}`;
             const artifact = await buildPrototype({
@@ -4534,7 +4695,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 title: brief.title,
                 approvedBrief: experienceBrief,
                 onProgress: (n, name, status, detail) => {
-                    const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
+                    const icon = status === 'done' ? '' : status === 'failed' ? '' : '○';
                     // Map the underlying step numbers (1, 2, 25, 3, 35, 4, 5) to
                     // a clean user-facing sequence (1 through 6). Step 1 (concept
                     // analysis) is usually skipped when the user picked a brief,
@@ -4557,14 +4718,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     const friendlyName = FRIENDLY_NAMES[name] || name;
                     if (status === 'running') {
                         currentRunningStage = { label: stepLabel, name: friendlyName, startedAt: Date.now() };
-                        stageLog.push(`${icon} ${stepLabel} · ${friendlyName} — in progress`);
+                        stageLog.push(`${icon} ${stepLabel} · ${friendlyName} - in progress`);
                     } else {
-                        // done/failed — finalize the line + clear the running marker
+                        // done/failed - finalize the line + clear the running marker
                         const elapsed = currentRunningStage && currentRunningStage.label === stepLabel
                             ? ` (${Math.round((Date.now() - currentRunningStage.startedAt) / 1000)}s)`
                             : '';
-                        const lastIdx = stageLog.findIndex(l => l.includes(`${stepLabel} · ${friendlyName} — in progress`));
-                        const finalLine = `${icon} ${stepLabel} · ${friendlyName}${detail ? ` — ${detail}` : ''}${elapsed}`;
+                        const lastIdx = stageLog.findIndex(l => l.includes(`${stepLabel} · ${friendlyName} - in progress`));
+                        const finalLine = `${icon} ${stepLabel} · ${friendlyName}${detail ? ` - ${detail}` : ''}${elapsed}`;
                         if (lastIdx >= 0) stageLog[lastIdx] = finalLine;
                         else stageLog.push(finalLine);
                         if (currentRunningStage?.label === stepLabel) currentRunningStage = null;
@@ -4576,13 +4737,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             window.clearInterval(heartbeat);
             const totalSec = Math.round((Date.now() - buildStartedAt) / 1000);
             const totalMin = totalSec >= 60 ? `${Math.floor(totalSec / 60)} min ${totalSec % 60}s` : `${totalSec}s`;
-            // Friendly quality summary — map the audit verdict to plain English.
+            // Friendly quality summary - map the audit verdict to plain English.
             const verdict = artifact.critique?.verdict || 'ship';
             const qualityLine = verdict === 'ship'
-                ? 'Quality check passed — ready to share.'
+                ? 'Quality check passed - ready to share.'
                 : verdict === 'refine'
-                    ? 'Quality check found a few fixable items — review the notes below.'
-                    : 'Quality check flagged concerns — please review before sharing.';
+                    ? 'Quality check found a few fixable items - review the notes below.'
+                    : 'Quality check flagged concerns - please review before sharing.';
             // Per-build cost = delta from the start-of-build snapshot. Surfaces
             // the dollar amount AND names the models the user was billed for
             // (so they always know which providers their spend went to).
@@ -4619,7 +4780,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // --- Send ---
     const handleSend = async (queryOverride?: string) => {
         let query = queryOverride || input.trim();
-        // 2026-05-08 — Allow send with attachments only (no text). When the
+        // 2026-05-08 - Allow send with attachments only (no text). When the
         // user drops a file with no prompt, synthesize a "summarize this"
         // default so the assistant gets a non-empty user turn.
         if (!query && pendingAttachments.length === 0) return;
@@ -4636,7 +4797,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 : ''),
             timestamp: Date.now(),
         };
-        // 2026-05-19 — Chat feedback capture. The AnalysisCheckpoint logEdit
+        // 2026-05-19 - Chat feedback capture. The AnalysisCheckpoint logEdit
         // path is no longer the user's interaction surface, so we intercept
         // here instead. Fire-and-forget; non-blocking. See
         // services/chatFeedbackExtractor.ts for the classifier.
@@ -4654,9 +4815,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             });
         }).catch(() => { /* feedback capture must never break a chat send */ });
 
-        // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
+        // 2026-05-08 - Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
         // BEFORE the chat dispatch. Fire-and-forget so latency doesn't gate
-        // the chat response. We do NOT clear pendingAttachments yet —
+        // the chat response. We do NOT clear pendingAttachments yet -
         // the dispatch logic below still needs to read them; we'll clear at
         // the end of the send.
         if (pendingAttachments.length > 0) {
@@ -4677,7 +4838,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             }
         }
 
-        // --- #recommendations (ULTRA-HARD generation) — 2026-05-11 --------
+        // --- #recommendations (ULTRA-HARD generation) - 2026-05-11 --------
         // When the user types `#recommendations`, dispatch a synthesis call
         // that instructs the model to "think ULTRA HARD" and produce Apple-
         // level innovative tool concepts with EXTREME PRD-level detail.
@@ -4685,7 +4846,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // `#proto #name=<slug>` against any individual recommendation.
         if (/(?:^|\s)#recommendations(?=\s|$|[.,;:!?'"])/i.test(query)) {
             const recMsgId = `msg_${Date.now()}_recs`;
-            // 2026-05-12 — Hashtag composition. Brand modifier (#NXT / #NU)
+            // 2026-05-12 - Hashtag composition. Brand modifier (#NXT / #NU)
             // and slide-export modifiers (#slides plural = full deck, #slide
             // singular = first tile only) compose with the #recommendations
             // trigger. Brand flows through to the tile renderer AND the slide
@@ -4696,15 +4857,15 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const wantsSingleExport = !wantsDeckExport && /(?:^|\s)#slide\b/i.test(query);
             const autoExportOnMount: 'deck' | 'single' | null =
                 wantsDeckExport ? 'deck' : (wantsSingleExport ? 'single' : null);
-            console.log(`[recommendations] composed flags — brand=${queryBrand}, autoExport=${autoExportOnMount}`);
+            console.log(`[recommendations] composed flags - brand=${queryBrand}, autoExport=${autoExportOnMount}`);
             setMessages(prev => [...prev, {
                 id: recMsgId,
                 role: 'assistant',
-                content: 'Analyzing the research…',
+                content: 'Analyzing the research...',
                 timestamp: Date.now(),
             }]);
             try {
-                // 2026-05-11 — Load the recommendation-architect skill at
+                // 2026-05-11 - Load the recommendation-architect skill at
                 // runtime and prepend its full SKILL.md content. The skill
                 // encodes the transferable patterns (constraint extraction,
                 // stakeholder-priority capture, non-starter checks, named-
@@ -4713,7 +4874,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // that produce consulting-grade depth across any client/
                 // industry/use-case. The inline prompt below is now the
                 // schema reminder and the runtime-payload-shape spec.
-                // 2026-05-12 — Sprint 2 VS-Multi: load BOTH the
+                // 2026-05-12 - Sprint 2 VS-Multi: load BOTH the
                 // recommendation-architect skill AND the verbalized-sampling
                 // skill. The VS skill teaches the model the probability-
                 // annotation commitment device that breaks mode collapse.
@@ -4745,22 +4906,22 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
 THE USER'S REQUEST IS THE PRIMARY SPEC. Read it in full. If it asks for "5 ideas dependent on X and 5 NOT dependent on X", you produce exactly that split. If it names stakeholders ("Liz", "Jen") with stated preferences ("Copilot/MSFT", "no new platforms"), every concept must respect those preferences or explicitly justify why it doesn't. If it names an initiative ("CLR") and asks for dependency labeling, every concept's clr_dependent field must be set.
 
-Output ONLY valid JSON matching this exact schema (no markdown fences, no preamble). Every field is REQUIRED for every concept — concepts with shallow or missing fields are rejected.
+Output ONLY valid JSON matching this exact schema (no markdown fences, no preamble). Every field is REQUIRED for every concept - concepts with shallow or missing fields are rejected.
 
-The schema is brand/industry/persona agnostic. You MUST extract the engagement_context block FIRST from the user's prompt + uploads, then every downstream field references that context (named_initiative, target_segment, preferred_tech_stack, named_stakeholders, etc.) instead of any hardcoded client or sector. The UI uses your engagement_context fields to label every section — so if you misextract them, the user sees the wrong labels.
+The schema is brand/industry/persona agnostic. You MUST extract the engagement_context block FIRST from the user's prompt + uploads, then every downstream field references that context (named_initiative, target_segment, preferred_tech_stack, named_stakeholders, etc.) instead of any hardcoded client or sector. The UI uses your engagement_context fields to label every section - so if you misextract them, the user sees the wrong labels.
 
 === CRITICAL: VERBALIZED-SAMPLING GENERATION DISCIPLINE ===
-You are an aligned LLM. Your default behavior on creative ideation is MODE COLLAPSE — you converge on the same handful of conventional, schema-congruent, "safe" recommendation patterns regardless of the engagement. This skill OVERRIDES that default.
+You are an aligned LLM. Your default behavior on creative ideation is MODE COLLAPSE - you converge on the same handful of conventional, schema-congruent, "safe" recommendation patterns regardless of the engagement. This skill OVERRIDES that default.
 
 This is a TWO-PART generation. You will produce TWO separate concept arrays in the same JSON output, each with explicit probability annotations:
 
-  Part A — concepts_defensible_consensus (k=5)
+  Part A - concepts_defensible_consensus (k=5)
     These are the recommendations a senior partner would present in a client meeting WITHOUT pushback. Defensible, well-precedented, schema-congruent.
     Sample from the FULL distribution. Each concept carries a "probability" field reflecting its likelihood among all plausible defensible recommendations.
     At most ONE concept may have probability > 0.20 (the single strongest modal answer). The remaining 4 should fan out across the defensible solution space.
     Set frame to "defensible_consensus" on every concept here.
 
-  Part B — concepts_non_obvious_bets (k=5)
+  Part B - concepts_non_obvious_bets (k=5)
     These are the recommendations a senior partner would defend as "the work that would actually move the needle but the client hasn't asked for". Non-obvious. Tail-of-distribution. Surprising-but-grounded.
     EVERY concept in this group must have probability < 0.05 (deep-tail sampling).
     EVERY concept must be explicitly distinct from EVERY Part A concept by at least one of: primary persona, mechanism, data source, temporal scope, metaphor.
@@ -4773,78 +4934,78 @@ This is a TWO-PART generation. You will produce TWO separate concept arrays in t
       - List 5 candidate "tail framings" Part B should cover, each diverging from Part A by a named axis.
     Then emit the 5 Part B concepts.
 
-The probability annotation is the commitment device. Writing "probability": 0.04 next to a concept forbids you from regressing to the modal solution. If you find yourself writing the same recommendation patterns you would write for any client (chatbot / dashboard / Copilot wrapper / RAG-on-uploads), you have failed the discipline — drop that concept and write a non-obvious one.
+The probability annotation is the commitment device. Writing "probability": 0.04 next to a concept forbids you from regressing to the modal solution. If you find yourself writing the same recommendation patterns you would write for any client (chatbot / dashboard / Copilot wrapper / RAG-on-uploads), you have failed the discipline - drop that concept and write a non-obvious one.
 
 Honor every engagement_context constraint in BOTH groups. The "non-obvious" framing does NOT relax hard non-starters, regulatory_constraints, or stakeholder priorities. It surfaces recommendations that respect those constraints but approach them from a non-modal angle.
 
 {
   "engagement_context": {
-    "client_name": "string — e.g. 'Northeastern University', 'Acme Bank', 'Shopify Plus', 'Mass General Brigham'. Extract verbatim from the user's prompt or uploads.",
-    "vendor_or_consultant": "string — who is producing this work (e.g. 'NXT Humans'). Extract or 'unspecified'.",
-    "engagement_objective": "string — the full goal sentence, copied close to verbatim from the user's prompt.",
-    "industry": "string — short tag, e.g. 'higher-ed', 'healthcare', 'fintech', 'retail', 'manufacturing', 'public-sector'.",
-    "named_initiative": "string | null — the named project/program the user wants the dependency split organized around (e.g. 'CLR', 'Project Phoenix', 'Digital Front Door'). null if user did not name one.",
-    "target_segment": "string — the human population this work serves. ALWAYS named specifically: 'first-year undergraduate students', 'ICU charge nurses', 'SMB merchants under $5M GMV', 'mid-career field engineers'. Never 'users' or 'customers' as a bare label.",
-    "target_outcome_window": "string — when the impact should materialize. e.g. '18-24 months', 'next academic year', 'next two quarters'.",
+    "client_name": "string - e.g. 'Northeastern University', 'Acme Bank', 'Shopify Plus', 'Mass General Brigham'. Extract verbatim from the user's prompt or uploads.",
+    "vendor_or_consultant": "string - who is producing this work (e.g. 'NXT Humans'). Extract or 'unspecified'.",
+    "engagement_objective": "string - the full goal sentence, copied close to verbatim from the user's prompt.",
+    "industry": "string - short tag, e.g. 'higher-ed', 'healthcare', 'fintech', 'retail', 'manufacturing', 'public-sector'.",
+    "named_initiative": "string | null - the named project/program the user wants the dependency split organized around (e.g. 'CLR', 'Project Phoenix', 'Digital Front Door'). null if user did not name one.",
+    "target_segment": "string - the human population this work serves. ALWAYS named specifically: 'first-year undergraduate students', 'ICU charge nurses', 'SMB merchants under $5M GMV', 'mid-career field engineers'. Never 'users' or 'customers' as a bare label.",
+    "target_outcome_window": "string - when the impact should materialize. e.g. '18-24 months', 'next academic year', 'next two quarters'.",
     "named_stakeholders": [
-      { "name": "string — verbatim person or role name from prompt/uploads", "stated_priorities": ["string"], "stated_non_starters": ["string"], "stated_preferences": ["string"] }
+      { "name": "string - verbatim person or role name from prompt/uploads", "stated_priorities": ["string"], "stated_non_starters": ["string"], "stated_preferences": ["string"] }
     ],
-    "preferred_tech_stack": ["string — name the tools/platforms the user explicitly prefers, e.g. 'Microsoft 365 Copilot', 'Power Automate', 'SharePoint', 'Graph API', 'Azure OpenAI'. OR 'Epic', 'Salesforce Health Cloud', 'Twilio'. OR 'Shopify Functions', 'Klaviyo', 'BigQuery'. Empty array only if user expressed no preference."],
-    "existing_systems": ["string — the named systems already in place at the client (Banner, Canvas, NUworks, Symplicity OR Epic, Cerner, Workday OR Salesforce, Snowflake, Segment, etc.). The prototype rides on these — no new platforms."],
-    "hard_non_starters": ["string — what the user said is off the table (e.g. 'no new platform', 'no PII off-prem', 'no consumer-facing changes', 'no procurement >$X')."],
-    "regulatory_constraints": ["string — e.g. 'FERPA', 'HIPAA', 'PCI-DSS', 'SOC2', 'GDPR', or empty if none."]
+    "preferred_tech_stack": ["string - name the tools/platforms the user explicitly prefers, e.g. 'Microsoft 365 Copilot', 'Power Automate', 'SharePoint', 'Graph API', 'Azure OpenAI'. OR 'Epic', 'Salesforce Health Cloud', 'Twilio'. OR 'Shopify Functions', 'Klaviyo', 'BigQuery'. Empty array only if user expressed no preference."],
+    "existing_systems": ["string - the named systems already in place at the client (Banner, Canvas, NUworks, Symplicity OR Epic, Cerner, Workday OR Salesforce, Snowflake, Segment, etc.). The prototype rides on these - no new platforms."],
+    "hard_non_starters": ["string - what the user said is off the table (e.g. 'no new platform', 'no PII off-prem', 'no consumer-facing changes', 'no procurement >$X')."],
+    "regulatory_constraints": ["string - e.g. 'FERPA', 'HIPAA', 'PCI-DSS', 'SOC2', 'GDPR', or empty if none."]
   },
   "analytical_preamble": {
     "stakeholder_priorities": [
-      { "name": "string — verbatim from user's prompt e.g. 'Liz'", "stated_priorities": ["string — direct quotes or close paraphrases from the user's prompt + uploads"], "stated_non_starters": ["string — what they said is off the table"], "stated_preferences": ["string — e.g. 'Copilot/MSFT to save costs'"] }
+      { "name": "string - verbatim from user's prompt e.g. 'Liz'", "stated_priorities": ["string - direct quotes or close paraphrases from the user's prompt + uploads"], "stated_non_starters": ["string - what they said is off the table"], "stated_preferences": ["string - e.g. 'Copilot/MSFT to save costs'"] }
     ],
-    "design_principles": ["string — principles the user wrote in their prompt OR that follow logically from the constraints (5-8 principles)"],
-    "ideas_to_retire_or_reframe": [{ "prior_idea": "string — name a prior NXT Humans idea visible in the uploads", "reason_to_retire_or_reframe": "string — which guardrail it violates", "reframed_as": "string — how to salvage as a workflow/Copilot enhancement, or null if abandon" }],
-    "guardrail_validation_criteria": ["string — checklist items every recommendation must pass"]
+    "design_principles": ["string - principles the user wrote in their prompt OR that follow logically from the constraints (5-8 principles)"],
+    "ideas_to_retire_or_reframe": [{ "prior_idea": "string - name a prior NXT Humans idea visible in the uploads", "reason_to_retire_or_reframe": "string - which guardrail it violates", "reframed_as": "string - how to salvage as a workflow/Copilot enhancement, or null if abandon" }],
+    "guardrail_validation_criteria": ["string - checklist items every recommendation must pass"]
   },
-  "_thinking_part_b": "string — write here, before concepts_non_obvious_bets, your <thinking> reasoning per the VS discipline above. List part-A slugs, name the modal solution space, identify ignored evidence, list 5 candidate tail framings. This field is REQUIRED and helps you avoid mode collapse on Part B. It is NOT rendered to the user — write freely.",
+  "_thinking_part_b": "string - write here, before concepts_non_obvious_bets, your <thinking> reasoning per the VS discipline above. List part-A slugs, name the modal solution space, identify ignored evidence, list 5 candidate tail framings. This field is REQUIRED and helps you avoid mode collapse on Part B. It is NOT rendered to the user - write freely.",
   "concepts_defensible_consensus": [
     /* Exactly 5 concepts. Each is the full concept schema below + probability + frame. */
     {
       "frame": "defensible_consensus",
       "probability": 0.18,
       "slug": "kebab-case-slug",
-      "title": "string — 4-8 descriptive words. The title should make sense to someone who has never read your engagement_context — embed the substance, not just adjectives.",
-      "initiative_dependent": "boolean | null — true if this concept depends on engagement_context.named_initiative; false if not; null if no initiative is named in the context.",
-      "group": "string — 'initiative_dependent' | 'initiative_independent' | null. Mirrors initiative_dependent. Used for grouping in the UI.",
-      "thesis": "string — single declarative sentence summarizing the value, 20-30 words. Embed the target_segment name (don't say 'users').",
-      "persona": "string — named persona + their context + emotional state in one phrase. The persona MUST belong to engagement_context.target_segment.",
-      "moment": "string — the specific slice of journey/workflow demonstrated, one sentence.",
-      "aha_interaction": "string — the single UI moment where insight lands, one sentence.",
-      "description": "string — 80-180 words. Concretely describe what the tool IS, what the engagement_context.target_segment member experiences, what the AI does step-by-step, and what the output looks like. This is the substantive answer to 'what would I be building?' — not a tagline.",
-      "why_matters_target_segment": "string — 60-120 words. Tie directly to engagement_context.target_segment's readiness for the engagement_context.engagement_objective. Reference a specific friction this segment lives with (cite a named corpus theme or a verbatim persona pain point). Use the segment's name verbatim, not 'users'.",
-      "long_term_outcome_through_line": "string — 60-100 words. Trace the through-line from the near-term intervention to a measurable outcome inside engagement_context.target_outcome_window. Use concrete metrics appropriate to the industry (match rate, retention, time-to-value, cost-to-serve, conversion, NPS, readmission rate, etc.).",
-      "initiative_dependency_explanation": "string — 60-120 words. If initiative_dependent=true: name exactly which data, taxonomy, infrastructure, or workflows from engagement_context.named_initiative it requires AND what it produces back into that initiative. If initiative_dependent=false: explain why this still delivers value even if that initiative is delayed/incomplete, AND name the alternative data sources it uses. Empty string only if named_initiative is null.",
-      "execution_in_existing_stack": "string — 80-150 words. Name specific systems from engagement_context.existing_systems and describe HOW the concept rides on them. No new platforms (unless hard_non_starters explicitly permits). Name the connectors and where the AI layer sits.",
-      "preferred_stack_fit": "string — 60-120 words. Name specific tools from engagement_context.preferred_tech_stack and explain HOW each one reduces cost or implementation burden vs. building greenfield. If preferred_tech_stack is empty, write a 'why no greenfield is needed' justification grounded in existing_systems.",
+      "title": "string - 4-8 descriptive words. The title should make sense to someone who has never read your engagement_context - embed the substance, not just adjectives.",
+      "initiative_dependent": "boolean | null - true if this concept depends on engagement_context.named_initiative; false if not; null if no initiative is named in the context.",
+      "group": "string - 'initiative_dependent' | 'initiative_independent' | null. Mirrors initiative_dependent. Used for grouping in the UI.",
+      "thesis": "string - single declarative sentence summarizing the value, 20-30 words. Embed the target_segment name (don't say 'users').",
+      "persona": "string - named persona + their context + emotional state in one phrase. The persona MUST belong to engagement_context.target_segment.",
+      "moment": "string - the specific slice of journey/workflow demonstrated, one sentence.",
+      "aha_interaction": "string - the single UI moment where insight lands, one sentence.",
+      "description": "string - 80-180 words. Concretely describe what the tool IS, what the engagement_context.target_segment member experiences, what the AI does step-by-step, and what the output looks like. This is the substantive answer to 'what would I be building?' - not a tagline.",
+      "why_matters_target_segment": "string - 60-120 words. Tie directly to engagement_context.target_segment's readiness for the engagement_context.engagement_objective. Reference a specific friction this segment lives with (cite a named corpus theme or a verbatim persona pain point). Use the segment's name verbatim, not 'users'.",
+      "long_term_outcome_through_line": "string - 60-100 words. Trace the through-line from the near-term intervention to a measurable outcome inside engagement_context.target_outcome_window. Use concrete metrics appropriate to the industry (match rate, retention, time-to-value, cost-to-serve, conversion, NPS, readmission rate, etc.).",
+      "initiative_dependency_explanation": "string - 60-120 words. If initiative_dependent=true: name exactly which data, taxonomy, infrastructure, or workflows from engagement_context.named_initiative it requires AND what it produces back into that initiative. If initiative_dependent=false: explain why this still delivers value even if that initiative is delayed/incomplete, AND name the alternative data sources it uses. Empty string only if named_initiative is null.",
+      "execution_in_existing_stack": "string - 80-150 words. Name specific systems from engagement_context.existing_systems and describe HOW the concept rides on them. No new platforms (unless hard_non_starters explicitly permits). Name the connectors and where the AI layer sits.",
+      "preferred_stack_fit": "string - 60-120 words. Name specific tools from engagement_context.preferred_tech_stack and explain HOW each one reduces cost or implementation burden vs. building greenfield. If preferred_tech_stack is empty, write a 'why no greenfield is needed' justification grounded in existing_systems.",
       "key_stakeholders": [
-        { "name_or_role": "string — e.g. 'Liz (Sponsor)', 'Co-op Faculty Coordinators', 'CLR Program Owner', 'NUworks Admin'", "involvement": "string — what they do in this initiative" }
+        { "name_or_role": "string - e.g. 'Liz (Sponsor)', 'Co-op Faculty Coordinators', 'CLR Program Owner', 'NUworks Admin'", "involvement": "string - what they do in this initiative" }
       ],
       "implementation_steps": [
-        { "step": "string — concrete action, e.g. 'Provision Copilot Studio agent in NU tenant scoped to Co-op SharePoint site'", "owner": "string — role responsible", "dependencies": ["string — what must exist first"], "estimated_effort": "string — e.g. '2 engineer-weeks' or 'Sprint 1 (S)'" }
+        { "step": "string - concrete action, e.g. 'Provision Copilot Studio agent in NU tenant scoped to Co-op SharePoint site'", "owner": "string - role responsible", "dependencies": ["string - what must exist first"], "estimated_effort": "string - e.g. '2 engineer-weeks' or 'Sprint 1 (S)'" }
       ],
       "risks_constraints": [
-        { "risk": "string — specific failure mode, e.g. 'Advisor adoption gated by training time'", "severity": "low | medium | high", "mitigation": "string — concrete countermeasure" }
+        { "risk": "string - specific failure mode, e.g. 'Advisor adoption gated by training time'", "severity": "low | medium | high", "mitigation": "string - concrete countermeasure" }
       ],
-      "stakeholder_guardrail_fit": "string — 60-120 words. Quote or paraphrase EACH named stakeholder's stated priorities and non-starters from engagement_context.named_stakeholders and explain SPECIFICALLY how this concept honors each one. Reference the design_principles in your preamble. This is the 'why this passes the meeting filter' justification.",
-      "ai_capabilities": ["string — 3-5 specific AI primitives, e.g. 'multi-turn Copilot chat over Co-op SharePoint corpus', 'Power Automate-triggered structured extraction from advisor notes', 'Power BI semantic model with embedding-based skill clustering'"],
-      "existing_stack_reuse": "string — 30-60 words. The specific platforms+services this rides on, comma-separated.",
-      "non_starter_check": "string — 30-60 words. Name each user-stated non-starter and explain how this concept avoids violating it.",
-      "effort_estimate": "string — T-shirt (S/M/L/XL) plus engineer-week estimate, e.g. 'M — 6 engineer-weeks'",
-      "expected_impact": "string — 40-80 words. Concrete metric improvements (e.g. 'first-year skill-gap awareness from ~12% to 60%; advisor outreach throughput +3x; brand-name co-op concentration -25%')",
+      "stakeholder_guardrail_fit": "string - 60-120 words. Quote or paraphrase EACH named stakeholder's stated priorities and non-starters from engagement_context.named_stakeholders and explain SPECIFICALLY how this concept honors each one. Reference the design_principles in your preamble. This is the 'why this passes the meeting filter' justification.",
+      "ai_capabilities": ["string - 3-5 specific AI primitives, e.g. 'multi-turn Copilot chat over Co-op SharePoint corpus', 'Power Automate-triggered structured extraction from advisor notes', 'Power BI semantic model with embedding-based skill clustering'"],
+      "existing_stack_reuse": "string - 30-60 words. The specific platforms+services this rides on, comma-separated.",
+      "non_starter_check": "string - 30-60 words. Name each user-stated non-starter and explain how this concept avoids violating it.",
+      "effort_estimate": "string - T-shirt (S/M/L/XL) plus engineer-week estimate, e.g. 'M - 6 engineer-weeks'",
+      "expected_impact": "string - 40-80 words. Concrete metric improvements (e.g. 'first-year skill-gap awareness from ~12% to 60%; advisor outreach throughput +3x; brand-name co-op concentration -25%')",
       "risk_level": "low | medium | high",
-      "evidence_sources": ["string — MINIMUM 3 entries. At least 1 named theme from the THEMES block (e.g. 'Theme: Hyper-Fixation on Brand-Name Employers'), at least 1 uploaded filename (e.g. 'Upload: NXT_Northeastern_ResearchFindings_Clean.pdf'), at least 1 external source by name (e.g. 'Higher Ed Dive: …'). NEVER 'research'/'data'/'the corpus'."],
-      "verbatim_quote_evidence": "string — one verbatim quote from the corpus (themes block or uploads) with its named source, e.g. '\\\"I applied to 1,870 jobs over 18 months\\\" — Reddit r/cscareerquestions via NXT_Northeastern_ResearchFindings_Clean.pdf'",
-      "image_prompt": "string — short visual prompt for a 16:9 thumbnail (15-25 words). Flat geometric business minimalism, near-black with chartreuse accent, generous negative space, no text in image.",
+      "evidence_sources": ["string - MINIMUM 3 entries. At least 1 named theme from the THEMES block (e.g. 'Theme: Hyper-Fixation on Brand-Name Employers'), at least 1 uploaded filename (e.g. 'Upload: NXT_Northeastern_ResearchFindings_Clean.pdf'), at least 1 external source by name (e.g. 'Higher Ed Dive: ...'). NEVER 'research'/'data'/'the corpus'."],
+      "verbatim_quote_evidence": "string - one verbatim quote from the corpus (themes block or uploads) with its named source, e.g. '\\\"I applied to 1,870 jobs over 18 months\\\" - Reddit r/cscareerquestions via NXT_Northeastern_ResearchFindings_Clean.pdf'",
+      "image_prompt": "string - short visual prompt for a 16:9 thumbnail (15-25 words). Flat geometric business minimalism, near-black with chartreuse accent, generous negative space, no text in image.",
       "variants": [
-        { "label": "NXT brand — default", "command": "#proto #name=<slug> #NXT" },
-        { "label": "NU brand — institutional", "command": "#proto #name=<slug> #NU" },
-        { "label": "Single-screen focus", "command": "#proto #name=<slug> #NXT — single-screen demo, focus on the aha moment" }
+        { "label": "NXT brand - default", "command": "#proto #name=<slug> #NXT" },
+        { "label": "NU brand - institutional", "command": "#proto #name=<slug> #NU" },
+        { "label": "Single-screen focus", "command": "#proto #name=<slug> #NXT - single-screen demo, focus on the aha moment" }
       ]
     }
     /* ... 5 total entries in concepts_defensible_consensus ... */
@@ -4860,37 +5021,37 @@ Honor every engagement_context constraint in BOTH groups. The "non-obvious" fram
       "probability": 0.04,
       "slug": "kebab-case-slug",
       "title": "string",
-      "_diverges_from": "string — name 1-2 concepts_defensible_consensus slugs this concept diverges from, and on which axis (persona / mechanism / data source / scope / metaphor). REQUIRED for every non_obvious_bet."
+      "_diverges_from": "string - name 1-2 concepts_defensible_consensus slugs this concept diverges from, and on which axis (persona / mechanism / data source / scope / metaphor). REQUIRED for every non_obvious_bet."
       /* ... full concept schema follows: all fields from concepts_defensible_consensus[0] ... */
     }
     /* ... 5 total entries in concepts_non_obvious_bets ... */
   ],
   "comparison_table": {
-    "headers": ["string — context-aware. Use 'Concept', 'Frame' (Consensus/Bet), then a column derived from engagement_context.named_initiative if present (e.g. 'CLR-Dep.', 'Phoenix-Dep.', 'Migration-Dep.'); else omit. Then: 'Implementation Complexity', 'Expected {target_segment} Impact' (substitute the actual segment), '{preferred_tech_stack[0]} Fit' (substitute the first preferred stack tool, or 'Existing-Stack Fit'), 'Stakeholder Burden', 'Strategic Alignment ({join named_stakeholders})'."],
-    "rows": [["string — one cell per header, in the same order. Include rows for ALL concepts from BOTH groups (consensus + bets). The 'Frame' column reads 'Consensus' or 'Bet'."]]
+    "headers": ["string - context-aware. Use 'Concept', 'Frame' (Consensus/Bet), then a column derived from engagement_context.named_initiative if present (e.g. 'CLR-Dep.', 'Phoenix-Dep.', 'Migration-Dep.'); else omit. Then: 'Implementation Complexity', 'Expected {target_segment} Impact' (substitute the actual segment), '{preferred_tech_stack[0]} Fit' (substitute the first preferred stack tool, or 'Existing-Stack Fit'), 'Stakeholder Burden', 'Strategic Alignment ({join named_stakeholders})'."],
+    "rows": [["string - one cell per header, in the same order. Include rows for ALL concepts from BOTH groups (consensus + bets). The 'Frame' column reads 'Consensus' or 'Bet'."]]
   },
-  "recommended_prioritization": [{ "rank": 1, "slug": "string", "rationale": "string — 30-60 words why this is the top priority NOW" }],
-  "suggested_next_steps_for_proposal": ["string — concrete NXT Humans next steps to close the loop with the client"]
+  "recommended_prioritization": [{ "rank": 1, "slug": "string", "rationale": "string - 30-60 words why this is the top priority NOW" }],
+  "suggested_next_steps_for_proposal": ["string - concrete NXT Humans next steps to close the loop with the client"]
 }
 
 Rules (context-driven; substitute engagement_context values wherever a placeholder appears):
 - Extract engagement_context FIRST from the user's prompt + uploaded documents. Every concept's labels and content reference these fields. If you misidentify the target_segment, named_initiative, preferred_tech_stack, or named_stakeholders, the entire output reads as off-target. Read carefully.
-- TWO-PART STRUCTURE IS MANDATORY: produce exactly 5 concepts_defensible_consensus AND exactly 5 concepts_non_obvious_bets. NEVER emit a single flat concepts array. NEVER skip the non-obvious set — that set is the entire reason this generation produces value over a baseline LLM.
+- TWO-PART STRUCTURE IS MANDATORY: produce exactly 5 concepts_defensible_consensus AND exactly 5 concepts_non_obvious_bets. NEVER emit a single flat concepts array. NEVER skip the non-obvious set - that set is the entire reason this generation produces value over a baseline LLM.
 - The _thinking_part_b field is REQUIRED. Write the thinking block BEFORE drafting the non-obvious set. Without it, the model regresses to mode collapse on Part B.
 - Every non-obvious bet MUST have probability < 0.05 AND a populated _diverges_from field naming which consensus slug(s) it diverges from and on which axis.
 - Honor the user's explicit COUNT for the OVERALL recommendation set. If they say "10 ideas" or "5 + 5", produce exactly 5 consensus + 5 bets = 10 total. If they say "8 ideas", produce 4+4. The split is always even between consensus and bets unless the user explicitly demands a different split.
 - Honor explicit SPLITS. If user asked for X concepts dependent on engagement_context.named_initiative and Y concepts independent, every concept's initiative_dependent and group fields must be set and the split must match exactly.
-- Honor stated stakeholder PREFERENCES verbatim. If any named_stakeholder lists a preferred_tech_stack item ("prefers Copilot to save costs", "wants to stay inside Salesforce", "must reuse Epic"), at least 80% of concepts must ride on that stack — preferred_stack_fit explains how each tool is used.
+- Honor stated stakeholder PREFERENCES verbatim. If any named_stakeholder lists a preferred_tech_stack item ("prefers Copilot to save costs", "wants to stay inside Salesforce", "must reuse Epic"), at least 80% of concepts must ride on that stack - preferred_stack_fit explains how each tool is used.
 - Honor stated NON-STARTERS. If "new platform = no-go" or similar, no concept proposes a new platform; non_starter_check and stakeholder_guardrail_fit each explain how the concept avoids that.
-- The slug must be valid kebab-case, unique across concepts, and used verbatim in every variant's command. The slug is identifier-only — do not reinterpret slug words literally downstream.
+- The slug must be valid kebab-case, unique across concepts, and used verbatim in every variant's command. The slug is identifier-only - do not reinterpret slug words literally downstream.
 - Always include both brand variants (#NXT and #NU) in the variants array. Add 1-2 axis-of-variation variants where the concept supports them (single-screen focus, data-dense variant, advisor-side variant, etc.).
-- evidence_sources MUST cite real theme names, real filenames, real external sources (≥3 entries, with the theme+upload+external mix described above). Real names only — never 'research'/'data'/'the corpus'.
+- evidence_sources MUST cite real theme names, real filenames, real external sources (≥3 entries, with the theme+upload+external mix described above). Real names only - never 'research'/'data'/'the corpus'.
 - verbatim_quote_evidence MUST be a real quote from the corpus or uploads, attributed by source. NOT a paraphrase.
 - Banned language: "revolutionary", "transform", "unlock", "best-in-class", "seamless", "leverage", "synergy", "paradigm shift", "game-changer", "robust", "cutting-edge", "next-generation", "holistic", "actionable insights". Direct, declarative prose only.
 - No marketing copy. No hyperbole. No self-referential framing.
 - If engagement_context.named_initiative is null, set initiative_dependent=null and group=null on every concept, and leave initiative_dependency_explanation as an empty string.
 - The engagement_context AND analytical_preamble blocks are REQUIRED. They demonstrate you read the user's prompt and uploads. Skipping either is rejection-worthy.
-- Per-concept depth: every text field has a minimum word count specified. A concept where description, why_matters_target_segment, long_term_outcome_through_line, execution_in_existing_stack, preferred_stack_fit, or stakeholder_guardrail_fit falls below its minimum is a stub — drop it and write a richer one.
+- Per-concept depth: every text field has a minimum word count specified. A concept where description, why_matters_target_segment, long_term_outcome_through_line, execution_in_existing_stack, preferred_stack_fit, or stakeholder_guardrail_fit falls below its minimum is a stub - drop it and write a richer one.
 - key_stakeholders: minimum 3 named/role-typed entries per concept. Roles MUST come from engagement_context.named_stakeholders or industry-appropriate inferred roles (e.g. for higher-ed: 'Co-op Faculty Coordinator'; for healthcare: 'Charge Nurse'; for fintech: 'Risk Officer'). Generic "Manager" or "User" is rejected.
 - implementation_steps: minimum 4 ordered steps per concept, each with owner role from engagement_context.named_stakeholders (or industry-appropriate), dependencies, and effort.
 - risks_constraints: minimum 3 entries per concept, each with severity + mitigation. Risks must be specific to engagement_context.industry, not generic "adoption risk".
@@ -4901,12 +5062,12 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 `;
 
                 const liveCtx = getContext ? getContext() : context;
-                // 2026-05-11 — Pass the user's literal request verbatim so the
+                // 2026-05-11 - Pass the user's literal request verbatim so the
                 // model sees the exact constraints (stakeholders, splits,
                 // non-starters, initiatives). Also pass FULL theme objects
                 // (name + thesis + evidence + key quotes), FULL personas
                 // (jtbd + pains + goals), source references, uploaded files,
-                // and a large corpus excerpt — so every concept can cite
+                // and a large corpus excerpt - so every concept can cite
                 // specific themes, personas, and verbatim quotes from the
                 // research, not generic "the data shows" abstractions.
                 const upFiles = (liveCtx?.uploadedFiles as any[]) || [];
@@ -4915,7 +5076,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     ? `Uploaded client documents (${upFiles.length}): ${upFiles.map((f: any) => f.name || f.filename).filter(Boolean).join('; ')}\n\nUploaded document contents (verbatim):\n${upContents.slice(0, 80000)}`
                     : '(no uploaded client documents)';
 
-                // FULL theme objects with their evidence and quotes — not just names.
+                // FULL theme objects with their evidence and quotes - not just names.
                 const themesArr = (liveCtx?.themes as any[]) || [];
                 const themesBlock = themesArr.length > 0
                     ? themesArr.slice(0, 20).map((t: any, i: number) => {
@@ -4929,7 +5090,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             ? `\n    Evidence: ${evidence.map((e: any) => typeof e === 'string' ? e : (e?.text || e?.quote || JSON.stringify(e))).join(' | ').slice(0, 600)}`
                             : '';
                         const quotesText = quotes.length > 0
-                            ? `\n    Quotes: ${quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" — ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 600)}`
+                            ? `\n    Quotes: ${quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" - ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 600)}`
                             : '';
                         return `  ${i + 1}. ${name}\n    Thesis: ${thesis}${evidenceText}${quotesText}`;
                     }).join('\n\n')
@@ -4951,7 +5112,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             ? `\n    Pain points: ${pains.map((x: any) => typeof x === 'string' ? x : (x?.text || x?.description || '')).join(' | ').slice(0, 500)}`
                             : '';
                         const goalsText = (goals.lifeGoal || goals.experienceGoal || goals.functionalGoal)
-                            ? `\n    Goals — life: ${goals.lifeGoal || '—'}; experience: ${goals.experienceGoal || '—'}; functional: ${goals.functionalGoal || '—'}`
+                            ? `\n    Goals - life: ${goals.lifeGoal || '-'}; experience: ${goals.experienceGoal || '-'}; functional: ${goals.functionalGoal || '-'}`
                             : '';
                         const quoteText = quote ? `\n    Voice: "${quote}"` : '';
                         return `  ${i + 1}. ${name}${role ? ` (${role})` : ''}\n    JTBD: ${jtbd}${painsText}${goalsText}${quoteText}`;
@@ -4964,9 +5125,30 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     ? `Named external sources available for citation (${sourceRefsArr.length}):\n${sourceRefsArr.slice(0, 40).map((s: any) => `  - ${s?.sourceName || s?.source || s?.name || 'unknown'}: ${s?.articleTitle || s?.title || ''}`).join('\n').slice(0, 4000)}`
                     : '';
 
-                const corpusBlock = (liveCtx?.corpusText || '').slice(0, 80000);
-                const userPayload = `USER REQUEST (verbatim — this is the primary spec):\n"""\n${query}\n"""\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}) — cite specific themes by name in every concept's evidence_sources ===\n${themesBlock}\n\n=== PERSONAS (${personasArr.length}) — each concept's "persona" field should reference one of these by name ===\n${personasBlock}\n\n${sourcesBlock}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT ===\n${corpusBlock}`;
-                // 2026-05-27 — Recommendations now route through the proactive,
+                // 2026-05-31 - OBJECTIVE-KEYED evidence for #recommendations (was a
+                // raw corpusText.slice(0,80000) - the same anti-pattern fixed for
+                // the html-deliverable + journey paths). Pull on-objective article
+                // bodies from the fixed chunk-store retrieval; fall back to the raw
+                // session corpus only if retrieval is empty.
+                let corpusBlock = '';
+                try {
+                    const { fetchWikiArticles, formatArticlesAsCorpusBlock } = await import('../services/wikiIndexService');
+                    const _recArts = await fetchWikiArticles({
+                        query: liveCtx?.researchGoal || query,
+                        engagementGoal: liveCtx?.researchGoal || '',
+                        goalBlendWeight: 0.35, limit: 40, maxCharsPerArticle: 6000, minChars: 300,
+                        includeSynthesis: false,
+                    } as any);
+                    if (Array.isArray(_recArts) && _recArts.length > 0) {
+                        corpusBlock = formatArticlesAsCorpusBlock(_recArts as any, 90000);
+                        console.log(`[#recommendations] objective-keyed evidence: ${_recArts.length} on-objective articles`);
+                    }
+                } catch (e: any) {
+                    console.warn('[#recommendations] objective retrieval failed, using session corpus:', e?.message || e);
+                }
+                if (!corpusBlock) corpusBlock = (liveCtx?.corpusText || '').slice(0, 80000);
+                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}) - cite specific themes by name in every concept's evidence_sources ===\n${themesBlock}\n\n=== PERSONAS (${personasArr.length}) - each concept's "persona" field should reference one of these by name ===\n${personasBlock}\n\n${sourcesBlock}\n\n${uploadsBlock}\n\n=== EXTERNAL RESEARCH EVIDENCE (objective-matched, cite these) ===\n${corpusBlock}`;
+                // 2026-05-27 - Recommendations now route through the proactive,
                 // health-aware deliverableModelRouter (was: hardcoded slow Pro +
                 // 300s timeout that consistently hard-failed). The router:
                 //   - honors the user's selected model as the chain head;
@@ -4976,8 +5158,30 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 //   - gives Pro a 530s ceiling (matches proxy 540s), Flash 180s;
                 //   - advances on ANY failure (timeout / 429 / 5xx / content-filter);
                 //   - normalizes the response to `text` regardless of provider.
+                // 2026-06-06 - C2 emission-wrapper integration. Every hashtag
+                // deliverable should flow through emitDeliverable so the
+                // self-improvement substrate (traceRecorder + qualityFrontier)
+                // gets a signal on EVERY emission. The wrapper is purely
+                // additive: it invokes the chain-walker unchanged, then
+                // records the turn + scores the output. Failure of telemetry
+                // is silent; only the chain-walker's error propagates.
                 const { callWithModelChain } = await import('../services/deliverableModelRouter');
-                const { text } = await callWithModelChain({
+                const { emitDeliverable } = await import('../services/emitDeliverable');
+                const _emitT0 = Date.now();
+                const _emitResult = await emitDeliverable({
+                    deliverable: '#recommendations',
+                    step_label: 'Recommendations',
+                    model_id: selectedModel || 'auto-chain',
+                    prompt: userPayload,
+                    started_at: _emitT0,
+                    // 2026-06-06 - Fix 2: declare VS application status so the
+                    // trace + qualityFrontier vector records that recommendations
+                    // ran with k=5+5 (consensus + non-obvious bets) VS split.
+                    // The recommendation-architect skill already invokes VS
+                    // inside the generation; this annotation lets the epoch
+                    // proposer grep traces by VS coverage.
+                    vs: { k: 10, frames: ['defensible_consensus', 'non_obvious_bet'] },
+                    emit: () => callWithModelChain({
                     deliverable: 'recommendations',
                     preferModel: selectedModel,
                     label: 'Recommendations',
@@ -4999,7 +5203,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 },
                             };
                         }
-                        // Cross-provider fallback — Claude (Anthropic Messages API).
+                        // Cross-provider fallback - Claude (Anthropic Messages API).
                         if (modelId.startsWith('claude-')) {
                             return {
                                 endpoint: 'anthropic',
@@ -5011,7 +5215,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 },
                             };
                         }
-                        // Cross-provider fallback — GPT (OpenAI-shaped body).
+                        // Cross-provider fallback - GPT (OpenAI-shaped body).
                         return {
                             endpoint: 'openai',
                             headers: { 'x-openai-endpoint': 'chat' },
@@ -5028,24 +5232,78 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         };
                     },
                     onProgress: (msg: string) => {
-                        setMessages(prev => prev.map(m => m.id === recMsgId ? { ...m, content: `Analyzing the research… ${msg}` } : m));
+                        setMessages(prev => prev.map(m => m.id === recMsgId ? { ...m, content: `Analyzing the research... ${msg}` } : m));
                     },
                     onModelSwitch: (from, to, reason) => {
                         console.warn(`[recommendations] ${from} ${reason}; routing to ${to}`);
                     },
+                }),
+                    extractText: (r) => (r && typeof r === 'object' && 'text' in r ? String((r as any).text || '') : ''),
+                    buildScoreInput: (text) => ({ text, label: '#recommendations' }),
                 });
+                const text = _emitResult.result.text;
+                console.info(
+                    `[#recommendations] emit trace recorded=${_emitResult.traceRecorded} ` +
+                    `quality_dims=${_emitResult.qualityVector ? Object.keys(_emitResult.qualityVector.dimensions).length : 0} ` +
+                    `elapsed=${_emitResult.elapsed_ms}ms`
+                );
+                // 2026-06-05 - UNIVERSAL JSON parse chain. Was bypassing
+                // tryRepairJson + the 9-rung repair ladder + salvageJsonArray,
+                // so a single bad char anywhere in a 56KB output (e.g. an
+                // unescaped quote inside a verbatim_quote_evidence field) blew
+                // up the whole #recommendations generation. Now:
+                //   1. Try native JSON.parse on raw text
+                //   2. If fail, run tryRepairJson (handles fences, trailing
+                //      commas, bracket-balance, the 9-rung ladder)
+                //   3. If parse STILL fails on the repaired text, fall back
+                //      to per-array salvage: pull out whatever concept objects
+                //      WILL parse from concepts_defensible_consensus +
+                //      concepts_non_obvious_bets + legacy `concepts`, so the
+                //      user gets a degraded-but-useful result instead of a
+                //      total failure. Composes with the same pattern in the
+                //      regrade path. Generic - applies to every future call.
                 let parsed: any;
                 try {
                     parsed = JSON.parse(text);
                 } catch (parseErr: any) {
-                    const start = text.indexOf('{');
-                    const end = text.lastIndexOf('}');
-                    if (start >= 0 && end > start) {
-                        try { parsed = JSON.parse(text.slice(start, end + 1)); } catch { throw parseErr; }
-                    } else { throw parseErr; }
+                    // tryRepairJson + salvageJsonArray imported statically at top of file.
+                    let repaired = '';
+                    try {
+                        repaired = tryRepairJson(text);
+                        parsed = JSON.parse(repaired);
+                    } catch (repairErr) {
+                        // Final fallback: targeted per-array salvage. Look
+                        // for the three concept arrays by name and recover
+                        // any objects that parse cleanly.
+                        const out: any = { concepts_defensible_consensus: [], concepts_non_obvious_bets: [], concepts: [] };
+                        for (const key of ['concepts_defensible_consensus', 'concepts_non_obvious_bets', 'concepts']) {
+                            const arrStart = text.indexOf(`"${key}"`);
+                            if (arrStart < 0) continue;
+                            const bracketStart = text.indexOf('[', arrStart);
+                            if (bracketStart < 0) continue;
+                            // salvageJsonArray expects a string starting with [ - feed it the
+                            // tail; it will scan and recover whatever objects parse cleanly.
+                            const tail = text.substring(bracketStart);
+                            const recovered = salvageJsonArray<any>(tail);
+                            if (recovered.length > 0) out[key] = recovered;
+                        }
+                        const totalRecovered = (out.concepts_defensible_consensus?.length || 0)
+                            + (out.concepts_non_obvious_bets?.length || 0)
+                            + (out.concepts?.length || 0);
+                        if (totalRecovered === 0) {
+                            console.error('[recommendations] all JSON repair paths failed:', {
+                                original: String(parseErr?.message || parseErr).slice(0, 200),
+                                repaired_preview: repaired.slice(0, 400),
+                                text_size: text.length,
+                            });
+                            throw new Error(`JSON parse failed after 3-tier repair (raw + repair-ladder + per-array salvage). Last error: ${parseErr?.message || 'unknown'}`);
+                        }
+                        console.warn(`[recommendations] per-array salvage recovered ${totalRecovered} concept(s) from broken JSON (${String(parseErr?.message || parseErr).slice(0, 120)})`);
+                        parsed = out;
+                    }
                 }
 
-                // 2026-05-12 — Sprint 2 VS-Multi: model now emits TWO concept
+                // 2026-05-12 - Sprint 2 VS-Multi: model now emits TWO concept
                 // groups. We tag each entry with its frame and merge into a
                 // single tile array that the renderer groups visually. Legacy
                 // single-array `concepts` is accepted as a fallback so older
@@ -5060,14 +5318,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 const tagged: any[] = [
                     ...consensusArr.map(c => ({ ...c, _frame: 'defensible_consensus' })),
                     ...betsArr.map(c => ({ ...c, _frame: 'non_obvious_bet' })),
-                    // Legacy flat array — only used when neither new array is present.
+                    // Legacy flat array - only used when neither new array is present.
                     ...((consensusArr.length === 0 && betsArr.length === 0) ? legacyArr.map(c => ({ ...c, _frame: 'defensible_consensus' })) : []),
                 ];
                 if (tagged.length === 0) throw new Error('Model returned no concepts');
                 console.log(`[recommendations] VS-Multi parsed: ${consensusArr.length} consensus + ${betsArr.length} non-obvious bets (${legacyArr.length} legacy-flat)`);
                 const concepts = tagged;
 
-                // 2026-05-11 — Capture engagement_context (the
+                // 2026-05-11 - Capture engagement_context (the
                 // brand/industry/persona-agnostic header the model extracts
                 // from the user's prompt + uploads), plus the analytical
                 // preamble, comparison table, prioritization, and next-
@@ -5095,7 +5353,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         const consensus = consensusArr.length;
                         const bets = betsArr.length;
                         if (consensus > 0 && bets > 0) {
-                            return `${consensus} defensible consensus recommendations + ${bets} non-obvious bets. Expand any tile for the full consulting brief, or click a Build option to prototype it. Non-obvious bets carry the BET badge — they are surprising-but-grounded ideas the model surfaced via verbalized-sampling tail-of-distribution prompting.`;
+                            return `${consensus} defensible consensus recommendations + ${bets} non-obvious bets. Expand any tile for the full consulting brief, or click a Build option to prototype it. Non-obvious bets carry the BET badge - they are surprising-but-grounded ideas the model surfaced via verbalized-sampling tail-of-distribution prompting.`;
                         }
                         return `${concepts.length} concept(s) produced. Expand a tile for the full consulting brief, or click a Build option to prototype it.`;
                     })(),
@@ -5104,7 +5362,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     recommendationComparisonTable: comparisonTable,
                     recommendationPrioritization: prioritization,
                     recommendationNextSteps: nextSteps,
-                    // 2026-05-12 — Hashtag composition: brand + auto-export flags
+                    // 2026-05-12 - Hashtag composition: brand + auto-export flags
                     // travel with the message so the renderer can honor both.
                     recommendationBrand: queryBrand,
                     recommendationAutoExport: autoExportOnMount,
@@ -5167,7 +5425,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         guardrail_fit: String(c.guardrail_fit || c.stakeholder_guardrail_fit || '').trim(),
                         expected_impact: String(c.expected_impact || '').trim(),
                         verbatim_quote_evidence: String(c.verbatim_quote_evidence || '').trim(),
-                        // 2026-05-12 — VS-Multi fields. `frame` distinguishes
+                        // 2026-05-12 - VS-Multi fields. `frame` distinguishes
                         // defensible consensus from non-obvious bets in the UI
                         // and in the #proto injection downstream. `probability`
                         // is the model's verbalized confidence per the VS
@@ -5182,7 +5440,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                 // Fire-and-forget thumbnail generation per tile. Each tile
                 // updates in place when its image arrives. Failures are
-                // silent — the renderer falls back to a styled placeholder.
+                // silent - the renderer falls back to a styled placeholder.
                 concepts.forEach((concept: any, idx: number) => {
                     if (!concept.image_prompt) return;
                     (async () => {
@@ -5213,25 +5471,25 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
         }
 
         // ═══════════════════════════════════════════════════════════════
-        // 2026-05-12 — HTML ARTIFACT DIRECTIVES (Sprints H1/H2/H4)
+        // 2026-05-12 - HTML ARTIFACT DIRECTIVES (Sprints H1/H2/H4)
         // Five generation directives produce NXT/NU-branded HTML artifacts
         // via /api/artifacts. All compose verbalized-sampling +
         // html-deliverable-composer skills. Two library/utility directives
         // (#artifacts, #help, #refine) browse / explain / refine.
         // ═══════════════════════════════════════════════════════════════
 
-        // --- #help (bare) — hashtag reference guide -----------------------
+        // --- #help (bare) - hashtag reference guide -----------------------
         if (parseHelpDirective(query).triggered) {
             const helpMsgId = `msg_${Date.now()}_help`;
             setMessages(prev => [...prev, {
                 id: helpMsgId,
                 role: 'assistant',
-                content: 'Building the hashtag reference guide…',
+                content: 'Building the hashtag reference guide...',
                 timestamp: Date.now(),
             }]);
             try {
                 // Build the HTML guide directly from the hashtagRegistry. No
-                // model call needed — the registry IS the source of truth.
+                // model call needed - the registry IS the source of truth.
                 const grouped = directivesByCategory();
                 const cats: Array<'experience-builder' | 'consulting-deliverable' | 'edit-refine' | 'browse' | 'system'> =
                     ['experience-builder', 'consulting-deliverable', 'edit-refine', 'browse', 'system'];
@@ -5252,7 +5510,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             ${d.modifiers && d.modifiers.length > 0 ? `
                                 <details class="hg-mods">
                                     <summary>Modifiers</summary>
-                                    <ul>${d.modifiers.map(m => `<li><code>${escapeHtml(m.token)}</code> — ${escapeHtml(m.description)}</li>`).join('')}</ul>
+                                    <ul>${d.modifiers.map(m => `<li><code>${escapeHtml(m.token)}</code> - ${escapeHtml(m.description)}</li>`).join('')}</ul>
                                 </details>
                             ` : ''}
                             ${d.combinesWith && d.combinesWith.length > 0 ? `
@@ -5303,8 +5561,8 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     .hg-meta { font-family: var(--nxt-font-mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--nxt-text-tertiary); border-top: 1px solid var(--nxt-border); padding-top: 8px; margin-top: auto; }
                 </style>
                 <div class="hg-root">
-                    <h1>HiC Chat Directives — Reference Guide</h1>
-                    <p class="hg-intro">Every hashtag you can type in the AI Analyst or Design Desk chat, what it produces, how to combine it. Updated automatically from the hashtagRegistry — when a new directive ships, this page reflects it on the next #help.</p>
+                    <h1>HiC Chat Directives - Reference Guide</h1>
+                    <p class="hg-intro">Every hashtag you can type in the AI Analyst or Design Desk chat, what it produces, how to combine it. Updated automatically from the hashtagRegistry - when a new directive ships, this page reflects it on the next #help.</p>
                     ${sections}
                 </div>`;
                 const saved = await saveArtifact({
@@ -5317,7 +5575,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 });
                 setMessages(prev => prev.map(m => m.id === helpMsgId ? {
                     ...m,
-                    content: `HiC chat directive reference is ready. Click LAUNCH to open the guide in a new window. Every hashtag, every modifier, every combination is listed — bookmark this URL to share with new team members.`,
+                    content: `HiC chat directive reference is ready. Click LAUNCH to open the guide in a new window. Every hashtag, every modifier, every combination is listed - bookmark this URL to share with new team members.`,
                     artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,
@@ -5337,13 +5595,13 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // --- #artifacts (bare — library list) -----------------------------
+        // --- #artifacts (bare - library list) -----------------------------
         if (parseArtifactsLibraryDirective(query).triggered) {
             const libMsgId = `msg_${Date.now()}_artifacts_lib`;
             setMessages(prev => [...prev, {
                 id: libMsgId,
                 role: 'assistant',
-                content: 'Loading saved artifacts…',
+                content: 'Loading saved artifacts...',
                 timestamp: Date.now(),
             }]);
             try {
@@ -5374,7 +5632,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             { parser: parseReportDirective, label: 'strategic report' },
             { parser: parsePlaygroundDirective, label: 'interactive playground' },
             { parser: parseApproachesDirective, label: 'approaches picker' },
-            // 2026-05-23 — P1.5 (Sprint H3): #whitepaper produces a consulting-grade
+            // 2026-05-23 - P1.5 (Sprint H3): #whitepaper produces a consulting-grade
             // HTML whitepaper from the strategic-report pipeline output. Sprint H3
             // promised this would ship as a #html modifier on strategic reports;
             // implementation is a separate directive instead because that keeps the
@@ -5392,7 +5650,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             setMessages(prev => [...prev, {
                 id: buildMsgId,
                 role: 'assistant',
-                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})…\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Gemini 3.1 Pro with max thinking budget.`,
+                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})...\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Gemini 3.1 Pro with max thinking budget.`,
                 timestamp: Date.now(),
             }]);
             try {
@@ -5409,23 +5667,60 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 const upContents = (liveCtx?.uploadedFileContents as string) || '';
                 const themesArr = (liveCtx?.themes as any[]) || [];
                 const personasArr = (liveCtx?.personas as any[]) || [];
-                const corpusBlock = (liveCtx?.corpusText || '').slice(0, 60000);
+                // 2026-05-31 - OBJECTIVE-KEYED EVIDENCE for html deliverables
+                // (#brief/#explainer/#report/#whitepaper). Previously this used a
+                // raw corpusText.slice(0,60000), so a thin/off-objective session
+                // corpus produced a thin/off-objective whitepaper. Pull the
+                // on-objective article bodies from the fixed chunk-store retrieval
+                // (same path themes/journey use); fall back to the raw corpus only
+                // if retrieval is empty.
+                const _wpGoal = `${directive.topic || ''}. ${liveCtx?.researchGoal || ''}`.trim();
+                let corpusBlock = '';
+                try {
+                    const { fetchWikiArticles, formatArticlesAsCorpusBlock } = await import('../services/wikiIndexService');
+                    const _arts = await fetchWikiArticles({
+                        query: _wpGoal || (liveCtx?.researchGoal || query),
+                        engagementGoal: liveCtx?.researchGoal || _wpGoal,
+                        goalBlendWeight: 0.35, limit: 40, maxCharsPerArticle: 6000, minChars: 300,
+                        includeSynthesis: false,
+                    } as any);
+                    if (Array.isArray(_arts) && _arts.length > 0) {
+                        corpusBlock = formatArticlesAsCorpusBlock(_arts as any, 90000);
+                        console.log(`[${directive.generator}] objective-keyed evidence: ${_arts.length} on-objective articles`);
+                    }
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] objective retrieval failed, using session corpus:`, e?.message || e);
+                }
+                if (!corpusBlock) corpusBlock = (liveCtx?.corpusText || '').slice(0, 60000);
 
                 const uploadsBlock = upFiles.length > 0
                     ? `Uploaded client documents (${upFiles.length}): ${upFiles.map((f: any) => f.name || f.filename).filter(Boolean).join('; ')}\n\nUploaded document contents (verbatim, truncated):\n${upContents.slice(0, 50000)}`
                     : '(no uploaded client documents)';
+                // 2026-05-31 - Richer theme evidence (was a 200-char one-liner with
+                // no quotes). Give the composer the description + the defining
+                // verbatim quote + a couple of named citations so it can write deep,
+                // evidence-anchored sections instead of summarizing labels.
                 const themesSummary = themesArr.length > 0
-                    ? themesArr.slice(0, 15).map((t: any, i: number) => `${i + 1}. ${t?.name || t?.title || 'Theme'} — ${(t?.thesis || t?.description || '').slice(0, 200)}`).join('\n')
+                    ? themesArr.slice(0, 15).map((t: any, i: number) => {
+                        const desc = (t?.thesis || t?.description || '').slice(0, 320);
+                        const q = t?.quote ? `\n   Quote: "${String(t.quote).slice(0, 220)}"` : '';
+                        const cites = Array.isArray(t?.citations)
+                            ? t.citations.slice(0, 3).map((c: any) => c?.sourceName || c?.sourceFile).filter(Boolean).join(', ')
+                            : '';
+                        const citeLine = cites ? `\n   Sources: ${cites}` : '';
+                        return `${i + 1}. ${t?.name || t?.title || 'Theme'} - ${desc}${q}${citeLine}`;
+                    }).join('\n')
                     : '(no themes available)';
                 const personasSummary = personasArr.length > 0
-                    ? personasArr.slice(0, 8).map((p: any, i: number) => `${i + 1}. ${p?.name || 'Persona'} — ${p?.jtbd || p?.bio || ''}`).join('\n').slice(0, 4000)
+                    ? personasArr.slice(0, 8).map((p: any, i: number) => `${i + 1}. ${p?.name || 'Persona'} - ${p?.jtbd || p?.bio || ''}`).join('\n').slice(0, 4000)
                     : '(no personas available)';
 
                 const directiveInstructions: Record<string, string> = {
-                    '#brief': 'Produce a stakeholder-grade ONE-PAGER. Length 600-1200 words of visible content. ONE hero data point visually dominant. ONE diagram (apply micro-VS to pick diagram type). 2-3 supporting findings as short paragraphs or data cards. Stakeholder names + engagement context surfaced. Primary VS layer: visual layout — enumerate 5 candidates and commit.',
-                    '#explainer': 'Produce a DEEP-DIVE explainer page modeled on the "How rate limiting works" pattern. Length 1500-3500 words. Flow diagram or system map at the top (apply micro-VS to pick diagram type). 2-4 annotated code/data snippets beside the prose. "Gotchas" section at the bottom with severity-coded callouts. Primary VS layer: information architecture — enumerate 5 IAs (flow-led / snippet-led / Q&A / worked-example / decision-tree) and commit.',
-                    '#report': 'Produce a LONG-FORM strategic report. Length 3000-8000 words. Tabbed or anchored sections (default Exec Summary / Findings / Recommendations / Next Steps — but VS-pick alternative section IAs). Embedded charts per section. Evidence panels with verbatim corpus quotes. Summary table at the top. Optimized for navigation, not sequential read. Primary VS layer: section IA + diagram type per chart.',
-                    '#playground': 'Produce a SELF-CONTAINED INTERACTIVE HTML playground. Primary VS layer: INTERACTION PATTERN — enumerate 5+ patterns (sliders, before/after swap, drag-to-position, easing-curve picker / Bezier, code-with-live-preview, motion timeline, scrubber) and commit to the pattern that actually visualizes the parameter shape. Avoid the slider-only default. Include a live preview area + a "Copy as prompt" button that serializes the user\'s settings as a prompt string to paste back into HiC.',
+                    '#brief': 'Produce a stakeholder-grade ONE-PAGER. Length 600-1200 words of visible content. ONE hero data point visually dominant. ONE diagram (apply micro-VS to pick diagram type). 2-3 supporting findings as short paragraphs or data cards. Stakeholder names + engagement context surfaced. Primary VS layer: visual layout - enumerate 5 candidates and commit.',
+                    '#explainer': 'Produce a DEEP-DIVE explainer page modeled on the "How rate limiting works" pattern. Length 1500-3500 words. Flow diagram or system map at the top (apply micro-VS to pick diagram type). 2-4 annotated code/data snippets beside the prose. "Gotchas" section at the bottom with severity-coded callouts. Primary VS layer: information architecture - enumerate 5 IAs (flow-led / snippet-led / Q&A / worked-example / decision-tree) and commit.',
+                    '#report': 'Produce a LONG-FORM strategic report. Length 3000-8000 words. Tabbed or anchored sections (default Exec Summary / Findings / Recommendations / Next Steps - but VS-pick alternative section IAs). Embedded charts per section. Evidence panels with verbatim corpus quotes. Summary table at the top. Optimized for navigation, not sequential read. Primary VS layer: section IA + diagram type per chart.',
+                    '#whitepaper': 'Produce a CONSULTING-GRADE STRATEGIC WHITEPAPER, deep and fully framed. Length 2500-6000 words of visible prose. MANDATORY structure: (1) a diagnostic action-title + 500-800 word executive summary in SCQA; (2) FRAME THE SPACE - a substantial section on where this domain is now, the forces shaping it, and where it is heading; (3) 4-6 KEY FINDINGS, each a claim + 3-5 sentences of analysis + at least one VERBATIM cited quote from a NAMED external source + a 2-4 sentence case study where the evidence supports one; (4) OPPORTUNITIES tied to named findings; (5) CHALLENGES / RISKS with why each bites; (6) RECOMMENDED MOVES that reinforce each other (Rumelt coherence). Weave 2-3 named sources per paragraph showing convergent evidence. EVIDENCE FLOOR: >=8 verbatim cited quotes from >=5 distinct external sources. If any section is a stub or the space is not framed, EXPAND before returning. A thin whitepaper is a failure. Primary VS layer: section IA.',
+                    '#playground': 'Produce a SELF-CONTAINED INTERACTIVE HTML playground. Primary VS layer: INTERACTION PATTERN - enumerate 5+ patterns (sliders, before/after swap, drag-to-position, easing-curve picker / Bezier, code-with-live-preview, motion timeline, scrubber) and commit to the pattern that actually visualizes the parameter shape. Avoid the slider-only default. Include a live preview area + a "Copy as prompt" button that serializes the user\'s settings as a prompt string to paste back into HiC.',
                     '#approaches': `Produce a NATIVE VS-MULTI approach picker. Generate exactly 6 distinct approaches in a 2×3 HTML grid: row 1 = 3 Defensible Consensus approaches (probabilities in full distribution), row 2 = 3 Non-Obvious Bets (probability < 0.05, explicitly distinct from row 1 by named axis: persona, mechanism, data source, temporal scope, or metaphor). Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. The two rows are visually differentiated (chartreuse-bordered consensus, cyan-bordered bets).`,
                 };
 
@@ -5433,20 +5728,49 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     ? `\n\n=== VARIANTS MODIFIER ACTIVE ===\nThe user requested --variants ${directive.variants}. Emit exactly ${directive.variants} distinct full variants of the deliverable in a single 2×3 (or appropriate) HTML grid. Each variant card includes: full content (small-rendered), probability pill, one-line tradeoff caption, "Pick this" button. Canonical probability distribution: 1 near-modal (p≈0.30-0.45) + (${Math.floor(directive.variants / 2) - 1}) shifted-frame (p≈0.10-0.20) + remaining tail (p<0.05).`
                     : '';
 
-                const userPayload = `USER REQUEST (verbatim — this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped — refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}, summarized) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content. Do NOT wrap in <html>/<head>/<body> — the artifact /view endpoint injects the NXT/NU brand wrapper, fonts, print stylesheet, and Copy-as-prompt footer. Your output is the artifact's <main> content. Start with the <vs_thinking> block (will be moved to footer at render time), then the HTML structure.`;
+                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}, summarized) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content. Do NOT wrap in <html>/<head>/<body> - the artifact /view endpoint injects the NXT/NU brand wrapper, fonts, print stylesheet, and Copy-as-prompt footer. Your output is the artifact's <main> content. Start with the <vs_thinking> block (will be moved to footer at render time), then the HTML structure.`;
+
+                // Phase 1.4 (intent-realization-plan) - this artifact/hashtag path
+                // previously BYPASSED loadGenerationContext: framework spec, anti-
+                // patterns, and cross-engagement portfolio patterns never reached the
+                // prompt (only the 2 skill files did). Inject them now so the same
+                // wiki-grounding governance the structured deliverable pipeline gets
+                // applies to #brief/#report/#whitepaper/#explainer/etc. too.
+                // Best-effort, bounded, non-fatal.
+                let genContextBlock = '';
+                try {
+                    const { loadGenerationContext } = await import('../services/wikiService');
+                    const _GEN_TO_OUTPUT: Record<string, string> = {
+                        '#gap': 'GAP_ANALYSIS', '#compete': 'COMPETITIVE_ANALYSIS', '#competitive': 'COMPETITIVE_ANALYSIS',
+                        '#audit': 'TECH_AUDIT', '#techaudit': 'TECH_AUDIT', '#strategy': 'STRATEGIC_RECS',
+                    };
+                    const _outputType = (_GEN_TO_OUTPUT[directive.generator] || 'STRATEGIC_RECS') as any;
+                    const _slug = (liveCtx?.researchGoal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+                    const _gc: any = await loadGenerationContext(_outputType, { engagement: _slug });
+                    const _parts: string[] = [];
+                    if (_gc?.framework) _parts.push('=== FRAMEWORK SPECIFICATION (from wiki) ===\n' + String(_gc.framework).slice(0, 12000));
+                    if (_gc?.antiPatterns) _parts.push('=== ANTI-PATTERNS TO AVOID (from wiki) ===\n' + String(_gc.antiPatterns).slice(0, 8000));
+                    if (_gc?.crossEngagementPatterns) _parts.push('=== CROSS-ENGAGEMENT PORTFOLIO PATTERNS (from prior runs) ===\n' + String(_gc.crossEngagementPatterns).slice(0, 6000));
+                    if (_gc?.engagementGoals) _parts.push(String(_gc.engagementGoals));
+                    genContextBlock = _parts.join('\n\n');
+                    if (genContextBlock) console.log(`[${directive.generator}] loadGenerationContext injected (framework=${!!_gc?.framework}, antiPatterns=${!!_gc?.antiPatterns}, patterns=${!!_gc?.crossEngagementPatterns})`);
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] loadGenerationContext injection skipped (non-fatal):`, e?.message || e);
+                }
 
                 const systemPrompt = [
                     vsResp ? vsResp + '\n\n---\n\n' : '',
                     htmlResp ? htmlResp + '\n\n---\n\n' : '',
-                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Compose the artifact body. The /view endpoint will inject the wrapper.`,
+                    genContextBlock ? genContextBlock + '\n\n---\n\n' : '',
+                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.`,
                 ].join('');
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
-                    content: `Generating ${firstHit!.label} (${directive.generator})…\n\n✓ Loaded verbalized-sampling skill (${vsResp.length} chars)\n✓ Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Gemini 3.1 Pro (max thinking)…`,
+                    content: `Generating ${firstHit!.label} (${directive.generator})...\n\n Loaded verbalized-sampling skill (${vsResp.length} chars)\n Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Gemini 3.1 Pro (max thinking)...`,
                 } : m));
 
-                // 2026-05-27 — Route the html-deliverable-composer family
+                // 2026-05-27 - Route the html-deliverable-composer family
                 // (#strategy/#gap/#audit/#compete/#case-study) through the
                 // deliverableModelRouter, eliminating the prior hardcoded
                 // gemini-3.1-pro-preview + thinkingBudget:'max' + default 300s
@@ -5454,6 +5778,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 // recommendations). The router honors the selected model, gives
                 // Pro a 530s ceiling, and falls back Gemini->Flash->Claude.
                 const { callWithModelChain } = await import('../services/deliverableModelRouter');
+                const { emitDeliverable } = await import('../services/emitDeliverable');
                 const _genToKind: Record<string, string> = {
                     '#strategy': 'strategy', '#gap': 'gap',
                     '#compete': 'competitive', '#competitive': 'competitive',
@@ -5461,44 +5786,74 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     '#case-study': 'strategy', '#casestudy': 'strategy',
                 };
                 const _htmlKind = (_genToKind[directive.generator] || 'strategy') as any;
-                const { text: _htmlRaw } = await callWithModelChain({
-                    deliverable: _htmlKind,
-                    preferModel: selectedModel,
-                    label: `${directive.generator} artifact`,
-                    buildBody: (modelId: string) => {
-                        if (modelId.startsWith('claude-')) {
-                            return {
-                                endpoint: 'anthropic',
-                                body: { model: modelId, max_tokens: 32000, system: systemPrompt, messages: [{ role: 'user', content: userPayload }] },
-                            };
-                        }
-                        if (modelId.startsWith('gemini-')) {
-                            return {
-                                endpoint: 'gemini',
-                                body: {
-                                    model: modelId,
-                                    systemInstruction: { parts: [{ text: systemPrompt }] },
-                                    contents: [{ role: 'user', parts: [{ text: userPayload }] }],
-                                    config: { temperature: 0.85, maxOutputTokens: 65536, thinkingBudget: modelId === 'gemini-3.1-pro-preview' ? 'high' : 'low' },
-                                },
-                            };
-                        }
-                        return {
-                            endpoint: 'openai',
-                            headers: { 'x-openai-endpoint': 'chat' },
-                            body: { model: modelId, messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userPayload }], max_completion_tokens: 32000, temperature: 0.85 },
-                        };
-                    },
-                    onProgress: (msg: string) => {
-                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
-                            ...m,
-                            content: `Generating ${firstHit!.label} (${directive.generator})… ${msg}`,
-                        } : m));
-                    },
-                });
-                let htmlBody = _htmlRaw || '';
-                // Strip leading markdown fences if model emitted them
-                htmlBody = htmlBody.replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
+                // 2026-05-31 - generation as a reusable closure so we can run a
+                // DEPTH-FLOOR expand retry (the #whitepaper/#report path was a
+                // single shallow pass; this gives it the same depth discipline as
+                // the strategic report fan-out).
+                // 2026-06-06 - Wrapped in emitDeliverable (C2). This single
+                // wrap activates trace + Pareto signal for 10 hashtag paths
+                // that all flow through this closure (#strategy, #gap, #compete,
+                // #audit, #case-study, #report, #brief, #explainer, #whitepaper,
+                // #playground). Each one was previously invisible to the epoch
+                // proposer because the chat-side emission bypassed both
+                // recordTurn and evaluatePareto.
+                const _runGen = async (extra: string): Promise<string> => {
+                    const _payload = userPayload + extra;
+                    const _t0 = Date.now();
+                    const _emit = await emitDeliverable({
+                        deliverable: directive.generator,
+                        step_label: `${directive.generator} artifact`,
+                        model_id: selectedModel || 'auto-chain',
+                        prompt: _payload,
+                        started_at: _t0,
+                        // 2026-06-06 - Fix 2: HTML deliverables (#strategy/
+                        // #brief/#report/#explainer/#whitepaper/etc.) load
+                        // verbalized-sampling SKILL.md inside the generation
+                        // (k=5 layout candidates). Annotate the trace.
+                        vs: { k: 5, frames: ['visual_layout', 'information_architecture', 'diagram_type', 'interaction_pattern', 'iconography'] },
+                        emit: () => callWithModelChain({
+                        deliverable: _htmlKind,
+                        preferModel: selectedModel,
+                        label: `${directive.generator} artifact`,
+                        buildBody: (modelId: string) => {
+                            if (modelId.startsWith('claude-')) {
+                                return { endpoint: 'anthropic', body: { model: modelId, max_tokens: 32000, system: systemPrompt, messages: [{ role: 'user', content: _payload }] } };
+                            }
+                            if (modelId.startsWith('gemini-')) {
+                                return { endpoint: 'gemini', body: { model: modelId, systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ role: 'user', parts: [{ text: _payload }] }], config: { temperature: 0.85, maxOutputTokens: 65536, thinkingBudget: modelId === 'gemini-3.1-pro-preview' ? 'high' : 'low' } } };
+                            }
+                            return { endpoint: 'openai', headers: { 'x-openai-endpoint': 'chat' }, body: { model: modelId, messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: _payload }], max_completion_tokens: 32000, temperature: 0.85 } };
+                        },
+                        onProgress: (msg: string) => {
+                            setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m));
+                        },
+                        }),
+                        extractText: (r) => (r && typeof r === 'object' && 'text' in r ? String((r as any).text || '') : ''),
+                        buildScoreInput: (text) => ({ text, label: directive.generator }),
+                    });
+                    const text = _emit.result.text;
+                    return (text || '').replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
+                };
+                // Visible-word floor per directive (#brief is intentionally short;
+                // #playground/#approaches are interactive, not prose-graded).
+                const _wordFloor: Record<string, number> = { '#brief': 450, '#explainer': 1200, '#report': 1800, '#whitepaper': 1800, '#playground': 0, '#approaches': 0 };
+                const _floor = _wordFloor[directive.generator] ?? 800;
+                const _visibleWords = (h: string) => h
+                    .replace(/<vs_thinking>[\s\S]*?<\/vs_thinking>/i, '')
+                    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, '')
+                    .replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+                let htmlBody = await _runGen('');
+                if (directive.variants <= 1 && _floor > 0) {
+                    const w0 = _visibleWords(htmlBody);
+                    if (w0 < _floor) {
+                        console.warn(`[${directive.generator}] thin output (${w0}w < ${_floor}) - expanding`);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... expanding to full depth...` } : m));
+                        try {
+                            const expanded = await _runGen(`\n\n=== EXPAND (CRITICAL) ===\nYour previous draft was TOO THIN (${w0} words; target ${_floor}+). Regenerate the FULL artifact substantially deeper: every section expanded with more evidence, named-source verbatim quotes, case studies, and convergent sources. FRAME THE SPACE (where the field is now, the forces shaping it, where it is heading, the biggest opportunities and challenges). Do NOT summarize, do NOT drop sections, ADD substance.`);
+                            if (_visibleWords(expanded) > w0) htmlBody = expanded;
+                        } catch (e: any) { console.warn(`[${directive.generator}] expand retry failed:`, e?.message || e); }
+                    }
+                }
                 if (htmlBody.length < 100) throw new Error('Model returned empty/short HTML body');
 
                 // Derive a slug + title. Title = first <h1> if present, else first 80 chars of topic.
@@ -5527,6 +5882,39 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         topic: directive.topic,
                     },
                 } : m));
+
+                // 2026-06-05 - PREVIEW/EXPORT PARITY FIX. When the user typed
+                // `#slides` (or `#slide`) alongside the HTML-artifact directive
+                // (#brief / #explainer / #report / #whitepaper / #approaches /
+                // #playground), auto-fire the GOLD editable PPTX export. Routes
+                // the artifact HTML through /api/gold/export-pptx (Playwright +
+                // pixel-accurate editable text with the gold fonts embedded),
+                // NOT the template-driven pptxgenjs deck export which produces
+                // the broken twin (squashed titles, MEAN/S line break, missing
+                // hierarchy). The gold pipeline is the only path that yields
+                // visual parity with the chat preview.
+                const wantsSlidesExport = /(?:^|\s)#slides?\b/i.test(query);
+                if (wantsSlidesExport) {
+                    try {
+                        const { exportGoldPptx } = await import('../services/goldArtifact');
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: (m.content || '') + `\n\nExporting editable PPTX (gold pipeline, brand fonts embedded)...`,
+                        } : m));
+                        const pptxFilename = `${saved.slug || 'artifact'}-${directive.brand.toLowerCase()}.pptx`;
+                        await exportGoldPptx(htmlBody, pptxFilename);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: (m.content || '') + `\n Downloaded **${pptxFilename}** - editable text on a pixel-accurate background, opens in PowerPoint with the NXT/NU brand fonts.`,
+                        } : m));
+                    } catch (pptxErr: any) {
+                        console.warn(`[${directive.generator}#slides] gold pptx export failed:`, pptxErr?.message || pptxErr);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: (m.content || '') + `\n PPTX export failed: ${pptxErr?.message || 'unknown'}. The HTML artifact is still saved - click LAUNCH and use Save-as-PDF in the footer.`,
+                        } : m));
+                    }
+                }
             } catch (e: any) {
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
@@ -5538,7 +5926,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // --- #prototypes (PLURAL — library list) — 2026-05-11 -------------
+        // --- #prototypes (PLURAL - library list) - 2026-05-11 -------------
         // Bare `#prototypes` lists every saved experience prototype with
         // Launch / Edit / Delete chips. Detected BEFORE #proto so the
         // plural form doesn't trigger a build.
@@ -5547,7 +5935,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             setMessages(prev => [...prev, {
                 id: libMsgId,
                 role: 'assistant',
-                content: 'Loading your saved prototypes…',
+                content: 'Loading your saved prototypes...',
                 timestamp: Date.now(),
             }]);
             try {
@@ -5574,7 +5962,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // --- #proto (SINGULAR — generate 5 briefs, user approves one) — 2026-05-13 ---
+        // --- #proto (SINGULAR - generate 5 briefs, user approves one) - 2026-05-13 ---
         // `#proto <concept>` now triggers a TWO-PHASE flow:
         //   Phase A: Verbalized-Sampling brief generator returns 5 distinct
         //            product briefs covering modal → tail framings of the
@@ -5589,13 +5977,13 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             setMessages(prev => [...prev, {
                 id: briefsMsgId,
                 role: 'assistant',
-                content: `Generating 5 product briefs for this concept via Verbalized Sampling (brand=${protoDirective.brand})…\n\nEach brief is a distinct framing — modal at the head of the distribution, surprising-but-grounded at the tail. The deepest, most detailed brief gets chosen by you, then executes through an exhaustive Build Recipe.`,
+                content: `Generating 5 product briefs for this concept via Verbalized Sampling (brand=${protoDirective.brand})...\n\nEach brief is a distinct framing - modal at the head of the distribution, surprising-but-grounded at the tail. The deepest, most detailed brief gets chosen by you, then executes through an exhaustive Build Recipe.`,
                 timestamp: Date.now(),
             }]);
             try {
                 const liveCtx = getContext ? getContext() : context;
 
-                // 2026-05-11 — When the user clicked a recommendation tile,
+                // 2026-05-11 - When the user clicked a recommendation tile,
                 // `protoDirective.basedOn` is the tile slug. The slug alone
                 // is too thin: the Stage 1 Concept Decomposer has to guess
                 // what "beyond-brand-discovery" means and routinely picks
@@ -5618,7 +6006,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 }
                 // Look up the engagement_context that was emitted with this
                 // recommendations set, so the prototype builder gets the full
-                // brand/industry/stack/regulatory frame — not just the tile.
+                // brand/industry/stack/regulatory frame - not just the tile.
                 let matchedContext: EngagementContext | undefined;
                 if (protoDirective.basedOn) {
                     for (let mi = messages.length - 1; mi >= 0; mi--) {
@@ -5655,18 +6043,18 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         Array.isArray(matchedContext.named_stakeholders) && matchedContext.named_stakeholders.length > 0
                             ? `Named stakeholders (use their names verbatim in UI chrome/labels):\n${matchedContext.named_stakeholders.map(s => `  - ${s.name}: priorities=${(s.stated_priorities||[]).join('; ')}; non-starters=${(s.stated_non_starters||[]).join('; ')}; preferences=${(s.stated_preferences||[]).join('; ')}`).join('\n')}` : '',
                         Array.isArray(matchedContext.preferred_tech_stack) && matchedContext.preferred_tech_stack.length > 0
-                            ? `Preferred tech stack (the prototype must visually inhabit this — show the chrome of these tools, name them in copy):\n  ${matchedContext.preferred_tech_stack.join(', ')}` : '',
+                            ? `Preferred tech stack (the prototype must visually inhabit this - show the chrome of these tools, name them in copy):\n  ${matchedContext.preferred_tech_stack.join(', ')}` : '',
                         Array.isArray(matchedContext.existing_systems) && matchedContext.existing_systems.length > 0
                             ? `Existing systems the AI layer rides on:\n  ${matchedContext.existing_systems.join(', ')}` : '',
                         Array.isArray(matchedContext.hard_non_starters) && matchedContext.hard_non_starters.length > 0
                             ? `Hard non-starters (the prototype must visibly honor each):\n  ${matchedContext.hard_non_starters.join(' | ')}` : '',
                         Array.isArray(matchedContext.regulatory_constraints) && matchedContext.regulatory_constraints.length > 0
-                            ? `Regulatory constraints (data flows must respect these — show in-product safeguards):\n  ${matchedContext.regulatory_constraints.join(', ')}` : '',
+                            ? `Regulatory constraints (data flows must respect these - show in-product safeguards):\n  ${matchedContext.regulatory_constraints.join(', ')}` : '',
                     ].filter(Boolean).join('\n') : '';
 
                     // Resolve the persona the tile references to the FULL
                     // persona object so the prototype builder sees pain
-                    // points, JTBD, goals, voice quote — not just a name.
+                    // points, JTBD, goals, voice quote - not just a name.
                     const personasArr = (liveCtx?.personas as any[]) || [];
                     const tilePersonaText = String(matchedTile.persona || '').toLowerCase();
                     const matchedPersona = personasArr.find((p: any) => {
@@ -5683,11 +6071,11 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             : '';
                         const goals = matchedPersona.goals || {};
                         const goalsText = (goals.lifeGoal || goals.experienceGoal || goals.functionalGoal)
-                            ? `\n  Goals — life: ${goals.lifeGoal || '—'}; experience: ${goals.experienceGoal || '—'}; functional: ${goals.functionalGoal || '—'}`
+                            ? `\n  Goals - life: ${goals.lifeGoal || '-'}; experience: ${goals.experienceGoal || '-'}; functional: ${goals.functionalGoal || '-'}`
                             : '';
                         const jtbd = matchedPersona.jtbd ? `\n  JTBD: ${matchedPersona.jtbd}` : '';
                         const voice = matchedPersona.quote ? `\n  Voice (verbatim from research): "${matchedPersona.quote}"` : '';
-                        personaBlock = `=== FULL PERSONA PROFILE: ${matchedPersona.name}${matchedPersona.role ? ' — ' + matchedPersona.role : ''} ===${jtbd}${painsText}${goalsText}${voice}`;
+                        personaBlock = `=== FULL PERSONA PROFILE: ${matchedPersona.name}${matchedPersona.role ? ' - ' + matchedPersona.role : ''} ===${jtbd}${painsText}${goalsText}${voice}`;
                     }
 
                     // Resolve the themes the tile cited in evidence_sources
@@ -5714,12 +6102,12 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             const evidenceList = Array.isArray(t?.evidence) ? t.evidence.slice(0, 3) : [];
                             const quotes = Array.isArray(t?.keyQuotes || t?.quotes) ? (t.keyQuotes || t.quotes).slice(0, 3) : [];
                             const ev = evidenceList.length > 0 ? '\n    Evidence: ' + evidenceList.map((e: any) => typeof e === 'string' ? e : (e?.text || e?.quote || '')).join(' | ').slice(0, 800) : '';
-                            const qt = quotes.length > 0 ? '\n    Verbatim quotes (consider weaving these into the experience): ' + quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" — ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 800) : '';
+                            const qt = quotes.length > 0 ? '\n    Verbatim quotes (consider weaving these into the experience): ' + quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" - ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 800) : '';
                             return `  ${ti + 1}. ${name}\n    Thesis: ${thesis}${ev}${qt}`;
                         }).join('\n\n')
                         : '';
 
-                    // Uploaded client docs — pass the relevant excerpts so
+                    // Uploaded client docs - pass the relevant excerpts so
                     // the prototype can show realistic seed data and
                     // demonstrate concrete scenarios from the research.
                     const upContents = (liveCtx?.uploadedFileContents as string) || '';
@@ -5736,10 +6124,10 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                     // Consulting-depth fields from the new tile schema.
                     const stakeholdersText = Array.isArray(matchedTile.key_stakeholders) && matchedTile.key_stakeholders.length > 0
-                        ? '\n' + matchedTile.key_stakeholders.map((s: any, si: number) => `  ${si + 1}. ${s.name_or_role} — ${s.involvement}`).join('\n')
+                        ? '\n' + matchedTile.key_stakeholders.map((s: any, si: number) => `  ${si + 1}. ${s.name_or_role} - ${s.involvement}`).join('\n')
                         : '';
                     const stepsText = Array.isArray(matchedTile.implementation_steps) && matchedTile.implementation_steps.length > 0
-                        ? '\n' + matchedTile.implementation_steps.map((s: any, si: number) => `  Step ${si + 1}: ${s.step} (owner: ${s.owner || '—'}, effort: ${s.estimated_effort || '—'}${s.dependencies && s.dependencies.length > 0 ? `, deps: ${s.dependencies.join(', ')}` : ''})`).join('\n')
+                        ? '\n' + matchedTile.implementation_steps.map((s: any, si: number) => `  Step ${si + 1}: ${s.step} (owner: ${s.owner || '-'}, effort: ${s.estimated_effort || '-'}${s.dependencies && s.dependencies.length > 0 ? `, deps: ${s.dependencies.join(', ')}` : ''})`).join('\n')
                         : '';
                     const risksText = Array.isArray(matchedTile.risks_constraints) && matchedTile.risks_constraints.length > 0
                         ? '\n' + matchedTile.risks_constraints.map((r: any, ri: number) => `  ${ri + 1}. [${(r.severity || 'med').toUpperCase()}] ${r.risk} → ${r.mitigation}`).join('\n')
@@ -5754,12 +6142,12 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     conceptText = [
                         `BUILD THIS SPECIFIC RECOMMENDED CONCEPT.`,
                         ``,
-                        `Hard rule: the slug is an identifier, not the concept. Do NOT reinterpret it literally. Read the CONSULTING BRIEF below — that is the actual concept to build.`,
+                        `Hard rule: the slug is an identifier, not the concept. Do NOT reinterpret it literally. Read the CONSULTING BRIEF below - that is the actual concept to build.`,
                         ``,
                         `Concept slug (identifier only): ${matchedTile.slug}`,
                         `Concept title: ${matchedTile.title}`,
                         matchedTile.group ? `Group: ${matchedTile.group}` : '',
-                        // 2026-05-12 — Sprint 2 VS-Multi: signal the prototype
+                        // 2026-05-12 - Sprint 2 VS-Multi: signal the prototype
                         // builder when the concept came from the non-obvious-
                         // bet set. The builder honors this with a more
                         // ambitious interaction shape (Stage 1 brief should
@@ -5767,7 +6155,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         // visible "Non-Obvious Bet" chip in the prototype's
                         // header chrome so the demo communicates its
                         // intentionally-unconventional framing.
-                        (matchedTile as any)?.frame === 'non_obvious_bet' ? `Concept frame: NON_OBVIOUS_BET — this concept was deliberately surfaced from the tail of the recommendation distribution (verbalized-sampling probability < 0.05). It is intentionally non-modal. Build accordingly: do not regress to a generic dashboard/chatbot shape. Honor the divergence axis below.` : '',
+                        (matchedTile as any)?.frame === 'non_obvious_bet' ? `Concept frame: NON_OBVIOUS_BET - this concept was deliberately surfaced from the tail of the recommendation distribution (verbalized-sampling probability < 0.05). It is intentionally non-modal. Build accordingly: do not regress to a generic dashboard/chatbot shape. Honor the divergence axis below.` : '',
                         (matchedTile as any)?.diverges_from ? `Divergence axis (how this concept differs from the defensible-consensus set): ${(matchedTile as any).diverges_from}` : '',
                         typeof (matchedTile as any)?.probability === 'number' ? `Verbalized probability of this concept in the candidate distribution: ${(matchedTile as any).probability.toFixed(3)}` : '',
                         ``,
@@ -5795,11 +6183,11 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         ``,
                         risksText ? `Risks & mitigations (surface relevant risks as in-product safeguards or copy):${risksText}` : '',
                         ``,
-                        tGuardrailFit ? `Guardrail fit (why this passes the ${stakeholdersNames} meeting filter — preserve this rationale visually in the prototype):\n${tGuardrailFit}` : '',
+                        tGuardrailFit ? `Guardrail fit (why this passes the ${stakeholdersNames} meeting filter - preserve this rationale visually in the prototype):\n${tGuardrailFit}` : '',
                         ``,
                         matchedTile.expected_impact ? `Expected impact metrics (surface as live KPI badges where appropriate):\n${matchedTile.expected_impact}` : '',
                         ``,
-                        matchedTile.verbatim_quote_evidence ? `Verbatim corpus quote (USE THIS in-product as a real testimonial / friction story — do not paraphrase):\n${matchedTile.verbatim_quote_evidence}` : '',
+                        matchedTile.verbatim_quote_evidence ? `Verbatim corpus quote (USE THIS in-product as a real testimonial / friction story - do not paraphrase):\n${matchedTile.verbatim_quote_evidence}` : '',
                         ``,
                         `Persona served (the human at the center of every screen): ${matchedTile.persona || ''}`,
                         `Moment / use case demonstrated: ${matchedTile.moment || ''}`,
@@ -5822,7 +6210,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         `  • Generate 5 distinct product briefs via Verbalized Sampling. The user picks ONE.`,
                         `  • Author an exhaustive Build Recipe (every screen, every state, every AI prompt, every seed-data anchor, every micro-copy string).`,
                         `  • Execute the recipe to produce a substantive IDEO/Apple-grade prototype with 4+ screens, 2+ AI fetches via multi-provider fallback, 20+ seed records per primary entity, no verbatim research quotes, and Verbalized Sampling on creative AI output.`,
-                        `Apply industry-agnostic rigor — the same standards regardless of vertical (healthcare, fintech, retail, government, manufacturing, education, etc.). Distill insights from the GROUNDING THEMES and persona voice into the design; never reproduce research quotes verbatim in the prototype UI.`,
+                        `Apply industry-agnostic rigor - the same standards regardless of vertical (healthcare, fintech, retail, government, manufacturing, education, etc.). Distill insights from the GROUNDING THEMES and persona voice into the design; never reproduce research quotes verbatim in the prototype UI.`,
                         ``,
                         protoDirective.concept ? `User's additional direction for this specific build: ${protoDirective.concept}` : '',
                     ].filter(Boolean).join('\n');
@@ -5841,13 +6229,13 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     onProgress: (stage, detail) => {
                         setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                             ...m,
-                            content: `Generating 5 product briefs (brand=${protoDirective.brand})… [${stage}${detail ? ` — ${detail}` : ''}]`,
+                            content: `Generating 5 product briefs (brand=${protoDirective.brand})... [${stage}${detail ? ` - ${detail}` : ''}]`,
                         } : m));
                     },
                 });
                 setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
-                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" — review them and click BUILD THIS on the one you want shipped. The chosen brief flows through Stage 2 → 3 → 3.5 (Build Recipe) → 4 → 5 with no Stage 1 lossy compression.`,
+                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" - review them and click BUILD THIS on the one you want shipped. The chosen brief flows through Stage 2 → 3 → 3.5 (Build Recipe) → 4 → 5 with no Stage 1 lossy compression.`,
                     prototypeBriefs: briefs,
                     prototypeBriefsMeta: {
                         brand: protoDirective.brand,
@@ -5856,7 +6244,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         originalConcept: conceptText,
                     },
                 } : m));
-                // 2026-05-14 — Persist the 5 briefs to wiki for T4 build-only
+                // 2026-05-14 - Persist the 5 briefs to wiki for T4 build-only
                 // iteration. Slug uses the engagement goal so subsequent visits
                 // to the same goal can resume from this cached brief set without
                 // re-running Pass 1+2 (saves $15-22 per re-iteration).
@@ -5900,7 +6288,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     });
                     console.log(`[T4 cache] Persisted ${briefs.length} briefs + manifest at engagements/${slug}/`);
                 } catch (cacheErr) {
-                    // Cache writes are non-fatal — brief generation already succeeded.
+                    // Cache writes are non-fatal - brief generation already succeeded.
                     console.warn('[T4 cache] brief persistence failed (non-fatal):', cacheErr);
                 }
             } catch (e: any) {
@@ -5914,7 +6302,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // --- #presentations (PLURAL — library list) — 2026-05-09 ----------
+        // --- #presentations (PLURAL - library list) - 2026-05-09 ----------
         // Bare `#presentations` lists every persisted presentation as a card
         // grid in the chat. Each card has Open / Edit / Delete chips. The
         // plural form is detected BEFORE the singular #presentation handler
@@ -5925,7 +6313,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             setMessages(prev => [...prev, {
                 id: libMsgId,
                 role: 'assistant',
-                content: 'Loading your saved presentations…',
+                content: 'Loading your saved presentations...',
                 timestamp: Date.now(),
             }]);
             try {
@@ -5958,11 +6346,11 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
         if (presDirective.triggered) {
             const composingMsgId = `msg_${Date.now()}_composing`;
             const toolCallLog: string[] = [];
-            // Initial "composing..." status message — updated as tool calls land
+            // Initial "composing..." status message - updated as tool calls land
             setMessages(prev => [...prev, {
                 id: composingMsgId,
                 role: 'assistant',
-                content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…`,
+                content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})...`,
                 timestamp: Date.now(),
             }]);
 
@@ -6003,7 +6391,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                 // Pass the recent chat history as PRIMARY source material.
                 // The composer treats it as the authoritative narrative the user
-                // already developed in conversation — packaging it instead of
+                // already developed in conversation - packaging it instead of
                 // re-researching from scratch. Cap at last 12 turns (excluding
                 // the just-sent #presentation message which is the directive).
                 const recentChat = messages
@@ -6029,7 +6417,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 // Surface the corpus composition that the chat was built on,
                 // so the user can SEE whether external content (RSS, jina-reader,
                 // YouTube, Reddit, OpenAlex) is making it into the model's
-                // recall — not just uploads. Set in App.tsx's data-collection
+                // recall - not just uploads. Set in App.tsx's data-collection
                 // step on window.__hicCorpusComposition.
                 try {
                     const comp = (window as any).__hicCorpusComposition;
@@ -6044,9 +6432,9 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             `internal/wiki ${comp.coreCorpusKB}KB (${intPct}%)`
                         );
                     }
-                } catch { /* noop — diagnostic only */ }
+                } catch { /* noop - diagnostic only */ }
 
-                // Surface category coverage (internal composing log only — not
+                // Surface category coverage (internal composing log only - not
                 // shown in the final deliverable). Empty categories are now
                 // silently omitted from the model's output instead of being
                 // surfaced as "CATEGORY GAPS".
@@ -6055,13 +6443,13 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     if (Array.isArray(cats) && cats.length > 0) {
                         const withContent = cats.filter((c: any) => (c?.itemCount || 0) > 0).length;
                         toolCallLog.push(
-                            `Categories: ${withContent}/${cats.length} have content — citations will draw from these only`
+                            `Categories: ${withContent}/${cats.length} have content - citations will draw from these only`
                         );
                     }
                 } catch { /* noop */ }
                 setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                     ...m,
-                    content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…\n\n${toolCallLog.join('\n')}`,
+                    content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})...\n\n${toolCallLog.join('\n')}`,
                 } : m));
 
                 const composeResult = await composeNarrative({
@@ -6087,7 +6475,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         // Live-update the composing message with the running tool log
                         setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                             ...m,
-                            content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…\n\n${toolCallLog.slice(-12).join('\n')}`,
+                            content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})...\n\n${toolCallLog.slice(-12).join('\n')}`,
                         } : m));
                     },
                 });
@@ -6130,11 +6518,11 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     },
                 } : m));
 
-                // 2026-05-06 — #export-pptx flag honored via the bespoke
+                // 2026-05-06 - #export-pptx flag honored via the bespoke
                 // brand-aware deck exporter. Each presentation section gets a
                 // hand-crafted pptxgenjs layout that mirrors the interactive
                 // renderer's design language (eyebrow + display title +
-                // brand-period accent + per-section card grids) — fully
+                // brand-period accent + per-section card grids) - fully
                 // editable native PowerPoint shapes, no DOM screenshots, no
                 // template constraints, NU vs NXT styled correctly.
                 //
@@ -6145,13 +6533,13 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     try {
                         setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                             ...m,
-                            content: finalContent + `\n\nExporting brand-styled .pptx deck (one elegant slide per section)…`,
+                            content: finalContent + `\n\nExporting brand-styled .pptx deck (one elegant slide per section)...`,
                         } : m));
                         const { exportPresentationToPptx } = await import('../services/presentationToPptx');
                         await exportPresentationToPptx(composeResult.payload);
                         setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                             ...m,
-                            content: finalContent + `\n\nMatching .pptx deck downloaded — ${composeResult.payload.sections.length} slides, brand=${composeResult.payload.meta.brand}, fully editable in PowerPoint.`,
+                            content: finalContent + `\n\nMatching .pptx deck downloaded - ${composeResult.payload.sections.length} slides, brand=${composeResult.payload.meta.brand}, fully editable in PowerPoint.`,
                         } : m));
                     } catch (pptxErr: unknown) {
                         const errMsg = pptxErr instanceof Error ? pptxErr.message : String(pptxErr);
@@ -6165,7 +6553,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             } catch (e: unknown) {
                 const errMsg = e instanceof Error ? e.message : String(e);
                 const errStack = e instanceof Error ? (e.stack || '').split('\n').slice(0, 6).join('\n') : '';
-                // 2026-05-20 — Surface enough detail to disambiguate compose
+                // 2026-05-20 - Surface enough detail to disambiguate compose
                 // vs persist failures next time. Browser "Failed to fetch"
                 // alone is useless; the console gets the full stack + tool log.
                 console.error('[presentation-composer] failure:', {
@@ -6175,7 +6563,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     isFailedToFetch: /Failed to fetch|NetworkError|AbortError/i.test(errMsg),
                 });
                 const hint = /Failed to fetch|NetworkError|AbortError/i.test(errMsg)
-                    ? ' (network/timeout — check proxy logs at :5012 for the upstream Gemini timeout)'
+                    ? ' (network/timeout - check proxy logs at :5012 for the upstream Gemini timeout)'
                     : '';
                 setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                     ...m,
@@ -6195,19 +6583,32 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
         // from useDesignDeskStore. Other hashtags (#slide, #gap, #strategy, etc.)
         // continue to sendChatMessage unchanged.
         const parsed = parseHashtags(query);
-        // Persona is INTENTIONALLY EXCLUDED from this routing — user explicitly
+        // Persona is INTENTIONALLY EXCLUDED from this routing - user explicitly
         // wants persona slides to render through the original AI chat path
         // (SlideCanvas + persona-card template + Export Deck PPTX/PDF), exactly
         // as they did before the Design Desk integration. The 5 diagram kinds
         // (org, journey, arch, roadmap, blueprint) route through the freeform-HTML
         // pipeline so they inherit the user's NU/NXT exemplar treatment.
-        const DELIVERABLE_TAGS = ['journey', 'org', 'arch', 'roadmap', 'blueprint'] as const;
+        // 2026-05-31 - Added prd/gap/compete so #prd, #gap, #competitive route
+        // through this objective-keyed + anti-slop + depth-contract block instead
+        // of falling through to generic chat (where they produced shallow,
+        // off-objective output). Parser emits gap/compete; the artifact engine
+        // keys gap-analysis/competitive, so FREEFORM_KIND_ALIAS bridges the fork.
+        const DELIVERABLE_TAGS = ['journey', 'org', 'arch', 'roadmap', 'blueprint', 'prd', 'gap', 'compete'] as const;
+        const FREEFORM_KIND_ALIAS: Record<string, string> = {
+            gap: 'gap-analysis',
+            compete: 'competitive',
+            audit: 'tech-audit',
+        };
         const LABEL_MAP: Record<string, string> = {
             journey: 'JOURNEY_MAP',
             org: 'ORG_CHART',
             arch: 'ARCHITECTURE',
             roadmap: 'ROADMAP',
             blueprint: 'SERVICE_BLUEPRINT',
+            prd: 'PRD',
+            gap: 'GAP_ANALYSIS',
+            compete: 'COMPETITIVE_ANALYSIS',
         };
         const allDeliverable = parsed.content.length > 0 &&
             parsed.content.every(c => (DELIVERABLE_TAGS as readonly string[]).includes(c));
@@ -6230,7 +6631,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             // detail the model needs for deliverables like #org. Building the combined text
             // here ensures the generator sees everything the chat itself sees.
             const combinedCorpusParts: string[] = [];
-            // 2026-05-08 — Mid-chat ad-hoc attachments take HIGHEST priority. The
+            // 2026-05-08 - Mid-chat ad-hoc attachments take HIGHEST priority. The
             // user just dropped these in, so they're the immediate source for any
             // hashtag deliverable that follows in the same turn.
             if (pendingAttachments.length > 0) {
@@ -6243,23 +6644,133 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     ].filter(Boolean).join(', ');
                     return `--- AD-HOC UPLOAD: ${att.filename} (${meta}) ---\n${att.parsedText}\n--- END ${att.filename} ---`;
                 }).join('\n\n');
-                combinedCorpusParts.push('=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY — JUST UPLOADED) ===\n' + adHocBlock);
+                combinedCorpusParts.push('=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY - JUST UPLOADED) ===\n' + adHocBlock);
             }
             if (liveCtx?.uploadedFileContents && typeof liveCtx.uploadedFileContents === 'string' && liveCtx.uploadedFileContents.length > 40) {
                 combinedCorpusParts.push('=== CLIENT UPLOADS ===\n' + liveCtx.uploadedFileContents);
             }
-            if (liveCtx?.corpusText) {
+            // 2026-05-31 - PHASE 1: OBJECTIVE-KEYED RETRIEVAL as the PRIMARY external
+            // evidence for every artifact. Previously this path dumped the raw
+            // session corpus (liveCtx.corpusText), which carries the tri-model
+            // synthesis preamble + off-objective content and gets head-truncated to
+            // 60KB downstream, so artifacts were grounded in synthesis + noise rather
+            // than the on-objective slice. Now we pull the objective-relevant article
+            // bodies from the fixed chunk-store retrieval (the same path themes use),
+            // and only fall back to the raw session corpus if retrieval is empty
+            // (e.g. mid-collection before anything is embedded).
+            const _retrievalGoal = (parsed.cleanPrompt && parsed.cleanPrompt.trim().length >= 4
+                ? `${parsed.cleanPrompt}. ${liveCtx?.researchGoal || ''}`
+                : (liveCtx?.researchGoal || parsed.cleanPrompt || '')).trim();
+            let _retrievedExternal = '';
+            if (_retrievalGoal) {
+                try {
+                    const { fetchWikiArticles, formatArticlesAsCorpusBlock } = await import('../services/wikiIndexService');
+                    const arts = await fetchWikiArticles({
+                        query: _retrievalGoal,
+                        engagementGoal: liveCtx?.researchGoal || _retrievalGoal,
+                        goalBlendWeight: 0.35,
+                        limit: 40,
+                        maxCharsPerArticle: 7000,
+                        minChars: 400,
+                        includeSynthesis: false, // never ground an artifact in prior synthesis
+                    } as any);
+                    if (Array.isArray(arts) && arts.length > 0) {
+                        _retrievedExternal = formatArticlesAsCorpusBlock(arts as any, 160_000);
+                        console.log(`[Artifact] objective-keyed retrieval: ${arts.length} on-objective articles for "${_retrievalGoal.slice(0,60)}"`);
+                    } else {
+                        console.warn('[Artifact] objective-keyed retrieval returned 0 articles; falling back to session corpus');
+                    }
+                } catch (e: any) {
+                    console.warn('[Artifact] objective-keyed retrieval failed (non-fatal), falling back to session corpus:', e?.message || e);
+                }
+            }
+            if (_retrievedExternal) {
+                combinedCorpusParts.push('=== EXTERNAL RESEARCH EVIDENCE (objective-matched, cite these) ===\n' + _retrievedExternal);
+            } else if (liveCtx?.corpusText) {
+                // Fallback only: raw session corpus (retrieval unavailable / empty).
                 combinedCorpusParts.push('=== EXTERNAL RESEARCH CORPUS ===\n' + liveCtx.corpusText);
             }
-            // Themes / personas / journey context — surface any structured intelligence the
-            // synthesis pipeline already produced so on-demand generation can reuse it.
-            if (liveCtx?.themes) combinedCorpusParts.push('=== THEMES ===\n' + JSON.stringify(liveCtx.themes).slice(0, 30000));
-            if (liveCtx?.personas) combinedCorpusParts.push('=== PERSONAS ===\n' + JSON.stringify(liveCtx.personas).slice(0, 30000));
-            if (liveCtx?.journeyStages) combinedCorpusParts.push('=== JOURNEY ===\n' + JSON.stringify(liveCtx.journeyStages).slice(0, 30000));
-            // 2026-05-29 — Chat is now unlocked DURING collection, so corpusText
+            // 2026-05-31 - PHASE 2: prior deliverables are SYNTHESIS, not evidence.
+            // Pass them as clearly-labeled context the artifact may use for
+            // orientation but MUST NOT cite as a source (the deterministic
+            // post-processors also strip any "Source: Themes/Personas/Synthesis"
+            // citation). This stops the synthesis-citing-synthesis loop.
+            //
+            // 2026-06-06 - MANIFEST -> WIKI resolution. Prefer wiki bodies
+            // (single source of truth at engagements/<slug>/<kind>.json) over
+            // the in-memory liveCtx state. Falls back to in-memory when wiki
+            // is empty (the deliverable was generated in this session and not
+            // yet persisted). The resolver caches per-engagement so multiple
+            // generations in one cascade share the wiki read.
+            const _chatSlug = currentEngagementSlug();
+            let _chatResolved: Awaited<ReturnType<typeof resolveDeliverableBodies>> | null = null;
+            if (_chatSlug) {
+                try {
+                    _chatResolved = await resolveDeliverableBodies(_chatSlug, ['themes', 'personas', 'journey']);
+                } catch (_e) { /* non-fatal - fall back to in-memory */ }
+            }
+
+            // C2 (2026-06-06) - UPSTREAM CACHED-SELECTION CONSUMPTION.
+            // Pull the user-curated KL selection NOW (at corpus assembly
+            // time) and inject it as a load-bearing block BEFORE the
+            // PRIOR FINDINGS block. The model sees the selection
+            // BEFORE generation, not after. The Stop hook
+            // validate_cached_selection_honored.py remains the safety
+            // net; this is the upstream wiring that makes the model
+            // honor the selection BY CONSTRUCTION instead of having to
+            // retry on hook rejection.
+            try {
+                const _sel = await fetch('http://127.0.0.1:5012/api/user-selection/active');
+                if (_sel.ok) {
+                    const _selData = await _sel.json();
+                    if (_selData && !_selData._uncommitted) {
+                        const _themeIds: string[] = Array.isArray(_selData.theme_cluster_ids) ? _selData.theme_cluster_ids : [];
+                        const _artSrc: string[] = Array.isArray(_selData.article_sources) ? _selData.article_sources : [];
+                        const _subs: string[] = Array.isArray(_selData.social_subreddits) ? _selData.social_subreddits : [];
+                        const _engSlugs: string[] = Array.isArray(_selData.engagement_slugs) ? _selData.engagement_slugs : [];
+                        const _selTotal = _themeIds.length + _artSrc.length + _subs.length + _engSlugs.length;
+                        if (_selTotal > 0) {
+                            const _idLines = _themeIds.slice(0, 200).map(id => `  - ${id}`).join('\n');
+                            const _idTail = _themeIds.length > 200 ? `\n  ... ${_themeIds.length - 200} more` : '';
+                            combinedCorpusParts.push(
+                                '=== USER CURATED SELECTION (must inherit; never regenerate from scratch) ===\n' +
+                                'The user explicitly selected the following items from the Knowledge Library.\n' +
+                                'You MUST honor 100% of these (NO FLOORS, NO OMISSIONS). For each emitted\n' +
+                                'theme/persona/recommendation, tag source="cached" (carried forward) or\n' +
+                                '"extended" (refined). Items not in the selection that you discover from\n' +
+                                'the corpus go in as source="new". Stop hook validate_cached_selection_honored.py\n' +
+                                'REJECTS any silent omission.\n\n' +
+                                `Selection (selected_at_ms=${_selData.selected_at_ms || 0}):\n` +
+                                `  - ${_themeIds.length} theme cluster ids (must all appear as cached/extended)\n` +
+                                `  - ${_artSrc.length} article source folders\n` +
+                                `  - ${_engSlugs.length} prior engagement slugs\n` +
+                                `  - ${_subs.length} subreddits\n` +
+                                (_themeIds.length > 0 ? `\nTheme cluster ids:\n${_idLines}${_idTail}\n` : '')
+                            );
+                            console.info(`[CorpusChatPanel] injected USER CURATED SELECTION block upstream of generation (${_selTotal} items)`);
+                        }
+                    }
+                }
+            } catch (e: any) {
+                console.warn('[CorpusChatPanel] cached-selection upstream fetch failed (non-fatal):', e?.message || e);
+            }
+
+            const _chatThemes = (_chatResolved?.bodies as any)?.themes?.themes || (_chatResolved?.bodies as any)?.themes || liveCtx?.themes;
+            const _chatPersonas = (_chatResolved?.bodies as any)?.personas?.personas || (_chatResolved?.bodies as any)?.personas || liveCtx?.personas;
+            const _chatJourney = (_chatResolved?.bodies as any)?.journey?.stages || (_chatResolved?.bodies as any)?.journey || liveCtx?.journeyStages;
+            if (_chatResolved && _chatResolved.readCount > 0) {
+                combinedCorpusParts.push(manifestPointerBlock(_chatResolved));
+            }
+            const _themesPtr = _chatResolved?.pointers?.themes || '(in-memory)';
+            const _personasPtr = _chatResolved?.pointers?.personas || '(in-memory)';
+            const _journeyPtr = _chatResolved?.pointers?.journey || '(in-memory)';
+            if (_chatThemes) combinedCorpusParts.push(`=== PRIOR FINDINGS: THEMES [pointer: ${_themesPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatThemes).slice(0, 20000));
+            if (_chatPersonas) combinedCorpusParts.push(`=== PRIOR FINDINGS: PERSONAS [pointer: ${_personasPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatPersonas).slice(0, 20000));
+            if (_chatJourney) combinedCorpusParts.push(`=== PRIOR FINDINGS: JOURNEY [pointer: ${_journeyPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatJourney).slice(0, 20000));
+            // 2026-05-29 - Chat is now unlocked DURING collection, so corpusText
             // may be thin/empty mid-run. Build the corpus from WHATEVER is cached
             // and collected so far (the green-chip liveSourceResults), complete or
-            // not — and fall back to the research goal — so artifact-engine kinds
+            // not - and fall back to the research goal - so artifact-engine kinds
             // (#journey/#blueprint/etc.) never hit the service's "corpus is
             // required" 400. (Root cause of the journey-map 400 during collection.)
             if (Array.isArray(liveCtx?.liveSourceResults) && liveCtx.liveSourceResults.length) {
@@ -6276,7 +6787,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             }
             let corpusText = combinedCorpusParts.join('\n\n').trim();
             if (!corpusText && liveCtx?.researchGoal) {
-                // Never send an empty corpus — seed with the goal so generation proceeds.
+                // Never send an empty corpus - seed with the goal so generation proceeds.
                 corpusText = `=== RESEARCH GOAL ===\n${liveCtx.researchGoal}`;
             }
 
@@ -6287,16 +6798,21 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
             // Pre-made artifact lookup is ONLY appropriate when the user typed a bare
             // hashtag request with no qualifying context (e.g., "#persona #NU"). The
-            // moment the user adds prompt text — a source filter, a topic narrowing,
-            // a "from chronicle_higher_ed not from northeasterndocs", or anything else —
+            // moment the user adds prompt text - a source filter, a topic narrowing,
+            // a "from chronicle_higher_ed not from northeasterndocs", or anything else -
             // we MUST re-generate so the new context shapes the artifact. Otherwise the
             // chat silently serves a stale cached artifact that ignores the new ask.
             const userHasSpecificContext = !!parsed.cleanPrompt && parsed.cleanPrompt.trim().length >= 4;
 
             for (const tag of parsed.content) {
+                // 2026-05-31 - Bridge the parser-tag -> artifact-engine-kind fork
+                // (gap->gap-analysis, compete->competitive, audit->tech-audit) so
+                // these route to the correct freeform/contract path. Other tags
+                // pass through unchanged.
+                const ffKind = (FREEFORM_KIND_ALIAS[tag] || tag) as FreeformKind;
                 // 1) Check for pre-made matching artifact. Prefer brand match; fall back to any brand.
                 //    Only short-circuit to the cached artifact when the request is a BARE hashtag
-                //    delivery — any prompt text means the user wants a fresh generation against
+                //    delivery - any prompt text means the user wants a fresh generation against
                 //    that prompt + the current corpus.
                 const matches = artifacts.filter(a => a.type === tag);
                 const brandMatch = matches.filter(a => a.brand === brand);
@@ -6322,7 +6838,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     // 2) No pre-made artifact → generate on demand inline.
                     //    2a) NotebookLM-uplift Phase 4-6 kinds (#mindmap, #brief-dialog,
                     //        #meta-themes, #deep-research/#research-plan) go through
-                    //        dedicated backing services + renderers — NOT the
+                    //        dedicated backing services + renderers - NOT the
                     //        exemplar-driven generateFreeformArtifact pipeline.
                     if (UPLIFT_KINDS.has(tag as FreeformKind)) {
                         try {
@@ -6339,7 +6855,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 // missing fields.
                                 const themesIn = Array.isArray((context as any).themes) ? (context as any).themes : [];
                                 if (themesIn.length < 3) {
-                                    throw new Error('Mind map needs at least 3 themes — run analysis first or load a session with theme output.');
+                                    throw new Error('Mind map needs at least 3 themes - run analysis first or load a session with theme output.');
                                 }
                                 const clusters: BertTopicCluster[] = themesIn.map((t: any, idx: number) => ({
                                     id: idx,
@@ -6408,7 +6924,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 updatedAt: Date.now(),
                             };
 
-                            // 2026-05-25 — Run the expert panel BEFORE the
+                            // 2026-05-25 - Run the expert panel BEFORE the
                             // artifact lands in the design desk. The panel
                             // routes to the appropriate domain expert(s) for
                             // this kind plus runs the universal anti-slop +
@@ -6463,7 +6979,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         continue; // skip the legacy chatToArtifact / freeform path
                     }
 
-                    // 2026-05-26 — Journey + Blueprint route to the dedicated
+                    // 2026-05-26 - Journey + Blueprint route to the dedicated
                     // Journey Mapper service (internal-solutions-journeymapper,
                     // container `journey-mapper` :8080) via proxy
                     // /api/journey-map/generate. The inline chatToFreeform path
@@ -6472,7 +6988,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     // memory/feedback_journey_must_route_to_journey_mapper.md.
                     if (tag === 'journey' || tag === 'blueprint') {
                         const jmStart = Date.now();
-                        // 2026-05-26 — Immediate "in-flight" message so the user
+                        // 2026-05-26 - Immediate "in-flight" message so the user
                         // knows the (multi-minute) Journey Mapper IA service
                         // is running and the chat hasn't silently failed. The
                         // service does a two-pass Claude generation that can
@@ -6497,7 +7013,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             else if (/subscriber|feature.adoption|saas|software user/.test(promptForType)) journeyType = 'software-user';
                             else if (/donor|purchase|cultivation|customer|buyer/.test(promptForType)) journeyType = 'customer';
 
-                            // 2026-05-26 — Opus 4.7, SINGLE pass. The user
+                            // 2026-05-26 - Opus 4.7, SINGLE pass. The user
                             // assessed the Flash single-pass as too minimal.
                             // Opus 4.7 produces the depth (many phases,
                             // activities, pains, verbatim evidence quotes) the
@@ -6506,36 +7022,55 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             // no second full-generation latency hit). Opus
                             // single-pass runs ~2-4 min on a 60KB corpus, so
                             // the fetch ceiling is 6 min.
-                            const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({
-                                    goal: parsed.cleanPrompt || context.researchGoal || 'Journey',
-                                    description: parsed.cleanPrompt || '',
-                                    journey_type: tag === 'blueprint' ? 'general' : journeyType,
-                                    corpus: corpusText,
-                                    brand: brand === 'nu' ? 'nu' : 'nxt',
-                                    framing: tag === 'blueprint' ? 'future-state' : 'current-state',
-                                    // 2026-05-26 — artifact_type selects the JM per-artifact
-                                    // structure contract: 'blueprint' -> service-blueprint
-                                    // swimlane grid; 'journey' -> phased journey. The JM
-                                    // service is now a universal branded renderer.
-                                    artifact_type: tag === 'blueprint' ? 'blueprint' : 'journey',
-                                    // 2026-05-26 — #slides modifier -> JM slide-deck layout
-                                    // (one element per full-viewport slide), same quality bar.
-                                    render_mode: asSlide ? 'slides' : 'document',
-                                    llm_model: 'claude-opus-4-8',
-                                }),
-                                // 6-min fetch ceiling — Opus single-pass on a
-                                // large corpus runs 2-4 min; bounded so a wedged
-                                // service can't tie up the browser.
-                                signal: AbortSignal.timeout(360000),
+                            // 2026-06-06 - C2 emission-wrapper integration for
+                            // the #journey/#blueprint paths. Wraps the JM
+                            // service fetch with traceRecorder + Pareto scoring
+                            // so the epoch-proposer sees these emissions just
+                            // like the other deliverables. JM service does its
+                            // own internal logging; this trace is the SPA-side
+                            // view (model_id, prompt, response text, elapsed).
+                            const { emitDeliverable } = await import('../services/emitDeliverable');
+                            const _jmT0 = Date.now();
+                            const _jmEmit = await emitDeliverable<{ text: string; data: any }>({
+                                deliverable: tag === 'blueprint' ? '#blueprint' : '#journey',
+                                step_label: `${tag} via journey-mapper-ia`,
+                                model_id: 'claude-opus-4-8',
+                                prompt: parsed.cleanPrompt || context.researchGoal || 'Journey',
+                                started_at: _jmT0,
+                                // 2026-06-06 - Fix 2: JM service runs Opus 4.8
+                                // single-pass with extended thinking - that IS
+                                // the RI mechanism (uncertainty-triggered deep
+                                // reasoning baked into the model). Annotate so
+                                // the auditor + epoch proposer can grep.
+                                ri: { fired: true, threshold: 0.0 },
+                                emit: async () => {
+                                    const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({
+                                            goal: parsed.cleanPrompt || context.researchGoal || 'Journey',
+                                            description: parsed.cleanPrompt || '',
+                                            journey_type: tag === 'blueprint' ? 'general' : journeyType,
+                                            corpus: corpusText,
+                                            brand: brand === 'nu' ? 'nu' : 'nxt',
+                                            framing: tag === 'blueprint' ? 'future-state' : 'current-state',
+                                            artifact_type: tag === 'blueprint' ? 'blueprint' : 'journey',
+                                            render_mode: asSlide ? 'slides' : 'document',
+                                            llm_model: 'claude-opus-4-8',
+                                        }),
+                                        signal: AbortSignal.timeout(360000),
+                                    });
+                                    if (!resp.ok) {
+                                        const errText = await resp.text().catch(() => '');
+                                        throw new Error(`journey-map service ${resp.status}: ${errText.slice(0, 200)}`);
+                                    }
+                                    const data = await resp.json();
+                                    return { text: String(data.html || ''), data };
+                                },
+                                extractText: (r) => r.text,
+                                buildScoreInput: (text) => ({ text, label: tag === 'blueprint' ? '#blueprint' : '#journey' }),
                             });
-                            if (!resp.ok) {
-                                const errText = await resp.text().catch(() => '');
-                                throw new Error(`journey-map service ${resp.status}: ${errText.slice(0, 200)}`);
-                            }
-                            const data = await resp.json();
+                            const data = _jmEmit.result.data;
                             // Build a FreeformArtifact wrapper so the design-desk
                             // store + viewer + launcher card all work unchanged.
                             const jmArtifact: FreeformArtifact = {
@@ -6551,7 +7086,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 createdAt: Date.now(),
                                 updatedAt: Date.now(),
                             };
-                            // Em-dash strip + post-processing — JM service applies
+                            // Em-dash strip + post-processing - JM service applies
                             // brand+anti-slop already (proxy line ~11518), but we
                             // still pass through the in-HiC normalizer for parity.
                             let finalJm = stripEmDashesInPlace(jmArtifact);
@@ -6577,7 +7112,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 deliveredArtifactId: finalJm.id,
                                 deliveredArtifactType: tag as any,
                                 deliveredAsSlide: asSlide,
-                                // 2026-05-26 — Absolute-ize the launcher URL.
+                                // 2026-05-26 - Absolute-ize the launcher URL.
                                 // data.launcher_url is "/api/journey-map/view/{id}"
                                 // (relative). window.open() resolves a relative
                                 // path against the SPA origin (:5011), which
@@ -6609,11 +7144,11 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                     //    Diagram kinds (org, arch, roadmap) go through the freeform-HTML
                     //    pipeline using the user's NU/NXT exemplars. Journey + blueprint
-                    //    were removed 2026-05-26 — they now route to the Journey Mapper
+                    //    were removed 2026-05-26 - they now route to the Journey Mapper
                     //    service above. Persona stays on the legacy structured pipeline.
-                    if (FREEFORM_KINDS.has(tag as FreeformKind)) {
+                    if (FREEFORM_KINDS.has(ffKind)) {
                         const ff = await generateFreeformArtifact({
-                            kind: tag as FreeformKind,
+                            kind: ffKind,
                             brand,
                             userPrompt: parsed.cleanPrompt || query,
                             corpus: corpusText,
@@ -6624,7 +7159,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             model: 'gemini-3.1-pro-preview',
                         });
                         if (ff.ok) {
-                            // 2026-05-25 — Expert panel: domain critic + universal
+                            // 2026-05-25 - Expert panel: domain critic + universal
                             // anti-slop + structural hygiene BEFORE the artifact reaches
                             // the design desk. Em-dashes auto-stripped, debug brackets
                             // removed, name-suffix slop cleaned. Non-fatal on failure.
@@ -6655,7 +7190,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                             console.info(`[Freeform/store] added ${(finalArtifact as any).kind}/${finalArtifact.brand} id=${finalArtifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
                                 _afterAdd.artifacts.find(a => a.id === finalArtifact.id) ? 'YES' : 'NO',
                                 'Active id:', _afterAdd.activeArtifactId);
-                            // 2026-05-25 — Every artifact-engine-routed kind gets a
+                            // 2026-05-25 - Every artifact-engine-routed kind gets a
                             // launcher card. The artifact-engine sets citations[0].source
                             // to the launcher URL when the proxy returned one. Surface
                             // it on the chat message so the user can open the interactive
@@ -6714,10 +7249,10 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                     if (genResult.ok) {
                         // Multi-artifact case: model emitted a JSON array (e.g., "generate 5 personas").
-                        // chatToArtifact normalized + validated each — we just iterate and add all.
+                        // chatToArtifact normalized + validated each - we just iterate and add all.
                         const all = (genResult as any).artifacts as any[] | undefined;
                         const list = (all && all.length > 0) ? all : [genResult.artifact];
-                        // 2026-05-25 — Run the expert panel on EVERY persona before
+                        // 2026-05-25 - Run the expert panel on EVERY persona before
                         // it lands in the store. The persona panel catches debug
                         // tier-brackets, "(composite)" name suffixes, em-dashes,
                         // and any synthesized quotes that should have been omitted.
@@ -6792,9 +7327,9 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
         if (wikiSourceArchive && !liveContext.wikiSourceArchive) {
             liveContext.wikiSourceArchive = wikiSourceArchive;
         }
-        // 2026-05-08 — Inject mid-chat ad-hoc attachments at the TOP of the
+        // 2026-05-08 - Inject mid-chat ad-hoc attachments at the TOP of the
         // uploadedFileContents block. The model sees them as PRIORITY 0 source
-        // material — they're what the user just dropped in, so they answer
+        // material - they're what the user just dropped in, so they answer
         // any question or hashtag in this turn first.
         if (pendingAttachments.length > 0) {
             const adHocBlock = pendingAttachments.map(att => {
@@ -6806,7 +7341,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 ].filter(Boolean).join(', ');
                 return `=== AD-HOC UPLOAD: ${att.filename} (${meta}) ===\n${att.parsedText}\n=== END ${att.filename} ===`;
             }).join('\n\n');
-            const adHocHeader = `=== USER JUST UPLOADED ${pendingAttachments.length} FILE(S) MID-CHAT — TREAT AS PRIMARY SOURCE FOR THIS TURN ===\n\n`;
+            const adHocHeader = `=== USER JUST UPLOADED ${pendingAttachments.length} FILE(S) MID-CHAT - TREAT AS PRIMARY SOURCE FOR THIS TURN ===\n\n`;
             liveContext.uploadedFileContents = adHocHeader + adHocBlock + '\n\n' + (liveContext.uploadedFileContents || '');
             // Also surface in uploadedFiles[] so the prompt-suggestion chips
             // and the dynamic context summarizer can see them by name.
@@ -6832,19 +7367,19 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             enrichedQuery = `${query}\n\n=== CURRENT DELIVERABLES IN THIS SESSION (reference these when asked to "put these on a slide" or "combine these") ===\n${delSummary}\n\nFull deliverable data:\n${JSON.stringify(deliverables.filter(d => d.status !== 'rejected').map(d => ({ type: d.type, ...d.data })), null, 2).substring(0, 8000)}\n=== END DELIVERABLES ===`;
         }
 
-        // 2026-05-23 — Chunked slide-deck interception. When the user asks for
+        // 2026-05-23 - Chunked slide-deck interception. When the user asks for
         // a multi-theme slide deck (e.g., "5 case study slides per theme × 4
         // themes"), the single-shot chat path silently truncates around slide
         // 4-5. The chunker fans out to one parallel call per theme, validates
         // every theme produces N slides, and merges into a deterministic deck.
-        // No fallback to the truncating path — if the chunker fails, the user
+        // No fallback to the truncating path - if the chunker fails, the user
         // gets a structured diagnostic, not a half-deliverable.
         if (shouldChunkSlideRequest(query)) {
             const chunkMsgId = `msg_${Date.now()}_chunk`;
             setMessages(prev => [...prev, {
                 id: chunkMsgId,
                 role: 'assistant',
-                content: 'Generating slide deck via per-theme parallel chunks…',
+                content: 'Generating slide deck via per-theme parallel chunks...',
                 timestamp: Date.now(),
                 model: 'gemini-3.5-flash',
                 skillUsed: 'slide-deck-chunker',
@@ -6852,7 +7387,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             try {
                 const t0 = Date.now();
                 // Pass any feedback signals already in localStorage for this
-                // artifact type — set by the feedback widget on prior runs.
+                // artifact type - set by the feedback widget on prior runs.
                 let feedbackSignals: { incomplete?: boolean; tooShort?: boolean } | undefined;
                 try {
                     const raw = localStorage.getItem('hic_chunk_feedback_slides');
@@ -6875,7 +7410,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     content: `${summary}\n\n${result.deckMarkdown}`,
                     durationMs: elapsedMs,
                 } : m));
-                // 2026-05-23 — Explicit lift for the chunked-slide path.
+                // 2026-05-23 - Explicit lift for the chunked-slide path.
                 // CRITICAL: the chat renderer filters slides+deliverables by
                 // `Math.abs(slide.timestamp - msg.timestamp) < 5000ms` AND
                 // `slide.model === msg.model`. Chunked slides arrive 50+
@@ -6903,7 +7438,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             } catch (chunkErr: any) {
                 setMessages(prev => prev.map(m => m.id === chunkMsgId ? {
                     ...m,
-                    content: `Slide deck chunker failed: ${chunkErr?.message || 'unknown error'}. The original single-shot path would silently truncate — surfaced this diagnostic instead. You can retry, revise the prompt, or click "Apply now" with feedback.`,
+                    content: `Slide deck chunker failed: ${chunkErr?.message || 'unknown error'}. The original single-shot path would silently truncate - surfaced this diagnostic instead. You can retry, revise the prompt, or click "Apply now" with feedback.`,
                 } : m));
             } finally {
                 setIsLoading(false);
@@ -6912,14 +7447,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             return;
         }
 
-        // 2026-05-26 — Per-send AbortController so the user can cancel
+        // 2026-05-26 - Per-send AbortController so the user can cancel
         // long-running chat requests (the case-study 23-min wait that
         // surfaced during pipeline contention). The controller is stored
         // on the component ref so LiveProcessingIndicator's X button can
         // call abort() from its onAbort prop.
         const sendAbort = new AbortController();
         currentAbortRef.current = sendAbort;
-        // 2026-05-26 — Find the in-flight placeholder so onProgress can
+        // 2026-05-26 - Find the in-flight placeholder so onProgress can
         // update its content. The most recent assistant placeholder is
         // the one created right before this call; we use a marker id.
         const progressMsgId = `msg_${Date.now()}_inflight_progress`;
@@ -6964,7 +7499,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
         if (response.skillUsed || response.content.includes(':::deliverable:') || response.content.includes(':::slide')) {
             const newDels = parseDeliverableBlocks(response.content, response.model);
             if (newDels.length > 0) {
-                // 2026-05-23 — Override timestamp/model to match response so
+                // 2026-05-23 - Override timestamp/model to match response so
                 // the renderer's per-message association filter (±5s) lets
                 // these cards render even if parsing takes a moment.
                 const stamped = newDels.map(d => ({ ...d, model: response.model || d.model, timestamp: response.timestamp }));
@@ -6972,19 +7507,19 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                 generatePersonaPortraits(stamped);
             }
             const newSlides = parseSlideBlocks(response.content, response.model, query);
-            // 2026-05-23 — Mark this message as lifted so the universal
+            // 2026-05-23 - Mark this message as lifted so the universal
             // safety-net useEffect doesn't double-lift on the next render.
             liftedArtifactMsgIdsRef.current.add(response.id);
             if (newSlides.length > 0) {
                 const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp }));
                 setSlides(prev => [...prev, ...stampedSlides]);
                 generatePersonaSlidePortraits(stampedSlides);
-                // Phase 1-retrofit (2026-04-20) — WIKI-BACKED QUOTE BACKFILL.
+                // Phase 1-retrofit (2026-04-20) - WIKI-BACKED QUOTE BACKFILL.
                 // Walks every theme across the new slides; wherever the AI
                 // emitted a title-shaped evidence string (instead of a real
                 // body sentence), pulls matching articles from the wiki
                 // archive and replaces with verbatim body text. Non-blocking
-                // and idempotent — the slides already render with the AI's
+                // and idempotent - the slides already render with the AI's
                 // original output; this updates state with improved quotes
                 // a second later. Failures leave slides untouched.
                 (async () => {
@@ -7003,7 +7538,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
             }
         }
 
-        // 2026-05-08 — Clear attachments after the send completes (success or fail).
+        // 2026-05-08 - Clear attachments after the send completes (success or fail).
         // Wiki write was already fired at the top; corpus injection already happened.
         if (pendingAttachments.length > 0) {
             setPendingAttachments([]);
@@ -7111,7 +7646,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     </div>
                 )}
 
-                {/* Welcome-state dynamic suggestions — replaces the former
+                {/* Welcome-state dynamic suggestions - replaces the former
                     static SUGGESTED_QUERIES list. Chip set reflects current
                     state: uploaded documents + research goal (pre-collection),
                     live source feed (mid-collection), or emerged themes/
@@ -7205,7 +7740,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                                         </span>
                                                     );
                                                 }
-                                                // 2026-05-11 — Detect `#proto ...` backtick commands and turn
+                                                // 2026-05-11 - Detect `#proto ...` backtick commands and turn
                                                 // them into clickable chips that pre-fill the input.
                                                 return <span key={ci}>{renderProtoChips(c.content, (text) => {
                                                     setInput(text);
@@ -7241,7 +7776,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-25 — Unified deliverable launcher card (every kind via artifact engine) */}
+                                {/* 2026-05-25 - Unified deliverable launcher card (every kind via artifact engine) */}
                                 {msg.artifactLaunchUrl && (
                                     <DeliverableLaunchCard
                                         url={msg.artifactLaunchUrl}
@@ -7256,7 +7791,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-11 — Prototype launcher card */}
+                                {/* 2026-05-11 - Prototype launcher card */}
                                 {msg.prototypeUrl && (
                                     <PrototypeLaunchCard
                                         url={msg.prototypeUrl}
@@ -7264,7 +7799,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-13 — Product Brief comparison grid.
+                                {/* 2026-05-13 - Product Brief comparison grid.
                                     Set by the #proto handler with 5 briefs from the
                                     VS brief generator. User clicks BUILD THIS to
                                     fire the Stage 2→3→3.5→4→5 pipeline against
@@ -7277,7 +7812,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-12 — HTML Artifact launcher card */}
+                                {/* 2026-05-12 - HTML Artifact launcher card */}
                                 {msg.artifactUrl && (
                                     <ArtifactLaunchCard
                                         url={msg.artifactUrl}
@@ -7285,7 +7820,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-12 — Artifact library grid (bare #artifacts) */}
+                                {/* 2026-05-12 - Artifact library grid (bare #artifacts) */}
                                 {Array.isArray(msg.artifactLibraryItems) && msg.artifactLibraryItems.length > 0 && (
                                     <ArtifactLibraryGrid
                                         items={msg.artifactLibraryItems}
@@ -7299,8 +7834,8 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-11 — Recommendation tiles (#recommendations) */}
-                                {/* 2026-05-11 — Engagement Context header
+                                {/* 2026-05-11 - Recommendation tiles (#recommendations) */}
+                                {/* 2026-05-11 - Engagement Context header
                                     rendered first: client, vendor, industry,
                                     segment, named initiative, stack, non-
                                     starters, regulatory constraints. Gives
@@ -7311,7 +7846,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     <EngagementContextBlock context={(msg as any).engagementContext as EngagementContext} />
                                 )}
 
-                                {/* 2026-05-11 — Analytical preamble: stakeholder
+                                {/* 2026-05-11 - Analytical preamble: stakeholder
                                     priorities, design principles, ideas to
                                     retire, guardrail validation criteria. Shown
                                     above the tile grid so the user sees how
@@ -7357,7 +7892,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 )}
 
-                                {/* 2026-05-11 — Prototype library grid */}
+                                {/* 2026-05-11 - Prototype library grid */}
                                 {Array.isArray(msg.prototypeLibraryItems) && msg.prototypeLibraryItems.length > 0 && (
                                     <PrototypeLibraryGrid
                                         items={msg.prototypeLibraryItems}
@@ -7427,7 +7962,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                     />
                                 </div>
                             ))}
-                            {/* Export Deck bar — appears once a message produced 2+ slides */}
+                            {/* Export Deck bar - appears once a message produced 2+ slides */}
                             {msg.role === 'assistant' && msgSlides.length >= 2 && (
                                 <div style={{ display: 'flex', gap: 8, marginTop: 8, padding: '8px 12px', background: '#FAFAFA', borderLeft: '3px solid #caca20', alignItems: 'center' }}>
                                     <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#666' }}>{msgSlides.length}-slide deck</span>
@@ -7445,7 +7980,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                 </div>
                             )}
 
-                            {/* Feedback widget (self-improvement loop input — 2026-05-22).
+                            {/* Feedback widget (self-improvement loop input - 2026-05-22).
                                 Renders under every assistant message so the user can
                                 vote, rate, or write feedback. "Apply now" triggers
                                 section-targeted regeneration via regenerateWithFeedback.
@@ -7475,7 +8010,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                             compact
                                             onApplyNow={async ({ feedbackId, text, sectionScope }) => {
                                                 try {
-                                                    // 2026-05-23 — Apply-now must re-fire the ORIGINAL USER PROMPT
+                                                    // 2026-05-23 - Apply-now must re-fire the ORIGINAL USER PROMPT
                                                     // through the normal chat-send path (handleSend), not call
                                                     // regenerateWithFeedback on the truncated assistant output.
                                                     //
@@ -7486,7 +8021,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                                     //   - Uses the chat-tier maxOutputTokens (65K on Flash)
                                                     //
                                                     // The previous implementation handed the model the truncated
-                                                    // 4-of-20-slides output and asked it to "revise" — which
+                                                    // 4-of-20-slides output and asked it to "revise" - which
                                                     // produced the same 4 slides with cosmetic tweaks, never the
                                                     // missing 16.
                                                     //
@@ -7506,7 +8041,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                                         }
                                                     }
                                                     if (!originatingPrompt) {
-                                                        // Defensive fallback — extremely unlikely (every assistant
+                                                        // Defensive fallback - extremely unlikely (every assistant
                                                         // message has an originating user message), but if we hit
                                                         // it we still want to do something useful. Fall back to a
                                                         // generic re-ask that includes the feedback.
@@ -7525,14 +8060,14 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                                                         : '';
                                                     const augmentedPrompt = `${originatingPrompt}
 
-FEEDBACK FROM LAST ATTEMPT${scopeNote} — APPLY ON THIS RUN:
+FEEDBACK FROM LAST ATTEMPT${scopeNote} - APPLY ON THIS RUN:
 ${text}
 
-Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE deliverable — not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
+Important: this is a re-attempt of the previous request. Honor every directive in the original prompt (including all hashtag triggers), apply the feedback above, and produce the COMPLETE deliverable - not a partial or truncated one. Do not begin with meta-narration about the feedback.${escalationNote}`;
                                                     // Fire through the normal chat-send path. handleSend appends
                                                     // a user message, calls sendChatMessage, and renders the
                                                     // assistant reply with its FeedbackWidget + GenerationReceipt
-                                                    // — exactly like a fresh send.
+                                                    // - exactly like a fresh send.
                                                     await handleSend(augmentedPrompt);
                                                 } catch (err) {
                                                     console.warn('[FeedbackWidget.onApplyNow] threw:', err);
@@ -7565,7 +8100,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 <div ref={messagesEndRef} />
             </div>
 
-            {/* Dynamic prompt suggestions — persistent above-input variant.
+            {/* Dynamic prompt suggestions - persistent above-input variant.
                 Only rendered AFTER the first message so it doesn't duplicate
                 the welcome-state version shown when messages.length === 0.
                 Acts as a pivot helper: "I'm in a conversation but want to
@@ -7592,7 +8127,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
 
             {/* Input */}
             <div style={{ padding: '10px 16px 14px', borderTop: '1px solid #E8E8E8', background: '#FAFAFA' }}>
-                {/* 2026-05-08 — Pending mid-chat attachments. Each chip shows
+                {/* 2026-05-08 - Pending mid-chat attachments. Each chip shows
                     filename + char count and is dismissible before send. On
                     send, attachment text is prepended to the corpus and the
                     list is cleared. */}
@@ -7705,7 +8240,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 </div>
             </div>
 
-            {/* Source Coverage audit panel — slide-in diagnostic showing every
+            {/* Source Coverage audit panel - slide-in diagnostic showing every
                 user-toggled category, its item count, citations in chat, and
                 CATEGORY GAP markers. Triggered by the COVERAGE button in the
                 header. Provides the visibility surface that makes every other

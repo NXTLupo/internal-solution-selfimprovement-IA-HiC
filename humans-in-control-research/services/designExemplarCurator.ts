@@ -1,5 +1,5 @@
 /**
- * designExemplarCurator — runtime implementation of the
+ * designExemplarCurator - runtime implementation of the
  * `design-exemplar-curator` skill (.claude/skills/design-exemplar-curator/).
  *
  * The skill spec defines the algorithm; this module ships the actual code that:
@@ -16,7 +16,7 @@
  * Source data: `/hic-workspace/wiki/exemplars/behance/_raw_index.json`
  * Per-exemplar pattern pages: `/hic-workspace/wiki/exemplars/behance/<tag>/<slug>.html`
  *
- * 2026-05-14 — first ship. Pattern Translation pages currently exist only
+ * 2026-05-14 - first ship. Pattern Translation pages currently exist only
  * for `behance-241915081` (Niva); the curator returns `pattern_url: null` for
  * the rest and the Stage 4 injection block uses the thumbnail + title alone.
  */
@@ -71,7 +71,7 @@ export interface ExemplarRef {
 }
 
 // ─────────────────────────────────────────────────────────
-// TAG MAPPING — interaction patterns to primary tags
+// TAG MAPPING - interaction patterns to primary tags
 // Extend as new patterns surface in the brief generator.
 // ─────────────────────────────────────────────────────────
 const TAG_MAP: Record<string, string[]> = {
@@ -96,7 +96,7 @@ const TAG_MAP: Record<string, string[]> = {
 };
 
 // ─────────────────────────────────────────────────────────
-// FRAMING SELECTION — hashtag + aesthetic to letter
+// FRAMING SELECTION - hashtag + aesthetic to letter
 // ─────────────────────────────────────────────────────────
 const FRAMING_NAMES: Record<FramingLetter, string> = {
   'α': 'typography-led',
@@ -133,10 +133,10 @@ function selectFraming(input: CurateInput): { letter: FramingLetter; brand: 'nxt
 }
 
 // ─────────────────────────────────────────────────────────
-// PATTERN-URL RESOLVER — which exemplars have a translation page
+// PATTERN-URL RESOLVER - which exemplars have a translation page
 // ─────────────────────────────────────────────────────────
 const PATTERN_TRANSLATIONS_SHIPPED = new Set<string>([
-  'behance-241915081', // Niva — AI Family Assistant
+  'behance-241915081', // Niva - AI Family Assistant
 ]);
 
 function slugify(s: string): string {
@@ -149,7 +149,7 @@ function patternUrl(ex: ExemplarRecord): string | null {
 }
 
 // ─────────────────────────────────────────────────────────
-// SCORING — Jaccard concept-overlap + log-appreciations
+// SCORING - Jaccard concept-overlap + log-appreciations
 // ─────────────────────────────────────────────────────────
 function tokenize(s: string): Set<string> {
   return new Set(
@@ -176,7 +176,7 @@ function scoreExemplar(ex: ExemplarRecord, conceptTokens: Set<string>): number {
 }
 
 // ─────────────────────────────────────────────────────────
-// INDEX LOADING — with caching + fallback to evergreen list
+// INDEX LOADING - with caching + fallback to evergreen list
 // ─────────────────────────────────────────────────────────
 let cachedIndex: ExemplarRecord[] | null = null;
 let cachedAt = 0;
@@ -214,7 +214,7 @@ async function loadIndex(): Promise<ExemplarRecord[]> {
 }
 
 // ─────────────────────────────────────────────────────────
-// PUBLIC — main retrieval entry
+// PUBLIC - main retrieval entry
 // ─────────────────────────────────────────────────────────
 export async function curateExemplarsForBrief(input: CurateInput, k = 5): Promise<ExemplarRef[]> {
   const index = await loadIndex();
@@ -229,7 +229,7 @@ export async function curateExemplarsForBrief(input: CurateInput, k = 5): Promis
     );
   }
 
-  // Quality floor — appreciations >= 500 preferred; relax to 100 if too few survive
+  // Quality floor - appreciations >= 500 preferred; relax to 100 if too few survive
   let filtered = candidates.filter(ex => (ex.appreciations || 0) >= 500);
   if (filtered.length < k) filtered = candidates.filter(ex => (ex.appreciations || 0) >= 100);
   if (filtered.length < k) filtered = candidates.length > 0 ? candidates : index;
@@ -262,7 +262,7 @@ export async function curateExemplarsForBrief(input: CurateInput, k = 5): Promis
 }
 
 // ─────────────────────────────────────────────────────────
-// PUBLIC — Stage 4 system-prompt injection block
+// PUBLIC - Stage 4 system-prompt injection block
 // ─────────────────────────────────────────────────────────
 export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: BrandHashtag): string {
   if (!refs || refs.length === 0) return '';
@@ -273,10 +273,10 @@ export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: Bra
 
   const exemplarLines = refs.map((r, i) => {
     return [
-      `EXEMPLAR ${i + 1} — ${r.title}${r.designer ? ' (by ' + r.designer + ')' : ''}${r.appreciations ? ', ' + r.appreciations.toLocaleString() + ' likes' : ''}`,
+      `EXEMPLAR ${i + 1} - ${r.title}${r.designer ? ' (by ' + r.designer + ')' : ''}${r.appreciations ? ', ' + r.appreciations.toLocaleString() + ' likes' : ''}`,
       `  Source thumbnail: ${r.thumbnail_url}`,
       `  Source URL: ${r.source_url}`,
-      r.pattern_url ? `  Pattern translation page: ${r.pattern_url}` : `  Pattern translation: pending — study thumbnail + title only`,
+      r.pattern_url ? `  Pattern translation page: ${r.pattern_url}` : `  Pattern translation: pending - study thumbnail + title only`,
       `  Framing committed: ${r.framing_letter} (${r.framing_name})`,
       `  Rationale: ${r.rationale}`,
     ].join('\n');
@@ -284,7 +284,7 @@ export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: Bra
 
   return [
     '═════════════════════════════════════════════════════════════════',
-    'DESIGN EXEMPLAR LIBRARY — STUDY THESE BEFORE WRITING CODE',
+    'DESIGN EXEMPLAR LIBRARY - STUDY THESE BEFORE WRITING CODE',
     '═════════════════════════════════════════════════════════════════',
     '',
     'You have ' + refs.length + ' named reference shots that match this brief. Your',
@@ -315,7 +315,7 @@ export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: Bra
 }
 
 // ─────────────────────────────────────────────────────────
-// PUBLIC — clear cache (testing / forced refresh after re-batching)
+// PUBLIC - clear cache (testing / forced refresh after re-batching)
 // ─────────────────────────────────────────────────────────
 export function clearExemplarCache(): void {
   cachedIndex = null;

@@ -1,11 +1,11 @@
-// hashtagRegistry.ts — 2026-05-12 (Sprint Hashtag-UX)
+// hashtagRegistry.ts - 2026-05-12 (Sprint Hashtag-UX)
 //
 // Single source of truth for every chat directive (hashtag) HiC supports.
 // Used by:
-//   • hashtagParser.ts — runtime parsing (parsers reference DIRECTIVES by id)
-//   • CorpusChatPanel.tsx — autocomplete dropdown when user types '#'
-//   • #help command — generates the live hashtag guide HTML artifact
-//   • Suggested-prompts (DynamicPromptChips) — every chip includes the right tag
+//   • hashtagParser.ts - runtime parsing (parsers reference DIRECTIVES by id)
+//   • CorpusChatPanel.tsx - autocomplete dropdown when user types '#'
+//   • #help command - generates the live hashtag guide HTML artifact
+//   • Suggested-prompts (DynamicPromptChips) - every chip includes the right tag
 //
 // When adding a new directive, register it here FIRST. The autocomplete,
 // help artifact, and analytics all read from this list.
@@ -43,7 +43,7 @@ export interface HashtagDirective {
     usesVerbalizedSampling: boolean;
     /** Whether the directive runs the Verbalized Confidence directive (R1 self-assessment envelope). */
     usesVerbalizedConfidence?: boolean;
-    /** When this was added — helps users orient to what's new. */
+    /** When this was added - helps users orient to what's new. */
     introduced: string;
     /** Optional output type for the help artifact's grouping. */
     outputType?: 'prototype' | 'html_artifact' | 'presentation' | 'recommendation_tiles' | 'library_list' | 'chat_response' | 'freeform_slide' | 'slide_template';
@@ -62,7 +62,7 @@ export const DIRECTIVES: HashtagDirective[] = [
             'Runs the 5-stage Concept Decomposer → Interaction Architect → Visual Designer → Prototype Coder → Critic pipeline. Produces a self-contained React+JSX HTML prototype that uses real AI calls (Gemini, Claude, GPT) wired same-origin. Stage 1 applies verbalized sampling at three framings (convention-honoring / shifted-frame / radical) so the prototype shape is not deterministic from the slug click. When a #recommendations Non-Obvious Bet tile is the source, Stage 1 commits to the radical-reinterpretation framing.',
         combinesWith: ['#NXT', '#NU'],
         modifiers: [
-            { token: '#name=<slug>', description: 'Reference a saved recommendation tile by slug — pulls its full consulting brief into Stage 1' },
+            { token: '#name=<slug>', description: 'Reference a saved recommendation tile by slug - pulls its full consulting brief into Stage 1' },
         ],
         examples: [
             '#proto first-year readiness coach #NXT',
@@ -122,7 +122,7 @@ export const DIRECTIVES: HashtagDirective[] = [
     },
 
     // ────────────────────────────────────────────────────────────────────
-    // Consulting deliverables (the HTML-artifact family — Sprints H2 + H4)
+    // Consulting deliverables (the HTML-artifact family - Sprints H2 + H4)
     // ────────────────────────────────────────────────────────────────────
     {
         id: '#recommendations',
@@ -145,7 +145,7 @@ export const DIRECTIVES: HashtagDirective[] = [
     // These route through chat → design-desk/services/chatToFreeform.ts
     // and produce a single freeform HTML slide that inherits the matching
     // exemplar's visual treatment for NXT or NU brand. Currently DO NOT
-    // use Verbalized Sampling or Verbalized Confidence — VS/VC rollout to
+    // use Verbalized Sampling or Verbalized Confidence - VS/VC rollout to
     // this pipeline is the next scope after R1 calibrates on themes.
     // ────────────────────────────────────────────────────────────────────
     {
@@ -173,7 +173,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a future-state service blueprint with the 5-swimlane Bitner model + fail points + recommendations.',
         description:
-            'Produces a service-blueprint HTML slide. Same 10-point design spec as #journey but framed as FUTURE STATE — pain points solved, recommendations layered. Swimlanes: customer actions, frontstage, backstage, support, physical evidence. Fail points flagged. Persona-grounded. Brand inheritance via NXT or NU exemplar.',
+            'Produces a service-blueprint HTML slide. Same 10-point design spec as #journey but framed as FUTURE STATE - pain points solved, recommendations layered. Swimlanes: customer actions, frontstage, backstage, support, physical evidence. Fail points flagged. Persona-grounded. Brand inheritance via NXT or NU exemplar.',
         aliases: ['#blueprints'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -211,7 +211,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a NOW / NEXT / LATER roadmap as a freeform HTML slide with dependencies and milestones.',
         description:
-            'Produces a roadmap HTML slide with three horizon columns. Initiatives placed with dependency arrows, milestones, owner badges, and gating criteria. Brand inheritance via NXT or NU exemplar. Currently does not VS-pick the timeline shape — this is a candidate for VS uplift (alternatives: Gantt strip / Wardley horizon / domain-skill matrix).',
+            'Produces a roadmap HTML slide with three horizon columns. Initiatives placed with dependency arrows, milestones, owner badges, and gating criteria. Brand inheritance via NXT or NU exemplar. Currently does not VS-pick the timeline shape - this is a candidate for VS uplift (alternatives: Gantt strip / Wardley horizon / domain-skill matrix).',
         aliases: ['#roadmaps'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -228,9 +228,9 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#org',
         name: 'Org Chart',
         category: 'consulting-deliverable',
-        summary: 'Generate an org chart as a freeform HTML slide — reporting lines, roles, and named stakeholders from the corpus.',
+        summary: 'Generate an org chart as a freeform HTML slide - reporting lines, roles, and named stakeholders from the corpus.',
         description:
-            'Produces an org-chart HTML slide with reporting hierarchy, named roles, named individuals where the corpus supports it, and stakeholder annotations. Brand inheritance via NXT or NU exemplar. Particularly evidence-sensitive — quality depends on uploaded client docs that name people and reporting lines.',
+            'Produces an org-chart HTML slide with reporting hierarchy, named roles, named individuals where the corpus supports it, and stakeholder annotations. Brand inheritance via NXT or NU exemplar. Particularly evidence-sensitive - quality depends on uploaded client docs that name people and reporting lines.',
         aliases: ['#orgs', '#orgchart', '#orgcharts'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -249,7 +249,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a CX persona card (Cooper goal-directed + JTBD) rendered through the AI chat path with the persona-card slide template.',
         description:
-            'Produces persona cards through the AI chat path (NOT the design-desk freeform pipeline). Uses the persona-architect skill — two-phase: Phase A roster (archetype identification), Phase B enrichment (per-persona detail with lifeGoal / experienceGoal / functionalGoal, JTBD, motivations with verbatim corpus quotes, attributes, behaviors, tech usage). Renders inside the persona-card slide template. PPTX export available. NOT YET wired to Verbalized Sampling or Verbalized Confidence — Phase B is the highest-leverage persona surface for both, planned in R1 rollout.',
+            'Produces persona cards through the AI chat path (NOT the design-desk freeform pipeline). Uses the persona-architect skill - two-phase: Phase A roster (archetype identification), Phase B enrichment (per-persona detail with lifeGoal / experienceGoal / functionalGoal, JTBD, motivations with verbatim corpus quotes, attributes, behaviors, tech usage). Renders inside the persona-card slide template. PPTX export available. NOT YET wired to Verbalized Sampling or Verbalized Confidence - Phase B is the highest-leverage persona surface for both, planned in R1 rollout.',
         aliases: ['#personas'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -268,7 +268,7 @@ export const DIRECTIVES: HashtagDirective[] = [
     // sendChatMessage (corpusChatService.ts). Combined with #slide they
     // emit dedicated slide templates (prd-feature, gap-matrix, etc.).
     // Without #slide they emit chat prose with embedded :::deliverable
-    // fences. Currently NO VS/VC applied — these go through the same
+    // fences. Currently NO VS/VC applied - these go through the same
     // chat path as everything else and inherit only the universal tone
     // rules + prompt-improvement learned constraints.
     // ────────────────────────────────────────────────────────────────────
@@ -276,7 +276,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#prd',
         name: 'Product Requirements (PRD features)',
         category: 'consulting-deliverable',
-        summary: 'Generate PRD features (problem, user story, acceptance criteria, MoSCoW priority, citations) — chat + slide-template.',
+        summary: 'Generate PRD features (problem, user story, acceptance criteria, MoSCoW priority, citations) - chat + slide-template.',
         description:
             'Loads the prd-compiler skill. Produces PRD feature blocks using the Cagan/SVPG 16-section framework: problem statement, user stories, acceptance criteria, success metrics, functional/NFRs, wireframe notes, risks, timeline. Combined with #slide, renders the prd-feature slide template. Chat-grade output otherwise.',
         aliases: ['#prds'],
@@ -319,7 +319,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         aliases: ['#audits', '#techaudit'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
-            '#audit Advancement office tech stack — what to keep, consolidate, retire #slide',
+            '#audit Advancement office tech stack - what to keep, consolidate, retire #slide',
             '#audit First-year career services systems and overlap points',
         ],
         requiresContext: true,
@@ -393,7 +393,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a NXT-branded one-pager HTML artifact intended for a stakeholder to read in 90 seconds.',
         description:
-            'Composes the html-deliverable-composer + verbalized-sampling skills. Produces a self-contained HTML page with a finding-grade title, one hero data point, 2-3 supporting findings, one diagram (VS-picked diagram type), Copy-as-prompt footer. Optimized for one screen + scroll. NXT branding by default (#NU for Northeastern variant). Visual layout is VS-picked from k=5 candidates — escapes the centered-card SaaS default.',
+            'Composes the html-deliverable-composer + verbalized-sampling skills. Produces a self-contained HTML page with a finding-grade title, one hero data point, 2-3 supporting findings, one diagram (VS-picked diagram type), Copy-as-prompt footer. Optimized for one screen + scroll. NXT branding by default (#NU for Northeastern variant). Visual layout is VS-picked from k=5 candidates - escapes the centered-card SaaS default.',
         combinesWith: ['#NXT', '#NU'],
         modifiers: [
             { token: '--variants k', description: 'Emit k distinct variants in a 2×3 grid with Pick-this buttons (k=2-6)', values: '2-6' },
@@ -433,7 +433,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a long-form HTML strategic report with tabbed sections + embedded charts.',
         description:
-            'For prose-dominant content where a slide deck would be the wrong format. Tabbed or anchored sections (default: Executive Summary / Findings / Recommendations / Next Steps — but the section IA is VS-picked from alternatives). Embedded charts per section. Evidence panels with verbatim corpus quotes. Length 3000-8000 words. Optimized for navigation, not sequential read. Sharable URL.',
+            'For prose-dominant content where a slide deck would be the wrong format. Tabbed or anchored sections (default: Executive Summary / Findings / Recommendations / Next Steps - but the section IA is VS-picked from alternatives). Embedded charts per section. Evidence panels with verbatim corpus quotes. Length 3000-8000 words. Optimized for navigation, not sequential read. Sharable URL.',
         combinesWith: ['#NXT', '#NU'],
         modifiers: [
             { token: '--variants k', description: 'Emit k distinct report-structure variants' },
@@ -452,7 +452,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate an interactive HTML playground for tuning parameters, with a Copy-as-prompt export.',
         description:
-            'Self-contained HTML with interactive controls (NOT always sliders — VS picks the right interaction pattern: easing-curve picker, drag-to-position, before/after swap, code+live-preview, motion timeline, scrubber, etc.). Live preview area. Copy-as-prompt button serializes the user\'s settings as a prompt string to paste back into HiC for iteration. Modeled on the Thariq checkout-button-hover example. Escapes the sliders-by-default mode collapse.',
+            'Self-contained HTML with interactive controls (NOT always sliders - VS picks the right interaction pattern: easing-curve picker, drag-to-position, before/after swap, code+live-preview, motion timeline, scrubber, etc.). Live preview area. Copy-as-prompt button serializes the user\'s settings as a prompt string to paste back into HiC for iteration. Modeled on the Thariq checkout-button-hover example. Escapes the sliders-by-default mode collapse.',
         combinesWith: ['#NXT', '#NU'],
         examples: [
             '#playground first-year career-card swipe animation',
@@ -467,9 +467,9 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#approaches',
         name: 'Approach Picker (VS-Multi inline)',
         category: 'consulting-deliverable',
-        summary: 'Generate a side-by-side comparison of 6 distinct approaches to a decision — 3 conventional + 3 non-obvious.',
+        summary: 'Generate a side-by-side comparison of 6 distinct approaches to a decision - 3 conventional + 3 non-obvious.',
         description:
-            'Native VS-Multi rendered as a picker UI. Turn 1: 3 conventional approaches (full distribution) — Defensible Consensus row. Turn 2: 3 more approaches at probability < 0.05 explicitly distinct from turn 1 — Non-Obvious Bets row. Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. Same UX shape as #recommendations, different surface — decisions/tradeoffs instead of tool concepts.',
+            'Native VS-Multi rendered as a picker UI. Turn 1: 3 conventional approaches (full distribution) - Defensible Consensus row. Turn 2: 3 more approaches at probability < 0.05 explicitly distinct from turn 1 - Non-Obvious Bets row. Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. Same UX shape as #recommendations, different surface - decisions/tradeoffs instead of tool concepts.',
         modifiers: [
             { token: '--variants k', description: 'Override default 6 (3+3 split)' },
         ],
@@ -519,7 +519,7 @@ export const DIRECTIVES: HashtagDirective[] = [
     // ────────────────────────────────────────────────────────────────────
     {
         id: '#help',
-        name: 'Help — Hashtag Reference Guide',
+        name: 'Help - Hashtag Reference Guide',
         category: 'system',
         summary: 'Generate an HTML reference guide for every directive HiC supports, with examples.',
         description: 'Bare hashtag. Generates a self-contained NXT-branded HTML artifact listing every directive in this registry, grouped by category, with examples + modifiers + when-introduced. Opens in a new window. Sharable URL for onboarding new team members.',
@@ -553,10 +553,10 @@ export const DIRECTIVES: HashtagDirective[] = [
         name: 'Multi-Slide Composition',
         category: 'system',
         summary: 'Render multiple deliverables in this turn as a continuous multi-slide composition.',
-        description: 'View modifier. Like #slide but for compositions — every slide-template emitted in the same chat turn renders sequentially as a multi-slide block. Used when a single prompt produces multiple slide kinds (e.g. "#themes #personas #recs #slides").',
+        description: 'View modifier. Like #slide but for compositions - every slide-template emitted in the same chat turn renders sequentially as a multi-slide block. Used when a single prompt produces multiple slide kinds (e.g. "#themes #personas #recs #slides").',
         combinesWith: ['#NXT', '#NU'],
         examples: [
-            'Show me themes, personas, and recs as a deck — #slides #NU',
+            'Show me themes, personas, and recs as a deck - #slides #NU',
         ],
         requiresContext: false,
         usesVerbalizedSampling: false,
@@ -567,8 +567,8 @@ export const DIRECTIVES: HashtagDirective[] = [
         name: 'NXT Brand (default)',
         category: 'system',
         summary: 'Apply NXT Humans branding (near-black + chartreuse + Bebas Neue). Default when no brand is named.',
-        description: 'Modifier hashtag — combines with experience builders and consulting deliverables. NXT design system: foundation neutrals + chartreuse #B8B800 as primary accent + Bebas Neue display / Archivo body / JetBrains Mono code. Sharp 2px corners, geometric, restrained.',
-        examples: ['#proto first-year coach #NXT', '#brief … #NXT'],
+        description: 'Modifier hashtag - combines with experience builders and consulting deliverables. NXT design system: foundation neutrals + chartreuse #B8B800 as primary accent + Bebas Neue display / Archivo body / JetBrains Mono code. Sharp 2px corners, geometric, restrained.',
+        examples: ['#proto first-year coach #NXT', '#brief ... #NXT'],
         requiresContext: false,
         usesVerbalizedSampling: false,
         introduced: '2026-05-11',
@@ -578,22 +578,22 @@ export const DIRECTIVES: HashtagDirective[] = [
         name: 'Northeastern University Brand',
         category: 'system',
         summary: 'Apply Northeastern University branding (Pantone 200 #C8102E + Roboto Condensed + Open Sans).',
-        description: 'Modifier hashtag for the Northeastern variant. Pantone 200 red (#C8102E — never #C00000), Roboto Condensed for display, Open Sans for body, asymmetric editorial layouts. Used for any deliverable bound for NU stakeholders.',
-        examples: ['#proto … #NU', '#brief … #NU', '#presentation … #NU'],
+        description: 'Modifier hashtag for the Northeastern variant. Pantone 200 red (#C8102E - never #C00000), Roboto Condensed for display, Open Sans for body, asymmetric editorial layouts. Used for any deliverable bound for NU stakeholders.',
+        examples: ['#proto ... #NU', '#brief ... #NU', '#presentation ... #NU'],
         requiresContext: false,
         usesVerbalizedSampling: false,
         introduced: '2026-05-11',
     },
 
     // ────────────────────────────────────────────────────────────────────
-    // 2026-05-24 — NotebookLM uplift Phase 4-6 deliverables
+    // 2026-05-24 - NotebookLM uplift Phase 4-6 deliverables
     // ────────────────────────────────────────────────────────────────────
     {
         id: '#mindmap',
         name: 'Mind Map',
         category: 'consulting-deliverable',
         summary: 'Build a navigable mind-map from the corpus themes, with click-to-chat drill-down.',
-        description: 'Takes the BERTopic v2 cluster output + research goal and emits a nested mind-map artifact (max depth 4, max 7 children per node). Each node carries chunk_ids for click-to-chat drill-down. Convergent-evidence clusters (themes that appeared across ≥2 source types) get a visual ring treatment. Rendered in the Designer Window with d3 force-directed layout; exports to PNG via paint-sync. Differentiated from NotebookLM\'s Mind Map by the source-stratification flag — NotebookLM doesn\'t categorize sources.',
+        description: 'Takes the BERTopic v2 cluster output + research goal and emits a nested mind-map artifact (max depth 4, max 7 children per node). Each node carries chunk_ids for click-to-chat drill-down. Convergent-evidence clusters (themes that appeared across ≥2 source types) get a visual ring treatment. Rendered in the Designer Window with d3 force-directed layout; exports to PNG via paint-sync. Differentiated from NotebookLM\'s Mind Map by the source-stratification flag - NotebookLM doesn\'t categorize sources.',
         aliases: ['#mind-map', '#mindmaps'],
         combinesWith: ['#NXT', '#NU'],
         examples: ['#mindmap', '#mindmap #NU'],
@@ -607,7 +607,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         name: 'HiC Deep Research',
         category: 'experience-builder',
         summary: 'Plan-act-reflect research loop with a Human-in-Control plan-edit gate BEFORE collection.',
-        description: 'The "Humans in Control" feature. Steps: (1) planner emits a research_plan.json with sub-questions, source strategy, named institutions, budget cap, reflection threshold — using Opus 4.7 + extended thinking. (2) UI renders the plan as an editable form. User edits, removes, or approves. (3) After approval, the data fabric runs in an iteration loop with Sonnet 4.6 reflector deciding "covered / gap_remains / new_question" after each batch. (4) All reflection traces persist to engagements/<slug>/research_log.json for audit. Hard cap N iterations + budget cap. NotebookLM has Deep Research; only HiC has it with a deliberate user checkpoint at the planning stage.',
+        description: 'The "Humans in Control" feature. Steps: (1) planner emits a research_plan.json with sub-questions, source strategy, named institutions, budget cap, reflection threshold - using Opus 4.7 + extended thinking. (2) UI renders the plan as an editable form. User edits, removes, or approves. (3) After approval, the data fabric runs in an iteration loop with Sonnet 4.6 reflector deciding "covered / gap_remains / new_question" after each batch. (4) All reflection traces persist to engagements/<slug>/research_log.json for audit. Hard cap N iterations + budget cap. NotebookLM has Deep Research; only HiC has it with a deliberate user checkpoint at the planning stage.',
         aliases: ['#deep-research', '#research-deep', '#research-plan'],
         combinesWith: ['#NU', '#NXT'],
         modifiers: [
@@ -653,6 +653,23 @@ export const DIRECTIVES: HashtagDirective[] = [
         introduced: '2026-05-24',
         outputType: 'chat_response',
     },
+    {
+        id: '#themes',
+        name: 'Themes (Theme Clusters)',
+        category: 'consulting-deliverable',
+        summary: 'Emerging themes synthesized from the corpus, anchored on the research objective, rendered as theme-cluster slides.',
+        description: 'Loads the theme-analyst skill. Synthesizes the corpus into N distinct themes (honors a leading count, e.g. "8 #themes"), each with a one-line insight and verbatim evidence quotes with named sources. Emits :::slide template=theme-cluster blocks (max 4 themes per cluster slide, so 8 themes render as 2 slides). Anchored on the research objective: off-objective clusters are dropped or reframed. Evidence quotes are sanitized of synthesis-as-source attributions, goal-alignment metadata, and raw chunk dumps. Combine with #slides to render the full deck, #NXT/#NU for brand.',
+        aliases: ['#theme', '#themecluster', '#theme-cluster'],
+        combinesWith: ['#NU', '#NXT', '#slide', '#slides'],
+        examples: [
+            '8 #themes on emerging AI design trends for creative teams #slides #NXT',
+            '#themes the biggest tensions in AI-assisted design work #slide #NU',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-06-01',
+        outputType: 'chat_response',
+    },
 ];
 
 export function findDirective(idOrText: string): HashtagDirective | undefined {
@@ -668,7 +685,7 @@ export function findDirective(idOrText: string): HashtagDirective | undefined {
 export function searchDirectives(partial: string, limit = 8): HashtagDirective[] {
     const norm = partial.toLowerCase().trim().replace(/^#/, '');
     if (!norm) {
-        // Bare '#' — show every non-system directive in registration order (which
+        // Bare '#' - show every non-system directive in registration order (which
         // groups them by category: experience-builder → consulting-deliverable →
         // browse → edit-refine). The autocomplete UI groups visually beyond this.
         // Note: limit is raised when partial is empty so users see the full set,

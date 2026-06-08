@@ -1,10 +1,10 @@
-/**
- * briefParser — Structured extraction of research intent from freeform briefs.
+﻿/**
+ * briefParser - Structured extraction of research intent from freeform briefs.
  *
  * Takes anything from a one-sentence goal to a 1,700-word deep-research brief
  * and produces a ParsedBrief object the rest of the pipeline can reason about.
  *
- * The transformation is NON-LOSSY on structure — every explicit research
+ * The transformation is NON-LOSSY on structure - every explicit research
  * question, every named subreddit, every peer institution, every date filter
  * and exclusion rule is captured verbatim. The old refineSearchQueries()
  * collapsed the whole brief into 4-8 keywords per category; this preserves
@@ -64,7 +64,7 @@ export async function parseBrief(rawBrief: string): Promise<ParsedBrief> {
         return fallbackBrief('');
     }
 
-    // Cheap parse for very short briefs — no AI call needed
+    // Cheap parse for very short briefs - no AI call needed
     if (trimmed.length < 80) {
         return fallbackBrief(trimmed);
     }
@@ -80,7 +80,7 @@ export async function parseBrief(rawBrief: string): Promise<ParsedBrief> {
     try {
         const ai = new GoogleGenAI({ apiKey });
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.5-flash',
             contents: prompt,
             config: {
                 temperature: 0.1,
@@ -103,7 +103,7 @@ export async function parseBrief(rawBrief: string): Promise<ParsedBrief> {
 // --- PROMPT ---
 
 function buildPrompt(brief: string): string {
-    return `You are a research-brief parser. Your job is to extract the EXPLICIT, LITERAL structure of the research brief below — every question, every named entity, every filter, every exclusion rule.
+    return `You are a research-brief parser. Your job is to extract the EXPLICIT, LITERAL structure of the research brief below - every question, every named entity, every filter, every exclusion rule.
 
 DO NOT PARAPHRASE. DO NOT GUESS. If the brief doesn't state something, leave the array empty.
 
@@ -118,11 +118,11 @@ MISSION: one sentence summarizing the research objective. Quote the brief's own 
 
 VERTICALS: pick 1-3 tags from this list that best match the brief's domain:
   ${KNOWN_VERTICALS.join(', ')}
-Pick conservatively. If the brief is genuinely cross-domain, pick the primary and one secondary. Do NOT include 'ai_research' just because AI is mentioned as a tactic — only include it if the research is ABOUT the AI industry itself.
+Pick conservatively. If the brief is genuinely cross-domain, pick the primary and one secondary. Do NOT include 'ai_research' just because AI is mentioned as a tactic - only include it if the research is ABOUT the AI industry itself.
 
 QUESTIONS: extract every explicit research question from the brief. Assign IDs Q1, Q2, ... in the order they appear. If a question is numbered or bulleted in the brief, preserve that order. If the brief is a single sentence, produce one Q1 matching the sentence. Mark priority as 'critical' | 'important' | 'nice-to-have' only if the brief signals it explicitly (e.g., 'most importantly', 'if time permits').
 
-DATE FILTER: extract the from/to window if the brief declares one. Use ISO-8601 YYYY-MM-DD. If the brief says "last two years" without dates, leave empty — do not guess.
+DATE FILTER: extract the from/to window if the brief declares one. Use ISO-8601 YYYY-MM-DD. If the brief says "last two years" without dates, leave empty - do not guess.
 
 INCLUDE RULES: short phrases describing positive filters ("donor acquisition", "alumni re-engagement via digital channels"). Quote the brief's own language. Each rule is one phrase, not a sentence.
 
@@ -130,7 +130,7 @@ EXCLUDE RULES: same for negative filters ("generic AI technology articles", "pol
 
 EXCLUDED DOMAINS: if the brief says "exclude [organization]-produced content" or "no content from [domain].com", extract the domain root. Leave empty if no explicit domain exclusion.
 
-NAMED ENTITIES — extract verbatim, do not paraphrase, preserve the brief's list order:
+NAMED ENTITIES - extract verbatim, do not paraphrase, preserve the brief's list order:
   - subreddits: strip the "r/" prefix. ["NEU", "highereducation"] not ["r/NEU", "r/highereducation"]
   - publications: trade press, news outlets, journals. Preserve proper names: "Chronicle of Philanthropy", "CASE", "Higher Ed Dive".
   - peerEntities: peer institutions, companies, organizations to compare against. "Boston University", "NYU", "Cornell".
@@ -211,7 +211,7 @@ function normalize(parsed: any, rawBrief: string): ParsedBrief {
         })).filter((q: any) => q.text.length > 0)
         : [];
 
-    // Guarantee at least one question — if the AI produced none, wrap the brief itself
+    // Guarantee at least one question - if the AI produced none, wrap the brief itself
     if (questions.length === 0) {
         questions.push({ id: 'Q1', text: rawBrief.substring(0, 500) });
     }

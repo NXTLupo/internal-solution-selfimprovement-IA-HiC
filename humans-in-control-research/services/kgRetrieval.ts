@@ -1,4 +1,4 @@
-// kgRetrieval.ts — 2026-05-11 (HiC-Active-Loop #4)
+// kgRetrieval.ts - 2026-05-11 (HiC-Active-Loop #4)
 //
 // Use the knowledge graph as a RETRIEVAL source, not just a chart. Today the
 // KG is a beautiful post-hoc visualization. This module lets the chat model
@@ -9,7 +9,7 @@
 // entrypoint in the graph (e.g., "what does the corpus say about ghosting?"
 // seeds at the "Ghosting Epidemic" theme node and walks to linked evidence).
 // More accurate than embedding-only retrieval because the relationships are
-// explicit — the LLM doesn't have to infer them from vector neighborhoods.
+// explicit - the LLM doesn't have to infer them from vector neighborhoods.
 //
 // Exposed to the chat function-caller as `query_knowledge_graph(seed, hops)`.
 
@@ -156,7 +156,7 @@ function buildAdjacency(edges: KGEdge[] | undefined): Map<string, string[]> {
         if (!adj.has(s)) adj.set(s, []);
         if (!adj.has(t)) adj.set(t, []);
         adj.get(s)!.push(t);
-        adj.get(t)!.push(s); // treat as undirected — the KG models semantic adjacency
+        adj.get(t)!.push(s); // treat as undirected - the KG models semantic adjacency
     }
     return adj;
 }
@@ -193,7 +193,7 @@ export function renderKGResult(result: KGRetrievalResult): string {
             if (n.url) meta.push(`url=${n.url}`);
             lines.push(`  • [${n.id}] ${n.label}  (${meta.join(', ')})`);
             if (n.bodyExcerpt) {
-                lines.push(`    "${n.bodyExcerpt.replace(/\s+/g, ' ').slice(0, 300)}${n.bodyExcerpt.length > 300 ? '…' : ''}"`);
+                lines.push(`    "${n.bodyExcerpt.replace(/\s+/g, ' ').slice(0, 300)}${n.bodyExcerpt.length > 300 ? '...' : ''}"`);
             }
         }
     }

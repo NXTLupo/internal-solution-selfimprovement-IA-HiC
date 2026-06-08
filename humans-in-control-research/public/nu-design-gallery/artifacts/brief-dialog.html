@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Brief Dialog: Pressure-testing the AI co-op readiness tool</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  /* Two-voice dialogue. Partner anchored left (NU red), Strategist right
+     (violet special). A single reading column keeps it brief-grade; the speaker
+     band and accent rail carry the voice, not a chat-bubble layout. */
+  .bd-wrap { max-width: 860px; margin: 0 auto; }
+  .bd-turn { display: grid; grid-template-columns: 132px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--border-subtle); }
+  .bd-turn:last-child { border-bottom: none; }
+  .bd-who { text-align: right; padding-top: 2px; }
+  .bd-who .name { font-family: var(--font-display); font-size: 15px; font-weight: 600; line-height: 1.15; color: var(--fg-strong); }
+  .bd-who .role { font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; color: var(--fg-muted); margin-top: 4px; text-transform: uppercase; }
+  .bd-who .beat { display: inline-block; margin-top: 8px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-subtle); }
+  .bd-line { padding-left: 16px; font-size: 14px; line-height: 1.6; color: var(--fg-default); }
+  .bd-turn.partner .bd-line { border-left: 3px solid var(--nu-red-600); }
+  .bd-turn.strategist .bd-line { border-left: 3px solid var(--special-solid); }
+  .bd-turn.partner .name { color: var(--nu-red-700); }
+  .bd-turn.strategist .name { color: var(--special-fg); }
+  .bd-line cite { font-style: normal; font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); letter-spacing: .02em; white-space: nowrap; }
+  .bd-line .ev { background: var(--slate-100); padding: 1px 5px; border-radius: 2px; font-weight: 500; color: var(--fg-strong); }
+  .bd-verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; margin-top: 24px; }
+  .bd-verdict > div { background: var(--bg-surface); padding: 16px 18px; }
+  .bd-verdict h4 { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 6px; }
+  .bd-verdict p { font-size: 13px; line-height: 1.45; color: var(--fg-strong); }
+  .bd-stance { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--warning-fg); background: var(--warning-bg); padding: 3px 10px; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Brief dialog · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Brief Dialog · Pressure-test</div>
+    <h1 class="art-masthead__title" style="width: 540px">The case for an AI co-op readiness tool survives, but only if it triages advisor attention instead of generating resumes.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Read</dt><dd>About 3 minutes</dd></div>
+    <div class="art-masthead__meta-block"><dt>Voices</dt><dd>Partner · Strategist</dd></div>
+    <div class="art-masthead__meta-block"><dt>Stance</dt><dd>Qualified</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+  <div class="bd-wrap">
+
+    <div class="bd-turn partner">
+      <div class="bd-who"><div class="name">The Partner</div><div class="role">Senior, advancement</div><div class="beat">Open</div></div>
+      <div class="bd-line">We are proposing the university build an AI tool to get first-years co-op ready. I have signed off on advising software three times in my career and watched two of them become shelfware. Walk me through why this is not the third.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-who"><div class="name">The Strategist</div><div class="role">Analyst, this engagement</div><div class="beat">Evidence</div></div>
+      <div class="bd-line">Because the failure first-years describe is not a missing tool, it is a missing signal. On the student boards the same line keeps surfacing: <span class="ev">"I applied to 60 co-ops and heard back from 4."</span> <cite>Reddit r/NEU</cite> They are not under-applying; they are flying blind into a keyword filter. Two more threads on r/cscareerquestions describe identical filtering before a human reads the resume. The pattern is convergent across student-side sources.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-who"><div class="name">The Partner</div><div class="role">Senior, advancement</div><div class="beat">Challenge</div></div>
+      <div class="bd-line">Convergent on the student side, sure. But every vendor pitches the same dashboard, and the coordinators ignore it. What does the advisor actually do differently on a Tuesday? If the answer is "log into one more system," this dies at adoption, the way the last donor portal did.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-who"><div class="name">The Strategist</div><div class="role">Analyst, this engagement</div><div class="beat">Evidence</div></div>
+      <div class="bd-line">Agreed, which is why the design is a triage queue, not a dashboard. The coordinators told us directly: <span class="ev">"I find out a student didn't apply when the cycle's already closed."</span> <cite>Coordinator retrospective</cite> The tool's job is to surface the stalled students on Friday, in the channel they already use, not to add a login. Northeastern's own first-year readiness roadmap already analyzes resumes against declared majors; the triage layer rides on that, it does not replace the advisor.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-who"><div class="name">The Partner</div><div class="role">Senior, advancement</div><div class="beat">Concession</div></div>
+      <div class="bd-line">Fair. A queue that tells a coordinator which twelve students to chase before the deadline is a different product than a dashboard, and it is one I can defend to the provost. I will give you that.</div>
+    </div>
+
+    <div class="bd-turn strategist">
+      <div class="bd-who"><div class="name">The Strategist</div><div class="role">Analyst, this engagement</div><div class="beat">Pivot</div></div>
+      <div class="bd-line">Then let me name the real risk, because it is not adoption. It is trust in the score. If the tool ranks students and a coordinator cannot interrogate why a student is flagged, they revert to gut, and the queue becomes noise. The same distrust shows up wherever opaque scoring meets a professional who is accountable for the outcome. The score has to be explainable at the row level or it will not be used.</div>
+    </div>
+
+    <div class="bd-turn partner">
+      <div class="bd-who"><div class="name">The Partner</div><div class="role">Senior, advancement</div><div class="beat">Synthesis</div></div>
+      <div class="bd-line">So the recommendation holds, with a condition I can live with: build the triage queue, ride the existing roadmap, and make every flag explainable to the coordinator who acts on it. The test is simple. One cycle, one cohort: does first-cycle placement velocity move for the students the queue surfaced, and can the coordinator say why each one was on it? If yes, we scale. If the score is a black box, we stop.</div>
+    </div>
+
+    <div class="bd-verdict">
+      <div>
+        <h4>Weakest claim surfaced</h4>
+        <p>That coordinators will act on an AI-generated ranking they cannot interrogate. Adoption depends on row-level explainability, not model accuracy.</p>
+      </div>
+      <div>
+        <h4>Final stance</h4>
+        <p><span class="bd-stance">Qualified</span></p>
+        <p style="margin-top:8px; font-size:12px; color:var(--fg-muted);">The recommendation survives, narrowed to a triage queue with explainable flags, tested on one cohort for one cycle before scaling.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Sources drawn on</div>
+    <ol>
+      <li><b>Reddit r/NEU</b> · co-op application threads, sampled 2026-Q1</li>
+      <li><b>Reddit r/cscareerquestions</b> · ATS keyword-filter threads</li>
+      <li><b>Co-op coordinator retrospective</b> · 2025-12</li>
+      <li><b>Northeastern first-year readiness roadmap</b> · program description</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">BRIEF DIALOG · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>brief-dialog</code> · Brand: NU</div>
+  </div>
+</footer>
+
+</body>
+</html>

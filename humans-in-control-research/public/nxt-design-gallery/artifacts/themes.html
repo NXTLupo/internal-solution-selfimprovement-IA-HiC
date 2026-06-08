@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Themes — Co-Op Prep &amp; Advancement Research</title>
+<meta name="viewport" content="width=1440" />
+<link rel="stylesheet" href="../shared/colors_and_type.css" />
+<link rel="stylesheet" href="../shared/artifacts.css" />
+<style>
+  .themes-meta {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 28px;
+  }
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .theme {
+    background: var(--bg-surface);
+    padding: 18px 18px 16px;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    gap: 12px;
+    min-height: 280px;
+    transition: background var(--duration-fast) var(--ease-standard);
+  }
+  .theme:hover { background: var(--slate-50); }
+  .theme__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .theme__num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-subtle);
+    letter-spacing: .04em;
+  }
+  .theme__cross {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--success-fg);
+    background: var(--success-bg);
+    padding: 1px 6px;
+    border-radius: 999px;
+  }
+  .theme__cross--single {
+    color: var(--fg-muted);
+    background: var(--slate-100);
+  }
+  .theme__title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--fg-strong);
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  .theme__desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fg-default);
+  }
+  .theme__quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-muted);
+    border-left: 1.5px solid var(--slate-300);
+    padding: 2px 0 2px 10px;
+  }
+  .theme__quote b { color: var(--fg-default); font-weight: 500; }
+  .theme__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: .04em;
+  }
+  .theme__cites {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+  }
+  .theme__bar {
+    height: 3px;
+    background: var(--slate-100);
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .theme__bar > i {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    background: var(--ink-800);
+    border-radius: 2px;
+  }
+  .theme__bar--brand > i { background: var(--nu-red-600); }
+  .theme__bar--accent > i { background: var(--special-solid); }
+  .theme__metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    margin-top: -4px;
+  }
+  .theme__metrics b {
+    color: var(--fg-default);
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+  .theme__metrics div { display: flex; flex-direction: column; gap: 1px; }
+  .theme--priority {
+    background: var(--bg-surface);
+  }
+  .theme--priority .theme__title { color: var(--nu-red-700); }
+
+  .legend {
+    display: flex;
+    gap: 18px;
+    font-size: 10.5px;
+    color: var(--fg-muted);
+    margin-top: 16px;
+    align-items: center;
+  }
+  .legend > * { display: flex; align-items: center; gap: 6px; }
+</style>
+</head>
+<body>
+
+<header class="art-masthead">
+  <div class="art-masthead__brand">
+    <div class="art-masthead__brand-seal">N</div>
+    <div class="art-masthead__brand-text">
+      <div class="art-masthead__brand-name">Northeastern Advancement</div>
+      <div class="art-masthead__brand-sub">Co-Op Prep · Theme extraction · 2026 Q2</div>
+    </div>
+  </div>
+  <div class="art-masthead__center">
+    <div class="art-masthead__kicker">Themes · Cross-document synthesis</div>
+    <h1 class="art-masthead__title">Twelve themes emerge across 248 chunks — three cross-cut every persona, eight cross at least two source types.</h1>
+  </div>
+  <dl class="art-masthead__meta">
+    <div class="art-masthead__meta-block"><dt>Corpus</dt><dd>248 chunks · 32 docs</dd></div>
+    <div class="art-masthead__meta-block"><dt>Themes</dt><dd>12 (floor for ≥200 chunks)</dd></div>
+    <div class="art-masthead__meta-block"><dt>Cross-doc</dt><dd>8 of 12</dd></div>
+  </dl>
+</header>
+
+<div class="art-canvas art-canvas--full">
+
+  <!-- Top stat strip -->
+  <div class="stat-strip themes-meta">
+    <div class="stat">
+      <div class="stat__label">Themes shipped</div>
+      <div class="stat__value">12<span class="u"> of 14 candidates</span></div>
+      <div class="stat__delta">2 dropped — single-source, &lt;3 chunks each</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Avg chunks / theme</div>
+      <div class="stat__value">14</div>
+      <div class="stat__delta">floor: 3 chunks from ≥2 source types</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">External citation share</div>
+      <div class="stat__value">71<span class="u">%</span></div>
+      <div class="stat__delta stat__delta--up">above 60% floor</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Cross-doc themes</div>
+      <div class="stat__value">8<span class="u"> / 12</span></div>
+      <div class="stat__delta">cross ≥2 source types</div>
+    </div>
+    <div class="stat">
+      <div class="stat__label">Priority for activation</div>
+      <div class="stat__value">3</div>
+      <div class="stat__delta">flagged for downstream PRD / roadmap</div>
+    </div>
+  </div>
+
+  <div class="theme-grid">
+
+    <article class="theme theme--priority">
+      <div class="theme__head">
+        <span class="theme__num">T-01</span>
+        <span class="theme__cross">cross-doc · priority</span>
+      </div>
+      <h3 class="theme__title">Constituent data lives in fifteen systems and no one owns the cross-reference.</h3>
+      <p class="theme__desc">Gift officers, coordinators, and student-success staff all rebuild the same dossier independently. Officer time-to-prep averages 40 minutes against a 10-minute benchmark used elsewhere in the CASE cohort.</p>
+      <blockquote class="theme__quote">"By the time I've stitched it together, the meeting's tomorrow." <b>— Maya R., MGO</b></blockquote>
+      <div class="theme__bar theme__bar--brand"><i style="width: 92%;"></i></div>
+      <div class="theme__foot">
+        <span>22 chunks · 7 sources · 4 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">MGO-04</span><span class="cite-chip">HiEd Dive '25</span><span class="cite-chip">CASE Bench</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme theme--priority">
+      <div class="theme__head">
+        <span class="theme__num">T-02</span>
+        <span class="theme__cross">cross-doc · priority</span>
+      </div>
+      <h3 class="theme__title">Peer mentorship already operates — informally, after midnight, and outside the system.</h3>
+      <p class="theme__desc">First-years escalate to upperclassmen before they escalate to coordinators 3.4× more often. The trust pattern exists; the infrastructure does not.</p>
+      <blockquote class="theme__quote">"He'd already been through it — and he answered me on a Tuesday at midnight." <b>— A. Patel, first-year</b></blockquote>
+      <div class="theme__bar theme__bar--brand"><i style="width: 85%;"></i></div>
+      <div class="theme__foot">
+        <span>19 chunks · 6 sources · 5 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">STU-007</span><span class="cite-chip">r/NU</span><span class="cite-chip">Coord-12</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme theme--priority">
+      <div class="theme__head">
+        <span class="theme__num">T-03</span>
+        <span class="theme__cross">cross-doc · priority</span>
+      </div>
+      <h3 class="theme__title">Young alumni giving fell 12% while overall fundraising grew 3%, opening a generational gap.</h3>
+      <p class="theme__desc">The cohort under 35 disengages even when total dollars rise — masking a long-term donor pipeline risk that current dashboards don't surface separately.</p>
+      <blockquote class="theme__quote">"The aggregate number is hiding the cliff under it." <b>— D. Chen, VP Ops</b></blockquote>
+      <div class="theme__bar theme__bar--brand"><i style="width: 78%;"></i></div>
+      <div class="theme__foot">
+        <span>17 chunks · 8 sources · 3 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">CCS '26</span><span class="cite-chip">VP-OPS-09</span><span class="cite-chip">CASE</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-04</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">AI scoring without an "explain" view fails the trust test for front-line officers.</h3>
+      <p class="theme__desc">Officers reject black-box prospect scores even when accuracy is high. Demand is for traceable signals: which inputs drove this rank?</p>
+      <blockquote class="theme__quote">"Tell me why this prospect is a 91, or I'll keep using my gut."</blockquote>
+      <div class="theme__bar"><i style="width: 70%;"></i></div>
+      <div class="theme__foot">
+        <span>15 chunks · 5 sources · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">HiEd Dive</span><span class="cite-chip">MGO ×3</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-05</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">"On pace" is undefined for first-years and they cannot self-diagnose.</h3>
+      <p class="theme__desc">Students lack a baseline reference for application volume, resume readiness, or networking cadence relative to peers in the same major.</p>
+      <blockquote class="theme__quote">"I don't know if I'm behind, because I don't know what 'on time' looks like."</blockquote>
+      <div class="theme__bar"><i style="width: 68%;"></i></div>
+      <div class="theme__foot">
+        <span>14 chunks · 4 sources · 3 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">STU diary</span><span class="cite-chip">Coord field</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-06</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">Coordinator caseload of 180 collapses individualized advising into batch email.</h3>
+      <p class="theme__desc">A 180:1 ratio forces template responses; the moments students remember are the ones that broke that pattern. Triage is the missing tool.</p>
+      <blockquote class="theme__quote">"I find out a student didn't apply when the cycle's already closed."</blockquote>
+      <div class="theme__bar"><i style="width: 64%;"></i></div>
+      <div class="theme__foot">
+        <span>13 chunks · 4 sources · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">Khoury '25</span><span class="cite-chip">Coord-12</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-07</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">Privacy guardrails between donor side and student side are unclear in practice.</h3>
+      <p class="theme__desc">Staff want to share affinity signals; FERPA and NACUBO guidance leave gray zones. The default behavior is over-caution and missed bridges.</p>
+      <blockquote class="theme__quote">"I missed an obvious bridge because the data lives in a different office."</blockquote>
+      <div class="theme__bar"><i style="width: 60%;"></i></div>
+      <div class="theme__foot">
+        <span>12 chunks · 5 sources · 1 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">NACUBO '24</span><span class="cite-chip">FERPA</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-08</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">Mobile is where prep actually happens — and the current surfaces aren't ready for it.</h3>
+      <p class="theme__desc">9 p.m.–1 a.m. is the dominant engagement window for first-years. The desktop-first portal sees a 38% drop-off at the mobile breakpoint.</p>
+      <blockquote class="theme__quote">"I'm in bed when I'm doing this — I'm not opening a laptop."</blockquote>
+      <div class="theme__bar"><i style="width: 58%;"></i></div>
+      <div class="theme__foot">
+        <span>11 chunks · 3 sources · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">UX audit '25</span><span class="cite-chip">STU diary</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-09</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">Recognition tied to closings under-rewards the stewardship moves that build pipeline.</h3>
+      <p class="theme__desc">Officers feel rewarded for visible wins, not the seven year cultivation that produced them. Attribution model lags the actual work.</p>
+      <blockquote class="theme__quote">"My best year was the one I closed nothing — and I built three of next year's gifts."</blockquote>
+      <div class="theme__bar"><i style="width: 55%;"></i></div>
+      <div class="theme__foot">
+        <span>11 chunks · 3 sources · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">CASE</span><span class="cite-chip">MGO ×2</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-10</span>
+        <span class="theme__cross theme__cross--single">single-doc</span>
+      </div>
+      <h3 class="theme__title">Tool sprawl: 14 platforms across the division, 3 with overlapping CRM features.</h3>
+      <p class="theme__desc">An internal IT census surfaces consolidation candidates that operations leadership has not yet quantified in dollar terms.</p>
+      <blockquote class="theme__quote">"We have two donor portals and neither is the system of record."</blockquote>
+      <div class="theme__bar"><i style="width: 50%;"></i></div>
+      <div class="theme__foot">
+        <span>10 chunks · 1 source · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">IT census '25</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-11</span>
+        <span class="theme__cross">cross-doc</span>
+      </div>
+      <h3 class="theme__title">Cohort percentile beats raw metrics for first-year engagement.</h3>
+      <p class="theme__desc">Anonymized percentile signals ("you're in the top 30% on resume readiness") drive measurable action where absolute counts ("8 applications") do not.</p>
+      <blockquote class="theme__quote">"Percentile changed what I cared about — I wasn't going to be the bottom third."</blockquote>
+      <div class="theme__bar"><i style="width: 48%;"></i></div>
+      <div class="theme__foot">
+        <span>9 chunks · 3 sources · 2 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">HiEd Dive '25</span><span class="cite-chip">STU diary</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <span class="theme__num">T-12</span>
+        <span class="theme__cross theme__cross--single">single-doc</span>
+      </div>
+      <h3 class="theme__title">Re-allocate, don't add — operations leadership wants funding from sunset tooling.</h3>
+      <p class="theme__desc">VP-level posture: every new capability must name the platform it retires. New net spend is a non-starter for FY27.</p>
+      <blockquote class="theme__quote">"If you can't tell me what dies, the answer is no." <b>— D. Chen, VP Ops</b></blockquote>
+      <div class="theme__bar"><i style="width: 42%;"></i></div>
+      <div class="theme__foot">
+        <span>8 chunks · 1 source · 3 verbatim</span>
+        <div class="theme__cites">
+          <span class="cite-chip">VP-OPS-09</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="legend">
+    <span><span class="theme__cross">cross-doc · priority</span> flagged for downstream PRD / roadmap</span>
+    <span><span class="theme__cross">cross-doc</span> ≥2 source types</span>
+    <span><span class="theme__cross theme__cross--single">single-doc</span> within-corpus only</span>
+    <span style="margin-left:auto; color:var(--fg-subtle);">Bar = relative evidence density (chunks × source diversity)</span>
+  </div>
+
+  <!-- Dropped candidates section -->
+  <section class="art-section" style="margin-top: 36px;">
+    <div class="art-section__head">
+      <h2 class="art-section__title">Dropped candidates</h2>
+      <span class="art-section__counter">2 themes failed the floor</span>
+    </div>
+    <table class="dtable dtable--compact">
+      <thead>
+        <tr>
+          <th>Candidate theme</th>
+          <th class="num">Chunks</th>
+          <th>Source types</th>
+          <th>Reason dropped</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="lead">Parent influence on student major selection</td><td class="num">2</td><td>STU diary only</td><td>Below 3-chunk floor; covered indirectly by T-05.</td></tr>
+        <tr><td class="lead">Cryptocurrency in young alumni giving</td><td class="num">3</td><td>HiEd Dive only</td><td>Single source type — fails cross-source mandate.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer class="art-footer">
+  <div style="flex: 1;">
+    <div style="font-weight:600; color: var(--fg-default); margin-bottom: 8px; letter-spacing: .04em; font-size:10px; text-transform:uppercase;">Source index</div>
+    <ol>
+      <li><b>HiEd Dive</b> · "Why fundraisers distrust prospect scores," 2025-09</li>
+      <li><b>CASE Benchmarks</b> · Advancement workforce, 2025</li>
+      <li><b>CCS Fundraising Outlook</b> · 2026</li>
+      <li><b>Inside Higher Ed</b> · Cohort benchmarking, 2025-06</li>
+      <li><b>NACUBO Guidance</b> · FERPA &amp; advancement, 2024</li>
+      <li><b>MGO transcripts</b> · 12 interviews, 2026-Q1</li>
+      <li><b>STU diary</b> · n=24 first-years, 8-week diary, 2026-Q1</li>
+      <li><b>Coord-12 field-notes</b> · cohort retrospective, 2025-12</li>
+      <li><b>Khoury advising load study</b> · 2025-10 internal</li>
+      <li><b>VP-OPS-09 memo</b> · 2026-01-22 advisory board</li>
+      <li><b>NU IT systems census</b> · 2025-11 internal audit</li>
+      <li><b>NU mobile UX audit</b> · 2025-08</li>
+      <li><b>Reddit r/Northeastern</b> · peer-mentor sampling, 2026-Q1</li>
+      <li><b>NU first-year longitudinal</b> · "On pace" study, 2024</li>
+    </ol>
+  </div>
+  <div style="text-align: right; min-width: 200px;">
+    <div style="color: var(--fg-subtle); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;">Artifact</div>
+    <div style="color: var(--fg-default); font-family: var(--font-mono); font-size: 11px; margin-top: 2px;">THEMES · v1 · 2026-Q2</div>
+    <div style="color: var(--fg-subtle); margin-top: 4px; font-size: 10.5px;">Skill: <code>theme-analyst</code></div>
+  </div>
+</footer>
+
+</body>
+</html>

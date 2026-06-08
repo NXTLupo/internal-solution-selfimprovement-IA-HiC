@@ -1,5 +1,5 @@
 /**
- * SLIDE TEMPLATES — Type definitions for all 10 NXT Humans slide templates.
+ * SLIDE TEMPLATES - Type definitions for all 10 NXT Humans slide templates.
  *
  * Each template is owned by a specific consulting skill and has a strict data
  * shape. The AI emits :::slide blocks with `template` set to one of these
@@ -9,10 +9,10 @@
 export type SlideTemplate =
     | 'persona-card'        // persona-architect
     | 'recommendation'      // strategy-author
-    | 'theme-cluster'       // theme-analyst — equal-weight horizontal columns (3-4 themes)
-    | 'theme-spotlight'     // theme-analyst — hero theme + 2-3 supporting (asymmetric)
-    | 'theme-arc'           // theme-analyst — narrative chain with progression connectors
-    | 'theme-mosaic'        // theme-analyst — 2x2 inverse-checkerboard grid (4 parallel themes)
+    | 'theme-cluster'       // theme-analyst - equal-weight horizontal columns (3-4 themes)
+    | 'theme-spotlight'     // theme-analyst - hero theme + 2-3 supporting (asymmetric)
+    | 'theme-arc'           // theme-analyst - narrative chain with progression connectors
+    | 'theme-mosaic'        // theme-analyst - 2x2 inverse-checkerboard grid (4 parallel themes)
     | 'competitive-matrix'  // competitive-analyst
     | 'block-quote'         // evidence-curator
     | 'case-study'          // case-study-analyst
@@ -25,7 +25,7 @@ export type SlideTemplate =
     | 'architecture-map'    // tech-arch-generator       (tech_node)
     | 'prd-feature'         // prd-compiler              (prd_feature)
     | 'systems-inventory'   // tech-audit-inspector      (tech_audit_system)
-    | 'journey-brief';      // journeyBriefExporter — reasoning-model journey summary,
+    | 'journey-brief';      // journeyBriefExporter - reasoning-model journey summary,
                             // rendered as a clean TABULAR slide (no SVG/curve) to
                             // avoid the stretched-diagram export defect (2026-05-26)
 
@@ -46,7 +46,7 @@ export interface RecommendationData {
     rationale?: string;
     supportingActions: Array<{ name: string; description: string }>;
     impactMetric?: { value: string; label: string };
-    /** 4-cell impact grid — replaces the lone hero number with a full frame.
+    /** 4-cell impact grid - replaces the lone hero number with a full frame.
      *  Renderer falls back to impactMetric when this isn't supplied. */
     impactGrid?: {
         baseline?: string;    // e.g. "6% mobile giving today"
@@ -59,7 +59,7 @@ export interface RecommendationData {
     evidence?: SlideQuote[];
     /** One-sentence implication line tying the action to the research objective. */
     implication?: string;
-    // 2026-05-12 — Extensions to support #recommendations tile export (#slide /
+    // 2026-05-12 - Extensions to support #recommendations tile export (#slide /
     // #slides). The existing fields above still drive strategy-author-emitted
     // recommendation slides; the fields below are populated only when the
     // slide originates from a #recommendations Defensible-Consensus / Non-Obvious-Bet
@@ -79,7 +79,7 @@ export interface RecommendationData {
      *  "SUPPORTING ACTIONS". Tile-sourced rec uses "AI CAPABILITIES". */
     actionsLabel?: string;
     /** 3-cell strip on the right column when no impactGrid/impactMetric is
-     *  supplied — surfaces effort / risk / outcome. */
+     *  supplied - surfaces effort / risk / outcome. */
     impactStrip?: {
         effort?: string;     // e.g. "Low" | "Medium" | "High"
         risk?: string;       // e.g. "Low risk" | "Medium" | "High"
@@ -90,14 +90,14 @@ export interface RecommendationData {
     heroImage?: {
         src: string;         // data: URL or absolute https URL
         alt?: string;
-        caption?: string;    // ≤60 chars — rendered below the image as eyebrow text
+        caption?: string;    // ≤60 chars - rendered below the image as eyebrow text
     };
-    /** Long-form supporting context for the implication footer area —
+    /** Long-form supporting context for the implication footer area -
      *  rendered as a "WHY IT MATTERS" eyebrow above the implication when present. */
     whyMatters?: string;
 }
 
-/** A single pulled quote — verbatim text + full attribution. Used anywhere a
+/** A single pulled quote - verbatim text + full attribution. Used anywhere a
  *  theme / persona / case study needs variable quote density. */
 export interface SlideQuote {
     text: string;
@@ -126,7 +126,7 @@ export interface ThemeClusterData {
         quotes?: SlideQuote[];
         /** One-sentence implication tying this theme to the research objective. */
         implication?: string;
-        /** SIGNAL metric tag — a single concrete number or named entity that
+        /** SIGNAL metric tag - a single concrete number or named entity that
          *  proves the theme is real (e.g. "50% mobile giving by 2025" or
          *  "Central Pennsylvania Food Bank: 10% wallet adoption"). Used by
          *  theme-arc and theme-cluster to tag each step. */
@@ -153,7 +153,7 @@ export interface CompetitiveMatrixData {
     /** Labels for each maturity level (e.g. ["Absent","Ad-hoc","Defined","Managed","Optimized"]) */
     scaleLabels?: string[];
     insight?: string;
-    /** Who is the subject row — bolded and shown first */
+    /** Who is the subject row - bolded and shown first */
     subjectRow?: string;
 }
 
@@ -193,10 +193,10 @@ export interface CaseStudyData {
     supportingMetrics?: Array<{ value: string; label: string }>;
     /** Verbatim quote from the subject (or someone inside the case) */
     pullQuote?: { text: string; attribution: string; role?: string };
-    /** LESSON FOR ADVANCEMENT — 1-2 sentence generalization of the takeaway,
+    /** LESSON FOR ADVANCEMENT - 1-2 sentence generalization of the takeaway,
      *  rendered as a footer row under the C/A/O blocks. */
     lesson?: string;
-    /** COMPARABLES strip — 2-3 other orgs that achieved similar results.
+    /** COMPARABLES strip - 2-3 other orgs that achieved similar results.
      *  Rendered as a compact strip on the right panel. */
     comparables?: Array<{
         name: string;
@@ -216,12 +216,12 @@ export interface StatRowData {
         value: string;
         label: string;
         source: string;
-        /** "What this means" — 1 sentence of interpretation */
+        /** "What this means" - 1 sentence of interpretation */
         meaning?: string;
-        /** "Why it matters now" — 1 sentence of urgency/implication */
+        /** "Why it matters now" - 1 sentence of urgency/implication */
         matters?: string;
     }>;
-    /** CONVERGENT INSIGHT — synthesis across all three stats, rendered
+    /** CONVERGENT INSIGHT - synthesis across all three stats, rendered
      *  as a full-width row below the stat cells to fill the dead space. */
     convergentInsight?: string;
     /** Optional pattern callout under the convergent insight */
@@ -252,7 +252,7 @@ export interface ServiceBlueprintData {
         support: string;            // infrastructure / data
         painPoint?: string;         // friction at this stage
         failPoint?: boolean;        // stage breaks entirely
-        // 2026-05-25 — JM-depth fields (ported from internal-solutions-journeymapper)
+        // 2026-05-25 - JM-depth fields (ported from internal-solutions-journeymapper)
         /** Emotion intensity 0-100 (0=very low ... 100=very high). Renderer treats <=5 as legacy 1-5 scale. */
         emotionIntensity?: number;
         /** One-clause reason the actor feels this way at this phase. */
@@ -267,7 +267,7 @@ export interface ServiceBlueprintData {
         confidence?: 'verified' | 'emerging' | 'hypothesis';
     }>;
     keyInsight?: string;
-    // 2026-05-25 — JM-depth dashboard fields (rendered above the grid)
+    // 2026-05-25 - JM-depth dashboard fields (rendered above the grid)
     /** Journey-type classification, e.g. "coop", "educational", "customer-purchase". */
     journeyType?: string;
     /** 2-5 personas, JTBD-first (NOT demographics-first). */
@@ -306,12 +306,12 @@ export interface ArchitectureMapData {
 //
 // Supports two layouts at render time:
 //
-//   COMPACT  — features.length >= 2: 2–3 cards side-by-side, each with priority,
+//   COMPACT  - features.length >= 2: 2-3 cards side-by-side, each with priority,
 //              user story, and top acceptance criteria. The deep fields below
 //              (technicalDetails, problemSolved, stakeholders, evidence) are
 //              ignored in this mode because there's no room for them.
 //
-//   DEEP     — features.length === 1 AND any of {technicalDetails, problemSolved,
+//   DEEP     - features.length === 1 AND any of {technicalDetails, problemSolved,
 //              stakeholders, evidence} is populated: full-slide narrative layout
 //              that renders the complete feature spec with verbatim evidence
 //              quotes. Used when the composer wants ONE feature per slide with
@@ -360,9 +360,9 @@ export type TemplateData =
     | { template: 'timeline'; data: TimelineData }
     | { template: 'section-divider'; data: SectionDividerData };
 
-// === DESIGN TOKENS — single source of truth for web + PPTX ===
+// === DESIGN TOKENS - single source of truth for web + PPTX ===
 export const TOKENS = {
-    // Slide canvas — 16:9
+    // Slide canvas - 16:9
     WEB_W: 960,
     WEB_H: 540,
     PPTX_W: 13.33,
@@ -392,7 +392,7 @@ export const TOKENS = {
     GREEN: '0CCE6B',
     RED: 'CC3333',
 
-    // Typography — NXT default is single-family Archivo. Brands can override
+    // Typography - NXT default is single-family Archivo. Brands can override
     // FONT_DISPLAY (headings/eyebrows) and FONT_BODY (paragraphs/labels)
     // separately. FONT stays as a legacy alias for any renderer that hasn't
     // migrated to the display/body split yet.

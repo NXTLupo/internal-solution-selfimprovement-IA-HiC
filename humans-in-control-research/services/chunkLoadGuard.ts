@@ -1,5 +1,5 @@
 /**
- * chunkLoadGuard — global handler that recovers from stale-bundle chunk-load
+ * chunkLoadGuard - global handler that recovers from stale-bundle chunk-load
  * failures across EVERY dynamic import in the app, with no per-callsite
  * changes required.
  *
@@ -11,7 +11,7 @@
  * exists in /assets/, the browser fetches a 404 and the import rejects
  * with "Failed to fetch dynamically imported module: ...". HiC has 85+
  * dynamic-import call sites across App.tsx, CorpusChatPanel.tsx,
- * geminiService.ts, corpusChatService.ts, and every export pipeline —
+ * geminiService.ts, corpusChatService.ts, and every export pipeline -
  * which means any of them can surface a confusing chunk-load error if
  * the user is on a stale tab.
  *
@@ -19,19 +19,19 @@
  * every variation of chunk-load failure, regardless of whether the
  * awaiter has a try/catch in place:
  *
- *   1. `vite:preloadError` — Vite emits this when a `<link rel="modulepreload">`
+ *   1. `vite:preloadError` - Vite emits this when a `<link rel="modulepreload">`
  *      fails. Fires BEFORE the import() rejects, so we can react before
  *      the user-facing catch handler runs.
  *
- *   2. `unhandledrejection` — catches dynamic imports whose rejection
+ *   2. `unhandledrejection` - catches dynamic imports whose rejection
  *      escapes any try/catch (uncaught promise paths).
  *
- *   3. `error` (window) — catches `<script>` element load errors as a
+ *   3. `error` (window) - catches `<script>` element load errors as a
  *      last-resort net for non-module asset failures.
  *
  * When any listener fires AND the error matches a chunk-load pattern, the
  * guard renders a persistent, dismissible banner that warns the user and
- * offers Reload / Dismiss buttons. The guard NEVER auto-reloads — that
+ * offers Reload / Dismiss buttons. The guard NEVER auto-reloads - that
  * would destroy the user's in-memory engagement (themes, personas, chat).
  * The user must click Reload (after saving), or Dismiss to keep working
  * (subsequent chunk loads may still fail until they reload manually).
@@ -72,7 +72,7 @@ let bannerShown = false;
 let installedAt: number | null = null;
 
 /**
- * 2026-05-12 — AUTO-RELOAD REMOVED.
+ * 2026-05-12 - AUTO-RELOAD REMOVED.
  *
  * The previous version of this guard auto-reloaded the page 1.5s after any
  * chunk-load failure. That was destroying users' in-flight engagements
@@ -87,13 +87,13 @@ let installedAt: number | null = null;
  */
 function showStaleBundleBanner(source: string, detail?: unknown): void {
     if (bannerShown) {
-        console.warn(`[ChunkLoadGuard] additional ${source} suppressed — banner already shown`);
+        console.warn(`[ChunkLoadGuard] additional ${source} suppressed - banner already shown`);
         return;
     }
     bannerShown = true;
     console.warn(
         `[ChunkLoadGuard] stale chunk detected via ${source}. ` +
-        `Banner shown — NOT auto-reloading (would destroy in-memory session). ` +
+        `Banner shown - NOT auto-reloading (would destroy in-memory session). ` +
         `User must Save Session, then click Reload in the banner.`,
         detail ?? '',
     );
@@ -138,7 +138,7 @@ function showStaleBundleBanner(source: string, detail?: unknown): void {
             'letter-spacing:1.5px', 'text-transform:uppercase',
         ].join(';');
         reloadBtn.onclick = async () => {
-            // 2026-05-14 — Save the user's session BEFORE reloading so a stale-
+            // 2026-05-14 - Save the user's session BEFORE reloading so a stale-
             // chunk forced reload doesn't destroy mid-flight work. App.tsx
             // registers __hicSaveSession on mount; we call it (silently) and
             // wait up to 4s before reloading anyway. The user can resume from
@@ -179,7 +179,7 @@ function showStaleBundleBanner(source: string, detail?: unknown): void {
 }
 
 /**
- * Install all three chunk-load listeners. Idempotent — safe to call
+ * Install all three chunk-load listeners. Idempotent - safe to call
  * multiple times (subsequent calls are no-ops).
  */
 export function installChunkLoadGuard(): void {
@@ -193,12 +193,12 @@ export function installChunkLoadGuard(): void {
     window.addEventListener('vite:preloadError', (event: Event) => {
         const detail = (event as any).payload || (event as any).detail || event;
         showStaleBundleBanner('vite:preloadError', detail);
-        // 2026-05-15 — MUST preventDefault. Vite's DEFAULT behavior on
+        // 2026-05-15 - MUST preventDefault. Vite's DEFAULT behavior on
         // `vite:preloadError` is to HARD-RELOAD THE PAGE, which dumps the
         // user back to the landing screen and destroys their in-memory
         // session (chat history, brief drafts, design-desk state).
         // The previous comment said "let Vite's normal flow continue too"
-        // — that was exactly wrong: Vite's normal flow IS the destructive
+        // - that was exactly wrong: Vite's normal flow IS the destructive
         // reload. Symptom: typing #proto on a tab held open across a
         // Docker rebuild silently redirected to the landing page with NO
         // error message because Vite reloaded out from under the React
@@ -235,7 +235,7 @@ export function installChunkLoadGuard(): void {
         }
     }, true /* capture phase so we see asset onerror before bubbling */);
 
-    console.log('[ChunkLoadGuard] installed — global protection for ~85 dynamic-import sites against stale-bundle 404s');
+    console.log('[ChunkLoadGuard] installed - global protection for ~85 dynamic-import sites against stale-bundle 404s');
 }
 
 /** Exposed for testing. Returns true if the input matches a chunk-load error pattern. */

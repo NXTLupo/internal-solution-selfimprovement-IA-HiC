@@ -1,5 +1,5 @@
 /**
- * FeedbackWidget — User feedback capture for chat replies and hashtag deliverables.
+ * FeedbackWidget - User feedback capture for chat replies and hashtag deliverables.
  *
  * Loop 4 input surface. Writes events to the proxy /api/feedback/append
  * endpoint. Triggers instant regeneration when the user clicks "Apply now".
@@ -31,7 +31,7 @@ export interface FeedbackWidgetProps {
      * When the user clicks "Apply now" and provides text feedback, this
      * callback is invoked with the feedback details so the parent can run
      * regenerateSection() against the targeted section. The widget itself
-     * does not own regeneration logic — that lives in the chat/deliverable
+     * does not own regeneration logic - that lives in the chat/deliverable
      * renderer with access to the original generation context.
      */
     onApplyNow?: (input: {
@@ -76,7 +76,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
     const [text, setText] = useState('');
     const [priorCount, setPriorCount] = useState<number>(0);
     const [lastResult, setLastResult] = useState<{ ok: boolean; id?: string; error?: string } | null>(null);
-    // 2026-05-23 — Visible proof that feedback drove a skill patch / chunk
+    // 2026-05-23 - Visible proof that feedback drove a skill patch / chunk
     // promotion / constraint. Populated when triggerLearningPassAfterFeedback
     // returns from the background pass that runs after every submit.
     const [evidence, setEvidence] = useState<LearningEvidence | null>(null);
@@ -106,7 +106,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             setStage('submitted');
             setLastResult({ ok: true, id: result.id || undefined });
             setPriorCount(c => c + 1);
-            // 2026-05-23 — Trigger the learning pass IMMEDIATELY after every
+            // 2026-05-23 - Trigger the learning pass IMMEDIATELY after every
             // feedback submit. This closes the loop that was previously
             // dev-console-only. Result is rendered as visible evidence so the
             // user can see exactly which skill/constraint/chunk-config got
@@ -227,7 +227,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             <div style={styles.textBlock}>
                 <textarea
                     style={styles.textArea}
-                    placeholder="Tell us what to improve — e.g., 'persona quotes feel generic', 'horizons too vague', 'evidence too sparse in section 3'"
+                    placeholder="Tell us what to improve - e.g., 'persona quotes feel generic', 'horizons too vague', 'evidence too sparse in section 3'"
                     value={text}
                     onChange={e => setText(e.target.value)}
                     rows={2}
@@ -238,7 +238,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                         style={{ ...styles.applyBtn, ...(text.trim() && onApplyNow ? {} : styles.applyBtnDisabled) }}
                         onClick={handleApplyNow}
                         disabled={!text.trim() || !onApplyNow || stage === 'applying' || stage === 'submitting'}
-                        title={onApplyNow ? "Regenerate the targeted section now with this feedback" : "Apply Now unavailable here — Save for Next Time persists the signal."}
+                        title={onApplyNow ? "Regenerate the targeted section now with this feedback" : "Apply Now unavailable here - Save for Next Time persists the signal."}
                     >
                         {stage === 'applying' ? 'Applying...' : 'Apply now'}
                     </button>
@@ -246,7 +246,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                         style={{ ...styles.saveBtn, ...(text.trim() ? {} : styles.saveBtnDisabled) }}
                         onClick={handleSaveForNextTime}
                         disabled={!text.trim() || stage === 'submitting' || stage === 'applying'}
-                        title="Persist this feedback to inform future generations — no immediate regeneration."
+                        title="Persist this feedback to inform future generations - no immediate regeneration."
                     >
                         Save for next time
                     </button>
@@ -265,13 +265,13 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             )}
             {evidenceRunning && (
                 <div style={styles.evidencePending}>
-                    Running learning pass… clustering signals, routing to skill / constraint / chunk-config…
+                    Running learning pass... clustering signals, routing to skill / constraint / chunk-config...
                 </div>
             )}
             {evidence && !evidenceRunning && (
                 <div style={styles.evidenceBox} data-testid="learning-evidence">
                     <div style={styles.evidenceTitle}>
-                        SKILL LOOP — what your signal actually changed
+                        SKILL LOOP - what your signal actually changed
                     </div>
                     {evidence.anyChange ? (
                         <div style={styles.evidenceList}>
@@ -286,7 +286,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                                         href={`http://127.0.0.1:5012/api/skill/list-versions`}
                                         target="_blank"
                                         rel="noreferrer"
-                                        title="Open the live skill version manifest in a new tab — verify the version bump yourself."
+                                        title="Open the live skill version manifest in a new tab - verify the version bump yourself."
                                     >
                                         verify
                                     </a>
@@ -346,7 +346,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                                 <div style={styles.evidenceRow}>
                                     <span style={styles.evidenceChip}>FRAMEWORK UPDATE QUEUED</span>
                                     <span style={styles.evidenceText}>
-                                        {evidence.frameworkUpdatesQueued} pending review (structural change — won't auto-apply)
+                                        {evidence.frameworkUpdatesQueued} pending review (structural change - won't auto-apply)
                                     </span>
                                 </div>
                             )}

@@ -2,7 +2,7 @@
  * Provider Registry Initialization
  * Registers all available AI provider adapters.
  *
- * 2026-05-03 — claudeAdapter removed on this branch (HiC-Gemini-Primary).
+ * 2026-05-03 - claudeAdapter removed on this branch (HiC-Gemini-Primary).
  * Restoring Anthropic requires re-creating providers/claudeAdapter.ts and
  * re-registering it here, plus the corresponding /api/ai/anthropic proxy
  * endpoint and SPA-side dispatch branches.

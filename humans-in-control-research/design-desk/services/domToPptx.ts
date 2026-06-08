@@ -4,18 +4,18 @@
  * Walks a rendered freeform-HTML iframe and emits a stream of RenderSpec
  * objects that map to native PptxGenJS primitives (shapes, lines, ovals,
  * text, custom paths, gradients). The result is a fully editable PowerPoint
- * file where every element — boxes, lane lines, connector arrows, atmospheric
- * gradients, text labels — is a real PPTX shape that operators can select,
+ * file where every element - boxes, lane lines, connector arrows, atmospheric
+ * gradients, text labels - is a real PPTX shape that operators can select,
  * move, recolor, and edit. NO rasterization of the slide as a whole.
  *
  * Phases:
- *   1. Basic primitives — rect, oval, line, text  (this file)
+ *   1. Basic primitives - rect, oval, line, text  (this file)
  *   2. SVG paths → customGeom                      (this file)
  *   3. CSS gradients + per-element raster fallback  (this file)
  *   4. Edge-case polish                              (this file)
  *
  * The walker reads computed styles (final fill / stroke / font / transform),
- * not authored attributes — so brand-locked CSS variables, atmospheric
+ * not authored attributes - so brand-locked CSS variables, atmospheric
  * overlays, and inherited values all resolve correctly. Coordinate truth
  * comes from getBoundingClientRect() (HTML) and getCTM() + getBBox() (SVG).
  */
@@ -32,7 +32,7 @@ export const SLIDE_H_IN = 7.5;
 
 const SOURCE_W_IN_AT_96DPI = FREEFORM_NATIVE_W / 96; // 20"
 export const SOURCE_TO_SLIDE_SCALE = SLIDE_W_IN / SOURCE_W_IN_AT_96DPI; // ~0.6667
-// Per-walk source width (px) — default 1920 freeform iframe; SlideCanvas passes its own.
+// Per-walk source width (px) - default 1920 freeform iframe; SlideCanvas passes its own.
 let _walkSourceW = FREEFORM_NATIVE_W;
 
 /** px in iframe → inches on slide (uniform scale because 16:9 aspect matches). */
@@ -46,7 +46,7 @@ export function pxToSlidePt(px: number): number {
 }
 
 // ============================================================================
-// RenderSpec — the intermediate representation
+// RenderSpec - the intermediate representation
 // ============================================================================
 
 export interface BaseSpec {
@@ -61,11 +61,11 @@ export interface RectSpec extends BaseSpec {
     x: number; y: number; w: number; h: number;
     /** RGB hex string (no leading #) or undefined for no fill. */
     fillHex?: string;
-    /** Fill alpha 0–1 (PPTX uses transparency 0–100, inverted). */
+    /** Fill alpha 0-1 (PPTX uses transparency 0-100, inverted). */
     fillAlpha?: number;
     strokeHex?: string;
     strokeWidth?: number;
-    /** Border radius in slide inches (uniform corners only — most exemplars use uniform). */
+    /** Border radius in slide inches (uniform corners only - most exemplars use uniform). */
     rxIn?: number;
     /** Dash pattern. */
     dash?: 'solid' | 'dash' | 'sysDot' | 'dashDot';
@@ -143,7 +143,7 @@ export interface GradientSpec extends BaseSpec {
     x: number; y: number; w: number; h: number;
     /** 'radial' or 'linear'. */
     kind: 'radial' | 'linear';
-    /** Color stops in order: [{ offset: 0, color, alpha }, …]. */
+    /** Color stops in order: [{ offset: 0, color, alpha }, ...]. */
     stops: Array<{ offset: number; colorHex: string; alpha: number }>;
     /** Linear angle in degrees (0 = left→right). Radial: ignored. */
     angle?: number;
@@ -232,13 +232,13 @@ const SVG_LEAF_TAGS = new Set(['rect', 'circle', 'ellipse', 'line', 'path', 'pol
 /**
  * SVG elements that DEFINE renderable content but never render standalone.
  * Walking into these emits ghost shapes at their internal (defs-local)
- * coordinates — visible as scattered tiny shapes at the slide's top-left.
+ * coordinates - visible as scattered tiny shapes at the slide's top-left.
  */
 const SVG_NON_RENDERED_TAGS = new Set([
     'defs', 'symbol', 'marker', 'clippath', 'pattern',
     'lineargradient', 'radialgradient', 'filter', 'mask',
     'style', 'title', 'desc', 'metadata',
-    // NOTE: <use> is NOT in this list — it's the element that instantiates
+    // NOTE: <use> is NOT in this list - it's the element that instantiates
     // a <symbol> at a position. We rasterize <use> elements (preserving
     // icons as small images) rather than walking through to their symbol
     // children (which would decompose icons into hundreds of line segments).
@@ -252,7 +252,7 @@ function isSvgNamespace(el: Element): boolean {
  * Cross-realm-safe HTML element check. The parent window's `HTMLElement`
  * class is DIFFERENT from the iframe's `contentWindow.HTMLElement`, so
  * `el instanceof HTMLElement` returns false for every element inside the
- * iframe — which is why the entire HTML header/footer of every artifact
+ * iframe - which is why the entire HTML header/footer of every artifact
  * was missing from the PPTX (only SVG content emitted, HTML branches
  * never triggered). Using namespaceURI works across realms.
  */
@@ -299,7 +299,7 @@ function isLogicalTextLeaf(el: Element): boolean {
 interface BoundingRectLike { left: number; top: number; width: number; height: number; }
 
 /**
- * 2026-05-06 — Per-walk origin offset for per-section / per-slide walks.
+ * 2026-05-06 - Per-walk origin offset for per-section / per-slide walks.
  * Set by walkDocumentToSpecs at start of walk, cleared in `finally`. Single-
  * threaded JS makes module-scope state safe between sequential walks.
  *
@@ -315,7 +315,7 @@ let _walkOriginY = 0;
 
 /**
  * Convert an iframe pixel rect to slide-inch coordinates. The iframe is
- * 1920×1080 and the slide is 13.333×7.5 — both 16:9, so a single uniform
+ * 1920×1080 and the slide is 13.333×7.5 - both 16:9, so a single uniform
  * scale (`pxToSlideIn`) collapses the math.
  */
 function rectToSlideXYWHUniform(rect: BoundingRectLike) {
@@ -426,7 +426,7 @@ function emitSvgLine(el: SVGLineElement, cs: CSSStyleDeclaration, z: number, out
     const p2 = transformPoint(ctm, x2Local, y2Local);
 
     // PPTX line shapes anchor at (x, y) and extend by (w, h). w/h CAN be
-    // negative — that's how the line direction is encoded. NEVER use
+    // negative - that's how the line direction is encoded. NEVER use
     // Math.abs here: it would flip diagonal lines (a line going up-right
     // would become down-right).
     out.push({
@@ -913,7 +913,7 @@ function buildRun(text: string, cs: CSSStyleDeclaration, fromChild = false): Tex
 /**
  * Walk an HTML element's child nodes (text + inline element children) and
  * collect a flat array of TextRun objects, each carrying its own computed
- * style. This preserves inline formatting fidelity in PPTX — an `<h1>` with
+ * style. This preserves inline formatting fidelity in PPTX - an `<h1>` with
  * an `<em>` inside, a `<p>` with `<b>` inserts, or a `<div>` with a `<span>`
  * sub-line all become multi-run text frames where each segment retains its
  * font/weight/italic/color.
@@ -925,7 +925,7 @@ function collectInlineRuns(el: HTMLElement, win: Window): TextRun[] {
     function walkNodes(node: Node, currentCs: CSSStyleDeclaration, fromChild: boolean) {
         if (node.nodeType === Node.TEXT_NODE) {
             const txt = node.nodeValue ?? '';
-            // Preserve a leading/trailing space if the source had one — it
+            // Preserve a leading/trailing space if the source had one - it
             // separates adjacent runs ("Who runs " + "the match").
             const hasLead = /^\s/.test(txt);
             const hasTail = /\s$/.test(txt);
@@ -960,18 +960,17 @@ function emitHtmlTextLeaf(el: HTMLElement, cs: CSSStyleDeclaration, rect: Boundi
     const runs = collectInlineRuns(el, win);
     if (runs.length === 0) return;
 
-    // 4px padding helps glyphs clear the frame edges when content shifts on
-    // edit. Inflate horizontally — PowerPoint's default text inset eats the
-    // first ~0.1" so frames sized to the source rect get auto-wrapped per
-    // character (the bug the user screenshotted).
-    const padX = Math.max(8, rect.width * 0.1);
-    const padY = 4;
-    const { x, y, w, h } = rectToSlideXYWHUniform({
-        left: rect.left - padX,
-        top: rect.top - padY,
-        width: rect.width + padX * 2,
-        height: rect.height + padY * 2,
-    });
+    // 2026-06-06 - Padding inflation REMOVED. The historical 0.1*width
+    // horizontal inflation was a workaround for PowerPoint eating the first
+    // ~0.1" of every textbox via its default text inset. The proxy exporter
+    // (pptx_export.py _add_text) now sets tf.margin_left/right/top/bottom = 0
+    // explicitly, so PowerPoint no longer eats any space. The inflation is now
+    // PURELY HARMFUL: adjacent card text frames overlap (20% width inflation
+    // means a 300px-wide card extends 30px into its neighbor on both sides),
+    // producing "ExecutiveLeadershipExperiential Learning" jammed text on the
+    // org chart and "managingThe Reflecting-stage" overlap on the PRD. Use
+    // the visual rect as-is.
+    const { x, y, w, h } = rectToSlideXYWHUniform(rect);
 
     const align = cssAlignToPptx(cs.textAlign);
     const valign: 'top' | 'middle' | 'bottom' =
@@ -1017,7 +1016,7 @@ function emitGradientFromBackground(el: HTMLElement, cs: CSSStyleDeclaration, re
 
 function parseGradient(s: string, isRadial: boolean): { kind: 'radial' | 'linear'; stops: Array<{ offset: number; colorHex: string; alpha: number }>; angle?: number } | null {
     if (!s) return null;
-    // Strip the leading "circle at center" / "to bottom" / "180deg" — capture angle for linear.
+    // Strip the leading "circle at center" / "to bottom" / "180deg" - capture angle for linear.
     let angle: number | undefined;
     if (!isRadial) {
         const angMatch = s.match(/(-?\d+(?:\.\d+)?)deg/);
@@ -1050,20 +1049,20 @@ export interface WalkOptions {
     /** Async rasterizer used for filter-fallback elements (blur, drop-shadow, backdrop-filter, mix-blend-mode). */
     rasterizeElement?: (el: HTMLElement) => Promise<string | null>;
     /**
-     * 2026-05-06 — Walk this element's subtree instead of doc.body. Used
+     * 2026-05-06 - Walk this element's subtree instead of doc.body. Used
      * by the interactive presentation exporter to walk one section at a
      * time and emit each as its own slide.
      */
     entrypoint?: Element;
     /**
-     * 2026-05-06 — Pixel offset to subtract from every captured rect.left
+     * 2026-05-06 - Pixel offset to subtract from every captured rect.left
      * before slide-coord conversion. Use the section's
      * getBoundingClientRect().left so the section's visual top-left lands
      * at slide (0, 0).
      */
     originX?: number;
     /**
-     * 2026-05-06 — Pixel offset to subtract from every captured rect.top
+     * 2026-05-06 - Pixel offset to subtract from every captured rect.top
      * before slide-coord conversion. Use the section's
      * getBoundingClientRect().top so the section's visual top-left lands
      * at slide (0, 0).
@@ -1089,15 +1088,15 @@ function needsRasterFallback(cs: CSSStyleDeclaration): boolean {
     // are already reflected in getBoundingClientRect, so they pass through.
     const transform = cs.transform;
     if (transform && transform !== 'none' && !/^matrix\(\s*1\s*,\s*0\s*,\s*0\s*,\s*1/.test(transform)) {
-        // matrix(a,b,c,d,e,f) — pure translate has a=d=1, b=c=0. Anything
-        // else means rotation/scale/skew — fall back to raster.
+        // matrix(a,b,c,d,e,f) - pure translate has a=d=1, b=c=0. Anything
+        // else means rotation/scale/skew - fall back to raster.
         if (/^matrix\(\s*[-\d.eE+]+\s*,\s*[-\d.eE+]+\s*,\s*[-\d.eE+]+\s*,\s*[-\d.eE+]+/.test(transform)) {
             const nums = transform.match(/[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?/g)?.map(parseFloat) ?? [];
             if (nums.length >= 4 && (nums[0] !== 1 || nums[1] !== 0 || nums[2] !== 0 || nums[3] !== 1)) {
                 return true;
             }
         } else {
-            // rotate(...), scale(...), etc. — non-matrix form
+            // rotate(...), scale(...), etc. - non-matrix form
             return true;
         }
     }
@@ -1113,7 +1112,7 @@ export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElemen
     const rasterTasks: Array<Promise<void>> = [];
     let z = 0;
 
-    // 2026-05-06 — Per-walk origin offset. rectToSlideXYWHUniform reads
+    // 2026-05-06 - Per-walk origin offset. rectToSlideXYWHUniform reads
     // these module-scoped values to translate every captured rect so the
     // entrypoint's top-left lands at slide (0, 0). Reset in finally.
     _walkOriginX = opts.originX ?? 0;
@@ -1142,7 +1141,7 @@ export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElemen
         if (isSvgEl && SVG_NON_RENDERED_TAGS.has(tag)) return;
 
         // SVG <use> instantiates a <symbol> at a position. We rasterize
-        // these as small images at their use-rect coords — preserves icons
+        // these as small images at their use-rect coords - preserves icons
         // visually without exploding the slide into hundreds of line
         // segments from path decomposition.
         if (isSvgEl && tag === 'use' && opts.rasterizeElement) {
@@ -1176,7 +1175,7 @@ export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElemen
         // Per-element raster fallback for unsupported CSS features.
         // Triggered by `filter`, `backdrop-filter`, `mix-blend-mode`,
         // `clip-path`. We rasterize this element + its subtree, emit one
-        // ImageSpec, and DO NOT recurse — the raster captures everything.
+        // ImageSpec, and DO NOT recurse - the raster captures everything.
         if (!isSvgEl && isHtmlElement(el) && needsRasterFallback(cs) && opts.rasterizeElement) {
             const rect = el.getBoundingClientRect();
             if (rect.width >= 1 && rect.height >= 1) {
@@ -1206,7 +1205,7 @@ export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElemen
                         console.warn('[domToPptx] raster fallback failed', el.tagName, err);
                     }),
                 );
-                return; // Do NOT recurse — raster captures everything inside
+                return; // Do NOT recurse - raster captures everything inside
             }
         }
 
@@ -1248,7 +1247,7 @@ export async function walkDocumentToSpecs(target: HTMLIFrameElement | HTMLElemen
             }
         }
 
-        // Recurse — for HTML containers, recursing finds nested SVG and
+        // Recurse - for HTML containers, recursing finds nested SVG and
         // text leaves. For SVG <g> elements, recursing finds child primitives.
         for (const child of Array.from(el.children)) {
             walk(child);
