@@ -6842,8 +6842,53 @@ async def list_sources():
                                  "packs": entry_packs, "industries": src.get("industries", [])})
     return {"total": len(SOURCES), "categories": categories}
 
+# =========================================================================
+# ENHANCEMENT F (2026-06-08, plans/data-pipeline-bulletproofing-2026-06-08.md)
+# Connector-health ledger. Every /api/search call appends one JSONL row so the
+# source-yield-scorer skill can aggregate per-source yield + reliability and
+# research-planner can deprioritize dead sources. This is the collection-side
+# self-improvement signal the audit found missing (the loop was output-only).
+# =========================================================================
+def _connector_health_append(source_id: str, items_returned: int, status: int, latency_ms: float, error: str = "") -> None:
+    # NOTE: path computed lazily — WIKI_BASE is defined later in this module than
+    # this function's definition point, so a module-level constant would NameError.
+    try:
+        path = os.path.join(WIKI_BASE, "synthesis", "connector-health.jsonl")
+        rec = {
+            "source_id": source_id,
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "items_returned": int(items_returned),
+            "status": int(status),
+            "latency_ms": int(latency_ms),
+            "error": (error or "")[:200],
+        }
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec) + "\n")
+    except Exception:
+        pass
+
 @app.get("/api/search/{source_id}")
 async def search_source(source_id: str = Path(...), q: str = Query(...), limit: int = Query(20)):
+    """Thin wrapper: run the search, then append a connector-health ledger row
+    (Enhancement F) capturing yield + status + latency for EVERY connector path
+    (the impl has many early returns; wrapping is the single capture point)."""
+    import time as _time
+    _start = _time.monotonic()
+    result = await _search_source_impl(source_id, q, limit)
+    try:
+        _latency = (_time.monotonic() - _start) * 1000.0
+        if isinstance(result, JSONResponse):
+            _connector_health_append(source_id, 0, getattr(result, "status_code", 0) or 0, _latency, "http-error")
+        elif isinstance(result, dict):
+            _items = result.get("items") or []
+            _err = result.get("error") or ""
+            _connector_health_append(source_id, len(_items), (200 if not _err else 0), _latency, _err)
+    except Exception:
+        pass
+    return result
+
+async def _search_source_impl(source_id: str, q: str, limit: int = 20):
     """Generic search endpoint — works for ANY registered source."""
     if source_id not in SOURCES:
         return JSONResponse({"error": f"Unknown source: {source_id}", "items": []}, status_code=404)
@@ -9482,6 +9527,99 @@ def _url_hash(url: str) -> str:
     u = u.rstrip('/').rstrip('?').rstrip('&')
     return hashlib.blake2b(u.encode('utf-8'), digest_size=5).hexdigest()
 
+# =========================================================================
+# ENHANCEMENT B (2026-06-08, plans/data-pipeline-bulletproofing-2026-06-08.md)
+# Content-hash dedup. Two articles fetched from DIFFERENT urls that carry the
+# SAME body used to produce two duplicate wiki pages (their url_hash differs).
+# We now fingerprint the normalized body; if an existing page already holds
+# this content, the new url is recorded as a thin ALIAS page (frontmatter only,
+# no body / no chunks / no embed / no manifest entry) pointing at the canonical
+# page. Custody for the new url is preserved; retrieval never sees a duplicate.
+# =========================================================================
+_CONTENT_INDEX_FILE = os.path.join(WIKI_BASE, "articles", "_content_index.json")
+_CONTENT_INDEX = None  # type: ignore  # lazily-loaded dict[content_hash -> canonical path_rel]
+_content_index_lock = asyncio.Lock()
+
+def _content_norm_hash(text: str) -> str:
+    """sha256 (16 hex) of the normalized first 4KB of a body. Mirrors the
+    frontend corpusMergeAuthority.contentFingerprint recipe (whitespace-collapse
+    + lowercase + 4096 slice) so both layers agree on what 'same content' means."""
+    if not text:
+        return ''
+    norm = _re_wiki.sub(r'\s+', ' ', text).strip().lower()[:4096]
+    if not norm:
+        return ''
+    return hashlib.sha256(norm.encode('utf-8')).hexdigest()[:16]
+
+def _content_index_load() -> dict:
+    global _CONTENT_INDEX
+    if _CONTENT_INDEX is not None:
+        return _CONTENT_INDEX
+    try:
+        with open(_CONTENT_INDEX_FILE, 'r', encoding='utf-8') as f:
+            _CONTENT_INDEX = json.load(f) or {}
+    except Exception:
+        _CONTENT_INDEX = {}
+    return _CONTENT_INDEX
+
+def _content_index_save() -> None:
+    try:
+        os.makedirs(os.path.dirname(_CONTENT_INDEX_FILE), exist_ok=True)
+        tmp = _CONTENT_INDEX_FILE + '.tmp'
+        with open(tmp, 'w', encoding='utf-8') as f:
+            json.dump(_CONTENT_INDEX or {}, f)
+        os.replace(tmp, _CONTENT_INDEX_FILE)
+    except Exception as e:
+        logger.warning(f"[content-index] save failed: {e}")
+
+def _goal_hash(goal: str) -> str:
+    """Stable 12-hex hash of a research goal for the relevance_by_goal map."""
+    g = (goal or '').strip().lower()
+    if not g:
+        return ''
+    return hashlib.sha256(g.encode('utf-8')).hexdigest()[:12]
+
+def _read_existing_relevance_by_goal(safe_path: str) -> dict:
+    """Parse a prior page's `relevance_by_goal:` frontmatter line (a one-line
+    JSON object) so an overwrite MERGES per-goal scores instead of clobbering
+    them. Fixes P5 goal-drift: a reused article keeps a score per objective."""
+    try:
+        if not os.path.exists(safe_path):
+            return {}
+        with open(safe_path, 'r', encoding='utf-8') as f:
+            head = f.read(4096)
+        m = _re_wiki.search(r'(?m)^relevance_by_goal:\s*(\{.*\})\s*$', head)
+        if not m:
+            return {}
+        obj = json.loads(m.group(1))
+        return obj if isinstance(obj, dict) else {}
+    except Exception:
+        return {}
+
+def _build_alias_frontmatter(req: "WikiArticleWriteRequest", h: str, content_hash: str, canonical_path: str) -> str:
+    """Frontmatter-only alias page: preserves the new url's custody and points
+    at the canonical body. No chunks/embed/manifest, so retrieval never doubles."""
+    def esc(v):
+        if v is None:
+            return ''
+        s = str(v).replace('"', '\\"').replace('\n', ' ')
+        return f'"{s}"'
+    lines = [
+        '---',
+        f'url: {esc(req.url)}',
+        f'url_hash: {esc(h)}',
+        'kind: "alias"',
+        f'alias_of: {esc(canonical_path)}',
+        f'content_hash: {esc(content_hash)}',
+        f'source: {esc(req.source or "")}',
+        f'title: {esc(req.title or "")}',
+        f'author: {esc(req.author or "")}',
+        f'date: {esc(req.date or "")}',
+        f'extracted_at: {esc(datetime.now(timezone.utc).isoformat())}',
+        '---',
+    ]
+    return '\n'.join(lines)
+
 class WikiArticleWriteRequest(BaseModel):
     """Schema for writing an extracted article to the wiki archive.
     All fields except url + content are metadata that drives the frontmatter."""
@@ -9506,6 +9644,10 @@ class WikiArticleWriteRequest(BaseModel):
     relevanceScore: Optional[int] = None        # 0..100; None = unknown / not graded
     relevanceReason: Optional[str] = None       # 1-sentence Gemini grader reason
     engagementGoal: Optional[str] = None        # original goal text this article was collected for
+    # Enhancement D (2026-06-08): deep-research custody. The grounding source
+    # URLs a synthesis was derived from, persisted to frontmatter so a
+    # synthetic-URL synthesis still links back to its real sources.
+    derivedFrom: Optional[list] = None
 
 def _article_wiki_path(kind: str, source: str, engagement: Optional[str], channel: Optional[str], h: str) -> str:
     """Build the canonical wiki path for an article based on its kind."""
@@ -9519,7 +9661,8 @@ def _article_wiki_path(kind: str, source: str, engagement: Optional[str], channe
     bucket = _wiki_slug(source or 'unknown-source')
     return f"articles/{bucket}/{h}.md"
 
-def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: str, chars: int) -> str:
+def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: str, chars: int,
+                               content_hash: str = '', relevance_by_goal: Optional[dict] = None) -> str:
     """Build YAML frontmatter for a wiki article. Kept minimal + stable so
     downstream readers can rely on the shape."""
     def esc(v):
@@ -9556,6 +9699,17 @@ def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: s
         lines.append(f'relevance_reason: {esc(req.relevanceReason)}')
     if req.engagementGoal:
         lines.append(f'engagement_goal: {esc(req.engagementGoal)}')
+    # Enhancement B: content fingerprint + per-goal relevance (P5 goal-drift).
+    if content_hash:
+        lines.append(f'content_hash: {esc(content_hash)}')
+    if relevance_by_goal:
+        # one-line JSON object so _read_existing_relevance_by_goal can re-parse it
+        lines.append(f'relevance_by_goal: {json.dumps(relevance_by_goal, separators=(",", ":"))}')
+    # Enhancement D: deep-research custody - link the synthesis to its sources.
+    if req.derivedFrom:
+        _df = [str(x) for x in req.derivedFrom if x][:50]
+        if _df:
+            lines.append(f'derived_from: {json.dumps(_df, separators=(",", ":"))}')
     lines.append('---')
     return '\n'.join(lines)
 
@@ -9573,9 +9727,46 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
     safe_path = os.path.normpath(os.path.join(WIKI_BASE, path_rel))
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+
+    # ENHANCEMENT B (2026-06-08): content-hash dedup + per-goal relevance.
+    # If a DIFFERENT existing page already holds this exact body, persist the
+    # new url as a thin alias instead of a duplicate body. Also merge this run's
+    # relevance score into a per-goal map so a reused article does not carry a
+    # stale score from a different objective (P5 goal-drift).
+    content_hash = _content_norm_hash(req.content)
+    rel_by_goal = _read_existing_relevance_by_goal(safe_path)
+    if req.engagementGoal and req.relevanceScore is not None:
+        gh = _goal_hash(req.engagementGoal)
+        if gh:
+            try:
+                rel_by_goal[gh] = max(int(rel_by_goal.get(gh, 0)), int(req.relevanceScore))
+            except Exception:
+                rel_by_goal[gh] = int(req.relevanceScore)
+    if content_hash and (req.kind or 'article') != 'alias':
+        async with _content_index_lock:
+            idx = _content_index_load()
+            canonical = idx.get(content_hash)
+            canonical_abs = os.path.normpath(os.path.join(WIKI_BASE, canonical)) if canonical else None
+            if canonical and canonical != path_rel and canonical_abs and os.path.exists(canonical_abs):
+                try:
+                    alias_fm = _build_alias_frontmatter(req, h, content_hash, canonical)
+                    await _robust_write_text(safe_path, alias_fm + "\n")
+                    logger.info(f"[wiki-write-article] content dup: {path_rel} aliases {canonical}")
+                    return {
+                        "status": "ok", "wikiPath": path_rel, "canonicalPath": canonical,
+                        "urlHash": h, "contentHash": content_hash, "aliased": True,
+                        "chars": 0, "kind": "alias", "embedded": False,
+                    }
+                except Exception as _alias_err:
+                    logger.warning(f"[wiki-write-article] alias write failed, normal write: {_alias_err}")
+            elif not canonical:
+                idx[content_hash] = path_rel
+                _content_index_save()
     try:
         chars = len(req.content)
-        frontmatter = _build_article_frontmatter(req, h, path_rel, chars)
+        frontmatter = _build_article_frontmatter(req, h, path_rel, chars,
+                                                  content_hash=content_hash,
+                                                  relevance_by_goal=rel_by_goal)
         body = f"{frontmatter}\n\n# {req.title or req.source or 'Untitled'}\n\n"
         if req.url:
             body += f"Source: [{req.source or req.url}]({req.url})\n\n"
@@ -12201,6 +12392,46 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
         "chunk_ids": chunk_ids,
     }
 
+
+# =========================================================================
+# ENHANCEMENT C (2026-06-08) — chunk-ID projection sidecar.
+# The in-memory CHUNK_XXX corpus map (researchFabricOrchestrator._chunkSourceMap)
+# is session-scoped + regenerated each run. Persisting CHUNK_XXX -> {source,
+# title, url, wikiPath} lets citations resolve to STABLE wiki pointers after the
+# run (exports, insight-chunks, post-hoc audits) instead of dangling once the
+# in-memory map is gone. Stored within WIKI_BASE so the traversal guard holds.
+# =========================================================================
+class ChunkMapWriteRequest(BaseModel):
+    engagement: str
+    chunk_map: dict
+
+@app.post("/api/session/chunk-map")
+async def session_chunk_map_write(req: ChunkMapWriteRequest):
+    slug = _wiki_slug(req.engagement or "misc")
+    rel = f"chunk-maps/{slug}.json"
+    safe = os.path.normpath(os.path.join(WIKI_BASE, rel))
+    if not safe.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    try:
+        cm = req.chunk_map or {}
+        os.makedirs(os.path.dirname(safe), exist_ok=True)
+        with open(safe, "w", encoding="utf-8") as f:
+            json.dump({"engagement": req.engagement, "count": len(cm), "chunk_map": cm}, f)
+        return {"status": "ok", "wikiPath": rel, "count": len(cm)}
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/session/chunk-map")
+async def session_chunk_map_read(engagement: str = ""):
+    slug = _wiki_slug(engagement or "misc")
+    safe = os.path.normpath(os.path.join(WIKI_BASE, f"chunk-maps/{slug}.json"))
+    if not safe.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(safe):
+        return {"engagement": engagement, "count": 0, "chunk_map": {}}
+    try:
+        with open(safe, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {"engagement": engagement, "count": 0, "chunk_map": {}}
 
 @app.post("/api/manifest/chunks-from-selection")
 async def manifest_chunks_from_selection(payload: dict):
