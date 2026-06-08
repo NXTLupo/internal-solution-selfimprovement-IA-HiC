@@ -385,6 +385,22 @@ const LiveResearchBoard = ({
     const [wikiBrowserOpen, setWikiBrowserOpen] = useState(false);
     const [reasoningOpen, setReasoningOpen] = useState(false);
     const [selectedSourceIdx, setSelectedSourceIdx] = useState<number | null>(null);
+    // 2026-06-08 - Sources Bar collapse toggle. Lives HERE (LiveResearchBoard)
+    // because its only consumer is this component's JSX. It was previously
+    // declared in App (orphaned) and referenced here, causing
+    // "ReferenceError: sourcesExpanded is not defined" when the Sources Bar
+    // rendered during a run with collected sources.
+    const [sourcesExpanded, setSourcesExpanded] = useState<boolean>(true);
+    // Auto-collapse the Sources Bar post-collection (KG + chat get screen
+    // priority); keep it expanded during collection so the user sees ingestion
+    // progress. Uses the collectionPhase PROP. Moved here with the state.
+    useEffect(() => {
+        if (collectionPhase === 'complete' || collectionPhase === 'done') {
+            setSourcesExpanded(false);
+        } else if (collectionPhase === 'running' || collectionPhase === 'refining' || collectionPhase === 'collecting') {
+            setSourcesExpanded(true);
+        }
+    }, [collectionPhase]);
 
     useEffect(() => {
         streamEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -1337,25 +1353,44 @@ const App = () => {
                 if (!resp.ok) return;
                 const data = await resp.json();
                 if (cancelled) return;
-                if (data && !data._uncommitted) {
-                    const hydrated: LibrarySelection = {
-                        engagementSlugs: Array.isArray(data.engagement_slugs) ? data.engagement_slugs : [],
-                        themeClusterIds: Array.isArray(data.theme_cluster_ids) ? data.theme_cluster_ids : [],
-                        sourceArchivePaths: Array.isArray(data.source_archive_paths) ? data.source_archive_paths : [],
-                        socialSubreddits: Array.isArray(data.social_subreddits) ? data.social_subreddits : [],
-                        articleSources: Array.isArray(data.article_sources) ? data.article_sources : [],
-                    };
-                    const total = hydrated.engagementSlugs.length + hydrated.themeClusterIds.length
-                        + hydrated.sourceArchivePaths.length + hydrated.socialSubreddits.length
-                        + hydrated.articleSources.length;
-                    if (total > 0) {
-                        setLibrarySelection(hydrated);
-                        if (typeof window !== 'undefined') (window as any).__hicCachedOnlyMode = true;
-                        console.info(`[App] hydrated librarySelection from user-selection store: ${total} items (Run button + cached-only mode now armed)`);
+                // 2026-06-08 (user directive, repeat): a FRESH PAGE LOAD must NOT
+                // assume a prior KL selection. The user-level store is a FILE that
+                // survives across loads; auto-arming it made the scope bar read
+                // "590 items selected / cached-only" before the user selected
+                // anything. Instead, on mount we mark a committed prior selection
+                // DORMANT (_uncommitted) - preserving the IDs so the Knowledge
+                // Library can pre-check them - so the scope bar reads "fresh" and
+                // the run gates do NOT go cached-only until the user EXPLICITLY
+                // applies a selection from the KL this session. Selection is now a
+                // deliberate per-session act, not an inherited assumption.
+                const total = (data?.theme_cluster_ids?.length || 0) + (data?.article_sources?.length || 0)
+                    + (data?.social_subreddits?.length || 0) + (data?.engagement_slugs?.length || 0)
+                    + (data?.source_archive_paths?.length || 0);
+                if (data && !data._uncommitted && total > 0) {
+                    await fetch('http://127.0.0.1:5012/api/user-selection/active', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            engagement_slugs: data.engagement_slugs || [],
+                            theme_cluster_ids: data.theme_cluster_ids || [],
+                            source_archive_paths: data.source_archive_paths || [],
+                            social_subreddits: data.social_subreddits || [],
+                            article_sources: data.article_sources || [],
+                            selected_at_ms: data.selected_at_ms || 0,
+                            _uncommitted: true,
+                        }),
+                    }).catch(() => {});
+                    if (typeof window !== 'undefined') {
+                        (window as any).__hicCachedOnlyMode = false;
+                        (window as any).__hicBlendMode = false;
+                        // Tell the LandingScopeBar to re-read immediately so it
+                        // shows "fresh" without waiting for its 15s poll (no flash).
+                        window.dispatchEvent(new CustomEvent('hic:selection-changed'));
                     }
+                    console.info(`[App] fresh load: prior KL selection (${total} items) marked DORMANT. Open the Knowledge Library and apply to activate it this session.`);
                 }
             } catch (e: any) {
-                console.warn('[App] user-selection store hydration failed (non-fatal):', e?.message || e);
+                console.warn('[App] user-selection dormancy check failed (non-fatal):', e?.message || e);
             }
         })();
         return () => { cancelled = true; };
@@ -1435,6 +1470,9 @@ const App = () => {
         } catch (e: any) {
             console.warn('[KnowledgeLibrary] user-level store write failed:', e?.message || e);
         }
+        // Scope bar re-reads immediately so the KL count + mode reflect this
+        // explicit apply without waiting for its 15s poll.
+        if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('hic:selection-changed'));
         // Write 2: engagement manifest (SNAPSHOT for audit; non-load-bearing).
         try {
             if (slug) {
@@ -1681,7 +1719,7 @@ const App = () => {
                 const sel = selResp.ok ? await selResp.json() : null;
                 const ids = (sel && !sel._uncommitted && Array.isArray(sel.theme_cluster_ids)) ? sel.theme_cluster_ids : [];
                 if (ids.length > 0 && !cancelled) {
-                    const ctx = await loadGenerationContext('THEMES');
+                    const ctx = await loadGenerationContext('THEMES' as OutputOption);
                     const bodies = (ctx as any)?.cachedSelection?.resolved_theme_bodies || [];
                     if (bodies.length > 0 && !cancelled) {
                         cachedThemesRef.current = bodies.map((b: any) => ({ ...b, source: 'cached' }));
@@ -1809,17 +1847,9 @@ const App = () => {
     }, []);
     const [dataSourceStatus, setDataSourceStatus] = useState<string>('');
     const [collectionPhase, setCollectionPhase] = useState<string>('');
-    // P7 (2026-06-06) - Sources bar collapse state. Default expanded during
-    // collection, default collapsed post-collection so the KG + chat get
-    // screen priority. User can click to toggle.
-    const [sourcesExpanded, setSourcesExpanded] = useState<boolean>(true);
-    React.useEffect(() => {
-        if (collectionPhase === 'complete' || collectionPhase === 'done') {
-            setSourcesExpanded(false);
-        } else if (collectionPhase === 'running' || collectionPhase === 'refining' || collectionPhase === 'collecting') {
-            setSourcesExpanded(true);
-        }
-    }, [collectionPhase]);
+    // 2026-06-08 - sourcesExpanded state AND its auto-collapse effect MOVED into
+    // LiveResearchBoard (its only consumer; it owns the Sources Bar). They were
+    // orphaned here and referenced there, causing two render crashes.
     const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
     // 2026-05-10 (HiC-Reddit-Deep Phase 2) - raw deep-Reddit items collected
     // this run, plus the topic-modeling job state. Drives the Topic Modeling
@@ -3080,7 +3110,7 @@ const App = () => {
              setStatusMessage("Defining Requirements...");
              const prd = await sessionRef.current.generatePRD(undefined, handleStreamUpdate);
              setPrdResult(prd);
-             const prdText = (prd.features || []).map((f: any) => `${f.name} ${f.description}`).join(' ');
+             const prdText = ((prd as any).features || []).map((f: any) => `${f.name} ${f.description}`).join(' ');
              auditGeneratedOutput(prdText, 'prd');
              setStatusMessage("PRD Drafted");
              setActiveStage(AnalysisStage.PRD);
@@ -3092,7 +3122,7 @@ const App = () => {
              setStatusMessage("Planning Roadmap...");
              const roadmap = await sessionRef.current.generateRoadmap(undefined, handleStreamUpdate);
              setRoadmapResult(roadmap);
-             const roadmapText = (roadmap.items || []).map((i: any) => `${i.initiative} ${i.description}`).join(' ');
+             const roadmapText = ((roadmap as any).items || []).map((i: any) => `${i.initiative} ${i.description}`).join(' ');
              auditGeneratedOutput(roadmapText, 'roadmap');
              setStatusMessage("Roadmap Drafted");
              setActiveStage(AnalysisStage.ROADMAP);
@@ -3669,25 +3699,52 @@ const App = () => {
                 if (_cr.ok) {
                     const _cd = await _cr.json();
                     const _articles: any[] = Array.isArray(_cd?.articles) ? _cd.articles : [];
+                    // 2026-06-08 (P0 fix) — preserve each cached item's REAL source
+                    // type/name from the kind that /api/corpus/from-selection returns
+                    // ({wikiPath,title,source,url,body,kind}). Previously ALL cached
+                    // items were forced sourceType='company'/sourceName='Cached
+                    // (Knowledge Library)', so cached reddit/social content got counted
+                    // as CLIENT UPLOADS, over-indexing the upload+social weighting and
+                    // erasing the article-vs-social distinction the user relies on.
+                    const _kindToType = (kind: string, wikiPath: string): string => {
+                        const k = (kind || '').toLowerCase();
+                        const wp = (wikiPath || '').toLowerCase();
+                        if (k === 'social-post' || wp.includes('reddit') || wp.includes('social-intelligence')) return 'social';
+                        if (k === 'upload' || wp.startsWith('uploads/')) return 'company';
+                        if (k === 'transcript' || wp.startsWith('transcripts/')) return 'web';
+                        if (k === 'article') return 'news';
+                        return 'web';
+                    };
+                    const _typeToTier = (t: string): number => (t === 'company' ? 1 : t === 'social' ? 3 : 2);
                     const _items = _articles
                         .filter(a => String(a?.body || '').trim().length >= 40)
-                        .map((a, i) => ({
-                            id: `cached_${a.wikiPath || a.url || i}`,
-                            title: a.title || a.wikiPath || 'Cached source',
-                            content: String(a.body || '').slice(0, 15000),
-                            url: a.url || a.wikiPath || `cached://${i}`,
-                            date: a.date || '',
-                            sourceType: 'company' as const,
-                            sourceName: 'Cached (Knowledge Library)',
-                            credibilityTier: 2 as const,
-                            relevanceScore: typeof a.relevance === 'number' ? a.relevance : 70,
-                            enriched: true,
-                            extractionMethod: 'cached',
-                            wikiPath: a.wikiPath || '',
-                            source: 'cached',
-                        }));
+                        .map((a, i) => {
+                            const st = _kindToType(a.kind || '', a.wikiPath || '');
+                            return {
+                                id: `cached_${a.wikiPath || a.url || i}`,
+                                title: a.title || a.wikiPath || 'Cached source',
+                                content: String(a.body || '').slice(0, 15000),
+                                url: a.url || a.wikiPath || `cached://${i}`,
+                                date: a.date || '',
+                                sourceType: st,
+                                // Real source name (e.g. "reddit: r/neu", outlet) so the
+                                // Analyst Desk treemap + relevance scoring categorize it
+                                // by true origin, not as one "Cached" upload blob.
+                                sourceName: a.source || (st === 'social' ? 'Reddit (cached)' : st === 'web' ? 'Cached source' : 'Cached source'),
+                                credibilityTier: _typeToTier(st),
+                                relevanceScore: typeof a.relevance === 'number' ? a.relevance : 70,
+                                enriched: true,
+                                extractionMethod: 'cached',
+                                wikiPath: a.wikiPath || '',
+                                kind: a.kind || '',
+                                // provenance tag (used by merge authority + cached-coverage),
+                                // distinct from sourceName which now reflects true origin.
+                                source: 'cached',
+                            };
+                        });
                     blendCachedItemsRef.current = _items;
-                    console.info(`[App] BLEND: resolved ${_items.length} cached articles as items for merge-authority dedup against fresh.`);
+                    const _typeMix = _items.reduce((m: any, it: any) => { m[it.sourceType] = (m[it.sourceType] || 0) + 1; return m; }, {});
+                    console.info(`[App] BLEND: resolved ${_items.length} cached items as first-class corpus items (type mix: ${JSON.stringify(_typeMix)}) - deduped against fresh, categorized by true source type (P0 fix).`);
                     setThinkingEvents(prev => [...prev, {
                         type: 'PHASE',
                         content: `[BLEND] ${_items.length} cached articles staged; fresh collection will run and duplicates collapse via content/url identity.`,
@@ -5984,7 +6041,9 @@ ${synthesisParts.join('\n')}
                              originalConcept: cachedResumePayload.briefsFile.briefs[0]?.original_concept || cachedResumePayload.briefsFile.research_goal || '',
                          },
                          sourceSlug: cachedResumePayload.manifest.slug,
-                         mode: cachedResumePayload.mode,
+                         // mode may be 'fresh' at the payload level; this viewer only
+                         // renders for build modes (guarded upstream), cast for tsc.
+                         mode: cachedResumePayload.mode as 't4-build-only' | 't3-briefs',
                      }}
                  />
              )}
@@ -6744,7 +6803,7 @@ ${synthesisParts.join('\n')}
                                            isProcessing={statusMessage.includes('...')}
                                            onApprove={handleCheckpointApproval}
                                            currentLog={thinkingEvents.length > 0 ? thinkingEvents[thinkingEvents.length - 1].content : ""}
-                                           onClose={appState === AppState.ERROR ? () => setActiveStage(AnalysisStage.IDLE) : undefined}
+                                           onClose={(appState as AppState) === AppState.ERROR ? () => setActiveStage(AnalysisStage.IDLE) : undefined}
                                        />
                                    </motion.div>
                                )}

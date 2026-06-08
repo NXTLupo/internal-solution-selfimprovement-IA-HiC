@@ -3830,6 +3830,11 @@ async def set_active_user_selection(req: Request):
         "article_sources": list(body.get("article_sources") or []),
         "selected_at_ms": int(body.get("selected_at_ms") or (time.time() * 1000)),
         "source_engagement_slug": str(body.get("source_engagement_slug") or ""),
+        # 2026-06-08 — a fresh page load marks a prior selection DORMANT so the
+        # scope bar + run gates don't ASSUME a selection the user didn't make
+        # this session. IDs are preserved (KL can pre-check); only an explicit
+        # apply (which posts without this flag) re-commits it.
+        "_uncommitted": bool(body.get("_uncommitted", False)),
     }
     tmp = USER_SELECTION_PATH + ".tmp"
     try:
@@ -11685,13 +11690,57 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
             logger.warning(f"Goal embed failed, retrieval falls back to query-only embedding: {e}")
 
     try:
-        return store.search_articles(qvec, limit=limit, kind=kind, source=source,
-                                     chunks_per_article=chunks_per_article,
-                                     exclude_kinds=exclude_kinds,
-                                     prefer_engagement_goal=engagement_goal)
+        results = store.search_articles(qvec, limit=limit, kind=kind, source=source,
+                                        chunks_per_article=chunks_per_article,
+                                        exclude_kinds=exclude_kinds,
+                                        prefer_engagement_goal=engagement_goal)
     except Exception as e:
         logger.warning(f"Chunk store search failed, falling back: {e}")
         return None
+
+    # ENHANCEMENT P1a (2026-06-08, data-pipeline-bulletproofing) — source-type
+    # balancing. The corpus is usually social-post-dominant (hundreds of Reddit
+    # posts vs a thin set of articles/transcripts), and ranking is otherwise
+    # type-blind, so editorial articles + video transcripts get crowded out of
+    # every query. When the caller did NOT request an explicit kind, reserve a
+    # floor of slots for kind in {article, transcript} by running supplemental
+    # type-restricted searches on the SAME query vector and splicing them in
+    # (replacing the lowest-ranked social items). Never starves social; only
+    # guarantees external-research representation.
+    try:
+        if results and not kind:
+            ARTICLE_KINDS = {'article', 'transcript'}
+            def _rk(r: dict) -> str:
+                return str(r.get('kind') or r.get('type') or '').lower()
+            art_ct = sum(1 for r in results if _rk(r) in ARTICLE_KINDS)
+            floor = max(1, int(limit * 0.35))
+            if art_ct < floor:
+                need = floor - art_ct
+                have_ids = {(r.get('wiki_path') or r.get('article_id')) for r in results}
+                supp: list = []
+                for kk in ('article', 'transcript'):
+                    try:
+                        extra = store.search_articles(qvec, limit=need, kind=kk, source=source,
+                                                      chunks_per_article=chunks_per_article,
+                                                      exclude_kinds=exclude_kinds,
+                                                      prefer_engagement_goal=engagement_goal) or []
+                    except Exception:
+                        extra = []
+                    for r in extra:
+                        rid = r.get('wiki_path') or r.get('article_id')
+                        if rid not in have_ids:
+                            supp.append(r); have_ids.add(rid)
+                supp = supp[:need]
+                if supp:
+                    art = [r for r in results if _rk(r) in ARTICLE_KINDS]
+                    non_art = [r for r in results if _rk(r) not in ARTICLE_KINDS]
+                    keep_non_art = non_art[: max(0, limit - len(art) - len(supp))]
+                    results = (art + supp + keep_non_art)[:limit]
+                    logger.info(f"[chunked retrieval] type-balance: injected {len(supp)} article/transcript result(s) "
+                                f"to meet floor {floor}/{limit} (had {art_ct}); query={q[:50]!r}")
+    except Exception as e:
+        logger.warning(f"[chunked retrieval] type-balance skipped (non-fatal): {e}")
+    return results
 
 
 # _semantic_scores_for_query REMOVED (Phase 3, 2026-05-29): only caller was

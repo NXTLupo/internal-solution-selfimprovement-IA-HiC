@@ -1124,9 +1124,13 @@ const ArtifactExportButtons: React.FC<{
         if (busy) return;
         setBusy(kind);
         try {
-            if (kind === 'png') await exportPng(artifact);
-            else if (kind === 'pdf') await exportPdf(artifact);
-            else await exportPptx(artifact);
+            // 2026-06-08 - the exporters require DesignTokens (2nd arg, like
+            // ExportMenu). This self-contained widget has no tokens in scope, so
+            // load them on demand from DESIGN.md.
+            const { tokens } = await loadDesignMd('/DESIGN.md');
+            if (kind === 'png') await exportPng(artifact, tokens);
+            else if (kind === 'pdf') await exportPdf(artifact, tokens);
+            else await exportPptx(artifact, tokens);
         } catch (e: any) {
             console.error(`[InlineExport] ${kind} failed:`, e);
             alert(`${kind.toUpperCase()} export failed: ${e?.message ?? e}`);
@@ -2837,7 +2841,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                                 {isBet && tile.diverges_from && (
                                     <>
                                         {sectionLabel('Why this is a Non-Obvious Bet (how it diverges from consensus)')}
-                                        <div style={{ fontSize: 12, lineHeight: 1.5, color: '#262626', padding: '8px 12px', background: '#0D0D0D', color: '#00B7C3', borderLeft: '3px solid #00B7C3' }}>{tile.diverges_from}</div>
+                                        <div style={{ fontSize: 12, lineHeight: 1.5, padding: '8px 12px', background: '#0D0D0D', color: '#00B7C3', borderLeft: '3px solid #00B7C3' }}>{tile.diverges_from}</div>
                                     </>
                                 )}
                                 {whyMatters && (<>{sectionLabel(labels.whyMatters)}{paragraph(whyMatters)}</>)}
@@ -2986,7 +2990,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
                             `Slug: ${tile.slug || ''}\n` +
                             `Frame: ${tile.frame || 'mainstream'}\n` +
                             `Risk level: ${tile.risk_level || 'medium'}\n` +
-                            (tile.overview ? `Overview: ${tile.overview}\n` : '') +
+                            ((tile as any).overview ? `Overview: ${(tile as any).overview}\n` : '') +
                             (Array.isArray((tile as any).why_it_matters) ? `Why it matters: ${(tile as any).why_it_matters.join('; ')}\n` : '') +
                             (Array.isArray((tile as any).execution_steps) ? `Execution steps: ${(tile as any).execution_steps.join('; ')}\n` : '');
                         try {
@@ -7296,7 +7300,7 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                         deliveryMessages.push({
                             id: `msg_${Date.now()}_${tag}_err`,
                             role: 'assistant',
-                            content: `Generation failed for #${tag}${genResult.modelUsed ? ` via ${genResult.modelUsed}` : ''}: ${genResult.error}${genResult.rawResponse ? `\n\nModel output: ${genResult.rawResponse.slice(0, 200)}...` : ''}`,
+                            content: `Generation failed for #${tag}${genResult.modelUsed ? ` via ${genResult.modelUsed}` : ''}: ${'error' in genResult ? genResult.error : 'unknown error'}${'rawResponse' in genResult && genResult.rawResponse ? `\n\nModel output: ${String(genResult.rawResponse).slice(0, 200)}...` : ''}`,
                             model: genResult.modelUsed,
                             timestamp: Date.now(),
                         });

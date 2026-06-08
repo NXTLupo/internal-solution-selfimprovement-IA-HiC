@@ -4145,7 +4145,30 @@ async function callGemini(
         contents.push({ role: 'user', parts: responseParts });
     }
     console.warn(`[chat.tools] Gemini iteration cap ${MAX_TOOL_ITER} reached`);
-    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    if (lastText && lastText.trim().length > 0) return lastText;
+    // ENHANCEMENT P1b (2026-06-08) — graceful finalize instead of a dead-end.
+    // The loop fetched evidence but never emitted a final answer (common when
+    // the user asks to "focus on articles, exclude social/<institution>" and the
+    // model keeps re-fetching trying to find them). Make ONE no-tools call that
+    // forces the model to answer from the evidence already in `contents`, and to
+    // be explicit if the corpus skewed social with few external articles - never
+    // return the old "try a more focused question" dead-end.
+    try {
+        const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
+        _prog?.('Synthesizing from gathered evidence...');
+        contents.push({ role: 'user', parts: [{ text: 'You have gathered enough evidence above. Do NOT call any more tools. Answer the question now using the article, transcript, and data bodies you already retrieved. If the corpus skewed toward social posts and you found few external articles or transcripts, say so plainly and synthesize from what IS available. Never return an empty answer or tell the user to ask a more focused question.' }] });
+        const finalResp: any = await ai.models.generateContent({
+            model,
+            contents,
+            config: { systemInstruction: system, temperature: 0.2, maxOutputTokens: 65536 } as any,
+        });
+        const finalText = finalResp?.text
+            || (finalResp?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('\n').trim();
+        if (finalText && finalText.trim().length > 0) return finalText;
+    } catch (e: any) {
+        console.warn('[chat.tools] graceful finalize failed (non-fatal):', e?.message || e);
+    }
+    return 'I gathered evidence but could not compose a final answer within the tool budget. Try narrowing the question (one institution, one theme, or one source type).';
     } catch (e) {
         if (_isExhaustionError(e)) {
             // Translate Gemini contents -> OpenAI-shape for the Claude finalizer.

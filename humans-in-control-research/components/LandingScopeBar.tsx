@@ -86,7 +86,15 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
         };
         void load();
         const interval = setInterval(load, 15_000);
-        return () => { cancelled = true; clearInterval(interval); };
+        // Re-read immediately when App marks a prior selection dormant on fresh
+        // load, or when the user applies/clears a selection (no 15s flash).
+        const onChange = () => { void load(); };
+        if (typeof window !== 'undefined') window.addEventListener('hic:selection-changed', onChange);
+        return () => {
+            cancelled = true;
+            clearInterval(interval);
+            if (typeof window !== 'undefined') window.removeEventListener('hic:selection-changed', onChange);
+        };
     }, []);
 
     const handleClear = async () => {

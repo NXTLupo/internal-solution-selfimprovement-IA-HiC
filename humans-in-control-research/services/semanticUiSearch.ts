@@ -47,6 +47,11 @@ const EMBED_TIMEOUT_MS = 15_000;
 // surfacing >TOP_N items per panel reintroduces noise. NotebookLM-style:
 // rank-then-cap. UI can still page beyond this if it wants to.
 const DEFAULT_TOP_N = 25;
+// 2026-06-08 - similarity floor below which items are dropped (matches the
+// documented "default 0.30" at the top of this file). Was referenced in
+// rankBySimilarity but never defined - a latent ReferenceError (tsc TS2304)
+// that crashed semantic ranking whenever options.minSimilarity was omitted.
+const DEFAULT_MIN_SIMILARITY = 0.30;
 // If NOTHING passes the floor but the user clearly intended a search,
 // surface the top FALLBACK_N so the panel doesn't go blank.
 const FALLBACK_TOP_N = 5;

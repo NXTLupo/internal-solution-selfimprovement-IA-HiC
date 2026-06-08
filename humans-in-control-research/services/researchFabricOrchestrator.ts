@@ -975,6 +975,11 @@ export async function executePlan(
     onProgress?: (p: ResearchProgress) => void
 ): Promise<ResearchExecutionResult> {
     const start = Date.now();
+    // 2026-06-08 - the research goal drives the deep-research relevance filter
+    // (and any goal-anchored scoring) inside this function. It was referenced
+    // below but never bound in this scope - a latent ReferenceError that crashed
+    // deep-research collection (tsc TS2304). Bind it from the plan.
+    const researchGoal = plan.goal || '';
     const enabledSources = plan.sources.filter(s => s.enabled);
     const connectorMap = new Map(ALL_CONNECTORS.map(c => [c.name, c]));
 
@@ -2055,7 +2060,13 @@ export async function mergeResultsToCorpus(
         for (const u of uploadedItems) {
             taggedItems.push({ ...(u as any), sourceName: (u as any).sourceName || 'Client Uploads' } as DataSourceItem);
         }
-        console.log(`[Corpus] Injected ${uploadedItems.length} client upload(s) as first-class corpus items`);
+        // 2026-06-08 (P0): the uploadedItems list can include BLEND CACHED items
+        // (source:'cached') which are NOT client uploads - they carry their real
+        // sourceType/sourceName. Count them separately so the log doesn't
+        // misreport cached reddit/articles as "client uploads".
+        const _realUploads = uploadedItems.filter((u: any) => u?.source !== 'cached').length;
+        const _cachedBlend = uploadedItems.length - _realUploads;
+        console.log(`[Corpus] Injected ${_realUploads} client upload(s)` + (_cachedBlend > 0 ? ` + ${_cachedBlend} cached KL item(s) (categorized by true source type)` : '') + ` as first-class corpus items`);
     }
     for (const source of executionResult.sources) {
         if (source.status !== 'completed' || source.items.length === 0) continue;
